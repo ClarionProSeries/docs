@@ -5,5 +5,5 @@ Here you will find guides, reference material, and examples for each of the Pro 
 
 ## Available Documentation
 
-- [VUFileTools](./vuFileTools/README.md)
+- [vuFileTools](./vuFileTools/README.md)
 - More templates coming soon...
