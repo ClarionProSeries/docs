@@ -7,8 +7,8 @@ Here you’ll find guides, reference material, and examples for each of the ProS
 
 ## Available Documentation
 
-- [VUFileTools](./vuFileTools/README.md)  
-  File and directory utilities for Clarion developers.
+- [vuFileTools](./vuFileTools/README.md)  
+  File, directory, OS and other utilities for Clarion developers.
 
 - More templates coming soon...
 
