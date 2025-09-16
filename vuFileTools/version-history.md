@@ -1,4 +1,5 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+
 
 # Version History
 
@@ -12,4 +13,5 @@
 | 2018-04-02 | Version 4.1  | Miscellaneous improvements    |
 | 2018-01-24 | Version 4.0  | First LANSRAD release         |
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+

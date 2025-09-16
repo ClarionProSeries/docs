@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 # vuFileTools
 
@@ -14,6 +14,7 @@ This documentation covers the functions available in vuFileTools.
 
 Use the links below to browse the documentation.
 
+- [Introduction](introduction.md)
 - [Requirements](requirements.md)
 - [Installation Instructions](install.md)
 - [Registering the Template](template-registration.md)
@@ -32,5 +33,6 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://github.com/ClarionProSeries/docs/tree/main/vuFileTools
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+
 

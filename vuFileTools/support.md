@@ -1,4 +1,5 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+
 
 # Support
 
@@ -26,6 +27,7 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://github.com/ClarionProSeries/docs/tree/main/vuFileTools
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+
 
 

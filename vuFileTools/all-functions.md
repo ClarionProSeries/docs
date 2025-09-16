@@ -1,8 +1,6 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 # All Functions
-
-[Home](index.md) | [Categories](categories/index.md)
 
 - [vuAddStartupShortcut](functions/vuAddStartupShortcut.md)  
 - [vuAnimateCloseBlend](functions/vuAnimateCloseBlend.md)  
@@ -208,5 +206,6 @@
 - [vuWindowsDirectory](functions/vuWindowsDirectory.md)
 - [vuWindowsKey](functions/vuWindowsKey.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+
 
