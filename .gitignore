@@ -1,0 +1,17 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# CHM and HTML Help Workshop artifacts
+*.chm
+*.hhp
+*.hhc
+*.hhk
+
+# Build output folders
+/_site/
+/build/
+/dist/
+/output/
+/temp/
+/.tmp/
