@@ -27,3 +27,5 @@ https://github.com/ClarionProSeries/docs/tree/main/vuFileTools
 ```
 
 [Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+
+

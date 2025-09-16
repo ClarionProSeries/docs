@@ -1,5 +1,6 @@
 [Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
 
+
 # Requirements
 
 vuFileTools works with all versions of Clarion:
@@ -25,3 +26,5 @@ Both AppGen and hand-coded applications are supported.
 vuFileTools works with both single EXE and multi-DLL applications.
 
 [Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+
+

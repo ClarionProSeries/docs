@@ -1,5 +1,6 @@
 [Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
 
+
 # Installation
 
 When you run the installer for vuFileTools it will attempt to find valid Clarion installations on your computer and let you choose which one to install the template for.
@@ -57,3 +58,4 @@ C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory\LANSRAD\vuFileTools *
 Each demo folder contains the files relevant to that demo application.
 
 [Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+
