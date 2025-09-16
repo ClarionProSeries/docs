@@ -1,32 +1,38 @@
 # Clarion ProSeries Documentation
 
-Welcome to the official documentation hub for the **Clarion ProSeries**.  
-Here you’ll find guides, reference material, and examples for each of the ProSeries templates and tools.
+Welcome to the official documentation hub for the **Clarion ProSeries Classes, Templates, and Tools**.  
+Here you’ll find guides, references, and examples for each product in the ProSeries line.
 
 ---
 
 ## Available Documentation
 
-- [vuFileTools](./vuFileTools/README.md)  
-  File, directory, OS and other utilities for Clarion developers.
+| Product      | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| [vuFileTools](./vuFileTools/README.md) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
 
-- More templates coming soon...
+More products coming soon...
 
 ---
 
-## How to Use This Repository
+## How This Repository Is Organized
 
-Each ProSeries component has its own folder inside this repo.  
-Within those folders you’ll find:
+Each ProSeries product has its own folder. Inside you’ll find a consistent set of pages such as:
 
-- **Overview**: What the component does and how it can help.  
-- **Installation**: Setup instructions for Clarion projects.  
-- **API Reference**: Detailed documentation of functions, methods, and parameters.  
+- **Introduction** – What the product does and how it helps.  
+- **Requirements** – Supported Clarion versions and template chains.  
+- **Installation Instructions** – How to install and set up the product.  
+- **Registering the Template** – Adding the template to Clarion.  
+- **Using in Your Application** – Guidance and examples.  
+
+Some products may also include:
+
+- **Deployment** details  
+- **Function Reference** (all functions or by category)  
 
 ---
 
 ## Related Links
 
 - 🌐 [Website](https://clarionproseries.com)  
-- ✉️ [Contact Form](https://www.clarionproseries.com/html/contact.php)  
-
+- ✉️ [Contact Form](https://www.clarionproseries.com/html/contact.php)
