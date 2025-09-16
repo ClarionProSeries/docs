@@ -9,7 +9,7 @@ Here you’ll find guides, references, and examples for each product in the ProS
 
 | Product      | Description                                                                 |
 |--------------|-----------------------------------------------------------------------------|
-| [vuFileTools](./vuFileTools/index.md) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
+| [vuFileTools](./vuFileTools) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
 
 More products coming soon...
 
