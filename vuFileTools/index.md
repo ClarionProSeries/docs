@@ -25,14 +25,15 @@ Use the links below to browse the documentation.
 - [Version History](version-history.md)
 - [Support](support.md)
 
-For the most up-to-date documentation, visit the GitHub repository:  
-[ClarionProSeries/docs – vuFileTools](https://github.com/ClarionProSeries/docs/tree/main/vuFileTools)
+For the most up-to-date documentation:
+
+- Online docs (recommended): https://clarionproseries.github.io/docs/vuFileTools/
+- Source on GitHub: https://github.com/ClarionProSeries/docs/tree/main/vuFileTools
 
 If the link above does not open in your help viewer, copy and paste this URL into your browser:
 ```
-https://github.com/ClarionProSeries/docs/tree/main/vuFileTools
+https://clarionproseries.github.io/docs/vuFileTools/
 ```
 
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
-
 
