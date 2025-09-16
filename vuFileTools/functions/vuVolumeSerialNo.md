@@ -1,0 +1,36 @@
+[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+
+# vuVolumeSerialNo(tDir)
+
+```Prototype
+vuVolumeSerialNo(*CSTRING), LONG
+```
+
+
+## Description
+Returns the volume serial number of the specified root directory. Supports both mapped drives and UNC paths.
+
+### Parameters
+
+| Parameter | Data Type    | Description                                                                 |
+|-----------|--------------|-----------------------------------------------------------------------------|
+| tDir      | CSTRING(128) | Path to the root directory (for example, `G:\` or `\\MyServer\C\`).         |
+
+_Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
+
+### Returns
+A LONG integer containing the volume serial number of the specified root directory.
+
+### Example
+
+```Clarion
+tDir = 'G:\'
+SerialNo = vuVolumeSerialNo(tDir)
+MESSAGE('The volume serial number of ' & tDir & ' is ' & SerialNo)
+```
+
+### Notes
+- Works with both local drives and network shares.  
+- Ensure `tDir` points to a valid root directory.
+
+[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
