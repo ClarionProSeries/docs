@@ -7,7 +7,7 @@ Here you'll find guides, reference material, and examples for each of the ProSer
 
 ## Available Documentation
 
-- [VU File Tools](vuFileTools/index.md)  
+- [vuFileTools](vuFileTools/index.md)  
   File, directory, OS and other utilities for Clarion developers.
 
 - More templates coming soon...
