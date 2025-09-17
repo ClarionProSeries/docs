@@ -1,7 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-# Installation
+# vuFileTools - Installation
 
 When you run the installer for vuFileTools it will attempt to find valid Clarion installations on your computer and let you choose which one to install the template for.
 

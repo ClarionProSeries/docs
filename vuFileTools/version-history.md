@@ -1,7 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-# Version History
+# vuFileTools - Version History
 
 *Newest versions and release dates are listed first*
 

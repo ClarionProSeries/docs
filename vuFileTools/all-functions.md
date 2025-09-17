@@ -1,6 +1,6 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
-# All Functions
+# vuFileTools - All Functions
 
 - [vuAddStartupShortcut](functions/vuAddStartupShortcut.md)  
 - [vuAnimateCloseBlend](functions/vuAnimateCloseBlend.md)  

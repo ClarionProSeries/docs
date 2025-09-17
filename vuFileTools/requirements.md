@@ -1,8 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-
-# Requirements
+# vuFileTools - Requirements
 
 vuFileTools works with all versions of Clarion:
 

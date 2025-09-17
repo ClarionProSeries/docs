@@ -1,7 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-# Support
+# vuFileTools - Support
 
 If you need support with vuFileTools please contact us at:   
 

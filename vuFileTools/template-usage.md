@@ -1,7 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-# Template Usage
+# vuFileTools - Template Usage
 
 To use vuFileTools, add the global extension template to your application.
 

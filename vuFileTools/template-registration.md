@@ -1,6 +1,6 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
-# Template Registration
+# vuFileTools - Template Registration
 
 When you run the installer it will offer to automatically register the template during the installation process. If you decide not to allow that, or if you need to re-register the template at a later time, follow these steps:
 

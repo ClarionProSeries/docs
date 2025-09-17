@@ -1,7 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-# Deployment and Usage
+# vuFileTools - Deployment and Usage
 
 vuFileTools includes a small DLL that performs all the API operations for you.
 

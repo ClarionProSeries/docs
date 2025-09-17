@@ -1,7 +1,7 @@
 [Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
 
 
-# Introduction
+# vuFileTools - Introduction
 
 **vuFileTools** is a developer library containing over 200 ready-to-use Windows API functions, designed to simplify programming in Clarion and other environments. The functions cover a wide range of tasks such as working with files and folders, compression, version information, network status, shortcuts, and more.
 
