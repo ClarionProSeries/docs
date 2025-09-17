@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFadeIn(hWindow)
 
@@ -38,4 +38,4 @@ vuFadeOut(hWindow)
 - The window may flash the first time this function is called, but subsequent calls (or other transparent functions) will not.  
 - The window handle is retrieved in Clarion using the `PROP:Handle` property of the windows label.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

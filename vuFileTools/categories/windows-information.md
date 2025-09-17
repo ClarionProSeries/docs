@@ -1,6 +1,6 @@
-# Windows Information
+# vuFileTools - Windows Information Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuCleanBoot](../functions/vuCleanBoot.md)
 - [vuComputerName](../functions/vuComputerName.md)
@@ -11,4 +11,4 @@
 - [vuWindowHandle](../functions/vuWindowHandle.md)
 - [vuWindowsKey](../functions/vuWindowsKey.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Windows Information](./windows-information.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

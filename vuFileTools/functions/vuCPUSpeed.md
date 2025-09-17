@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCPUSpeed()
 
@@ -25,4 +25,4 @@ The speed of the CPU in megahertz (LONG).
 MESSAGE('The speed of the processor is approx. ' & vuCPUSpeed() & ' megahertz')
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

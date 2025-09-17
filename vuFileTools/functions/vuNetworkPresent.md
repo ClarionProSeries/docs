@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuNetworkPresent()
 
@@ -38,4 +38,4 @@ END
 ### Notes
 - Requires Internet Explorer 5.0 or higher.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

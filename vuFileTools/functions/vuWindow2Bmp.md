@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindow2Bmp(FileName)
 
@@ -39,4 +39,4 @@ END
 - Be sure to specify a fully qualified filename, including the `.bmp` extension.  
 - Captures only the current active window, not the entire desktop.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

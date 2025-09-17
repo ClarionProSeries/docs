@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSayText(text)
 
@@ -38,4 +38,4 @@ END
 - SAPI 5.1 is included with Windows XP and Windows Vista.  
 - For Windows 2000, SAPI 5.1 must be downloaded and installed separately.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

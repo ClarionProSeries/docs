@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShutDown(Action)
 
@@ -35,4 +35,4 @@ RETURN
 - You should immediately exit your program after calling this function.  
 - Requires sufficient user rights to perform shutdown or reboot actions.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

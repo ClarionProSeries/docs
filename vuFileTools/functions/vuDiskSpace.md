@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuDiskSpace(Drive)
 
@@ -36,4 +36,4 @@ MESSAGE('C Drive is ' & vuDiskSpace(LOC:Drive) & ' bytes')
 - Requires Windows 98 or higher.  
 - Use `DEFORMAT` to convert the returned string into a numeric value for calculations.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

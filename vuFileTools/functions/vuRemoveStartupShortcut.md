@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRemoveStartupShortcut(LinkName, Scope)
 
@@ -57,4 +57,4 @@ Common Startup (Scope = 1) usually requires elevation (Administrator rights).
 
 Use together with vuAddStartupShortcut for full management of startup entries.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

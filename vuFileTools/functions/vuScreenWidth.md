@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuScreenWidth()
 
@@ -31,4 +31,4 @@ END
 - Returns the horizontal resolution of the primary display.  
 - Use together with `vuScreenHeight()` to determine full screen resolution.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

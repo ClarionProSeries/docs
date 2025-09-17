@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMACDesc(Nmbr)
 
@@ -31,4 +31,4 @@ END
 - Adapter descriptions are provided by the system.  
 - Always check `vuMACCount()` before calling `vuMACDesc()` to ensure the index is valid.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

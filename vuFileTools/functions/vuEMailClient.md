@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEmailClient()
 
@@ -25,4 +25,4 @@ A CSTRING containing the name of the default email client (e.g., Outlook, Outloo
 MESSAGE('My email client is ' & vuEmailClient())
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

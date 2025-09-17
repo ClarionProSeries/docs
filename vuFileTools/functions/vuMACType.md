@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMACType(Nmbr)
 
@@ -39,4 +39,4 @@ END
 - Adapter type is determined by the system for the specified index.  
 - Combine with `vuMACDesc()` and `vuMACAddress()` for detailed adapter information.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

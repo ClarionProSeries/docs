@@ -1,8 +1,8 @@
-# WAV Files
+# vuFiletools - WAV File Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuPlayWav](../functions/vuPlayWav.md)
 - [vuRecordWav](../functions/vuRecordWav.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: WAV Files](./wav-files.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

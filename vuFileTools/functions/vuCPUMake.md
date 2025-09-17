@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCPUMake()
 
@@ -35,4 +35,4 @@ A null-terminated CSTRING containing the CPU make and model. Possible return val
 MESSAGE('The CPU in this computer is a ' & vuCPUMake())
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

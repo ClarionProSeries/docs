@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFolderWatchStart(fName)
 
@@ -36,4 +36,4 @@ END
 - Use `vuFolderWatchCheck` to query whether a change has occurred.  
 - There is no limit to the number of folders that can be monitored simultaneously.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

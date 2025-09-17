@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindowOnTop(hWnd)
 
@@ -36,4 +36,4 @@ END
 - To find the label of a window: in the Window Formatter, right-click the window, select **Properties**, and check the value next to **Label**.  
 - The demo program included with vuFileTools illustrates this technique.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

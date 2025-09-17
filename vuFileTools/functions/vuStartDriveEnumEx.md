@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuStartDriveEnumEx()
 
@@ -96,4 +96,4 @@ sReady       CSTRING(4)
 - Call `vuEndDriveEnumEx()` after finishing enumeration to avoid resource leaks.  
 - For a simplified one-call loop, consider `vuGetNextDriveExAuto()`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

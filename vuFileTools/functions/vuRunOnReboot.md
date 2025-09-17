@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunOnReboot(Action)
 
@@ -35,4 +35,4 @@ vuRunOnReboot(0)
 - When armed, if the PC is rebooted due to power loss or crash, the program will automatically restart after user log-in.  
 - Use at the beginning of your program to enable and disarm at the end to avoid unwanted restarts.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

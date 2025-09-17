@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIPAddress(IPIndex)
 
@@ -29,4 +29,4 @@ MESSAGE('Primary IP Address = ' & vuIPAddress(1))
 ### Notes
 - Combine with `vuIPAddressCount()` to enumerate all IP addresses assigned to the PC.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

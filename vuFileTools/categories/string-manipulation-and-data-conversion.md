@@ -1,6 +1,6 @@
-# String Manipulation and Data Conversion
+# vuFileTools - String Manipulation and Data Conversion Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuBinary](../functions/vuBinary.md)
 - [vuHexadecimal](../functions/vuHexadecimal.md)
@@ -14,4 +14,4 @@
 - [vuUncompress](../functions/vuUncompress.md)
 - [vuUnPack](../functions/vuUnPack.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: String Manipulation and Data Conversion](./string-manipulation-and-data-conversion.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

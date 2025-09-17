@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileTime(Filename, Type)
 
@@ -30,4 +30,4 @@ MESSAGE('Last written time = ' & vuFileTime(Filename, 2))
 ### Notes
 - Returned time is in standard Clarion time format.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

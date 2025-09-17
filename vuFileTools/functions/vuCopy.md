@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCopy(Source, Destination, Subdirs)
 
@@ -47,4 +47,4 @@ vuCopy(Source, 'C:\Backup', 2)
 - `Subdirs = 1` copies all files and subdirectories.  
 - `Subdirs = 2` applies the mask to all subdirectories but disallows UNCs.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

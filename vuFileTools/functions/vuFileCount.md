@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileCount(Mask)
 
@@ -35,4 +35,4 @@ MESSAGE('Count = ' & vuFileCount(Mask))   ! Returns number of .bak files in C:\T
 - Wildcards are accepted.  
 - Does not modify file timestamps (creation, last written, access).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

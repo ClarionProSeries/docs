@@ -1,6 +1,6 @@
-# Programs and Applications
+# vuFileTools - Programs and Application Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuIdleTime](../functions/vuIdleTime.md)
 - [vuIsRunning](../functions/vuIsRunning.md)
@@ -11,4 +11,4 @@
 - [vuShutdown](../functions/vuShutdown.md)
 - [vuUnPack](../functions/vuUnPack.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Programs and Applications](./programs-and-applications.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

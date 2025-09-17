@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIsFolderCompressed(zPath)
 
@@ -51,4 +51,4 @@ Use vuCreateCompressedFolder or vuSetFolderCompression to enable or change compr
 
 If the folder path does not exist, the function will return an error.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

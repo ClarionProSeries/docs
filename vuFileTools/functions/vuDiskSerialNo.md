@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuDiskSerialNo()
 
@@ -29,4 +29,4 @@ MESSAGE('The serial number of the hard drive is ' & vuDiskSerialNo())
 - Serial numbers are not guaranteed to be unique.  
 - For example, mirrored drives will share the same serial number.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRemoveChars(Strg, Chars, AllChars)
 
@@ -38,4 +38,4 @@ MESSAGE(Result)
 - Use `AllChars = 1` when you want to remove every occurrence of any character in `Chars`.  
 - Use `AllChars = 0` when you want to remove only the exact substring provided in `Chars`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

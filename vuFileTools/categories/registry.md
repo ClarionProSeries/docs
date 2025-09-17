@@ -1,8 +1,8 @@
-# Registry
+# vuFileTools - Registry Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuEZRegGet](../functions/vuEZRegGet.md)
 - [vuEZRegPut](../functions/vuEZRegPut.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Registry](./registry.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

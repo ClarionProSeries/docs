@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetFolderCompression(zPath, Enable)
 
@@ -60,4 +60,4 @@ Use vuIsFolderCompressed to confirm compression status.
 
 Requires appropriate permissions on the folder.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

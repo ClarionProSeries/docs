@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTransparentOthers(NameContains, Transparency)
 
@@ -36,4 +36,4 @@ MESSAGE('Made ' & Count & ' Notepad windows semi-transparent.')
 - Uses Windows layered window attributes to apply per-window alpha.
 - If `NameContains` is blank, the function will target all other running windows. Use with caution.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

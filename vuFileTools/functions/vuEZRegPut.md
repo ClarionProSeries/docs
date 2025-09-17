@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEZRegPut(ByUser, KeyName, KeyValue)
 
@@ -42,4 +42,4 @@ END
 - Each program name is embedded in the registry path, so keys with the same `KeyName` will not conflict between applications.  
 - Not a general-purpose registry API  only designed for saving and retrieving simple values.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

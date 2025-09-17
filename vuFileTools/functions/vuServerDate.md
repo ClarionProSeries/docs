@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuServerDate(ServerName)
 
@@ -34,4 +34,4 @@ MESSAGE('The server date is ' & ServerDate)
 - Works with any networked computer, not just dedicated servers.  
 - Useful for keeping systems in sync across a peer-to-peer network or domain.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

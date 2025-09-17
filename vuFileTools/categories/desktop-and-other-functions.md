@@ -1,6 +1,6 @@
-# Desktop and Other Functions
+# vuFileTools - Desktop and Other Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuChangeDisplay](../functions/vuChangeDisplay.md)
 - [vuClearRecentDocs](../functions/vuClearRecentDocs.md)
@@ -16,4 +16,4 @@
 - [vuScreenWidth](../functions/vuScreenWidth.md)
 - [vuTaskBar](../functions/vuTaskBar.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Desktop and Other Functions](./desktop-and-other-functions.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

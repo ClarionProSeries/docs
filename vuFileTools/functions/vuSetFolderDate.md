@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetFolderDate(FolderName, Year, Month, Day, Hour, Minute, Second)
 
@@ -40,4 +40,4 @@ vuSetFolderDate(FolderName, 2004, 7, 18, 16, 0, 0)
 - Updates the folders date and time attributes.  
 - Folder must already exist or the call will fail.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

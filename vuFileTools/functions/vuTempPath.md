@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTempPath()
 
@@ -29,4 +29,4 @@ MESSAGE('The Windows temp directory is ' & vuTempPath())
 - The returned path typically points to a location such as `C:\Users\<User>\AppData\Local\Temp`.  
 - Useful for creating and storing temporary files.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

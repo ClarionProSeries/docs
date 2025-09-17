@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrinterName(Nmbr)
 
@@ -35,4 +35,4 @@ END
 - Use `vuPrinterCount()` to determine the number of installed printers and the valid index range.  
 - Useful for populating UI elements such as list boxes with installed printer names.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

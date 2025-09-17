@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunExistsEx(pFile, WaitSeconds, PollMS)
 
@@ -50,4 +50,4 @@ Useful for scenarios where a file will be generated shortly and then executed.
 
 Polling continues until the file appears or the wait time expires.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

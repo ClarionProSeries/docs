@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEnumerateStartupItems(Scope)
 
@@ -46,4 +46,4 @@ Use together with vuGetStartupItem to retrieve detailed information about each i
 
 Scope 0 checks the current users Startup folder; scope 1 checks the system-wide Startup folder.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

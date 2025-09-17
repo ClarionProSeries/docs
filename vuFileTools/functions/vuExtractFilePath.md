@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuExtractFilePath(FileSpec)
 
@@ -28,4 +28,4 @@ MESSAGE('The file path is ' & vuExtractFilePath(FileSpec))
 LOC:Path = vuExtractFilePath(FileSpec)
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuDelete(FileSpec, Subdirs, RecycleBin)
 
@@ -38,4 +38,4 @@ vuDelete(FileSpec, 1, 1)
   ```
 - Use only with explicit and validated file paths.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

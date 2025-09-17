@@ -1,6 +1,6 @@
-# System Information
+# vuFileTools - System Information Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuBatteryLife](../functions/vuBatteryLife.md)
 - [vuBIOSSerialNo](../functions/vuBIOSSerialNo.md)
@@ -21,4 +21,4 @@
 - [vuProcessorCount](../functions/vuProcessorCount.md)
 - [vuServiceStatus](../functions/vuServiceStatus.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: System Information](./system-information.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

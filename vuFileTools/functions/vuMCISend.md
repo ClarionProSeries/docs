@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMCIsend(SendStrg)
 
@@ -36,4 +36,4 @@ END
 - The Media Control Interface (MCI) supports commands for controlling multimedia devices such as CD audio, wave audio, MIDI, and others.  
 - Example shown demonstrates opening a CD drive door. Other commands can control playback, recording, and device settings.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

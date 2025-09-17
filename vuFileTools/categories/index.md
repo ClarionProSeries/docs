@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](./index.md)
+[Home](../index.md) | [All functions](../functions/index.md) | [Categories](index.md)
 
 # vuFileTools - Categories
 
@@ -19,4 +19,4 @@
 - [Windows Information](./windows-information.md)
 - [Windows Manipulation, Saving, and Printing](./windows-manipulation-saving-and-printing.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](./index.md)
+[Home](../index.md) | [All functions](../functions/index.md) | [Categories](index.md)

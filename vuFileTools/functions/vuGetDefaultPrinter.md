@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetDefaultPrinter()
 
@@ -29,4 +29,4 @@ MESSAGE('The default printer is ' & vuGetDefaultPrinter())
 - Requires Windows 2000 or higher.  
 - The returned printer is the system default, not necessarily the one chosen for Clarion reports.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

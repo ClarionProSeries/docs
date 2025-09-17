@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunEx(pFile, pParams, pWork, ShowCmd)
 
@@ -52,4 +52,4 @@ Use ShowCmd to control how the launched application window is displayed (normal,
 
 If the working directory is empty, the system default is used.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

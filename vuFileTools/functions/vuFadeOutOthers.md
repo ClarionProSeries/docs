@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFadeOutOthers(wName)
 
@@ -34,4 +34,4 @@ vuFadeOutOthers('')
 - A window may flash the first time this function is called, but subsequent calls (or other transparency functions) will not.  
 - Matching is case-insensitive and looks for the substring anywhere in the window title.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSystemDirectory()
 
@@ -29,4 +29,4 @@ MESSAGE('The system directory = ' & vuSystemDirectory())
 - The path returned typically looks like `C:\Windows\System32`.  
 - Useful for locating system files or ensuring compatibility with system-level operations.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

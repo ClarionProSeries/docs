@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMemoryFree()
 
@@ -29,4 +29,4 @@ MESSAGE('This PC has ' & vuMemoryFree() & ' bytes of free memory')
 - Value is returned in bytes.  
 - Use for monitoring available physical memory in applications that may be memory-intensive.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

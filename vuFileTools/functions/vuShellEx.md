@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShellEx(pFile, pParams, pWork, ShowCmd)
 
@@ -52,4 +52,4 @@ Uses the Windows shell, so file associations (e.g., .txt with Notepad) are honor
 
 Typical ShowCmd values: 1 (normal), 3 (maximized), 7 (minimized no activate), 4/8 (show without activating).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

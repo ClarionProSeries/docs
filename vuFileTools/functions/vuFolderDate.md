@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFolderDate(FolderName)
 
@@ -26,4 +26,4 @@ FolderName = 'C:\temp'
 MESSAGE('Folder created on: ' & vuFolderDate(FolderName))
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

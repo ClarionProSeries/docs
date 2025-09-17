@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrintToExistsEx(pFile, WaitSeconds, PollMS, pPrinter)
 
@@ -55,4 +55,4 @@ The polling mechanism provides more reliable confirmation than vuPrintToExists i
 
 Ensure the printer is accessible and properly configured.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

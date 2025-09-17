@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetDriveList(pOutBuffer, cchBuffer)
 
@@ -52,4 +52,4 @@ nCount         LONG
 - Ensure the output buffer is large enough to hold the entire list; if the buffer is too small, a negative return may be used to signal an error.  
 - The text format is intended for display. If you need structured fields per drive, use `vuGetDriveListEx` instead.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

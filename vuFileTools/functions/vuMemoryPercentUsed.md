@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMemoryPercentUsed()
 
@@ -29,4 +29,4 @@ MESSAGE('You are currently using ' & vuMemoryPercentUsed() & ' percent of physic
 - Value represents system-wide physical memory usage.  
 - Can be used to check memory pressure before running memory-intensive operations.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

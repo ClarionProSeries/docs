@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuElevationType()
 
@@ -57,4 +57,4 @@ vuElevationType() provides more detail about the specific elevation context.
 
 Helps you adjust program behavior depending on whether UAC is enabled or disabled.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

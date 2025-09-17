@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuBIOSSerialNo()
 
@@ -31,4 +31,4 @@ MESSAGE('BIOS Serial Number = ' & vuBIOSSerialNo())
 - The earliest this function should be called is in the ABC chain: **Windows Events ? Open Window**.  
 - Not all BIOS manufacturers support this function.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

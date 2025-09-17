@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuOctal(LongValue)
 
@@ -30,4 +30,4 @@ MESSAGE('Octal representation: ' & vuOctal(LongValue))
 ### Notes
 - The return value is a string representation of the octal number.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

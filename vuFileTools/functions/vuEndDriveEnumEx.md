@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEndDriveEnumEx()
 
@@ -89,4 +89,4 @@ sReady       CSTRING(4)
 - Use the extended sequence (`vuStartDriveEnumEx` / `vuGetNextDriveEx` / `vuEndDriveEnumEx`) when you need detailed drive info.  
 - For simpler iteration without explicit cleanup, use `vuGetNextDriveExAuto()`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

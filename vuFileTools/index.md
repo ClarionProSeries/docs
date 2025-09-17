@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools
 
@@ -20,7 +20,7 @@ Use the links below to browse the documentation.
 - [Registering the Template](template-registration.md)
 - [Using the Template in Your Application](template-usage.md)
 - [Deployment](deployment.md)  
-- [View All Functions](all-functions.md)
+- [View All Functions](functions/index.md)
 - [View Functions by Category](categories/index.md)
 - [Version History](version-history.md)
 - [Support](support.md)
@@ -35,5 +35,5 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://clarionproseries.github.io/docs/vuFileTools/
 ```
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 

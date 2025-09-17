@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuNetworkUser()
 
@@ -30,4 +30,4 @@ LOC:NetUser = vuNetworkUser()
 ### Notes
 - The returned string is null-terminated and can be assigned to any Clarion STRING variable.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

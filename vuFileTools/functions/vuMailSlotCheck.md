@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotCheck(SlotName, dBuffer)
 
@@ -36,4 +36,4 @@ END
 - Mail slots can be used for one application to send data to and manipulate another application.  
 - For more details, refer to the separate mail slots write-up included with the distribution package.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

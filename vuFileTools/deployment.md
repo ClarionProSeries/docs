@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Deployment and Usage
@@ -19,5 +19,5 @@ Sample usage from Clarion is also provided.
 
 The example applications included demonstrate practical use of the functions. Reviewing these examples often provides better context for understanding how the functions are used in real programs.
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 

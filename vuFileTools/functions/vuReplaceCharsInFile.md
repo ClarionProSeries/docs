@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuReplaceCharsInFile(FileName, OldStrg, NewStrg)
 
@@ -41,4 +41,4 @@ END
 - Replaces **all** occurrences of `OldStrg` within the specified file.  
 - Be cautious when modifying files in place; make backups if necessary.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

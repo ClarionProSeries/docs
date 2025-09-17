@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrinterCount()
 
@@ -28,4 +28,4 @@ MESSAGE('This PC has ' & vuPrinterCount() & ' printers defined')
 ### Notes
 - Includes both local and network printers installed on the PC.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

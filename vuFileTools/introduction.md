@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Introduction
@@ -19,4 +19,4 @@ Instead of writing complex Windows API calls yourself, you can rely on vuFileToo
 If you are new to vuFileTools, begin with the [Installation](install.md) page.  
 After installation, explore the full list of [All functions](all-functions.md) or browse by [Categories](categories/index.md).
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCPUSerialNo()
 
@@ -30,4 +30,4 @@ MESSAGE('CPU Serial Number = ' & vuCPUSerialNo())
 - On Pentium IV processors, the returned value is not the CPU serial number and may not be unique.  
 - This function may be disabled in BIOS or by system configuration.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

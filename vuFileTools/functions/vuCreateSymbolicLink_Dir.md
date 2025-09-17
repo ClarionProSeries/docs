@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateSymbolicLink_Dir(LinkPath, TargetDir, AllowUnpriv)
 
@@ -66,4 +66,4 @@ Symlink creation normally requires elevation (Administrator rights).
 
 On Windows 10 and later, Developer Mode allows unprivileged symlink creation when AllowUnpriv is set to 1.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

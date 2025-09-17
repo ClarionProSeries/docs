@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTaskBar(Hide)
 
@@ -35,4 +35,4 @@ vuTaskBar(0)
 - Even when hidden, the Start menu and other features are accessible using the Windows key.  
 - Useful for kiosk or point-of-sale applications that require a full-screen, distraction-free environment.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

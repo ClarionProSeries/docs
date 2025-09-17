@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetEnumeratedEntryA(Index, feEntry)
 
@@ -87,4 +87,4 @@ sInfo       CSTRING(1024)
 - Folder entries are marked with `bIsFolder = 1`.  
 - File size values are split into low and high DWORD parts (`dwSizeLow` and `dwSizeHigh`).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

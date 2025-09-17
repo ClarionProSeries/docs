@@ -1,6 +1,7 @@
-# Interprocess Communications
+# vuFileTools - Interprocess Communication Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+
 
 - [vuMailSlotCheck](../functions/vuMailSlotCheck.md)
 - [vuMailSlotCreate](../functions/vuMailSlotCreate.md)
@@ -8,4 +9,5 @@
 - [vuMailSlotDestroyAll](../functions/vuMailSlotDestroyAll.md)
 - [vuMailSlotSend](../functions/vuMailSlotSend.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Interprocess Communications](./interprocess-communications.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+

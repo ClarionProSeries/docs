@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Requirements
@@ -25,7 +25,7 @@ Both AppGen and hand-coded applications are supported.
 
 vuFileTools works with both single EXE and multi-DLL applications.
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools - Template Registration
 
@@ -22,5 +22,5 @@ If the template is successfully registered, you will see it in the list of insta
 
 **Note:** If you install or upgrade to a new version of Clarion, you may need to re-register vuFileTools in that version.
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 

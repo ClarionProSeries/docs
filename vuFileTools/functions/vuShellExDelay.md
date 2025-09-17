@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShellExDelay(pFile, pParams, pWork, ShowCmd, DelayMS)
 
@@ -58,4 +58,4 @@ Use when you need Shell integration (file associations) plus a timed delay befor
 
 ShowCmd values follow the Windows API ShowWindow constants (e.g., 0 = hidden, 1 = normal, 3 = maximized).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

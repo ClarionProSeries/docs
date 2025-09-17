@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFreeSpace(Drive)
 
@@ -36,4 +36,4 @@ MESSAGE('C Drive has ' & vuFreeSpace(LOC:Drive) & ' bytes available')
 - Requires Windows 98 or higher.  
 - The reported free space may be smaller than the actual available space if quotas are enforced by the system administrator.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,6 +1,7 @@
-# Files and Folders
+# vuFileTools - Files and Folder Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+
 
 - [vuClearRecentDocs](../functions/vuClearRecentDocs.md)
 - [vuCompress](../functions/vuCompress.md)
@@ -34,4 +35,5 @@
 - [vuTempPath](../functions/vuTempPath.md)
 - [vuWindowsDirectory](../functions/vuWindowsDirectory.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Files and Folders](./files-and-folders.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEndDriveEnum()
 
@@ -72,4 +72,4 @@ Msg           CSTRING(100)
 - Use `vuEndDriveEnum()` only after a matching `vuStartDriveEnum()` call.  
 - If you prefer not to manage start and end explicitly, use `vuGetNextDriveAuto()`, which handles setup and cleanup internally.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetStartupItem(Scope, Index, NameBuf, cchName, PathBuf, cchPath)
 
@@ -84,4 +84,4 @@ Index is 1-based; passing an invalid index will fail.
 
 Buffers must be preallocated to a sufficient size.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

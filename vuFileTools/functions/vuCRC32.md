@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCRC32(Filename)
 
@@ -26,4 +26,4 @@ LOC:FileName = 'C:\Valutilities\Test.tps'
 MESSAGE('CRC32 = ' & vuCRC32(LOC:FileName))
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateLinkEx(Location, WorkingDir, LinkName, ProgramName, Arguments, Comment)
 
@@ -36,4 +36,4 @@ END
 - Extends `vuCreateLink()` by adding `WorkingDir` and `Comment` parameters.  
 - Otherwise functionally identical to `vuCreateLink`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

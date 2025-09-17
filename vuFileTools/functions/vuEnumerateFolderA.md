@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEnumerateFolderA(sFolder)
 
@@ -77,4 +77,4 @@ Results include both files and subfolders, with attributes and timestamps.
 
 Only the number of entries is returned by vuEnumerateFolderA; entry data is retrieved separately.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

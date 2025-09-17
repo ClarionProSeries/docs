@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFolderWatchCheck(fName)
 
@@ -50,4 +50,4 @@ END
 - After processing changes, re-arm the watch with `vuFolderWatchStart`.  
 - Lightweight enough to be placed in a `TIMER` embed without impacting performance.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunDelay(pFile, DelayMS)
 
@@ -46,4 +46,4 @@ Useful for delaying startup of another process to allow system resources or depe
 
 If the file does not exist, the function returns 0 and does not attempt to run.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

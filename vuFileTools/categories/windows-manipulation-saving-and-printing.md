@@ -1,6 +1,6 @@
-# Windows Manipulation, Saving and Printing
+# vuFileTools - Windows, Saving, Printing and Run Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuCenterWindow](../functions/vuCenterWindow.md)
 - [vuChangeDisplay](../functions/vuChangeDisplay.md)
@@ -35,4 +35,4 @@
 - [vuWindowMove](../functions/vuWindowMove.md)
 - [vuWindowNotOnTop](../functions/vuWindowNotOnTop.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Windows Manipulation, Saving and Printing](./windows-manipulation-saving-and-printing.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

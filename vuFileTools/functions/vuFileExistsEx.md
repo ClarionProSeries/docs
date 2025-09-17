@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileExistsEx(pFile, WaitSeconds, PollMS)
 
@@ -62,4 +62,4 @@ PollMS controls how often the check is repeated during the wait period.
 
 Use vuFileExists for a quick, immediate existence check without waiting.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

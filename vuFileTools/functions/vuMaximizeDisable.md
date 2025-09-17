@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMaximizeDisable(hWindow)
 
@@ -37,4 +37,4 @@ END
 - Once maximize is disabled, it cannot be re-enabled for that program instance.  
 - This function works by removing the `SC_MAXIMIZE` entry from the system menu. If the entry is missing (rare), the function will not work properly.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

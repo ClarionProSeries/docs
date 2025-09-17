@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuStartDriveEnum()
 
@@ -73,4 +73,4 @@ Msg         CSTRING(100)
 - Use `ADDRESS()` to pass pointers for the root path buffer and the drive type LONG to `vuGetNextDrive`.  
 - Drive type values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

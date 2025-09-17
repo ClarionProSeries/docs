@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuKeepChars(Strg, Chars)
 
@@ -29,4 +29,4 @@ Chars = '0123456789'
 MESSAGE('Digits only: ' & vuKeepChars(Strg, Chars))   ! Returns '3284576'
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

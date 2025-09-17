@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Template Usage
@@ -21,5 +21,5 @@ Click the **OK** button to close the window. The entire library of vuFileTools f
 
 **Note:** Be sure to include **vuFT5.dll** with your application deployment. Without the DLL, the functions will not be available at runtime.
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 

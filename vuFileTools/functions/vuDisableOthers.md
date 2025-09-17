@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuDisableOthers(NameContains, wDisable)
 
@@ -33,4 +33,4 @@ vuDisableOthers('Microsoft Word', wDisable)  ! Re-enables all running instances 
 ### Notes
 - If `NameContains` is left blank, the function will apply to all windows.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

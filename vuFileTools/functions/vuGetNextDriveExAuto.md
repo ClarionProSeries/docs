@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetNextDriveExAuto(pDriveInfo)
 
@@ -96,4 +96,4 @@ sReady       CSTRING(4)
 - Provides the same extended drive details as `vuGetNextDriveEx()`, but with simplified usage.  
 - Use this function for most scenarios unless you need explicit control of the enumeration lifecycle.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

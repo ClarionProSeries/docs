@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTransparentColorKey(hWindow, Red, Green, Blue)
 
@@ -44,4 +44,4 @@ END
 - If the background color is set as transparent, any text or graphics drawn on the surface appear to be written directly on the desktop.  
 - The Demo3 application includes a working example under the Mailslots tab.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

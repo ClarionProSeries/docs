@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetNextDrive(pRootPath, pDriveType)
 
@@ -79,4 +79,4 @@ Msg           CSTRING(100)
 - Drive type constants correspond to Windows API values (2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk).  
 - Use `vuGetNextDriveAuto()` if you prefer a simpler, single-call loop without explicit start and end calls.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

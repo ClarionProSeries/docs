@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuAddStartupShortcut(Target, Params, WorkDir, ShowCmd, LinkName, Scope)
 
@@ -68,4 +68,4 @@ Common Startup (Scope = 1) usually requires elevation (Administrator rights).
 
 Useful for registering applications to run automatically when Windows starts.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

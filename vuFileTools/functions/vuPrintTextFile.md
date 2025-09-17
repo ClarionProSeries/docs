@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrintTextFile(FileName, Default)
 
@@ -38,4 +38,4 @@ vuPrintTextFile(FileName, 0)
 - When `Default` is set to 0, the user is prompted to select a printer.  
 - Supports printing plain text files only.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

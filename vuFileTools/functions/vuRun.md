@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRun(Filename, WStyle, Wait)
 
@@ -42,4 +42,4 @@ END
 - Setting `WStyle` to 0 runs the program completely hidden.  
 - Use `Wait = 1` when you need to pause execution until the external program finishes.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

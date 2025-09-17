@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotCreate(SlotName)
 
@@ -35,4 +35,4 @@ END
 - You can send data as a group or queue, allowing any kind of structured data to be passed.  
 - Mail slots use datagrams and do not guarantee delivery.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIPAddressCount()
 
@@ -25,4 +25,4 @@ LONG containing the number of IP addresses configured on the PC.
 MESSAGE('This PC has ' & vuIPAddressCount() & ' IP addresses assigned')
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

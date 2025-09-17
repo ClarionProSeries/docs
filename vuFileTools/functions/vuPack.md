@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPack(FileMask, FileName)
 
@@ -35,4 +35,4 @@ MESSAGE(CLIP(PACKEDCOUNT) & ' files packed into ' & FileName)
 - Packed files are appended into the target file in sequence.  
 - Use `vuCompress()` after packing to compress or optionally encrypt the packed file.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

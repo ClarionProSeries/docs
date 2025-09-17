@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTerminateOthers(NameContains)
 
@@ -31,4 +31,4 @@ MESSAGE(vuTerminateOthers(NameContains) & ' Word documents were terminated')
 - Match occurs if `NameContains` appears anywhere within the window title.  
 - Use with caution, as this can forcibly terminate multiple applications at once.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrintExistsEx(pFile, WaitSeconds, PollMS)
 
@@ -50,4 +50,4 @@ Uses the systems default printer.
 
 Useful when a file is being generated asynchronously and will be ready to print shortly.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetStartupFolder(UserPath, cchUser, CommonPath, cchCommon)
 
@@ -50,4 +50,4 @@ Both user and common startup folders are returned in one call.
 
 Use with vuAddStartupShortcut and vuRemoveStartupShortcut for complete startup management.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

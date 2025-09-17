@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMemoryTotal()
 
@@ -29,4 +29,4 @@ MESSAGE('This PC has ' & vuMemoryTotal() & ' of memory installed')
 - Value is returned in bytes.  
 - Use together with `vuMemoryFree()` and `vuMemoryPercentUsed()` for a complete picture of memory usage.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

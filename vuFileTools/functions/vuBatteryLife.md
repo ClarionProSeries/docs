@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuBatteryLife()
 
@@ -29,4 +29,4 @@ MESSAGE('Battery Life Remaining = ' & vuBatteryLife() & '%')
 ### Notes
 Place this function in your Windows timer loop for real-time monitoring of system power (see sample programs supplied).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

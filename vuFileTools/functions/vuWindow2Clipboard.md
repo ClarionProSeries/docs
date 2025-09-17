@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindow2Clipboard()
 
@@ -32,4 +32,4 @@ END
 - Captures only the current active window, not the entire desktop.  
 - The captured window image is placed in the clipboard as a bitmap and can be pasted into applications that accept images (for example, Paint or Word).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

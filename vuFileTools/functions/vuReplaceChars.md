@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuReplaceChars(MainStrg, OldStrg, NewStrg)
 
@@ -38,4 +38,4 @@ MESSAGE(Result)
 - All occurrences of `OldStrg` within `MainStrg` are replaced.  
 - `NewStrg` may be shorter or longer than `OldStrg`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

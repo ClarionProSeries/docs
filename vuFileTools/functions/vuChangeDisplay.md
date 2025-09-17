@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuChangeDisplay(Depth, Width, Height, Action)
 
@@ -43,4 +43,4 @@ END
 - If the original action was 1, changes are permanent.  
 - On systems that forbid dynamic screen changes, the function may return 2 (reboot required).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

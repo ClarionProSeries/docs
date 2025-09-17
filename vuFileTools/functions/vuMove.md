@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMove(Source, Destination, Subdirs)
 
@@ -42,4 +42,4 @@ END
 - Wildcards (such as `*.*`) are supported.  
 - Internally calls `vuCopy()` followed by `vuDelete()`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

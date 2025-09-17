@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuAnimateOpenCenter(hWindow, dwTime)
 
@@ -33,4 +33,4 @@ vuAnimateOpenCenter(hWindow, dwTime)
 - Requires Windows 2000 or higher.  
 - The animation only needs to be set once before the window is opened.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

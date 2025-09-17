@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuVirtualKeys(CharString)
 
@@ -34,4 +34,4 @@ This will send the text `"Now is the time"` one character at a time, as if typed
 - The target is always the active window or control with focus at the time the function is called.  
 - Useful for automation tasks or simulating user input.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

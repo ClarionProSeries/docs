@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindowMove(hWindow, xPos, yPos, Steps, Pause, Relative)
 
@@ -44,4 +44,4 @@ vuWindowMove(hWnd, 5, 5, 1, 0, 1)
 - When `Relative` is set to `True`, `xPos` and `yPos` represent the offset from the current position.  
 - Adding steps and pauses provides a visible animation effect.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

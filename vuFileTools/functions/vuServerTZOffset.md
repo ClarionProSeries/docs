@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuServerTZOffset(ServerName)
 
@@ -33,4 +33,4 @@ MESSAGE('Timezone offset in minutes: ' & Offset)
 - Positive values indicate minutes offset from UTC.  
 - Useful for determining or compensating for time zone differences across systems.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

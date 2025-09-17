@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetAttributes(FileMask, ReadOnly, Hidden, System, Archive)
 
@@ -39,4 +39,4 @@ vuSetAttributes(FileMask, 0, 0, 0, 1)
 - Supports both single files and groups of files using wildcards.  
 - Useful for bulk resetting or updating file attributes programmatically.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

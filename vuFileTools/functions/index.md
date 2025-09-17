@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileTools - All Functions
 
@@ -206,6 +206,6 @@
 - [vuWindowsDirectory](functions/vuWindowsDirectory.md)
 - [vuWindowsKey](functions/vuWindowsKey.md)
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 

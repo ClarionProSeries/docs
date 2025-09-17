@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFontDirectory()
 
@@ -28,4 +28,4 @@ MESSAGE('All fonts are stored in ' & vuFontDirectory())
 ### Notes
 Use this function in conjunction with `vuFontLoad()` to install and use customized fonts.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

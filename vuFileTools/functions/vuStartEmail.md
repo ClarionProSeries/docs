@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuStartEmail(Address, Subject, Message)
 
@@ -40,4 +40,4 @@ END
 - The email is pre-filled with the specified values, but the user must press **Send** manually.  
 - May not work if no desktop email client is installed or associated with `MailTo`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

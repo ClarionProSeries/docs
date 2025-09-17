@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotSend(SlotName, Data, Length, Local)
 
@@ -45,4 +45,4 @@ END
 - The demo application demonstrates sending data from one application to another.  
 - For more information, see the separate mail slots write-up included with the distribution package.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

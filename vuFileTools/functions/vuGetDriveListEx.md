@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetDriveListEx(pOutBuffer, cchBuffer)
 
@@ -148,4 +148,4 @@ sReady        STRING(4)
 - You must parse the buffer manually or load into a queue as shown above.  
 - If you only need a simple list of drives without detailed info, use `vuGetDriveList()` instead.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

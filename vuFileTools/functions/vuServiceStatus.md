@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuServiceStatus(Server, Service)
 
@@ -45,4 +45,4 @@ END
 - A failed call (such as when the service does not exist or the user lacks permissions) may take several seconds to return.  
 - Useful for monitoring critical Windows services locally or across the network.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

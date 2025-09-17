@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileDate(Filename, Type)
 
@@ -31,4 +31,4 @@ Message('Last written date = ' & vuFileDate(Filename, 2))
 - Earlier versions of this function returned the date as `YYYYMMDD`.  
 - Current versions return the date in standard Clarion date format.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

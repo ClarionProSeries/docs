@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCPUusage()
 
@@ -31,4 +31,4 @@ MESSAGE('CPU usage = ' & xPct & '%')
 - The function name in older documentation was incorrectly listed as `vuCPUSpeed`.  
 - The correct name is `vuCPUusage`.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

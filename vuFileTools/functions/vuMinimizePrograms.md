@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMinimizePrograms(Minimize)
 
@@ -36,4 +36,4 @@ vuMinimizePrograms(0)
 - When called with `0`, programs minimized by the call will be restored.  
 - Programs already minimized before the call will remain minimized after restoration.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

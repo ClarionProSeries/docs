@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShellDelay(pFile, DelayMS)
 
@@ -46,4 +46,4 @@ Uses the Windows shell, so file associations (e.g., .txt with Notepad) are honor
 
 Useful when you need to defer launching to let dependencies initialize.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

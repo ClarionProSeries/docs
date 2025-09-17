@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetNextDriveAuto(pRootPath, pDriveType)
 
@@ -74,4 +74,4 @@ Msg           CSTRING(100)
 - Drive type constants align with Windows values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.  
 - For scenarios requiring explicit control of setup and teardown, use the three-call sequence instead.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

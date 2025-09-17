@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindowHandle(WinName)
 
@@ -39,4 +39,4 @@ END
 - Useful for checking if a program is running by searching for its main window title.  
 - Combine with other functions like `vuWindow2BmpEx` to capture or manipulate the found window.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

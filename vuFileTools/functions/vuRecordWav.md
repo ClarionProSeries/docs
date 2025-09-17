@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRecordWav(Start, Filename)
 
@@ -40,4 +40,4 @@ vuRecordWav(0, Filename)
 - Creates an 8-bit, 11025 Hz sample rate WAV file.  
 - Overwrites the specified file if it already exists.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

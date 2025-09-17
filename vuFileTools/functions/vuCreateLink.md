@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateLink(Location, LinkName, ProgramName, Arguments)
 
@@ -35,4 +35,4 @@ END
 - Once created, shortcuts can be copied anywhere.  
 - The **Send To** option (Location = 6) is useful for programs that take data files as parameters. After creating the link, right-click a file in Explorer, choose **Send To**, and drop it onto the shortcut to launch your program with that file as input.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

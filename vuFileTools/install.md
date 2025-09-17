@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Installation
@@ -57,5 +57,5 @@ C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory\LANSRAD\vuFileTools *
 
 Each demo folder contains the files relevant to that demo application.
 
-[Home](../index.md) | [All functions](all-functions.md) | [Categories](categories/index.md)
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 

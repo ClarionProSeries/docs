@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPlayWav(WavFile, Wait)
 
@@ -36,4 +36,4 @@ vuPlayWav(xWav, 1)
 - Allows synchronous or asynchronous playback.  
 - Useful when you want to pause program execution until the audio has finished (for example, as an attention cue before instructions).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

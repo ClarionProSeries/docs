@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuUnpack(FileName, Directory)
 
@@ -35,4 +35,4 @@ MESSAGE(CLIP(Count) & ' files were unpacked to ' & Directory)
 - Destination directory must exist or the call may fail.  
 - The unpacked files retain their original names inside the specified directory.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

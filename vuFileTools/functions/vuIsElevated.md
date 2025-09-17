@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIsElevated()
 
@@ -45,4 +45,4 @@ To check the type of elevation (standard user, elevated admin, or legacy admin),
 
 On systems with User Account Control (UAC), this indicates whether your process has an elevated token.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

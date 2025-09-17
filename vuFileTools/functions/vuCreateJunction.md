@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateJunction(JunctionPath, TargetDir)
 
@@ -63,4 +63,4 @@ The parent path of JunctionPath must exist or the call will fail.
 
 Junctions work only with directories and require NTFS file system.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

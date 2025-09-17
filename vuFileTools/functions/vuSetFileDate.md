@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetFileDate(FileName, Year, Month, Day, Hour, Minute, Second)
 
@@ -43,4 +43,4 @@ vuSetFileDate(FileName, 2004, 7, 18, 16, 0, 0)
 
 Ch
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

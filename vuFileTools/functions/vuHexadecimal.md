@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuHexadecimal(LongValue)
 
@@ -26,4 +26,4 @@ LongValue = 1234
 MESSAGE('Hex value = ' & vuHexadecimal(LongValue))   ! Returns 4D2
 ```
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

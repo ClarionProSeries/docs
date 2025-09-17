@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuProcessorCount()
 
@@ -30,4 +30,4 @@ MESSAGE('This PC has ' & vuProcessorCount() & ' processors')
 - Returns logical processor count, not physical CPU sockets.  
 - Useful for tuning applications that perform parallel or multi-threaded processing.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

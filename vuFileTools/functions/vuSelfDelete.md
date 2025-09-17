@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSelfDelete()
 
@@ -34,4 +34,4 @@ RETURN
 - This function enters a tight loop waiting for the process to terminate before deleting the executable file.  
 - Use with caution, as improper usage can leave the file locked and undeleted.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

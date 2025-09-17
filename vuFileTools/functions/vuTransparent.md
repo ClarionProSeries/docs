@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTransparent(hWindow, tValue)
 
@@ -41,4 +41,4 @@ END
 - Transparency is set using Windows "Layered Window Attributes."  
 - To get the window handle in Clarion, use the `PROP:Handle` property of the windows label.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

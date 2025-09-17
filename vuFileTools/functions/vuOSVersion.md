@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuOSVersion()
 
@@ -69,4 +69,4 @@ END
 - Older legacy codes such as 31, 95, 98, 99, and 350 are no longer returned by the current implementation. Systems not matched by the table will return 999.
 - If you need to distinguish additional Windows Server releases by build number, extend the internal mapping before returning the code.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

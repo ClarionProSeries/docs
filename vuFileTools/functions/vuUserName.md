@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuUserName()
 
@@ -29,4 +29,4 @@ MESSAGE(vuUserName() & ' is currently using this machine')
 - Returns the Windows login name of the user currently authenticated on the system.  
 - Useful for logging, personalization, or tracking user activity.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuVolumeLabel(tDir)
 
@@ -33,4 +33,4 @@ MESSAGE('The volume label of ' & tDir & ' is ' & Label)
 - Works with both local drives and network shares.  
 - Ensure `tDir` points to a valid root directory.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

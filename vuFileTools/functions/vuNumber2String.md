@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuNumber2String(Number)
 
@@ -29,4 +29,4 @@ MESSAGE('1234 in words is: ' & LOC:SpelledNo)
 ### Notes
 - Useful for converting numeric values to their word equivalents (for example, in checks or reports).
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,4 +1,4 @@
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuAnimateCloseRoll(hWindow, dwTime, L2R, R2L, T2B, B2T)
 
@@ -37,4 +37,4 @@ vuAnimateCloseRoll(hWindow, dwTime, 1, 0, 1, 0)
 - Requires Windows 2000 or higher.  
 - The animation only needs to be set once before the window is closed.
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

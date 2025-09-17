@@ -1,6 +1,6 @@
-# Drives and Storage
+# VUfILEtOOLS - Drives and Storage Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuDiskLabel](../functions/vuDiskLabel.md)
 - [vuDiskSerialNo](../functions/vuDiskSerialNo.md)
@@ -12,4 +12,4 @@
 - [vuVolumeLabel](../functions/vuVolumeLabel.md)
 - [vuVolumeSerialNo](../functions/vuVolumeSerialNo.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Drives and Storage](./drives-and-storage.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

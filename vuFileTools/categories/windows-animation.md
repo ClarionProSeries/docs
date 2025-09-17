@@ -1,6 +1,6 @@
-# Windows Animation
+# vuFileTools - Windows Animation Related Functions
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 - [vuAnimateCloseBlend](../functions/vuAnimateCloseBlend.md)
 - [vuAnimateCloseCenter](../functions/vuAnimateCloseCenter.md)
@@ -20,4 +20,4 @@
 - [vuTransparentOthers](../functions/vuTransparentOthers.md)
 - [vuWindowMove](../functions/vuWindowMove.md)
 
-[Home](../index.md) | [All functions](../all-functions.md) | [Categories](../categories/index.md) | [Category: Windows Animation](./windows-animation.md)
+[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
