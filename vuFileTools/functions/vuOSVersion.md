@@ -16,7 +16,7 @@ Returns the Windows Operating System version as a sequential number for easy com
 | None      |           | This function takes no parameters. |
 
 ### Returns
-A LONG value indicating the detected OS version:
+A SIGNED value indicating the detected OS version:
 
 | Value | OS Version            | Notes                                  |
 |-------|-----------------------|----------------------------------------|
