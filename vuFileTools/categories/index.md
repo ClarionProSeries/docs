@@ -1,5 +1,7 @@
 [Home](../index.md) | [All functions](../all-functions.md) | [Categories](./index.md)
 
+# vuFileTools - Categories
+
 - [Desktop and Other Functions](./desktop-and-other-functions.md)
 - [Drives and Storage](./drives-and-storage.md)
 - [Email](./email.md)
@@ -9,11 +11,9 @@
 - [Network Information](./network-information.md)
 - [Printer Information](./printer-info.md)
 - [Programs and Applications](./programs-and-applications.md)
-- [Registering the Template](./registering-the-template.md)
 - [Registry](./registry.md)
 - [String Manipulation and Data Conversion](./string-manipulation-and-data-conversion.md)
 - [System Information](./system-information.md)
-- [vuFileTools Introduction](./vufiletools-introduction.md)
 - [WAV Files](./wav-files.md)
 - [Windows Animation](./windows-animation.md)
 - [Windows Information](./windows-information.md)
