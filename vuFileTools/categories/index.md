@@ -2,7 +2,7 @@
 
 # vuFileTools - Categories
 
-_This section is a work in progress and will be updated soon with more categories and all 200+ functions categorized!_
+*This section is a work in progress and will be updated soon with more categories and all 200+ functions categorized!*
 
 - [Desktop and Other Functions](./desktop-and-other-functions.md)
 - [Drives and Storage](./drives-and-storage.md)
