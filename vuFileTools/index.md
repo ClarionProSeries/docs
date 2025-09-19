@@ -8,7 +8,9 @@ Release date: 2025-09-15
 
 Copyright (c) 2025 Clarion ProSeries by LANSRAD. All rights reserved.
 
-![vuFileTools logo](assets/images/vuFileTools270x90.png)
+[![vuFileTools logo](assets/images/vuFileTools270x90.png)](https://www.clarionproseries.com/html/vufiletools.html)  
+
+[Visit the vuFileTools product page](https://www.clarionproseries.com/html/vufiletools.html)
 
 This documentation covers the functions available in vuFileTools. 
 
@@ -36,4 +38,3 @@ https://clarionproseries.github.io/docs/vuFileTools/
 ```
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
-
