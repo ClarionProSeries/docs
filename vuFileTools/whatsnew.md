@@ -1,0 +1,62 @@
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+
+# What's New in vuFileTools
+
+Version: 5.0  
+Release date: 2025-09-15
+
+This page highlights new items in the v5 cycle and links to their reference topics.
+
+## New in Version 5
+
+- [vuIsNTFSCompressed](functions/vuIsNTFSCompressed.md)
+- [vuSetNTFSCompression](functions/vuSetNTFSCompression.md)
+- [vuPrimaryLinkSpeed](functions/vuPrimaryLinkSpeed.md)
+- [vuIsNetworkSlow](functions/vuIsNetworkSlow.md)
+- [vuCreateHardLink](functions/vuCreateHardLink.md)
+- [vuCreateSymbolicLink_File](functions/vuCreateSymbolicLink_File.md)
+- [vuCreateSymbolicLink_Dir](functions/vuCreateSymbolicLink_Dir.md)
+- [vuCreateJunction](functions/vuCreateJunction.md)
+- [vuAddStartupShortcut](functions/vuAddStartupShortcut.md)
+- [vuRemoveStartupShortcut](functions/vuRemoveStartupShortcut.md)
+- [vuEnumerateStartupItems](functions/vuEnumerateStartupItems.md)
+- [vuGetStartupItem](functions/vuGetStartupItem.md)
+- [vuGetStartupFolder](functions/vuGetStartupFolder.md)
+- [vuRunExists](functions/vuRunExists.md)
+- [vuRunExistsEx](functions/vuRunExistsEx.md)
+- [vuPrintExists](functions/vuPrintExists.md)
+- [vuPrintExistsEx](functions/vuPrintExistsEx.md)
+- [vuRunDelay](functions/vuRunDelay.md)
+- [vuRunEx](functions/vuRunEx.md)
+- [vuRunExDelay](functions/vuRunExDelay.md)
+- [vuShellEx](functions/vuShellEx.md)
+- [vuShellDelay](functions/vuShellDelay.md)
+- [vuShellExDelay](functions/vuShellExDelay.md)
+- [vuPrintToExists](functions/vuPrintToExists.md)
+- [vuPrintToExistsEx](functions/vuPrintToExistsEx.md)
+- [vuPrintExistsShow](functions/vuPrintExistsShow.md)
+- [vuGetDriveSpace](functions/vuGetDriveSpace.md)
+- [vuGetVolumeLabel](functions/vuGetVolumeLabel.md)
+- [vuExtractFileNameEx](functions/vuExtractFileNameEx.md)
+- [vuExplorerFileType](functions/vuExplorerFileType.md)
+- [vuIsElevated](functions/vuIsElevated.md)
+- [vuElevationType](functions/vuElevationType.md)
+- [vuIsFolderCompressed](functions/vuIsFolderCompressed.md)
+- [vuCreateCompressedFolder](functions/vuCreateCompressedFolder.md)
+- [vuSetFolderCompression](functions/vuSetFolderCompression.md)
+- [vuFileExists](functions/vuFileExists.md)
+- [vuFileExistsEx](functions/vuFileExistsEx.md)
+- [vuEnumerateFolderA](functions/vuEnumerateFolderA.md)
+- [vuGetEnumeratedEntryA](functions/vuGetEnumeratedEntryA.md)
+- [vuStartDriveEnum](functions/vuStartDriveEnum.md)
+- [vuGetNextDrive](functions/vuGetNextDrive.md)
+- [vuEndDriveEnum](functions/vuEndDriveEnum.md)
+- [vuGetNextDriveAuto](functions/vuGetNextDriveAuto.md)
+- [vuStartDriveEnumEx](functions/vuStartDriveEnumEx.md)
+- [vuGetNextDriveEx](functions/vuGetNextDriveEx.md)
+- [vuEndDriveEnumEx](functions/vuEndDriveEnumEx.md)
+- [vuGetNextDriveExAuto](functions/vuGetNextDriveExAuto.md)
+- [vuGetDriveList](functions/vuGetDriveList.md)
+- [vuGetDriveListEx](functions/vuGetDriveListEx.md)
+
+[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

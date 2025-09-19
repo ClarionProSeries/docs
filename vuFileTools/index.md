@@ -2,17 +2,17 @@
 
 # vuFileTools
 
-Version: 5.0  
+Version: 5.0
 
 Release date: 2025-09-15
 
 Copyright (c) 2025 Clarion ProSeries by LANSRAD. All rights reserved.
 
-[![vuFileTools logo](assets/images/vuFileTools270x90.png)](https://www.clarionproseries.com/html/vufiletools.html)  
+[![vuFileTools logo](assets/images/vuFileTools270x90.png)](https://www.clarionproseries.com/html/vufiletools.html)
 
 [Visit the vuFileTools product page](https://www.clarionproseries.com/html/vufiletools.html)
 
-This documentation covers the functions available in vuFileTools. 
+This documentation covers the functions available in vuFileTools.
 
 Use the links below to browse the documentation.
 
@@ -21,11 +21,13 @@ Use the links below to browse the documentation.
 - [Installation Instructions](install.md)
 - [Registering the Template](template-registration.md)
 - [Using the Template in Your Application](template-usage.md)
-- [Deployment](deployment.md)  
+- [Deployment](deployment.md)
 - [View All Functions](functions/index.md)
 - [View Functions by Category](categories/index.md)
+- [What's New](whatsnew.md)
 - [Version History](version-history.md)
 - [Support](support.md)
+- [About ProHelp Studio](ProHelpStudio.md)
 
 For the most up-to-date documentation:
 
