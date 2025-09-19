@@ -27,7 +27,7 @@ Use the links below to browse the documentation.
 - [What's New](whatsnew.md)
 - [Version History](version-history.md)
 - [Support](support.md)
-- [About ProHelp Studio](ProHelpStudio.md)
+- [About ProHelp Studio](prohelpstudio.md)
 
 For the most up-to-date documentation:
 
