@@ -1,3 +1,14 @@
+---
+title: "vuAddStartupShortcut"
+summary: "Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts."
+description: "Reference for vuAddStartupShortcut in vuFileTools v5, including prototype, parameters, return values, and usage examples."
+keywords: ["vuFileTools", "Clarion", "Windows", "startup", "shortcut", "ShellLink", "IShellLink", "lnk", "automation", "developer tools"]
+function_name: "vuAddStartupShortcut"
+category: "Startup Management"
+version_added: "5.0"
+last_updated: "2025-09-22"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuAddStartupShortcut(Target, Params, WorkDir, ShowCmd, LinkName, Scope)
@@ -5,7 +16,6 @@
 ```Prototype
 vuAddStartupShortcut(*CSTRING,*CSTRING,*CSTRING,LONG,*CSTRING,LONG), LONG
 ```
-
 
 ## Description
 Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts.
