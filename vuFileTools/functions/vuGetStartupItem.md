@@ -1,3 +1,18 @@
+---
+title: "vuGetStartupItem"
+summary: "Retrieves information about a specific startup item, including its name, path, and type."
+description: "Retrieves information about a specific startup item, including its name, path, and type. Use in combination with `vuEnumerateStartupItems` to list all startup entries. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._ ### Returns
+A LONG value indicating the type of startup item: - 0: File shortcut (.lnk)  
+- 1: Registry RUN entry  
+- 2: Registry RUNONCE entry  
+- Other: Unknown type   ### Example Notes Call vuEnumerateStartupItems first to get the count of items for a given scope. Index is 1-based; passing an invalid index will fail. Buffers must be preallocated to a sufficient size. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "about", "path", "retrieves", "including", "type", "information", "general", "specific", "vugetstartupitem", "item", "Clarion"]
+function_name: "vuGetStartupItem"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetStartupItem(Scope, Index, NameBuf, cchName, PathBuf, cchPath)

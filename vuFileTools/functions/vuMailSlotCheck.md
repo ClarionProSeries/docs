@@ -1,3 +1,20 @@
+---
+title: "vuMailSlotCheck"
+summary: "Checks the specified mail slot for pending messages and places the next message (if any) into `dBuffer`."
+description: "Checks the specified mail slot for pending messages and places the next message (if any) into `dBuffer`. ### Parameters ### Returns
+- -1 on error  
+- 0 if no messages are pending  
+- Otherwise, the number of pending messages (including the one copied into `dBuffer`)   ### Example ### Notes
+- The demo application included with vuFileTools shows a practical example of using mail slots for inter-process communication.  
+- Mail slots can be used for one application to send data to and manipulate another application.  
+- For more details, refer to the separate mail slots write-up included with the distribution package. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["places", "vuFileTools", "message", "vumailslotcheck", "into", "specified", "dbuffer", "messages", "general", "next", "mail", "slot"]
+function_name: "vuMailSlotCheck"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotCheck(SlotName, dBuffer)

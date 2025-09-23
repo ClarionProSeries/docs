@@ -1,3 +1,15 @@
+---
+title: "vuKeepChars"
+summary: "Returns a modified version of `Strg` containing only those characters found in `Chars`."
+description: "Returns a modified version of `Strg` containing only those characters found in `Chars`. Useful for extracting digits or identifiers from strings with mixed content. ### Parameters ### Returns
+A CSTRING containing only the characters from `Strg` that match those listed in `Chars`. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["modified", "version", "vuFileTools", "those", "characters", "strg", "containing", "vukeepchars", "general", "returns", "only", "chars"]
+function_name: "vuKeepChars"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuKeepChars(Strg, Chars)

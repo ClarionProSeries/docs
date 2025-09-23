@@ -1,3 +1,13 @@
+---
+title: "What's New in vuFileTools"
+summary: "Version: 5."
+description: "Version: 5.0  
+Release date: 2025-09-15"
+keywords: ["documentation", "what", "vufiletools", "Clarion", "vuFileTools", "version"]
+page_type: "release-notes"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # What's New in vuFileTools
@@ -23,7 +33,7 @@ This page highlights new items in the v5 cycle and links to their reference topi
 | [vuRemoveStartupShortcut](functions/vuRemoveStartupShortcut.md) | Removes a shortcut (.lnk file) from the Windows Startup folder. |
 | [vuEnumerateStartupItems](functions/vuEnumerateStartupItems.md) | Begins enumeration of startup items in the Windows Startup folder. |
 | [vuGetStartupItem](functions/vuGetStartupItem.md) | Retrieves information about the current startup item during enumeration. |
-| [vuGetStartupFolder](functions/vuGetStartupFolder.md) | Returns the path to the current user’s Startup folder. |
+| [vuGetStartupFolder](functions/vuGetStartupFolder.md) | Returns the path to the current user's Startup folder. |
 | [vuRunExists](functions/vuRunExists.md) | Checks if a given executable file exists on the system path or at a specified location. |
 | [vuRunExistsEx](functions/vuRunExistsEx.md) | Extended version of `vuRunExists` that supports additional parameters and search modes. |
 | [vuPrintExists](functions/vuPrintExists.md) | Checks if a printer with the specified name exists. |
@@ -34,7 +44,7 @@ This page highlights new items in the v5 cycle and links to their reference topi
 | [vuShellEx](functions/vuShellEx.md) | Executes a shell command using the Windows ShellExecute API. |
 | [vuShellDelay](functions/vuShellDelay.md) | Executes a shell command after a specified delay. |
 | [vuShellExDelay](functions/vuShellExDelay.md) | Executes a shell command with extended options and a delay. |
-| [vuPrintToExists](functions/vuPrintToExists.md) | Checks if a “Print To” device exists in Windows. |
+| [vuPrintToExists](functions/vuPrintToExists.md) | Checks if a "Print To" device exists in Windows. |
 | [vuPrintToExistsEx](functions/vuPrintToExistsEx.md) | Extended version of `vuPrintToExists` with additional checks. |
 | [vuPrintExistsShow](functions/vuPrintExistsShow.md) | Displays whether a specified printer exists using a Windows message box. |
 | [vuGetDriveSpace](functions/vuGetDriveSpace.md) | Retrieves total and available space for the specified drive. |

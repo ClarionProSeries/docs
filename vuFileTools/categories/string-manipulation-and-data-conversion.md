@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - String Manipulation and Data Conversion Related Functions"
+summary: "Home | All functions | Categories"
+description: "Home | All functions | Categories"
+keywords: ["manipulation", "vuFileTools", "data", "functions", "categories", "Clarion", "conversion", "string", "home", "vufiletools", "related"]
+page_type: "category"
+last_updated: "2025-09-23"
+---
+
 # vuFileTools - String Manipulation and Data Conversion Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

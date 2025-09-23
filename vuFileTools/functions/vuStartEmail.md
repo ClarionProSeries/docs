@@ -1,3 +1,19 @@
+---
+title: "vuStartEmail"
+summary: "Uses the `MailTo` protocol to start the default desktop email client with the specified recipient, subject, and body text."
+description: "Uses the `MailTo` protocol to start the default desktop email client with the specified recipient, subject, and body text. The user must manually send the email. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example **Note:** Opens the default desktop email client registered for the `MailTo` protocol.  
+- The email is pre-filled with the specified values, but the user must press **Send** manually.  
+- May not work if no desktop email client is installed or associated with `MailTo`. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "start", "email", "specified", "default", "Clarion", "with", "recipient", "desktop", "uses", "protocol", "vustartemail"]
+function_name: "vuStartEmail"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuStartEmail(Address, Subject, Message)

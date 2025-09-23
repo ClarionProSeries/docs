@@ -1,3 +1,16 @@
+---
+title: "vuGetStartupFolder"
+summary: "Retrieves the file system paths for the current users Startup folder and the common (all users) Startup folder."
+description: "Retrieves the file system paths for the current users Startup folder and the common (all users) Startup folder. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._ ### Returns
+A LONG value indicating the result: - 1: Success  
+- 0: Failure   ### Example Notes Both user and common startup folders are returned in one call. Use with vuAddStartupShortcut and vuRemoveStartupShortcut for complete startup management. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["current", "vuFileTools", "paths", "users", "vugetstartupfolder", "retrieves", "common", "general", "folder", "system", "Clarion", "startup"]
+function_name: "vuGetStartupFolder"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetStartupFolder(UserPath, cchUser, CommonPath, cchCommon)

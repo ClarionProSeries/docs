@@ -1,3 +1,18 @@
+---
+title: "vuPack"
+summary: "Takes all files matching the specified file mask and combines them into a single file."
+description: "Takes all files matching the specified file mask and combines them into a single file. ### Parameters ### Returns
+A LONG value containing the number of files successfully packed. ### Example ### Notes
+- Wildcards are supported in `FileMask` for selecting multiple files.  
+- Packed files are appended into the target file in sequence.  
+- Use `vuCompress()` after packing to compress or optionally encrypt the packed file. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "into", "matching", "specified", "mask", "single", "general", "vupack", "takes", "combines", "Clarion", "them"]
+function_name: "vuPack"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPack(FileMask, FileName)

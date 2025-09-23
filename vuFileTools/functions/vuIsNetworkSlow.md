@@ -1,3 +1,17 @@
+---
+title: "vuIsNetworkSlow"
+summary: "Determines whether the primary network connection is slower than a specified threshold."
+description: "Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by `vuPrimaryLinkSpeed()`. ### Parameters ### Returns
+- 1: Network speed is below the threshold (slow)  
+- 0: Network speed meets or exceeds the threshold  
+- -1: Network speed could not be determined   ### Example Notes Relies on the value from vuPrimaryLinkSpeed(). Useful for adaptive behavior when running on slower networks. Ch [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "slower", "specified", "network", "connection", "whether", "than", "vuisnetworkslow", "general", "primary", "threshold", "Clarion"]
+function_name: "vuIsNetworkSlow"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIsNetworkSlow(Threshold)

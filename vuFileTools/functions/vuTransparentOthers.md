@@ -1,3 +1,19 @@
+---
+title: "vuTransparentOthers"
+summary: "Sets the layered window attribute on all other running windows whose primary title contains `NameContains`, and applies the specified transparency level."
+description: "Sets the layered window attribute on all other running windows whose primary title contains `NameContains`, and applies the specified transparency level. ### Parameters ### Returns
+A LONG value containing the number of windows found that matched the criteria. ### Example ### Notes
+- Requires Windows 2000 or higher.
+- The first call on a visible window may cause a brief flash. Subsequent calls should not flash.
+- Uses Windows layered window attributes to apply per-window alpha.
+- If `NameContains` is blank, the function will target all other running windows. Use with caution. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "whose", "title", "vutransparentothers", "window", "attribute", "other", "running", "contains", "windows", "specified", "sets"]
+function_name: "vuTransparentOthers"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuTransparentOthers(NameContains, Transparency)

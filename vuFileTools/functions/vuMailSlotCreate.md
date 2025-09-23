@@ -1,3 +1,20 @@
+---
+title: "vuMailSlotCreate"
+summary: "Creates a mail slot in your application for receiving messages from other applications on the same PC or within the same domain."
+description: "Creates a mail slot in your application for receiving messages from other applications on the same PC or within the same domain. ### Parameters ### Returns
+A LONG value representing the number of current mail slots active on the PC if successful.  
+Returns -1 on error. ### Example ### Notes
+- Mail slots provide a simple way to pass data between applications.  
+- Messages sent to a mail slot can be broadcast to multiple recipients simultaneously.  
+- You can send data as a group or queue, allowing any kind of structured data to be passed.  
+- Mail slots use datagrams and do not guarantee delivery. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "creates", "applications", "messages", "from", "general", "within", "mail", "same", "slot", "Clarion", "receiving"]
+function_name: "vuMailSlotCreate"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotCreate(SlotName)

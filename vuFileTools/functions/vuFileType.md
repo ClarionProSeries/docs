@@ -1,3 +1,22 @@
+---
+title: "vuFileType"
+summary: "Determines the executable type of a file based on its contents, not its extension."
+description: "Determines the executable type of a file based on its contents, not its extension. ### Parameters ### Returns
+One of the following values:  
+- 64 = 64-bit executable program  
+- 32 = 32-bit executable program  
+- 16 = 16-bit executable program  
+- 8 = DOS executable  
+- 1 = OS/2 or POSIX executable  
+- 0 = Not an executable program   ### Example ### Notes
+- Requires Windows 2000 or higher. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["contents", "vufiletype", "vuFileTools", "type", "executable", "extension", "system", "Clarion", "based", "determines", "Windows", "file"]
+function_name: "vuFileType"
+category: "File System"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileType(FileName)

@@ -1,3 +1,19 @@
+---
+title: "vuSetFileDate"
+summary: "Sets the date and time attributes of a specified file."
+description: "Sets the date and time attributes of a specified file. Updates creation, last modified, and last accessed timestamps. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- All three file time attributes (created, modified, accessed) are updated to the specified date and time.  
+- File must already exist or the call will fail.   Ch [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "specified", "attributes", "general", "sets", "Clarion", "date", "Windows", "vusetfiledate", "time", "file"]
+function_name: "vuSetFileDate"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetFileDate(FileName, Year, Month, Day, Hour, Minute, Second)

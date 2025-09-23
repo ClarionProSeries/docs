@@ -1,3 +1,16 @@
+---
+title: "vuQuotes"
+summary: "Returns the specified string with leading and trailing quotation marks added."
+description: "Returns the specified string with leading and trailing quotation marks added. ### Parameters ### Returns
+A CSTRING containing the input string wrapped in quotation marks. ### Example ### Notes
+- Always adds one leading and one trailing double-quote character. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["string", "vuFileTools", "specified", "general", "returns", "leading", "quotation", "marks", "added", "Clarion", "trailing", "with"]
+function_name: "vuQuotes"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuQuotes(Strg)

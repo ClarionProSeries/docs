@@ -1,3 +1,18 @@
+---
+title: "vuRunExDelay"
+summary: "Runs an external program with optional parameters and working directory after a specified delay."
+description: "Runs an external program with optional parameters and working directory after a specified delay.  
+This is similar to `vuRunEx`, but it allows you to delay execution for a defined number of milliseconds. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- Process handle (greater than 0) if the program started successfully.  
+- 0 if the process could not be started.  
+- Negative values may indicate errors such as invalid arguments or access denied. ### Example Notes Use this when you need to stagger execution, such as waiting for a file to become available. The delay is applied once before the program is launched. ShowCmd values follow the Windows API ShowWindow constants (e.g., 0 = hidden, 1 = normal, 3 = maximized). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["external", "vuFileTools", "program", "optional", "delay", "parameters", "specified", "directory", "after", "working", "general", "with"]
+function_name: "vuRunExDelay"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunExDelay(pFile, pParams, pWork, ShowCmd, DelayMS)

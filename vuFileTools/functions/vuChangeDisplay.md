@@ -1,3 +1,20 @@
+---
+title: "vuChangeDisplay"
+summary: "Tests or dynamically changes the PCs display settings (width, height, and color depth)."
+description: "Tests or dynamically changes the PCs display settings (width, height, and color depth). This function ensures only supported settings are applied. Unsupported combinations of width, height, depth, or refresh rate will return a failure. Use this function to set screen resolution and restore it when your program exits. ### Parameters ### Returns
+- 0 = Change failed (invalid or unsupported parameters)  
+- 1 = Change successful  
+- 2 = Change successful, but reboot required   ### Examples ### Notes
+- Restore is valid only if the original action was 0.  
+- If the original action was 1, changes are permanent.  
+- On systems that forbid dynamic screen changes, the function may return 2 (reboot required). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["height", "vuFileTools", "changes", "color", "depth", "settings", "vuchangedisplay", "display", "general", "width", "Clarion", "Windows"]
+function_name: "vuChangeDisplay"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuChangeDisplay(Depth, Width, Height, Action)

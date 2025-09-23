@@ -1,3 +1,18 @@
+---
+title: "vuPrintToExistsEx"
+summary: "Sends a file to the specified printer and waits for confirmation that the print job was queued."
+description: "Sends a file to the specified printer and waits for confirmation that the print job was queued.  
+This function allows you to specify how long to wait and how often to poll for the print job status. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- 1 if the print job was detected in the queue within the specified wait time.  
+- 0 if the print job was not detected.  
+- Negative values may indicate errors such as access denied, invalid arguments, or printer not found. ### Example Notes Use this when you need to confirm that a print job has been queued within a specific timeframe. The polling mechanism provides more reliable confirmation than vuPrintToExists in busy environments. Ensure the printer is accessible and properly configured. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["waits", "vuFileTools", "specified", "that", "general", "print", "confirmation", "vuprinttoexistsex", "Clarion", "sends", "queued", "Windows"]
+function_name: "vuPrintToExistsEx"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrintToExistsEx(pFile, WaitSeconds, PollMS, pPrinter)

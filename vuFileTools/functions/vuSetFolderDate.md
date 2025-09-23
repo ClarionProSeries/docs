@@ -1,3 +1,19 @@
+---
+title: "vuSetFolderDate"
+summary: "Sets the date and time attributes of a specified folder."
+description: "Sets the date and time attributes of a specified folder. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- Updates the folders date and time attributes.  
+- Folder must already exist or the call will fail. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vusetfolderdate", "vuFileTools", "specified", "attributes", "general", "folder", "sets", "Clarion", "date", "Windows", "time"]
+function_name: "vuSetFolderDate"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetFolderDate(FolderName, Year, Month, Day, Hour, Minute, Second)

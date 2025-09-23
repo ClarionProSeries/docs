@@ -1,3 +1,17 @@
+---
+title: "vuPrimaryLinkSpeed"
+summary: "Retrieves the speed of the primary network connection, in megabits per second (Mbps)."
+description: "Retrieves the speed of the primary network connection, in megabits per second (Mbps). ### Parameters ### Returns
+- Positive value: Connection speed in Mbps  
+- Zero: Unknown speed or not connected  
+- Negative value: Error occurred   ### Example Notes Returns the speed of the currently active primary adapter. Useful for checking connection performance and for threshold-based network checks. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "second", "vuprimarylinkspeed", "speed", "network", "retrieves", "connection", "megabits", "primary", "general", "Clarion", "mbps"]
+function_name: "vuPrimaryLinkSpeed"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrimaryLinkSpeed()

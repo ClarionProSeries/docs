@@ -1,3 +1,19 @@
+---
+title: "vuPlayWav"
+summary: "Plays a `."
+description: "Plays a `.wav` audio file and optionally waits for playback to complete before returning. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- Allows synchronous or asynchronous playback.  
+- Useful when you want to pause program execution until the audio has finished (for example, as an attention cue before instructions). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "vuplaywav", "general", "Clarion", "plays", "Windows"]
+function_name: "vuPlayWav"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPlayWav(WavFile, Wait)

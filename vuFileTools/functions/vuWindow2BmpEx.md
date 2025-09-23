@@ -1,3 +1,20 @@
+---
+title: "vuWindow2BmpEx"
+summary: "Saves any window as a bitmap file, given its window handle."
+description: "Saves any window as a bitmap file, given its window handle. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A BYTE value:  
+- `True` if the window was successfully saved.  
+- `False` if the operation failed. ### Example ### Notes
+- Works with any window handle, not just the active window.  
+- Ensure you provide a valid window handle before calling this function.  
+- Always specify a fully qualified filename including the `.bmp` extension. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuwindow", "bmpex", "vuFileTools", "given", "management", "handle", "file", "window", "Clarion", "saves", "Windows", "bitmap"]
+function_name: "vuWindow2BmpEx"
+category: "Window Management"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindow2BmpEx(hWindow, BMPFile)

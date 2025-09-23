@@ -1,3 +1,20 @@
+---
+title: "vuElevationType"
+summary: "Determines the type of user token for the current process."
+description: "Determines the type of user token for the current process.  
+This function is often used together with `vuIsElevated()` to better understand the privilege level of your application. ### Parameters ### Returns
+A LONG value indicating the elevation type:  
+- 1 = Limited (Standard User)  
+- 2 = Elevated (Admin Token)  
+- 3 = UAC Disabled or Legacy Admin  
+- 0 or negative = Error determining elevation type   ### Example Notes Use vuIsElevated() first to determine if the process is elevated. vuElevationType() provides more detail about the specific elevation context. Helps you adjust program behavior depending on whether UAC is enabled or disabled. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["current", "vuFileTools", "vuelevationtype", "token", "user", "type", "general", "Clarion", "determines", "Windows", "process"]
+function_name: "vuElevationType"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuElevationType()

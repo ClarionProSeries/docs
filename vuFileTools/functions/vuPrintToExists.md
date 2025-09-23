@@ -1,3 +1,18 @@
+---
+title: "vuPrintToExists"
+summary: "Sends a file to the specified printer and checks whether the print job was successfully queued."
+description: "Sends a file to the specified printer and checks whether the print job was successfully queued.  
+Useful for confirming that print requests are reaching the intended printer. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- 1 if the print job was successfully queued.  
+- 0 if the print job failed.  
+- Negative values may indicate errors such as access denied or invalid arguments. ### Example Notes Ensure the target printer is installed and accessible on the system. The file specified must exist and be a valid format for the target printer. For asynchronous or delayed checks, use vuPrintToExistsEx. # vuPrintToExists(pFile, pPrinter)"
+keywords: ["successfully", "vuFileTools", "specified", "printer", "whether", "queued", "general", "print", "Clarion", "sends", "checks", "Windows"]
+function_name: "vuPrintToExists"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuPrintToExists(pFile, pPrinter)

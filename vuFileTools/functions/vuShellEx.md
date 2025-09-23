@@ -1,3 +1,16 @@
+---
+title: "vuShellEx"
+summary: "Launches a file using the Windows shell (e."
+description: "Launches a file using the Windows shell (e.g., respects file associations) with optional parameters, working directory, and window display options. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._ ### Returns
+A LONG value indicating the result: - 1: Launched successfully  
+- 0: Failed to launch   ### Example Notes Uses the Windows shell, so file associations (e.g., .txt with Notepad) are honored. Typical ShowCmd values: 1 (normal), 3 (maximized), 7 (minimized no activate), 4/8 (show without activating). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["windows", "vuFileTools", "shell", "using", "Windows", "Clarion", "integration", "vushellex", "launches", "file"]
+function_name: "vuShellEx"
+category: "Shell Integration"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShellEx(pFile, pParams, pWork, ShowCmd)

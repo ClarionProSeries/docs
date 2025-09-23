@@ -1,3 +1,16 @@
+---
+title: "vuOctal"
+summary: "Converts a LONG value into its octal representation."
+description: "Converts a LONG value into its octal representation. ### Parameters ### Returns
+A CSTRING containing the octal representation of `LongValue`. ### Example ### Notes
+- The return value is a string representation of the octal number. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["converts", "vuFileTools", "value", "into", "long", "octal", "representation", "general", "Clarion", "vuoctal", "Windows"]
+function_name: "vuOctal"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuOctal(LongValue)

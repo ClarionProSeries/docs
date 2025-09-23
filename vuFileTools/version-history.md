@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Version History"
+summary: "*Newest versions and release dates are listed first*"
+description: "*Newest versions and release dates are listed first*"
+keywords: ["listed", "documentation", "versions", "history", "dates", "first", "vufiletools", "Clarion", "newest", "vuFileTools", "version", "release"]
+page_type: "changelog"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools - Version History

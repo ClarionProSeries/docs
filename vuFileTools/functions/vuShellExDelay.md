@@ -1,3 +1,18 @@
+---
+title: "vuShellExDelay"
+summary: "Runs an external program using the Windows Shell with optional parameters and working directory, after a specified delay."
+description: "Runs an external program using the Windows Shell with optional parameters and working directory, after a specified delay.  
+This is similar to `vuShellEx`, but execution is delayed by the given number of milliseconds. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- Process handle (greater than 0) if the program started successfully.  
+- 0 if the process could not be started.  
+- Negative values may indicate errors such as invalid arguments or access denied. ### Example Notes The Shell execution method allows launching documents with their associated applications (e.g., opening .txt with Notepad). Use when you need Shell integration (file associations) plus a timed delay before execution. ShowCmd values follow the Windows API ShowWindow constants (e.g., 0 = hidden, 1 = normal, 3 = maximized). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "shell", "external", "runs", "windows", "optional", "parameters", "specified", "directory", "Clarion", "integration", "with"]
+function_name: "vuShellExDelay"
+category: "Shell Integration"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShellExDelay(pFile, pParams, pWork, ShowCmd, DelayMS)

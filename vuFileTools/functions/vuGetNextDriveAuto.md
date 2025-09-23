@@ -1,3 +1,21 @@
+---
+title: "vuGetNextDriveAuto"
+summary: "Retrieves the next available drive and its type, with automatic start and cleanup."
+description: "Retrieves the next available drive and its type, with automatic start and cleanup.  
+Unlike the three-call sequence (`vuStartDriveEnum` / `vuGetNextDrive` / `vuEndDriveEnum`), this function lazily initializes the enumeration on the first call and automatically releases resources when there are no more drives. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- Nonzero if a drive was returned.  
+- 0 when there are no more drives to enumerate.  
+- Negative values may indicate an error. ### Example ### Notes
+- No separate `vuStartDriveEnum` or `vuEndDriveEnum` calls are required when using `vuGetNextDriveAuto`.  
+- Drive type constants align with Windows values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.  
+- For scenarios requiring explicit control of setup and teardown, use the three-call sequence instead. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "drive", "Clarion", "cleanup", "retrieves", "type", "available", "start", "general", "next", "vugetnextdriveauto", "with"]
+function_name: "vuGetNextDriveAuto"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetNextDriveAuto(pRootPath, pDriveType)

@@ -1,3 +1,20 @@
+---
+title: "vuSetAttributes"
+summary: "Sets or resets file attributes for the specified file or group of files."
+description: "Sets or resets file attributes for the specified file or group of files. Wildcards are supported. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- Applies to all files matching the file mask.  
+- Supports both single files and groups of files using wildcards.  
+- Useful for bulk resetting or updating file attributes programmatically. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["group", "vuFileTools", "vusetattributes", "specified", "attributes", "general", "sets", "Clarion", "resets", "Windows", "files", "file"]
+function_name: "vuSetAttributes"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetAttributes(FileMask, ReadOnly, Hidden, System, Archive)

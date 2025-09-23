@@ -1,3 +1,20 @@
+---
+title: "vuWindowsKey"
+summary: "Modifies the system registry to enable or disable the Windows key on the keyboard."
+description: "Modifies the system registry to enable or disable the Windows key on the keyboard. Changes take effect only after the computer is rebooted. ### Parameters ### Returns
+A BYTE value:  
+- `True` if the registry was successfully modified.  
+- `False` if the operation failed. ### Example ### Notes
+- Changes do not take effect until the computer is rebooted.  
+- Affects all users of the system.  
+- Use with caution, as it modifies the Windows registry. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["windows", "vuFileTools", "disable", "vuwindowskey", "management", "registry", "keyboard", "enable", "window", "Clarion", "modifies", "system"]
+function_name: "vuWindowsKey"
+category: "Window Management"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuWindowsKey(Disable)

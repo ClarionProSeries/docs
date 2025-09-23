@@ -1,3 +1,15 @@
+---
+title: "vuISOS64"
+summary: "Determines whether the operating system is 64-bit."
+description: "Determines whether the operating system is 64-bit. ### Parameters ### Returns
+1 (True) if the operating system is 64-bit, 0 (False) otherwise. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "whether", "general", "vuisos", "operating", "system", "Clarion", "determines", "Windows"]
+function_name: "vuISOS64"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuISOS64()

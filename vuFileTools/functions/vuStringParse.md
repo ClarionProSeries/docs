@@ -1,3 +1,17 @@
+---
+title: "vuStringParse"
+summary: "Parses a string based on the specified delimiter and returns the requested segment."
+description: "Parses a string based on the specified delimiter and returns the requested segment. The delimiter can be one or more characters. ### Parameters ### Returns
+A CSTRING containing the segment of `MainStrg` between the specified delimiters. ### Example ### Notes
+- If the segment number is greater than the number of segments available, an empty string may be returned.  
+- Supports multi-character delimiters.   Chat [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["string", "vustringparse", "vuFileTools", "specified", "delimiter", "returns", "segment", "parses", "Clarion", "based", "Windows", "utilities"]
+function_name: "vuStringParse"
+category: "String Utilities"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuStringParse(MainStrg, subStrg, Segment)

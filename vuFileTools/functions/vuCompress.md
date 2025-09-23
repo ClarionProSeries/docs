@@ -1,3 +1,15 @@
+---
+title: "vuCompress"
+summary: "Compresses a source file using the Huffman compression algorithm and saves it as the specified target file."
+description: "Compresses a source file using the Huffman compression algorithm and saves it as the specified target file. The source file remains unchanged. ### Parameters ### Returns
+1 (True) on success, 0 (False) on failure. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["target", "vuFileTools", "Clarion", "specified", "compresses", "compression", "general", "huffman", "source", "algorithm", "vucompress", "using"]
+function_name: "vuCompress"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCompress(SourceFile, TargetFile)

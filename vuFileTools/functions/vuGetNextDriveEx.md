@@ -1,3 +1,24 @@
+---
+title: "vuGetNextDriveEx"
+summary: "Retrieves extended information about the next available drive."
+description: "Retrieves extended information about the next available drive.  
+This function is part of the three-call extended enumeration sequence: 1. Call `vuStartDriveEnumEx()` to initialize.  
+2. Call `vuGetNextDriveEx()` in a loop until it returns 0.  
+3. Call `vuEndDriveEnumEx()` to clean up. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._ ### Returns
+- Nonzero if drive information was retrieved.  
+- 0 when no more drives are available.  
+- Negative values may indicate errors. ### Example ### Notes
+- `vuGetNextDriveEx()` provides more detail than `vuGetNextDrive()`, including labels, filesystem type, and space usage.  
+- The GROUP structure layout in the example matches what the DLL fills in.  
+- Always call `vuEndDriveEnumEx()` to release resources when finished.  
+- For a simpler approach without explicit start/end, use `vuGetNextDriveExAuto()`. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "drive", "about", "extended", "vugetnextdriveex", "retrieves", "available", "information", "general", "next", "Clarion", "Windows"]
+function_name: "vuGetNextDriveEx"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetNextDriveEx(pDriveInfo)

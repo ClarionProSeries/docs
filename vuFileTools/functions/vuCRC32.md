@@ -1,3 +1,15 @@
+---
+title: "vuCRC32"
+summary: "Calculates a 32-bit CRC (Cyclic Redundancy Check) for the provided parameter."
+description: "Calculates a 32-bit CRC (Cyclic Redundancy Check) for the provided parameter. If the parameter is a valid file path, the CRC is calculated on the file contents. Otherwise, the CRC is calculated on the provided value. ### Parameters ### Returns
+A ULONG containing the CRC32 value. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "cyclic", "vucrc", "general", "redundancy", "check", "Clarion", "provided", "calculates", "parameter", "Windows"]
+function_name: "vuCRC32"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCRC32(Filename)

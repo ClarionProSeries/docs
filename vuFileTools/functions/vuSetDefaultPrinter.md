@@ -1,3 +1,24 @@
+---
+title: "vuSetDefaultPrinter"
+summary: "Sets the PC's default printer to the printer specified by name."
+description: "Sets the PC's default printer to the printer specified by name. If the name is left blank, the first printer in the system list will be set as default. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- Requires Windows 2000 or higher.  
+- Use `vuGetDefaultPrinter()` to save the current default before switching.  
+- Typical usage pattern:  
+  1. Save the current default printer.  
+  2. Set a new default printer (for example, a label printer).  
+  3. Run an external program that outputs to the printer.  
+  4. Reset the default printer back to the original. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "specified", "general", "vusetdefaultprinter", "default", "sets", "Clarion", "name", "Windows", "printer"]
+function_name: "vuSetDefaultPrinter"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuSetDefaultPrinter(PrinterName)

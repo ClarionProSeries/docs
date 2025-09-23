@@ -1,3 +1,18 @@
+---
+title: "vuIsFolderCompressed"
+summary: "Checks whether a specified folder is NTFS-compressed."
+description: "Checks whether a specified folder is NTFS-compressed.  
+This allows applications to detect whether compression is applied at the folder level. ### Parameters ### Returns
+- 1 if the folder is NTFS compressed.  
+- 0 if the folder is not compressed.  
+- Negative values may indicate errors such as invalid arguments or path not found. ### Example Notes Works only on NTFS volumes. Use vuCreateCompressedFolder or vuSetFolderCompression to enable or change compression. If the folder path does not exist, the function will return an error. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "compressed", "specified", "ntfs", "whether", "general", "folder", "checks", "Clarion", "vuisfoldercompressed", "Windows"]
+function_name: "vuIsFolderCompressed"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIsFolderCompressed(zPath)

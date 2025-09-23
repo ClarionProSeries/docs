@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Template Usage"
+summary: "To use vuFileTools, add the global extension template to your application."
+description: "To use vuFileTools, add the global extension template to your application."
+keywords: ["documentation", "template", "application", "vufiletools", "Clarion", "global", "vuFileTools", "your", "extension", "usage"]
+page_type: "guide"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 

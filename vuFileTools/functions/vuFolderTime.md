@@ -1,3 +1,15 @@
+---
+title: "vuFolderTime"
+summary: "Returns the creation time of a folder in standard Clarion time format."
+description: "Returns the creation time of a folder in standard Clarion time format. ### Parameters ### Returns
+A LONG containing the folder creation time in standard Clarion time format. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["creation", "vuFileTools", "clarion", "general", "returns", "folder", "standard", "vufoldertime", "format", "Clarion", "Windows", "time"]
+function_name: "vuFolderTime"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFolderTime(FolderName)

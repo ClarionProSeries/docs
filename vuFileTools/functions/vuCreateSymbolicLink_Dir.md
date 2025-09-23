@@ -1,3 +1,20 @@
+---
+title: "vuCreateSymbolicLink_Dir"
+summary: "Creates a symbolic link (symlink) to an existing directory."
+description: "Creates a symbolic link (symlink) to an existing directory. A symlink acts as a shortcut at the file system level, allowing another folder path to point to the target directory. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A LONG value indicating the result: - 1: Success  
+- 0: Failure (generic)  
+- -5: Access denied  
+- -6: Invalid arguments  
+- -7: Target directory not found  
+- -9: Privilege not held (requires elevation or Developer Mode)   ### Example Notes The target directory must already exist. Symlink creation normally requires elevation (Administrator rights). On Windows 10 and later, Developer Mode allows unprivileged symlink creation when AllowUnpriv is set to 1. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "symbolic", "creates", "dir", "directory", "general", "link", "vucreatesymboliclink", "Clarion", "symlink", "Windows", "existing"]
+function_name: "vuCreateSymbolicLink_Dir"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateSymbolicLink_Dir(LinkPath, TargetDir, AllowUnpriv)

@@ -1,3 +1,12 @@
+---
+title: "All Functions"
+summary: "Comprehensive list of all vuFileTools functions with short descriptions and links to detailed reference topics."
+description: "This page provides an index of every function in vuFileTools v5, grouped in a table with concise descriptions and links to full reference documentation. Use it as the master reference hub for exploring available features."
+keywords: ["vuFileTools", "Clarion", "functions", "reference", "index", "documentation", "developer tools"]
+page_type: "function-index"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # All Functions

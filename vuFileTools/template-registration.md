@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Template Registration"
+summary: "When you run the installer it will offer to automatically register the template during the installation process."
+description: "When you run the installer it will offer to automatically register the template during the installation process. If you decide not to allow that, or if you need to re-register the template at a later time, follow these steps:"
+keywords: ["documentation", "template", "installer", "offer", "will", "vufiletools", "Clarion", "register", "registration", "vuFileTools", "during", "process"]
+page_type: "overview"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools - Template Registration

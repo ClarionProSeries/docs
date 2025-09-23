@@ -1,3 +1,20 @@
+---
+title: "vuRun"
+summary: "Runs a program using the Windows Shell with the specified window style and wait behavior."
+description: "Runs a program using the Windows Shell with the specified window style and wait behavior. This function is useful for launching support programs (for example, utilities or file conversions) in a controlled manner, including hidden execution. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- Useful for running external utilities or batch processes from your Clarion application.  
+- Setting `WStyle` to 0 runs the program completely hidden.  
+- Use `Wait = 1` when you need to pause execution until the external program finishes. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["windows", "vuFileTools", "program", "style", "shell", "specified", "general", "behavior", "vurun", "wait", "with", "Clarion"]
+function_name: "vuRun"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRun(Filename, WStyle, Wait)

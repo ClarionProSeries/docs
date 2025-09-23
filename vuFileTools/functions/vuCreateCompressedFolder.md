@@ -1,3 +1,18 @@
+---
+title: "vuCreateCompressedFolder"
+summary: "Creates a new folder at the specified path and enables NTFS compression on it."
+description: "Creates a new folder at the specified path and enables NTFS compression on it.  
+This is a convenient way to both create and compress a folder in one operation. ### Parameters ### Returns
+- 1 if the folder was successfully created and compressed.  
+- 0 if the operation failed.  
+- Negative values may indicate errors such as invalid arguments or access denied. ### Example Notes The parent directory must exist before calling this function. Works only on NTFS volumes. Use vuIsFolderCompressed to verify compression or vuSetFolderCompression to toggle compression state. ChatGPT [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "creates", "path", "specified", "ntfs", "compression", "general", "folder", "Windows", "Clarion", "vucreatecompressedfolder", "enables"]
+function_name: "vuCreateCompressedFolder"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateCompressedFolder(zPath)

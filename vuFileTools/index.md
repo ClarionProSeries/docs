@@ -1,3 +1,12 @@
+---
+title: "vuFileTools"
+summary: "Version: 5."
+description: "Version: 5.0"
+keywords: ["documentation", "vufiletools", "Clarion", "vuFileTools", "version"]
+page_type: "overview"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools

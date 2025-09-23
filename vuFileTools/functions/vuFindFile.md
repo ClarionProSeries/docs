@@ -1,3 +1,15 @@
+---
+title: "vuFindFile"
+summary: "Searches for a specific file name in one or more specified locations."
+description: "Searches for a specific file name in one or more specified locations. Multiple search locations can be provided by separating them with semicolons. ### Parameters ### Returns
+A CSTRING containing the fully qualified path and filename of the file if found, otherwise blank. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "specified", "more", "general", "specific", "file", "Clarion", "locations", "name", "Windows", "vufindfile", "searches"]
+function_name: "vuFindFile"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFindFile(FileName, LookIn)

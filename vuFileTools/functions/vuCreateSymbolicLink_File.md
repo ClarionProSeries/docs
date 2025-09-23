@@ -1,3 +1,20 @@
+---
+title: "vuCreateSymbolicLink_File"
+summary: "Creates a symbolic link (symlink) to an existing file."
+description: "Creates a symbolic link (symlink) to an existing file. A symlink acts as a shortcut at the file system level, allowing another path to point to the target file. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A LONG value indicating the result: - 1: Success  
+- 0: Failure (generic)  
+- -5: Access denied  
+- -6: Invalid arguments  
+- -7: Target file not found  
+- -9: Privilege not held (requires elevation or Developer Mode)   ### Example Notes The target file must already exist. Symlink creation normally requires elevation (Administrator rights). On Windows 10 and later, Developer Mode allows unprivileged symlink creation when AllowUnpriv is set to 1. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "symbolic", "creates", "existing", "general", "link", "vucreatesymboliclink", "Clarion", "symlink", "Windows", "file"]
+function_name: "vuCreateSymbolicLink_File"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateSymbolicLink_File(LinkPath, TargetFile, AllowUnpriv)

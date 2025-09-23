@@ -1,3 +1,17 @@
+---
+title: "vuAnimateCloseSlide"
+summary: "Animates the closing of a window by sliding in the specified direction(s)."
+description: "Animates the closing of a window by sliding in the specified direction(s). The animation duration is defined by `dwTime` in milliseconds. ### Parameters ### Returns
+1 (True) on success, 0 (False) on failure. ### Example ### Notes
+- Requires Windows 2000 or higher.  
+- The animation only needs to be set once before the window is closed. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "closing", "specified", "vuanimatecloseslide", "direction", "window", "Clarion", "animation", "Windows", "animates", "sliding"]
+function_name: "vuAnimateCloseSlide"
+category: "Window Animation"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuAnimateCloseSlide(hWindow, dwTime, L2R, R2L, T2B, B2T)

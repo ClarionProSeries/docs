@@ -1,3 +1,16 @@
+---
+title: "vuFlashWindow"
+summary: "Flashes the specified window (both its title bar and its taskbar button) the given number of times."
+description: "Flashes the specified window (both its title bar and its taskbar button) the given number of times. The flash rate is 4 per second. ### Parameters ### Returns
+1 (True) on success, 0 (False) on failure. ### Example ### Notes
+- Requires Windows 98 or higher. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuflashwindow", "vuFileTools", "number", "flashes", "both", "given", "specified", "title", "button", "general", "taskbar", "window"]
+function_name: "vuFlashWindow"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFlashWindow(hWindow, Count)

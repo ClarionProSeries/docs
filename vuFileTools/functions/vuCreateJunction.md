@@ -1,3 +1,20 @@
+---
+title: "vuCreateJunction"
+summary: "Creates a junction point that links one directory to another."
+description: "Creates a junction point that links one directory to another. A junction allows a folder to appear in multiple locations on the file system. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A LONG value indicating the result: - 1: Success  
+- 0: Failure (generic)  
+- -5: Access denied  
+- -6: Invalid arguments  
+- -7: Target directory not found  
+- -8: Junction creation process failure   ### Example Notes The target directory must already exist. The parent path of JunctionPath must exist or the call will fail. Junctions work only with directories and require NTFS file system. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "creates", "vucreatejunction", "links", "directory", "that", "point", "another", "general", "Clarion", "junction", "Windows"]
+function_name: "vuCreateJunction"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateJunction(JunctionPath, TargetDir)

@@ -1,3 +1,17 @@
+---
+title: "vuScreenHeight"
+summary: "Returns the current screen height in pixels."
+description: "Returns the current screen height in pixels. ### Parameters ### Returns
+A LONG value containing the current screen height (for example, 600, 768, 1024). ### Example ### Notes
+- Returns the vertical resolution of the primary display.  
+- Use together with `vuScreenWidth()` to determine full screen resolution. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["current", "height", "vuFileTools", "screen", "pixels", "general", "vuscreenheight", "returns", "Clarion", "Windows"]
+function_name: "vuScreenHeight"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuScreenHeight()

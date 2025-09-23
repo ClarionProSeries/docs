@@ -1,3 +1,18 @@
+---
+title: "vuProcessorCount"
+summary: "Returns the number of logical processors available on the system."
+description: "Returns the number of logical processors available on the system. ### Parameters ### Returns
+A LONG value containing the number of logical processors.  
+On systems with Hyper-Threading, each logical processor is counted (e.g., a single physical CPU with Hyper-Threading enabled may return 2). ### Example ### Notes
+- Returns logical processor count, not physical CPU sockets.  
+- Useful for tuning applications that perform parallel or multi-threaded processing. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "number", "logical", "processors", "management", "available", "returns", "system", "Clarion", "vuprocessorcount", "Windows", "process"]
+function_name: "vuProcessorCount"
+category: "Process Management"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuProcessorCount()

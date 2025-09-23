@@ -1,3 +1,16 @@
+---
+title: "vuEnumerateStartupItems"
+summary: "Enumerates all items in the Windows Startup folders."
+description: "Enumerates all items in the Windows Startup folders. Use this function to determine how many startup items exist for a given scope. ### Parameters ### Returns
+A LONG value indicating the number of startup items found.  
+Returns 0 if no items are found, or a negative value if an error occurs. ### Example Notes Use together with vuGetStartupItem to retrieve detailed information about each item. Scope 0 checks the current users Startup folder; scope 1 checks the system-wide Startup folder. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuenumeratestartupitems", "windows", "vuFileTools", "enumerates", "folders", "general", "items", "Clarion", "startup", "Windows"]
+function_name: "vuEnumerateStartupItems"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEnumerateStartupItems(Scope)

@@ -1,3 +1,21 @@
+---
+title: "vuGetNextDriveExAuto"
+summary: "Retrieves extended information about the next available drive with automatic initialization and cleanup."
+description: "Retrieves extended information about the next available drive with automatic initialization and cleanup.  
+Unlike the three-call sequence (`vuStartDriveEnumEx`, `vuGetNextDriveEx`, `vuEndDriveEnumEx`), this function handles start and end internally. It begins enumeration on the first call and frees resources automatically when no more drives are available. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._ ### Returns
+- Nonzero if drive information was retrieved.  
+- 0 when no more drives are available (also performs cleanup).  
+- Negative values may indicate errors. ### Example ### Notes
+- No separate `vuStartDriveEnumEx()` or `vuEndDriveEnumEx()` calls are required when using `vuGetNextDriveExAuto()`.  
+- Provides the same extended drive details as `vuGetNextDriveEx()`, but with simplified usage.  
+- Use this function for most scenarios unless you need explicit control of the enumeration lifecycle. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "drive", "about", "extended", "cleanup", "retrieves", "available", "information", "general", "next", "initialization", "vugetnextdriveexauto"]
+function_name: "vuGetNextDriveExAuto"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetNextDriveExAuto(pDriveInfo)

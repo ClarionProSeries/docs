@@ -1,3 +1,19 @@
+---
+title: "vuCreateHardLink"
+summary: "Creates a hard link to an existing file."
+description: "Creates a hard link to an existing file. A hard link allows two filenames to reference the same physical file data on disk. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A LONG value indicating the result: - 1: Success  
+- 0: Failure (generic)  
+- -5: Access denied  
+- -6: Invalid arguments  
+- -7: Target file not found   ### Example Notes The target file must already exist. The parent folder of LinkPath must exist or the call will fail. Requires NTFS file system. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "creates", "vucreatehardlink", "general", "link", "hard", "file", "Clarion", "Windows", "existing"]
+function_name: "vuCreateHardLink"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuCreateHardLink(LinkPath, TargetFile)

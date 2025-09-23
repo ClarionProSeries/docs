@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Programs and Application Related Functions"
+summary: "Home | All functions | Categories"
+description: "Home | All functions | Categories"
+keywords: ["vuFileTools", "functions", "categories", "application", "Clarion", "home", "programs", "vufiletools", "related"]
+page_type: "category"
+last_updated: "2025-09-23"
+---
+
 # vuFileTools - Programs and Application Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

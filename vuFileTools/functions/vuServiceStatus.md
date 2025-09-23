@@ -1,3 +1,27 @@
+---
+title: "vuServiceStatus"
+summary: "Returns the status of a Windows service on a specified client or server."
+description: "Returns the status of a Windows service on a specified client or server. Can also be used on the local system when no server name is provided. ### Parameters ### Returns
+A LONG value indicating the status of the service:  
+- -1 = Error (invalid server name, service name, not logged in, or insufficient rights)  
+- 0 = Service Stopped  
+- 1 = Service Stop Pending  
+- 2 = Service Paused  
+- 3 = Service Pause Pending  
+- 4 = Service Start Pending  
+- 5 = Service Continue Pending  
+- 6 = Service Running  
+- 99 = Other   ### Example ### Notes
+- Server name is case sensitive, service name is not.  
+- A failed call (such as when the service does not exist or the user lacks permissions) may take several seconds to return.  
+- Useful for monitoring critical Windows services locally or across the network. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["windows", "services", "vuFileTools", "client", "specified", "service", "status", "returns", "Clarion", "server", "Windows", "vuservicestatus"]
+function_name: "vuServiceStatus"
+category: "Services"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuServiceStatus(Server, Service)

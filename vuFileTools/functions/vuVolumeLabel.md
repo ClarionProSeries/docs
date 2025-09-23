@@ -1,3 +1,17 @@
+---
+title: "vuVolumeLabel"
+summary: "Returns the volume label of the specified root directory."
+description: "Returns the volume label of the specified root directory. Supports both mapped drives and UNC paths. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A CSTRING containing the volume label of the specified root directory. ### Example ### Notes
+- Works with both local drives and network shares.  
+- Ensure `tDir` points to a valid root directory. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["label", "vuFileTools", "specified", "vuvolumelabel", "directory", "volume", "root", "general", "returns", "Clarion", "Windows"]
+function_name: "vuVolumeLabel"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuVolumeLabel(tDir)

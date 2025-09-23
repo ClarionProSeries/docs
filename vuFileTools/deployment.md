@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Deployment and Usage"
+summary: "vuFileTools includes a small DLL that performs all the API operations for you."
+description: "vuFileTools includes a small DLL that performs all the API operations for you."
+keywords: ["documentation", "small", "vufiletools", "Clarion", "performs", "operations", "vuFileTools", "that", "includes", "deployment", "usage"]
+page_type: "guide"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 

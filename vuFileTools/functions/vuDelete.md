@@ -1,3 +1,19 @@
+---
+title: "vuDelete"
+summary: "Deletes one or more files or directories, with the option to include subdirectories and send items to the Recycle Bin."
+description: "Deletes one or more files or directories, with the option to include subdirectories and send items to the Recycle Bin. This function is extremely powerful and must be used with caution. ### Parameters ### Returns
+1 (True) on success, 0 (False) on failure. ### Example ### Notes
+- **Danger!** Misuse can result in catastrophic data loss.  
+- Example of destructive call (do **not** use):  
+  
+- Use only with explicit and validated file paths. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "directories", "subdirectories", "send", "deletes", "more", "vudelete", "recycle", "general", "option", "items", "include"]
+function_name: "vuDelete"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuDelete(FileSpec, Subdirs, RecycleBin)

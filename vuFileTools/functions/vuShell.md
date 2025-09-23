@@ -1,3 +1,17 @@
+---
+title: "vuShell"
+summary: "Runs a file with its associated executable."
+description: "Runs a file with its associated executable. For example, opening a Word document will launch Microsoft Word. ### Parameters ### Returns
+A LONG value containing the instance handle of the application that was run. ### Example ### Notes
+- Relies on the file association defined in Windows.  
+- The return value can be used as a handle reference for the launched process. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "Clarion", "shell", "associated", "executable", "with", "vushell", "integration", "runs", "Windows", "file"]
+function_name: "vuShell"
+category: "Shell Integration"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuShell(FileName)

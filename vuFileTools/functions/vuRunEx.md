@@ -1,3 +1,16 @@
+---
+title: "vuRunEx"
+summary: "Runs the specified file with optional command-line parameters, working directory, and window display options."
+description: "Runs the specified file with optional command-line parameters, working directory, and window display options. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._ ### Returns
+A LONG value indicating the result: - 1: File executed successfully  
+- 0: Failed to execute file   ### Example Notes Use ShowCmd to control how the launched application window is displayed (normal, minimized, maximized, etc.). If the working directory is empty, the system default is used. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["command", "optional", "vuFileTools", "vurunex", "specified", "parameters", "directory", "options", "display", "working", "general", "with"]
+function_name: "vuRunEx"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunEx(pFile, pParams, pWork, ShowCmd)

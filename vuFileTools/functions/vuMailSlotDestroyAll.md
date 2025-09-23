@@ -1,3 +1,19 @@
+---
+title: "vuMailSlotDestroyAll"
+summary: "Destroys all mail slots on the local PC."
+description: "Destroys all mail slots on the local PC. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure   ### Example ### Notes
+- Call this function when closing an application that uses mail slots.  
+- Ensures all mail slots are destroyed and system resources are released. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "slots", "destroys", "vumailslotdestroyall", "general", "mail", "local", "Clarion", "Windows"]
+function_name: "vuMailSlotDestroyAll"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotDestroyAll()

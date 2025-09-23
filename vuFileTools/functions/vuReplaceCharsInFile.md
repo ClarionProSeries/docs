@@ -1,3 +1,19 @@
+---
+title: "vuReplaceCharsInFile"
+summary: "Searches through a text file and replaces all occurrences of `OldStrg` with `NewStrg`."
+description: "Searches through a text file and replaces all occurrences of `OldStrg` with `NewStrg`. The replacement substring does not need to be the same length as the original. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) if successful  
+- 0 (False) on failure   ### Example ### Notes
+- Replaces **all** occurrences of `OldStrg` within the specified file.  
+- Be cautious when modifying files in place; make backups if necessary. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["oldstrg", "vuFileTools", "occurrences", "text", "general", "newstrg", "vureplacecharsinfile", "file", "Clarion", "through", "with", "replaces"]
+function_name: "vuReplaceCharsInFile"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuReplaceCharsInFile(FileName, OldStrg, NewStrg)

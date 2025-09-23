@@ -1,3 +1,18 @@
+---
+title: "vuFadeOut"
+summary: "Fades out a window over approximately one second when it is being closed."
+description: "Fades out a window over approximately one second when it is being closed. Typically used together with `vuTransparent` and `vuFadeIn` for full fade-in/fade-out effects. ### Parameters ### Returns
+1 (True) on success, 0 (False) on failure. ### Example ### Notes
+- Requires Windows 2000 or higher.  
+- A window may flash the first time this function is called, but subsequent calls (or other transparency functions) will not.  
+- The window handle is retrieved in Clarion using the `PROP:Handle` property of the windows label. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["closed", "vufadeout", "vuFileTools", "second", "being", "approximately", "general", "window", "Clarion", "over", "Windows", "when"]
+function_name: "vuFadeOut"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFadeOut(hWindow)

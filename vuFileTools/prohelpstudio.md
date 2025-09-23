@@ -1,3 +1,12 @@
+---
+title: "About ProHelp Studio"
+summary: "ProHelp Studio is our next-generation help authoring and publishing system."
+description: "ProHelp Studio is our next-generation help authoring and publishing system. It is built around Markdown, designed for developers who want simple, portable documentation without the complexity of legacy CHM workflows."
+keywords: ["studio", "documentation", "next", "help", "prohelp", "Clarion", "publishing", "vuFileTools", "generation", "authoring", "about", "system"]
+page_type: "overview"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # About ProHelp Studio

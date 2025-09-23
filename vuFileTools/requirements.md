@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Requirements"
+summary: "vuFileTools works with all versions of Clarion:"
+description: "vuFileTools works with all versions of Clarion:"
+keywords: ["documentation", "versions", "vufiletools", "Clarion", "requirements", "clarion", "vuFileTools", "with", "works"]
+page_type: "overview"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 

@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Installation"
+summary: "When you run the installer for vuFileTools it will attempt to find valid Clarion installations on your computer and let you choose which one to install the template for."
+description: "When you run the installer for vuFileTools it will attempt to find valid Clarion installations on your computer and let you choose which one to install the template for."
+keywords: ["will", "Clarion", "install", "vuFileTools", "find", "attempt", "valid", "your", "installation", "installations", "installer", "vufiletools"]
+page_type: "guide"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 

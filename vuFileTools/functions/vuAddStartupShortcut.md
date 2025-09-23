@@ -1,12 +1,18 @@
 ---
 title: "vuAddStartupShortcut"
-summary: "Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts."
-description: "Reference for vuAddStartupShortcut in vuFileTools v5, including prototype, parameters, return values, and usage examples."
-keywords: ["vuFileTools", "Clarion", "Windows", "startup", "shortcut", "ShellLink", "IShellLink", "lnk", "automation", "developer tools"]
+summary: "Creates a shortcut (."
+description: "Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._ ### Returns
+A LONG value indicating the result: - 1: Success  
+- 0: Failed  
+- -5: Access denied (not elevated)  
+- -6: Invalid arguments  
+- -7: Startup folder not found  
+- -8: COM or save failure   ### Example Notes The shortcut name should include .lnk if you want a specific extension; otherwise it will be added automatically. Common Startup (Scope = 1) usually requires elevation (Administrator rights). Useful for registering applications to run automatically when Windows starts. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "creates", "shortcut", "management", "vuaddstartupshortcut", "Clarion", "startup", "Windows"]
 function_name: "vuAddStartupShortcut"
 category: "Startup Management"
 version_added: "5.0"
-last_updated: "2025-09-22"
+last_updated: "2025-09-23"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -16,6 +22,7 @@ last_updated: "2025-09-22"
 ```Prototype
 vuAddStartupShortcut(*CSTRING,*CSTRING,*CSTRING,LONG,*CSTRING,LONG), LONG
 ```
+
 
 ## Description
 Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts.

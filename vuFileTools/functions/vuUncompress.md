@@ -1,3 +1,20 @@
+---
+title: "vuUncompress"
+summary: "Uncompresses a file created with `vuCompress()` using a fast Huffman-based algorithm (medium compression ratio)."
+description: "Uncompresses a file created with `vuCompress()` using a fast Huffman-based algorithm (medium compression ratio). The source file remains unchanged. ### Parameters ### Returns
+A LONG value:  
+- 1 (True) on success  
+- 0 (False) on failure ### Example ### Notes
+- Designed to work with archives created by `vuCompress()`.  
+- The source (compressed) file is not modified.  
+- Ensure the target path exists and that you have write permissions. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuuncompress", "vuFileTools", "created", "medium", "fast", "vucompress", "compression", "general", "huffman", "uncompresses", "based", "algorithm"]
+function_name: "vuUncompress"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuUncompress(SourceFile, TargetFile)

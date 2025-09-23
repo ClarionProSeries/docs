@@ -1,3 +1,12 @@
+---
+title: "vuFileTools - Windows, Saving, Printing and Run Related Functions"
+summary: "Home | All functions | Categories"
+description: "Home | All functions | Categories"
+keywords: ["vuFileTools", "saving", "functions", "categories", "Clarion", "printing", "home", "vufiletools", "related", "windows"]
+page_type: "category"
+last_updated: "2025-09-23"
+---
+
 # vuFileTools - Windows, Saving, Printing and Run Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

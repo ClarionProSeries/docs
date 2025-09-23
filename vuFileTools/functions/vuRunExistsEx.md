@@ -1,3 +1,17 @@
+---
+title: "vuRunExistsEx"
+summary: "Attempts to run the specified file if it exists."
+description: "Attempts to run the specified file if it exists. Optionally waits for the file to appear, polling at the given interval, before running it. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A LONG value indicating the result: - 1: File exists (or appeared within the wait period) and was executed successfully  
+- 0: File does not exist or did not appear within the wait period  
+- Negative value: Error occurred   ### Example Notes Useful for scenarios where a file will be generated shortly and then executed. Polling continues until the file appears or the wait time expires. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "specified", "exists", "general", "vurunexistsex", "attempts", "Clarion", "Windows", "file"]
+function_name: "vuRunExistsEx"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunExistsEx(pFile, WaitSeconds, PollMS)

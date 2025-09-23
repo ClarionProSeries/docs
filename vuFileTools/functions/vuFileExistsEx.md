@@ -1,3 +1,18 @@
+---
+title: "vuFileExistsEx"
+summary: "Checks whether a specified file exists, with optional waiting and polling."
+description: "Checks whether a specified file exists, with optional waiting and polling.  
+This allows you to pause execution while waiting for a file to appear. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- 1 if the file exists (detected within the wait time).  
+- 0 if the file does not exist within the wait period.  
+- Negative values may indicate errors such as invalid arguments. ### Example Notes Useful for scenarios where a file is expected to be created shortly (e.g., output from another process). PollMS controls how often the check is repeated during the wait period. Use vuFileExists for a quick, immediate existence check without waiting. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["optional", "vuFileTools", "specified", "exists", "whether", "waiting", "vufileexistsex", "Clarion", "system", "with", "checks", "Windows"]
+function_name: "vuFileExistsEx"
+category: "File System"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuFileExistsEx(pFile, WaitSeconds, PollMS)

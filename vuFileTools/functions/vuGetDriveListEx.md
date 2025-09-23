@@ -1,3 +1,22 @@
+---
+title: "vuGetDriveListEx"
+summary: "Retrieves an extended list of available drives with detailed information for each."
+description: "Retrieves an extended list of available drives with detailed information for each.  
+The results are written into a caller-provided buffer as text, with fields separated by commas and records separated by CRLF. Each record contains drive attributes such as label, type, filesystem, and capacity. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- `-1` if the function succeeded and the buffer contains drive records.  
+- 0 if no drives are available.  
+- Other negative values may indicate errors (such as insufficient buffer size). ### Example ### Notes
+- The buffer contains comma-delimited fields per line; each line represents one drive.  
+- A typical record contains: `Drive,Label,Type,FileSystem,Free,Total,Ready`.  
+- You must parse the buffer manually or load into a queue as shown above.  
+- If you only need a simple list of drives without detailed info, use `vuGetDriveList()` instead. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "detailed", "extended", "retrieves", "list", "available", "general", "information", "vugetdrivelistex", "drives", "each", "Clarion"]
+function_name: "vuGetDriveListEx"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuGetDriveListEx(pOutBuffer, cchBuffer)

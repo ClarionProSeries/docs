@@ -1,3 +1,16 @@
+---
+title: "vuRunExists"
+summary: "Attempts to run the specified file if it exists."
+description: "Attempts to run the specified file if it exists. This is a quick way to launch an application or document only if the file is present. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+A LONG value indicating the result: - 1: File exists and was executed successfully  
+- 0: File does not exist or could not be executed   ### Example Notes Use when you want to execute a file only if it exists. If the file does not exist, no action is taken and the function returns 0. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "specified", "exists", "vurunexists", "general", "attempts", "Clarion", "Windows", "file"]
+function_name: "vuRunExists"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuRunExists(pFile)

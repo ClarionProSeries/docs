@@ -1,3 +1,18 @@
+---
+title: "vuEnumerateFolderA"
+summary: "Enumerates the contents of a specified folder and prepares entries for retrieval with `vuGetEnumeratedEntryA`."
+description: "Enumerates the contents of a specified folder and prepares entries for retrieval with `vuGetEnumeratedEntryA`.  
+This is the first step in a two-part process to list files and subfolders. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
+- Number of entries in the folder if successful.  
+- 0 if the folder is empty or not found.  
+- Negative values may indicate errors such as invalid arguments. ### Example Notes Always call vuGetEnumeratedEntryA after vuEnumerateFolderA to access the details of each entry. Results include both files and subfolders, with attributes and timestamps. Only the number of entries is returned by vuEnumerateFolderA; entry data is retrieved separately. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["contents", "vuFileTools", "enumerates", "vugetenumeratedentrya", "specified", "prepares", "general", "entries", "folder", "Windows", "retrieval", "Clarion"]
+function_name: "vuEnumerateFolderA"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuEnumerateFolderA(sFolder)

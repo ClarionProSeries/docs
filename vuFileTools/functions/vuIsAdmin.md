@@ -1,3 +1,15 @@
+---
+title: "vuIsAdmin"
+summary: "Determines whether the current user belongs to an Administrator account."
+description: "Determines whether the current user belongs to an Administrator account. Useful for checking if the program has sufficient privileges to perform system-level functions. ### Parameters ### Returns
+1 (True) if the current user is an administrator, 0 (False) otherwise. ### Example [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["current", "administrator", "vuFileTools", "vuisadmin", "belongs", "user", "whether", "general", "account", "Clarion", "determines", "Windows"]
+function_name: "vuIsAdmin"
+category: "General"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuIsAdmin()

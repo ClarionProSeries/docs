@@ -1,3 +1,19 @@
+---
+title: "vuOSVersion"
+summary: "Returns the Windows Operating System version as a sequential number for easy comparison in code."
+description: "Returns the Windows Operating System version as a sequential number for easy comparison in code. The current implementation uses RtlGetVersion from ntdll to obtain accurate version info, including Windows 10 and Windows 11, regardless of application manifests. ### Parameters ### Returns
+A SIGNED value indicating the detected OS version: ### Example ### Notes
+- Uses RtlGetVersion, which returns the true OS version even when the process lacks a Windows 8.1 or later compatibility manifest.
+- Server versions are reported with the same codes as their desktop equivalents. The only exception is Windows Server 2003, which has its own code (520).
+- Older legacy codes such as 31, 95, 98, 99, and 350 are no longer returned by the current implementation. Systems not matched by the table will return 999.
+- If you need to distinguish additional Windows Server releases by build number, extend the internal mapping before returning the code. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuosversion", "windows", "vuFileTools", "version", "number", "sequential", "comparison", "easy", "information", "returns", "operating", "os"]
+function_name: "vuOSVersion"
+category: "OS Information"
+version_added: "5.0"
+last_updated: "2025-09-23"
+---
+
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuOSVersion()
