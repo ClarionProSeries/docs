@@ -21,7 +21,7 @@ When the Template Registry window opens, click **Register**.
 
 ![](assets/images/RegisterTemplateStep2.png)
 
-When the Template File window opens, navigate to the **accessory\template\win** folder, select **vuFileTools**, and click **Open**.  
+When the Template File window opens, navigate to the **accessory\template\win** folder, select **vuFileTools.tpl**, and click **Open**.  
 
 ![](assets/images/RegisterTemplateStep3.png)
 
