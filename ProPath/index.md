@@ -35,6 +35,7 @@ The sections below provide everything you need to install, configure, and use Pr
 - [Registering the Template](template-registration.md)
 - [Using the Template in Your Application](template-usage.md)
 - [Deployment](deployment.md)
+- [Core Concepts](concepts/index.md)
 - [View all Templates](templates/index.md)
 - [View all Classes](classes/index.md)
 - [Demo Applications](demos/index.md)
