@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Docs root -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/index.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- vuFileTools root pages -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/index.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/functions/functions-index.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/index.html</loc>
+    <lastmod>2025-09-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- vuFileTools categories (from your existing sitemap) -->
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/desktop-and-other-functions.html</loc>
     <lastmod>2025-09-23</lastmod>
@@ -22,11 +48,6 @@
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/fonts.html</loc>
-    <lastmod>2025-09-23</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/index.html</loc>
     <lastmod>2025-09-23</lastmod>
     <priority>0.7</priority>
   </url>
@@ -85,9 +106,175 @@
     <lastmod>2025-09-23</lastmod>
     <priority>0.7</priority>
   </url>
+
+  <!-- ProPath root and main sections -->
   <url>
-    <loc>https://clarionproseries.github.io/docs/vuFileTools/functions/functions-index.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <loc>https://clarionproseries.github.io/docs/ProPath/index.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/index.html</loc>
+    <lastmod>2025-10-12</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/templates/index.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/classes/index.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/demos/index.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ProPath key top-level pages -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/overview.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/whatsnew.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/requirements.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/install.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/template-registration.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/template-usage.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/deployment.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/faq.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/version-history.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/support.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/prohelpstudio.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- ProPath concept pages (examples you provided; add more as needed) -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/why-use-propath.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/data-storage.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/path-management.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/first-run.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/first-deploy.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/login-integration.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/developer-mode.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/suppressing-file-drivers.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/firebird-support.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/firebird-embedded-files.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ProPath/concepts/sqlite-support.html</loc>
+    <lastmod>2025-10-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ProPath demos (demo1 through demo27) -->
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo1.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo2.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo3.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo4.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo5.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo6.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo7.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo8.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo9.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo10.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo11.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo12.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo13.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo14.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo15.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo16.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo17.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo18.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo19.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo20.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo21.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo22.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo23.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo24.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo25.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo26.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo27.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+
 </urlset>
