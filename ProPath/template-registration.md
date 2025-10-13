@@ -1,15 +1,15 @@
 ---
-title: "vuFileTools - Template Registration"
+title: "Clarion ProPath - Template Registration"
 summary: "When you run the installer, it will offer to automatically register the template during the installation process."
 description: "When you run the installer, it will offer to automatically register the template during the installation process. If you decide not to allow that, or if you need to re-register the template at a later time, follow these steps."
-keywords: ["documentation", "template", "installer", "register", "registration", "Clarion", "vuFileTools", "installation", "template registry"]
+keywords: ["documentation", "template", "installer", "register", "registration", "Clarion", "ProPath", "installation", "template registry"]
 page_type: "overview"
-last_updated: "2025-10-06"
+last_updated: "2025-10-05"
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Templates](templates/index.md) | [Classes](classes/index.md)
 
-# vuFileTools - Template Registration
+# Clarion ProPath - Template Registration
 
 When you run the installer, it will offer to automatically register the template during the installation process.  
 
@@ -23,7 +23,7 @@ When the Template Registry window opens, click **Register**.
 
 ![](assets/images/RegisterTemplateStep2.png)
 
-When the Template File window opens, navigate to the **accessory\template\win** folder, select **vuFileTools.tpl**, and click **Open**.  
+When the Template File window opens, navigate to the **accessory\template\win** folder, select **PS_ProPathABC.tpl**, and click **Open**.  
 
 ![](assets/images/RegisterTemplateStep3.png)
 
@@ -31,8 +31,8 @@ If the template is successfully registered, you will see it in the list of insta
 
 ![](assets/images/RegisterTemplateStep4.png)
 
-**Note:** If you install or upgrade to a new version of Clarion, you may need to re-register **vuFileTools** in that version.
+**Note:** If you install or upgrade to a new version of Clarion, you may need to re-register **ProPath** in that version.
 
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Templates](templates/index.md) | [Classes](classes/index.md)

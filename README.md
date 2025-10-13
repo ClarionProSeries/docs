@@ -10,6 +10,7 @@ Here you’ll find guides, references, and examples for each product in the ProS
 | Product      | Description                                                                 |
 |--------------|-----------------------------------------------------------------------------|
 | [vuFileTools](./vuFileTools) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
+| [ProPath](./ProPath) | Advanced path and dataset management for Clarion applications with built-in support for SQLite, Firebird, and more. |
 
 More products coming soon...
 
