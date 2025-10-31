@@ -4,31 +4,26 @@ summary: "To use vuFileTools, add the global extension template to your applicat
 description: "To use vuFileTools, add the global extension template to your application."
 keywords: ["documentation", "template", "application", "vufiletools", "Clarion", "global", "vuFileTools", "your", "extension", "usage"]
 page_type: "guide"
-last_updated: "2025-09-23"
+last_updated: "2025-10-30"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
-
 # vuFileTools - Template Usage
 
-To use vuFileTools, add the global extension template to your application.
+To use **vuFileTools**, add the global extension template to your application.
 
-On the **Global Extensions** tab, click the **Insert** button.  
+## Add the template
 
-![](assets/images/AddTemplate1.png)
+1. Open your application in the Clarion IDE.  
+2. Go to **Global Extensions** and click **Insert**.  
+3. Type **vuFileTools** in the search box.  
+4. Select **vuFileTools_Global** and click **Select**.  
+5. Click **OK** to close the Global Extensions window.
 
-Type **vuFileTools** in the search field, select the **vuFileTools_Global** template, and click the **Select** button.  
+## Deployment
 
-![](assets/images/AddTemplate2.png)
-
-If the template is added successfully, you will see the **vuFileTools Initialization** extension.  
-
-Click the **OK** button to close the window. The entire library of vuFileTools functions is then ready for use in your application.  
-
-![](assets/images/AddTemplate3.png)
-
-**Note:** Be sure to include **vuFT5.dll** with your application deployment. Without the DLL, the functions will not be available at runtime.
+Include **vuFT5.dll** with your application at runtime.  
+The **.lib** is used only at compile time.
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
-
