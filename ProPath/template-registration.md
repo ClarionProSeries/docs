@@ -15,21 +15,12 @@ When you run the installer, it will offer to automatically register the template
 
 If you decide not to allow that, or if you need to re-register the template at a later time, follow these steps:
 
-In the Clarion IDE, click **Tools** and then **Edit Template Registry**.  
-
-![](assets/images/RegisterTemplateStep1.png)
-
-When the Template Registry window opens, click **Register**.  
-
-![](assets/images/RegisterTemplateStep2.png)
-
-When the Template File window opens, navigate to the **accessory\template\win** folder, select **PS_ProPathABC.tpl**, and click **Open**.  
-
-![](assets/images/RegisterTemplateStep3.png)
-
-If the template is successfully registered, you will see it in the list of installed and registered templates.  
-
-![](assets/images/RegisterTemplateStep4.png)
+1. In the Clarion IDE, click **Tools** > **Edit Template Registry**.
+2. In the **Template Registry** window, click **Register**.
+3. In the file picker, navigate to:  
+   `C:\ClarionXX\accessory\template\win\`
+4. Select **PS_ProPathABC.tpl** and click **Open**.
+5. Confirm that **PS_ProPathABC** appears in the list of registered templates and click **OK**.
 
 **Note:** If you install or upgrade to a new version of Clarion, you may need to re-register **ProPath** in that version.
 

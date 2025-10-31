@@ -4,7 +4,7 @@ summary: "To use Clarion ProPath, add the global extension template to your appl
 description: "To use Clarion ProPath, add the global extension template to your application."
 keywords: ["documentation", "template", "application", "ProPath", "Clarion", "global", "extension", "usage"]
 page_type: "guide"
-last_updated: "2025-10-05"
+last_updated: "2025-10-30"
 ---
 
 [Home](index.md) | [Templates](templates/index.md) | [Classes](classes/index.md)
@@ -13,21 +13,15 @@ last_updated: "2025-10-05"
 
 To use **ProPath**, add the global extension template to your application.
 
-On the **Global Extensions** tab, click the **Insert** button.  
+## Add the template
 
-![](assets/images/AddTemplate1.png)
-
-Type **ProPath** in the search field, select the **PSProPathGlobal** template, and click the **Select** button.  
-
-![](assets/images/AddTemplate2.png)
-
-If the template is added successfully, you will see the **ProSeries ProPath 5.0 Global Support** extension.  
+1. Open your application in the Clarion IDE.  
+2. Go to **Global Extensions** and click **Insert**.  
+3. Type **ProPath** in the search box.  
+4. Select **PSProPathGlobal** and click **Select**.  
+5. Click **OK** to close the Global Extensions window.
 
 Use the template tabs and options to configure **ProPath** for your application.
-
-Click the **OK** button to close the window. **ProPath** is now active and ready to manage your dataset and path configurations.  
-
-![](assets/images/AddTemplate3.png)
 
 ---
 
