@@ -1,0 +1,103 @@
+===============================================================
+Clarion QuickBooks Wrapper - QBAI Primer (Loader)
+Version: 1.4
+Generated: 2025-10-30
+Document Iteration: 6
+===============================================================
+
+Purpose
+-------
+This small primer helps AI tools generate correct Clarion code that uses the QBAI class
+for QuickBooks Desktop. It also links to the full primer and docs.
+
+Best Way To Use
+---------------
+1) Give the AI this plain-text URL:
+   https://clarionproseries.com/ai/qbai-primer.txt
+
+2) Then issue your coding prompt, for example:
+   "Write Clarion code using QBAI to send a CustomerQuery for Name and ListID, then call QBTools.ShowXMLViewer."
+
+3) Validate results in your Code Checker Console or the XML viewer.
+
+Canonical Links
+---------------
+Full primer (plain text): https://clarionproseries.com/ai/qbai-primer.txt
+Docs page:                https://clarionproseries.github.io/docs/ClarionQBWrapper/qbai-primer/
+Product docs home:        https://clarionproseries.github.io/docs/ClarionQBWrapper/
+
+Starter Prompt To Load Context
+------------------------------
+This is the Clarion QuickBooks Wrapper QBAI primer:
+https://clarionproseries.com/ai/qbai-primer.txt
+Please read and use this as context for the next prompt. Confirm when loaded.
+
+Core Notes
+----------
+- Use QBAI.Init('CustomerQuery') without the Rq suffix.
+- Viewer method is QBTools.ShowXMLViewer().
+- Prefer multi-line IF blocks. CHOOSE() is valid but IF is clearer.
+- DEMO license limits multi-record results to 5 and blocks write operations.
+
+Quick Examples
+--------------
+
+Example A: Single-record Customer Query
+AI prompt:
+I am using the QBAI wrapper in Clarion to connect to QuickBooks Desktop.
+Please write Clarion code to send a CustomerQuery request using QBAI.
+Include Name and ListID in the response.
+Call QBTools.ShowXMLViewer after sending the request.
+
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+
+  ResultCode = QBAI.SendRequest()
+  IF ResultCode = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+
+Example B: Add Customer
+AI prompt:
+Write Clarion code that adds a new customer with Name, CompanyName, Phone, Email, and Notes,
+then show status and ListID.
+
+Expected code:
+
+  QBAI.Init('CustomerAdd')
+  QBAI.AddGroupStart('CustomerAdd')
+  QBAI.AddTag('Name', 'AAA Clarion Test Customer')
+  QBAI.AddTag('CompanyName', 'AAA Clarion Customer Company')
+  QBAI.AddTag('Phone', '555-123-4567')
+  QBAI.AddTag('Email', 'support@example.com')
+  QBAI.AddTag('Notes', 'Customer created via Clarion QBWrapper')
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    StatusCode#    = QBSessionMgr.ResponseStatusCode
+    StatusMessage# = QBSessionMgr.ResponseStatusMessage
+    ListID#        = QBAI.GetField('ListID')
+    MESSAGE('Customer Add Result:' & |
+            '<13,10>Status Code: ' & StatusCode# & |
+            '<13,10>Message: ' & CLIP(StatusMessage#) & |
+            '<13,10>ListID: ' & CLIP(ListID#), 'Success', ICON:Exclamation)
+  END
+
+Troubleshooting
+---------------
+SendRequest returns nonzero:
+- Company file not open, elevation mismatch, or malformed request.
+
+ValidateResponse fails but SendRequest returned 0:
+- Top-level response tag mismatch. Inspect with QBTools.ShowXMLViewer().
+
+Demo limits:
+- First 5 records only, no writes, no iterator continue.
+
+End of loader
+===============================================================

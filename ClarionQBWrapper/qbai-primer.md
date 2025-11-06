@@ -1,0 +1,743 @@
+---
+title: "QBAI Primer"
+summary: "AI usage primer for the Clarion QuickBooks Wrapper QBAI class."
+description: "Copy this primer into your AI tool so it can generate valid Clarion code that uses the QBAI class with QuickBooks Desktop."
+keywords: ["ClarionQBWrapper", "QBAI", "AI", "primer", "QuickBooks", "QBXML", "Clarion"]
+page_type: "reference"
+last_updated: "2025-10-30"
+---
+
+[Home](index.md) | [Templates](templates/index.md) | [Classes](classes/index.md)
+
+# QBAI Primer
+
+Use this page when working with ChatGPT, Claude, Gemini, Copilot, or any other AI tool.
+
+**How to use**
+1. Paste this URL into your AI so it has the primer context:  
+   `https://clarionproseries.com/ai/qbai-primer.txt`
+2. Ask the AI to generate Clarion code that uses **QBAI** to perform your QuickBooks task.
+3. Validate the AI's result with the **Code Checker Console** or the XML viewer before pasting into your app.
+
+All content below is plain ASCII. Turn off smart quotes in your editor and AI tool.
+
+Here are the contents of the qbai-primer.txt file:
+```
+===============================================================
+Clarion QuickBooks Wrapper AI Primer for QBAI Class
+ProSeries QuickBooks Desktop API Wrapper
+Version: 1.4
+Generated: 2025-10-30
+Document Iteration: 6
+===============================================================
+
+How to Use This Primer with ChatGPT, Claude, Gemini, Copilot, and Other AI Tools
+---------------------------------------------------------------------------------
+This document helps AI tools generate valid Clarion code using the QBAI class. It also works
+as a reference for developers writing code by hand.
+
+To use with an AI tool:
+1) Paste this URL so the AI can read the primer:
+   https://clarionproseries.com/ai/qbai-primer.txt
+2) Ask the AI for Clarion code using QBAI to perform your QuickBooks task.
+3) Validate results in the Code Checker Console or with the XML viewer.
+
+Includes real-world examples for:
+- Querying data (single and multi record)
+- Adding, modifying, and deleting records
+- Running reports
+- Using iterators
+- XML encoding and decoding
+- Date and time conversion for QBXML
+
+Official QuickBooks XML reference:
+https://developer.intuit.com/app/developer/qbdesktop/docs/api-reference/qbxml
+
+Version Notes and Compatibility
+-------------------------------
+This primer reflects QBAI version 1.4. Future versions will maintain backward compatibility
+with the examples shown here.
+
+Latest copy:
+https://clarionproseries.com/ai/qbai-primer.txt
+
+QBAI Class Structure and Architecture
+-------------------------------------
+- Clarion classes call a compiled C# DLL for QuickBooks COM communication.
+- Results are returned via ANSI-compatible CSTRING values.
+- Tested from Clarion 5.5 through Clarion 12.
+
+Core classes coordinated by QBAI:
+- QBDebugLogger          Logging to DebugView.
+- QBConnectionManager    Connection lifecycle, app name, license, file paths.
+- QBSessionManager       Sessions, request submit, response storage. ProcessRequest wraps sessions.
+- QBXMLWriter            Request XML construction via AddTag, AddGroupStart, AddGroupEnd. Raw tag attributes supported.
+- QBXMLParser            Response parsing, field extraction, block iteration.
+- QBXMLTools             Clipboard, file, and encoding helpers. Includes XML viewer and AI code window.
+- QBAIClass              High-level entry point for AI-generated and hand-written code.
+
+Key methods:
+  Init(RequestType)
+  AddTag(TagName, Value)
+  AddGroupStart(GroupName)
+  AddGroupEnd()
+  SendRequest()
+  GetField(TagName)
+  GetFirstGroup(GroupName)
+  GetNextGroup()
+  CopyRequestToClip()
+  CopyResponseToClip()
+  SaveRequestToFile(FilePath)
+  SaveResponseToFile(FilePath)
+  QBTools.ShowXMLViewer()
+
+Note: Use Init('CustomerQuery'), not 'CustomerQueryRq'. The wrapper appends Rq automatically.
+
+Important: First Time Authorization With QuickBooks
+---------------------------------------------------
+On first use, QuickBooks prompts for authorization. If your app seems paused, click the flashing
+QuickBooks icon in the taskbar to bring it forward. Approve the connection by typing YES in the
+confirmation box. If you wait too long, the app may time out. Screenshots and steps are in the
+documentation under First Time Authorization.
+
+Important: Application Crashes
+------------------------------
+If your app crashes while a session is open, QuickBooks may show:
+"Could not close QuickBooks because a third party application is still connected."
+Resolve it by closing the company from File menu, then exit QuickBooks.
+
+Quick Start: Show the Response Viewer First
+-------------------------------------------
+Before mapping data, send a simple request and call QBTools.ShowXMLViewer to confirm results.
+
+Starter prompt to load the primer in an AI:
+This is the Clarion QuickBooks Wrapper QBAI primer:
+https://clarionproseries.com/ai/qbai-primer.txt
+Please read and use this as context for the next prompt.
+
+Once the AI confirms, proceed with your task prompt.
+
+Test Example: Single Record Customer Query
+------------------------------------------
+AI prompt:
+Write Clarion code using QBAI to send a CustomerQuery for Name and ListID and call QBTools.ShowXMLViewer.
+
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Examples
+--------
+Example 1: Single Record Customer Query
+- Same as test example above.
+
+Example 2: Multi Record Customer Query
+AI prompt:
+Get all customers, iterate with GetNextGroup, assign Name and ListID into CustomerQueue.Name and CustomerQueue.ListID.
+
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+    LOOP WHILE QBAI.GetNextGroup()
+      CustomerQueue.Name   = QBAI.GetField('Name')
+      CustomerQueue.ListID = QBAI.GetField('ListID')
+      ADD(CustomerQueue)
+    END
+  END
+
+Example 3: Filtered Multi Record Customer Query
+Assumed queue:
+  CustomerQueue QUEUE
+  Name           CSTRING(256)
+  ListID         CSTRING(64)
+  Phone          CSTRING(64)
+  Balance        REAL
+  IsActive       BYTE
+               END
+
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+
+  QBAI.AddGroupStart('NameFilter')
+  QBAI.AddTag('MatchCriterion', 'StartsWith')
+  QBAI.AddTag('Name', 'R')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+  QBAI.AddTag('IncludeRetElement', 'Phone')
+  QBAI.AddTag('IncludeRetElement', 'Balance')
+  QBAI.AddTag('IncludeRetElement', 'IsActive')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+
+    FREE(CustomerQueue)
+    IF QBAI.GetFirstGroup('CustomerRet')
+      LOOP
+        CLEAR(CustomerQueue)
+        CustomerQueue.Name     = QBAI.GetField('Name')
+        CustomerQueue.ListID   = QBAI.GetField('ListID')
+        CustomerQueue.Phone    = QBAI.GetField('Phone')
+        CustomerQueue.Balance  = VAL(QBAI.GetField('Balance'))
+
+        IF QBAI.GetField('IsActive') = 'true'
+          CustomerQueue.IsActive = 1
+        ELSE
+          CustomerQueue.IsActive = 0
+        END
+
+        ADD(CustomerQueue)
+      WHILE QBAI.GetNextGroup()
+    END
+  END
+
+Example 4: Limited Multi Record Customer Query (MaxReturned = 10)
+Assumed queue same as Example 3.
+
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('MaxReturned', '10')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+  QBAI.AddTag('IncludeRetElement', 'Phone')
+  QBAI.AddTag('IncludeRetElement', 'Balance')
+  QBAI.AddTag('IncludeRetElement', 'IsActive')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+    FREE(CustomerQueue)
+    IF QBAI.GetFirstGroup('CustomerRet')
+      LOOP
+        CLEAR(CustomerQueue)
+        CustomerQueue.Name     = QBAI.GetField('Name')
+        CustomerQueue.ListID   = QBAI.GetField('ListID')
+        CustomerQueue.Phone    = QBAI.GetField('Phone')
+        CustomerQueue.Balance  = VAL(QBAI.GetField('Balance'))
+
+        IF QBAI.GetField('IsActive') = 'true'
+          CustomerQueue.IsActive = 1
+        ELSE
+          CustomerQueue.IsActive = 0
+        END
+
+        ADD(CustomerQueue)
+
+        IF NOT QBAI.GetNextGroup()
+          BREAK
+        END
+      END
+    END
+  END
+
+Example 5: Add Customer
+Expected code:
+
+  QBAI.Init('CustomerAdd')
+  QBAI.AddGroupStart('CustomerAdd')
+  QBAI.AddTag('Name', 'AAA Clarion Test Customer')
+  QBAI.AddTag('CompanyName', 'AAA Clarion Customer Company')
+  QBAI.AddTag('Phone', '555-123-4567')
+  QBAI.AddTag('Email', 'support@example.com')
+  QBAI.AddTag('Notes', 'Customer created via Clarion QBWrapper')
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    StatusCode#    = QBSessionMgr.ResponseStatusCode
+    StatusMessage# = QBSessionMgr.ResponseStatusMessage
+    ListID#        = QBAI.GetField('ListID')
+    MESSAGE('Customer Add Result:' & |
+            '<13,10>Status Code: ' & StatusCode# & |
+            '<13,10>Message: ' & CLIP(StatusMessage#) & |
+            '<13,10>ListID: ' & CLIP(ListID#), 'Success', ICON:Exclamation)
+  END
+
+Example 6: Modify Existing Customer
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('MaxReturned', '50')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+  QBAI.AddTag('IncludeRetElement', 'EditSequence')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    IF QBAI.GetFirstGroup('CustomerRet')
+      LOOP
+        IF QBAI.GetField('Name') = 'AAA Clarion Test Customer'
+          TargetListID# = QBAI.GetField('ListID')
+          EditSequence# = QBAI.GetField('EditSequence')
+          BREAK
+        END
+      WHILE QBAI.GetNextGroup()
+    END
+  END
+
+  QBAI.Init('CustomerMod')
+  QBAI.AddGroupStart('CustomerMod')
+  QBAI.AddTag('ListID', TargetListID#)
+  QBAI.AddTag('EditSequence', EditSequence#)
+  QBAI.AddTag('Name', 'AAA Clarion Modified Test Customer')
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    ! Modified
+  END
+
+Example 7: Delete Customer by Name
+Expected code:
+
+  TargetName#   = 'AAA Clarion Test Customer'
+  TargetListID# = ''
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    IF QBAI.GetFirstGroup('CustomerRet')
+      LOOP
+        IF QBAI.GetField('Name') = TargetName#
+          TargetListID# = QBAI.GetField('ListID')
+          BREAK
+        END
+      WHILE QBAI.GetNextGroup()
+    END
+  END
+
+  IF TargetListID# <> ''
+    QBAI.Init('ListDel')
+    QBAI.AddTag('ListDelType', 'Customer')
+    QBAI.AddTag('ListID', TargetListID#)
+
+    ResultCode# = QBAI.SendRequest()
+    IF ResultCode# = 0 AND QBParser.ValidateResponse()
+      FormattedResponse# = QBTools.FormatXMLBuffer(QBSessionMgr.XMLResponse)
+      MESSAGE(CLIP(FormattedResponse#), 'Delete Response', ICON:Exclamation, BUTTON:OK, 1, MSGMODE:CANCOPY)
+    END
+  ELSE
+    MESSAGE('Customer not found: ' & TargetName#, 'Error', ICON:Exclamation)
+  END
+
+Example 8: Copy Request and Response to Clipboard
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+
+  ResultCode# = QBAI.SendRequest()
+  QBAI.CopyRequestToClip()
+
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBAI.CopyResponseToClip()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 9: Save Request and Response to File
+Expected code:
+
+  QBAI.Init('CustomerQuery')
+  QBAI.AddTag('IncludeRetElement', 'Name')
+  QBAI.AddTag('IncludeRetElement', 'ListID')
+
+  ResultCode# = QBAI.SendRequest()
+  QBAI.SaveRequestToFile('C:\\Temp\\RequestOut.xml')
+
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBAI.SaveResponseToFile('C:\\Temp\\ResponseOut.xml')
+    QBTools.ShowXMLViewer()
+  END
+
+Example 10: Profit and Loss Report
+Expected code:
+
+  QBAI.Init('GeneralSummaryReportQuery')
+  QBAI.AddTag('GeneralSummaryReportType', 'ProfitAndLossStandard')
+  QBAI.AddGroupStart('ReportPeriod')
+  QBAI.AddTag('FromReportDate', '2026-01-01')
+  QBAI.AddTag('ToReportDate',   '2026-12-31')
+  QBAI.AddGroupEnd()
+  QBAI.AddTag('SummarizeColumnsBy', 'Month')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 11: Add Account to Chart of Accounts
+Expected code:
+
+  QBAI.Init('AccountQuery')
+  QBAI.AddGroupStart('NameFilter')
+  QBAI.AddTag('MatchCriterion', 'Exact')
+  QBAI.AddTag('Name', 'Truck Trailer Inv 20018')
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# <> 0
+    QBTools.ShowXMLViewer()
+    RETURN
+  END
+
+  ListID# = QBAI.GetField('ListID')
+  IF ListID# <> ''
+    MESSAGE('Account already exists in QuickBooks: ' & CLIP(ListID#))
+    QBTools.ShowXMLViewer()
+    RETURN
+  END
+
+  QBAI.Init('AccountAdd')
+  QBAI.AddGroupStart('AccountAdd')
+  QBAI.AddTag('Name', 'Truck Trailer Inv 20018')
+  QBAI.AddTag('AccountType', 'OtherAsset')
+  QBAI.AddTag('Desc', 'Test account created via Clarion QBWrapper')
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    ListID# = QBAI.GetField('ListID')
+    MESSAGE('Account added successfully. ListID = ' & CLIP(ListID#))
+  ELSE
+    MESSAGE('AccountAdd failed. Status = ' & ResultCode#)
+  END
+
+  QBTools.ShowXMLViewer()
+
+Example 12: Iterated Customer Query
+Important:
+High-level QBAI helpers do not build iterator attributes. Use QBWriter with iterator attributes.
+
+Expected code:
+
+  HasMore     = TRUE
+  IterCount   = 0
+  iteratorID# = ''
+  FREE(CustomerQueue)
+
+  LOOP WHILE HasMore
+    IterCount += 1
+
+    IF iteratorID# = ''
+      QBAI.QBWriter.Init('CustomerQuery', , , 'iterator="Start"')
+    ELSE
+      QBAI.QBWriter.Init('CustomerQuery', , , 'iterator="Continue" iteratorID="' & CLIP(iteratorID#) & '"')
+    END
+
+    QBAI.QBWriter.RequestAddTag('MaxReturned', '50')
+    QBAI.QBWriter.RequestAddTag('IncludeRetElement', 'Name')
+    QBAI.QBWriter.RequestAddTag('IncludeRetElement', 'ListID')
+    QBAI.QBWriter.RequestAddTag('IncludeRetElement', 'Phone')
+    QBAI.QBWriter.RequestAddTag('IncludeRetElement', 'Balance')
+    QBAI.QBWriter.RequestAddTag('IncludeRetElement', 'IsActive')
+    QBAI.QBWriter.RequestClose()
+
+    ResultCode# = QBAI.QBSessionMgr.ProcessRequest()
+    IF ResultCode# <> 0
+      MESSAGE('Request failed: ' & ResultCode#, 'Error', ICON:Exclamation)
+      BREAK
+    END
+
+    QBAI.QBParser.Init('CustomerQuery', QBAI.QBSessionMgr)
+    IF QBAI.QBParser.ValidateResponse()
+      LOOP
+        Block# = QBAI.QBParser.FindNextChildBlock('CustomerRet', 0)
+        IF Block# = ''
+          BREAK
+        END
+
+        CLEAR(CustomerQueue)
+        CustomerQueue.Name     = QBAI.QBParser.GetField('Name')
+        CustomerQueue.ListID   = QBAI.QBParser.GetField('ListID')
+        CustomerQueue.Phone    = QBAI.QBParser.GetField('Phone')
+        CustomerQueue.Balance  = VAL(QBAI.QBParser.GetField('Balance'))
+
+        IF QBAI.QBParser.GetField('IsActive') = 'true'
+          CustomerQueue.IsActive = 1
+        ELSE
+          CustomerQueue.IsActive = 0
+        END
+
+        ADD(CustomerQueue)
+      END
+
+      iteratorID# = QBAI.QBParser.GetAttributeValueFromResponse(QBAI.QBParser.ResponseBufferTag, 'iteratorID')
+      remaining#  = QBAI.QBParser.GetAttributeValueFromResponse(QBAI.QBParser.ResponseBufferTag, 'iteratorRemainingCount')
+      HasMore     = (iteratorID# <> '') AND (remaining# <> '') AND (remaining# <> '0')
+    ELSE
+      MESSAGE('Invalid response during iteration.', 'Error', ICON:Exclamation)
+      BREAK
+    END
+  END
+
+Example 13: Date-filtered Invoice Query
+Expected code:
+
+  QBAI.Init('InvoiceQuery')
+
+  QBAI.AddGroupStart('TxnDateRangeFilter')
+  QBAI.AddTag('FromTxnDate', '2026-01-01')
+  QBAI.AddTag('ToTxnDate',   '2026-12-31')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddTag('IncludeRetElement', 'RefNumber')
+  QBAI.AddTag('IncludeRetElement', 'TxnDate')
+  QBAI.AddTag('IncludeRetElement', 'TxnID')
+  QBAI.AddTag('IncludeRetElement', 'CustomerRef')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 14: Invoices for a Specific Customer
+Expected code:
+
+  QBAI.Init('InvoiceQuery')
+
+  QBAI.AddGroupStart('EntityFilter')
+  QBAI.AddTag('ListID', '150000-933272658')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddTag('IncludeRetElement', 'RefNumber')
+  QBAI.AddTag('IncludeRetElement', 'TxnDate')
+  QBAI.AddTag('IncludeRetElement', 'Amount')
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 15: Create a New Invoice
+Expected code:
+
+  QBAI.Init('InvoiceAdd')
+
+  QBAI.AddGroupStart('InvoiceAdd')
+
+  QBAI.AddGroupStart('CustomerRef')
+  QBAI.AddTag('ListID', '150000-933272658')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupStart('InvoiceLineAdd')
+  QBAI.AddGroupStart('ItemRef')
+  QBAI.AddTag('FullName', 'Wood Door:Interior')
+  QBAI.AddGroupEnd()
+  QBAI.AddTag('Desc', 'Interior wood door')
+  QBAI.AddTag('Quantity', '1')
+  QBAI.AddTag('Rate', '72.00')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 16: Add a Payment to an Existing Invoice
+Expected code:
+
+  QBAI.Init('ReceivePaymentAdd')
+
+  QBAI.AddGroupStart('ReceivePaymentAdd')
+
+  QBAI.AddGroupStart('CustomerRef')
+  QBAI.AddTag('ListID', '150000-933272658')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupStart('ARAccountRef')
+  QBAI.AddTag('ListID', '40000-933270541')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddTag('TotalAmount', '300.00')
+  QBAI.AddTag('IsAutoApply', 'true')
+
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Alternative: apply to a specific invoice by TxnID
+
+  QBAI.Init('ReceivePaymentAdd')
+
+  QBAI.AddGroupStart('ReceivePaymentAdd')
+
+  QBAI.AddGroupStart('CustomerRef')
+  QBAI.AddTag('ListID', '150000-933272658')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupStart('ARAccountRef')
+  QBAI.AddTag('ListID', '40000-933270541')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddTag('TotalAmount', '300.00')
+
+  QBAI.AddGroupStart('AppliedToTxnAdd')
+  QBAI.AddTag('TxnID', 'REPLACE-WITH-INVOICE-TXNID')
+  QBAI.AddTag('PaymentAmount', '300.00')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 17: Create an Item and Add to Inventory
+Expected code:
+
+  QBAI.Init('ItemInventoryAdd')
+
+  QBAI.AddGroupStart('ItemInventoryAdd')
+  QBAI.AddTag('Name', 'CLARION-GIZMO')
+  QBAI.AddTag('SalesDesc', 'Clarion Gizmo Tool')
+  QBAI.AddTag('SalesPrice', '39.95')
+
+  QBAI.AddGroupStart('IncomeAccountRef')
+  QBAI.AddTag('ListID', '1A0000-933270542')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupStart('COGSAccountRef')
+  QBAI.AddTag('ListID', '1E0000-933270542')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupStart('AssetAccountRef')
+  QBAI.AddTag('FullName', 'Inventory Asset')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Example 18: Create a Sales Receipt for a Customer
+Expected code:
+
+  QBAI.Init('SalesReceiptAdd')
+
+  QBAI.AddGroupStart('SalesReceiptAdd')
+  QBAI.AddGroupStart('CustomerRef')
+  QBAI.AddTag('FullName', 'AAA Clarion Test Customer')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddTag('TxnDate', '2025-07-04')
+
+  QBAI.AddGroupStart('SalesReceiptLineAdd')
+  QBAI.AddGroupStart('ItemRef')
+  QBAI.AddTag('FullName', 'CLARION-GIZMO')
+  QBAI.AddGroupEnd()
+  QBAI.AddTag('Desc', 'Gizmo Tool from Clarion App')
+  QBAI.AddTag('Quantity', '2')
+  QBAI.AddTag('Rate', '39.95')
+  QBAI.AddGroupEnd()
+
+  QBAI.AddGroupEnd()
+
+  ResultCode# = QBAI.SendRequest()
+  IF ResultCode# = 0 AND QBParser.ValidateResponse()
+    QBTools.ShowXMLViewer()
+  END
+
+Troubleshooting Common Issues
+-----------------------------
+SendRequest returns nonzero:
+- Company file not open, elevation mismatch, or malformed request.
+
+ValidateResponse fails though SendRequest returned 0:
+- Top-level tag mismatch. Inspect with QBTools.ShowXMLViewer().
+
+Only 5 records returned:
+- DEMO license limit.
+
+Request returns no data:
+- Check tag names and group structure for the request type. Inspect request and response buffers.
+
+Understanding DEMO Mode
+-----------------------
+DEMO limits:
+- First 5 records from multi-record queries
+- Iterator continuation blocked
+- Add, Mod, Del blocked
+
+Response shows:
+<Developer>Demo Developer</Developer>
+
+You can check:
+  IF INSTRING('<Developer>Demo Developer</Developer>', QBSessionMgr.XMLResponse, 1, 1)
+    MESSAGE('Demo mode active. Results may be limited.', 'Notice', ICON:Exclamation)
+  END
+
+Using QBTools.ShowXMLViewer
+---------------------------
+Call:
+  QBTools.ShowXMLViewer()
+
+Shows two tabs:
+- Request XML
+- Response XML
+
+Using FormatXMLBuffer
+---------------------
+Call:
+  FormattedXML# = QBTools.FormatXMLBuffer(QBSessionMgr.XMLResponse)
+  MESSAGE(CLIP(FormattedXML#), 'Formatted XML', ICON:Exclamation)
+
+Working with Queues
+-------------------
+Typical queue:
+
+  CustomerQueue QUEUE
+    Name         CSTRING(256)
+    ListID       CSTRING(64)
+    Phone        CSTRING(64)
+    Balance      REAL
+    IsActive     BYTE
+  END
+
+Steps:
+1) CLEAR record
+2) Assign with QBAI.GetField()
+3) ADD the record
+
+Accurate Field Names
+--------------------
+- Match XML tag names exactly.
+- Correct capitalization.
+- No extra spaces or punctuation.
+
+If unsure:
+1) Use QBTools.ShowXMLViewer()
+2) Find the tag in the relevant Ret block
+3) Copy tag name into GetField()
+
+End of primer
+===============================================================
+```
