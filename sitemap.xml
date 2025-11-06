@@ -191,7 +191,7 @@
     <priority>0.4</priority>
   </url>
 
-  <!-- ProPath concept pages (examples you provided; add more as needed) -->
+  <!-- ProPath concept pages -->
   <url>
     <loc>https://clarionproseries.github.io/docs/ProPath/concepts/why-use-propath.html</loc>
     <lastmod>2025-10-12</lastmod>
@@ -248,33 +248,66 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- ProPath demos (demo1 through demo27) -->
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo1.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo2.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo3.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo4.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo5.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo6.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo7.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo8.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo9.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo10.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo11.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo12.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo13.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo14.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo15.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo16.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo17.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo18.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo19.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo20.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo21.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo22.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo23.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo24.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo25.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo26.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
-  <url><loc>https://clarionproseries.github.io/docs/ProPath/demos/demo27.html</loc><lastmod>2025-10-12</lastmod><priority>0.5</priority></url>
+  <!-- Clarion QuickBooks Wrapper root and sections -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/index.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/templates/index.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/classes/index.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Clarion QuickBooks Wrapper key pages -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/overview.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/requirements.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/install.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/template-registration.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/template-usage.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/deployment.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- QBAI pages within Clarion QuickBooks Wrapper -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/qbai-primer/index.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <!-- If you publish a "Using AI with QBAI" page under this product, add its final URL here -->
+  <!-- <url>
+    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/using-ai-with-qbai.html</loc>
+    <lastmod>2025-11-06</lastmod>
+    <priority>0.6</priority>
+  </url> -->
 
 </urlset>
