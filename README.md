@@ -10,7 +10,7 @@ Here you will find guides, references, and examples for each product in the ProS
 
 | Product | Description |
 |---|---|
-| [Clarion QuickBooks Wrapper](./ClarionQBWrapper) | Templates and classes that integrate Clarion apps with QuickBooks Desktop via the QBXML SDK, including examples and tooling. |
+| [Clarion QuickBooks Wrapper](./ClarionQBWrapper) | Templates and classes that integrate Clarion apps with QuickBooks Desktop via the QBXML SDK. |
 | [ProPath](./ProPath) | Advanced path and dataset management for Clarion applications with built-in support for SQLite, Firebird, and more. |
 | [vuFileTools](./vuFileTools) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
 
