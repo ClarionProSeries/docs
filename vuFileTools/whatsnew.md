@@ -2,10 +2,10 @@
 title: "What's New in vuFileTools"
 summary: "Version: 5."
 description: "Version: 5.0  
-Release date: 2025-09-15"
+Release date: 2025-12-03"
 keywords: ["documentation", "what", "vufiletools", "Clarion", "vuFileTools", "version"]
 page_type: "release-notes"
-last_updated: "2025-09-23"
+last_updated: "2025-12-03"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
@@ -13,7 +13,7 @@ last_updated: "2025-09-23"
 # What's New in vuFileTools
 
 Version: 5.0  
-Release date: 2025-09-15
+Release date: 2025-12-03
 
 This page highlights new items in the v5 cycle and links to their reference topics.
 
@@ -21,6 +21,8 @@ This page highlights new items in the v5 cycle and links to their reference topi
 
 | Function | Description |
 |----------|-------------|
+| [vuInternetPresent](functions/vuInternetPresent.md) | Reports whether Windows currently believes that Internet connectivity is available. Uses WinINet heuristics rather than testing a specific host. |
+| [vuInternetCanReachUrl](functions/vuInternetCanReachUrl.md) | Tests whether a specific URL can be reached within a caller specified timeout. Useful for verifying connectivity to a particular service endpoint. |
 | [vuIsNTFSCompressed](functions/vuIsNTFSCompressed.md) | Checks whether the specified file or folder is NTFS-compressed. Works with both individual files and directories. |
 | [vuSetNTFSCompression](functions/vuSetNTFSCompression.md) | Enables or disables NTFS compression on the specified file or folder. |
 | [vuPrimaryLinkSpeed](functions/vuPrimaryLinkSpeed.md) | Retrieves the speed of the primary network connection, in megabits per second (Mbps). |

@@ -4,7 +4,7 @@ summary: "Comprehensive list of all vuFileTools functions with short description
 description: "This page provides an index of every function in vuFileTools v5, grouped in a table with concise descriptions and links to full reference documentation. Use it as the master reference hub for exploring available features."
 keywords: ["vuFileTools", "Clarion", "functions", "reference", "index", "documentation", "developer tools"]
 page_type: "function-index"
-last_updated: "2025-09-23"
+last_updated: "2025-12-03"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -111,6 +111,8 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuIPAddressCount](vuIPAddressCount.md) | Returns the number of IP addresses configured on the PC. Multiple IP addresses may exist due to multiple NICs, modems, or virtual adapters. |
 | [vuISOS64](vuISOS64.md) | Determines whether the operating system is 64-bit. |
 | [vuIdleTime](vuIdleTime.md) | Returns the number of seconds the system has been idle (no keyboard or mouse activity). |
+| [vuInternetCanReachUrl](vuInternetCanReachUrl.md) | Tests whether a specific URL can be reached within a caller supplied timeout using WinINet. |
+| [vuInternetPresent](vuInternetPresent.md) | Reports whether Windows currently believes that Internet connectivity is available using WinINet heuristics. |
 | [vuIsAdmin](vuIsAdmin.md) | Determines whether the current user belongs to an Administrator account. Useful for checking if the program has sufficient privileges to perform system-level functions. |
 | [vuIsDriveReady](vuIsDriveReady.md) | Checks whether the specified drive is ready for use (e.g., contains media and is accessible). |
 | [vuIsElevated](vuIsElevated.md) | Checks whether the current process is running with elevated privileges (administrative rights). |
@@ -213,7 +215,7 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuWindow2Clipboard](vuWindow2Clipboard.md) | Saves a copy of the current active window to the clipboard. |
 | [vuWindow2Front](vuWindow2Front.md) | Brings the specified window to the front (on top of other windows) and activates it. |
 | [vuWindowHandle](vuWindowHandle.md) | Returns the handle of the first window whose title contains the specified name. |
-| [vuWindowMove](vuWindowMove.md) | Moves any window around the screen, given its handle. The move can be absolute (relative to the screen's upper-left corner) or relative to the window's current position. Optionally, the move can be animated in steps with pauses between them. |
+| [vuWindowMove](vuWindowMove.md) | Moves any window around the screen, given its handle. The move can be absolute (relative to the screens upper-left corner) or relative to the windows current position. Optionally, the move can be animated in steps with pauses between them. |
 | [vuWindowNotOnTop](vuWindowNotOnTop.md) | Returns the specified window to its normal display order (resets the effect of `vuWindowOnTop`). |
 | [vuWindowOnTop](vuWindowOnTop.md) | Brings the specified window to the front and keeps it on top until reset by `vuWindowNotOnTop`. |
 | [vuWindowsDirectory](vuWindowsDirectory.md) | Returns the path of the Windows directory. |
