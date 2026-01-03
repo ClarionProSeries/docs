@@ -2,9 +2,10 @@
 title: "vuFileTools"
 summary: "Version: 5."
 description: "Version: 5.0"
+build: "Build 205"
 keywords: ["documentation", "vufiletools", "Clarion", "vuFileTools", "version"]
 page_type: "overview"
-last_updated: "2025-12-3"
+last_updated: "2026-01-03"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
@@ -15,7 +16,7 @@ Version: 5.0
 
 Release date: 2025-11-12
 
-Last Updated: 2025-12-3
+Last Updated: 2026-01-03
 
 Copyright (c) 2025 Clarion ProSeries by LANSRAD. All rights reserved.
 

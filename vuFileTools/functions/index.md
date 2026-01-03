@@ -4,7 +4,7 @@ summary: "Comprehensive list of all vuFileTools functions with short description
 description: "This page provides an index of every function in vuFileTools v5, grouped in a table with concise descriptions and links to full reference documentation. Use it as the master reference hub for exploring available features."
 keywords: ["vuFileTools", "Clarion", "functions", "reference", "index", "documentation", "developer tools"]
 page_type: "function-index"
-last_updated: "2025-12-03"
+last_updated: "2026-01-03"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -38,6 +38,8 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuClearRecentDocs](vuClearRecentDocs.md) | Clears all entries in the Windows Recent Documents folder (accessible from the Start menu). |
 | [vuClientHeight](vuClientHeight.md) | Returns the current screen client height (e.g., 600, 768, 1024). |
 | [vuClientWidth](vuClientWidth.md) | Returns the current screen client width. |
+| [vuCloseApp](vuCloseApp.md) | Requests the application to close using a cooperative shutdown, optionally with a safety-net forced terminate. |
+| [vuCloseAppEx](vuCloseAppEx.md) | Extended application close request with configurable forced-terminate delay and optional user warning countdown. |
 | [vuCloseDisable](vuCloseDisable.md) | Disables the ability to close a window by removing the Close (X) button, given the window handle. |
 | [vuCompress](vuCompress.md) | Compresses a source file using the Huffman compression algorithm and saves it as the specified target file. The source file remains unchanged. |
 | [vuComputerName](vuComputerName.md) | Returns the name of the computer on which the application is running. |
@@ -74,7 +76,7 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuFadeInOthers](vuFadeInOthers.md) | Fades in other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for restoring windows after using `vuFadeOutOthers`. |
 | [vuFadeOut](vuFadeOut.md) | Fades out a window over approximately one second when it is being closed. Typically used together with `vuTransparent` and `vuFadeIn` for full fade-in/fade-out effects. |
 | [vuFadeOutOthers](vuFadeOutOthers.md) | Fades out other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment. |
-| [vuFileCount](vuFileCount.md) | Counts the number of files that match the specified mask. Wildcards are supported. Unlike Clarions built-in `EXISTS()` function, `vuFileCount` does not affect file creation, last written, or access dates. |
+| [vuFileCount](vuFileCount.md) | Counts the number of files that match the specified mask. Wildcards are supported. Unlike Clarions built in `EXISTS()` function, `vuFileCount` does not affect file creation, last written, or access dates. |
 | [vuFileDate](vuFileDate.md) | Returns the creation, last written, or last accessed date of a specified file. |
 | [vuFileExists](vuFileExists.md) | Checks whether a specified file exists on disk. |
 | [vuFileExistsEx](vuFileExistsEx.md) | Checks whether a specified file exists, with optional waiting and polling. |
