@@ -191,7 +191,7 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuShellDelay](vuShellDelay.md) | Launches a file using the Windows shell (honors file associations) after waiting for a specified delay. |
 | [vuShellEx](vuShellEx.md) | Launches a file using the Windows shell (e.g., respects file associations) with optional parameters, working directory, and window display options. |
 | [vuShellExDelay](vuShellExDelay.md) | Runs an external program using the Windows Shell with optional parameters and working directory, after a specified delay. |
-| [vuShutDown](vuShutDown.md) | Logs off, reboots, or powers down the PC depending on the action specified. |
+| [vuShutDown](vuShutdown.md) | Logs off, reboots, or powers down the PC depending on the action specified. |
 | [vuStartDriveEnum](vuStartDriveEnum.md) | Begins a drive enumeration session. |
 | [vuStartDriveEnumEx](vuStartDriveEnumEx.md) | Initializes extended drive enumeration. |
 | [vuStartEmail](vuStartEmail.md) | Uses the `MailTo` protocol to start the default desktop email client with the specified recipient, subject, and body text. The user must manually send the email. |
