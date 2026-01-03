@@ -2,18 +2,19 @@
 title: "What's New in vuFileTools"
 summary: "Version: 5."
 description: "Version: 5.0  
-Release date: 2025-12-03"
+Release date: 2026-01-03"
 keywords: ["documentation", "what", "vufiletools", "Clarion", "vuFileTools", "version"]
 page_type: "release-notes"
-last_updated: "2025-12-03"
+last_updated: "2026-01-03"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # What's New in vuFileTools
 
-Version: 5.0  
-Release date: 2025-12-03
+Version: 5.0  (Build 205)
+
+Release date: 2026-01-03
 
 This page highlights new items in the v5 cycle and links to their reference topics.
 
@@ -21,6 +22,8 @@ This page highlights new items in the v5 cycle and links to their reference topi
 
 | Function | Description |
 |----------|-------------|
+| [vuCloseApp](functions/vuCloseApp.md) | Requests an application shutdown from code with three modes: cooperative close (Mode 0), cooperative plus safety-net forced terminate (Mode 1), and immediate hard kill (Mode 2). Useful for closing apps reliably even when HALT/STOP hooks or save prompts interfere. |
+| [vuCloseAppEx](functions/vuCloseAppEx.md) | Extended shutdown helper that adds a configurable safety-net delay (Mode 1) and an optional user warning countdown before initiating the close request. Ideal for shared EXE update scenarios where you want to warn users, attempt a clean exit, and still guarantee shutdown. |
 | [vuInternetPresent](functions/vuInternetPresent.md) | Reports whether Windows currently believes that Internet connectivity is available. Uses WinINet heuristics rather than testing a specific host. |
 | [vuInternetCanReachUrl](functions/vuInternetCanReachUrl.md) | Tests whether a specific URL can be reached within a caller specified timeout. Useful for verifying connectivity to a particular service endpoint. |
 | [vuIsNTFSCompressed](functions/vuIsNTFSCompressed.md) | Checks whether the specified file or folder is NTFS-compressed. Works with both individual files and directories. |
