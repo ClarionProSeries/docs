@@ -4,7 +4,7 @@ summary: "*Newest versions and release dates are listed first*"
 description: "*Newest versions and release dates are listed first*"
 keywords: ["listed", "documentation", "versions", "history", "dates", "first", "vufiletools", "Clarion", "newest", "vuFileTools", "version", "release"]
 page_type: "changelog"
-last_updated: "2026-01-03"
+last_updated: "2026-03-11"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
@@ -15,6 +15,8 @@ last_updated: "2026-01-03"
 
 | Version    | Release Date | Release Notes                                                |
 |:-----------|:-------------|:-------------------------------------------------------------|
+| 2026-03-19 | Version 5.0 Build 206  | Added the new password visibility helper feature: vuPasswordInit and vuPasswordToggle |
+| 2026-03-11 | Version 5.0 Build 206 | Improved vuFileDate and vuFileTime handling and fixed reported issues with certain file path and filename scenarios |
 | 2026-01-03 | Version 5.0  | Added vuCloseApp and vuCloseAppEx for reliable in-app shutdown control (cooperative close, safety-net forced terminate, optional warning countdown) |
 | 2025-12-03 | Version 5.0  | Added vuInternetPresent and vuInternetCanReachUrl for Internet detection and URL reachability checks |
 | 2021-11-12 | Version 5.0  | Fixed bug in vuCopy                                          |

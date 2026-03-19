@@ -2,26 +2,28 @@
 title: "What's New in vuFileTools"
 summary: "Version: 5."
 description: "Version: 5.0  
-Release date: 2026-01-03"
+Release date: 2026-03-19"
 keywords: ["documentation", "what", "vufiletools", "Clarion", "vuFileTools", "version"]
 page_type: "release-notes"
-last_updated: "2026-01-03"
+last_updated: "2026-03-19"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # What's New in vuFileTools
 
-Version: 5.0  (Build 205)
+Version: 5.0  (Build 206)
 
-Release date: 2026-01-03
+Release date: 2026-03-19
 
-This page highlights new items in the v5 cycle and links to their reference topics.
+This page highlights new items in the V5 cycle and links to their reference topics.
 
 ## New in Version 5
 
 | Function | Description |
 |----------|-------------|
+| [vuPasswordInit](functions/vuPasswordInit.md) |Initializes a Clarion password entry control for managed show/hide password behavior, sets the starting mode, and optionally applies cue text for empty password fields. This is the required starting point for the new password visibility helper feature, including both password mask toggle support and built-in cue/placeholder text support. |
+| [vuPasswordToggle](functions/vuPasswordToggle.md) | Toggles a managed password control between visible-text mode and normal masked mode. Ideal for wiring a Show Password button or eye icon. |
 | [vuCloseApp](functions/vuCloseApp.md) | Requests an application shutdown from code with three modes: cooperative close (Mode 0), cooperative plus safety-net forced terminate (Mode 1), and immediate hard kill (Mode 2). Useful for closing apps reliably even when HALT/STOP hooks or save prompts interfere. |
 | [vuCloseAppEx](functions/vuCloseAppEx.md) | Extended shutdown helper that adds a configurable safety-net delay (Mode 1) and an optional user warning countdown before initiating the close request. Ideal for shared EXE update scenarios where you want to warn users, attempt a clean exit, and still guarantee shutdown. |
 | [vuInternetPresent](functions/vuInternetPresent.md) | Reports whether Windows currently believes that Internet connectivity is available. Uses WinINet heuristics rather than testing a specific host. |
@@ -75,5 +77,10 @@ This page highlights new items in the v5 cycle and links to their reference topi
 | [vuGetNextDriveExAuto](functions/vuGetNextDriveExAuto.md) | Retrieves the next drive automatically from extended enumeration. |
 | [vuGetDriveList](functions/vuGetDriveList.md) | Returns a list of all system drives. |
 | [vuGetDriveListEx](functions/vuGetDriveListEx.md) | Extended version of `vuGetDriveList`, with more detailed drive information. |
+
+## Additional improvements in Version 5
+
+- Improved `vuFileDate` handling and fixed reported issues with certain file path and filename scenarios.
+- Improved `vuFileTime` handling and fixed reported issues with certain file path and filename scenarios.
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
