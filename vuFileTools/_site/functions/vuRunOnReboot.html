@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuRunOnReboot</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vurunonrebootaction">vuRunOnReboot(Action)</h1>
+<pre class="Prototype"><code>vuRunOnReboot(LONG), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Arms or disarms automatic restart of your application after an abnormal termination or system shutdown. Unlike Startup, this only restarts the program if it was running at the time of the crash or power loss. If the application ends normally, it will not restart on reboot.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Action</td>
+<td>LONG</td>
+<td>1 (True) to arm, 0 (False) to disarm.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value:</p>
+<ul>
+<li>1 (True) on success</li>
+<li>0 (False) on failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Arm at program start
+vuRunOnReboot(1)
+
+! Disarm at program end
+vuRunOnReboot(0)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>When armed, if the PC is rebooted due to power loss or crash, the program will automatically restart after user log-in.</li>
+<li>Use at the beginning of your program to enable and disarm at the end to avoid unwanted restarts.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetDriveList</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetdrivelistpoutbuffer-cchbuffer">vuGetDriveList(pOutBuffer, cchBuffer)</h1>
+<pre class="Prototype"><code>vuGetDriveList(LONG,LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves a list of available drive roots and writes the result into the caller-provided buffer.<br />
+Use this for a quick, human-readable list of drives suitable for display.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pOutBuffer</td>
+<td>*STRING</td>
+<td>Address of a STRING buffer that receives the drive list text.</td>
+</tr>
+<tr class="even">
+<td>cchBuffer</td>
+<td>LONG</td>
+<td>Size of the output buffer in characters (use <code>SIZE(BufferVar)</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>The number of drives written to the buffer on success.</li>
+<li>0 if no drives are available.</li>
+<li>Negative values may indicate an error or an insufficient buffer.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ROUTINE:Test_VUGetDriveList   ROUTINE
+  DATA
+sDriveList     STRING(256)
+nCount         LONG
+
+  CODE
+
+  CLEAR(sDriveList)
+
+  nCount = vuGetDriveList(ADDRESS(sDriveList), SIZE(sDriveList))
+
+  IF nCount &gt; 0
+    MESSAGE(&#39;Drives: &#39; &amp; sDriveList, &#39;vuGetDriveList&#39;)
+  ELSE
+    MESSAGE(&#39;No drives returned or error.&#39;, &#39;vuGetDriveList Error&#39;, ICON:Exclamation)
+  END
+
+! End TestVUGetDriveList
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Ensure the output buffer is large enough to hold the entire list; if the buffer is too small, a negative return may be used to signal an error.</li>
+<li>The text format is intended for display. If you need structured fields per drive, use <code>vuGetDriveListEx</code> instead.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

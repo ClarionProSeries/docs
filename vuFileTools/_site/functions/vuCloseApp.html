@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCloseApp</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucloseappmode">vuCloseApp(Mode)</h1>
+<pre class="Prototype"><code>vuCloseApp(LONG), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Requests the application to close. This is intended for situations where you need to close an app from code (including from a background polling loop), without relying on Clarion HALT.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mode</td>
+<td>LONG</td>
+<td>Close mode:<br>0 = Graceful close request (cooperative, may prompt)<br>1 = Graceful close request + forced terminate after a delay (safety net)<br>2 = Hard kill immediately (no prompts, no cleanup)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value:</p>
+<ul>
+<li>1 (True) on success</li>
+<li>0 (False) on failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Mode 0: cooperative close (may prompt user to save changes)
+vuCloseApp(0)
+
+! Mode 1: cooperative close first, then forced terminate if still running
+vuCloseApp(1)
+
+! Mode 2: immediate hard kill (no prompts, unsaved work can be lost)
+vuCloseApp(2)
+
+! After calling, exit your current code path (RETURN from a PROCEDURE, or EXIT from a ROUTINE).
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Mode 0 is cooperative and may display prompts (for example, save changes).</li>
+<li>In some multi-DLL ABC apps, Mode 0 may not fully exit if a dirty form prompts during shutdown. In that case, use Mode 1 for reliable exit.</li>
+<li>Mode 1 requests a normal shutdown first, then forces termination after a delay if the app is still running.</li>
+<li>Mode 2 forces immediate termination with no prompts and no normal cleanup, so unsaved work can be lost.</li>
+<li>Mode 2 terminates the process directly, so any in-app shutdown logic may not run.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

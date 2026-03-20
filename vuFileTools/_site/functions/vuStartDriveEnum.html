@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuStartDriveEnum</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vustartdriveenum">vuStartDriveEnum()</h1>
+<pre class="Prototype"><code>vuStartDriveEnum(), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Begins a drive enumeration session.<br />
+Call this first, then loop with <code>vuGetNextDrive</code>, and finally call <code>vuEndDriveEnum</code> to clean up.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td>This function takes no parameters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1 on success.</li>
+<li>0 on failure.</li>
+<li>Negative values may indicate errors.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Three-call drive enumeration:
+!   1) vuStartDriveEnum()
+!   2) vuGetNextDrive(ADDRESS(sRootPath), ADDRESS(dwDriveType)) in a loop
+!   3) vuEndDriveEnum()
+
+sRootPath   CSTRING(4)   ! e.g., &#39;C:\&#39;
+dwDriveType LONG
+Result      LONG
+sType       CSTRING(20)
+Msg         CSTRING(100)
+
+  CODE
+  CLEAR(sRootPath)
+  CLEAR(dwDriveType)
+
+  Result = vuStartDriveEnum()
+  IF Result = 0
+    MESSAGE(&#39;Failed to start drive enumeration.&#39;)
+    RETURN
+  END
+
+  LOOP
+    Result = vuGetNextDrive(ADDRESS(sRootPath), ADDRESS(dwDriveType))
+    IF Result = 0
+      BREAK   ! no more drives
+    END
+
+    CASE dwDriveType
+    OF 2  ; sType = &#39;Removable&#39;
+    OF 3  ; sType = &#39;Fixed&#39;
+    OF 4  ; sType = &#39;Network&#39;
+    OF 5  ; sType = &#39;CD/DVD&#39;
+    OF 6  ; sType = &#39;RAM Disk&#39;
+    ELSE  ; sType = &#39;Unknown&#39;
+    END
+
+    Msg = &#39;Drive: &#39; &amp; CLIP(sRootPath) &amp; &#39;  Type: &#39; &amp; sType
+    MESSAGE(Msg)
+  END
+
+  Result = vuEndDriveEnum()
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Must be paired with <code>vuEndDriveEnum()</code>; do not mix with the <code>Ex</code> or <code>Auto</code> variants.</li>
+<li>Use <code>ADDRESS()</code> to pass pointers for the root path buffer and the drive type LONG to <code>vuGetNextDrive</code>.</li>
+<li>Drive type values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

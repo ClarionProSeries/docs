@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuIsFolderCompressed</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuisfoldercompressedzpath">vuIsFolderCompressed(zPath)</h1>
+<pre class="Prototype"><code>vuIsFolderCompressed(STRING), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Checks whether a specified folder is NTFS-compressed.<br />
+This allows applications to detect whether compression is applied at the folder level.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>zPath</td>
+<td>STRING</td>
+<td>Full path to the folder to check (for example, <code>C:\Testing\MyFolder</code>).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1 if the folder is NTFS compressed.</li>
+<li>0 if the folder is not compressed.</li>
+<li>Negative values may indicate errors such as invalid arguments or path not found.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>zPath   CSTRING(256)
+Result  LONG
+Msg     CSTRING(256)
+
+  CODE
+  zPath = &#39;C:\Testing\CompressedFolder&#39;
+
+  Result = vuIsFolderCompressed(zPath)
+
+  IF Result
+    Msg = &#39;The folder is NTFS compressed.&#39;
+  ELSE
+    Msg = &#39;The folder is NOT NTFS compressed.&#39;
+  END
+
+  MESSAGE(Msg, zPath)
+
+</code></pre>
+<p>Notes</p>
+<p>Works only on NTFS volumes.</p>
+<p>Use vuCreateCompressedFolder or vuSetFolderCompression to enable or change compression.</p>
+<p>If the folder path does not exist, the function will return an error.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

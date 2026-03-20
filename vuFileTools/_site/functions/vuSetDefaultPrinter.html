@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSetDefaultPrinter</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vusetdefaultprinterprintername">vuSetDefaultPrinter(PrinterName)</h1>
+<pre class="Prototype"><code>vuSetDefaultPrinter(*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Sets the PC's default printer to the printer specified by name. If the name is left blank, the first printer in the system list will be set as default.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PrinterName</td>
+<td>CSTRING(256)</td>
+<td>The name of the printer to set as the default. Leave blank to select the first printer listed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value:</p>
+<ul>
+<li>1 (True) on success</li>
+<li>0 (False) on failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>PrinterName = &#39;Epson Stylus Photo R300&#39;
+
+IF vuSetDefaultPrinter(PrinterName)
+  MESSAGE(&#39;Default printer set successfully.&#39;)
+ELSE
+  MESSAGE(&#39;Failed to set default printer.&#39;)
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Requires Windows 2000 or higher.</li>
+<li>Use <code>vuGetDefaultPrinter()</code> to save the current default before switching.</li>
+<li>Typical usage pattern:
+<ol>
+<li>Save the current default printer.</li>
+<li>Set a new default printer (for example, a label printer).</li>
+<li>Run an external program that outputs to the printer.</li>
+<li>Reset the default printer back to the original.</li>
+</ol></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

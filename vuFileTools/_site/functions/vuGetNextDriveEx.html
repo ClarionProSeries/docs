@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetNextDriveEx</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetnextdriveexpdriveinfo">vuGetNextDriveEx(pDriveInfo)</h1>
+<pre class="Prototype"><code>vuGetNextDriveEx(LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves extended information about the next available drive.<br />
+This function is part of the three-call extended enumeration sequence:</p>
+<ol>
+<li>Call <code>vuStartDriveEnumEx()</code> to initialize.</li>
+<li>Call <code>vuGetNextDriveEx()</code> in a loop until it returns 0.</li>
+<li>Call <code>vuEndDriveEnumEx()</code> to clean up.</li>
+</ol>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pDriveInfo</td>
+<td>*GROUP</td>
+<td>Address of a GROUP structure that receives drive information, including:</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>- <code>RootPath</code> (CSTRING(4)) drive root (e.g., <code>C:\</code>)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>- <code>DriveType</code> (LONG) type constant</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>- <code>IsReady</code> (LONG) 1 if ready, 0 if not</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>- <code>VolumeLabel</code> (CSTRING(64)) volume label</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>- <code>FileSystem</code> (CSTRING(16)) filesystem type (e.g., NTFS, FAT32)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>- <code>FreeBytes</code> (CSTRING(20)) free space, as a formatted string</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>- <code>TotalBytes</code> (CSTRING(20)) total size, as a formatted string</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>Nonzero if drive information was retrieved.</li>
+<li>0 when no more drives are available.</li>
+<li>Negative values may indicate errors.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ROUTINE:Test_vuDriveEnumEx   ROUTINE
+
+  DATA
+DriveInfo    GROUP
+RootPath     CSTRING(4)
+DriveType    LONG
+IsReady      LONG
+VolumeLabel  CSTRING(64)
+FileSystem   CSTRING(16)
+FreeBytes    CSTRING(20)
+TotalBytes   CSTRING(20)
+           END
+
+Result       LONG
+Msg          CSTRING(512)
+sType        CSTRING(20)
+sReady       CSTRING(4)
+
+  CODE
+
+  CLEAR(DriveInfo)
+  Result = vuStartDriveEnumEx()
+
+  LOOP
+    Result = vuGetNextDriveEx(ADDRESS(DriveInfo))
+    IF Result = 0
+      BREAK
+    END
+
+    CASE DriveInfo.DriveType
+    OF 2  ; sType = &#39;Removable&#39;
+    OF 3  ; sType = &#39;Fixed&#39;
+    OF 4  ; sType = &#39;Network&#39;
+    OF 5  ; sType = &#39;CD/DVD&#39;
+    OF 6  ; sType = &#39;RAM Disk&#39;
+    ELSE  ; sType = &#39;Unknown&#39;
+    END
+
+    IF DriveInfo.IsReady = 1
+      sReady = &#39;Yes&#39;
+    ELSE
+      sReady = &#39;No&#39;
+    END
+
+    Msg = &#39;Drive: &#39; &amp; CLIP(DriveInfo.RootPath) &amp; &#39;  Type: &#39; &amp; sType &amp; |
+          &#39;  Ready: &#39; &amp; sReady &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;Label: &#39; &amp; CLIP(DriveInfo.VolumeLabel) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;FSys:  &#39; &amp; CLIP(DriveInfo.FileSystem) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;Total: &#39; &amp; CLIP(DriveInfo.TotalBytes) &amp; &#39; bytes&#39; &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;Free:  &#39; &amp; CLIP(DriveInfo.FreeBytes) &amp; &#39; bytes&#39;
+
+    MESSAGE(Msg)
+  END
+
+  Result = vuEndDriveEnumEx()
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>vuGetNextDriveEx()</code> provides more detail than <code>vuGetNextDrive()</code>, including labels, filesystem type, and space usage.</li>
+<li>The GROUP structure layout in the example matches what the DLL fills in.</li>
+<li>Always call <code>vuEndDriveEnumEx()</code> to release resources when finished.</li>
+<li>For a simpler approach without explicit start/end, use <code>vuGetNextDriveExAuto()</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

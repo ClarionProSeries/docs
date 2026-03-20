@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuPrintExists</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuprintexistspfile">vuPrintExists(pFile)</h1>
+<pre class="Prototype"><code>vuPrintExists(*CSTRING pFile), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Sends the specified file to the default printer if the file exists.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pFile</td>
+<td>CSTRING(260)</td>
+<td>Full path to the file to print if it exists and is valid</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1: File exists and was sent to the default printer</li>
+<li>0: File does not exist or could not be printed</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FilePath CSTRING(260)
+Ret      LONG
+
+FilePath = &#39;C:\Temp\Test.txt&#39;
+Ret      = vuPrintExists(FilePath)
+
+MESSAGE(&#39;vuPrintExists returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintExists Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>Uses the systems default printer.</p>
+<p>If the file does not exist, the function returns 0 and no action is taken.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

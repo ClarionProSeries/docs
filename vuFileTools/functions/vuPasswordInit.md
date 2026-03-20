@@ -1,12 +1,12 @@
 ---
 title: "vuPasswordInit"
-summary: "Initializes a Clarion entry control for managed show/hide behavior, including an automatic toggle button, optional cue text, and optional tooltip text."
-description: "Registers a Clarion entry control for managed visibility behavior. The DLL automatically creates a toggle button to the right of the control. Optional cue text and optional tooltip text are supported. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
-keywords: ["vuFileTools", "password", "show password", "hide password", "Clarion", "entry control", "cue text", "tooltip", "vuPasswordInit"]
+summary: "Retrofits a standard Clarion password entry control with a modern show/hide UI, including an automatic toggle button, optional cue text, optional tooltip text, and built-in paste support."
+description: "Turns a standard Clarion password entry control into a more modern UI with a built-in show/hide eye button, optional cue text, built-in resource icons, and support for normal paste behavior. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+keywords: ["vuFileTools", "password", "show password", "hide password", "Clarion", "entry control", "cue text", "tooltip", "paste", "native control", "modern UI", "vuPasswordInit"]
 function_name: "vuPasswordInit"
 category: "UI Helpers"
 version_added: "5.1"
-last_updated: "2026-03-17"
+last_updated: "2026-03-19"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -19,9 +19,17 @@ vuPasswordInit(LONG, LONG, *CSTRING, *CSTRING), SIGNED, PASCAL, RAW, NAME('vuPas
 
 ## Description
 
-Registers a Clarion entry control for managed visibility behavior. This function automatically creates and manages a toggle button (eye icon) to the right of the control. It supports both masked password fields and unmasked fields such as login names.
+Retrofits a standard Clarion entry control into a more modern password UI without forcing you to replace the control or redesign your login screen. With a single function call, you can add the kind of behavior users now expect, including a show/hide eye button, optional cue text, and normal paste support.
+
+This makes it easy to upgrade an existing Clarion password entry so it feels more like the password fields seen in current desktop and web applications, while still keeping the original Clarion control and its normal behavior underneath.
+
+Technically, the function registers a Clarion entry control for managed visibility behavior. It automatically creates and manages a toggle button (eye icon) to the right of the control. It supports both masked password fields and unmasked fields such as login names.
 
 The function prepares internal tracking for the control, sets the starting visibility mode, handles cue text, and optionally adds a tooltip to the generated button.
+
+The developer does not have to create the eye button, position it, or supply icon files. The required eye icons are compiled into the DLL as resources, and the button is created automatically in the correct relative position next to the control.
+
+This function preserves the original native Clarion entry control. It does not replace the control with a substitute control type, so existing Clarion behavior and embed logic continue to work normally.
 
 **Stability Note:** This function is idempotent. If called on a control that is already initialized, it will automatically perform a cleanup of the previous instance before re-applying the new settings. This prevents repeated subclassing and keeps the control stable during dynamic UI refreshes.
 
@@ -84,10 +92,14 @@ RC = vuPasswordInit(?LoginPassword{PROP:Handle}, LoginPasswordShowState, LoginPa
 ## Notes
 
 - The function creates its own eye button and manages it internally.
+- The developer does not need to create the button, provide icon files, or manually position the button.
+- The eye icons are compiled into the DLL as resources.
+- The button is created automatically in the proper relative position next to the control.
 - Cue text is optional. If `CueText` is blank, no cue text is drawn.
 - Tooltip text is optional. If `TooltipText` is blank, no tooltip is shown.
 - The button is resized and repositioned as the control moves or changes size.
 - The control supports normal keyboard and paste behavior while still using the original Clarion entry control.
+- Allowing paste is intentional so the control behaves more like modern password fields and better matches current user expectations.
 
 ## Related functions
 

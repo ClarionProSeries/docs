@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetEnumeratedEntryA</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetenumeratedentryaindex-feentry">vuGetEnumeratedEntryA(Index, feEntry)</h1>
+<pre class="Prototype"><code>vuGetEnumeratedEntryA(LONG,*GROUP), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves information about a single entry from the results of a previous <code>vuEnumerateFolderA</code> call.<br />
+Entries can include files or subfolders, along with their attributes, size, and timestamps.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Index</td>
+<td>LONG</td>
+<td>Zero-based index of the entry to retrieve. Must be less than the count returned by <code>vuEnumerateFolderA</code>.</td>
+</tr>
+<tr class="even">
+<td>feEntry</td>
+<td>*GROUP</td>
+<td>Address of a GROUP structure that will be filled with the entry details.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>feEntry</code> GROUP should contain fields for name, full path, attributes, size, date, and time. For example:</p>
+<pre class="Clarion"><code>feEntry GROUP
+sName       CSTRING(260)
+sFullPath   CSTRING(260)
+bIsFolder   LONG
+dwSizeLow   ULONG
+dwSizeHigh  ULONG
+dwAttrs     ULONG
+wDate       USHORT
+wTime       USHORT
+        END
+</code></pre>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1 if the entry information was successfully retrieved.</li>
+<li>0 if the entry could not be retrieved (invalid index or no data).</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>sTestFolder CSTRING(260)
+feEntry     GROUP
+sName       CSTRING(260)
+sFullPath   CSTRING(260)
+bIsFolder   LONG
+dwSizeLow   ULONG
+dwSizeHigh  ULONG
+dwAttrs     ULONG
+wDate       USHORT
+wTime       USHORT
+        END
+EntryCount  LONG
+Index       LONG
+sInfo       CSTRING(1024)
+
+  CODE
+  sTestFolder = &#39;C:\Windows&#39;
+  EntryCount  = vuEnumerateFolderA(sTestFolder)
+
+  IF EntryCount &lt;= 0
+    MESSAGE(&#39;vuEnumerateFolderA returned no entries.&#39;, &#39;Test Result&#39;)
+    RETURN
+  END
+
+  LOOP Index = 0 TO 9
+    IF Index &gt;= EntryCount THEN BREAK.
+
+    IF vuGetEnumeratedEntryA(Index, feEntry)
+      sInfo = CLIP(feEntry.sName)
+      IF feEntry.bIsFolder
+        sInfo = sInfo &amp; &#39;   [DIR]&#39;
+      ELSE
+        sInfo = sInfo &amp; &#39;   &#39; &amp; FORMAT(feEntry.dwSizeLow) &amp; &#39; bytes&#39;
+      END
+      MESSAGE(sInfo, &#39;Entry &#39; &amp; FORMAT(Index+1))
+    ELSE
+      MESSAGE(&#39;Failed to retrieve entry #&#39; &amp; FORMAT(Index), &#39;Error&#39;)
+    END
+  END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Always call <code>vuEnumerateFolderA</code> first to initialize the enumeration.</li>
+<li><code>Index</code> must be within the valid range of entries.</li>
+<li>Folder entries are marked with <code>bIsFolder = 1</code>.</li>
+<li>File size values are split into low and high DWORD parts (<code>dwSizeLow</code> and <code>dwSizeHigh</code>).</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

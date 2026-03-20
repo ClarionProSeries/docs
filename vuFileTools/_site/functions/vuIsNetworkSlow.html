@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuIsNetworkSlow</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuisnetworkslowthreshold">vuIsNetworkSlow(Threshold)</h1>
+<pre class="Prototype"><code>vuIsNetworkSlow(LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by <code>vuPrimaryLinkSpeed()</code>.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Threshold</td>
+<td>LONG</td>
+<td>Minimum acceptable speed in Mbps. If the link speed is below this value, it is considered "slow".</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1: Network speed is below the threshold (slow)</li>
+<li>0: Network speed meets or exceeds the threshold</li>
+<li>-1: Network speed could not be determined</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Threshold LONG
+RetVal    LONG
+SpeedVal  LONG
+OutMsg    CSTRING(256)
+
+Threshold = 25
+RetVal    = vuIsNetworkSlow(Threshold)
+
+IF (RetVal = -1)
+  OutMsg = &#39;Network speed unknown. Cannot determine slow status.&#39;
+ELSIF (RetVal = 1)
+  SpeedVal = vuPrimaryLinkSpeed()
+  IF (SpeedVal &gt; 0)
+    OutMsg = &#39;Network is slow. &#39; &amp; FORMAT(SpeedVal) &amp; &#39; Mbps &lt; &#39; &amp; FORMAT(Threshold) &amp; &#39; Mbps&#39;
+  ELSE
+    OutMsg = &#39;Network is slow or disconnected. Below &#39; &amp; FORMAT(Threshold) &amp; &#39; Mbps&#39;
+  END
+ELSE
+  SpeedVal = vuPrimaryLinkSpeed()
+  OutMsg = &#39;Network is OK. &#39; &amp; FORMAT(SpeedVal) &amp; &#39; Mbps &gt;= &#39; &amp; FORMAT(Threshold) &amp; &#39; Mbps&#39;
+END
+
+MESSAGE(OutMsg, &#39;vuIsNetworkSlow Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>Relies on the value from vuPrimaryLinkSpeed().</p>
+<p>Useful for adaptive behavior when running on slower networks.</p>
+<p>Ch</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

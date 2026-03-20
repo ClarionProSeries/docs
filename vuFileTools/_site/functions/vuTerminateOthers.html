@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuTerminateOthers</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuterminateothersnamecontains">vuTerminateOthers(NameContains)</h1>
+<pre class="Prototype"><code>vuTerminateOthers(*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Terminates all <strong>other</strong> running programs whose primary window title contains the specified string. Can be used to close applications such as Word, Excel, or any program whose window title matches the given criteria.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NameContains</td>
+<td>CSTRING(256)</td>
+<td>Blank, partial, or full window title to search for.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value containing the number of windows terminated that matched the criteria.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>NameContains = &#39;Microsoft Word&#39;
+MESSAGE(vuTerminateOthers(NameContains) &amp; &#39; Word documents were terminated&#39;)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>If <code>NameContains</code> is blank, all other running programs will be terminated.</li>
+<li>Match occurs if <code>NameContains</code> appears anywhere within the window title.</li>
+<li>Use with caution, as this can forcibly terminate multiple applications at once.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetDriveListEx</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetdrivelistexpoutbuffer-cchbuffer">vuGetDriveListEx(pOutBuffer, cchBuffer)</h1>
+<pre class="Prototype"><code>vuGetDriveListEx(LONG,LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves an extended list of available drives with detailed information for each.<br />
+The results are written into a caller-provided buffer as text, with fields separated by commas and records separated by CRLF. Each record contains drive attributes such as label, type, filesystem, and capacity.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pOutBuffer</td>
+<td>*STRING</td>
+<td>Address of a STRING buffer that receives the drive list data.</td>
+</tr>
+<tr class="even">
+<td>cchBuffer</td>
+<td>LONG</td>
+<td>Size of the output buffer in characters (use <code>SIZE(BufferVar)</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li><code>-1</code> if the function succeeded and the buffer contains drive records.</li>
+<li>0 if no drives are available.</li>
+<li>Other negative values may indicate errors (such as insufficient buffer size).</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ROUTINE:Test_VUGetDriveListEx   ROUTINE   !Special parsing for field 6
+  DATA
+sBuffer       STRING(4096)
+DriveListQ    QUEUE
+Drive         CSTRING(4)
+Label         CSTRING(64)
+Type          CSTRING(32)
+FileSystem    CSTRING(32)
+Free          CSTRING(20)
+Total         CSTRING(20)
+Ready         BYTE
+              END
+sLine         STRING(512)
+sField        STRING(128)
+lResult       LONG
+StartPos      LONG
+EndPos        LONG
+CharIndex     LONG
+FieldStart    LONG
+FieldEnd      LONG
+FieldIndex    LONG
+RecordIndex   LONG
+sLineIndex    LONG
+sReady        STRING(4)
+
+  CODE
+
+  CLEAR(sBuffer)
+  lResult = vuGetDriveListEx(ADDRESS(sBuffer), SIZE(sBuffer))
+
+  IF (lResult &lt;&gt; -1)
+    MESSAGE(&#39;vuGetDriveListEx failed or buffer too small.&#39;, &#39;Error&#39;, ICON:Exclamation)
+    EXIT
+  END
+
+  StartPos = 1
+
+  LOOP CharIndex = 1 TO LEN(CLIP(sBuffer))
+    IF sBuffer[CharIndex] = &#39;&lt;13&gt;&#39; AND sBuffer[CharIndex + 1] = &#39;&lt;10&gt;&#39;
+      EndPos = CharIndex - 1
+      sLine = sBuffer[StartPos : EndPos]
+      StartPos = EndPos + 3
+
+      IF CLIP(sLine) = &#39;&#39;
+        CYCLE
+      END
+
+      CLEAR(DriveListQ)
+      FieldStart = 1
+      FieldIndex = 0
+
+      LOOP sLineIndex = 1 TO LEN(CLIP(sLine))
+        IF sLine[sLineIndex] = &#39;,&#39;
+          FieldEnd = sLineIndex - 1
+          sField = sLine[FieldStart : FieldEnd]
+
+          CASE FieldIndex
+            OF 0
+              DriveListQ.Drive = CLIP(sField)
+            OF 1
+              DriveListQ.Label = CLIP(sField)
+            OF 2
+              DriveListQ.Type = CLIP(sField)
+            OF 3
+              DriveListQ.FileSystem = CLIP(sField)
+            OF 4
+              DriveListQ.Free = CLIP(sField)
+            OF 5
+              DriveListQ.Total = CLIP(sField)
+          END
+
+          FieldIndex += 1
+          FieldStart = sLineIndex + 1
+
+        ELSE
+
+          IF FieldIndex = 6
+            sField = sLine[FieldStart : LEN(CLIP(sLine))]
+            DriveListQ.Ready = CLIP(sField)
+          END 
+
+        END
+      END
+
+      ADD(DriveListQ)
+    END
+  END
+
+  IF RECORDS(DriveListQ) = 0
+    MESSAGE(&#39;No drive data returned.&#39;, &#39;vuGetDriveListEx&#39;, ICON:Exclamation)
+    EXIT
+  END
+
+  MESSAGE(&#39;Parsed &#39; &amp; RECORDS(DriveListQ) &amp; &#39; drive records.&#39;, &#39;vuGetDriveListEx&#39;, ICON:Exclamation)
+
+  LOOP RecordIndex = 1 TO RECORDS(DriveListQ)
+    GET(DriveListQ, RecordIndex)
+
+    IF DriveListQ.Ready = 1
+      sReady = &#39;Yes&#39;
+    ELSE
+      sReady = &#39;No&#39;
+    END
+
+    MESSAGE(&#39;Drive: &#39; &amp; DriveListQ.Drive &amp; |
+            &#39;|Label: &#39; &amp; DriveListQ.Label &amp; |
+            &#39;|Type: &#39; &amp; DriveListQ.Type &amp; |
+            &#39;|FS: &#39; &amp; DriveListQ.FileSystem &amp; |
+            &#39;|Free: &#39; &amp; DriveListQ.Free &amp; |
+            &#39;|Total: &#39; &amp; DriveListQ.Total &amp; |
+            &#39;|Ready: &#39; &amp; sReady, &#39;vuGetDriveListEx&#39;, ICON:Exclamation)
+  END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The buffer contains comma-delimited fields per line; each line represents one drive.</li>
+<li>A typical record contains: <code>Drive,Label,Type,FileSystem,Free,Total,Ready</code>.</li>
+<li>You must parse the buffer manually or load into a queue as shown above.</li>
+<li>If you only need a simple list of drives without detailed info, use <code>vuGetDriveList()</code> instead.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

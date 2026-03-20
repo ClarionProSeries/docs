@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuRemoveStartupShortcut</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuremovestartupshortcutlinkname-scope">vuRemoveStartupShortcut(LinkName, Scope)</h1>
+<pre class="Prototype"><code>vuRemoveStartupShortcut(*CSTRING,LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Removes a shortcut (.lnk file) from the Windows Startup folder so that the specified program no longer runs automatically at startup.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LinkName</td>
+<td>CSTRING(260)</td>
+<td>Name of the shortcut file to remove (e.g., <code>MyApp.lnk</code>).</td>
+</tr>
+<tr class="even">
+<td>Scope</td>
+<td>LONG</td>
+<td><code>0</code> = Current User Startup, <code>1</code> = Common (All Users) Startup.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1: Success (shortcut deleted)</li>
+<li>0: Not found or not deleted</li>
+<li>-5: Access denied (not elevated)</li>
+<li>-6: Invalid arguments</li>
+<li>-7: Startup folder not found</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>LinkName CSTRING(260)
+Scope    LONG
+Rc       LONG
+
+LinkName = &#39;CL_Test_Notepad&#39;
+Scope    = 0  ! User Startup
+
+Rc = vuRemoveStartupShortcut(LinkName, Scope)
+
+IF Rc = 1
+  MESSAGE(&#39;Startup shortcut removed successfully (User Startup).&#39;)
+ELSIF Rc = 0
+  MESSAGE(&#39;Shortcut not found or not deleted.&#39;)
+ELSE
+  MESSAGE(&#39;Failed to remove startup shortcut. rc=&#39; &amp; FORMAT(Rc))
+END
+
+</code></pre>
+<p>Notes</p>
+<p>The shortcut name should include .lnk if that was part of the original name; otherwise it will be added automatically.</p>
+<p>Common Startup (Scope = 1) usually requires elevation (Administrator rights).</p>
+<p>Use together with vuAddStartupShortcut for full management of startup entries.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

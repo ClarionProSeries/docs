@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAnimateOpenRoll</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuanimateopenrollhwindow-dwtime-l2r-r2l-t2b-b2t">vuAnimateOpenRoll(hWindow, dwTime, L2R, R2L, T2B, B2T)</h1>
+<pre class="Prototype"><code>vuAnimateOpenRoll(LONG,LONG,LONG,LONG,LONG,LONG), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Animates the opening of a window, rolling in the specified direction(s). The animation duration is defined by <code>dwTime</code> in milliseconds.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hWindow</td>
+<td>LONG</td>
+<td>Handle of the window to animate</td>
+</tr>
+<tr class="even">
+<td>dwTime</td>
+<td>LONG</td>
+<td>Duration of the animation in milliseconds</td>
+</tr>
+<tr class="odd">
+<td>L2R</td>
+<td>LONG</td>
+<td>1 = Open window left to right. Do not set both <code>L2R</code> and <code>R2L</code>. If both are set, defaults to L2R.</td>
+</tr>
+<tr class="even">
+<td>R2L</td>
+<td>LONG</td>
+<td>1 = Open window right to left</td>
+</tr>
+<tr class="odd">
+<td>T2B</td>
+<td>LONG</td>
+<td>1 = Open window top to bottom. Do not set both <code>T2B</code> and <code>B2T</code>. If both are set, defaults to T2B.</td>
+</tr>
+<tr class="even">
+<td>B2T</td>
+<td>LONG</td>
+<td>1 = Open window bottom to top</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>1 (True) on success, 0 (False) on failure.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>hWindow = Window{PROP:Handle}
+dwTime  = 200  ! default
+
+vuAnimateOpenRoll(hWindow, dwTime, 1, 0, 1, 0)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Requires Windows 2000 or higher.</li>
+<li>The animation only needs to be set once before the window is opened.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

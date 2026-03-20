@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuQuotes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuquotesstrg">vuQuotes(Strg)</h1>
+<pre class="Prototype"><code>vuQuotes(*CSTRING), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns the specified string with leading and trailing quotation marks added.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Strg</td>
+<td>CSTRING</td>
+<td>The string you want to enclose in quotes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing the input string wrapped in quotation marks.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Strg = &#39;Mary had a little lamb.&#39;
+QuotedStr = vuQuotes(Strg)
+MESSAGE(QuotedStr)
+! Result: &quot;Mary had a little lamb.&quot;
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Always adds one leading and one trailing double-quote character.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

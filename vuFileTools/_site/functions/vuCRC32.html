@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCRC32</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucrc32filename">vuCRC32(Filename)</h1>
+<pre class="Prototype"><code>vuCRC32(*CSTRING), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Calculates a 32-bit CRC (Cyclic Redundancy Check) for the provided parameter. If the parameter is a valid file path, the CRC is calculated on the file contents. Otherwise, the CRC is calculated on the provided value.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Filename</td>
+<td>CSTRING(512)</td>
+<td>Fully qualified file path (drive, path, filename) or a value to calculate CRC against</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A ULONG containing the CRC32 value.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>LOC:FileName = &#39;C:\Valutilities\Test.tps&#39;
+MESSAGE(&#39;CRC32 = &#39; &amp; vuCRC32(LOC:FileName))
+</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

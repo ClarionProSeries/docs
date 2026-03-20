@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuChangeDisplay</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuchangedisplaydepth-width-height-action">vuChangeDisplay(Depth, Width, Height, Action)</h1>
+<pre class="Prototype"><code>vuChangeDisplay(LONG,LONG,LONG,LONG), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Tests or dynamically changes the PCs display settings (width, height, and color depth). This function ensures only supported settings are applied. Unsupported combinations of width, height, depth, or refresh rate will return a failure. Use this function to set screen resolution and restore it when your program exits.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Depth</td>
+<td>LONG</td>
+<td>Desired color depth in bits (8, 16, 24, or 32)</td>
+</tr>
+<tr class="even">
+<td>Width</td>
+<td>LONG</td>
+<td>Desired screen width (e.g., 800, 1024)</td>
+</tr>
+<tr class="odd">
+<td>Height</td>
+<td>LONG</td>
+<td>Desired screen height (e.g., 600, 768)</td>
+</tr>
+<tr class="even">
+<td>Action</td>
+<td>LONG</td>
+<td>0 = Change dynamically (do not save) <br> 1 = Change dynamically and make permanent <br> 2 = Test if settings are valid <br> 99 = Restore original mode (valid only if original action was 0)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>0 = Change failed (invalid or unsupported parameters)</li>
+<li>1 = Change successful</li>
+<li>2 = Change successful, but reboot required</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<pre class="Clarion"><code>! Change display at program start
+IF vuChangeDisplay(24, 1024, 768, 0) = 1
+  MESSAGE(&#39;Screen changed to 1024x768 True Color&#39;)
+END
+
+! Restore display at program end
+IF vuChangeDisplay(0, 0, 0, 99) = 1
+  MESSAGE(&#39;Screen restored to original settings&#39;)
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Restore is valid only if the original action was 0.</li>
+<li>If the original action was 1, changes are permanent.</li>
+<li>On systems that forbid dynamic screen changes, the function may return 2 (reboot required).</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

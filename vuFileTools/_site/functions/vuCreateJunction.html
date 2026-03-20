@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCreateJunction</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucreatejunctionjunctionpath-targetdir">vuCreateJunction(JunctionPath, TargetDir)</h1>
+<pre class="Prototype"><code>vuCreateJunction(*CSTRING,*CSTRING), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Creates a junction point that links one directory to another. A junction allows a folder to appear in multiple locations on the file system.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>JunctionPath</td>
+<td>CSTRING(260)</td>
+<td>Full path of the new junction directory to create.</td>
+</tr>
+<tr class="even">
+<td>TargetDir</td>
+<td>CSTRING(260)</td>
+<td>Full path of the existing directory that the junction will reference.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1: Success</li>
+<li>0: Failure (generic)</li>
+<li>-5: Access denied</li>
+<li>-6: Invalid arguments</li>
+<li>-7: Target directory not found</li>
+<li>-8: Junction creation process failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>base         CSTRING(260)
+junctionPath CSTRING(260)
+targetDir    CSTRING(260)
+rc           LONG
+msg          CSTRING(256)
+
+base         = &#39;C:\_Temp\vuFT5\&#39;
+junctionPath = base &amp; &#39;LinkTests_junction&#39;
+targetDir    = base &amp; &#39;LinkTests&#39;
+
+rc = vuCreateJunction(junctionPath, targetDir)
+
+CASE rc
+OF 1      ; msg = &#39;Junction created successfully: &#39; &amp; junctionPath
+OF -5     ; msg = &#39;Access denied while creating junction.&#39;
+OF -7     ; msg = &#39;Target directory not found: &#39; &amp; targetDir
+OF -8     ; msg = &#39;mklink process failure while creating junction.&#39;
+ELSE        msg = &#39;Junction failed. rc=&#39; &amp; FORMAT(rc)
+END
+
+MESSAGE(msg, &#39;vuCreateJunction Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>The target directory must already exist.</p>
+<p>The parent path of JunctionPath must exist or the call will fail.</p>
+<p>Junctions work only with directories and require NTFS file system.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

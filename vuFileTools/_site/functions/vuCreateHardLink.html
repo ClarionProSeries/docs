@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCreateHardLink</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucreatehardlinklinkpath-targetfile">vuCreateHardLink(LinkPath, TargetFile)</h1>
+<pre class="Prototype"><code>vuCreateHardLink(*CSTRING,*CSTRING), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Creates a hard link to an existing file. A hard link allows two filenames to reference the same physical file data on disk.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LinkPath</td>
+<td>CSTRING(260)</td>
+<td>Full path of the new hard link to create.</td>
+</tr>
+<tr class="even">
+<td>TargetFile</td>
+<td>CSTRING(260)</td>
+<td>Full path of the existing file that the link will reference.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1: Success</li>
+<li>0: Failure (generic)</li>
+<li>-5: Access denied</li>
+<li>-6: Invalid arguments</li>
+<li>-7: Target file not found</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>base       CSTRING(260)
+linkPath   CSTRING(260)
+targetFile CSTRING(260)
+rc         LONG
+msg        CSTRING(256)
+
+base       = &#39;C:\_Temp\vuFT5\&#39;
+linkPath   = base &amp; &#39;LinkTests\cln_sample_hardlink.txt&#39;
+targetFile = base &amp; &#39;LinkTests\sample.txt&#39;
+
+rc = vuCreateHardLink(linkPath, targetFile)
+
+CASE rc
+OF 1      ; msg = &#39;Hard link created successfully: &#39; &amp; linkPath
+OF -5     ; msg = &#39;Access denied while creating hard link.&#39;
+OF -6     ; msg = &#39;Invalid arguments passed to vuCreateHardLink.&#39;
+OF -7     ; msg = &#39;Target file not found: &#39; &amp; targetFile
+ELSE        msg = &#39;Hard link failed. rc=&#39; &amp; FORMAT(rc)
+END
+
+MESSAGE(msg, &#39;vuCreateHardLink Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>The target file must already exist.</p>
+<p>The parent folder of LinkPath must exist or the call will fail.</p>
+<p>Requires NTFS file system.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

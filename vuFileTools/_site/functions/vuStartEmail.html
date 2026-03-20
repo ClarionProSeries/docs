@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuStartEmail</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vustartemailaddress-subject-message">vuStartEmail(Address, Subject, Message)</h1>
+<pre class="Prototype"><code>vuStartEmail(*CSTRING,*CSTRING,*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Uses the <code>MailTo</code> protocol to start the default desktop email client with the specified recipient, subject, and body text. The user must manually send the email.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Address</td>
+<td>CSTRING(128)</td>
+<td>Email address of the recipient.</td>
+</tr>
+<tr class="even">
+<td>Subject</td>
+<td>CSTRING(128)</td>
+<td>Subject line for the email.</td>
+</tr>
+<tr class="odd">
+<td>Message</td>
+<td>CSTRING(256)</td>
+<td>Body text for the email.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value:</p>
+<ul>
+<li>1 (True) on success</li>
+<li>0 (False) on failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>xAddr = &#39;broe@valutilities.com&#39;
+xSub  = &#39;Order Status&#39;
+xMsg  = &#39;Can you confirm my order status?&#39;
+
+IF vuStartEmail(xAddr, xSub, xMsg)
+  MESSAGE(&#39;Email client launched.&#39;)
+ELSE
+  MESSAGE(&#39;Failed to start email client.&#39;)
+END
+</code></pre>
+<p><strong>Note:</strong> Opens the default desktop email client registered for the <code>MailTo</code> protocol.</p>
+<ul>
+<li>The email is pre-filled with the specified values, but the user must press <strong>Send</strong> manually.</li>
+<li>May not work if no desktop email client is installed or associated with <code>MailTo</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

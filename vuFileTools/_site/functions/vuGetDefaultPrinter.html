@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetDefaultPrinter</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetdefaultprinter">vuGetDefaultPrinter()</h1>
+<pre class="Prototype"><code>vuGetDefaultPrinter(), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns the name of the PCs default printer. Note that this may not match the printer currently selected by Clarion or the Report Writer.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td>This function takes no parameters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing the name of the default printer.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>MESSAGE(&#39;The default printer is &#39; &amp; vuGetDefaultPrinter())
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Requires Windows 2000 or higher.</li>
+<li>The returned printer is the system default, not necessarily the one chosen for Clarion reports.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

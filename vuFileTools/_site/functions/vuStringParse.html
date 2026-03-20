@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuStringParse</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vustringparsemainstrg-substrg-segment">vuStringParse(MainStrg, subStrg, Segment)</h1>
+<pre class="Prototype"><code>vuStringParse(*CSTRING, *CSTRING, LONG), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Parses a string based on the specified delimiter and returns the requested segment. The delimiter can be one or more characters.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MainStrg</td>
+<td>CSTRING(256)</td>
+<td>The input string to parse.</td>
+</tr>
+<tr class="even">
+<td>subStrg</td>
+<td>CSTRING(128)</td>
+<td>The delimiter string (one or more characters).</td>
+</tr>
+<tr class="odd">
+<td>Segment</td>
+<td>LONG</td>
+<td>The segment number to return (1-based index).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing the segment of <code>MainStrg</code> between the specified delimiters.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>MainStrg = &#39;Segment1&lt;&gt;Segment2&lt;&gt;Segment3&lt;&gt;Segment4&#39;
+subStrg  = &#39;&lt;&gt;&#39;
+
+Result = vuStringParse(MainStrg, subStrg, 3)
+MESSAGE(Result)
+! Result: &#39;Segment3&#39;
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>If the segment number is greater than the number of segments available, an empty string may be returned.</li>
+<li>Supports multi-character delimiters.</li>
+</ul>
+<p>Chat</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

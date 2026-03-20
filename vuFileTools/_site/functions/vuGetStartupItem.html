@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetStartupItem</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetstartupitemscope-index-namebuf-cchname-pathbuf-cchpath">vuGetStartupItem(Scope, Index, NameBuf, cchName, PathBuf, cchPath)</h1>
+<pre class="Prototype"><code>vuGetStartupItem(LONG,LONG,*CSTRING,LONG,*CSTRING,LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves information about a specific startup item, including its name, path, and type. Use in combination with <code>vuEnumerateStartupItems</code> to list all startup entries.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Scope</td>
+<td>LONG</td>
+<td><code>0</code> = Current User Startup, <code>1</code> = Common (All Users) Startup.</td>
+</tr>
+<tr class="even">
+<td>Index</td>
+<td>LONG</td>
+<td>1-based index of the startup item to retrieve.</td>
+</tr>
+<tr class="odd">
+<td>NameBuf</td>
+<td>CSTRING(*)</td>
+<td>Buffer to receive the name of the startup item.</td>
+</tr>
+<tr class="even">
+<td>cchName</td>
+<td>LONG</td>
+<td>Size of the NameBuf buffer in characters.</td>
+</tr>
+<tr class="odd">
+<td>PathBuf</td>
+<td>CSTRING(*)</td>
+<td>Buffer to receive the full path of the startup item.</td>
+</tr>
+<tr class="even">
+<td>cchPath</td>
+<td>LONG</td>
+<td>Size of the PathBuf buffer in characters.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the type of startup item:</p>
+<ul>
+<li>0: File shortcut (.lnk)</li>
+<li>1: Registry RUN entry</li>
+<li>2: Registry RUNONCE entry</li>
+<li>Other: Unknown type</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Scope     LONG
+ItemCount LONG
+I         LONG
+Kind      LONG
+NameBuf   CSTRING(260)
+PathBuf   CSTRING(1024)
+cchName   LONG
+cchPath   LONG
+KindText  CSTRING(12)
+Msg       CSTRING(1024)
+
+cchName = SIZE(NameBuf)
+cchPath = SIZE(PathBuf)
+
+Scope     = 0  ! User Startup
+ItemCount = vuEnumerateStartupItems(Scope)
+
+IF ItemCount &gt; 0
+  LOOP I = 1 TO ItemCount
+    CLEAR(NameBuf)
+    CLEAR(PathBuf)
+
+    Kind = vuGetStartupItem(Scope, I, NameBuf, cchName, PathBuf, cchPath)
+
+    IF Kind = 0
+      KindText = &#39;[FILE]&#39;
+    ELSIF Kind = 1
+      KindText = &#39;[RUN]&#39;
+    ELSIF Kind = 2
+      KindText = &#39;[RUNONCE]&#39;
+    ELSE
+      KindText = &#39;[UNKNOWN]&#39;
+    END
+
+    Msg = &#39;Item &#39; &amp; FORMAT(I) &amp; &#39; &#39; &amp; KindText &amp; &#39;  &#39; &amp; CLIP(NameBuf) &amp; &#39;  &#39; &amp; CLIP(PathBuf)
+    MESSAGE(Msg, &#39;vuGetStartupItem Test&#39;)
+  END
+ELSE
+  MESSAGE(&#39;No items found.&#39;, &#39;vuGetStartupItem Test&#39;)
+END
+
+</code></pre>
+<p>Notes</p>
+<p>Call vuEnumerateStartupItems first to get the count of items for a given scope.</p>
+<p>Index is 1-based; passing an invalid index will fail.</p>
+<p>Buffers must be preallocated to a sufficient size.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

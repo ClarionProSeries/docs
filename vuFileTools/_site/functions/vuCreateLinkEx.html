@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCreateLinkEx</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucreatelinkexlocation-workingdir-linkname-programname-arguments-comment">vuCreateLinkEx(Location, WorkingDir, LinkName, ProgramName, Arguments, Comment)</h1>
+<pre class="Prototype"><code>vuCreateLinkEx(LONG,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by <code>vuCreateLink</code>.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location</td>
+<td>LONG</td>
+<td>Shortcut location: <br> 1 = Desktop <br> 2 = Start Menu <br> 3 = Startup Folder <br> 4 = Favorites Folder <br> 5 = Personal Folder <br> 6 = SendTo Options <br> 7 = Start Menu\Programs Folder <br> 8 = Start Menu\Programs\Administrative Tools</td>
+</tr>
+<tr class="even">
+<td>WorkingDir</td>
+<td>CSTRING(256)</td>
+<td>The working directory for the program</td>
+</tr>
+<tr class="odd">
+<td>LinkName</td>
+<td>CSTRING(64)</td>
+<td>The display name under the shortcut icon</td>
+</tr>
+<tr class="even">
+<td>ProgramName</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified path and filename of the program to link</td>
+</tr>
+<tr class="odd">
+<td>Arguments</td>
+<td>CSTRING(128)</td>
+<td>Optional runtime parameters</td>
+</tr>
+<tr class="even">
+<td>Comment</td>
+<td>CSTRING(128)</td>
+<td>Optional comment (appears in shortcut properties)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>1 (True) on success, 0 (False) on failure.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Example: Create a desktop shortcut with working directory and comment
+IF vuCreateLinkEx(1, &#39;C:\Apps\Data&#39;, &#39;MyApp&#39;, &#39;C:\Apps\MyApp.exe&#39;, &#39;&#39;, &#39;My Application Shortcut&#39;) = 1
+  MESSAGE(&#39;Shortcut created on desktop with comment&#39;)
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Extends <code>vuCreateLink()</code> by adding <code>WorkingDir</code> and <code>Comment</code> parameters.</li>
+<li>Otherwise functionally identical to <code>vuCreateLink</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

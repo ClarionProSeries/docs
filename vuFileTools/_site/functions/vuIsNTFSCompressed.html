@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuIsNTFSCompressed</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuisntfscompressedppath">vuIsNTFSCompressed(pPath)</h1>
+<pre class="Prototype"><code>vuIsNTFSCompressed(*CSTRING), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Checks whether the specified file or folder is NTFS-compressed. Works with both individual files and directories.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pPath</td>
+<td>CSTRING(260)</td>
+<td>Full path to the file or folder to check.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1 = The file or folder is NTFS-compressed</li>
+<li>0 = The file or folder is not compressed</li>
+<li>&lt;0 = Error occurred</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Path CSTRING(260)
+Rc   LONG
+
+Path = &#39;C:\Testing\CompressedFolder&#39;
+Rc   = vuIsNTFSCompressed(Path)
+
+IF Rc = 1
+  MESSAGE(&#39;The folder is NTFS compressed.&#39;)
+ELSIF Rc = 0
+  MESSAGE(&#39;The folder is NOT NTFS compressed.&#39;)
+ELSE
+  MESSAGE(&#39;Error checking compression: &#39; &amp; CLIP(Path))
+END
+
+</code></pre>
+<p>Notes</p>
+<p>Supports both files and folders.</p>
+<p>The path must exist or the function will return an error code.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

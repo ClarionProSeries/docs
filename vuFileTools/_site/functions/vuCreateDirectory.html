@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCreateDirectory</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucreatedirectoryfilepath">vuCreateDirectory(FilePath)</h1>
+<pre class="Prototype"><code>vuCreateDirectory(*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Creates an entire directory path in one command. Any number of subdirectories can be included in <code>FilePath</code>.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FilePath</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified path including subdirectories</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>The number of directories actually created.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Assume C:\Temp already exists
+FilePath = &#39;C:\Temp\Temp1\Temp2\Temp3&#39;
+DirsMade = vuCreateDirectory(FilePath)
+MESSAGE(&#39;Created &#39; &amp; DirsMade &amp; &#39; directories.&#39;)
+</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

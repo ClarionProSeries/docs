@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuRemoveChars</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuremovecharsstrg-chars-allchars">vuRemoveChars(Strg, Chars, AllChars)</h1>
+<pre class="Prototype"><code>vuRemoveChars(*CSTRING,*CSTRING,Long), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns a modified version of <code>Strg</code> with the characters specified in <code>Chars</code> removed. Behavior depends on the <code>AllChars</code> flag.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Strg</td>
+<td>CSTRING(128)</td>
+<td>The input string to modify.</td>
+</tr>
+<tr class="even">
+<td>Chars</td>
+<td>CSTRING(128)</td>
+<td>Characters or substring to remove from <code>Strg</code>.</td>
+</tr>
+<tr class="odd">
+<td>AllChars</td>
+<td>LONG</td>
+<td>If 1, remove all characters present in <code>Chars</code>. If 0, treat <code>Chars</code> as a literal substring to remove.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing the modified version of <code>Strg</code>.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Strg     = &#39;Now is the 3time 2 for al8l good men4 to co5me to th76e aid of their country.&#39;
+Chars    = &#39;0123456789&#39;
+AllChars = 1
+
+Result = vuRemoveChars(Strg, Chars, AllChars)
+
+MESSAGE(Result)
+! Result: &#39;Now is the time for all good men to come to the aid of their country.&#39;
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use <code>AllChars = 1</code> when you want to remove every occurrence of any character in <code>Chars</code>.</li>
+<li>Use <code>AllChars = 0</code> when you want to remove only the exact substring provided in <code>Chars</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

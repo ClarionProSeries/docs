@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuWindow2Clipboard</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuwindow2clipboard">vuWindow2Clipboard()</h1>
+<pre class="Prototype"><code>vuWindow2Clipboard(), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Saves a copy of the current active window to the clipboard.</p>
+<h3 id="parameters">Parameters</h3>
+<p>This function takes no parameters.</p>
+<h3 id="returns">Returns</h3>
+<p>A BYTE value:</p>
+<ul>
+<li><code>True</code> if the active window was successfully copied to the clipboard.</li>
+<li><code>False</code> if the operation failed.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>IF vuWindow2Clipboard()
+  MESSAGE(&#39;Active window copied to clipboard&#39;)
+ELSE
+  MESSAGE(&#39;Failed to copy window to clipboard&#39;)
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Captures only the current active window, not the entire desktop.</li>
+<li>The captured window image is placed in the clipboard as a bitmap and can be pasted into applications that accept images (for example, Paint or Word).</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

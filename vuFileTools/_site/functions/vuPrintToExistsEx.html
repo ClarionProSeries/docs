@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuPrintToExistsEx</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuprinttoexistsexpfile-waitseconds-pollms-pprinter">vuPrintToExistsEx(pFile, WaitSeconds, PollMS, pPrinter)</h1>
+<pre class="Prototype"><code>vuPrintToExistsEx(*CSTRING pFile, LONG WaitSeconds, LONG PollMS, *CSTRING pPrinter), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Sends a file to the specified printer and waits for confirmation that the print job was queued.<br />
+This function allows you to specify how long to wait and how often to poll for the print job status.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pFile</td>
+<td>CSTRING(260)</td>
+<td>Path to the file to be printed.</td>
+</tr>
+<tr class="even">
+<td>WaitSeconds</td>
+<td>LONG</td>
+<td>Maximum time to wait (in seconds) for the print job to appear in the queue.</td>
+</tr>
+<tr class="odd">
+<td>PollMS</td>
+<td>LONG</td>
+<td>Polling interval (in milliseconds) while waiting.</td>
+</tr>
+<tr class="even">
+<td>pPrinter</td>
+<td>CSTRING(260)</td>
+<td>Name of the printer (for example, <code>Microsoft Print to PDF</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1 if the print job was detected in the queue within the specified wait time.</li>
+<li>0 if the print job was not detected.</li>
+<li>Negative values may indicate errors such as access denied, invalid arguments, or printer not found.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FilePath    CSTRING(260)
+WaitSeconds LONG
+PollMS      LONG
+PrinterName CSTRING(260)
+Ret         LONG
+
+  CODE
+  FilePath    = &#39;C:\Temp\Test.txt&#39;
+  WaitSeconds = 10
+  PollMS      = 200
+  PrinterName = &#39;Microsoft Print to PDF&#39;
+
+  Ret = vuPrintToExistsEx(FilePath, WaitSeconds, PollMS, PrinterName)
+
+  MESSAGE(&#39;vuPrintToExistsEx returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintToExistsEx&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>Use this when you need to confirm that a print job has been queued within a specific timeframe.</p>
+<p>The polling mechanism provides more reliable confirmation than vuPrintToExists in busy environments.</p>
+<p>Ensure the printer is accessible and properly configured.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

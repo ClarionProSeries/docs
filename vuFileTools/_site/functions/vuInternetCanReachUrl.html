@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuInternetCanReachUrl</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuinternetcanreachurl">vuInternetCanReachUrl()</h1>
+<pre class="Prototype"><code>vuInternetCanReachUrl(Url *CSTRING, TimeoutMs LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Tests whether a specific URL can be reached within a caller supplied timeout. The function opens a WinINet session using the current Windows Internet settings, then attempts to open the given URL.</p>
+<p>This is useful for checking connectivity to a particular service endpoint, not just generic Internet access.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Url</td>
+<td>*CSTRING</td>
+<td>Fully qualified URL to test, for example <code>https://www.example.com/</code>.</td>
+</tr>
+<tr class="even">
+<td>TimeoutMs</td>
+<td>LONG</td>
+<td>Timeout in milliseconds for both connect and receive operations. If less than or equal to 0, a default value of 5000 ms is used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value:</p>
+<ul>
+<li>1 = URL was opened successfully within the timeout</li>
+<li>0 = URL could not be opened (network error, timeout, DNS failure, or other error)</li>
+<li>-1 = Parameter or API setup error (for example, invalid Url pointer or WinINet not available)</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>TestInternetCanReachUrl  PROCEDURE
+
+RetVal   LONG
+Url      CSTRING(256)
+
+  CODE
+  Url = &#39;https://www.example.com/&#39;
+
+  RetVal = vuInternetCanReachUrl(Url,3000)
+
+  IF (RetVal = 1)
+    MESSAGE(&#39;URL reachable within timeout: &#39; &amp; Url)
+  ELSIF (RetVal = 0)
+    MESSAGE(&#39;URL not reachable or timed out: &#39; &amp; Url)
+  ELSE
+    MESSAGE(&#39;Parameter or API setup error when checking URL: &#39; &amp; Url)
+  END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Uses WinINet (WININET.DLL) and the InternetOpen / InternetOpenUrl APIs.</li>
+<li>Honors the current user or machine Internet settings, including proxies where applicable.</li>
+<li>For a quick, general Internet presence check, use <a href="vuInternetPresent.html">vuInternetPresent</a>.</li>
+<li>For basic network presence and LAN or WAN detection, see <a href="vuNetworkPresent.html">vuNetworkPresent</a>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

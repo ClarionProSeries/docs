@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuFolderWatchCheck</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vufolderwatchcheckfname">vuFolderWatchCheck(fName)</h1>
+<pre class="Prototype"><code>vuFolderWatchCheck(*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Checks the status of a folder monitoring thread started with <code>vuFolderWatchStart</code>. Used to detect when changes occur in a watched folder.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fName</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified path of the folder being monitored</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>One of the following values:</p>
+<ul>
+<li>0 = Error, or the monitoring thread has not been launched/re-launched</li>
+<li>-1 = Monitoring thread is running (no changes detected)</li>
+<li>1 = Monitoring thread has terminated (a change occurred)</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FolderToWatch = &#39;C:\Windows\Temp&#39;
+
+! Start watching the folder
+IF vuFolderWatchStart(FolderToWatch) = 1
+  MESSAGE(&#39;Folder is being monitored&#39;)
+END
+
+! Check for changes in the folder
+CASE vuFolderWatchCheck(FolderToWatch)
+OF 0
+  MESSAGE(&#39;This folder is not watched&#39;)
+OF -1
+  MESSAGE(&#39;There have been no changes&#39;)
+OF 1
+  MESSAGE(&#39;A change has occurred&#39;)
+  x# = vuFolderWatchStart(FolderToWatch)  ! Re-arm monitoring
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Changes include file modifications, additions, removals, or subfolder changes within the watched folder hierarchy.</li>
+<li>Once a change is detected, the monitoring thread terminates and the function will return 1 on the next check.</li>
+<li>After processing changes, re-arm the watch with <code>vuFolderWatchStart</code>.</li>
+<li>Lightweight enough to be placed in a <code>TIMER</code> embed without impacting performance.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "vuFileTools Documentation",
+  "folders": [
+    {
+      "path": ".",
+      "extensions": "*.md"
+    }
+  ],
+  "startupDocument": "index.md"
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuEZRegGet</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuezreggetbyuser-keyname">vuEZRegGet(ByUser, KeyName)</h1>
+<pre class="Prototype"><code>vuEZRegGet(LONG,*CSTRING), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves data from the Windows registry that was stored using <code>vuEZRegPut</code>. Designed for simplicity, this function does not require knowledge of the registry structure.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ByUser</td>
+<td>LONG</td>
+<td>0 = Retrieve from LOCAL_MACHINE <br> 1 = Retrieve from CURRENT_USER</td>
+</tr>
+<tr class="even">
+<td>KeyName</td>
+<td>CSTRING(128)</td>
+<td>Alphanumeric key name under which the data was stored</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>The value retrieved from the registry as a CSTRING.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Retrieve data stored for the current user
+KeyValue = vuEZRegGet(1, &#39;MyAppSetting&#39;)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Data must have been stored previously using <code>vuEZRegPut</code>.</li>
+<li>If the key does not exist, the return value may be blank.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

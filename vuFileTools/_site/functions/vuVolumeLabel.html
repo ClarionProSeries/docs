@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuVolumeLabel</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuvolumelabeltdir">vuVolumeLabel(tDir)</h1>
+<pre class="Prototype"><code>vuVolumeLabel(*CSTRING), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns the volume label of the specified root directory. Supports both mapped drives and UNC paths.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tDir</td>
+<td>CSTRING(128)</td>
+<td>Path to the root directory (for example, <code>G:\</code> or <code>\\MyServer\C\</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing the volume label of the specified root directory.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>tDir = &#39;G:\&#39;
+Label = vuVolumeLabel(tDir)
+MESSAGE(&#39;The volume label of &#39; &amp; tDir &amp; &#39; is &#39; &amp; Label)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Works with both local drives and network shares.</li>
+<li>Ensure <code>tDir</code> points to a valid root directory.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

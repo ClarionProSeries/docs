@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetAttributes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetattributesfilename">vuGetAttributes(FileName)</h1>
+<pre class="Prototype"><code>vuGetAttributes(*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns a bitmask representing the attributes of the specified file. Multiple attributes can be combined.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FileName</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified filename to check</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG bitmask containing file attributes:</p>
+<ul>
+<li>0 = Normal</li>
+<li>1 = Read Only</li>
+<li>2 = Hidden</li>
+<li>4 = System</li>
+<li>32 = Archived</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FileName = &#39;C:\Valutilities\Testfile.tps&#39;
+
+Attrib = vuGetAttributes(FileName)
+
+IF BAND(Attrib, 1) = 1
+  MESSAGE(&#39;File is Read Only&#39;)
+END
+
+IF BAND(Attrib, 2) = 2
+  MESSAGE(&#39;File is Hidden&#39;)
+END
+
+IF BAND(Attrib, 4) = 4
+  MESSAGE(&#39;File is a System File&#39;)
+END
+
+IF BAND(Attrib, 32) = 32
+  MESSAGE(&#39;File is Archived&#39;)
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Attributes are returned as a combined bitmask. Use <code>BAND()</code> to test individual attributes.</li>
+<li>Example: a return value of 7 indicates System (4) + Hidden (2) + Read Only (1).</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

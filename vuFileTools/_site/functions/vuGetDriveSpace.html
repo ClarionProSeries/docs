@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetDriveSpace</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetdrivespacetdir-formattype">vuGetDriveSpace(tDir, FormatType)</h1>
+<pre class="Prototype"><code>vuGetDriveSpace(*CSTRING,LONG), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves free and total space for a specified drive and returns the result as a formatted string.<br />
+Supports multiple output formats including raw bytes, comma-separated, gigabytes, and hybrid format.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tDir</td>
+<td>CSTRING(128)</td>
+<td>Root path of the drive (for example, <code>C:\</code>).</td>
+</tr>
+<tr class="even">
+<td>FormatType</td>
+<td>LONG</td>
+<td>Format for returned string:<br>0 = Raw bytes<br>1 = Comma separated<br>2 = GB<br>3 = Hybrid</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing the free and total space in the format specified.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>sRootPath CSTRING(4)
+sRaw      CSTRING(128)
+sComma    CSTRING(128)
+sGB       CSTRING(128)
+sHybrid   CSTRING(128)
+sMsg      STRING(512)
+
+  CODE
+  sRootPath = &#39;C:\&#39;
+
+  sRaw     = vuGetDriveSpace(sRootPath, 0)
+  sComma   = vuGetDriveSpace(sRootPath, 1)
+  sGB      = vuGetDriveSpace(sRootPath, 2)
+  sHybrid  = vuGetDriveSpace(sRootPath, 3)
+
+  sMsg = &#39;Drive space (Free / Total) for &#39; &amp; CLIP(sRootPath) &amp; &#39;:&#39; &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+         &#39;Raw:     &#39; &amp; CLIP(sRaw) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+         &#39;Comma:   &#39; &amp; CLIP(sComma) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+         &#39;GB:      &#39; &amp; CLIP(sGB) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+         &#39;Hybrid:  &#39; &amp; CLIP(sHybrid)
+
+  MESSAGE(sMsg, &#39;vuGetDriveSpace Formats&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>The raw format provides values in bytes separated by /.</p>
+<p>GB format rounds values to gigabytes with suffix.</p>
+<p>Hybrid format shows both GB and raw bytes.</p>
+<p>Works with local, removable, and network drives.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

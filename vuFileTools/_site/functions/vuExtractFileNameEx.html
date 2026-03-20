@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuExtractFileNameEx</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuextractfilenameexfullpath">vuExtractFileNameEx(FullPath)</h1>
+<pre class="Prototype"><code>vuExtractFileNameEx(LONG), CSTRING
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Extracts just the file name from a full file path.<br />
+This is useful for removing directory components and isolating the file name.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FullPath</td>
+<td>CSTRING(260)</td>
+<td>The full path to the file (for example, <code>C:\My Stuff\test(file,1).txt</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A CSTRING containing only the file name portion of the path.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FullPath   CSTRING(260)
+ShortName  CSTRING(128)
+
+  CODE
+  FullPath  = &#39;C:\My Stuff\test(file,1).txt&#39;
+  ShortName = vuExtractFileNameEx(FullPath)
+
+  MESSAGE(&#39;Full Path: &#39; &amp; FullPath &amp; |
+          &#39;&lt;13,10&gt;Extracted Name: &#39; &amp; ShortName, &#39;vuExtractFileNameEx Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>Handles paths with spaces and special characters.</p>
+<p>Does not return the directory portion.</p>
+<p>Returns the last element after the final backslash ().</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

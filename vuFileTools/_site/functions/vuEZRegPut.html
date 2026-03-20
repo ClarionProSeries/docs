@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuEZRegPut</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuezregputbyuser-keyname-keyvalue">vuEZRegPut(ByUser, KeyName, KeyValue)</h1>
+<pre class="Prototype"><code>vuEZRegPut(LONG,*CSTRING,*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Saves a value in the Windows registry without requiring knowledge of the registry key structure. The function automatically creates the required key and subkeys. Keys are stored under:</p>
+<ul>
+<li><code>HKEY_CURRENT_USER\Software\vuPrograms\&lt;Your Program Name&gt;\KeyName</code> if <code>ByUser = 1</code></li>
+<li><code>HKEY_LOCAL_MACHINE\Software\vuPrograms\&lt;Your Program Name&gt;\KeyName</code> if <code>ByUser = 0</code></li>
+</ul>
+<p>This allows each application to store values independently without overwriting each other.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ByUser</td>
+<td>LONG</td>
+<td>0 = Store value with the PC (all users) <br> 1 = Store value with the current logged-in user</td>
+</tr>
+<tr class="even">
+<td>KeyName</td>
+<td>CSTRING(128)</td>
+<td>Alphanumeric key name to store the value under</td>
+</tr>
+<tr class="odd">
+<td>KeyValue</td>
+<td>CSTRING(128)</td>
+<td>The data value to store</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>1 (True) on success, 0 (False) on failure.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>! Example: Store a registration code for application &quot;Trivette&quot;
+KeyName  = &#39;Registration Code&#39;
+KeyValue = &#39;07 0F CB 4A 9D&#39;
+
+IF vuEZRegPut(0, KeyName, KeyValue) = 1
+  MESSAGE(&#39;Registration saved successfully.&#39;)
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Works together with <code>vuEZRegGet</code> to retrieve stored values.</li>
+<li>Each program name is embedded in the registry path, so keys with the same <code>KeyName</code> will not conflict between applications.</li>
+<li>Not a general-purpose registry API only designed for saving and retrieving simple values.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -22,7 +22,7 @@ This page highlights new items in the V5 cycle and links to their reference topi
 
 | Function | Description |
 |----------|-------------|
-| [vuPasswordInit](functions/vuPasswordInit.md) |Initializes a Clarion password entry control for managed show/hide password behavior, sets the starting mode, and optionally applies cue text for empty password fields. This is the required starting point for the new password visibility helper feature, including both password mask toggle support and built-in cue/placeholder text support. |
+| [vuPasswordInit](functions/vuPasswordInit.md) | Retrofits a standard Clarion password entry control with a more modern UI using a single function call. Automatically creates the show/hide eye button, uses icons compiled into the DLL, supports cue text, preserves the native Clarion control, and allows normal paste behavior so the field works more like modern password entry controls users expect. |
 | [vuPasswordToggle](functions/vuPasswordToggle.md) | Toggles a managed password control between visible-text mode and normal masked mode. Ideal for wiring a Show Password button or eye icon. |
 | [vuCloseApp](functions/vuCloseApp.md) | Requests an application shutdown from code with three modes: cooperative close (Mode 0), cooperative plus safety-net forced terminate (Mode 1), and immediate hard kill (Mode 2). Useful for closing apps reliably even when HALT/STOP hooks or save prompts interfere. |
 | [vuCloseAppEx](functions/vuCloseAppEx.md) | Extended shutdown helper that adds a configurable safety-net delay (Mode 1) and an optional user warning countdown before initiating the close request. Ideal for shared EXE update scenarios where you want to warn users, attempt a clean exit, and still guarantee shutdown. |
@@ -80,7 +80,9 @@ This page highlights new items in the V5 cycle and links to their reference topi
 
 ## Additional improvements in Version 5
 
-- Improved `vuFileDate` handling and fixed reported issues with certain file path and filename scenarios.
-- Improved `vuFileTime` handling and fixed reported issues with certain file path and filename scenarios.
+- Improved `vuFileDate` handling by replacing the older internal file access method with a more modern Windows API approach, removing the old 128-character internal path bottleneck and improving behavior with longer file path and filename scenarios.
+- Improved `vuFileTime` handling by replacing the older internal file access method with a more modern Windows API approach, removing the old 128-character internal path bottleneck and improving behavior with longer file path and filename scenarios.
+- Added built-in support for a more modern password entry experience using the native Clarion control, including automatic show/hide eye buttons, cue text support, and normal paste behavior.
+- The password entry helper automatically creates and positions its own eye buttons relative to the control and uses icons compiled into the DLL, so no extra button design or icon setup is required on the developer side.
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuElevationType</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuelevationtype">vuElevationType()</h1>
+<pre class="Prototype"><code>vuElevationType(), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Determines the type of user token for the current process.<br />
+This function is often used together with <code>vuIsElevated()</code> to better understand the privilege level of your application.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td></td>
+<td>This function takes no parameters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the elevation type:</p>
+<ul>
+<li>1 = Limited (Standard User)</li>
+<li>2 = Elevated (Admin Token)</li>
+<li>3 = UAC Disabled or Legacy Admin</li>
+<li>0 or negative = Error determining elevation type</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ElevType     LONG
+ElevTypeDesc CSTRING(50)
+Msg          CSTRING(256)
+
+  CODE
+  ElevType = vuElevationType()
+
+  ElevTypeDesc = &#39;Unknown&#39;
+  IF ElevType = 1
+    ElevTypeDesc = &#39;Limited (Standard User)&#39;
+  ELSIF ElevType = 2
+    ElevTypeDesc = &#39;Elevated (Admin Token)&#39;
+  ELSIF ElevType = 3
+    ElevTypeDesc = &#39;UAC Disabled or Legacy Admin&#39;
+  END
+
+  Msg = &#39;vuElevationType returned: &#39; &amp; FORMAT(ElevType) &amp; |
+        &#39;&lt;13,10&gt;Description: &#39; &amp; ElevTypeDesc
+
+  MESSAGE(Msg, &#39;Elevation Type Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>Use vuIsElevated() first to determine if the process is elevated.</p>
+<p>vuElevationType() provides more detail about the specific elevation context.</p>
+<p>Helps you adjust program behavior depending on whether UAC is enabled or disabled.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

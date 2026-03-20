@@ -1,0 +1,112 @@
+@echo off
+setlocal EnableExtensions EnableDelayedExpansion
+
+rem ===== CONSTANT PATHS =====
+set "SRC=%~dp0"
+set "OUT=%~dp0_site"
+set "TMP=%~dp0_tmp"
+set "CSS=%SRC%style.css"
+set "LUA=%SRC%link2html.lua"
+set "HHP=%SRC%vuFileTools.hhp"
+set "HHC=%SRC%toc.hhc"
+set "PS1=%SRC%strip_yaml.ps1"
+rem ===========================
+
+where pandoc >nul 2>nul || (echo ERROR: pandoc not found & exit /b 1)
+where powershell >nul 2>nul || (echo ERROR: PowerShell not found & exit /b 1)
+if not exist "%PS1%" (echo ERROR: strip_yaml.ps1 not found at "%PS1%" & exit /b 1)
+
+echo.
+echo Cleaning _site and _tmp...
+if exist "%OUT%" rmdir /s /q "%OUT%"
+if exist "%TMP%" rmdir /s /q "%TMP%"
+mkdir "%OUT%" 2>nul
+mkdir "%TMP%" 2>nul
+
+echo.
+echo Copying assets (if any)...
+if exist "%SRC%assets" xcopy /e /i /y "%SRC%assets" "%OUT%\assets\" >nul
+
+echo.
+echo Converting .md -> .html (mirroring folders)...
+for /r "%SRC%" %%F in (*.md) do (
+  set "ABS=%%~fF"
+  rem skip anything inside _site or _tmp
+  set "SKIP="
+  if /i not "!ABS:%OUT%=X!"=="!ABS!" set "SKIP=1"
+  if /i not "!ABS:%TMP%=X!"=="!ABS!" set "SKIP=1"
+  if defined SKIP goto :next
+
+  set "REL=!ABS:%SRC%=!"
+  set "TMPMD=%TMP%\!REL!"
+  set "OUTHTML=%OUT%\!REL!"
+  set "OUTHTML=!OUTHTML:.md=.html!"
+
+  for %%D in ("!TMPMD!")  do if not exist "%%~dpD" mkdir "%%~dpD" >nul
+  for %%D in ("!OUTHTML!") do if not exist "%%~dpD" mkdir "%%~dpD" >nul
+
+  echo Stripping YAML: "%%~fF" ^> "!TMPMD!"
+  powershell -NoProfile -ExecutionPolicy Bypass -File "%PS1%" "%%~fF" "!TMPMD%"
+  if errorlevel 1 (
+    echo WARN: strip failed; copying source to temp.
+    copy /y "%%~fF" "!TMPMD!" >nul
+  )
+
+  rem Pandoc (quote paths once; only pass -L/-c if files exist)
+  if exist "%LUA%" (
+    if exist "%CSS%" (
+      echo pandoc -s -f gfm -L "%LUA%" -c "%CSS%" -t html5 -o "!OUTHTML!" "!TMPMD!"
+           pandoc -s -f gfm -L "%LUA%" -c "%CSS%" -t html5 -o "!OUTHTML!" "!TMPMD!"
+    ) else (
+      echo pandoc -s -f gfm -L "%LUA%" -t html5 -o "!OUTHTML!" "!TMPMD!"
+           pandoc -s -f gfm -L "%LUA%" -t html5 -o "!OUTHTML!" "!TMPMD!"
+    )
+  ) else (
+    if exist "%CSS%" (
+      echo pandoc -s -f gfm -c "%CSS%" -t html5 -o "!OUTHTML!" "!TMPMD!"
+           pandoc -s -f gfm -c "%CSS%" -t html5 -o "!OUTHTML!" "!TMPMD!"
+    ) else (
+      echo pandoc -s -f gfm -t html5 -o "!OUTHTML!" "!TMPMD!"
+           pandoc -s -f gfm -t html5 -o "!OUTHTML!" "!TMPMD!"
+    )
+  )
+  if errorlevel 1 (echo ERROR: pandoc failed for "%%~fF" & exit /b 1)
+
+  :next
+)
+
+echo.
+echo Replicating style.css into each HTML folder...
+if exist "%CSS%" (
+  for /r "%OUT%" %%D in (.) do (
+    dir /b "%%D\*.html" >nul 2>nul
+    if not errorlevel 1 copy /y "%CSS%" "%%D\" >nul
+  )
+)
+
+echo.
+echo Copying HHP and HHC into _site...
+if exist "%HHP%" copy /y "%HHP%" "%OUT%\" >nul
+if exist "%HHC%" copy /y "%HHC%" "%OUT%\" >nul
+
+if not exist "%OUT%\vuFileTools.hhp" (
+  echo ERROR: _site\vuFileTools.hhp missing. Put vuFileTools.hhp next to this batch.
+  exit /b 1
+)
+
+echo.
+echo Compiling CHM (from inside _site)...
+pushd "%OUT%"
+if exist "C:\Program Files\HTML Help Workshop\hhc.exe" (
+  "C:\Program Files\HTML Help Workshop\hhc.exe" "vuFileTools.hhp"
+) else if exist "C:\Program Files (x86)\HTML Help Workshop\hhc.exe" (
+  "C:\Program Files (x86)\HTML Help Workshop\hhc.exe" "vuFileTools.hhp"
+) else (
+  echo hhc.exe not found. Opening HHP...
+  start "" "vuFileTools.hhp"
+)
+popd
+
+echo.
+echo Done.
+exit /b 0

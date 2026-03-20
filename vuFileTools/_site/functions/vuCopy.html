@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuCopy</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucopysource-destination-subdirs">vuCopy(Source, Destination, Subdirs)</h1>
+<pre class="Prototype"><code>vuCopy(*CSTRING,*CSTRING,LONG), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Copies files from one location to another. Supports wildcards and optional subdirectory copying. Can copy across drives, including network drives.</p>
+<ul>
+<li>In version 3.5, the mask in <code>Source</code> applied to all subdirectories.</li>
+<li>In version 3.6, the original functionality was restored, with <code>Subdirs = 2</code> added to apply the mask to all subdirectories (UNCs not supported when using 2).</li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified path and filename (wildcards allowed)</td>
+</tr>
+<tr class="even">
+<td>Destination</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified destination path. Created if it does not exist.</td>
+</tr>
+<tr class="odd">
+<td>Subdirs</td>
+<td>LONG</td>
+<td>0 = Do not copy subdirectories <br> 1 = Copy all subdirectories and files <br> 2 = Apply mask to all subdirectories (slower, UNCs not supported)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>1 (True) on success, 0 (False) on failure.</p>
+<h3 id="examples">Examples</h3>
+<pre class="Clarion"><code>! Copy all files and subdirectories
+Source      = &#39;C:\Temp\*&#39;
+Destination = &#39;G:\Backup&#39;
+vuCopy(Source, Destination, 1)
+</code></pre>
+<pre class="Clarion"><code>! Copy only files without extensions
+Source = &#39;C:\Temp\*.&#39;
+vuCopy(Source, &#39;C:\Backup&#39;, 0)
+
+! Copy only .bak files, applying mask to subdirectories
+Source = &#39;C:\Temp\*.bak&#39;
+vuCopy(Source, &#39;C:\Backup&#39;, 2)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>Subdirs = 1</code> copies all files and subdirectories.</li>
+<li><code>Subdirs = 2</code> applies the mask to all subdirectories but disallows UNCs.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

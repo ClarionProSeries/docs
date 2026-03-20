@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuIsRunning</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuisrunningpgmname">vuIsRunning(PgmName)</h1>
+<pre class="Prototype"><code>vuIsRunning(*CSTRING), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Determines if a program is already running by checking for a named mutex. If the mutex does not exist, the function creates it. This is typically used to prevent multiple instances of the same application from running.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PgmName</td>
+<td>CSTRING(40)</td>
+<td>A unique name for the mutex (does not have to be the program name, but should be unique)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>1 (True) if the program is already running, 0 (False) otherwise.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>IF vuIsRunning(&#39;My Excellent Utility Pkg&#39;) = 1
+  MESSAGE(&#39;Program is already running&#39;)
+  RETURN
+END
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use <code>vuIsRunningCheck</code> if you want to check whether a program is running <strong>without</strong> creating the mutex.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

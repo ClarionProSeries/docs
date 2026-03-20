@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+  <HEAD>
+    <META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  </HEAD>
+  <BODY>
+    <UL>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Home">
+            <param name="Local" value="index.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Introduction">
+            <param name="Local" value="introduction.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Requirements">
+            <param name="Local" value="requirements.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Installation Instructions">
+            <param name="Local" value="install.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Registering the Template">
+            <param name="Local" value="template-registration.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Using the Template in your application">
+            <param name="Local" value="template-usage.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Deployment">
+            <param name="Local" value="deployment.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="View All Functions (A-Z)">
+            <param name="Local" value="functions\index.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="View Functions by Category">
+            <param name="Local" value="categories\index.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="What's New">
+            <param name="Local" value="whatsnew.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Version History">
+            <param name="Local" value="version-history.html">
+          </OBJECT>
+      </LI>
+
+      <LI><OBJECT type="text/sitemap">
+            <param name="Name" value="Support">
+            <param name="Local" value="support.html">
+          </OBJECT>
+      </LI>
+
+    </UL>
+  </BODY>
+</HTML>

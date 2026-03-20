@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAddStartupShortcut</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuaddstartupshortcuttarget-params-workdir-showcmd-linkname-scope">vuAddStartupShortcut(Target, Params, WorkDir, ShowCmd, LinkName, Scope)</h1>
+<pre class="Prototype"><code>vuAddStartupShortcut(*CSTRING,*CSTRING,*CSTRING,LONG,*CSTRING,LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Target</td>
+<td>CSTRING(1024)</td>
+<td>Full path to the executable file to run at startup.</td>
+</tr>
+<tr class="even">
+<td>Params</td>
+<td>CSTRING(1024)</td>
+<td>Optional command-line parameters for the executable.</td>
+</tr>
+<tr class="odd">
+<td>WorkDir</td>
+<td>CSTRING(1024)</td>
+<td>Working directory for the executable.</td>
+</tr>
+<tr class="even">
+<td>ShowCmd</td>
+<td>LONG</td>
+<td>Window display option (see ShowWindow constants such as 1 = Normal).</td>
+</tr>
+<tr class="odd">
+<td>LinkName</td>
+<td>CSTRING(260)</td>
+<td>Name of the shortcut file (e.g., <code>MyApp.lnk</code>).</td>
+</tr>
+<tr class="even">
+<td>Scope</td>
+<td>LONG</td>
+<td><code>0</code> = Current User Startup, <code>1</code> = Common (All Users) Startup.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1: Success</li>
+<li>0: Failed</li>
+<li>-5: Access denied (not elevated)</li>
+<li>-6: Invalid arguments</li>
+<li>-7: Startup folder not found</li>
+<li>-8: COM or save failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Target    CSTRING(1024)
+Params    CSTRING(1024)
+WorkDir   CSTRING(1024)
+LinkName  CSTRING(260)
+ShowCmd   LONG
+Scope     LONG
+Rc        LONG
+
+Target   = &#39;C:\Windows\System32\notepad.exe&#39;
+Params   = &#39;&#39;
+WorkDir  = &#39;C:\Windows&#39;
+LinkName = &#39;CL_Test_Notepad&#39;
+ShowCmd  = 1  ! SW_SHOWNORMAL
+
+Scope = 0  ! User Startup
+Rc = vuAddStartupShortcut(Target, Params, WorkDir, ShowCmd, LinkName, Scope)
+
+IF Rc = 1
+  MESSAGE(&#39;Startup shortcut added successfully (User Startup).&#39;)
+ELSE
+  MESSAGE(&#39;Failed to add startup shortcut. rc=&#39; &amp; FORMAT(Rc))
+END
+
+</code></pre>
+<p>Notes</p>
+<p>The shortcut name should include .lnk if you want a specific extension; otherwise it will be added automatically.</p>
+<p>Common Startup (Scope = 1) usually requires elevation (Administrator rights).</p>
+<p>Useful for registering applications to run automatically when Windows starts.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

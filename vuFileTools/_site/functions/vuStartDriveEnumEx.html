@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuStartDriveEnumEx</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vustartdriveenumex">vuStartDriveEnumEx()</h1>
+<pre class="Prototype"><code>vuStartDriveEnumEx(), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Initializes extended drive enumeration.<br />
+This function must be called before using <code>vuGetNextDriveEx()</code> to retrieve drive details.<br />
+When enumeration is complete, call <code>vuEndDriveEnumEx()</code> to release resources.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(none)</td>
+<td></td>
+<td>No parameters.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>Nonzero if initialization succeeded.</li>
+<li>0 if initialization failed.</li>
+<li>Negative values may indicate errors.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ROUTINE:Test_vuDriveEnumEx   ROUTINE
+
+  ! This test demonstrates the 3-call version of vuGetNextDriveEx:
+  !   1. vuStartDriveEnumEx()  Initializes
+  !   2. vuGetNextDriveEx()  Loops per drive
+  !   3. vuEndDriveEnumEx()  Cleanup
+
+  DATA
+DriveInfo    GROUP
+RootPath     CSTRING(4)
+DriveType    LONG
+IsReady      LONG
+VolumeLabel  CSTRING(64)
+FileSystem   CSTRING(16)
+FreeBytes    CSTRING(20)
+TotalBytes   CSTRING(20)
+           END
+
+Result       LONG
+Msg          CSTRING(512)
+sType        CSTRING(20)
+sReady       CSTRING(4)
+
+  CODE
+
+  CLEAR(DriveInfo)
+  Result = vuStartDriveEnumEx()
+
+  LOOP
+    Result = vuGetNextDriveEx(ADDRESS(DriveInfo))
+    IF Result = 0
+      BREAK
+    END
+
+    CASE DriveInfo.DriveType
+    OF 2  ; sType = &#39;Removable&#39;
+    OF 3  ; sType = &#39;Fixed&#39;
+    OF 4  ; sType = &#39;Network&#39;
+    OF 5  ; sType = &#39;CD/DVD&#39;
+    OF 6  ; sType = &#39;RAM Disk&#39;
+    ELSE  ; sType = &#39;Unknown&#39;
+    END
+
+    IF DriveInfo.IsReady = 1
+      sReady = &#39;Yes&#39;
+    ELSE
+      sReady = &#39;No&#39;
+    END
+
+    Msg = &#39;Drive: &#39; &amp; CLIP(DriveInfo.RootPath) &amp; &#39;  Type: &#39; &amp; sType &amp; |
+          &#39;  Ready: &#39; &amp; sReady &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;Label: &#39; &amp; CLIP(DriveInfo.VolumeLabel) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;FSys:  &#39; &amp; CLIP(DriveInfo.FileSystem) &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;Total: &#39; &amp; CLIP(DriveInfo.TotalBytes) &amp; &#39; bytes&#39; &amp; &#39;&lt;13,10&gt;&#39; &amp; |
+          &#39;Free:  &#39; &amp; CLIP(DriveInfo.FreeBytes) &amp; &#39; bytes&#39;
+
+    MESSAGE(Msg)
+  END
+
+  Result = vuEndDriveEnumEx()
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Always call <code>vuStartDriveEnumEx()</code> before calling <code>vuGetNextDriveEx()</code>.</li>
+<li>Extended enumeration returns more details than the basic <code>vuGetNextDrive()</code> (including volume label, filesystem, and capacity).</li>
+<li>Call <code>vuEndDriveEnumEx()</code> after finishing enumeration to avoid resource leaks.</li>
+<li>For a simplified one-call loop, consider <code>vuGetNextDriveExAuto()</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

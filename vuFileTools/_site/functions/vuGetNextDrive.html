@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetNextDrive</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vugetnextdriveprootpath-pdrivetype">vuGetNextDrive(pRootPath, pDriveType)</h1>
+<pre class="Prototype"><code>vuGetNextDrive(LONG,LONG), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Retrieves the next available drive from the internal enumeration list, along with its type.<br />
+This function is part of the three-call drive enumeration sequence:</p>
+<ol>
+<li>Call <code>vuStartDriveEnum()</code> to initialize drive enumeration.</li>
+<li>Call <code>vuGetNextDrive()</code> repeatedly until it returns 0 (no more drives).</li>
+<li>Call <code>vuEndDriveEnum()</code> to clean up internal resources.</li>
+</ol>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pRootPath</td>
+<td>*CSTRING(4)</td>
+<td>Buffer that receives the root path of the drive (for example, <code>C:\</code>).</td>
+</tr>
+<tr class="even">
+<td>pDriveType</td>
+<td>*LONG</td>
+<td>Address of a LONG that receives the drive type constant.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>Nonzero if a drive was successfully retrieved.</li>
+<li>0 if there are no more drives to enumerate.</li>
+<li>Negative values may indicate an error.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ROUTINE:Test_vuDriveEnum   ROUTINE
+
+  DATA
+sRootPath     CSTRING(4)     ! Buffer for root path (e.g., &#39;C:\&#39;)
+dwDriveType   LONG           ! Will hold drive type constant
+DriveCount    LONG
+Result        LONG
+sType         CSTRING(20)
+Msg           CSTRING(100)
+
+  CODE
+
+  CLEAR(sRootPath)
+  CLEAR(dwDriveType)
+  DriveCount = 0
+
+  Result = vuStartDriveEnum()
+
+  LOOP
+    Result = vuGetNextDrive(ADDRESS(sRootPath), ADDRESS(dwDriveType))
+    IF Result = 0
+      BREAK
+    END
+
+    CASE dwDriveType
+    OF 2  ; sType = &#39;Removable&#39;
+    OF 3  ; sType = &#39;Fixed&#39;
+    OF 4  ; sType = &#39;Network&#39;
+    OF 5  ; sType = &#39;CD/DVD&#39;
+    OF 6  ; sType = &#39;RAM Disk&#39;
+    ELSE  ; sType = &#39;Unknown&#39;
+    END
+
+    DriveCount += 1
+    Msg = &#39;Drive: &#39; &amp; CLIP(sRootPath) &amp; &#39;  Type: &#39; &amp; sType
+    MESSAGE(Msg)
+  END
+
+  Result = vuEndDriveEnum()
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>vuGetNextDrive()</code> should only be used between calls to <code>vuStartDriveEnum()</code> and <code>vuEndDriveEnum()</code>.</li>
+<li>Drive type constants correspond to Windows API values (2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk).</li>
+<li>Use <code>vuGetNextDriveAuto()</code> if you prefer a simpler, single-call loop without explicit start and end calls.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

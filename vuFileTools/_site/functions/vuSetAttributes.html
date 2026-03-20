@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSetAttributes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vusetattributesfilemask-readonly-hidden-system-archive">vuSetAttributes(FileMask, ReadOnly, Hidden, System, Archive)</h1>
+<pre class="Prototype"><code>vuSetAttributes(*CSTRING,LONG,LONG,LONG,LONG), Signed
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Sets or resets file attributes for the specified file or group of files. Wildcards are supported.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FileMask</td>
+<td>CSTRING(256)</td>
+<td>Fully qualified path and filename. Wildcards (<code>*.*</code>) are allowed.</td>
+</tr>
+<tr class="even">
+<td>ReadOnly</td>
+<td>LONG</td>
+<td>0 = Reset, 1 = Set the ReadOnly attribute.</td>
+</tr>
+<tr class="odd">
+<td>Hidden</td>
+<td>LONG</td>
+<td>0 = Reset, 1 = Set the Hidden attribute.</td>
+</tr>
+<tr class="even">
+<td>System</td>
+<td>LONG</td>
+<td>0 = Reset, 1 = Set the System attribute.</td>
+</tr>
+<tr class="odd">
+<td>Archive</td>
+<td>LONG</td>
+<td>0 = Reset, 1 = Set the Archive attribute.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<p>A LONG value:</p>
+<ul>
+<li>1 (True) on success</li>
+<li>0 (False) on failure</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FileMask = &#39;C:\Valutilities\*.*&#39;
+
+! Reset ReadOnly, Hidden, System and Set Archive on all files in folder
+vuSetAttributes(FileMask, 0, 0, 0, 1)
+</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Applies to all files matching the file mask.</li>
+<li>Supports both single files and groups of files using wildcards.</li>
+<li>Useful for bulk resetting or updating file attributes programmatically.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

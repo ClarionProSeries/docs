@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuRunDelay</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vurundelaypfile-delayms">vuRunDelay(pFile, DelayMS)</h1>
+<pre class="Prototype"><code>vuRunDelay(*CSTRING pFile, LONG DelayMS), LONG
+</code></pre>
+<h2 id="description">Description</h2>
+<p>Runs the specified file after waiting for a specified delay.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pFile</td>
+<td>CSTRING(260)</td>
+<td>Full path to the file to execute.</td>
+</tr>
+<tr class="even">
+<td>DelayMS</td>
+<td>LONG</td>
+<td>Delay before execution, in milliseconds (e.g., 2000 = 2 seconds).</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
+<ul>
+<li>1: File was executed successfully after the delay</li>
+<li>0: File could not be executed or does not exist</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>FilePath CSTRING(260)
+DelayMS  LONG
+Ret      LONG
+
+FilePath = &#39;C:\Windows\notepad.exe&#39;
+DelayMS  = 2000   ! 2 seconds
+
+Ret = vuRunDelay(FilePath, DelayMS)
+
+MESSAGE(&#39;vuRunDelay returned: &#39; &amp; FORMAT(Ret), &#39;vuRunDelay Test&#39;)
+
+</code></pre>
+<p>Notes</p>
+<p>Useful for delaying startup of another process to allow system resources or dependencies to initialize.</p>
+<p>If the file does not exist, the function returns 0 and does not attempt to run.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>
