@@ -1,49 +1,65 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuNetworkPresent</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vunetworkpresent">vuNetworkPresent()</h1>
-<pre class="Prototype"><code>vuNetworkPresent(), LONG
-</code></pre>
+<pre class="Prototype"><code>vuNetworkPresent(), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Detects whether a TCP/IP network is present and reports the type of connectivity that Windows currently sees.</p>
-<p>Internally this wraps the Windows IsNetworkAlive API and returns its flag bits. That API reports:</p>
+<p>Detects whether a TCP/IP network is present and reports the type of
+connectivity that Windows currently sees.</p>
+<p>Internally this wraps the Windows IsNetworkAlive API and returns its
+flag bits. That API reports:</p>
 <ul>
-<li>A LAN flag when at least one active network adapter with TCP/IP is up</li>
-<li>A WAN flag when a RAS or VPN style connection is active on the local machine</li>
+<li>A LAN flag when at least one active network adapter with TCP/IP is
+up</li>
+<li>A WAN flag when a RAS or VPN style connection is active on the local
+machine</li>
 </ul>
-<p>This function is intended as a quick presence check that answers the question:<br />
-"Does Windows think I am on any network, and is a RAS or VPN style connection involved"</p>
-<p>It is not an Internet connectivity check. For that, see <a href="vuInternetPresent.html">vuInternetPresent</a> and <a href="vuInternetCanReachUrl.html">vuInternetCanReachUrl</a>.</p>
+<p>This function is intended as a quick presence check that answers the
+question:<br />
+"Does Windows think I am on any network, and is a RAS or VPN style
+connection involved"</p>
+<p>It is not an Internet connectivity check. For that, see <a
+href="vuInternetPresent.html">vuInternetPresent</a> and <a
+href="vuInternetCanReachUrl.html">vuInternetCanReachUrl</a>.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>None</td>
 <td></td>
 <td>This function takes no parameters.</td>
@@ -87,17 +103,29 @@ OF 2
   MESSAGE(&#39;WAN (RAS or VPN) connection detected.&#39;)
 OF 3
   MESSAGE(&#39;Both LAN and WAN connections are present.&#39;)
-END
-</code></pre>
+END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Requires Internet Explorer 5.0 or higher on the target system because it relies on SENSAPI.</li>
-<li>A WAN result (2 or 3) indicates that a RAS or VPN style connection is active on the local machine. It does not guarantee that the public Internet is reachable.</li>
-<li>Modern home and corporate networks that reach the Internet through a router or firewall but do not use a client VPN will usually return 1 when the machine is online.</li>
-<li>On virtual machines, the function reports what the guest operating system sees. For example, a bridged or NAT virtual adapter that is up will set the LAN flag even though the host is doing the actual Internet routing.</li>
-<li>For a quick heuristic that reports whether Windows believes Internet connectivity is available, use <a href="vuInternetPresent.html">vuInternetPresent</a>.</li>
-<li>To verify that a specific URL or service endpoint is reachable within a timeout, use <a href="vuInternetCanReachUrl.html">vuInternetCanReachUrl</a>.</li>
+<li>Requires Internet Explorer 5.0 or higher on the target system
+because it relies on SENSAPI.</li>
+<li>A WAN result (2 or 3) indicates that a RAS or VPN style connection
+is active on the local machine. It does not guarantee that the public
+Internet is reachable.</li>
+<li>Modern home and corporate networks that reach the Internet through a
+router or firewall but do not use a client VPN will usually return 1
+when the machine is online.</li>
+<li>On virtual machines, the function reports what the guest operating
+system sees. For example, a bridged or NAT virtual adapter that is up
+will set the LAN flag even though the host is doing the actual Internet
+routing.</li>
+<li>For a quick heuristic that reports whether Windows believes Internet
+connectivity is available, use <a
+href="vuInternetPresent.html">vuInternetPresent</a>.</li>
+<li>To verify that a specific URL or service endpoint is reachable
+within a timeout, use <a
+href="vuInternetCanReachUrl.html">vuInternetCanReachUrl</a>.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

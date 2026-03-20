@@ -1,88 +1,108 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuWindowMove</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vuwindowmovehwindow-xpos-ypos-steps-pause-relative">vuWindowMove(hWindow, xPos, yPos, Steps, Pause, Relative)</h1>
-<pre class="Prototype"><code>vuWindowMove(Long,Long,Long,Long,Long,Long), Signed
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1
+id="vuwindowmovehwindow-xpos-ypos-steps-pause-relative">vuWindowMove(hWindow,
+xPos, yPos, Steps, Pause, Relative)</h1>
+<pre class="Prototype"><code>vuWindowMove(Long,Long,Long,Long,Long,Long), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Moves any window around the screen, given its handle. The move can be absolute (relative to the screen's upper-left corner) or relative to the window's current position. Optionally, the move can be animated in steps with pauses between them.</p>
+<p>Moves any window around the screen, given its handle. The move can be
+absolute (relative to the screen's upper-left corner) or relative to the
+window's current position. Optionally, the move can be animated in steps
+with pauses between them.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>hWindow</td>
 <td>LONG</td>
 <td>Handle of the window to move.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>xPos</td>
 <td>LONG</td>
-<td>Horizontal position (pixels) to move the windows upper-left corner to.</td>
+<td>Horizontal position (pixels) to move the windows upper-left corner
+to.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yPos</td>
 <td>LONG</td>
-<td>Vertical position (pixels) to move the windows upper-left corner to.</td>
+<td>Vertical position (pixels) to move the windows upper-left corner
+to.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Steps</td>
 <td>LONG</td>
 <td>Number of incremental steps to use (for animated movement).</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Pause</td>
 <td>LONG</td>
 <td>Number of milliseconds to pause between steps.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Relative</td>
 <td>LONG</td>
-<td>Set to <code>True</code> to move relative to the current position, <code>False</code> for absolute.</td>
+<td>Set to <code>True</code> to move relative to the current position,
+<code>False</code> for absolute.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
 <p>Always returns <code>True</code> (1).</p>
 <h3 id="example">Example</h3>
-<p>Move a window to absolute position 100, 50 in 10 steps with 5ms pauses:</p>
+<p>Move a window to absolute position 100, 50 in 10 steps with 5ms
+pauses:</p>
 <pre class="Clarion"><code>hWnd = vuWindowHandle(&#39;&lt;My Window Name&gt;&#39;)
-vuWindowMove(hWnd, 100, 50, 10, 5, 0)
-</code></pre>
-<p>Move a window 5 pixels right and 5 pixels down from its current position:</p>
-<pre class="Clarion"><code>vuWindowMove(hWnd, 5, 5, 1, 0, 1)
-</code></pre>
+vuWindowMove(hWnd, 100, 50, 10, 5, 0)</code></pre>
+<p>Move a window 5 pixels right and 5 pixels down from its current
+position:</p>
+<pre class="Clarion"><code>vuWindowMove(hWnd, 5, 5, 1, 0, 1)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Use the window handle obtained with <code>vuWindowHandle</code> or <code>Window{PROP:Handle}</code>.</li>
-<li>When <code>Relative</code> is set to <code>True</code>, <code>xPos</code> and <code>yPos</code> represent the offset from the current position.</li>
+<li>Use the window handle obtained with <code>vuWindowHandle</code> or
+<code>Window{PROP:Handle}</code>.</li>
+<li>When <code>Relative</code> is set to <code>True</code>,
+<code>xPos</code> and <code>yPos</code> represent the offset from the
+current position.</li>
 <li>Adding steps and pauses provides a visible animation effect.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

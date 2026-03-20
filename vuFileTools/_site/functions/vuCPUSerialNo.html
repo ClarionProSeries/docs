@@ -1,41 +1,52 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuCPUSerialNo</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vucpuserialno">vuCPUSerialNo()</h1>
-<pre class="Prototype"><code>vuCPUSerialNo(), CSTRING
-</code></pre>
+<pre class="Prototype"><code>vuCPUSerialNo(), CSTRING</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns the CPU serial number. Valid only for Intel Pentium III processors. On Pentium IV and newer, a consistent number may be returned, but it is not the actual CPU serial number and is not guaranteed to be unique.</p>
+<p>Returns the CPU serial number. Valid only for Intel Pentium III
+processors. On Pentium IV and newer, a consistent number may be
+returned, but it is not the actual CPU serial number and is not
+guaranteed to be unique.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>None</td>
 <td></td>
 <td>This function takes no parameters</td>
@@ -45,14 +56,16 @@
 <h3 id="returns">Returns</h3>
 <p>A null-terminated CSTRING containing the CPU serial number.</p>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>MESSAGE(&#39;CPU Serial Number = &#39; &amp; vuCPUSerialNo())
-</code></pre>
+<pre class="Clarion"><code>MESSAGE(&#39;CPU Serial Number = &#39; &amp; vuCPUSerialNo())</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
 <li>Only Pentium III processors return a valid serial number.</li>
-<li>On Pentium IV processors, the returned value is not the CPU serial number and may not be unique.</li>
-<li>This function may be disabled in BIOS or by system configuration.</li>
+<li>On Pentium IV processors, the returned value is not the CPU serial
+number and may not be unique.</li>
+<li>This function may be disabled in BIOS or by system
+configuration.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

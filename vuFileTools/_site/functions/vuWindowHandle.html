@@ -1,50 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuWindowHandle</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vuwindowhandlewinname">vuWindowHandle(WinName)</h1>
-<pre class="Prototype"><code>vuWindowHandle(*CSTRING), Long
-</code></pre>
+<pre class="Prototype"><code>vuWindowHandle(*CSTRING), Long</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns the handle of the first window whose title contains the specified name.</p>
+<p>Returns the handle of the first window whose title contains the
+specified name.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>WinName</td>
 <td>CSTRING(128)</td>
-<td>Name (or partial name) of the running window to retrieve the handle for.</td>
+<td>Name (or partial name) of the running window to retrieve the handle
+for.</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
+shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
-<p>A LONG value containing the handle of the first window whose title contains <code>WinName</code>. Returns 0 if no matching window is found.</p>
+<p>A LONG value containing the handle of the first window whose title
+contains <code>WinName</code>. Returns 0 if no matching window is
+found.</p>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>WinName = &#39;Microsoft&#39;
 hWindow = vuWindowHandle(WinName)
@@ -53,14 +66,16 @@ IF hWindow
   MESSAGE(&#39;Found window handle for &quot;&#39; &amp; WinName &amp; &#39;&quot;: &#39; &amp; hWindow)
 ELSE
   MESSAGE(&#39;No window found containing &quot;&#39; &amp; WinName &amp; &#39;&quot;&#39;)
-END
-</code></pre>
+END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
 <li>Matches the first window whose title contains the given string.</li>
-<li>Useful for checking if a program is running by searching for its main window title.</li>
-<li>Combine with other functions like <code>vuWindow2BmpEx</code> to capture or manipulate the found window.</li>
+<li>Useful for checking if a program is running by searching for its
+main window title.</li>
+<li>Combine with other functions like <code>vuWindow2BmpEx</code> to
+capture or manipulate the found window.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

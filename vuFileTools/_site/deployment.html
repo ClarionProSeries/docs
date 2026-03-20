@@ -1,34 +1,54 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>deployment</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="functions/index.html">All functions</a> | <a href="categories/index.html">Categories</a></p>
-<h1 id="vufiletools---deployment-and-usage">vuFileTools - Deployment and Usage</h1>
-<p>vuFileTools includes a small DLL that performs all the API operations for you.</p>
+<p><a href="../index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="vufiletools---deployment-and-usage">vuFileTools - Deployment and
+Usage</h1>
+<p>vuFileTools includes a small DLL that performs all the API operations
+for you.</p>
 <h2 id="deployment">Deployment</h2>
 <p>You must deploy <strong>vuFT5.dll</strong> with your application.</p>
 <h2 id="usage">Usage</h2>
-<p>Note: Most functions require parameters. You must create and use the proper data elements for each function. Although you can use a number directly in a function (where appropriate), you cannot use a literal string. Instead, assign the string value to a CSTRING variable and call the function with that variable.</p>
-<p>Each function section in this documentation shows the calling prototype, the type of data expected as a parameter (if any), and the return value data type (if any).</p>
+<p>Note: Most functions require parameters. You must create and use the
+proper data elements for each function. Although you can use a number
+directly in a function (where appropriate), you cannot use a literal
+string. Instead, assign the string value to a CSTRING variable and call
+the function with that variable.</p>
+<p>Each function section in this documentation shows the calling
+prototype, the type of data expected as a parameter (if any), and the
+return value data type (if any).</p>
 <p>Sample usage from Clarion is also provided.</p>
-<p>The example applications included demonstrate practical use of the functions. Reviewing these examples often provides better context for understanding how the functions are used in real programs.</p>
-<p><a href="../index.html">Home</a> | <a href="functions/index.html">All functions</a> | <a href="categories/index.html">Categories</a></p>
+<p>The example applications included demonstrate practical use of the
+functions. Reviewing these examples often provides better context for
+understanding how the functions are used in real programs.</p>
+<p><a href="../index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
 </body>
 </html>

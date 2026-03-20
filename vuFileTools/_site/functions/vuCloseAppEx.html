@@ -1,54 +1,69 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuCloseAppEx</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vucloseappexmode-killdelayms-warnseconds">vuCloseAppEx(Mode, KillDelayMS, WarnSeconds)</h1>
-<pre class="Prototype"><code>vuCloseAppEx(LONG,LONG,LONG), Signed
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vucloseappexmode-killdelayms-warnseconds">vuCloseAppEx(Mode,
+KillDelayMS, WarnSeconds)</h1>
+<pre class="Prototype"><code>vuCloseAppEx(LONG,LONG,LONG), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>An extended version of vuCloseApp that lets you control how long the safety-net forced terminate waits (Mode 1), and optionally warns users before shutdown.</p>
+<p>An extended version of vuCloseApp that lets you control how long the
+safety-net forced terminate waits (Mode 1), and optionally warns users
+before shutdown.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Mode</td>
 <td>LONG</td>
-<td>Close mode:<br>0 = Graceful close request (cooperative, may prompt)<br>1 = Graceful close request + forced terminate after a delay (safety net)<br>2 = Hard kill immediately (no prompts, no cleanup)</td>
+<td>Close mode:<br>0 = Graceful close request (cooperative, may
+prompt)<br>1 = Graceful close request + forced terminate after a delay
+(safety net)<br>2 = Hard kill immediately (no prompts, no cleanup)</td>
 </tr>
-<tr class="even">
+<tr>
 <td>KillDelayMS</td>
 <td>LONG</td>
-<td>Forced terminate delay in milliseconds (Mode 1 only). If 0 or negative, defaults to the built-in value (7000 ms).</td>
+<td>Forced terminate delay in milliseconds (Mode 1 only). If 0 or
+negative, defaults to the built-in value (7000 ms).</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>WarnSeconds</td>
 <td>LONG</td>
-<td>If greater than 0, shows a warning message and delays the close request by this many seconds.</td>
+<td>If greater than 0, shows a warning message and delays the close
+request by this many seconds.</td>
 </tr>
 </tbody>
 </table>
@@ -68,19 +83,28 @@ MESSAGE(&#39;About to run vuCloseAppEx(1,7000,30).&#39; &amp; |
 
 vuCloseAppEx(1,7000,30)
 
-! After calling, exit your current code path (RETURN from a PROCEDURE, or EXIT from a ROUTINE).
-</code></pre>
+! After calling, exit your current code path (RETURN from a PROCEDURE, or EXIT from a ROUTINE).</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Mode values match vuCloseApp: 0 cooperative, 1 cooperative plus safety net, 2 immediate hard kill.</li>
-<li>Mode 0 is cooperative and may display prompts (for example, save changes).</li>
-<li>In some multi-DLL ABC apps, Mode 0 may not fully exit if a dirty form prompts during shutdown. In that case, use Mode 1 for reliable exit.</li>
-<li>KillDelayMS is only used for Mode 1. If KillDelayMS is 0 or negative, the default delay is used.</li>
-<li>WarnSeconds optionally displays a warning and delays the close request so users can save work.</li>
-<li>For unattended shutdowns, Mode 1 plus WarnSeconds provides a good balance: warn users, attempt a graceful close, then guarantee exit.</li>
-<li>Mode 2 terminates the process directly, so any in-app shutdown logic may not run.</li>
-<li>Mode 2 bypasses prompts and normal cleanup, so unsaved work can be lost.</li>
+<li>Mode values match vuCloseApp: 0 cooperative, 1 cooperative plus
+safety net, 2 immediate hard kill.</li>
+<li>Mode 0 is cooperative and may display prompts (for example, save
+changes).</li>
+<li>In some multi-DLL ABC apps, Mode 0 may not fully exit if a dirty
+form prompts during shutdown. In that case, use Mode 1 for reliable
+exit.</li>
+<li>KillDelayMS is only used for Mode 1. If KillDelayMS is 0 or
+negative, the default delay is used.</li>
+<li>WarnSeconds optionally displays a warning and delays the close
+request so users can save work.</li>
+<li>For unattended shutdowns, Mode 1 plus WarnSeconds provides a good
+balance: warn users, attempt a graceful close, then guarantee exit.</li>
+<li>Mode 2 terminates the process directly, so any in-app shutdown logic
+may not run.</li>
+<li>Mode 2 bypasses prompts and normal cleanup, so unsaved work can be
+lost.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

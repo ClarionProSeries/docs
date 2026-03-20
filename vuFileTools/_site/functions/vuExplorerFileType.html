@@ -1,51 +1,64 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuExplorerFileType</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vuexplorerfiletypepfile">vuExplorerFileType(pFile)</h1>
-<pre class="Prototype"><code>vuExplorerFileType(LONG), CSTRING
-</code></pre>
+<pre class="Prototype"><code>vuExplorerFileType(LONG), CSTRING</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns the file type description as shown in Windows Explorer for the specified file.<br />
-This is the same description you see in the "Type" column of Explorer.</p>
+<p>Returns the file type description as shown in Windows Explorer for
+the specified file.<br />
+This is the same description you see in the "Type" column of
+Explorer.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Full path to the file (for example, <code>C:\Windows\Notepad.exe</code>).</td>
+<td>Full path to the file (for example,
+<code>C:\Windows\Notepad.exe</code>).</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
+shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
-<p>A CSTRING containing the Explorer file type description (for example, "Application" for <code>.exe</code> files).</p>
+<p>A CSTRING containing the Explorer file type description (for example,
+"Application" for <code>.exe</code> files).</p>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath      CSTRING(260)
 ExplorerType  CSTRING(128)
@@ -56,12 +69,14 @@ ExplorerType  CSTRING(128)
 
   MESSAGE(&#39;File: &#39; &amp; FilePath &amp; |
           &#39;&lt;13,10&gt;Type: &#39; &amp; ExplorerType, &#39;Explorer File Type&#39;)
-
 </code></pre>
 <p>Notes</p>
 <p>Works for any file recognized by Windows Explorer.</p>
-<p>Returns the same description shown in Explorer, not just the extension.</p>
-<p>If the file is not associated with a program, a generic description may be returned.</p>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p>Returns the same description shown in Explorer, not just the
+extension.</p>
+<p>If the file is not associated with a program, a generic description
+may be returned.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

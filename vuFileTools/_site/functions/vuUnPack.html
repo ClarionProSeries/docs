@@ -1,46 +1,56 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuUnPack</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vuunpackfilename-directory">vuUnpack(FileName, Directory)</h1>
-<pre class="Prototype"><code>vuUnPack(*CSTRING,*CSTRING), Signed
-</code></pre>
+<pre class="Prototype"><code>vuUnPack(*CSTRING,*CSTRING), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Unpacks the contents of a packed file created with <code>vuPack()</code> and saves the individual files into the specified directory.</p>
+<p>Unpacks the contents of a packed file created with
+<code>vuPack()</code> and saves the individual files into the specified
+directory.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>FileName</td>
 <td>CSTRING(256)</td>
 <td>Fully qualified path and name of the packed file.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Directory</td>
 <td>CSTRING(256)</td>
 <td>Fully qualified path of the directory to unpack files into.</td>
@@ -48,20 +58,23 @@
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
-<p>A LONG value containing the number of files successfully unpacked.</p>
+<p>A LONG value containing the number of files successfully
+unpacked.</p>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FileName = &#39;C:\transport\PackedTPS.val&#39;
 Directory = &#39;C:\Valutilities&#39;
 
 Count = vuUnpack(FileName, Directory)
-MESSAGE(CLIP(Count) &amp; &#39; files were unpacked to &#39; &amp; Directory)
-</code></pre>
+MESSAGE(CLIP(Count) &amp; &#39; files were unpacked to &#39; &amp; Directory)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>If you used <code>vuCompress()</code> after packing, run <code>vuUncompress()</code> before calling <code>vuUnpack()</code>.</li>
+<li>If you used <code>vuCompress()</code> after packing, run
+<code>vuUncompress()</code> before calling <code>vuUnpack()</code>.</li>
 <li>Destination directory must exist or the call may fail.</li>
-<li>The unpacked files retain their original names inside the specified directory.</li>
+<li>The unpacked files retain their original names inside the specified
+directory.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

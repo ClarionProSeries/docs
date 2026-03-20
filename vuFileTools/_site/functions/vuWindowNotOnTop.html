@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuWindowNotOnTop</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vuwindownotontophwnd">vuWindowNotOnTop(hWnd)</h1>
-<pre class="Prototype"><code>vuWindowNotOnTop(LONG), Signed
-</code></pre>
+<pre class="Prototype"><code>vuWindowNotOnTop(LONG), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns the specified window to its normal display order (resets the effect of <code>vuWindowOnTop</code>).</p>
+<p>Returns the specified window to its normal display order (resets the
+effect of <code>vuWindowOnTop</code>).</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>hWnd</td>
 <td>LONG</td>
-<td>Handle of the window to reset (<code>Window{PROP:Handle}</code>).</td>
+<td>Handle of the window to reset
+(<code>Window{PROP:Handle}</code>).</td>
 </tr>
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
 <p>A BYTE value:</p>
 <ul>
-<li><code>True</code> if the window was successfully reset to normal order.</li>
+<li><code>True</code> if the window was successfully reset to normal
+order.</li>
 <li><code>False</code> if the operation failed.</li>
 </ul>
 <h3 id="example">Example</h3>
@@ -53,14 +64,18 @@
   MESSAGE(&#39;Window restored to normal display order&#39;)
 ELSE
   MESSAGE(&#39;Failed to reset window display order&#39;)
-END
-</code></pre>
+END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Use the window handle from Clarion with the <code>PROP:Handle</code> property of the window label.</li>
-<li>To find the label of a window: in the Window Formatter, right-click the window, select <strong>Properties</strong>, and check the value next to <strong>Label</strong>.</li>
-<li>The demo program included with vuFileTools illustrates this technique.</li>
+<li>Use the window handle from Clarion with the <code>PROP:Handle</code>
+property of the window label.</li>
+<li>To find the label of a window: in the Window Formatter, right-click
+the window, select <strong>Properties</strong>, and check the value next
+to <strong>Label</strong>.</li>
+<li>The demo program included with vuFileTools illustrates this
+technique.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

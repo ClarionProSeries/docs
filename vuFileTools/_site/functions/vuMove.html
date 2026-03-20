@@ -1,54 +1,68 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuMove</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vumovesource-destination-subdirs">vuMove(Source, Destination, Subdirs)</h1>
-<pre class="Prototype"><code>vuMove(*CSTRING,*CSTRING,LONG), Signed
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vumovesource-destination-subdirs">vuMove(Source, Destination,
+Subdirs)</h1>
+<pre class="Prototype"><code>vuMove(*CSTRING,*CSTRING,LONG), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Moves one or more files from a source location to a destination. Supports wildcards and can optionally include subdirectories. Works across local and network drives.</p>
+<p>Moves one or more files from a source location to a destination.
+Supports wildcards and can optionally include subdirectories. Works
+across local and network drives.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Source</td>
 <td>CSTRING(256)</td>
-<td>Fully qualified source path and filename. Wildcards are allowed.</td>
+<td>Fully qualified source path and filename. Wildcards are
+allowed.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Destination</td>
 <td>CSTRING(256)</td>
-<td>Fully qualified destination path. Created automatically if it does not exist.</td>
+<td>Fully qualified destination path. Created automatically if it does
+not exist.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Subdirs</td>
 <td>LONG</td>
-<td>Flag indicating if subdirectories should also be moved (1 = Yes, 0 = No).</td>
+<td>Flag indicating if subdirectories should also be moved (1 = Yes, 0 =
+No).</td>
 </tr>
 </tbody>
 </table>
@@ -67,14 +81,16 @@ IF vuMove(Source, Destination, Subdirs)
   MESSAGE(&#39;Files moved successfully.&#39;)
 ELSE
   MESSAGE(&#39;File move failed.&#39;)
-END
-</code></pre>
+END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Supports moving files across different drives, including network locations.</li>
+<li>Supports moving files across different drives, including network
+locations.</li>
 <li>Wildcards (such as <code>*.*</code>) are supported.</li>
-<li>Internally calls <code>vuCopy()</code> followed by <code>vuDelete()</code>.</li>
+<li>Internally calls <code>vuCopy()</code> followed by
+<code>vuDelete()</code>.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

@@ -1,265 +1,355 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>whatsnew</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="functions/index.html">All functions</a> | <a href="categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
 <h1 id="whats-new-in-vufiletools">What's New in vuFileTools</h1>
-<p>Version: 5.0 (Build 205)</p>
-<p>Release date: 2026-03-11</p>
-<p>This page highlights new items in the v5 cycle and links to their reference topics.</p>
+<p>Version: 5.0 (Build 206)</p>
+<p>Release date: 2026-03-19</p>
+<p>This page highlights new items in the V5 cycle and links to their
+reference topics.</p>
 <h2 id="new-in-version-5">New in Version 5</h2>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Function</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuPasswordInit.html">vuPasswordInit</a></td>
-<td>Initializes a Clarion password entry control for managed show/hide password behavior, sets the starting mode, and optionally applies cue text for empty password fields. This is the required starting point for the new password visibility helper feature, including both password mask toggle support and built-in cue/placeholder text support.</td>
+<td>Retrofits a standard Clarion password entry control with a more
+modern UI using a single function call. Automatically creates the
+show/hide eye button, uses icons compiled into the DLL, supports cue
+text, preserves the native Clarion control, and allows normal paste
+behavior so the field works more like modern password entry controls
+users expect.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuPasswordToggle.html">vuPasswordToggle</a></td>
-<td>Toggles a managed password control between visible-text mode and normal masked mode. Ideal for wiring a Show Password button or eye icon.</td>
+<td>Toggles a managed password control between visible-text mode and
+normal masked mode. Ideal for wiring a Show Password button or eye
+icon.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuCloseApp.html">vuCloseApp</a></td>
-<td>Requests an application shutdown from code with three modes: cooperative close (Mode 0), cooperative plus safety-net forced terminate (Mode 1), and immediate hard kill (Mode 2). Useful for closing apps reliably even when HALT/STOP hooks or save prompts interfere.</td>
+<td>Requests an application shutdown from code with three modes:
+cooperative close (Mode 0), cooperative plus safety-net forced terminate
+(Mode 1), and immediate hard kill (Mode 2). Useful for closing apps
+reliably even when HALT/STOP hooks or save prompts interfere.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuCloseAppEx.html">vuCloseAppEx</a></td>
-<td>Extended shutdown helper that adds a configurable safety-net delay (Mode 1) and an optional user warning countdown before initiating the close request. Ideal for shared EXE update scenarios where you want to warn users, attempt a clean exit, and still guarantee shutdown.</td>
+<td>Extended shutdown helper that adds a configurable safety-net delay
+(Mode 1) and an optional user warning countdown before initiating the
+close request. Ideal for shared EXE update scenarios where you want to
+warn users, attempt a clean exit, and still guarantee shutdown.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuInternetPresent.html">vuInternetPresent</a></td>
-<td>Reports whether Windows currently believes that Internet connectivity is available. Uses WinINet heuristics rather than testing a specific host.</td>
+<tr>
+<td><a
+href="functions/vuInternetPresent.html">vuInternetPresent</a></td>
+<td>Reports whether Windows currently believes that Internet
+connectivity is available. Uses WinINet heuristics rather than testing a
+specific host.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuInternetCanReachUrl.html">vuInternetCanReachUrl</a></td>
-<td>Tests whether a specific URL can be reached within a caller specified timeout. Useful for verifying connectivity to a particular service endpoint.</td>
+<tr>
+<td><a
+href="functions/vuInternetCanReachUrl.html">vuInternetCanReachUrl</a></td>
+<td>Tests whether a specific URL can be reached within a caller
+specified timeout. Useful for verifying connectivity to a particular
+service endpoint.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuIsNTFSCompressed.html">vuIsNTFSCompressed</a></td>
-<td>Checks whether the specified file or folder is NTFS-compressed. Works with both individual files and directories.</td>
+<tr>
+<td><a
+href="functions/vuIsNTFSCompressed.html">vuIsNTFSCompressed</a></td>
+<td>Checks whether the specified file or folder is NTFS-compressed.
+Works with both individual files and directories.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuSetNTFSCompression.html">vuSetNTFSCompression</a></td>
-<td>Enables or disables NTFS compression on the specified file or folder.</td>
+<tr>
+<td><a
+href="functions/vuSetNTFSCompression.html">vuSetNTFSCompression</a></td>
+<td>Enables or disables NTFS compression on the specified file or
+folder.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuPrimaryLinkSpeed.html">vuPrimaryLinkSpeed</a></td>
-<td>Retrieves the speed of the primary network connection, in megabits per second (Mbps).</td>
+<tr>
+<td><a
+href="functions/vuPrimaryLinkSpeed.html">vuPrimaryLinkSpeed</a></td>
+<td>Retrieves the speed of the primary network connection, in megabits
+per second (Mbps).</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuIsNetworkSlow.html">vuIsNetworkSlow</a></td>
-<td>Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by <code>vuPrimaryLinkSpeed()</code>.</td>
+<td>Determines whether the primary network connection is slower than a
+specified threshold. Uses the speed reported by
+<code>vuPrimaryLinkSpeed()</code>.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuCreateHardLink.html">vuCreateHardLink</a></td>
 <td>Creates a hard link to an existing file on NTFS volumes.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuCreateSymbolicLink_File.html">vuCreateSymbolicLink_File</a></td>
-<td>Creates a symbolic link (soft link) that points to a file. Requires elevated privileges.</td>
+<tr>
+<td><a
+href="functions/vuCreateSymbolicLink_File.html">vuCreateSymbolicLink_File</a></td>
+<td>Creates a symbolic link (soft link) that points to a file. Requires
+elevated privileges.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuCreateSymbolicLink_Dir.html">vuCreateSymbolicLink_Dir</a></td>
-<td>Creates a symbolic link (soft link) that points to a directory. Requires elevated privileges.</td>
+<tr>
+<td><a
+href="functions/vuCreateSymbolicLink_Dir.html">vuCreateSymbolicLink_Dir</a></td>
+<td>Creates a symbolic link (soft link) that points to a directory.
+Requires elevated privileges.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuCreateJunction.html">vuCreateJunction</a></td>
-<td>Creates an NTFS junction point, which acts as a directory reparse point to another folder.</td>
+<td>Creates an NTFS junction point, which acts as a directory reparse
+point to another folder.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuAddStartupShortcut.html">vuAddStartupShortcut</a></td>
-<td>Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts.</td>
+<tr>
+<td><a
+href="functions/vuAddStartupShortcut.html">vuAddStartupShortcut</a></td>
+<td>Creates a shortcut (.lnk file) in the Windows Startup folder so that
+the specified program runs automatically when Windows starts.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuRemoveStartupShortcut.html">vuRemoveStartupShortcut</a></td>
+<tr>
+<td><a
+href="functions/vuRemoveStartupShortcut.html">vuRemoveStartupShortcut</a></td>
 <td>Removes a shortcut (.lnk file) from the Windows Startup folder.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuEnumerateStartupItems.html">vuEnumerateStartupItems</a></td>
-<td>Begins enumeration of startup items in the Windows Startup folder.</td>
+<tr>
+<td><a
+href="functions/vuEnumerateStartupItems.html">vuEnumerateStartupItems</a></td>
+<td>Begins enumeration of startup items in the Windows Startup
+folder.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuGetStartupItem.html">vuGetStartupItem</a></td>
-<td>Retrieves information about the current startup item during enumeration.</td>
+<td>Retrieves information about the current startup item during
+enumeration.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuGetStartupFolder.html">vuGetStartupFolder</a></td>
+<tr>
+<td><a
+href="functions/vuGetStartupFolder.html">vuGetStartupFolder</a></td>
 <td>Returns the path to the current user's Startup folder.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuRunExists.html">vuRunExists</a></td>
-<td>Checks if a given executable file exists on the system path or at a specified location.</td>
+<td>Checks if a given executable file exists on the system path or at a
+specified location.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuRunExistsEx.html">vuRunExistsEx</a></td>
-<td>Extended version of <code>vuRunExists</code> that supports additional parameters and search modes.</td>
+<td>Extended version of <code>vuRunExists</code> that supports
+additional parameters and search modes.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuPrintExists.html">vuPrintExists</a></td>
 <td>Checks if a printer with the specified name exists.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuPrintExistsEx.html">vuPrintExistsEx</a></td>
-<td>Extended version of <code>vuPrintExists</code>, supporting more detailed checks.</td>
+<td>Extended version of <code>vuPrintExists</code>, supporting more
+detailed checks.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuRunDelay.html">vuRunDelay</a></td>
 <td>Runs an executable after a specified delay.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuRunEx.html">vuRunEx</a></td>
-<td>Runs an executable with extended options such as window state or working directory.</td>
+<td>Runs an executable with extended options such as window state or
+working directory.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuRunExDelay.html">vuRunExDelay</a></td>
 <td>Combines <code>vuRunEx</code> with a delay before execution.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuShellEx.html">vuShellEx</a></td>
 <td>Executes a shell command using the Windows ShellExecute API.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuShellDelay.html">vuShellDelay</a></td>
 <td>Executes a shell command after a specified delay.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuShellExDelay.html">vuShellExDelay</a></td>
 <td>Executes a shell command with extended options and a delay.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuPrintToExists.html">vuPrintToExists</a></td>
 <td>Checks if a "Print To" device exists in Windows.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
-<td>Extended version of <code>vuPrintToExists</code> with additional checks.</td>
+<tr>
+<td><a
+href="functions/vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
+<td>Extended version of <code>vuPrintToExists</code> with additional
+checks.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuPrintExistsShow.html">vuPrintExistsShow</a></td>
-<td>Displays whether a specified printer exists using a Windows message box.</td>
+<tr>
+<td><a
+href="functions/vuPrintExistsShow.html">vuPrintExistsShow</a></td>
+<td>Displays whether a specified printer exists using a Windows message
+box.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuGetDriveSpace.html">vuGetDriveSpace</a></td>
 <td>Retrieves total and available space for the specified drive.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuGetVolumeLabel.html">vuGetVolumeLabel</a></td>
 <td>Returns the volume label for the specified drive.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuExtractFileNameEx.html">vuExtractFileNameEx</a></td>
+<tr>
+<td><a
+href="functions/vuExtractFileNameEx.html">vuExtractFileNameEx</a></td>
 <td>Extracts the file name from a full path, with extended options.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuExplorerFileType.html">vuExplorerFileType</a></td>
+<tr>
+<td><a
+href="functions/vuExplorerFileType.html">vuExplorerFileType</a></td>
 <td>Retrieves the file type description shown in Windows Explorer.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuIsElevated.html">vuIsElevated</a></td>
-<td>Checks if the current process is running with elevated (administrator) privileges.</td>
+<td>Checks if the current process is running with elevated
+(administrator) privileges.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuElevationType.html">vuElevationType</a></td>
-<td>Determines the type of elevation in effect (full, limited, or none).</td>
+<td>Determines the type of elevation in effect (full, limited, or
+none).</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuIsFolderCompressed.html">vuIsFolderCompressed</a></td>
-<td>Checks whether the specified folder is compressed at the NTFS level.</td>
+<tr>
+<td><a
+href="functions/vuIsFolderCompressed.html">vuIsFolderCompressed</a></td>
+<td>Checks whether the specified folder is compressed at the NTFS
+level.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuCreateCompressedFolder.html">vuCreateCompressedFolder</a></td>
+<tr>
+<td><a
+href="functions/vuCreateCompressedFolder.html">vuCreateCompressedFolder</a></td>
 <td>Creates a new NTFS-compressed folder.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuSetFolderCompression.html">vuSetFolderCompression</a></td>
+<tr>
+<td><a
+href="functions/vuSetFolderCompression.html">vuSetFolderCompression</a></td>
 <td>Enables or disables NTFS compression on a folder.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuFileExists.html">vuFileExists</a></td>
 <td>Checks whether a specified file exists.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuFileExistsEx.html">vuFileExistsEx</a></td>
-<td>Extended version of <code>vuFileExists</code>, with support for more advanced checks.</td>
+<td>Extended version of <code>vuFileExists</code>, with support for more
+advanced checks.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuEnumerateFolderA.html">vuEnumerateFolderA</a></td>
-<td>Begins enumeration of files and folders within a specified directory (ANSI version).</td>
+<tr>
+<td><a
+href="functions/vuEnumerateFolderA.html">vuEnumerateFolderA</a></td>
+<td>Begins enumeration of files and folders within a specified directory
+(ANSI version).</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuGetEnumeratedEntryA.html">vuGetEnumeratedEntryA</a></td>
-<td>Retrieves information about the current entry during folder enumeration (ANSI version).</td>
+<tr>
+<td><a
+href="functions/vuGetEnumeratedEntryA.html">vuGetEnumeratedEntryA</a></td>
+<td>Retrieves information about the current entry during folder
+enumeration (ANSI version).</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuStartDriveEnum.html">vuStartDriveEnum</a></td>
 <td>Begins enumeration of system drives.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuGetNextDrive.html">vuGetNextDrive</a></td>
 <td>Retrieves information about the next drive in the enumeration.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuEndDriveEnum.html">vuEndDriveEnum</a></td>
 <td>Ends drive enumeration and releases associated resources.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuGetNextDriveAuto.html">vuGetNextDriveAuto</a></td>
+<tr>
+<td><a
+href="functions/vuGetNextDriveAuto.html">vuGetNextDriveAuto</a></td>
 <td>Retrieves the next drive in enumeration automatically.</td>
 </tr>
-<tr class="even">
-<td><a href="functions/vuStartDriveEnumEx.html">vuStartDriveEnumEx</a></td>
+<tr>
+<td><a
+href="functions/vuStartDriveEnumEx.html">vuStartDriveEnumEx</a></td>
 <td>Begins extended drive enumeration with more detail.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuGetNextDriveEx.html">vuGetNextDriveEx</a></td>
 <td>Retrieves the next drive in the extended enumeration.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuEndDriveEnumEx.html">vuEndDriveEnumEx</a></td>
 <td>Ends extended drive enumeration.</td>
 </tr>
-<tr class="odd">
-<td><a href="functions/vuGetNextDriveExAuto.html">vuGetNextDriveExAuto</a></td>
-<td>Retrieves the next drive automatically from extended enumeration.</td>
+<tr>
+<td><a
+href="functions/vuGetNextDriveExAuto.html">vuGetNextDriveExAuto</a></td>
+<td>Retrieves the next drive automatically from extended
+enumeration.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="functions/vuGetDriveList.html">vuGetDriveList</a></td>
 <td>Returns a list of all system drives.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><a href="functions/vuGetDriveListEx.html">vuGetDriveListEx</a></td>
-<td>Extended version of <code>vuGetDriveList</code>, with more detailed drive information.</td>
+<td>Extended version of <code>vuGetDriveList</code>, with more detailed
+drive information.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="additional-improvements-in-version-5">Additional improvements in Version 5</h2>
+<h2 id="additional-improvements-in-version-5">Additional improvements in
+Version 5</h2>
 <ul>
-<li>Improved <code>vuFileDate</code> handling and fixed reported issues with certain file path and filename scenarios.</li>
-<li>Improved <code>vuFileTime</code> handling and fixed reported issues with certain file path and filename scenarios.</li>
+<li>Improved <code>vuFileDate</code> handling by replacing the older
+internal file access method with a more modern Windows API approach,
+removing the old 128-character internal path bottleneck and improving
+behavior with longer file path and filename scenarios.</li>
+<li>Improved <code>vuFileTime</code> handling by replacing the older
+internal file access method with a more modern Windows API approach,
+removing the old 128-character internal path bottleneck and improving
+behavior with longer file path and filename scenarios.</li>
+<li>Added built-in support for a more modern password entry experience
+using the native Clarion control, including automatic show/hide eye
+buttons, cue text support, and normal paste behavior.</li>
+<li>The password entry helper automatically creates and positions its
+own eye buttons relative to the control and uses icons compiled into the
+DLL, so no extra button design or icon setup is required on the
+developer side.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="functions/index.html">All functions</a> | <a href="categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
 </body>
 </html>

@@ -1,41 +1,52 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuOSVersion</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vuosversion">vuOSVersion()</h1>
-<pre class="Prototype"><code>vuOSVersion(), Signed
-</code></pre>
+<pre class="Prototype"><code>vuOSVersion(), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns the Windows Operating System version as a sequential number for easy comparison in code. The current implementation uses RtlGetVersion from ntdll to obtain accurate version info, including Windows 10 and Windows 11, regardless of application manifests.</p>
+<p>Returns the Windows Operating System version as a sequential number
+for easy comparison in code. The current implementation uses
+RtlGetVersion from ntdll to obtain accurate version info, including
+Windows 10 and Windows 11, regardless of application manifests.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>None</td>
 <td></td>
 <td>This function takes no parameters.</td>
@@ -46,59 +57,59 @@
 <p>A SIGNED value indicating the detected OS version:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Value</th>
 <th>OS Version</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1100</td>
 <td>Windows 11 / Server 2022</td>
 <td>Build number &gt;= 22000</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1000</td>
 <td>Windows 10 / Server 2016/2019</td>
 <td>Build number &lt; 22000</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>630</td>
 <td>Windows 8.1 / Server 2012 R2</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>620</td>
 <td>Windows 8 / Server 2012</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>610</td>
 <td>Windows 7 / Server 2008 R2</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>600</td>
 <td>Windows Vista / Server 2008</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>520</td>
 <td>Windows Server 2003</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>510</td>
 <td>Windows XP</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>500</td>
 <td>Windows 2000</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>999</td>
 <td>Unknown</td>
 <td>Fallback when version is not matched</td>
@@ -132,15 +143,22 @@ END
 ! Enforce a minimum OS requirement example
 IF vuOSVersion() &lt; 500
   MESSAGE(&#39;This program requires Windows 2000 or higher&#39;)
-END
-</code></pre>
+END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Uses RtlGetVersion, which returns the true OS version even when the process lacks a Windows 8.1 or later compatibility manifest.</li>
-<li>Server versions are reported with the same codes as their desktop equivalents. The only exception is Windows Server 2003, which has its own code (520).</li>
-<li>Older legacy codes such as 31, 95, 98, 99, and 350 are no longer returned by the current implementation. Systems not matched by the table will return 999.</li>
-<li>If you need to distinguish additional Windows Server releases by build number, extend the internal mapping before returning the code.</li>
+<li>Uses RtlGetVersion, which returns the true OS version even when the
+process lacks a Windows 8.1 or later compatibility manifest.</li>
+<li>Server versions are reported with the same codes as their desktop
+equivalents. The only exception is Windows Server 2003, which has its
+own code (520).</li>
+<li>Older legacy codes such as 31, 95, 98, 99, and 350 are no longer
+returned by the current implementation. Systems not matched by the table
+will return 999.</li>
+<li>If you need to distinguish additional Windows Server releases by
+build number, extend the internal mapping before returning the
+code.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

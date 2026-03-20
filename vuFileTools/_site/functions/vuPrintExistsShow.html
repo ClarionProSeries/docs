@@ -1,59 +1,73 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuPrintExistsShow</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vuprintexistsshowpfile-showcmd">vuPrintExistsShow(pFile, ShowCmd)</h1>
-<pre class="Prototype"><code>vuPrintExistsShow(*CSTRING pFile, LONG ShowCmd), LONG
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vuprintexistsshowpfile-showcmd">vuPrintExistsShow(pFile,
+ShowCmd)</h1>
+<pre class="Prototype"><code>vuPrintExistsShow(*CSTRING pFile, LONG ShowCmd), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Sends a file to the default printer and displays the print job window using the specified ShowCmd setting.<br />
-This allows you to both start printing and control how the print window appears.</p>
+<p>Sends a file to the default printer and displays the print job window
+using the specified ShowCmd setting.<br />
+This allows you to both start printing and control how the print window
+appears.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
 <td>Path to the file to be printed.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>ShowCmd</td>
 <td>LONG</td>
-<td>Window show mode (see Windows <code>SW_*</code> constants, e.g., 1 = normal).</td>
+<td>Window show mode (see Windows <code>SW_*</code> constants, e.g., 1 =
+normal).</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only.</em></p>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
+shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <ul>
 <li>1 if the print job was successfully started.</li>
 <li>0 if the print job failed.</li>
-<li>Negative values may indicate errors such as invalid arguments or access denied.</li>
+<li>Negative values may indicate errors such as invalid arguments or
+access denied.</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath   CSTRING(260)
@@ -67,21 +81,22 @@ Ret        LONG
   Ret = vuPrintExistsShow(FilePath, ShowCmd)
 
   MESSAGE(&#39;vuPrintExistsShow returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintExistsShow&#39;)
-
 </code></pre>
 <p>Notes</p>
 <p>The file must exist and be printable by the default printer.</p>
-<p>ShowCmd controls how the print window is displayed. Common values:</p>
+<p>ShowCmd controls how the print window is displayed. Common
+values:</p>
 <pre><code>0 = SW_HIDE (hidden)
 
 1 = SW_SHOWNORMAL (normal window)
 
 3 = SW_SHOWMAXIMIZED (maximized)
 
-7 = SW_SHOWMINNOACTIVE (minimized, no activation)
-</code></pre>
-<p>Use this when you want to visually confirm or interact with the print process.</p>
+7 = SW_SHOWMINNOACTIVE (minimized, no activation)</code></pre>
+<p>Use this when you want to visually confirm or interact with the print
+process.</p>
 <p>Chat</p>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

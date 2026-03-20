@@ -1,51 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuDelete</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vudeletefilespec-subdirs-recyclebin">vuDelete(FileSpec, Subdirs, RecycleBin)</h1>
-<pre class="Prototype"><code>vuDelete(*CSTRING,LONG,LONG), Signed
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1 id="vudeletefilespec-subdirs-recyclebin">vuDelete(FileSpec, Subdirs,
+RecycleBin)</h1>
+<pre class="Prototype"><code>vuDelete(*CSTRING,LONG,LONG), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Deletes one or more files or directories, with the option to include subdirectories and send items to the Recycle Bin. This function is extremely powerful and must be used with caution.</p>
+<p>Deletes one or more files or directories, with the option to include
+subdirectories and send items to the Recycle Bin. This function is
+extremely powerful and must be used with caution.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>FileSpec</td>
 <td>CSTRING(256)</td>
 <td>Fully qualified file specification. Wildcards are permitted.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Subdirs</td>
 <td>LONG</td>
-<td>0 = Do not delete subdirectories <br> 1 = Delete all subdirectories and files when mask is used</td>
+<td>0 = Do not delete subdirectories <br> 1 = Delete all subdirectories
+and files when mask is used</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>RecycleBin</td>
 <td>LONG</td>
 <td>0 = Permanently delete <br> 1 = Send files to Recycle Bin</td>
@@ -57,17 +69,17 @@
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>! Delete all files and subdirectories in C:\Temp, sending them to the Recycle Bin
 FileSpec = &#39;C:\Temp\*.*&#39;
-vuDelete(FileSpec, 1, 1)
-</code></pre>
+vuDelete(FileSpec, 1, 1)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li><strong>Danger!</strong> Misuse can result in catastrophic data loss.</li>
+<li><strong>Danger!</strong> Misuse can result in catastrophic data
+loss.</li>
 <li>Example of destructive call (do <strong>not</strong> use):
 <pre class="Clarion"><code>FileSpec = &#39;C:\*.*&#39;
-vuDelete(FileSpec, 1, 0)  ! Wipes the entire drive
-</code></pre></li>
+vuDelete(FileSpec, 1, 0)  ! Wipes the entire drive</code></pre></li>
 <li>Use only with explicit and validated file paths.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

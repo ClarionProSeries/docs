@@ -1,84 +1,103 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuGetNextDriveExAuto</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vugetnextdriveexautopdriveinfo">vuGetNextDriveExAuto(pDriveInfo)</h1>
-<pre class="Prototype"><code>vuGetNextDriveExAuto(LONG), LONG
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1
+id="vugetnextdriveexautopdriveinfo">vuGetNextDriveExAuto(pDriveInfo)</h1>
+<pre class="Prototype"><code>vuGetNextDriveExAuto(LONG), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Retrieves extended information about the next available drive with automatic initialization and cleanup.<br />
-Unlike the three-call sequence (<code>vuStartDriveEnumEx</code>, <code>vuGetNextDriveEx</code>, <code>vuEndDriveEnumEx</code>), this function handles start and end internally. It begins enumeration on the first call and frees resources automatically when no more drives are available.</p>
+<p>Retrieves extended information about the next available drive with
+automatic initialization and cleanup.<br />
+Unlike the three-call sequence (<code>vuStartDriveEnumEx</code>,
+<code>vuGetNextDriveEx</code>, <code>vuEndDriveEnumEx</code>), this
+function handles start and end internally. It begins enumeration on the
+first call and frees resources automatically when no more drives are
+available.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>pDriveInfo</td>
 <td>*GROUP</td>
-<td>Address of a GROUP structure that receives drive information, including:</td>
+<td>Address of a GROUP structure that receives drive information,
+including:</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
-<td>- <code>RootPath</code> (CSTRING(4)) drive root (e.g., <code>C:\</code>)</td>
+<td>- <code>RootPath</code> (CSTRING(4)) drive root (e.g.,
+<code>C:\</code>)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td>- <code>DriveType</code> (LONG) type constant</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td>- <code>IsReady</code> (LONG) 1 if ready, 0 if not</td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td>- <code>VolumeLabel</code> (CSTRING(64)) volume label</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td>- <code>FileSystem</code> (CSTRING(16)) filesystem type</td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
-<td>- <code>FreeBytes</code> (CSTRING(20)) free space, as a formatted string</td>
+<td>- <code>FreeBytes</code> (CSTRING(20)) free space, as a formatted
+string</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
-<td>- <code>TotalBytes</code> (CSTRING(20)) total size, as a formatted string</td>
+<td>- <code>TotalBytes</code> (CSTRING(20)) total size, as a formatted
+string</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only.</em></p>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
+shown above. The numbers are for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <ul>
 <li>Nonzero if drive information was retrieved.</li>
@@ -140,14 +159,18 @@ sReady       CSTRING(4)
           &#39;Free:  &#39; &amp; CLIP(DriveInfo.FreeBytes) &amp; &#39; bytes&#39;
 
     MESSAGE(Msg)
-  END
-</code></pre>
+  END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>No separate <code>vuStartDriveEnumEx()</code> or <code>vuEndDriveEnumEx()</code> calls are required when using <code>vuGetNextDriveExAuto()</code>.</li>
-<li>Provides the same extended drive details as <code>vuGetNextDriveEx()</code>, but with simplified usage.</li>
-<li>Use this function for most scenarios unless you need explicit control of the enumeration lifecycle.</li>
+<li>No separate <code>vuStartDriveEnumEx()</code> or
+<code>vuEndDriveEnumEx()</code> calls are required when using
+<code>vuGetNextDriveExAuto()</code>.</li>
+<li>Provides the same extended drive details as
+<code>vuGetNextDriveEx()</code>, but with simplified usage.</li>
+<li>Use this function for most scenarios unless you need explicit
+control of the enumeration lifecycle.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

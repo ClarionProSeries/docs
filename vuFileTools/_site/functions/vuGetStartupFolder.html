@@ -1,63 +1,76 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuGetStartupFolder</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vugetstartupfolderuserpath-cchuser-commonpath-cchcommon">vuGetStartupFolder(UserPath, cchUser, CommonPath, cchCommon)</h1>
-<pre class="Prototype"><code>vuGetStartupFolder(*CSTRING,LONG,*CSTRING,LONG), LONG
-</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1
+id="vugetstartupfolderuserpath-cchuser-commonpath-cchcommon">vuGetStartupFolder(UserPath,
+cchUser, CommonPath, cchCommon)</h1>
+<pre class="Prototype"><code>vuGetStartupFolder(*CSTRING,LONG,*CSTRING,LONG), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Retrieves the file system paths for the current users Startup folder and the common (all users) Startup folder.</p>
+<p>Retrieves the file system paths for the current users Startup folder
+and the common (all users) Startup folder.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>UserPath</td>
 <td>CSTRING(*)</td>
 <td>Buffer to receive the path of the current users Startup folder.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>cchUser</td>
 <td>LONG</td>
 <td>Size of the UserPath buffer in characters.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>CommonPath</td>
 <td>CSTRING(*)</td>
-<td>Buffer to receive the path of the common (all users) Startup folder.</td>
+<td>Buffer to receive the path of the common (all users) Startup
+folder.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>cchCommon</td>
 <td>LONG</td>
 <td>Size of the CommonPath buffer in characters.</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only.</em></p>
+<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the sizes
+shown above. The numbers are for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
@@ -77,11 +90,12 @@ Msg = &#39;vuGetStartupFolder returned: &#39; &amp; FORMAT(Status) &amp; |
       &#39;&lt;13,10&gt;&#39; &amp; &#39;Common Startup: &#39; &amp; CLIP(CommonPath)
 
 MESSAGE(Msg, &#39;Startup Folders&#39;)
-
 </code></pre>
 <p>Notes</p>
 <p>Both user and common startup folders are returned in one call.</p>
-<p>Use with vuAddStartupShortcut and vuRemoveStartupShortcut for complete startup management.</p>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p>Use with vuAddStartupShortcut and vuRemoveStartupShortcut for
+complete startup management.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>

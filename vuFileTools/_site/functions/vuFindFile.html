@@ -1,46 +1,56 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>vuFindFile</title>
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="C:\_MD Docs\vuFileTools\style.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vufindfilefilename-lookin">vuFindFile(FileName, LookIn)</h1>
-<pre class="Prototype"><code>vuFindFile(*CSTRING,*CSTRING), CSTRING
-</code></pre>
+<pre class="Prototype"><code>vuFindFile(*CSTRING,*CSTRING), CSTRING</code></pre>
 <h2 id="description">Description</h2>
-<p>Searches for a specific file name in one or more specified locations. Multiple search locations can be provided by separating them with semicolons.</p>
+<p>Searches for a specific file name in one or more specified locations.
+Multiple search locations can be provided by separating them with
+semicolons.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Parameter</th>
 <th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>FileName</td>
 <td>CSTRING(256)</td>
 <td>Name of the file to find (wildcards not allowed)</td>
 </tr>
-<tr class="even">
+<tr>
 <td>LookIn</td>
 <td>CSTRING(256)</td>
 <td>One or more locations to search, separated by semicolons</td>
@@ -48,7 +58,8 @@
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
-<p>A CSTRING containing the fully qualified path and filename of the file if found, otherwise blank.</p>
+<p>A CSTRING containing the fully qualified path and filename of the
+file if found, otherwise blank.</p>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FileName = &#39;myfile.txt&#39;
 LookIn   = &#39;C:\;X:\temp&#39;   ! Search entire C drive and temp folder on X drive
@@ -59,8 +70,8 @@ IF Result &lt;&gt; &#39;&#39;
   MESSAGE(&#39;File found at: &#39; &amp; Result)
 ELSE
   MESSAGE(&#39;File not found&#39;)
-END
-</code></pre>
-<p><a href="../index.html">Home</a> | <a href="index.html">All functions</a> | <a href="../categories/index.html">Categories</a></p>
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
 </html>
