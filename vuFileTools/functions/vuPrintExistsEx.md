@@ -1,67 +1,62 @@
 ---
 title: "vuPrintExistsEx"
-summary: "Sends the specified file to the default printer if it exists."
-description: "Sends the specified file to the default printer if it exists. Optionally waits for the file to appear, polling at the given interval, before printing. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
-A LONG value indicating the result: - 1: File exists (or appeared within the wait period) and was sent to the default printer  
-- 0: File does not exist, did not appear within the wait period, or could not be printed  
-- Negative value: Error occurred   ### Example Notes Uses the systems default printer. Useful when a file is being generated asynchronously and will be ready to print shortly. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
-keywords: ["vuprintexistsex", "vuFileTools", "specified", "exists", "general", "default", "Clarion", "sends", "Windows", "printer", "file"]
+summary: "Sends the specified file to the default printer if it exists. Optionally waits for the file to appear before printing."
+description: "Sends the specified file to the default printer if it exists. Optionally waits for the file to appear before printing."
+keywords: ["vuprintexistsex", "print", "wait", "poll", "default printer", "vuFileTools", "Clarion"]
 function_name: "vuPrintExistsEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-03-20"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
-# vuPrintExistsEx(pFile, WaitSeconds, PollMS)
+# vuPrintExistsEx(pFile, WaitSec, PollMS)
 
 ```Prototype
-vuPrintExistsEx(*CSTRING pFile, LONG WaitSeconds, LONG PollMS), LONG
+vuPrintExistsEx(*CSTRING pFile, LONG WaitSec, LONG PollMS), LONG
 ```
 
-
 ## Description
-Sends the specified file to the default printer if it exists. Optionally waits for the file to appear, polling at the given interval, before printing.
+Sends the specified file to the default printer if it exists. Optionally waits for the file to appear before printing.
+
+## Related Print Functions
+
+| Function | Default Printer | Named Printer | Wait/Poll for File | Show Window | Notes |
+|----------|-----------------|---------------|--------------------|-------------|-------|
+| [vuPrintExists](vuPrintExists.md) | Yes | No | No | No | Prints to the default printer if the file exists. |
+| [vuPrintExistsEx](vuPrintExistsEx.md) | Yes | No | Yes | No | Waits for a file to appear, then prints to the default printer. |
+| [vuPrintExistsShow](vuPrintExistsShow.md) | Yes | No | No | Yes | Prints to the default printer and controls print-window display. |
+| [vuPrintToExists](vuPrintToExists.md) | No | Yes | No | No | Prints to a specified printer if the file exists. |
+| [vuPrintToExistsEx](vuPrintToExistsEx.md) | No | Yes | Yes | No | Waits for a file to appear, then prints to a specified printer. |
 
 ### Parameters
 
-| Parameter    | Data Type    | Description                                                                 |
-|--------------|--------------|-----------------------------------------------------------------------------|
-| pFile        | CSTRING(260) | Full path to the file to print if it exists.                                |
-| WaitSeconds  | LONG         | Maximum number of seconds to wait for the file to appear.                   |
-| PollMS       | LONG         | Interval, in milliseconds, to poll for the file while waiting.              |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| pFile | CSTRING(260) | Path to the file to print. |
+| WaitSec | LONG | Maximum number of seconds to wait for the file to appear. |
+| PollMS | LONG | Polling interval in milliseconds while waiting. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
-A LONG value indicating the result:
-
-- 1: File exists (or appeared within the wait period) and was sent to the default printer  
-- 0: File does not exist, did not appear within the wait period, or could not be printed  
-- Negative value: Error occurred  
+- 1 if the file appeared and the print request was started successfully
+- 0 if the file never appeared or the print request failed
+- Negative values may indicate a Windows shell error
 
 ### Example
 
 ```Clarion
-FilePath    CSTRING(260)
-WaitSeconds LONG
-PollMS      LONG
-Ret         LONG
+FilePath CSTRING(260)
+Ret      LONG
 
-FilePath    = 'C:\Temp\Test.txt'
-WaitSeconds = 10
-PollMS      = 200
-
-Ret = vuPrintExistsEx(FilePath, WaitSeconds, PollMS)
-
-MESSAGE('vuPrintExistsEx returned: ' & FORMAT(Ret), 'vuPrintExistsEx Test')
-
+FilePath = 'C:\Temp\Outgoing\Invoice.pdf'
+Ret = vuPrintExistsEx(FilePath, 10, 200)
 ```
-Notes
 
-Uses the systems default printer.
-
-Useful when a file is being generated asynchronously and will be ready to print shortly.
+### Notes
+- Use this when another process is expected to create the print file shortly.
+- If you need a specific printer, use `vuPrintToExistsEx` instead.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

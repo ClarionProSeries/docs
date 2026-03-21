@@ -7,26 +7,35 @@
 vuShellEx(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd), LONG
 ```
 
-
 ## Description
-Launches a file using the Windows shell (e.g., respects file associations) with optional parameters, working directory, and window display options.
+Launches a file using the Windows shell with optional parameters, working directory, and window display options.
+
+## Related Shell Functions
+
+| Function | Separate File/Params | Working Folder | Delay | Wait | Notes |
+|----------|----------------------|----------------|-------|------|-------|
+| [vuShell](vuShell.md) | No | No | No | No | Simple shell launch that honors Windows file associations. |
+| [vuShellDelay](vuShellDelay.md) | No | No | Yes | No | Shell launch after a startup delay. |
+| [vuShellEx](vuShellEx.md) | Yes | Yes | No | No | Preferred shell launch when you want file and parameters passed separately. |
+| [vuShellExDelay](vuShellExDelay.md) | Yes | Yes | Yes | No | Shell launch with separate parameters plus startup delay. |
 
 ### Parameters
 
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Full path to the file or executable to launch.                              |
-| pParams   | CSTRING(260) | Optional command-line parameters.                                           |
-| pWork     | CSTRING(260) | Optional working directory.                                                 |
-| ShowCmd   | LONG         | Window display option (see ShowWindow constants, e.g., 1 = Normal window).  |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| pFile | CSTRING(260) | Full path to the file or executable to launch. |
+| pParams | CSTRING(260) | Optional command-line parameters. |
+| pWork | CSTRING(260) | Optional working directory. |
+| ShowCmd | LONG | Window display option (see ShowWindow constants, for example 1 = normal window). |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._
 
 ### Returns
 A LONG value indicating the result:
 
-- 1: Launched successfully  
-- 0: Failed to launch  
+- 1 if the file launched successfully
+- 0 if the launch failed
+- Negative values may indicate a Windows shell error
 
 ### Example
 
@@ -37,20 +46,16 @@ WorkFolder CSTRING(260)
 ShowCmd    LONG
 Ret        LONG
 
-FilePath   = 'C:\Windows\notepad.exe'
+FilePath   = 'C:\Temp\Readme.txt'
 Params     = ''
 WorkFolder = ''
-ShowCmd    = 1   ! SW_SHOWNORMAL
+ShowCmd    = 1
 
 Ret = vuShellEx(FilePath, Params, WorkFolder, ShowCmd)
-
-MESSAGE('vuShellEx returned: ' & FORMAT(Ret), 'vuShellEx Test')
-
 ```
-Notes
 
-Uses the Windows shell, so file associations (e.g., .txt with Notepad) are honored.
-
-Typical ShowCmd values: 1 (normal), 3 (maximized), 7 (minimized no activate), 4/8 (show without activating).
+### Notes
+- `vuShellEx` honors file associations, so documents open in their registered Windows applications.
+- Use this when you need shell behavior plus explicit parameters or a working folder.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

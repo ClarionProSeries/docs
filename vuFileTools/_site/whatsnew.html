@@ -30,11 +30,214 @@
 <p><a href="../index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 <h1 id="whats-new-in-vufiletools">What's New in vuFileTools</h1>
-<p>Version: 5.0 (Build 206)</p>
-<p>Release date: 2026-03-19</p>
-<p>This page highlights new items in the V5 cycle and links to their
-reference topics.</p>
-<h2 id="new-in-version-5">New in Version 5</h2>
+<p>Version: 5.0 (Build 207)</p>
+<p>Release date: 2026-03-20</p>
+<p>This page highlights new items in the Version 5 cycle and links to
+their reference topics.</p>
+<h2 id="whats-new-in-build-207">What's New in Build 207</h2>
+<p>Build 207 adds two new run-related functions and improves the
+documentation for the run, shell, and print families with linked
+comparison tables that now also appear on the related function
+pages.</p>
+<h3 id="new-functions-in-build-207">New Functions in Build 207</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="functions/vuRunExWait.html">vuRunExWait</a></td>
+<td>Runs the specified file with optional parameters and working folder
+support, and can optionally wait until the launched process
+completes.</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Runs the specified file with optional parameters and working folder
+support after a specified delay, and can optionally wait until the
+launched process completes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="run-function-comparison">Run Function Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Best Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="functions/vuRun.html">vuRun</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Simple or legacy command-line launch</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunEx.html">vuRunEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred modern launch with separate parameters</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunExWait.html">vuRunExWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Modern launch with separate parameters and wait</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunExDelay.html">vuRunExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Modern delayed launch</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Modern delayed launch with wait</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunExists.html">vuRunExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Launch only if the target file already exists</td>
+</tr>
+<tr>
+<td><a href="functions/vuRunExistsEx.html">vuRunExistsEx</a></td>
+<td>No</td>
+<td>No</td>
+<td>Poll for file</td>
+<td>No</td>
+<td>Wait for a file to appear, then launch it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shell-function-comparison">Shell Function Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Best Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="functions/vuShell.html">vuShell</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Simple ShellExecute launch</td>
+</tr>
+<tr>
+<td><a href="functions/vuShellEx.html">vuShellEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred shell launch with separate parameters</td>
+</tr>
+<tr>
+<td><a href="functions/vuShellDelay.html">vuShellDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Simple delayed shell launch</td>
+</tr>
+<tr>
+<td><a href="functions/vuShellExDelay.html">vuShellExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Delayed shell launch with separate parameters</td>
+</tr>
+</tbody>
+</table>
+<h3 id="print-function-comparison">Print Function Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Wait for File</th>
+<th>Named Printer</th>
+<th>Show Control</th>
+<th>Best Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="functions/vuPrintExists.html">vuPrintExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Print a file if it already exists</td>
+</tr>
+<tr>
+<td><a href="functions/vuPrintExistsEx.html">vuPrintExistsEx</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Wait for a file to appear, then print it</td>
+</tr>
+<tr>
+<td><a href="functions/vuPrintToExists.html">vuPrintToExists</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Print to a specific printer if the file exists</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wait for a file to appear, then print to a specific printer</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuPrintExistsShow.html">vuPrintExistsShow</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Print an existing file with an explicit show mode</td>
+</tr>
+</tbody>
+</table>
+<p>When you open any of the related function pages above, you will also
+see the same comparison table there so it is easier to find related
+functions and choose the one that best matches your scenario.</p>
+<hr />
+<h2 id="whats-new-in-build-206">What's New in Build 206</h2>
+<p>Build 206 added the new password visibility helper feature for
+Clarion applications.</p>
 <table>
 <thead>
 <tr>
@@ -58,6 +261,19 @@ users expect.</td>
 normal masked mode. Ideal for wiring a Show Password button or eye
 icon.</td>
 </tr>
+</tbody>
+</table>
+<hr />
+<h2 id="earlier-version-5-additions-build-205">Earlier Version 5
+Additions (Build 205)</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><a href="functions/vuCloseApp.html">vuCloseApp</a></td>
 <td>Requests an application shutdown from code with three modes:
@@ -160,63 +376,62 @@ href="functions/vuGetStartupFolder.html">vuGetStartupFolder</a></td>
 </tr>
 <tr>
 <td><a href="functions/vuRunExists.html">vuRunExists</a></td>
-<td>Checks if a given executable file exists on the system path or at a
-specified location.</td>
+<td>Launches a file or application only if it already exists.</td>
 </tr>
 <tr>
 <td><a href="functions/vuRunExistsEx.html">vuRunExistsEx</a></td>
-<td>Extended version of <code>vuRunExists</code> that supports
-additional parameters and search modes.</td>
+<td>Waits for a file to appear, then launches it.</td>
 </tr>
 <tr>
 <td><a href="functions/vuPrintExists.html">vuPrintExists</a></td>
-<td>Checks if a printer with the specified name exists.</td>
+<td>Prints a file if it already exists.</td>
 </tr>
 <tr>
 <td><a href="functions/vuPrintExistsEx.html">vuPrintExistsEx</a></td>
-<td>Extended version of <code>vuPrintExists</code>, supporting more
-detailed checks.</td>
+<td>Waits for a file to appear, then prints it.</td>
 </tr>
 <tr>
 <td><a href="functions/vuRunDelay.html">vuRunDelay</a></td>
-<td>Runs an executable after a specified delay.</td>
+<td>Runs a file or application after a specified delay.</td>
 </tr>
 <tr>
 <td><a href="functions/vuRunEx.html">vuRunEx</a></td>
-<td>Runs an executable with extended options such as window state or
-working directory.</td>
+<td>Runs a file or application with separate parameter and working
+folder support.</td>
 </tr>
 <tr>
 <td><a href="functions/vuRunExDelay.html">vuRunExDelay</a></td>
-<td>Combines <code>vuRunEx</code> with a delay before execution.</td>
+<td>Delays the launch, then runs a file or application with separate
+parameter and working folder support.</td>
 </tr>
 <tr>
 <td><a href="functions/vuShellEx.html">vuShellEx</a></td>
-<td>Executes a shell command using the Windows ShellExecute API.</td>
+<td>Shell launches a file or application with separate parameter and
+working folder support.</td>
 </tr>
 <tr>
 <td><a href="functions/vuShellDelay.html">vuShellDelay</a></td>
-<td>Executes a shell command after a specified delay.</td>
+<td>Delays a simple shell launch.</td>
 </tr>
 <tr>
 <td><a href="functions/vuShellExDelay.html">vuShellExDelay</a></td>
-<td>Executes a shell command with extended options and a delay.</td>
+<td>Delays a shell launch with separate parameter and working folder
+support.</td>
 </tr>
 <tr>
 <td><a href="functions/vuPrintToExists.html">vuPrintToExists</a></td>
-<td>Checks if a "Print To" device exists in Windows.</td>
+<td>Prints an existing file to a specified printer.</td>
 </tr>
 <tr>
 <td><a
 href="functions/vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
-<td>Extended version of <code>vuPrintToExists</code> with additional
-checks.</td>
+<td>Waits for a file to appear, then prints it to a specified
+printer.</td>
 </tr>
 <tr>
 <td><a
 href="functions/vuPrintExistsShow.html">vuPrintExistsShow</a></td>
-<td>Displays whether a specified printer exists using a Windows message
-box.</td>
+<td>Prints an existing file using an explicit show mode.</td>
 </tr>
 <tr>
 <td><a href="functions/vuGetDriveSpace.html">vuGetDriveSpace</a></td>
@@ -280,8 +495,8 @@ href="functions/vuEnumerateFolderA.html">vuEnumerateFolderA</a></td>
 <tr>
 <td><a
 href="functions/vuGetEnumeratedEntryA.html">vuGetEnumeratedEntryA</a></td>
-<td>Retrieves information about the current entry during folder
-enumeration (ANSI version).</td>
+<td>Retrieves information about the current entry during enumeration
+(ANSI version).</td>
 </tr>
 <tr>
 <td><a href="functions/vuStartDriveEnum.html">vuStartDriveEnum</a></td>
@@ -330,25 +545,6 @@ drive information.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="additional-improvements-in-version-5">Additional improvements in
-Version 5</h2>
-<ul>
-<li>Improved <code>vuFileDate</code> handling by replacing the older
-internal file access method with a more modern Windows API approach,
-removing the old 128-character internal path bottleneck and improving
-behavior with longer file path and filename scenarios.</li>
-<li>Improved <code>vuFileTime</code> handling by replacing the older
-internal file access method with a more modern Windows API approach,
-removing the old 128-character internal path bottleneck and improving
-behavior with longer file path and filename scenarios.</li>
-<li>Added built-in support for a more modern password entry experience
-using the native Clarion control, including automatic show/hide eye
-buttons, cue text support, and normal paste behavior.</li>
-<li>The password entry helper automatically creates and positions its
-own eye buttons relative to the control and uses icons compiled into the
-DLL, so no extra button design or icon setup is required on the
-developer side.</li>
-</ul>
 <p><a href="../index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 </body>

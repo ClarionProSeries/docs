@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>vuRunExistsEx</title>
+  <title>vuRunExDelayWait</title>
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,13 +29,14 @@
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vurunexistsexpfile-waitsec-pollms">vuRunExistsEx(pFile, WaitSec,
-PollMS)</h1>
-<pre class="Prototype"><code>vuRunExistsEx(*CSTRING pFile, LONG WaitSec, LONG PollMS), LONG</code></pre>
+<h1
+id="vurunexdelaywaitpfile-pparams-pwork-showcmd-delayms-wait">vuRunExDelayWait(pFile,
+pParams, pWork, ShowCmd, DelayMS, Wait)</h1>
+<pre class="Prototype"><code>vuRunExDelayWait(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG DelayMS, LONG Wait), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Attempts to run the specified file if it exists. Optionally waits for
-the file to appear, polling at the given interval, before running
-it.</p>
+<p>Runs the specified file with optional parameters and working
+directory after a delay, and can optionally wait for the launched
+process to complete.</p>
 <h2 id="related-run-functions">Related Run Functions</h2>
 <table>
 <thead>
@@ -131,17 +132,33 @@ wait.</td>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Full path to the file or executable to run.</td>
+<td>Full path to the executable file to run.</td>
 </tr>
 <tr>
-<td>WaitSec</td>
-<td>LONG</td>
-<td>Maximum number of seconds to wait for the file to appear.</td>
+<td>pParams</td>
+<td>CSTRING(260)</td>
+<td>Optional command-line parameters to pass to the executable.</td>
 </tr>
 <tr>
-<td>PollMS</td>
+<td>pWork</td>
+<td>CSTRING(260)</td>
+<td>Optional working directory for the executable.</td>
+</tr>
+<tr>
+<td>ShowCmd</td>
 <td>LONG</td>
-<td>Polling interval in milliseconds while waiting for the file.</td>
+<td>Window display option (see ShowWindow constants).</td>
+</tr>
+<tr>
+<td>DelayMS</td>
+<td>LONG</td>
+<td>Delay in milliseconds before the launch begins.</td>
+</tr>
+<tr>
+<td>Wait</td>
+<td>LONG</td>
+<td>0 = return immediately, 1 = wait until the launched process
+completes.</td>
 </tr>
 </tbody>
 </table>
@@ -150,22 +167,36 @@ shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
-<li>1 if the file appeared and was launched successfully</li>
-<li>0 if the file never appeared or could not be launched</li>
-<li>Negative values may indicate a Windows shell error</li>
+<li>1 if the file launched successfully</li>
+<li>0 if the input was invalid</li>
+<li>Negative values may indicate a Windows launch error</li>
 </ul>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>FilePath CSTRING(260)
-Ret      LONG
+<pre class="Clarion"><code>FilePath   CSTRING(260)
+Params     CSTRING(260)
+WorkFolder CSTRING(260)
+ShowCmd    LONG
+DelayMS    LONG
+WaitFlag   LONG
+Ret        LONG
 
-FilePath = &#39;C:\Temp\Incoming\DailyReport.pdf&#39;
-Ret = vuRunExistsEx(FilePath, 10, 200)</code></pre>
+FilePath   = &#39;C:\Windows\Notepad.exe&#39;
+Params     = &#39;MyDoc.txt&#39;
+WorkFolder = &#39;&#39;
+ShowCmd    = 1
+DelayMS    = 1500
+WaitFlag   = 1
+
+Ret = vuRunExDelayWait(FilePath, Params, WorkFolder, ShowCmd, DelayMS, WaitFlag)
+
+MESSAGE(&#39;vuRunExDelayWait returned: &#39; &amp; FORMAT(Ret), &#39;vuRunExDelayWait Test&#39;)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Use this when another process is expected to create the file
-shortly.</li>
-<li><code>WaitSec = 0</code> means do not wait; the function will only
-check once.</li>
+<li>Use this when you need all three behaviors together: explicit file
+and parameters, delayed launch, and optional wait.</li>
+<li>This is useful when one process is expected to finish preparing a
+file before the launched process consumes it.</li>
+<li>If you do not need the delay, use <code>vuRunExWait</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

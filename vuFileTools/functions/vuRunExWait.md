@@ -1,9 +1,9 @@
 ---
-title: "vuRunExDelay"
-summary: "Runs an external program with optional parameters and working directory after a specified delay."
-description: "Runs an external program with optional parameters and working directory after a specified delay."
-keywords: ["external", "vuFileTools", "program", "optional", "delay", "parameters", "specified", "directory", "after", "working", "general", "with"]
-function_name: "vuRunExDelay"
+title: "vuRunExWait"
+summary: "Runs the specified file with optional command-line parameters and working directory, and can optionally wait for the launched process to complete."
+description: "Runs the specified file with optional command-line parameters and working directory, and can optionally wait for the launched process to complete."
+keywords: ["vuFileTools", "vurunexwait", "run", "wait", "parameters", "working directory", "Clarion"]
+function_name: "vuRunExWait"
 category: "General"
 version_added: "5.0"
 last_updated: "2026-03-20"
@@ -11,14 +11,14 @@ last_updated: "2026-03-20"
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
-# vuRunExDelay(pFile, pParams, pWork, ShowCmd, DelayMS)
+# vuRunExWait(pFile, pParams, pWork, ShowCmd, Wait)
 
 ```Prototype
-vuRunExDelay(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG DelayMS), LONG
+vuRunExWait(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG Wait), LONG
 ```
 
 ## Description
-Runs an external program with optional parameters and working directory after a specified delay.
+Runs the specified file with optional command-line parameters and working directory, and can optionally wait for the launched process to complete.
 
 ## Related Run Functions
 
@@ -37,45 +37,45 @@ Runs an external program with optional parameters and working directory after a 
 
 | Parameter | Data Type | Description |
 |-----------|-----------|-------------|
-| pFile | CSTRING(260) | Path to the executable file to run. |
+| pFile | CSTRING(260) | Full path to the executable file to run. |
 | pParams | CSTRING(260) | Optional command-line parameters to pass to the executable. |
-| pWork | CSTRING(260) | Optional working directory for the process. |
-| ShowCmd | LONG | Window show mode (see Windows `SW_*` constants). |
-| DelayMS | LONG | Delay in milliseconds before the program is launched. |
+| pWork | CSTRING(260) | Optional working directory for the executable. |
+| ShowCmd | LONG | Window display option (see ShowWindow constants). |
+| Wait | LONG | 0 = return immediately, 1 = wait until the launched process completes. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
 A LONG value indicating the result:
 
-- 1 if the program launched successfully
-- 0 if the launch failed
-- Negative values may indicate a Windows shell error
+- 1 if the file launched successfully
+- 0 if the input was invalid
+- Negative values may indicate a Windows launch error
 
 ### Example
 
 ```Clarion
-FilePath    CSTRING(260)
-Params      CSTRING(260)
-WorkFolder  CSTRING(260)
-ShowCmd     LONG
-DelayMS     LONG
-Ret         LONG
+FilePath   CSTRING(260)
+Params     CSTRING(260)
+WorkFolder CSTRING(260)
+ShowCmd    LONG
+WaitFlag   LONG
+Ret        LONG
 
 FilePath   = 'C:\Windows\Notepad.exe'
 Params     = 'MyDoc.txt'
 WorkFolder = ''
 ShowCmd    = 1
-DelayMS    = 2000
+WaitFlag   = 1
 
-Ret = vuRunExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
+Ret = vuRunExWait(FilePath, Params, WorkFolder, ShowCmd, WaitFlag)
 
-MESSAGE('vuRunExDelay returned: ' & FORMAT(Ret), 'vuRunExDelay')
+MESSAGE('vuRunExWait returned: ' & FORMAT(Ret), 'vuRunExWait Test')
 ```
 
 ### Notes
-- Use this when you need to delay a launch but still want file, parameters, and working folder passed separately.
-- The delay is applied once before the launch begins.
-- Use `vuRunExDelayWait` when you also need to wait for the launched process to complete.
+- `vuRunExWait` is the modern counterpart to `vuRun` when you want separate file and parameter values plus optional wait behavior.
+- Use `Wait = 1` when your program must not continue until the launched process finishes.
+- Use `vuRunExDelayWait` when you also need a startup delay before the launch begins.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

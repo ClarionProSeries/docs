@@ -1,16 +1,12 @@
 ---
 title: "vuPrintToExists"
-summary: "Sends a file to the specified printer and checks whether the print job was successfully queued."
-description: "Sends a file to the specified printer and checks whether the print job was successfully queued.  
-Useful for confirming that print requests are reaching the intended printer. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
-- 1 if the print job was successfully queued.  
-- 0 if the print job failed.  
-- Negative values may indicate errors such as access denied or invalid arguments. ### Example Notes Ensure the target printer is installed and accessible on the system. The file specified must exist and be a valid format for the target printer. For asynchronous or delayed checks, use vuPrintToExistsEx. # vuPrintToExists(pFile, pPrinter)"
-keywords: ["successfully", "vuFileTools", "specified", "printer", "whether", "queued", "general", "print", "Clarion", "sends", "checks", "Windows"]
+summary: "Sends a file to the specified printer if the file exists."
+description: "Sends a file to the specified printer if the file exists."
+keywords: ["vuprinttoexists", "print", "named printer", "vuFileTools", "Clarion"]
 function_name: "vuPrintToExists"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-03-20"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -21,24 +17,32 @@ last_updated: "2025-09-23"
 vuPrintToExists(*CSTRING pFile, *CSTRING pPrinter), LONG
 ```
 
-
 ## Description
-Sends a file to the specified printer and checks whether the print job was successfully queued.  
-Useful for confirming that print requests are reaching the intended printer.
+Sends a file to the specified printer if the file exists.
+
+## Related Print Functions
+
+| Function | Default Printer | Named Printer | Wait/Poll for File | Show Window | Notes |
+|----------|-----------------|---------------|--------------------|-------------|-------|
+| [vuPrintExists](vuPrintExists.md) | Yes | No | No | No | Prints to the default printer if the file exists. |
+| [vuPrintExistsEx](vuPrintExistsEx.md) | Yes | No | Yes | No | Waits for a file to appear, then prints to the default printer. |
+| [vuPrintExistsShow](vuPrintExistsShow.md) | Yes | No | No | Yes | Prints to the default printer and controls print-window display. |
+| [vuPrintToExists](vuPrintToExists.md) | No | Yes | No | No | Prints to a specified printer if the file exists. |
+| [vuPrintToExistsEx](vuPrintToExistsEx.md) | No | Yes | Yes | No | Waits for a file to appear, then prints to a specified printer. |
 
 ### Parameters
 
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Path to the file to be printed.                                             |
-| pPrinter  | CSTRING(260) | Name of the printer (for example, `Microsoft Print to PDF`).                 |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| pFile | CSTRING(260) | Path to the file to print. |
+| pPrinter | CSTRING(260) | Name of the printer to use. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
-- 1 if the print job was successfully queued.  
-- 0 if the print job failed.  
-- Negative values may indicate errors such as access denied or invalid arguments.
+- 1 if the print request was started successfully
+- 0 if the file does not exist or the print request failed
+- Negative values may indicate a Windows shell error
 
 ### Example
 
@@ -47,64 +51,13 @@ FilePath    CSTRING(260)
 PrinterName CSTRING(260)
 Ret         LONG
 
-  CODE
-  FilePath    = 'C:\Temp\Test.txt'
-  PrinterName = 'Microsoft Print to PDF'
-
-  Ret = vuPrintToExists(FilePath, PrinterName)
-
-  MESSAGE('vuPrintToExists returned: ' & FORMAT(Ret), 'vuPrintToExists')
-
+FilePath    = 'C:\Temp\Test.txt'
+PrinterName = 'Microsoft Print to PDF'
+Ret = vuPrintToExists(FilePath, PrinterName)
 ```
-Notes
 
-Ensure the target printer is installed and accessible on the system.
-
-The file specified must exist and be a valid format for the target printer.
-
-For asynchronous or delayed checks, use vuPrintToExistsEx.
-
-# vuPrintToExists(pFile, pPrinter)
-
-## Description
-Sends a file to the specified printer and checks whether the print job was successfully queued.  
-Useful for confirming that print requests are reaching the intended printer.
-
-### Parameters
-
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Path to the file to be printed.                                             |
-| pPrinter  | CSTRING(260) | Name of the printer (for example, `Microsoft Print to PDF`).                 |
-
-_Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
-
-### Returns
-- 1 if the print job was successfully queued.  
-- 0 if the print job failed.  
-- Negative values may indicate errors such as access denied or invalid arguments.
-
-### Example
-
-```Clarion
-FilePath    CSTRING(260)
-PrinterName CSTRING(260)
-Ret         LONG
-
-  CODE
-  FilePath    = 'C:\Temp\Test.txt'
-  PrinterName = 'Microsoft Print to PDF'
-
-  Ret = vuPrintToExists(FilePath, PrinterName)
-
-  MESSAGE('vuPrintToExists returned: ' & FORMAT(Ret), 'vuPrintToExists')
-
-Notes
-
-    Ensure the target printer is installed and accessible on the system.
-
-    The file specified must exist and be a valid format for the target printer.
-
-    For asynchronous or delayed checks, use vuPrintToExistsEx.
+### Notes
+- Use this when you need to target a specific printer rather than the default printer.
+- If you need to wait for the file to appear first, use `vuPrintToExistsEx`.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

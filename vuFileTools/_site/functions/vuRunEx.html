@@ -35,6 +35,88 @@ pWork, ShowCmd)</h1>
 <h2 id="description">Description</h2>
 <p>Runs the specified file with optional command-line parameters,
 working directory, and window display options.</p>
+<h2 id="related-run-functions">Related Run Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuRun.html">vuRun</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Single command-line string. Good for simple or legacy launches.</td>
+</tr>
+<tr>
+<td><a href="vuRunDelay.html">vuRunDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Single command-line string with a startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunEx.html">vuRunEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred modern launch when you want file and parameters passed
+separately.</td>
+</tr>
+<tr>
+<td><a href="vuRunExWait.html">vuRunExWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Preferred modern launch with separate parameters and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelay.html">vuRunExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Modern launch with separate parameters plus startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Modern launch with separate parameters, startup delay, and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExists.html">vuRunExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Runs only if the target file already exists.</td>
+</tr>
+<tr>
+<td><a href="vuRunExistsEx.html">vuRunExistsEx</a></td>
+<td>No</td>
+<td>No</td>
+<td>Polls for file</td>
+<td>No</td>
+<td>Waits for a file to appear, then runs it.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -63,8 +145,8 @@ working directory, and window display options.</p>
 <tr>
 <td>ShowCmd</td>
 <td>LONG</td>
-<td>Window display option (see ShowWindow constants, e.g., 1 = Normal
-window).</td>
+<td>Window display option (see ShowWindow constants, for example 1 =
+normal window).</td>
 </tr>
 </tbody>
 </table>
@@ -73,8 +155,9 @@ shown above. The numbers are for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
-<li>1: File executed successfully</li>
-<li>0: Failed to execute file</li>
+<li>1 if the file launched successfully</li>
+<li>0 if the launch failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath   CSTRING(260)
@@ -83,19 +166,26 @@ WorkFolder CSTRING(260)
 ShowCmd    LONG
 Ret        LONG
 
-FilePath   = &#39;C:\Windows\notepad.exe&#39;
-Params     = &#39;&#39;
+FilePath   = &#39;C:\Windows\Notepad.exe&#39;
+Params     = &#39;MyDoc.txt&#39;
 WorkFolder = &#39;&#39;
 ShowCmd    = 1   ! SW_SHOWNORMAL
 
 Ret = vuRunEx(FilePath, Params, WorkFolder, ShowCmd)
 
-MESSAGE(&#39;vuRunEx returned: &#39; &amp; FORMAT(Ret), &#39;vuRunEx Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Use ShowCmd to control how the launched application window is
-displayed (normal, minimized, maximized, etc.).</p>
-<p>If the working directory is empty, the system default is used.</p>
+MESSAGE(&#39;vuRunEx returned: &#39; &amp; FORMAT(Ret), &#39;vuRunEx Test&#39;)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>vuRunEx</code> is generally the preferred choice when you need
+to launch an executable with parameters.</li>
+<li><code>pFile</code> and <code>pParams</code> are passed separately,
+which avoids command-line formatting mistakes common with single-string
+launch functions.</li>
+<li>If <code>pWork</code> is blank, the system default working folder is
+used.</li>
+<li>Use <code>vuRunExWait</code> when you need the same explicit
+parameter handling plus optional wait behavior.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

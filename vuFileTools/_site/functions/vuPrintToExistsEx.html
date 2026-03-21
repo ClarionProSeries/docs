@@ -34,10 +34,64 @@ id="vuprinttoexistsexpfile-waitseconds-pollms-pprinter">vuPrintToExistsEx(pFile,
 WaitSeconds, PollMS, pPrinter)</h1>
 <pre class="Prototype"><code>vuPrintToExistsEx(*CSTRING pFile, LONG WaitSeconds, LONG PollMS, *CSTRING pPrinter), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Sends a file to the specified printer and waits for confirmation that
-the print job was queued.<br />
-This function allows you to specify how long to wait and how often to
-poll for the print job status.</p>
+<p>Sends a file to the specified printer after optionally waiting for
+the file to appear.</p>
+<h2 id="related-print-functions">Related Print Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Default Printer</th>
+<th>Named Printer</th>
+<th>Wait/Poll for File</th>
+<th>Show Window</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuPrintExists.html">vuPrintExists</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to the default printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsEx.html">vuPrintExistsEx</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to the default printer.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsShow.html">vuPrintExistsShow</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Prints to the default printer and controls print-window
+display.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExists.html">vuPrintToExists</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to a specified printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to a specified printer.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -51,24 +105,22 @@ poll for the print job status.</p>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Path to the file to be printed.</td>
+<td>Path to the file to print.</td>
 </tr>
 <tr>
 <td>WaitSeconds</td>
 <td>LONG</td>
-<td>Maximum time to wait (in seconds) for the print job to appear in the
-queue.</td>
+<td>Maximum time to wait, in seconds, for the file to appear.</td>
 </tr>
 <tr>
 <td>PollMS</td>
 <td>LONG</td>
-<td>Polling interval (in milliseconds) while waiting.</td>
+<td>Polling interval in milliseconds while waiting.</td>
 </tr>
 <tr>
 <td>pPrinter</td>
 <td>CSTRING(260)</td>
-<td>Name of the printer (for example,
-<code>Microsoft Print to PDF</code>).</td>
+<td>Name of the printer to use.</td>
 </tr>
 </tbody>
 </table>
@@ -76,11 +128,10 @@ queue.</td>
 shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <ul>
-<li>1 if the print job was detected in the queue within the specified
-wait time.</li>
-<li>0 if the print job was not detected.</li>
-<li>Negative values may indicate errors such as access denied, invalid
-arguments, or printer not found.</li>
+<li>1 if the file appeared and the print request was started
+successfully</li>
+<li>0 if the file never appeared or the print request failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath    CSTRING(260)
@@ -89,22 +140,18 @@ PollMS      LONG
 PrinterName CSTRING(260)
 Ret         LONG
 
-  CODE
-  FilePath    = &#39;C:\Temp\Test.txt&#39;
-  WaitSeconds = 10
-  PollMS      = 200
-  PrinterName = &#39;Microsoft Print to PDF&#39;
-
-  Ret = vuPrintToExistsEx(FilePath, WaitSeconds, PollMS, PrinterName)
-
-  MESSAGE(&#39;vuPrintToExistsEx returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintToExistsEx&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Use this when you need to confirm that a print job has been queued
-within a specific timeframe.</p>
-<p>The polling mechanism provides more reliable confirmation than
-vuPrintToExists in busy environments.</p>
-<p>Ensure the printer is accessible and properly configured.</p>
+FilePath    = &#39;C:\Temp\Outgoing\Invoice.pdf&#39;
+WaitSeconds = 10
+PollMS      = 200
+PrinterName = &#39;Microsoft Print to PDF&#39;
+Ret = vuPrintToExistsEx(FilePath, WaitSeconds, PollMS, PrinterName)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use this when another process is expected to create the file shortly
+and you need to print to a specific printer.</li>
+<li>If the default printer is acceptable, <code>vuPrintExistsEx</code>
+is the simpler choice.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

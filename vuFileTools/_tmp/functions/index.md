@@ -166,6 +166,8 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuRunDelay](vuRunDelay.md) | Runs the specified file after waiting for a specified delay. |
 | [vuRunEx](vuRunEx.md) | Runs the specified file with optional command-line parameters, working directory, and window display options. |
 | [vuRunExDelay](vuRunExDelay.md) | Runs an external program with optional parameters and working directory after a specified delay. |
+| [vuRunExDelayWait](vuRunExDelayWait.md) | Runs the specified file with optional parameters and working directory after a delay, and can optionally wait for the launched process to complete. |
+| [vuRunExWait](vuRunExWait.md) | Runs the specified file with optional command-line parameters and working directory, and can optionally wait for the launched process to complete. |
 | [vuRunExists](vuRunExists.md) | Attempts to run the specified file if it exists. This is a quick way to launch an application or document only if the file is present. |
 | [vuRunExistsEx](vuRunExistsEx.md) | Attempts to run the specified file if it exists. Optionally waits for the file to appear, polling at the given interval, before running it. |
 | [vuRunOnReboot](vuRunOnReboot.md) | Arms or disarms automatic restart of your application after an abnormal termination or system shutdown. Unlike Startup, this only restarts the program if it was running at the time of the crash or power loss. If the application ends normally, it will not restart on reboot. |

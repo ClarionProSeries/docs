@@ -7,56 +7,58 @@
 vuShellExDelay(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG DelayMS), LONG
 ```
 
-
 ## Description
-Runs an external program using the Windows Shell with optional parameters and working directory, after a specified delay.  
-This is similar to `vuShellEx`, but execution is delayed by the given number of milliseconds.
+Runs an external program using the Windows shell with optional parameters and working directory after a specified delay.
+
+## Related Shell Functions
+
+| Function | Separate File/Params | Working Folder | Delay | Wait | Notes |
+|----------|----------------------|----------------|-------|------|-------|
+| [vuShell](vuShell.md) | No | No | No | No | Simple shell launch that honors Windows file associations. |
+| [vuShellDelay](vuShellDelay.md) | No | No | Yes | No | Shell launch after a startup delay. |
+| [vuShellEx](vuShellEx.md) | Yes | Yes | No | No | Preferred shell launch when you want file and parameters passed separately. |
+| [vuShellExDelay](vuShellExDelay.md) | Yes | Yes | Yes | No | Shell launch with separate parameters plus startup delay. |
 
 ### Parameters
 
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Path to the file or executable to run.                                      |
-| pParams   | CSTRING(260) | Command-line parameters to pass (can be empty).                             |
-| pWork     | CSTRING(260) | Working directory for the process (can be empty to use current directory).  |
-| ShowCmd   | LONG         | Window show mode (see Windows `SW_*` constants, e.g., 1 = normal).          |
-| DelayMS   | LONG         | Delay in milliseconds before running the process.                          |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| pFile | CSTRING(260) | Path to the file or executable to run. |
+| pParams | CSTRING(260) | Optional command-line parameters to pass. |
+| pWork | CSTRING(260) | Working directory for the process. |
+| ShowCmd | LONG | Window show mode (see Windows `SW_*` constants). |
+| DelayMS | LONG | Delay in milliseconds before the launch begins. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
-- Process handle (greater than 0) if the program started successfully.  
-- 0 if the process could not be started.  
-- Negative values may indicate errors such as invalid arguments or access denied.
+A LONG value indicating the result:
+
+- 1 if the file launched successfully
+- 0 if the launch failed
+- Negative values may indicate a Windows shell error
 
 ### Example
 
 ```Clarion
-FilePath    CSTRING(260)
-Params      CSTRING(260)
-WorkFolder  CSTRING(260)
-ShowCmd     LONG
-DelayMS     LONG
-Ret         LONG
+FilePath   CSTRING(260)
+Params     CSTRING(260)
+WorkFolder CSTRING(260)
+ShowCmd    LONG
+DelayMS    LONG
+Ret        LONG
 
-  CODE
-  FilePath   = 'C:\Windows\notepad.exe'
-  Params     = ''
-  WorkFolder = ''
-  ShowCmd    = 1        ! SW_SHOWNORMAL
-  DelayMS    = 2000     ! 2 seconds
+FilePath   = 'C:\Temp\Readme.txt'
+Params     = ''
+WorkFolder = ''
+ShowCmd    = 1
+DelayMS    = 1500
 
-  Ret = vuShellExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
-
-  MESSAGE('vuShellExDelay returned: ' & FORMAT(Ret), 'vuShellExDelay')
-
+Ret = vuShellExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
 ```
-Notes
 
-The Shell execution method allows launching documents with their associated applications (e.g., opening .txt with Notepad).
-
-Use when you need Shell integration (file associations) plus a timed delay before execution.
-
-ShowCmd values follow the Windows API ShowWindow constants (e.g., 0 = hidden, 1 = normal, 3 = maximized).
+### Notes
+- Use this when you need Windows shell file-association behavior plus a startup delay.
+- If you do not need separate parameters or a working folder, `vuShellDelay` is the simpler choice.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

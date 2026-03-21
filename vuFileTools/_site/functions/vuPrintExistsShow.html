@@ -34,9 +34,63 @@ ShowCmd)</h1>
 <pre class="Prototype"><code>vuPrintExistsShow(*CSTRING pFile, LONG ShowCmd), LONG</code></pre>
 <h2 id="description">Description</h2>
 <p>Sends a file to the default printer and displays the print job window
-using the specified ShowCmd setting.<br />
-This allows you to both start printing and control how the print window
-appears.</p>
+using the specified ShowCmd setting.</p>
+<h2 id="related-print-functions">Related Print Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Default Printer</th>
+<th>Named Printer</th>
+<th>Wait/Poll for File</th>
+<th>Show Window</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuPrintExists.html">vuPrintExists</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to the default printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsEx.html">vuPrintExistsEx</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to the default printer.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsShow.html">vuPrintExistsShow</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Prints to the default printer and controls print-window
+display.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExists.html">vuPrintToExists</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to a specified printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to a specified printer.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -50,13 +104,12 @@ appears.</p>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Path to the file to be printed.</td>
+<td>Path to the file to print.</td>
 </tr>
 <tr>
 <td>ShowCmd</td>
 <td>LONG</td>
-<td>Window show mode (see Windows <code>SW_*</code> constants, e.g., 1 =
-normal).</td>
+<td>Window show mode (see Windows <code>SW_*</code> constants).</td>
 </tr>
 </tbody>
 </table>
@@ -64,38 +117,24 @@ normal).</td>
 shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <ul>
-<li>1 if the print job was successfully started.</li>
-<li>0 if the print job failed.</li>
-<li>Negative values may indicate errors such as invalid arguments or
-access denied.</li>
+<li>1 if the print job was successfully started</li>
+<li>0 if the print job failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>FilePath   CSTRING(260)
-ShowCmd    LONG
-Ret        LONG
+<pre class="Clarion"><code>FilePath CSTRING(260)
+ShowCmd  LONG
+Ret      LONG
 
-  CODE
-  FilePath = &#39;C:\Temp\Test.txt&#39;
-  ShowCmd  = 1    ! SW_SHOWNORMAL
-
-  Ret = vuPrintExistsShow(FilePath, ShowCmd)
-
-  MESSAGE(&#39;vuPrintExistsShow returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintExistsShow&#39;)
-</code></pre>
-<p>Notes</p>
-<p>The file must exist and be printable by the default printer.</p>
-<p>ShowCmd controls how the print window is displayed. Common
-values:</p>
-<pre><code>0 = SW_HIDE (hidden)
-
-1 = SW_SHOWNORMAL (normal window)
-
-3 = SW_SHOWMAXIMIZED (maximized)
-
-7 = SW_SHOWMINNOACTIVE (minimized, no activation)</code></pre>
-<p>Use this when you want to visually confirm or interact with the print
-process.</p>
-<p>Chat</p>
+FilePath = &#39;C:\Temp\Test.txt&#39;
+ShowCmd  = 1
+Ret = vuPrintExistsShow(FilePath, ShowCmd)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Uses the default printer.</li>
+<li>Use this when you want print-start behavior plus control over how
+the print window is displayed.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

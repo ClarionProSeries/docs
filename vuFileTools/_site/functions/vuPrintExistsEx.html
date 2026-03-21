@@ -29,13 +29,68 @@
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
-<h1 id="vuprintexistsexpfile-waitseconds-pollms">vuPrintExistsEx(pFile,
-WaitSeconds, PollMS)</h1>
-<pre class="Prototype"><code>vuPrintExistsEx(*CSTRING pFile, LONG WaitSeconds, LONG PollMS), LONG</code></pre>
+<h1 id="vuprintexistsexpfile-waitsec-pollms">vuPrintExistsEx(pFile,
+WaitSec, PollMS)</h1>
+<pre class="Prototype"><code>vuPrintExistsEx(*CSTRING pFile, LONG WaitSec, LONG PollMS), LONG</code></pre>
 <h2 id="description">Description</h2>
 <p>Sends the specified file to the default printer if it exists.
-Optionally waits for the file to appear, polling at the given interval,
-before printing.</p>
+Optionally waits for the file to appear before printing.</p>
+<h2 id="related-print-functions">Related Print Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Default Printer</th>
+<th>Named Printer</th>
+<th>Wait/Poll for File</th>
+<th>Show Window</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuPrintExists.html">vuPrintExists</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to the default printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsEx.html">vuPrintExistsEx</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to the default printer.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsShow.html">vuPrintExistsShow</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Prints to the default printer and controls print-window
+display.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExists.html">vuPrintToExists</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to a specified printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to a specified printer.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -49,49 +104,42 @@ before printing.</p>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Full path to the file to print if it exists.</td>
+<td>Path to the file to print.</td>
 </tr>
 <tr>
-<td>WaitSeconds</td>
+<td>WaitSec</td>
 <td>LONG</td>
 <td>Maximum number of seconds to wait for the file to appear.</td>
 </tr>
 <tr>
 <td>PollMS</td>
 <td>LONG</td>
-<td>Interval, in milliseconds, to poll for the file while waiting.</td>
+<td>Polling interval in milliseconds while waiting.</td>
 </tr>
 </tbody>
 </table>
 <p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
 shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
-<p>A LONG value indicating the result:</p>
 <ul>
-<li>1: File exists (or appeared within the wait period) and was sent to
-the default printer</li>
-<li>0: File does not exist, did not appear within the wait period, or
-could not be printed</li>
-<li>Negative value: Error occurred</li>
+<li>1 if the file appeared and the print request was started
+successfully</li>
+<li>0 if the file never appeared or the print request failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>FilePath    CSTRING(260)
-WaitSeconds LONG
-PollMS      LONG
-Ret         LONG
+<pre class="Clarion"><code>FilePath CSTRING(260)
+Ret      LONG
 
-FilePath    = &#39;C:\Temp\Test.txt&#39;
-WaitSeconds = 10
-PollMS      = 200
-
-Ret = vuPrintExistsEx(FilePath, WaitSeconds, PollMS)
-
-MESSAGE(&#39;vuPrintExistsEx returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintExistsEx Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Uses the systems default printer.</p>
-<p>Useful when a file is being generated asynchronously and will be
-ready to print shortly.</p>
+FilePath = &#39;C:\Temp\Outgoing\Invoice.pdf&#39;
+Ret = vuPrintExistsEx(FilePath, 10, 200)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use this when another process is expected to create the print file
+shortly.</li>
+<li>If you need a specific printer, use <code>vuPrintToExistsEx</code>
+instead.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

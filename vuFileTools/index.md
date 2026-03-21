@@ -2,10 +2,10 @@
 title: "vuFileTools"
 summary: "Version: 5."
 description: "Version: 5.0"
-build: "Build 206"
+build: "Build 207"
 keywords: ["documentation", "vufiletools", "Clarion", "vuFileTools", "version"]
 page_type: "overview"
-last_updated: "2026-03-19"
+last_updated: "2026-03-20"
 ---
 
 [Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
@@ -14,11 +14,10 @@ last_updated: "2026-03-19"
 
 Version: 5.0
 
-Build: 206
 
 Release date: 2025-11-12
 
-Last Updated: 2026-03-19
+Last Updated: 2026-03-20  (Build: 207)
 
 Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 
@@ -26,7 +25,7 @@ Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 
 [Visit the vuFileTools product page](https://www.clarionproseries.com/html/vufiletools.html)
 
-This documentation covers the 212 functions currently available in vuFileTools.
+This documentation covers the 214 functions currently available in vuFileTools.
 
 Use the links below to browse the documentation.
 

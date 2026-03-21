@@ -23,6 +23,19 @@ Runs a program using the Windows Shell with the specified window style and wait 
 
 The `Filename` parameter is passed as a single command line string. This means it can contain the fully qualified path to the program followed by any runtime parameters.
 
+## Related run functions
+
+| Function | Separate File/Params | Working Folder | Delay | Wait | Best Use |
+|----------|----------------------|----------------|-------|------|----------|
+| [vuRun](vuRun.md) | No | No | No | Yes | Simple or legacy command-line launch with optional wait |
+| [vuRunDelay](vuRunDelay.md) | No | No | Yes | No | Simple delayed launch |
+| [vuRunEx](vuRunEx.md) | Yes | Yes | No | No | Preferred modern launch with separate parameters |
+| [vuRunExWait](vuRunExWait.md) | Yes | Yes | No | Yes | Modern launch with separate parameters and wait |
+| [vuRunExDelay](vuRunExDelay.md) | Yes | Yes | Yes | No | Modern delayed launch with separate parameters |
+| [vuRunExDelayWait](vuRunExDelayWait.md) | Yes | Yes | Yes | Yes | Modern delayed launch with separate parameters and wait |
+| [vuRunExists](vuRunExists.md) | No | No | No | No | Open a file or app only if the target already exists |
+| [vuRunExistsEx](vuRunExistsEx.md) | No | No | File wait | No | Wait for a file to appear, then open it |
+
 ## Parameters
 
 | Parameter | Data Type    | Description |
@@ -63,5 +76,7 @@ Filename = '"C:\Program Files\MyApp\MyTool.exe" /x /y'
 
 - `WStyle = 0` requests hidden execution.
 - `Wait = 1` tells `vuRun` to wait for the launched program to finish before returning.
+- `vuRun` works well for simple launches and legacy compatibility.
+- For launches that include separate parameters, a working folder, or more explicit control, see [vuRunEx](vuRunEx.md), [vuRunExWait](vuRunExWait.md), [vuRunExDelay](vuRunExDelay.md), and [vuRunExDelayWait](vuRunExDelayWait.md).
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

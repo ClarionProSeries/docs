@@ -33,9 +33,56 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 pWork, ShowCmd)</h1>
 <pre class="Prototype"><code>vuShellEx(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Launches a file using the Windows shell (e.g., respects file
-associations) with optional parameters, working directory, and window
-display options.</p>
+<p>Launches a file using the Windows shell with optional parameters,
+working directory, and window display options.</p>
+<h2 id="related-shell-functions">Related Shell Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuShell.html">vuShell</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Simple shell launch that honors Windows file associations.</td>
+</tr>
+<tr>
+<td><a href="vuShellDelay.html">vuShellDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Shell launch after a startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuShellEx.html">vuShellEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred shell launch when you want file and parameters passed
+separately.</td>
+</tr>
+<tr>
+<td><a href="vuShellExDelay.html">vuShellExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Shell launch with separate parameters plus startup delay.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -64,8 +111,8 @@ display options.</p>
 <tr>
 <td>ShowCmd</td>
 <td>LONG</td>
-<td>Window display option (see ShowWindow constants, e.g., 1 = Normal
-window).</td>
+<td>Window display option (see ShowWindow constants, for example 1 =
+normal window).</td>
 </tr>
 </tbody>
 </table>
@@ -74,8 +121,9 @@ shown above. The numbers are for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
-<li>1: Launched successfully</li>
-<li>0: Failed to launch</li>
+<li>1 if the file launched successfully</li>
+<li>0 if the launch failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath   CSTRING(260)
@@ -84,20 +132,19 @@ WorkFolder CSTRING(260)
 ShowCmd    LONG
 Ret        LONG
 
-FilePath   = &#39;C:\Windows\notepad.exe&#39;
+FilePath   = &#39;C:\Temp\Readme.txt&#39;
 Params     = &#39;&#39;
 WorkFolder = &#39;&#39;
-ShowCmd    = 1   ! SW_SHOWNORMAL
+ShowCmd    = 1
 
-Ret = vuShellEx(FilePath, Params, WorkFolder, ShowCmd)
-
-MESSAGE(&#39;vuShellEx returned: &#39; &amp; FORMAT(Ret), &#39;vuShellEx Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Uses the Windows shell, so file associations (e.g., .txt with
-Notepad) are honored.</p>
-<p>Typical ShowCmd values: 1 (normal), 3 (maximized), 7 (minimized no
-activate), 4/8 (show without activating).</p>
+Ret = vuShellEx(FilePath, Params, WorkFolder, ShowCmd)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>vuShellEx</code> honors file associations, so documents open
+in their registered Windows applications.</li>
+<li>Use this when you need shell behavior plus explicit parameters or a
+working folder.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

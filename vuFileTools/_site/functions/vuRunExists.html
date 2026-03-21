@@ -32,8 +32,89 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vurunexistspfile">vuRunExists(pFile)</h1>
 <pre class="Prototype"><code>vuRunExists(*CSTRING pFile), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Attempts to run the specified file if it exists. This is a quick way
-to launch an application or document only if the file is present.</p>
+<p>Attempts to run the specified file if it exists.</p>
+<h2 id="related-run-functions">Related Run Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuRun.html">vuRun</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Single command-line string. Good for simple or legacy launches.</td>
+</tr>
+<tr>
+<td><a href="vuRunDelay.html">vuRunDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Single command-line string with a startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunEx.html">vuRunEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred modern launch when you want file and parameters passed
+separately.</td>
+</tr>
+<tr>
+<td><a href="vuRunExWait.html">vuRunExWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Preferred modern launch with separate parameters and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelay.html">vuRunExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Modern launch with separate parameters plus startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Modern launch with separate parameters, startup delay, and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExists.html">vuRunExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Runs only if the target file already exists.</td>
+</tr>
+<tr>
+<td><a href="vuRunExistsEx.html">vuRunExistsEx</a></td>
+<td>No</td>
+<td>No</td>
+<td>Polls for file</td>
+<td>No</td>
+<td>Waits for a file to appear, then runs it.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -47,7 +128,7 @@ to launch an application or document only if the file is present.</p>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Full path to the file to execute if present</td>
+<td>Full path to the file or executable to run.</td>
 </tr>
 </tbody>
 </table>
@@ -56,22 +137,23 @@ shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
-<li>1: File exists and was executed successfully</li>
-<li>0: File does not exist or could not be executed</li>
+<li>1 if the file exists and was launched</li>
+<li>0 if the file does not exist or could not be launched</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath CSTRING(260)
 Ret      LONG
 
-FilePath = &#39;C:\Windows\notepad.exe&#39;
-Ret      = vuRunExists(FilePath)
-
-MESSAGE(&#39;vuRunExists returned: &#39; &amp; FORMAT(Ret), &#39;vuRunExists Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Use when you want to execute a file only if it exists.</p>
-<p>If the file does not exist, no action is taken and the function
-returns 0.</p>
+FilePath = &#39;C:\Temp\MyReport.pdf&#39;
+Ret = vuRunExists(FilePath)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use this when the existence check is part of the launch
+requirement.</li>
+<li>If you need to wait for a file to appear before launching it, use
+<code>vuRunExistsEx</code>.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

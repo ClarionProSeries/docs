@@ -33,6 +33,88 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <pre class="Prototype"><code>vuRunDelay(*CSTRING pFile, LONG DelayMS), LONG</code></pre>
 <h2 id="description">Description</h2>
 <p>Runs the specified file after waiting for a specified delay.</p>
+<h2 id="related-run-functions">Related Run Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuRun.html">vuRun</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Single command-line string. Good for simple or legacy launches.</td>
+</tr>
+<tr>
+<td><a href="vuRunDelay.html">vuRunDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Single command-line string with a startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunEx.html">vuRunEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred modern launch when you want file and parameters passed
+separately.</td>
+</tr>
+<tr>
+<td><a href="vuRunExWait.html">vuRunExWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Preferred modern launch with separate parameters and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelay.html">vuRunExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Modern launch with separate parameters plus startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Modern launch with separate parameters, startup delay, and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExists.html">vuRunExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Runs only if the target file already exists.</td>
+</tr>
+<tr>
+<td><a href="vuRunExistsEx.html">vuRunExistsEx</a></td>
+<td>No</td>
+<td>No</td>
+<td>Polls for file</td>
+<td>No</td>
+<td>Waits for a file to appear, then runs it.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -46,12 +128,12 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Full path to the file to execute.</td>
+<td>Full path to the file or executable to launch.</td>
 </tr>
 <tr>
 <td>DelayMS</td>
 <td>LONG</td>
-<td>Delay before execution, in milliseconds (e.g., 2000 = 2
+<td>Delay before execution, in milliseconds (for example, 2000 = 2
 seconds).</td>
 </tr>
 </tbody>
@@ -61,26 +143,29 @@ shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
-<li>1: File was executed successfully after the delay</li>
-<li>0: File could not be executed or does not exist</li>
+<li>1 if the file was executed successfully after the delay</li>
+<li>0 if the file could not be executed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath CSTRING(260)
 DelayMS  LONG
 Ret      LONG
 
-FilePath = &#39;C:\Windows\notepad.exe&#39;
-DelayMS  = 2000   ! 2 seconds
+FilePath = &#39;C:\Windows\Notepad.exe&#39;
+DelayMS  = 2000
 
 Ret = vuRunDelay(FilePath, DelayMS)
 
-MESSAGE(&#39;vuRunDelay returned: &#39; &amp; FORMAT(Ret), &#39;vuRunDelay Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Useful for delaying startup of another process to allow system
-resources or dependencies to initialize.</p>
-<p>If the file does not exist, the function returns 0 and does not
-attempt to run.</p>
+MESSAGE(&#39;vuRunDelay returned: &#39; &amp; FORMAT(Ret), &#39;vuRunDelay Test&#39;)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>vuRunDelay</code> is useful when you need a simple delayed
+launch and do not need separate parameters or a working folder.</li>
+<li>Use <code>vuRunExDelay</code> or <code>vuRunExDelayWait</code> when
+you need the same behavior with explicit file and parameter
+handling.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

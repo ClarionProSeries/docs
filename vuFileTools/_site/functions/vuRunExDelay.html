@@ -35,9 +35,89 @@ pParams, pWork, ShowCmd, DelayMS)</h1>
 <pre class="Prototype"><code>vuRunExDelay(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG DelayMS), LONG</code></pre>
 <h2 id="description">Description</h2>
 <p>Runs an external program with optional parameters and working
-directory after a specified delay.<br />
-This is similar to <code>vuRunEx</code>, but it allows you to delay
-execution for a defined number of milliseconds.</p>
+directory after a specified delay.</p>
+<h2 id="related-run-functions">Related Run Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuRun.html">vuRun</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Single command-line string. Good for simple or legacy launches.</td>
+</tr>
+<tr>
+<td><a href="vuRunDelay.html">vuRunDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Single command-line string with a startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunEx.html">vuRunEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred modern launch when you want file and parameters passed
+separately.</td>
+</tr>
+<tr>
+<td><a href="vuRunExWait.html">vuRunExWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Preferred modern launch with separate parameters and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelay.html">vuRunExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Modern launch with separate parameters plus startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Modern launch with separate parameters, startup delay, and optional
+wait.</td>
+</tr>
+<tr>
+<td><a href="vuRunExists.html">vuRunExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Runs only if the target file already exists.</td>
+</tr>
+<tr>
+<td><a href="vuRunExistsEx.html">vuRunExistsEx</a></td>
+<td>No</td>
+<td>No</td>
+<td>Polls for file</td>
+<td>No</td>
+<td>Waits for a file to appear, then runs it.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -56,37 +136,33 @@ execution for a defined number of milliseconds.</p>
 <tr>
 <td>pParams</td>
 <td>CSTRING(260)</td>
-<td>Command-line parameters to pass to the executable (can be
-empty).</td>
+<td>Optional command-line parameters to pass to the executable.</td>
 </tr>
 <tr>
 <td>pWork</td>
 <td>CSTRING(260)</td>
-<td>Working directory for the process (can be empty to use current
-directory).</td>
+<td>Optional working directory for the process.</td>
 </tr>
 <tr>
 <td>ShowCmd</td>
 <td>LONG</td>
-<td>Window show mode (see Windows <code>SW_*</code> constants, e.g., 1 =
-normal).</td>
+<td>Window show mode (see Windows <code>SW_*</code> constants).</td>
 </tr>
 <tr>
 <td>DelayMS</td>
 <td>LONG</td>
-<td>Delay in milliseconds before running the process.</td>
+<td>Delay in milliseconds before the program is launched.</td>
 </tr>
 </tbody>
 </table>
 <p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
 shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result:</p>
 <ul>
-<li>Process handle (greater than 0) if the program started
-successfully.</li>
-<li>0 if the process could not be started.</li>
-<li>Negative values may indicate errors such as invalid arguments or
-access denied.</li>
+<li>1 if the program launched successfully</li>
+<li>0 if the launch failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath    CSTRING(260)
@@ -96,23 +172,23 @@ ShowCmd     LONG
 DelayMS     LONG
 Ret         LONG
 
-  CODE
-  FilePath   = &#39;C:\Windows\notepad.exe&#39;
-  Params     = &#39;&#39;
-  WorkFolder = &#39;&#39;
-  ShowCmd    = 1        ! SW_SHOWNORMAL
-  DelayMS    = 2000     ! 2 seconds
+FilePath   = &#39;C:\Windows\Notepad.exe&#39;
+Params     = &#39;MyDoc.txt&#39;
+WorkFolder = &#39;&#39;
+ShowCmd    = 1
+DelayMS    = 2000
 
-  Ret = vuRunExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
+Ret = vuRunExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
 
-  MESSAGE(&#39;vuRunExDelay returned: &#39; &amp; FORMAT(Ret), &#39;vuRunExDelay&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Use this when you need to stagger execution, such as waiting for a
-file to become available.</p>
-<p>The delay is applied once before the program is launched.</p>
-<p>ShowCmd values follow the Windows API ShowWindow constants (e.g., 0 =
-hidden, 1 = normal, 3 = maximized).</p>
+MESSAGE(&#39;vuRunExDelay returned: &#39; &amp; FORMAT(Ret), &#39;vuRunExDelay&#39;)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use this when you need to delay a launch but still want file,
+parameters, and working folder passed separately.</li>
+<li>The delay is applied once before the launch begins.</li>
+<li>Use <code>vuRunExDelayWait</code> when you also need to wait for the
+launched process to complete.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

@@ -32,8 +32,56 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vushelldelaypfile-delayms">vuShellDelay(pFile, DelayMS)</h1>
 <pre class="Prototype"><code>vuShellDelay(*CSTRING pFile, LONG DelayMS), LONG</code></pre>
 <h2 id="description">Description</h2>
-<p>Launches a file using the Windows shell (honors file associations)
-after waiting for a specified delay.</p>
+<p>Launches a file using the Windows shell after waiting for a specified
+delay.</p>
+<h2 id="related-shell-functions">Related Shell Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuShell.html">vuShell</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Simple shell launch that honors Windows file associations.</td>
+</tr>
+<tr>
+<td><a href="vuShellDelay.html">vuShellDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Shell launch after a startup delay.</td>
+</tr>
+<tr>
+<td><a href="vuShellEx.html">vuShellEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred shell launch when you want file and parameters passed
+separately.</td>
+</tr>
+<tr>
+<td><a href="vuShellExDelay.html">vuShellExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Shell launch with separate parameters plus startup delay.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -52,8 +100,7 @@ after waiting for a specified delay.</p>
 <tr>
 <td>DelayMS</td>
 <td>LONG</td>
-<td>Delay before launching, in milliseconds (e.g., 2000 = 2
-seconds).</td>
+<td>Delay before launching, in milliseconds.</td>
 </tr>
 </tbody>
 </table>
@@ -62,26 +109,25 @@ shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
-<li>1: Launched successfully after the delay</li>
-<li>0: Failed to launch</li>
+<li>1 if the file launched successfully after the delay</li>
+<li>0 if the launch failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath CSTRING(260)
 DelayMS  LONG
 Ret      LONG
 
-FilePath = &#39;C:\Windows\notepad.exe&#39;
+FilePath = &#39;C:\Temp\Readme.txt&#39;
 DelayMS  = 2000
-
-Ret = vuShellDelay(FilePath, DelayMS)
-
-MESSAGE(&#39;vuShellDelay returned: &#39; &amp; FORMAT(Ret), &#39;vuShellDelay Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Uses the Windows shell, so file associations (e.g., .txt with
-Notepad) are honored.</p>
-<p>Useful when you need to defer launching to let dependencies
-initialize.</p>
+Ret = vuShellDelay(FilePath, DelayMS)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Use this when you need shell association behavior but want to defer
+the launch briefly.</li>
+<li>Use <code>vuShellExDelay</code> when you also need separate
+parameters or a working folder.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>

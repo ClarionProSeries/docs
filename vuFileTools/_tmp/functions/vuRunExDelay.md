@@ -7,27 +7,40 @@
 vuRunExDelay(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG DelayMS), LONG
 ```
 
-
 ## Description
-Runs an external program with optional parameters and working directory after a specified delay.  
-This is similar to `vuRunEx`, but it allows you to delay execution for a defined number of milliseconds.
+Runs an external program with optional parameters and working directory after a specified delay.
+
+## Related Run Functions
+
+| Function | Separate File/Params | Working Folder | Delay | Wait | Notes |
+|----------|----------------------|----------------|-------|------|-------|
+| [vuRun](vuRun.md) | No | No | No | Yes | Single command-line string. Good for simple or legacy launches. |
+| [vuRunDelay](vuRunDelay.md) | No | No | Yes | No | Single command-line string with a startup delay. |
+| [vuRunEx](vuRunEx.md) | Yes | Yes | No | No | Preferred modern launch when you want file and parameters passed separately. |
+| [vuRunExWait](vuRunExWait.md) | Yes | Yes | No | Yes | Preferred modern launch with separate parameters and optional wait. |
+| [vuRunExDelay](vuRunExDelay.md) | Yes | Yes | Yes | No | Modern launch with separate parameters plus startup delay. |
+| [vuRunExDelayWait](vuRunExDelayWait.md) | Yes | Yes | Yes | Yes | Modern launch with separate parameters, startup delay, and optional wait. |
+| [vuRunExists](vuRunExists.md) | No | No | No | No | Runs only if the target file already exists. |
+| [vuRunExistsEx](vuRunExistsEx.md) | No | No | Polls for file | No | Waits for a file to appear, then runs it. |
 
 ### Parameters
 
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Path to the executable file to run.                                         |
-| pParams   | CSTRING(260) | Command-line parameters to pass to the executable (can be empty).           |
-| pWork     | CSTRING(260) | Working directory for the process (can be empty to use current directory).  |
-| ShowCmd   | LONG         | Window show mode (see Windows `SW_*` constants, e.g., 1 = normal).          |
-| DelayMS   | LONG         | Delay in milliseconds before running the process.                          |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| pFile | CSTRING(260) | Path to the executable file to run. |
+| pParams | CSTRING(260) | Optional command-line parameters to pass to the executable. |
+| pWork | CSTRING(260) | Optional working directory for the process. |
+| ShowCmd | LONG | Window show mode (see Windows `SW_*` constants). |
+| DelayMS | LONG | Delay in milliseconds before the program is launched. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
-- Process handle (greater than 0) if the program started successfully.  
-- 0 if the process could not be started.  
-- Negative values may indicate errors such as invalid arguments or access denied.
+A LONG value indicating the result:
+
+- 1 if the program launched successfully
+- 0 if the launch failed
+- Negative values may indicate a Windows shell error
 
 ### Example
 
@@ -39,24 +52,20 @@ ShowCmd     LONG
 DelayMS     LONG
 Ret         LONG
 
-  CODE
-  FilePath   = 'C:\Windows\notepad.exe'
-  Params     = ''
-  WorkFolder = ''
-  ShowCmd    = 1        ! SW_SHOWNORMAL
-  DelayMS    = 2000     ! 2 seconds
+FilePath   = 'C:\Windows\Notepad.exe'
+Params     = 'MyDoc.txt'
+WorkFolder = ''
+ShowCmd    = 1
+DelayMS    = 2000
 
-  Ret = vuRunExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
+Ret = vuRunExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
 
-  MESSAGE('vuRunExDelay returned: ' & FORMAT(Ret), 'vuRunExDelay')
-
+MESSAGE('vuRunExDelay returned: ' & FORMAT(Ret), 'vuRunExDelay')
 ```
-Notes
 
-Use this when you need to stagger execution, such as waiting for a file to become available.
-
-The delay is applied once before the program is launched.
-
-ShowCmd values follow the Windows API ShowWindow constants (e.g., 0 = hidden, 1 = normal, 3 = maximized).
+### Notes
+- Use this when you need to delay a launch but still want file, parameters, and working folder passed separately.
+- The delay is applied once before the launch begins.
+- Use `vuRunExDelayWait` when you also need to wait for the launched process to complete.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,24 +1,14 @@
----
-title: "vuRunEx"
-summary: "Runs the specified file with optional command-line parameters, working directory, and window display options."
-description: "Runs the specified file with optional command-line parameters, working directory, and window display options."
-keywords: ["command", "optional", "vuFileTools", "vurunex", "specified", "parameters", "directory", "options", "display", "working", "general", "with"]
-function_name: "vuRunEx"
-category: "General"
-version_added: "5.0"
-last_updated: "2026-03-20"
----
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
-# vuRunEx(pFile, pParams, pWork, ShowCmd)
+# vuRunExWait(pFile, pParams, pWork, ShowCmd, Wait)
 
 ```Prototype
-vuRunEx(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd), LONG
+vuRunExWait(*CSTRING pFile, *CSTRING pParams, *CSTRING pWork, LONG ShowCmd, LONG Wait), LONG
 ```
 
 ## Description
-Runs the specified file with optional command-line parameters, working directory, and window display options.
+Runs the specified file with optional command-line parameters and working directory, and can optionally wait for the launched process to complete.
 
 ## Related Run Functions
 
@@ -40,16 +30,17 @@ Runs the specified file with optional command-line parameters, working directory
 | pFile | CSTRING(260) | Full path to the executable file to run. |
 | pParams | CSTRING(260) | Optional command-line parameters to pass to the executable. |
 | pWork | CSTRING(260) | Optional working directory for the executable. |
-| ShowCmd | LONG | Window display option (see ShowWindow constants, for example 1 = normal window). |
+| ShowCmd | LONG | Window display option (see ShowWindow constants). |
+| Wait | LONG | 0 = return immediately, 1 = wait until the launched process completes. |
 
-_Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._
+_Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
 A LONG value indicating the result:
 
 - 1 if the file launched successfully
-- 0 if the launch failed
-- Negative values may indicate a Windows shell error
+- 0 if the input was invalid
+- Negative values may indicate a Windows launch error
 
 ### Example
 
@@ -58,22 +49,23 @@ FilePath   CSTRING(260)
 Params     CSTRING(260)
 WorkFolder CSTRING(260)
 ShowCmd    LONG
+WaitFlag   LONG
 Ret        LONG
 
 FilePath   = 'C:\Windows\Notepad.exe'
 Params     = 'MyDoc.txt'
 WorkFolder = ''
-ShowCmd    = 1   ! SW_SHOWNORMAL
+ShowCmd    = 1
+WaitFlag   = 1
 
-Ret = vuRunEx(FilePath, Params, WorkFolder, ShowCmd)
+Ret = vuRunExWait(FilePath, Params, WorkFolder, ShowCmd, WaitFlag)
 
-MESSAGE('vuRunEx returned: ' & FORMAT(Ret), 'vuRunEx Test')
+MESSAGE('vuRunExWait returned: ' & FORMAT(Ret), 'vuRunExWait Test')
 ```
 
 ### Notes
-- `vuRunEx` is generally the preferred choice when you need to launch an executable with parameters.
-- `pFile` and `pParams` are passed separately, which avoids command-line formatting mistakes common with single-string launch functions.
-- If `pWork` is blank, the system default working folder is used.
-- Use `vuRunExWait` when you need the same explicit parameter handling plus optional wait behavior.
+- `vuRunExWait` is the modern counterpart to `vuRun` when you want separate file and parameter values plus optional wait behavior.
+- Use `Wait = 1` when your program must not continue until the launched process finishes.
+- Use `vuRunExDelayWait` when you also need a startup delay before the launch begins.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

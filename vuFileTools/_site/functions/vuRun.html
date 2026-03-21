@@ -37,6 +37,85 @@ style and wait behavior.</p>
 <p>The <code>Filename</code> parameter is passed as a single command
 line string. This means it can contain the fully qualified path to the
 program followed by any runtime parameters.</p>
+<h2 id="related-run-functions">Related run functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Separate File/Params</th>
+<th>Working Folder</th>
+<th>Delay</th>
+<th>Wait</th>
+<th>Best Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuRun.html">vuRun</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Simple or legacy command-line launch with optional wait</td>
+</tr>
+<tr>
+<td><a href="vuRunDelay.html">vuRunDelay</a></td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Simple delayed launch</td>
+</tr>
+<tr>
+<td><a href="vuRunEx.html">vuRunEx</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Preferred modern launch with separate parameters</td>
+</tr>
+<tr>
+<td><a href="vuRunExWait.html">vuRunExWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Modern launch with separate parameters and wait</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelay.html">vuRunExDelay</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Modern delayed launch with separate parameters</td>
+</tr>
+<tr>
+<td><a href="vuRunExDelayWait.html">vuRunExDelayWait</a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Modern delayed launch with separate parameters and wait</td>
+</tr>
+<tr>
+<td><a href="vuRunExists.html">vuRunExists</a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Open a file or app only if the target already exists</td>
+</tr>
+<tr>
+<td><a href="vuRunExistsEx.html">vuRunExistsEx</a></td>
+<td>No</td>
+<td>No</td>
+<td>File wait</td>
+<td>No</td>
+<td>Wait for a file to appear, then open it</td>
+</tr>
+</tbody>
+</table>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -96,6 +175,13 @@ inside the command line string.</li>
 <li><code>WStyle = 0</code> requests hidden execution.</li>
 <li><code>Wait = 1</code> tells <code>vuRun</code> to wait for the
 launched program to finish before returning.</li>
+<li><code>vuRun</code> works well for simple launches and legacy
+compatibility.</li>
+<li>For launches that include separate parameters, a working folder, or
+more explicit control, see <a href="vuRunEx.html">vuRunEx</a>, <a
+href="vuRunExWait.html">vuRunExWait</a>, <a
+href="vuRunExDelay.html">vuRunExDelay</a>, and <a
+href="vuRunExDelayWait.html">vuRunExDelayWait</a>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

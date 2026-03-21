@@ -34,6 +34,62 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h2 id="description">Description</h2>
 <p>Sends the specified file to the default printer if the file
 exists.</p>
+<h2 id="related-print-functions">Related Print Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Default Printer</th>
+<th>Named Printer</th>
+<th>Wait/Poll for File</th>
+<th>Show Window</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuPrintExists.html">vuPrintExists</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to the default printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsEx.html">vuPrintExistsEx</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to the default printer.</td>
+</tr>
+<tr>
+<td><a href="vuPrintExistsShow.html">vuPrintExistsShow</a></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Prints to the default printer and controls print-window
+display.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExists.html">vuPrintToExists</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Prints to a specified printer if the file exists.</td>
+</tr>
+<tr>
+<td><a href="vuPrintToExistsEx.html">vuPrintToExistsEx</a></td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Waits for a file to appear, then prints to a specified printer.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -47,31 +103,33 @@ exists.</p>
 <tr>
 <td>pFile</td>
 <td>CSTRING(260)</td>
-<td>Full path to the file to print if it exists and is valid</td>
+<td>Path to the file to print.</td>
 </tr>
 </tbody>
 </table>
 <p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
 shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
-<p>A LONG value indicating the result:</p>
 <ul>
-<li>1: File exists and was sent to the default printer</li>
-<li>0: File does not exist or could not be printed</li>
+<li>1 if the file exists and the print request was started
+successfully</li>
+<li>0 if the file does not exist or the print request failed</li>
+<li>Negative values may indicate a Windows shell error</li>
 </ul>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>FilePath CSTRING(260)
 Ret      LONG
 
 FilePath = &#39;C:\Temp\Test.txt&#39;
-Ret      = vuPrintExists(FilePath)
-
-MESSAGE(&#39;vuPrintExists returned: &#39; &amp; FORMAT(Ret), &#39;vuPrintExists Test&#39;)
-</code></pre>
-<p>Notes</p>
-<p>Uses the systems default printer.</p>
-<p>If the file does not exist, the function returns 0 and no action is
-taken.</p>
+Ret = vuPrintExists(FilePath)</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Uses the default Windows printer.</li>
+<li>If you need to print to a specific printer, use
+<code>vuPrintToExists</code>.</li>
+<li>If you need to wait for the file to appear first, use
+<code>vuPrintExistsEx</code>.</li>
+</ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>
 </body>
