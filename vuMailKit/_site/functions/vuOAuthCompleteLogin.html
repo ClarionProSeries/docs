@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuOAuthCompleteLogin</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vuoauthcompletelogin">vuOAuthCompleteLogin()</h1>
+<pre class="Prototype"><code>vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthCompleteLogin&#39;)</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Finalizes OAuth sign-in using callback data or verification result
+text and stores token state for later SMTP/POP3 use.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provider</td>
+<td>*CSTRING</td>
+<td>Provider identifier used in BeginLogin.</td>
+</tr>
+<tr>
+<td>AccountKey</td>
+<td>*CSTRING</td>
+<td>Account key used in BeginLogin.</td>
+</tr>
+<tr>
+<td>CallbackText</td>
+<td>*CSTRING</td>
+<td>Callback payload or verification completion text.</td>
+</tr>
+<tr>
+<td>OutText</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving completion status text.</td>
+</tr>
+<tr>
+<td>OutTextLen</td>
+<td>LONG</td>
+<td>Size of <code>OutText</code> buffer in bytes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>&gt;= 0</code>: Result code from the OAuth core Complete
+operation.</li>
+<li><code>-9</code>: Core unavailable or exception.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthCompleteLogin&#39;)
+  END
+END
+
+rc           LONG
+provider     CSTRING(64)
+accountKey   CSTRING(128)
+callbackData CSTRING(2048)
+outText      CSTRING(2048)
+outLen       LONG
+
+provider     = &#39;Microsoft&#39;
+accountKey   = &#39;user@example.com&#39;
+callbackData = &#39;code=...&amp;state=...&#39;
+outText      = &#39;&#39;
+outLen       = SIZE(outText)
+
+rc = vuOAuthCompleteLogin(provider, accountKey, callbackData, outText, outLen)
+IF rc &lt; 0
+  MESSAGE(&#39;CompleteLogin failed: &#39; &amp; rc &amp; &#39;| &#39; &amp; outText)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>Provider</code> and <code>AccountKey</code> must match the
+values used for BeginLogin state.</li>
+<li>This function returns detailed diagnostic text through
+<code>OutText</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

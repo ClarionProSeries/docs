@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AboutFunctionNames</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="about-function-names">About function names</h1>
+<p>vuMailKit supports two naming styles:</p>
+<ul>
+<li><strong>Legacy names</strong>: the original vuMail exported function
+names, kept for backwards compatibility.</li>
+<li><strong>Preferred names</strong>: new names that are exported as
+aliases and behave identically to the legacy function they map to.</li>
+</ul>
+<p>Preferred names exist so new development can use a cleaner, grouped
+naming pattern that is easier to scan and search.</p>
+<h2 id="preferred-naming-format">Preferred naming format</h2>
+<p>All preferred names follow this format:</p>
+<ul>
+<li><code>vu</code> + <code>Subsystem</code> + <code>Verb</code> +
+<code>Thing</code></li>
+</ul>
+<p>Rules:</p>
+<ul>
+<li>Preferred names start with the lowercase prefix
+<code>vu</code>.</li>
+<li>Immediately after <code>vu</code> is a subsystem marker that groups
+related functions together.</li>
+<li>Within a subsystem, function names use consistent verb and noun
+ordering.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>vuSmtpSetServer</code></li>
+<li><code>vuSmtpGetServer</code></li>
+<li><code>vuLogSetFile</code></li>
+<li><code>vuLogGetFile</code></li>
+<li><code>vuGlobalsSave</code></li>
+<li><code>vuGlobalsLoad</code></li>
+<li><code>vuPop3Connect</code></li>
+<li><code>vuPop3LoadEmail</code></li>
+</ul>
+<h2 id="subsystem-markers">Subsystem markers</h2>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vuSmtp</code></td>
+<td>SMTP send and SMTP settings</td>
+</tr>
+<tr>
+<td><code>vuPop3</code></td>
+<td>POP3 receive and POP3 settings</td>
+</tr>
+<tr>
+<td><code>vuImap</code></td>
+<td>IMAP receive and IMAP settings</td>
+</tr>
+<tr>
+<td><code>vuOAuth</code></td>
+<td>OAuth login and token workflows</td>
+</tr>
+<tr>
+<td><code>vuGlobals</code></td>
+<td>Registry persistence and runtime globals/session</td>
+</tr>
+<tr>
+<td><code>vuLog</code></td>
+<td>Log file path and logging options</td>
+</tr>
+<tr>
+<td><code>vuNet</code></td>
+<td>Proxy, transport, and network related settings</td>
+</tr>
+</tbody>
+</table>
+<p>Additional subsystem markers may be added as needed, but the rule
+remains: the subsystem marker comes immediately after
+<code>vu</code>.</p>
+<h2 id="how-to-read-the-names">How to read the names</h2>
+<p>The subsystem tells you where to look, and the verb tells you what
+the function does.</p>
+<p>Examples:</p>
+<ul>
+<li><code>vuSmtpSetServer</code> means "SMTP subsystem, set the server
+value".</li>
+<li><code>vuLogGetFile</code> means "Log subsystem, get the configured
+file path".</li>
+<li><code>vuGlobalsLoad</code> means "Globals subsystem, load values
+into memory for this run".</li>
+</ul>
+<h2 id="how-this-relates-to-legacy-names">How this relates to legacy
+names</h2>
+<p>When a preferred name exists, it is the recommended API for new
+development. The legacy name is still exported so older code keeps
+working.</p>
+<p>Documentation is maintained once per behavior:</p>
+<ul>
+<li>The preferred function page contains the full documentation.</li>
+<li>The legacy function page is a short forwarder page that points to
+the preferred page.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

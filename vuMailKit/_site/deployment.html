@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>deployment</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="vumailkit---deployment-and-usage">vuMailKit - Deployment and
+Usage</h1>
+<p>vuMailKit deploys as a single runtime DLL for the Basic edition.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Deploy <strong>vuMailKit.dll</strong> with your application.</p>
+<p>The Basic edition now uses a single-DLL deployment model. This DLL
+should reside in the same folder as your application EXE file.</p>
+<p>If your application was built with the Clarion template, also make
+sure the matching import library and template files were installed at
+development time:</p>
+<ul>
+<li><code>vuMailKit.lib</code> for linking</li>
+<li><code>vuMailKit.tpl</code> for the template integration</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Most vuMailKit functions require parameters. Create and use the
+proper Clarion data elements for each function. Numeric values can often
+be passed directly where appropriate, but string values should be placed
+into <code>CSTRING</code> variables before the function call.</p>
+<p>The function pages in this documentation show:</p>
+<ul>
+<li>the calling prototype</li>
+<li>the expected parameter types</li>
+<li>the return value type</li>
+<li>Clarion-oriented usage notes</li>
+</ul>
+<p>The example applications and samples in the docs are also useful
+because they show real working flows such as:</p>
+<ul>
+<li>manual account setup</li>
+<li>autodetect and deep scan</li>
+<li>OAuth login for supported providers</li>
+<li>saving and reusing managed profiles</li>
+<li>sending test and production email</li>
+</ul>
+<p>The Demo app and Email Client Wizard are good examples of using the
+code.</p>
+<h2 id="licensing-startup-call">Licensing startup call</h2>
+<p>vuMailKit uses a startup initialization call for licensed use. In a
+normal Clarion application, call <code>vuMailKitInitialize()</code> once
+during EXE startup before you invoke the wizard, autodetect, or send
+functions.</p>
+<p>The template-generated startup code is the normal way to handle
+this.</p>
+<h2 id="profile-storage">Profile storage</h2>
+<p>Once a managed profile has been created, vuMailKit normally uses the
+managed profile store under Local AppData rather than the old legacy
+<code>vuMail</code> registry model.</p>
+<h2 id="typical-deployment-checklist">Typical deployment checklist</h2>
+<ul>
+<li>Install the template into Clarion.</li>
+<li>Be sure to enter your license information in the global
+template.</li>
+<li>Build your application with the <code>vuMailKit.lib</code> import
+library.</li>
+<li>Deploy <code>vuMailKit.dll</code> with the EXE.</li>
+<li>Make sure your startup path calls
+<code>vuMailKitInitialize()</code>.</li>
+<li>If you use OAuth, configure the provider credentials in the template
+or application settings.</li>
+</ul>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSendMailFromFile</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vusendmailfromfile">vuSendMailFromFile()</h1>
+<pre class="Prototype"><code>vuSendMailFromFile(*CSTRING,*CSTRING), LONG</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Reads a CSV file of messages, validates rows, and queues valid rows
+for SMTP delivery.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xFileName</td>
+<td>*CSTRING</td>
+<td>CSV file path to read.</td>
+</tr>
+<tr>
+<td>zAttachment</td>
+<td>*CSTRING</td>
+<td>Default attachment path applied when a row has an empty attachment
+field.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>1</code>: At least one valid row was queued.</li>
+<li><code>0</code>: File missing/invalid, no valid rows, or processing
+failure.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuSendMailFromFile(*CSTRING,*CSTRING),LONG,PASCAL,RAW,NAME(&#39;vuSendMailFromFile&#39;)
+  END
+END
+
+rc          LONG
+csvFile     CSTRING(260)
+defaultAtt  CSTRING(260)
+
+csvFile = &#39;C:\Mail\outbox.csv&#39;
+defaultAtt = &#39;&#39;
+
+rc = vuSendMailFromFile(csvFile, defaultAtt)
+MESSAGE(&#39;vuSendMailFromFile rc=&#39; &amp; rc)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Blank lines and invalid rows are skipped.</li>
+<li>If no valid rows remain after parsing, the function returns
+<code>0</code>.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h2 id="from-column-behavior">From column behavior</h2>
+<p>The CSV From column follows the same sender-selection rules as
+<code>vuSendMail()</code> and <code>vuSendMailWait()</code>:</p>
+<ul>
+<li>Blank From column uses the saved/default profile sender.</li>
+<li>Full mailbox like <code>Support &lt;support@example.com&gt;</code>
+is used as supplied for that row.</li>
+<li>Plain email address uses that address with no display name
+override.</li>
+<li>Plain display name only, such as <code>Technical Support</code>,
+combines that name with the saved/default profile sender address.</li>
+</ul>
+<p>If a row supplies a display name only and there is no saved/default
+profile sender address available, that row is treated as invalid and is
+skipped.</p>
+</body>
+</html>

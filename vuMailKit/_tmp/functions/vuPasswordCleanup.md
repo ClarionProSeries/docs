@@ -1,0 +1,52 @@
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
+
+# vuPasswordCleanup(ControlHandle)
+
+```Prototype
+vuPasswordCleanup(LONG InHwnd),SIGNED,PROC,PASCAL,RAW,NAME('vuPasswordCleanup')
+```
+
+## Description
+
+Manually detaches the managed password helper from a Clarion entry control.
+
+This function performs deterministic cleanup for one control by:
+
+- removing the generated eye button
+- restoring the original subclass chain for that control when appropriate
+- releasing the helper state associated with that control
+
+While Windows often tears this down automatically when a window closes, this function gives the developer a predictable cleanup option during normal window shutdown.
+
+## Parameters
+
+| Parameter | Data Type | Description |
+|---|---|---|
+| InHwnd | LONG | Handle of the target control previously initialized with `vuPasswordInit()`. |
+
+## Returns
+
+- `1` = Cleanup successful
+- `-5` = Control was not initialized
+
+## Example
+
+```Clarion
+RC LONG
+
+RC = vuPasswordCleanup(?MyPassword{PROP:Handle})
+```
+
+## Notes
+
+- This function is optional, but recommended when you want deterministic cleanup during window teardown.
+- A good place to call it is during your window shutdown logic.
+- After cleanup, the control is no longer managed by the password helper until `vuPasswordInit()` is called again.
+
+## Related functions
+
+- [vuPasswordInit](vuPasswordInit.md)
+- [vuPasswordToggle](vuPasswordToggle.md)
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuLoadProfile</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuloadprofile">vuLoadProfile</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Load the managed profile named <code>default</code> into active
+runtime memory.</p>
+<p>This is the normal Basic-safe profile load function when you want to
+explicitly replace the current runtime settings with the saved default
+managed profile.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuLoadProfile</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuLoadProfile(),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfile')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>None.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = success</li>
+<li><code>0</code> = load failed</li>
+</ul>
+<h2 id="what-it-does">What it does</h2>
+<p><code>vuLoadProfile()</code> performs an explicit managed-profile
+load of <code>default</code>.</p>
+<p>After a successful load:</p>
+<ul>
+<li>the current live runtime values are replaced by the saved values
+from <code>default</code></li>
+<li><code>default</code> becomes the active managed profile</li>
+<li>unsaved runtime changes from the current session are discarded</li>
+</ul>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>Result                   LONG
+
+Result = vuLoadProfile()</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This is an explicit replace operation.</li>
+<li>In the normal Basic wizard flow, developers often do not need to
+call this manually because the saved active profile is applied
+automatically after profile save and on later application startup.</li>
+<li>Use <code>vuLoadProfileEx(ProfileName)</code> when you need to load
+a named profile in a licensed Pro or Back Office workflow.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

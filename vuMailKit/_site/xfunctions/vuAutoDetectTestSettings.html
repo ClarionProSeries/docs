@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAutoDetectTestSettings</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuautodetecttestsettings">vuAutoDetectTestSettings</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Probe supplied SMTP, POP, and IMAP settings and write test-result
+text into the output buffers.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuAutoDetectTestSettings</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuAutoDetectTestSettings(LONG InOutBufLen,*CString InSmtpHost,LONG InSmtpPort,LONG InSmtpSecurityMode,*CString InPopHost,LONG InPopPort,LONG InPopSecurityMode,*CString InImapHost,LONG InImapPort,LONG InImapSecurityMode,*CString OutSmtpTestResult,*CString OutPopTestResult,*CString OutImapTestResult),Signed,PROC,Pascal,Raw,Name('vuAutoDetectTestSettings')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Expected values / range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InOutBufLen</td>
+<td>LONG</td>
+<td>Shared length for the writable text result buffers.</td>
+<td>Pass the size of the result buffers.</td>
+</tr>
+<tr>
+<td>InSmtpHost</td>
+<td>*CSTRING</td>
+<td>SMTP host to test.</td>
+<td>May be blank if SMTP is not being tested.</td>
+</tr>
+<tr>
+<td>InSmtpPort</td>
+<td>LONG</td>
+<td>SMTP port to test.</td>
+<td>Common values: <code>25</code>, <code>465</code>,
+<code>587</code>.</td>
+</tr>
+<tr>
+<td>InSmtpSecurityMode</td>
+<td>LONG</td>
+<td>SMTP security mode to test.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>InPopHost</td>
+<td>*CSTRING</td>
+<td>POP host to test.</td>
+<td>May be blank if POP is not being tested.</td>
+</tr>
+<tr>
+<td>InPopPort</td>
+<td>LONG</td>
+<td>POP port to test.</td>
+<td>Common values: <code>110</code>, <code>995</code>.</td>
+</tr>
+<tr>
+<td>InPopSecurityMode</td>
+<td>LONG</td>
+<td>POP security mode to test.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>InImapHost</td>
+<td>*CSTRING</td>
+<td>IMAP host to test.</td>
+<td>May be blank if IMAP is not being tested.</td>
+</tr>
+<tr>
+<td>InImapPort</td>
+<td>LONG</td>
+<td>IMAP port to test.</td>
+<td>Common values: <code>143</code>, <code>993</code>.</td>
+</tr>
+<tr>
+<td>InImapSecurityMode</td>
+<td>LONG</td>
+<td>IMAP security mode to test.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>OutSmtpTestResult</td>
+<td>*CSTRING</td>
+<td>Receives the SMTP probe result text.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutPopTestResult</td>
+<td>*CSTRING</td>
+<td>Receives the POP probe result text.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutImapTestResult</td>
+<td>*CSTRING</td>
+<td>Receives the IMAP probe result text.</td>
+<td>Writable text buffer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-values-and-ranges">Expected values and ranges</h2>
+<ul>
+<li>Port values are the literal port numbers to test.</li>
+<li>Security mode values: <code>0 = None</code>,
+<code>1 = StartTls</code>, <code>2 = ImplicitTls</code>.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = at least one test completed successfully enough to
+return useful results.</li>
+<li><code>0</code> = the requested tests failed.</li>
+</ul>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>BufLen                  LONG
+SmtpHost                CSTRING(254)
+SmtpPort                LONG
+SmtpSecurityMode        LONG
+PopHost                 CSTRING(254)
+PopPort                 LONG
+PopSecurityMode         LONG
+ImapHost                CSTRING(254)
+ImapPort                LONG
+ImapSecurityMode        LONG
+SmtpTestResult          CSTRING(512)
+PopTestResult           CSTRING(512)
+ImapTestResult          CSTRING(512)
+Result                  LONG
+
+BufLen = SIZE(SmtpTestResult)
+SmtpHost = &#39;smtp.example.com&#39;
+SmtpPort = 587
+SmtpSecurityMode = 1
+PopHost = &#39;pop.example.com&#39;
+PopPort = 995
+PopSecurityMode = 1
+ImapHost = &#39;imap.example.com&#39;
+ImapPort = 993
+ImapSecurityMode = 1
+CLEAR(SmtpTestResult)
+CLEAR(PopTestResult)
+CLEAR(ImapTestResult)
+
+Result = vuAutoDetectTestSettings(BufLen, SmtpHost, SmtpPort, SmtpSecurityMode, PopHost, PopPort, |
+  PopSecurityMode, ImapHost, ImapPort, ImapSecurityMode, SmtpTestResult, PopTestResult, ImapTestResult)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Use this when you want connectivity checks without actually sending
+a message.</li>
+<li>Blank host names can be used to skip transports your setup screen is
+not testing yet.</li>
+</ul>
+</body>
+</html>

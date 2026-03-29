@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailStatus</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumailstatus">vuMailStatus()</h1>
+<h2 id="description">Description</h2>
+<p>Returns send queue and background send status.</p>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating current send status.</p>
+<ul>
+<li>-1: Mail is being sent via vuSendMailFromFile()</li>
+<li>0: No mail is currently being sent and the queue is empty</li>
+<li>1: An email is currently being sent</li>
+<li>1 + N: An email is being sent and N additional emails are waiting in
+the queue</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<p>This function is used to poll status during asynchronous sending.</p>
+<p>NOTE: A good place to call this function is: Window Events, Close
+Window, Before &lt;'Generated Code'&gt;.</p>
+<h3 id="example-clarion">Example (Clarion)</h3>
+<pre class="clarion"><code>  IF vuMailStatus()
+    IF MESSAGE(&#39;Email is still being sent.|&#39; &amp; |
+               &#39;Exiting now may cause this email to be lost.|&#39; &amp; |
+               &#39;Continue (Y/N)?&#39;, |
+               &#39;Email Message&#39;, |
+               ICON:Exclamation, |
+               BUTTON:Yes + BUTTON:No) = BUTTON:No
+      CYCLE
+    END
+  END</code></pre>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

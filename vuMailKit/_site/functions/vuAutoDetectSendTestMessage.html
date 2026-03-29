@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAutoDetectSendTestMessage</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../functions-by-category.html">By category</a></p>
+<h1 id="vuautodetectsendtestmessage">vuAutoDetectSendTestMessage</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Send a temporary SMTP test message using the supplied settings
+without requiring the developer to save a profile first.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuAutoDetectSendTestMessage</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuAutoDetectSendTestMessage(LONG InOutBufLen,*CSTRING InFromEmail,*CSTRING InToEmail,*CSTRING InSubjectPrefix,LONG InConfigOrigin,*CSTRING InSmtpHost,LONG InSmtpPort,LONG InSmtpSecurityMode,LONG InSmtpAuthMode,*CSTRING InSmtpUser,*CSTRING InPassword,LONG InProviderId,*CSTRING InOAuthAccountKey,*CSTRING OutSmtpResponseCode,*CSTRING OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessage')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Expected values / range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InOutBufLen</td>
+<td>LONG</td>
+<td>Shared length for the writable text buffers.</td>
+<td>Pass the size of the text buffers.</td>
+</tr>
+<tr>
+<td>InFromEmail</td>
+<td>*CSTRING</td>
+<td>From address for the test message.</td>
+<td>Valid email address.</td>
+</tr>
+<tr>
+<td>InToEmail</td>
+<td>*CSTRING</td>
+<td>Recipient address for the test message.</td>
+<td>Valid email address.</td>
+</tr>
+<tr>
+<td>InSubjectPrefix</td>
+<td>*CSTRING</td>
+<td>Optional subject prefix placed in the generated test subject.</td>
+<td>May be blank.</td>
+</tr>
+<tr>
+<td>InConfigOrigin</td>
+<td>LONG</td>
+<td>Indicates where the settings came from.</td>
+<td><code>0=Manual</code>, <code>1=Autodetect</code>.</td>
+</tr>
+<tr>
+<td>InSmtpHost</td>
+<td>*CSTRING</td>
+<td>SMTP server host name.</td>
+<td>Examples: <code>smtp.gmail.com</code>,
+<code>smtp.office365.com</code>.</td>
+</tr>
+<tr>
+<td>InSmtpPort</td>
+<td>LONG</td>
+<td>SMTP server port.</td>
+<td>Common values: <code>25</code>, <code>465</code>,
+<code>587</code>.</td>
+</tr>
+<tr>
+<td>InSmtpSecurityMode</td>
+<td>LONG</td>
+<td>SMTP security mode.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>InSmtpAuthMode</td>
+<td>LONG</td>
+<td>SMTP auth mode.</td>
+<td><code>0=Unknown</code>, <code>1=Password</code>,
+<code>2=OAuth</code>.</td>
+</tr>
+<tr>
+<td>InSmtpUser</td>
+<td>*CSTRING</td>
+<td>SMTP login/user name.</td>
+<td>Usually the email address.</td>
+</tr>
+<tr>
+<td>InPassword</td>
+<td>*CSTRING</td>
+<td>Password or app password for password-auth testing.</td>
+<td>May be blank when OAuth is used.</td>
+</tr>
+<tr>
+<td>InProviderId</td>
+<td>LONG</td>
+<td>Provider ID for OAuth-aware testing.</td>
+<td><code>0=None</code>, <code>1=Google</code>,
+<code>2=Microsoft</code>, <code>3=Yahoo</code>.</td>
+</tr>
+<tr>
+<td>InOAuthAccountKey</td>
+<td>*CSTRING</td>
+<td>OAuth account key used to locate tokens when OAuth auth mode is
+selected.</td>
+<td>Usually the email address.</td>
+</tr>
+<tr>
+<td>OutSmtpResponseCode</td>
+<td>*CSTRING</td>
+<td>Receives the SMTP response code text.</td>
+<td>Examples: <code>250</code>, <code>535</code>, <code>0</code>.</td>
+</tr>
+<tr>
+<td>OutSmtpResponseText</td>
+<td>*CSTRING</td>
+<td>Receives response text or the error message.</td>
+<td>Writable text buffer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-values-and-ranges">Expected values and ranges</h2>
+<ul>
+<li><code>InConfigOrigin</code>: <code>0 = Manual</code>,
+<code>1 = Autodetect</code>.</li>
+<li>The generated subject suffix now uses mixed-case labels:
+<code>(Manual)</code> or <code>(Auto-Detect)</code>.</li>
+<li><code>InSmtpSecurityMode</code>: <code>0 = None</code>,
+<code>1 = StartTls</code>, <code>2 = ImplicitTls</code>.</li>
+<li><code>InSmtpAuthMode</code>: <code>0 = Unknown</code>,
+<code>1 = Password</code>, <code>2 = OAuth</code>.</li>
+<li><code>InProviderId</code>: <code>0 = None</code>,
+<code>1 = Google</code>, <code>2 = Microsoft</code>,
+<code>3 = Yahoo</code>.</li>
+<li><code>OutSmtpResponseCode</code> is text, not a numeric LONG output
+variable. Use a <code>CSTRING</code> buffer.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = the test send completed successfully.</li>
+<li><code>0</code> = the test send failed.</li>
+</ul>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>BufLen                  LONG
+FromEmail               CSTRING(254)
+ToEmail                 CSTRING(254)
+SubjectPrefix           CSTRING(80)
+ConfigOrigin            LONG
+SmtpHost                CSTRING(254)
+SmtpPort                LONG
+SmtpSecurityMode        LONG
+SmtpAuthMode            LONG
+SmtpUser                CSTRING(254)
+Password                CSTRING(254)
+ProviderId              LONG
+OAuthAccountKey         CSTRING(254)
+SmtpResponseCode        CSTRING(32)
+SmtpResponseText        CSTRING(512)
+Result                  LONG
+
+BufLen = SIZE(SmtpResponseText)
+FromEmail = &#39;user@example.com&#39;
+ToEmail = &#39;user@example.com&#39;
+SubjectPrefix = &#39;vuMailKit test&#39;
+ConfigOrigin = 1
+SmtpHost = &#39;smtp.example.com&#39;
+SmtpPort = 587
+SmtpSecurityMode = 1
+SmtpAuthMode = 0
+SmtpUser = &#39;user@example.com&#39;
+Password = &#39;app-password&#39;
+ProviderId = 0
+OAuthAccountKey = &#39;&#39;
+CLEAR(SmtpResponseCode)
+CLEAR(SmtpResponseText)
+
+Result = vuAutoDetectSendTestMessage(BufLen, FromEmail, ToEmail, SubjectPrefix, ConfigOrigin, SmtpHost, |
+  SmtpPort, SmtpSecurityMode, SmtpAuthMode, SmtpUser, Password, ProviderId, OAuthAccountKey, |
+  SmtpResponseCode, SmtpResponseText)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This function is intended for setup-time validation.</li>
+<li>The generated body is now neutral and no longer brands the message
+as a vuMailKit message.</li>
+<li>This base function includes the outgoing SMTP settings in the
+generated body.</li>
+<li>Use <code>vuAutoDetectSendTestMessageEx</code> when you also want
+POP3 and IMAP settings included in the setup-record email body.</li>
+<li>A successful test does not persist anything by itself. Call the
+normal setters and <code>vuSaveProfile</code> when you want to keep the
+settings.</li>
+</ul>
+</body>
+</html>

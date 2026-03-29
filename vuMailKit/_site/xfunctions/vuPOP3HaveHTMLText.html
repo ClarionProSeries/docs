@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuPOP3HaveHTMLText</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vupop3havehtmltext">vuPOP3HaveHTMLText()</h1>
+<pre class="Prototype"><code>vuPOP3HaveHTMLText(), LONG</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns a flag indicating whether the currently loaded POP3 message
+includes an HTML body part.</p>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> if yes</li>
+<li><code>0</code> if no</li>
+</ul>
+<h2 id="typical-flow">Typical flow</h2>
+<ol type="1">
+<li>Connect to the POP3 mailbox.</li>
+<li>Load a message header or full message with
+<code>vuPOP3LoadHeader()</code> or <code>vuPOP3LoadEmail()</code>.</li>
+<li>Call this function to decide what to do next.</li>
+</ol>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>IF (vuPOP3HaveHTMLText() = 1)
+  MESSAGE(&#39;This message has HTML text.&#39;)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>These functions only describe the message currently loaded into the
+internal POP3 message buffer.</li>
+<li>If no message has been loaded yet, the result is normally
+<code>0</code>.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

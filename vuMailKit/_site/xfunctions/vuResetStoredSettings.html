@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuResetStoredSettings</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuresetstoredsettings">vuResetStoredSettings()</h1>
+<pre class="Prototype"><code>vuResetStoredSettings(),SIGNED,PROC,Pascal,Raw,Name(&#39;vuResetStoredSettings&#39;)</code></pre>
+<h2 id="description">Description</h2>
+<p>Clears persisted vuMail and vuMailKit state so the machine returns to
+a clean stored-settings state.</p>
+<p>This is the nuclear reset option for troubleshooting, repeated
+harness runs, and clean-room testing.</p>
+<h2 id="returns">Returns</h2>
+<ul>
+<li><code>1</code> = reset completed</li>
+<li><code>0</code> = reset failed</li>
+</ul>
+<p>When the function returns <code>0</code>, call
+<code>vuMailLastError()</code> for the failure text.</p>
+<h2 id="what-it-clears">What it clears</h2>
+<p>The current implementation removes stored data such as:</p>
+<ul>
+<li>the legacy <code>vuMail</code> registry settings area</li>
+<li>the <code>HKCU\SOFTWARE\vuPrograms\vuMailKit\Profiles</code>
+registry area</li>
+<li>the Local AppData <code>vuMailKit</code> storage tree that holds
+profiles, secrets, tokens, and related state</li>
+<li>pending OAuth files and saved OAuth settings files</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This clears persisted state only.</li>
+<li>It does not automatically rewrite values already loaded into the
+current process memory.</li>
+<li>In practice, after calling this function you will usually want to
+restart the application or reinitialize the DLL before continuing.</li>
+<li>Use this carefully. It is intended for troubleshooting and test
+reset scenarios, not for normal end-user workflows.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

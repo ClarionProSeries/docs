@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGetFromReplyTo</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vugetfromreplyto">vuGetFromReplyTo()</h1>
+<pre class="Prototype"><code>vuGetFromReplyTo(*CSTRING, *CSTRING), LONG</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Gets the current runtime From address and Reply-To address.</p>
+<p>This is the legacy <code>vuMail</code> function name for
+<code>vuSmtpGetFromReplyTo()</code>.</p>
+<p>Preferred function name:</p>
+<ul>
+<li><a href="vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo()</a></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FromAddress</td>
+<td>*CSTRING</td>
+<td>Receives the current From value.</td>
+</tr>
+<tr>
+<td>ReplyToAddress</td>
+<td>*CSTRING</td>
+<td>Receives the current Reply-To value.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = values returned successfully.</li>
+<li><code>0</code> = one or both values are not currently set.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This reads the current runtime values that the next send operation
+will use.</li>
+<li>It is useful when an application lets the user inspect or confirm
+the outbound identity before sending.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

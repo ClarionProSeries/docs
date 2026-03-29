@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuOAuthDetectProviderFromEmail</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1
+id="vuoauthdetectproviderfromemail">vuOAuthDetectProviderFromEmail()</h1>
+<pre class="Prototype"><code>vuOAuthDetectProviderFromEmail(*CSTRING, *CSTRING, LONG, *LONG, *CSTRING, LONG), LONG</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Inspects an email address and returns the detected provider, auth
+mode, and reason text.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email</td>
+<td>*CSTRING</td>
+<td>Input email address to inspect.</td>
+</tr>
+<tr>
+<td>OutProvider</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving detected provider name.</td>
+</tr>
+<tr>
+<td>OutProviderMax</td>
+<td>LONG</td>
+<td>Size of <code>OutProvider</code> in bytes.</td>
+</tr>
+<tr>
+<td>OutAuthMode</td>
+<td>*LONG</td>
+<td>Output pointer receiving detected auth mode integer.</td>
+</tr>
+<tr>
+<td>OutReason</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving detection reason text.</td>
+</tr>
+<tr>
+<td>OutReasonMax</td>
+<td>LONG</td>
+<td>Size of <code>OutReason</code> in bytes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>&gt;= 0</code>: Detection completed (provider/auth mode/result
+reason populated as available).</li>
+<li><code>-9</code>: Exception while detecting provider.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuOAuthDetectProviderFromEmail(*CSTRING,*CSTRING,LONG,*LONG,*CSTRING,LONG),LONG,PASCAL,RAW,NAME(&#39;vuOAuthDetectProviderFromEmail&#39;)
+  END
+END
+
+rc             LONG
+email          CSTRING(256)
+outProvider    CSTRING(64)
+outProviderMax LONG
+authMode       LONG
+outReason      CSTRING(512)
+outReasonMax   LONG
+
+email          = &#39;user@example.com&#39;
+outProvider    = &#39;&#39;
+outProviderMax = SIZE(outProvider)
+authMode       = 0
+outReason      = &#39;&#39;
+outReasonMax   = SIZE(outReason)
+
+rc = vuOAuthDetectProviderFromEmail(email, outProvider, outProviderMax, authMode, outReason, outReasonMax)
+IF rc &lt; 0
+  MESSAGE(&#39;Detect failed: &#39; &amp; rc &amp; &#39;| &#39; &amp; outReason)
+ELSE
+  MESSAGE(&#39;Provider=&#39; &amp; outProvider &amp; &#39;| Mode=&#39; &amp; authMode &amp; &#39;| &#39; &amp; outReason)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Pass writable <code>*LONG</code> and <code>*CSTRING</code> outputs
+so detection details can be returned.</li>
+<li>Detection output is heuristic and intended to help prefill OAuth
+settings.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

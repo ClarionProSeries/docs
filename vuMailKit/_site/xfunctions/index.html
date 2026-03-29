@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumailkit-functions">vuMailKit Functions</h1>
+<p>This documentation has been written for modern development using the
+full vuMailKit library of functions and modern naming standards. These
+are the preferred function names for new development.</p>
+<p>The Legacy names from the old vuMail functions remain supported and
+are listed on the Legacy functions page. If you look up a function with
+the old name, it will refer you to the preferred name page.</p>
+<h2 id="about">About</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="AboutFunctionNames.html">AboutFunctionNames</a></td>
+<td>Explains preferred function naming and how it maps to legacy vuMail
+names.</td>
+</tr>
+<tr>
+<td><a href="AboutGlobalMemory.html">AboutGlobalMemory</a></td>
+<td>Explains vuMailKit runtime global memory, legacy registry behavior,
+and managed profile behavior.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="global-variable-related">Global Variable Related</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuGlobalsLoad.html">vuGlobalsLoad</a></td>
+<td>Loads vuMailKit global settings into active runtime memory.</td>
+</tr>
+<tr>
+<td><a href="vuGlobalsSave.html">vuGlobalsSave</a></td>
+<td>Saves active runtime settings using the current persistence
+model.</td>
+</tr>
+<tr>
+<td><a href="vuGlobalsSetCodePage.html">vuGlobalsSetCodePage</a></td>
+<td>Sets the CodePage value used by vuMailKit.</td>
+</tr>
+<tr>
+<td><a href="vuGlobalsGetCodePage.html">vuGlobalsGetCodePage</a></td>
+<td>Gets the CodePage value used by vuMailKit.</td>
+</tr>
+<tr>
+<td><a
+href="vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder</a></td>
+<td>Sets the folder where vuMailKit can save email files.</td>
+</tr>
+<tr>
+<td><a
+href="vuGlobalsGetEmailFolder.html">vuGlobalsGetEmailFolder</a></td>
+<td>Gets the folder where vuMailKit can save email files.</td>
+</tr>
+<tr>
+<td><a
+href="vuGlobalsSetNoPasswordInRegistry.html">vuGlobalsSetNoPasswordInRegistry</a></td>
+<td>Controls whether the SMTP password is saved in the registry.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logging">Logging</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuLogSetFile.html">vuLogSetFile</a></td>
+<td>Sets the mail log file path.</td>
+</tr>
+<tr>
+<td><a href="vuLogGetFile.html">vuLogGetFile</a></td>
+<td>Gets the mail log file path.</td>
+</tr>
+<tr>
+<td><a href="vuDiagnosticsEnable.html">vuDiagnosticsEnable</a></td>
+<td>Enables diagnostics logging.</td>
+</tr>
+<tr>
+<td><a href="vuDiagnosticsDisable.html">vuDiagnosticsDisable</a></td>
+<td>Disables diagnostics logging.</td>
+</tr>
+<tr>
+<td><a href="vuDiagnosticsSetFile.html">vuDiagnosticsSetFile</a></td>
+<td>Sets the diagnostics log file path.</td>
+</tr>
+<tr>
+<td><a href="vuDiagnosticsGetFile.html">vuDiagnosticsGetFile</a></td>
+<td>Gets the diagnostics log file path.</td>
+</tr>
+<tr>
+<td><a
+href="vuDiagnosticsClearLogs.html">vuDiagnosticsClearLogs</a></td>
+<td>Deletes the current diagnostics and protocol log files.</td>
+</tr>
+<tr>
+<td><a href="vuResetStoredSettings.html">vuResetStoredSettings</a></td>
+<td>Clears stored vuMailKit settings, profiles, and OAuth state.</td>
+</tr>
+<tr>
+<td><a
+href="vuCleanupLegacyRegistry.html">vuCleanupLegacyRegistry</a></td>
+<td>Deletes legacy registry settings after managed migration is
+verified.</td>
+</tr>
+<tr>
+<td><a href="vuLoadProfile.html">vuLoadProfile</a></td>
+<td>Loads the internal default managed profile into active runtime
+memory.</td>
+</tr>
+<tr>
+<td><a href="vuLoadProfileEx.html">vuLoadProfileEx</a></td>
+<td>Loads a named managed profile into active runtime memory. Pro and
+Back Office only.</td>
+</tr>
+<tr>
+<td><a href="vuSaveProfile.html">vuSaveProfile</a></td>
+<td>Saves active runtime memory into the internal default managed
+profile.</td>
+</tr>
+<tr>
+<td><a href="vuSaveProfileEx.html">vuSaveProfileEx</a></td>
+<td>Saves active runtime memory into a named managed profile. Pro and
+Back Office only.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mailing-related">Mailing Related</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuCloseWhenComplete.html">vuCloseWhenComplete</a></td>
+<td>Sets the legacy CloseWhenComplete runtime flag.</td>
+</tr>
+<tr>
+<td><a href="vuFailureNotice.html">vuFailureNotice</a></td>
+<td>Requests a failure notice (delivery failure notification) for the
+next sent email.</td>
+</tr>
+<tr>
+<td><a href="vuGetFromReplyTo.html">vuGetFromReplyTo</a></td>
+<td>Gets the default From and Reply-To email addresses for outgoing
+mail.</td>
+</tr>
+<tr>
+<td><a href="vuGetMailLog.html">vuGetMailLog</a></td>
+<td>Gets the current mail log file path.</td>
+</tr>
+<tr>
+<td><a href="vuGetMailProxy.html">vuGetMailProxy</a></td>
+<td>Gets the proxy server name and port used by vuMailKit.</td>
+</tr>
+<tr>
+<td><a href="vuGetMailSecurity.html">vuGetMailSecurity</a></td>
+<td>Gets SMTP user, password, security type, and SSL flag.</td>
+</tr>
+<tr>
+<td><a href="vuGetMailServer.html">vuGetMailServer</a></td>
+<td>Gets the outbound SMTP server name and port.</td>
+</tr>
+<tr>
+<td><a href="vuGetSaveFolder.html">vuGetSaveFolder</a></td>
+<td>Gets the folder used for saving mail files.</td>
+</tr>
+<tr>
+<td><a href="vuHighPriority.html">vuHighPriority</a></td>
+<td>Marks the next sent email as high priority.</td>
+</tr>
+<tr>
+<td><a href="vuMailAppendCSV.html">vuMailAppendCSV</a></td>
+<td>Appends one mail row to the currently selected legacy CSV file.</td>
+</tr>
+<tr>
+<td><a href="vuMailClient.html">vuMailClient</a></td>
+<td>Returns the default mail client name from the Windows registry.</td>
+</tr>
+<tr>
+<td><a href="vuMailCreateCSV.html">vuMailCreateCSV</a></td>
+<td>Creates or truncates a CSV file and selects it for
+vuMailAppendCSV().</td>
+</tr>
+<tr>
+<td><a href="vuMailErrorDisplay.html">vuMailErrorDisplay</a></td>
+<td>Automatically displays a verbose error message when a send
+fails.</td>
+</tr>
+<tr>
+<td><a href="vuMailExport.html">vuMailExport</a></td>
+<td>Exports the currently loaded legacy message to an .eml file.</td>
+</tr>
+<tr>
+<td><a href="vuSetFromReplyTo.html">vuSetFromReplyTo</a></td>
+<td>Sets default From and Reply-To email addresses for outgoing
+mail.</td>
+</tr>
+<tr>
+<td><a href="vuMailImport.html">vuMailImport</a></td>
+<td>Imports an .eml message file into the legacy in-process
+session.</td>
+</tr>
+<tr>
+<td><a href="vuMailImportHeader.html">vuMailImportHeader</a></td>
+<td>Imports only message headers from an .eml file into the legacy
+session.</td>
+</tr>
+<tr>
+<td><a href="vuMailLastError.html">vuMailLastError</a></td>
+<td>Returns the last verbose error message text.</td>
+</tr>
+<tr>
+<td><a href="vuMailSaveName.html">vuMailSaveName</a></td>
+<td>Sets the filename used when saving the next sent email as an .eml
+file.</td>
+</tr>
+<tr>
+<td><a href="vuMailSelectCSV.html">vuMailSelectCSV</a></td>
+<td>Selects an existing CSV file for vuMailAppendCSV().</td>
+</tr>
+<tr>
+<td><a href="vuMailStatus.html">vuMailStatus</a></td>
+<td>Returns send queue and background send status.</td>
+</tr>
+<tr>
+<td><a href="vuMailSuccessDisplay.html">vuMailSuccessDisplay</a></td>
+<td>Displays a success message each time an email is sent
+successfully.</td>
+</tr>
+<tr>
+<td><a href="vuMailTo.html">vuMailTo</a></td>
+<td>Opens the default mail client with To/Cc/Bcc/Subject/Body
+fields.</td>
+</tr>
+<tr>
+<td><a href="vuMailToA.html">vuMailToA</a></td>
+<td>Opens the default mail client with To/Cc/Bcc/Subject/Body plus
+attachment hint.</td>
+</tr>
+<tr>
+<td><a href="vuRequestReceipt.html">vuRequestReceipt</a></td>
+<td>Requests a return receipt for the next sent email.</td>
+</tr>
+<tr>
+<td><a href="vuSendMail.html">vuSendMail</a></td>
+<td>Queues one outbound email for background SMTP delivery.</td>
+</tr>
+<tr>
+<td><a href="vuSendMailFromFile.html">vuSendMailFromFile</a></td>
+<td>Queues outbound emails from CSV rows.</td>
+</tr>
+<tr>
+<td><a href="vuSendMailWait.html">vuSendMailWait</a></td>
+<td>Queues one outbound email and waits for completion.</td>
+</tr>
+<tr>
+<td><a href="vuSetMailProxy.html">vuSetMailProxy</a></td>
+<td>Sets the proxy server name and port used by vuMailKit.</td>
+</tr>
+<tr>
+<td><a href="vuSetMailSecurity.html">vuSetMailSecurity</a></td>
+<td>Sets SMTP user, password, security type, and SSL flag.</td>
+</tr>
+<tr>
+<td><a href="vuSetMailServer.html">vuSetMailServer</a></td>
+<td>Sets the outbound SMTP server name and port.</td>
+</tr>
+</tbody>
+</table>
+<p>| <a href="vuValidateMailAddr.html">vuValidateMailAddr</a> |
+Validates a practical internet email address, rejects malformed values,
+and can flag suspicious typo-like domains. | | <a
+href="vuViewMail.html">vuViewMail</a> | Opens a mail file using the
+default shell-associated application. |</p>
+<h2 id="network-related">Network Related</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuNetSetProxy.html">vuNetSetProxy</a></td>
+<td>Sets the proxy server name and port used by vuMailKit.</td>
+</tr>
+<tr>
+<td><a href="vuNetGetProxy.html">vuNetGetProxy</a></td>
+<td>Gets the proxy server name and port used by vuMailKit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autodetect-and-setup">Autodetect and Setup</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="vuAutoDetectFillSettings.html">vuAutoDetectFillSettings</a></td>
+<td>Runs the full deep-scan autodetect pipeline and fills provider
+settings.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectFillSettingsFast.html">vuAutoDetectFillSettingsFast</a></td>
+<td>Runs the fast first-pass autodetect pipeline for responsive setup
+screens.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectFillSettingsDeep.html">vuAutoDetectFillSettingsDeep</a></td>
+<td>Runs the explicit deep-scan autodetect pipeline when the user
+requests a broader search.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectStartDeepScan.html">vuAutoDetectStartDeepScan</a></td>
+<td>Starts an asynchronous deep autodetect job and returns a scan
+handle.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectPollDeepScan.html">vuAutoDetectPollDeepScan</a></td>
+<td>Polls the state, stage, and status text for an asynchronous deep
+autodetect job.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectCancelDeepScan.html">vuAutoDetectCancelDeepScan</a></td>
+<td>Requests cancellation of an asynchronous deep autodetect job.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectGetDeepScanResult.html">vuAutoDetectGetDeepScanResult</a></td>
+<td>Copies final results from a completed asynchronous deep autodetect
+job.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectReleaseDeepScan.html">vuAutoDetectReleaseDeepScan</a></td>
+<td>Releases the stored state for an asynchronous deep autodetect
+job.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectTestSettings.html">vuAutoDetectTestSettings</a></td>
+<td>Tests detected server settings without sending mail.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectSendTestMessage.html">vuAutoDetectSendTestMessage</a></td>
+<td>Sends a temporary test message using the outgoing settings
+only.</td>
+</tr>
+<tr>
+<td><a
+href="vuAutoDetectSendTestMessageEx.html">vuAutoDetectSendTestMessageEx</a></td>
+<td>Sends a temporary test message and includes outgoing plus incoming
+setup details in the message body.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="oauth-related">OAuth Related</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuOAuthSetProvider.html">vuOAuthSetProvider</a></td>
+<td>Sets the default OAuth provider name used by helper flows.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthGetProvider.html">vuOAuthGetProvider</a></td>
+<td>Gets the default OAuth provider name from global settings.</td>
+</tr>
+<tr>
+<td><a
+href="vuOAuthDetectProviderFromEmail.html">vuOAuthDetectProviderFromEmail</a></td>
+<td>Detects OAuth provider/auth mode from an email address.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthBeginLogin.html">vuOAuthBeginLogin</a></td>
+<td>Starts an OAuth login flow and returns callback/device text.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthGetDeviceInfo.html">vuOAuthGetDeviceInfo</a></td>
+<td>Returns device verification URL/code from the last BeginLogin.</td>
+</tr>
+<tr>
+<td><a
+href="vuOAuthLaunchUserVerification.html">vuOAuthLaunchUserVerification</a></td>
+<td>Launches user verification UI/browser for an OAuth flow.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthCompleteLogin.html">vuOAuthCompleteLogin</a></td>
+<td>Completes OAuth login using callback or verification data.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthStatus.html">vuOAuthStatus</a></td>
+<td>Returns OAuth status text for a provider/account pair.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthRefresh.html">vuOAuthRefresh</a></td>
+<td>Refreshes OAuth tokens for a provider/account pair.</td>
+</tr>
+<tr>
+<td><a href="vuOAuthClear.html">vuOAuthClear</a></td>
+<td>Clears stored OAuth state/tokens for a provider/account pair.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="licensing">Licensing</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuMailKitInitialize.html">vuMailKitInitialize</a></td>
+<td>Initializes vuMailKit licensing for the current process. Call once
+at EXE startup before send, autodetect, or profile operations.</td>
+</tr>
+<tr>
+<td><a
+href="vuMailKitGetLicenseInfo.html">vuMailKitGetLicenseInfo</a></td>
+<td>Returns a diagnostic text summary of the current license state,
+tier, and demo flag.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pop3-related">POP3 Related</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuPOP3SetAuthMode.html">vuPOP3SetAuthMode</a></td>
+<td>Sets the POP3 authentication mode value used at connect time.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetAuthMode.html">vuPOP3GetAuthMode</a></td>
+<td>Gets the configured POP3 authentication mode value.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3AttachmentName.html">vuPOP3AttachmentName</a></td>
+<td>Returns the attachment filename by index.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3Connect.html">vuPOP3Connect</a></td>
+<td>Connects and authenticates to the POP3 server.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3Count.html">vuPOP3Count</a></td>
+<td>Returns the number of available POP3 messages.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetDate.html">vuPOP3GetDate</a></td>
+<td>Returns the Date header value from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetFrom.html">vuPOP3GetFrom</a></td>
+<td>Returns the From header value from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetFolder.html">vuPOP3GetFolder</a></td>
+<td>Gets the POP3 folder used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SetFolder.html">vuPOP3SetFolder</a></td>
+<td>Sets the POP3 folder used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetHTMLText.html">vuPOP3GetHTMLText</a></td>
+<td>Returns the HTML body from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3HaveAttachments.html">vuPOP3HaveAttachments</a></td>
+<td>Reports whether the loaded POP3 message has attachments.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3HaveEmbedded.html">vuPOP3HaveEmbedded</a></td>
+<td>Reports whether the loaded POP3 message has embedded parts.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3HaveHTMLText.html">vuPOP3HaveHTMLText</a></td>
+<td>Reports whether the loaded POP3 message has an HTML body.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3HavePlainText.html">vuPOP3HavePlainText</a></td>
+<td>Reports whether the loaded POP3 message has a plain-text body.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3LoadEmail.html">vuPOP3LoadEmail</a></td>
+<td>Loads a full POP3 message into the current session.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3LoadHeader.html">vuPOP3LoadHeader</a></td>
+<td>Loads headers for a POP3 message into the current session.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetMessageId.html">vuPOP3GetMessageId</a></td>
+<td>Returns the Message-ID header value from the loaded POP3
+message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetPassword.html">vuPOP3GetPassword</a></td>
+<td>Gets the POP3 password used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SetPassword.html">vuPOP3SetPassword</a></td>
+<td>Sets the POP3 password used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetPlainText.html">vuPOP3GetPlainText</a></td>
+<td>Returns the plain-text body from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3Delete.html">vuPOP3Delete</a></td>
+<td>Marks a POP3 message number for deletion.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3Disconnect.html">vuPOP3Disconnect</a></td>
+<td>Closes the active POP3 connection.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetReturnPath.html">vuPOP3GetReturnPath</a></td>
+<td>Returns the Return-Path header value from the loaded POP3
+message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SaveAttachment.html">vuPOP3SaveAttachment</a></td>
+<td>Saves one named attachment from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SaveAttachments.html">vuPOP3SaveAttachments</a></td>
+<td>Saves all attachments from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SaveEmbedded.html">vuPOP3SaveEmbedded</a></td>
+<td>Saves one named embedded content item from the loaded POP3
+message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SaveEmbeddedOne.html">vuPOP3SaveEmbeddedOne</a></td>
+<td>Saves one embedded content item by index from the loaded POP3
+message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetServer.html">vuPOP3GetServer</a></td>
+<td>Gets the POP3 server used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SetServer.html">vuPOP3SetServer</a></td>
+<td>Sets the POP3 server used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3Size.html">vuPOP3Size</a></td>
+<td>Returns the size in bytes for a POP3 message number.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetSubject.html">vuPOP3GetSubject</a></td>
+<td>Returns the Subject header value from the loaded POP3 message.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3GetUser.html">vuPOP3GetUser</a></td>
+<td>Gets the POP3 user used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3SetUser.html">vuPOP3SetUser</a></td>
+<td>Sets the POP3 user used for receiving email.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3EmbeddedCID.html">vuPOP3EmbeddedCID</a></td>
+<td>Returns the CID for an embedded content item by index.</td>
+</tr>
+<tr>
+<td><a href="vuPOP3EmbeddedName.html">vuPOP3EmbeddedName</a></td>
+<td>Returns the name for an embedded content item by index.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="smtp-related">SMTP Related</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuSmtpGetAuthMode.html">vuSMTPGetAuthMode</a></td>
+<td>Gets current SMTP auth mode (<code>0</code> password, <code>1</code>
+OAuth).</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetAuthMode.html">vuSMTPSetAuthMode</a></td>
+<td>Sets SMTP auth mode (<code>0</code> password, non-zero OAuth).</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetFromReplyTo.html">vuSMTPGetFromReplyTo</a></td>
+<td>Gets default From and Reply-To email addresses for outgoing
+mail.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetFromReplyTo.html">vuSMTPSetFromReplyTo</a></td>
+<td>Sets default From and Reply-To email addresses for outgoing
+mail.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetSecurity.html">vuSMTPGetSecurity</a></td>
+<td>Gets SMTP user, password, security type, and SSL flag.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetSecurity.html">vuSMTPSetSecurity</a></td>
+<td>Sets SMTP user, password, security type, and SSL flag.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetServer.html">vuSMTPGetServer</a></td>
+<td>Gets the outbound SMTP server name and port.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetServer.html">vuSMTPSetServer</a></td>
+<td>Sets the outbound SMTP server name and port.</td>
+</tr>
+<tr>
+<td><a href="vuSetMailServerOAuth.html">vuSetMailServerOAuth</a></td>
+<td>Sets OAuth-specific SMTP server name and port.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ui-helpers">UI Helpers</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuPasswordInit.html">vuPasswordInit</a></td>
+<td>Initializes a Clarion password entry control for managed cue text,
+eye-button creation, and show/hide behavior.</td>
+</tr>
+<tr>
+<td><a href="vuPasswordToggle.html">vuPasswordToggle</a></td>
+<td>Toggles a managed password control between masked and visible
+mode.</td>
+</tr>
+<tr>
+<td><a href="vuPasswordCleanup.html">vuPasswordCleanup</a></td>
+<td>Removes managed password-control behavior and destroys the generated
+eye button.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="utilities">Utilities</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="vuANSItoUTF8.html">vuANSItoUTF8</a></td>
+<td>Converts ANSI text to a byte-preserving UTF-8 encoded legacy
+string.</td>
+</tr>
+<tr>
+<td><a href="vuExtractMailAddr.html">vuExtractMailAddr</a></td>
+<td>Extracts the first email address found in input text.</td>
+</tr>
+<tr>
+<td><a href="vuGetUCodeFile.html">vuGetUCodeFile</a></td>
+<td>Returns the default UCode.txt compatibility file path.</td>
+</tr>
+<tr>
+<td><a href="vuReadUCodeFile.html">vuReadUCodeFile</a></td>
+<td>Reads UTF-8 text from a specified UCode file path.</td>
+</tr>
+<tr>
+<td><a href="vuShellOpenUrl.html">vuShellOpenUrl</a></td>
+<td>Opens a URL with shell/browser and returns diagnostics.</td>
+</tr>
+<tr>
+<td><a href="vuUTF8toANSI.html">vuUTF8toANSI</a></td>
+<td>Converts byte-preserving UTF-8 input to decoded text.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

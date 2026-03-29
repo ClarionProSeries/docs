@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuGlobalsSave</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuglobalssave">vuGlobalsSave()</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Saves the current live runtime configuration.</p>
+<p>This is the preferred name for the old
+<code>vuMailSaveGlobals()</code> behavior.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>None.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> - Save completed.</li>
+</ul>
+<h2 id="what-it-saves">What it saves</h2>
+<p>This function writes the current in-memory vuMailKit configuration to
+persistent storage.</p>
+<p>That means any values you have changed with setter functions during
+the current session become the new saved values.</p>
+<h2 id="legacy-mode-versus-managed-profile-mode">Legacy mode versus
+managed profile mode</h2>
+<p>Before a managed profile exists, this function normally saves to the
+legacy <code>vuMail</code> registry storage.</p>
+<p>Legacy registry path:</p>
+<ul>
+<li><code>HKCU\SOFTWARE\vuPrograms\vuMail</code></li>
+</ul>
+<p>After a managed profile exists, normal save behavior changes. In that
+case, <code>vuGlobalsSave()</code> normally writes the current runtime
+values into the active managed profile instead of using the old
+<code>vuMail</code> registry key as the primary destination.</p>
+<p>For a fuller explanation, see <a
+href="AboutGlobalMemory.html">AboutGlobalMemory</a>.</p>
+<h2 id="when-to-use-it">When to use it</h2>
+<p>Use this function when you want your current runtime edits to become
+the saved configuration.</p>
+<p>Typical reasons include:</p>
+<ul>
+<li>saving legacy global settings after manual setup</li>
+<li>persisting runtime overrides made with setter functions</li>
+<li>updating the active managed profile from the current runtime
+state</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuGlobalsSave(),LONG,PASCAL,RAW,NAME(&#39;vuGlobalsSave&#39;)
+  END
+END
+
+RC LONG
+
+RC = vuGlobalsSave()
+IF RC &lt;&gt; 1
+  MESSAGE(&#39;Unexpected rc from vuGlobalsSave: &#39; &amp; RC)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Preferred name: <code>vuGlobalsSave()</code>.</li>
+<li>Legacy alias: <a
+href="vuMailSaveGlobals.html">vuMailSaveGlobals()</a>.</li>
+<li>In managed profile mode, this updates the active managed
+profile.</li>
+<li>If you do not call save, runtime changes remain in memory only for
+the current session.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

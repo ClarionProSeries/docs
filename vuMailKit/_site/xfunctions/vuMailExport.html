@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailExport</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumailexportxfilepath">vuMailExport(xFilePath)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Writes the message currently held in the legacy in-process message
+buffer to an RFC822 <code>.eml</code> file.</p>
+<p>This is mainly useful when you have already loaded a message through
+one of the legacy import or POP3 load functions and want to persist that
+message to disk for later inspection, forwarding, or
+troubleshooting.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xFilePath</code> (*CSTRING): Full destination path for the
+<code>.eml</code> file to create.</li>
+</ul>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>0</code>: Export succeeded.</li>
+<li><code>-1</code>: <code>xFilePath</code> is blank or no message is
+currently loaded in the legacy message buffer.</li>
+<li><code>-2</code>: File creation, write, or general export
+failure.</li>
+</ul>
+<h2 id="typical-flow">Typical flow</h2>
+<p>A common legacy workflow is:</p>
+<ul>
+<li>load or import a message into the current in-process message
+buffer</li>
+<li>inspect headers or body text if needed</li>
+<li>call <code>vuMailExport()</code> to write the message to an
+<code>.eml</code> file</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuMailExport(*CSTRING xFilePath),LONG,PASCAL,RAW,NAME(&#39;vuMailExport&#39;)
+  END
+END
+
+rc LONG
+path CSTRING(260)
+
+path = &#39;C:\Temp\exported.eml&#39;
+rc = vuMailExport(path)
+IF rc &lt;&gt; 0
+  MESSAGE(&#39;Export failed code &#39; &amp; rc &amp; &#39;: &#39; &amp; vuMailLastError())
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Creates the destination directory when needed.</li>
+<li>This function does not connect to a mail server and does not send
+anything.</li>
+<li>It depends entirely on a message already being present in the legacy
+message/session state.</li>
+<li>If you have not first loaded or imported a message, there is nothing
+for this function to export.</li>
+<li>AuthMode and OAuth are not involved.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailExport</code>.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

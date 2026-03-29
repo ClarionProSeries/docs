@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuOAuthGetDeviceInfo</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vuoauthgetdeviceinfo">vuOAuthGetDeviceInfo()</h1>
+<pre class="Prototype"><code>vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetDeviceInfo&#39;)</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Returns the verification URL and user code captured by the most
+recent matching <code>vuOAuthBeginLogin()</code> call.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provider</td>
+<td>*CSTRING</td>
+<td>Provider identifier used in BeginLogin.</td>
+</tr>
+<tr>
+<td>AccountKey</td>
+<td>*CSTRING</td>
+<td>Account key used in BeginLogin.</td>
+</tr>
+<tr>
+<td>OutUrl</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving verification URL text.</td>
+</tr>
+<tr>
+<td>OutUrlLen</td>
+<td>LONG</td>
+<td>Size of <code>OutUrl</code> in bytes.</td>
+</tr>
+<tr>
+<td>OutCode</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving user verification code.</td>
+</tr>
+<tr>
+<td>OutCodeLen</td>
+<td>LONG</td>
+<td>Size of <code>OutCode</code> in bytes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>1</code>: Success.</li>
+<li><code>-2</code>: No prior BeginLogin context was captured.</li>
+<li><code>-3</code>: Provider/account mismatch with captured BeginLogin
+context.</li>
+<li><code>-4</code>: URL and/or code not available.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetDeviceInfo&#39;)
+  END
+END
+
+rc         LONG
+provider   CSTRING(64)
+accountKey CSTRING(128)
+outUrl     CSTRING(1024)
+outUrlLen  LONG
+outCode    CSTRING(128)
+outCodeLen LONG
+
+provider   = &#39;Microsoft&#39;
+accountKey = &#39;user@example.com&#39;
+outUrl     = &#39;&#39;
+outUrlLen  = SIZE(outUrl)
+outCode    = &#39;&#39;
+outCodeLen = SIZE(outCode)
+
+rc = vuOAuthGetDeviceInfo(provider, accountKey, outUrl, outUrlLen, outCode, outCodeLen)
+IF rc = 1
+  MESSAGE(&#39;Verify at: &#39; &amp; outUrl &amp; &#39;| Code: &#39; &amp; outCode)
+ELSE
+  MESSAGE(&#39;GetDeviceInfo failed: &#39; &amp; rc)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>Provider</code> and <code>AccountKey</code> must match the
+values used for the captured BeginLogin call.</li>
+<li>Call this after BeginLogin when using a device-code style login
+flow.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

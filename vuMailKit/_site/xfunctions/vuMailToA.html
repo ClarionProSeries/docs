@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailToA</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumailtoaxto-xcc-xbcc-xsubject-xbody-xattachment">vuMailToA(xTo,
+xCc, xBcc, xSubject, xBody, xAttachment)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Builds a <code>mailto:</code> URI (including an <code>attach=</code>
+parameter) and asks Windows Shell to open it with the default mail
+client.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xTo</code> (*CSTRING): To recipients string.</li>
+<li><code>xCc</code> (*CSTRING): Cc recipients string.</li>
+<li><code>xBcc</code> (*CSTRING): Bcc recipients string.</li>
+<li><code>xSubject</code> (*CSTRING): Subject text.</li>
+<li><code>xBody</code> (*CSTRING): Body text.</li>
+<li><code>xAttachment</code> (*CSTRING): Attachment path hint for
+clients that interpret <code>attach=</code> in <code>mailto:</code>
+URIs.</li>
+</ul>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li>Returns the Win32 <code>ShellExecute</code> result value.</li>
+<li>Values greater than <code>32</code> typically indicate the shell
+accepted the open request.</li>
+<li><code>0</code>: Exception path; details are written to
+<code>vuMailLastError()</code>.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuMailToA(*CSTRING xTo,*CSTRING xCc,*CSTRING xBcc,*CSTRING xSubject,*CSTRING xBody,*CSTRING xAttachment),LONG,PASCAL,RAW,NAME(&#39;vuMailToA&#39;)
+  END
+END
+
+toAddr  CSTRING(256)
+ccAddr  CSTRING(256)
+bccAddr CSTRING(256)
+subj    CSTRING(256)
+body    CSTRING(512)
+attach  CSTRING(260)
+rc      LONG
+
+toAddr  = &#39;user@example.com&#39;
+ccAddr  = &#39;&#39;
+bccAddr = &#39;&#39;
+subj    = &#39;Test with attachment hint&#39;
+body    = &#39;Please see attached file.&#39;
+attach  = &#39;C:\Temp\report.pdf&#39;
+rc = vuMailToA(toAddr, ccAddr, bccAddr, subj, body, attach)
+IF rc &lt;= 32
+  MESSAGE(&#39;vuMailToA failed/was rejected by shell. rc=&#39; &amp; rc &amp; &#39; err=&#39; &amp; vuMailLastError())
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Many mail clients ignore non-standard <code>attach=</code> URI
+parameters.</li>
+<li>Input fields are not URL-encoded by this function.</li>
+<li>AuthMode/OAuth is not used by this function.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailToA</code>.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

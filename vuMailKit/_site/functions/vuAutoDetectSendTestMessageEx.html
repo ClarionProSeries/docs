@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAutoDetectSendTestMessageEx</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../functions-by-category.html">By category</a></p>
+<h1
+id="vuautodetectsendtestmessageex">vuAutoDetectSendTestMessageEx</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Send a temporary SMTP test message and include both outgoing and
+incoming setup details in the generated message body.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuAutoDetectSendTestMessageEx</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuAutoDetectSendTestMessageEx(LONG InOutBufLen,*CSTRING InFromEmail,*CSTRING InToEmail,*CSTRING InSubjectPrefix,LONG InConfigOrigin,*CSTRING InSmtpHost,LONG InSmtpPort,LONG InSmtpSecurityMode,LONG InSmtpAuthMode,*CSTRING InSmtpUser,*CSTRING InPassword,LONG InProviderId,*CSTRING InOAuthAccountKey,*CSTRING InPopHost,LONG InPopPort,LONG InPopSecurityMode,LONG InPopAuthMode,*CSTRING InPopUser,*CSTRING InImapHost,LONG InImapPort,LONG InImapSecurityMode,LONG InImapAuthMode,*CSTRING InImapUser,*CSTRING OutSmtpResponseCode,*CSTRING OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessageEx')</code></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This additive export keeps the original
+<code>vuAutoDetectSendTestMessage</code> stable.</li>
+<li>The generated subject uses mixed-case suffixes:
+<code>(Auto-Detect)</code> or <code>(Manual)</code>.</li>
+<li>The generated body uses the same wording style shown in the setup
+wizard, including <code>SIGN-IN METHOD</code> labels such as
+<code>Username / Password</code>, <code>Google Sign-In</code>, and
+<code>Microsoft Sign-In</code>.</li>
+<li>When POP3 and IMAP values are supplied, those sections are included
+in the body so the message also serves as a setup record.</li>
+</ul>
+<h2 id="from-display-name-behavior">From display name behavior</h2>
+<ul>
+<li>If a sender display name has been configured, vuMailKit formats the
+From header as <code>Display Name &lt;email@address&gt;</code>.</li>
+<li>If no display name exists, vuMailKit falls back to the plain email
+address.</li>
+<li>This preserves compatibility with legacy code that only supplies an
+address.</li>
+</ul>
+</body>
+</html>

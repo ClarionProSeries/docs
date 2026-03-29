@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuOAuthSetProviderEnabled</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<h1 id="vuoauthsetproviderenabled">vuOAuthSetProviderEnabled</h1>
+<p>This is a preferred function introduced in vuMailKit 1.0.</p>
+<h2 id="purpose">Purpose</h2>
+<p>Allow the application to explicitly enable or suppress OAuth support
+for a specific provider. This is used to keep the setup UX honest: if a
+provider is detected but the application does not support OAuth for that
+provider (for example, no app credentials have been configured yet, or
+the developer chooses to suppress it), vuMailKit should not present
+OAuth as an available option.</p>
+<p>This function does not persist settings. It affects the current
+process runtime only.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><p>Provider (LONG)<br />
+Provider constant:</p>
+<ul>
+<li>1 = Google / Gmail</li>
+<li>2 = Microsoft 365 / Outlook</li>
+<li>3 = Yahoo / AOL (legacy disabled; enabling it does not restore
+active Yahoo OAuth support)</li>
+</ul></li>
+<li><p>EnableFlag (LONG)</p>
+<ul>
+<li>0 = Disable OAuth for this provider</li>
+<li>1 = Enable OAuth for this provider</li>
+</ul></li>
+</ul>
+<h2 id="return-value">Return Value</h2>
+<p>Returns a LONG result code:</p>
+<ul>
+<li>1 = Success</li>
+<li>0 = Failure (unknown provider)</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This function is part of the "hybrid" policy model:
+<ul>
+<li>A provider must be enabled, and required app credentials must be
+present, for OAuth to be considered supported.</li>
+</ul></li>
+<li>See also:
+<ul>
+<li><a href="../functions-oauth.html">vuOAuthDetectProviderFromEmail</a>
+<ul>
+<li><a href="../oauth.html">OAuth Support</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</body>
+</html>

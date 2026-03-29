@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuHaveStoredProfile</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuhavestoredprofile">vuHaveStoredProfile</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Return whether any managed vuMailKit profile has already been saved
+for the current Windows user.</p>
+<p>This helper is mainly useful for:</p>
+<ul>
+<li>demo app first-run logic</li>
+<li>offering the setup wizard when no secure profile exists yet</li>
+<li>diagnostics and support checks</li>
+</ul>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuHaveStoredProfile</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>None.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = at least one managed profile exists</li>
+<li><code>0</code> = no managed profile exists, or the check failed</li>
+</ul>
+<h2 id="what-it-does">What it does</h2>
+<p><code>vuHaveStoredProfile()</code> checks the managed profile store
+under the current Windows user and reports whether any saved managed
+profile files are present.</p>
+<p>This function only answers the managed-profile question.</p>
+<p>It does <strong>not</strong> mean:</p>
+<ul>
+<li>that legacy vuMail registry settings do or do not exist</li>
+<li>that startup code has or has not already populated runtime values
+manually</li>
+<li>that a send is guaranteed to succeed</li>
+</ul>
+<p>That distinction matters for migration scenarios. An older vuMail
+application may still have working legacy settings even when no managed
+profile exists yet.</p>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>HaveProfile            LONG
+
+HaveProfile = vuHaveStoredProfile()
+IF (HaveProfile = 0)
+  MESSAGE(&#39;No secure vuMailKit profile was found. You may want to run the setup wizard now.&#39;)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This function is best used as a gentle setup hint, not as a hard
+requirement.</li>
+<li>For migrated legacy applications, <code>0</code> may simply mean the
+developer has not moved the application to managed profiles yet.</li>
+<li>In a demo application, a result of <code>0</code> is a good time to
+offer the setup wizard.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

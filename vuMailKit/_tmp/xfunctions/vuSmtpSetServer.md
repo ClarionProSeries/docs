@@ -1,0 +1,44 @@
+
+[All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)
+
+# vuSmtpSetServer()
+
+## Description
+Sets the outbound SMTP server name and port. (legacy name: `vuSetMailServer()`).
+
+Previously exported as (legacy name, still supported):
+
+- [vuSetMailServer()](vuSetMailServer.md)
+
+### Parameters
+
+- `xServer` (CSTRING) - SMTP server host name or IP.
+- `xPort` (LONG) - SMTP server port.
+
+### Returns
+
+A LONG value indicating the result.
+
+- 1: Success (this function always returns 1)
+
+### Notes
+
+This sets the values stored in the current vuMailKit session. Use `vuGlobalsSave()` if you want to persist them to the registry.
+
+### Example (Clarion)
+
+````clarion
+ROUTINE:Test_vuSmtpSetServer   ROUTINE
+  DATA
+cServer   CSTRING(256)
+ThePort   LONG
+RC        LONG
+
+  CODE
+  cServer = 'smtp.example.com'
+  ThePort = 587
+  RC = vuSmtpSetServer(cServer, ThePort)
+  STOP('RC=' & RC)
+````
+
+[All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>whatsnew</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="whats-new-in-vumailkit">What's New in vuMailKit</h1>
+<p>Basic edition documentation refresh</p>
+<p>Release date: 2026-03-26</p>
+<p>This page highlights the major areas that were recently stabilized
+and documented in the current vuMailKit Basic edition work.</p>
+<h2 id="recent-highlights">Recent highlights</h2>
+<ul>
+<li>Added licensing initialization and license-diagnostics
+documentation</li>
+<li>Added DEMO-mode documentation and restrictions</li>
+<li>Clarified managed profile save, load, and immediate-apply
+behavior</li>
+<li>Expanded the function-level documentation for autodetect, deep scan,
+POP3, globals, logging, and profile workflows</li>
+</ul>
+<h2 id="major-function-areas-now-documented">Major function areas now
+documented</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licensing</td>
+<td><code>vuMailKitInitialize()</code> and
+<code>vuMailKitGetLicenseInfo()</code> now reflect the current
+Basic-edition licensing model.</td>
+</tr>
+<tr>
+<td>Managed Profiles</td>
+<td>Save/load behavior now documents the current managed-profile storage
+model and the same-session apply behavior after save.</td>
+</tr>
+<tr>
+<td>Autodetect and Deep Scan</td>
+<td>The async deep-scan flow now explains handle lifecycle, polling,
+result retrieval, and cleanup.</td>
+</tr>
+<tr>
+<td>POP3 Message Handling</td>
+<td>Getter, flag, save, and extraction pages now explain the
+loaded-message workflow more clearly.</td>
+</tr>
+<tr>
+<td>Globals and Logging</td>
+<td>The docs now clearly distinguish legacy <code>vuMail</code> registry
+behavior from the managed-profile model used once profiles exist.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>

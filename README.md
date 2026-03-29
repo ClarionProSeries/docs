@@ -1,4 +1,3 @@
-
 # Clarion ProSeries Documentation
 
 Welcome to the official documentation hub for the **Clarion ProSeries Classes, Templates, and Tools**.  
@@ -13,6 +12,7 @@ Here you will find guides, references, and examples for each product in the ProS
 | [Clarion QuickBooks Wrapper](./ClarionQBWrapper) | Templates and classes that integrate Clarion apps with QuickBooks Desktop via the QBXML SDK. |
 | [ProPath](./ProPath) | Advanced path and dataset management for Clarion applications with built-in support for SQLite, Firebird, and more. |
 | [vuFileTools](./vuFileTools) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
+| [vuMailKit](./vuMailKit) | Modern email support for Clarion applications, including SMTP, POP3, IMAP, OAuth, profile management, and legacy vuMail compatibility. |
 
 More products coming soon...
 
@@ -37,6 +37,5 @@ Some products may also include:
 
 ## Related Links
 
-- 🌐 [Website](https://clarionproseries.com)  
-- ✉️ [Contact Form](https://www.clarionproseries.com/html/contact.php)
-
+- [Website](https://clarionproseries.com)  
+- [Contact Form](https://www.clarionproseries.com/html/contact.php)

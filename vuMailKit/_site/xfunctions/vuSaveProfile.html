@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSaveProfile</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vusaveprofile">vuSaveProfile</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Save the current active runtime values into the managed profile named
+<code>default</code>.</p>
+<p>This is the normal Basic-safe profile save function used by the setup
+wizard and by single-profile applications.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuSaveProfile</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuSaveProfile(),LONG,PROC,Pascal,Raw,Name('vuSaveProfile')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>None.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = success</li>
+<li><code>0</code> = save failed</li>
+<li><code>-401</code> = vuMailKit was not initialized</li>
+<li><code>-402</code> = license is invalid or initialization failed</li>
+<li><code>-403</code> = current license tier does not allow this
+feature</li>
+</ul>
+<h2 id="what-it-does">What it does</h2>
+<p><code>vuSaveProfile()</code> saves the current live runtime
+configuration into the internal managed profile key
+<code>default</code>.</p>
+<p>That includes the current settings already loaded or set in memory,
+such as:</p>
+<ul>
+<li>SMTP server and port</li>
+<li>login and security settings</li>
+<li>POP settings where applicable</li>
+<li>profile metadata</li>
+<li>secrets through the managed secret store</li>
+</ul>
+<p>After a successful save:</p>
+<ul>
+<li>the <code>default</code> managed profile becomes the active
+profile</li>
+<li>the current process immediately applies that saved managed
+profile</li>
+<li>a same-session send can use the saved profile without requiring an
+application restart</li>
+</ul>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>Result                   LONG
+
+Result = vuSaveProfile()</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This is the normal profile-save function for the Basic edition.</li>
+<li>It does not save to the old <code>vuMail</code> registry model once
+managed profiles are active.</li>
+<li>Use <code>vuSaveProfileEx(ProfileName)</code> only when you need
+named profiles and have the required license tier.</li>
+<li>In the normal wizard flow, this is the function that transitions the
+application into managed-profile-based persistence.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

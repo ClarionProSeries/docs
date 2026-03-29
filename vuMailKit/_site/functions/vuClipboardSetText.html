@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuClipboardSetText</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vuclipboardsettext">vuClipboardSetText()</h1>
+<pre class="Prototype"><code>vuClipboardSetText(*CSTRING InText,*CSTRING InFormat,LONG InFlags),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuClipboardSetText&#39;)</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Copies provided text to the Windows clipboard and returns diagnostic
+text.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InText</td>
+<td>*CSTRING</td>
+<td>Text to copy to clipboard.</td>
+</tr>
+<tr>
+<td>InFormat</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving diagnostic text (<code>ok</code> on
+success).</td>
+</tr>
+<tr>
+<td>InFlags</td>
+<td>LONG</td>
+<td>Size of <code>OutText</code> buffer in bytes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>1</code>: Success.</li>
+<li><code>-7</code>: Clipboard operation failed; <code>OutText</code>
+contains exception details.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuClipboardSetText(*CSTRING InText,*CSTRING InFormat,LONG InFlags),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuClipboardSetText&#39;)
+  END
+END
+
+rc      LONG
+src     CSTRING(256)
+outMsg  CSTRING(260)
+
+src = &#39;Device code: ABCD-EFGH&#39;
+outMsg = &#39;&#39;
+rc = vuClipboardSetText(src, outMsg, SIZE(outMsg))
+IF rc = 1
+  MESSAGE(&#39;Clipboard updated: &#39; &amp; outMsg)
+ELSE
+  MESSAGE(&#39;Clipboard failed: rc=&#39; &amp; rc &amp; &#39; msg=&#39; &amp; outMsg)
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Text longer than 65,535 characters is truncated before clipboard
+write.</li>
+<li>This function also updates LastError internally (<code>0</code> on
+success, <code>-7</code> on failure).</li>
+<li>AuthMode/OAuth is not required, but this helper is commonly used in
+OAuth device-code UX flows.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

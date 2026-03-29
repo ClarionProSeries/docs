@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuOAuthLaunchAuthorizeUrl</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../functions-by-category.html">By category</a></p>
+<h1 id="vuoauthlaunchauthorizeurl">vuOAuthLaunchAuthorizeUrl</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Build and launch the provider authorization URL for an OAuth login
+flow.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuOAuthLaunchAuthorizeUrl</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG CopyUrlToClipboard,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Expected values / range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Provider</td>
+<td>*CSTRING</td>
+<td>Provider name.</td>
+<td>Typical values: <code>google</code>, <code>microsoft</code>.</td>
+</tr>
+<tr>
+<td>AccountKey</td>
+<td>*CSTRING</td>
+<td>Account key used to bind the OAuth session.</td>
+<td>Usually the email address.</td>
+</tr>
+<tr>
+<td>CopyUrlToClipboard</td>
+<td>LONG</td>
+<td>Whether to also copy the URL to the clipboard.</td>
+<td><code>0 = no</code>, <code>1 = yes</code>.</td>
+</tr>
+<tr>
+<td>OutText</td>
+<td>*CSTRING</td>
+<td>Receives status text or the URL.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutTextLen</td>
+<td>LONG</td>
+<td>Length of <code>OutText</code> in bytes.</td>
+<td>Pass <code>SIZE(OutText)</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-values-and-ranges">Expected values and ranges</h2>
+<ul>
+<li><code>CopyUrlToClipboard</code>: <code>0 = no</code>,
+<code>1 = yes</code>.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = authorize URL built and launch attempted
+successfully.</li>
+<li><code>0</code> = the operation failed.</li>
+</ul>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>Provider                 CSTRING(40)
+AccountKey               CSTRING(254)
+CopyUrlToClipboard       LONG
+OutText                  CSTRING(1024)
+OutTextLen               LONG
+Result                   LONG
+
+Provider = &#39;google&#39;
+AccountKey = &#39;user@example.com&#39;
+CopyUrlToClipboard = 1
+OutTextLen = SIZE(OutText)
+CLEAR(OutText)
+Result = vuOAuthLaunchAuthorizeUrl(Provider, AccountKey, CopyUrlToClipboard, OutText, OutTextLen)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>BeginLogin creates the session state; this function handles the
+explicit browser launch for hosted flows.</li>
+</ul>
+</body>
+</html>

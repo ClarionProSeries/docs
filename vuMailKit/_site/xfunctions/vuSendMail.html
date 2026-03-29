@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSendMail</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vusendmail">vuSendMail()</h1>
+<pre class="Prototype"><code>vuSendMail(*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING), LONG</code></pre>
+<h2 id="purpose">Purpose</h2>
+<p>Validates and queues one outbound email record to the SMTP worker
+queue.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xFrom</td>
+<td>*CSTRING</td>
+<td>Sender selector. You may pass a full mailbox, a plain email address,
+a display name only, or blank. See From selection rules below.</td>
+</tr>
+<tr>
+<td>xTo</td>
+<td>*CSTRING</td>
+<td>Recipient email address list.</td>
+</tr>
+<tr>
+<td>xCC</td>
+<td>*CSTRING</td>
+<td>CC address list.</td>
+</tr>
+<tr>
+<td>xBCC</td>
+<td>*CSTRING</td>
+<td>BCC address list.</td>
+</tr>
+<tr>
+<td>xSubject</td>
+<td>*CSTRING</td>
+<td>Message subject text.</td>
+</tr>
+<tr>
+<td>xBody</td>
+<td>*CSTRING</td>
+<td>Message body text.</td>
+</tr>
+<tr>
+<td>xAttachment</td>
+<td>*CSTRING</td>
+<td>Attachment file path.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>1</code>: Message accepted/queued.</li>
+<li><code>0</code>: Queueing failed.</li>
+<li><code>-2</code>: Invalid From or To address format.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuSendMail(*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING),LONG,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
+  END
+END
+
+rc      LONG
+cFrom   CSTRING(256)
+cTo     CSTRING(256)
+cCC     CSTRING(256)
+cBCC    CSTRING(256)
+cSubj   CSTRING(256)
+cBody   CSTRING(1024)
+cAttach CSTRING(260)
+
+cFrom = &#39;sender@example.com&#39;
+cTo = &#39;recipient@example.com&#39;
+cCC = &#39;&#39;
+cBCC = &#39;&#39;
+cSubj = &#39;Queue test&#39;
+cBody = &#39;Hello from vuSendMail&#39;
+cAttach = &#39;&#39;
+
+rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
+MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>vuSendMail()</code> returns after enqueue; delivery continues
+in background.</li>
+<li>Use <code>vuMailStatus()</code> and <code>vuMailLastError()</code>
+to inspect asynchronous send results.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h2 id="from-display-name-behavior">From display name behavior</h2>
+<ul>
+<li>If a sender display name has been configured, vuMailKit formats the
+From header as <code>Display Name &lt;email@address&gt;</code>.</li>
+<li>If no display name exists, vuMailKit falls back to the plain email
+address.</li>
+<li>This preserves compatibility with legacy code that only supplies an
+address.</li>
+</ul>
+<h2 id="from-selection-rules">From selection rules</h2>
+<p>vuSendMail() now resolves the effective sender using these rules:</p>
+<ul>
+<li>If <code>xFrom</code> is blank, vuMailKit uses the saved/default
+profile sender.</li>
+<li>If <code>xFrom</code> contains a full mailbox like
+<code>Support &lt;support@example.com&gt;</code>, vuMailKit uses it as
+the sender for that message.</li>
+<li>If <code>xFrom</code> contains only a plain email address like
+<code>support@example.com</code>, vuMailKit uses that address with no
+display name override.</li>
+<li>If <code>xFrom</code> contains only a display name like
+<code>Technical Support</code>, vuMailKit combines that name with the
+saved/default profile sender address.</li>
+</ul>
+<p>This lets legacy applications keep working while also allowing
+per-message display-name overrides without repeating the stored profile
+address every time.</p>
+<h2 id="notes-on-oauthprofile-sends">Notes on OAuth/profile sends</h2>
+<ul>
+<li>When you pass a different <strong>email address</strong> in
+<code>xFrom</code>, the provider/server may still reject that message if
+the authenticated account is not allowed to send as that address.</li>
+<li>A <strong>display-name-only</strong> override is safe because it
+keeps the stored profile sender address and changes only the visible
+name.</li>
+</ul>
+</body>
+</html>

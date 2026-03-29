@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>introduction</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="vumailkit---introduction">vuMailKit - Introduction</h1>
+<p><strong>vuMailKit</strong> is a Clarion email toolkit designed to
+provide modern send, receive, autodetect, OAuth, and profile-management
+capabilities through a single deployable DLL.</p>
+<p>It is designed as the modern successor to <strong>vuMail</strong>
+while still preserving the practical compatibility and developer
+workflow that existing Clarion applications expect.</p>
+<h2 id="basic-edition-highlights">Basic edition highlights</h2>
+<ul>
+<li>Single-DLL runtime deployment</li>
+<li>SMTP send support with modern TLS handling</li>
+<li>POP3 receive and message extraction support</li>
+<li>Account autodetect and deep-scan support for server settings</li>
+<li>Managed profile save and reuse</li>
+<li>OAuth support for supported providers</li>
+<li>Clarion-oriented template integration and examples</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>If you are new to vuMailKit, begin with the <a
+href="install.html">Installation</a> page.</p>
+<p>Then review:</p>
+<ul>
+<li><a href="template-registration.html">Template Registration</a></li>
+<li><a href="template-usage.html">Template Usage</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+<li><a href="functions/index.html">All functions</a></li>
+</ul>
+<h2 id="important-note-about-licensing">Important note about
+licensing</h2>
+<p>vuMailKit uses a startup licensing call. In normal use, the
+application should call <code>vuMailKitInitialize()</code> once during
+startup before invoking the wizard, autodetect, send, or profile
+functions. The code for this is handled automatically by the template
+but if you are hand-coding you will need to replicate that part of the
+code in your app.</p>
+<h2 id="about-the-function-reference">About the function reference</h2>
+<p>The function reference is organized so that active supported
+functions remain in the public documentation, while internal or obsolete
+functions are not advertised as part of the normal developer-facing
+surface.</p>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>

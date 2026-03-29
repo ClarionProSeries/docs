@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>migrating</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="migrating-from-vumail-to-vumailkit">Migrating from vuMail to
+vuMailKit</h1>
+<p>If you already have an application that uses the old
+<strong>vuMail</strong> template, moving to <strong>vuMailKit</strong>
+is straightforward.</p>
+<p>In most cases, your existing application logic can remain largely
+unchanged. The main work is replacing the old global extension template,
+entering the new template settings, and deciding whether you want to
+support OAuth and modern provider setup through the wizard.</p>
+<h2 id="step-1-install-and-register-the-vumailkit-template">Step 1.
+Install and register the vuMailKit template</h2>
+<p>Install <strong>vuMailKit</strong> and register the template in
+Clarion.</p>
+<p>If you need the detailed setup steps, see:</p>
+<ul>
+<li><a href="install.html">Installation Instructions</a></li>
+<li><a href="template-registration.html">Registering the
+Template</a></li>
+</ul>
+<h2 id="step-2-remove-the-old-vumail-global-extension">Step 2. Remove
+the old vuMail global extension</h2>
+<p>Open your application in the Clarion IDE.</p>
+<p>Then:</p>
+<ol type="1">
+<li>Open <strong>Global Extensions</strong>.</li>
+<li>Locate the old <strong>vuMail</strong> global extension.</li>
+<li>Remove that old template from the application.</li>
+</ol>
+<h2 id="step-3-add-the-new-vumailkit-global-extension">Step 3. Add the
+new vuMailKit global extension</h2>
+<p>Still in <strong>Global Extensions</strong>:</p>
+<ol type="1">
+<li>Click <strong>Insert</strong>.</li>
+<li>Find <strong>vuMailKit</strong>.</li>
+<li>Add the <strong>vuMailKit</strong> global extension to the
+application.</li>
+</ol>
+<p>At that point, the application is now configured to use the
+<strong>vuMailKit</strong> template instead of the old
+<strong>vuMail</strong> template.</p>
+<h2 id="step-4-enter-oauth-settings-if-you-want-oauth-support">Step 4.
+Enter OAuth settings if you want OAuth support</h2>
+<p>If you want to support Microsoft OAuth in the application:</p>
+<ol type="1">
+<li>Check the box to enable Microsoft OAuth support.</li>
+<li>Enter your Microsoft Client ID inside single quotes.</li>
+</ol>
+<p>Example:</p>
+<pre class="Clarion"><code>&#39;Microsoft-client-id-string&#39;</code></pre>
+<p>If you want to support Google OAuth in the application:</p>
+<ol type="1">
+<li>Check the box to enable Google OAuth support.</li>
+<li>Enter your Google Client ID inside single quotes.</li>
+<li>Enter your Google Secret inside single quotes.</li>
+</ol>
+<p>Examples:</p>
+<pre class="Clarion"><code>&#39;Google-client-id-string&#39;
+&#39;Google-secret-string&#39;</code></pre>
+<p>If you do not need OAuth support, you can leave those options
+disabled.</p>
+<h2 id="step-5-enter-your-developer-license">Step 5. Enter your
+developer license</h2>
+<p>Regardless of whether you plan to use OAuth, enter your
+<strong>vuMailKit developer license</strong> in the template
+settings.</p>
+<p>Enter the license string inside single quotes.</p>
+<p>Example:</p>
+<pre class="Clarion"><code>&#39;Your-license-string-goes-here&#39;</code></pre>
+<p>This is the developer license you receive with your order.</p>
+<h2 id="step-6-choose-your-usage-path">Step 6. Choose your usage
+path</h2>
+<p>From that point on, you have two practical paths.</p>
+<h3 id="path-a-stay-with-your-existing-non-oauth-flow">Path A. Stay with
+your existing non-OAuth flow</h3>
+<p>If your application does not need OAuth and you do not need the setup
+wizard, you do not have to run the wizard at all.</p>
+<p>In that case:</p>
+<ul>
+<li>compile the program as usual</li>
+<li>continue using your existing username, password, and other values
+the way your application already does</li>
+<li>let the application behave like a modernized drop-in replacement for
+the old <strong>vuMail</strong> workflow</li>
+</ul>
+<p>This is the simplest migration path.</p>
+<h3 id="path-b-use-the-wizard-for-oauth-or-modern-provider-setup">Path
+B. Use the wizard for OAuth or modern provider setup</h3>
+<p>If you want to support:</p>
+<ul>
+<li>Microsoft OAuth</li>
+<li>Google OAuth</li>
+<li>account autodetect</li>
+<li>modern TLS-style provider setup</li>
+<li>managed profile save and reuse</li>
+</ul>
+<p>then run the <strong>vuMailKit</strong> setup wizard inside your
+application.</p>
+<p>The wizard lets the end user detect settings, authenticate where
+supported, send a test message, and save the managed profile for later
+use.</p>
+<h2 id="what-happens-if-you-do-not-run-the-wizard">What happens if you
+do not run the wizard</h2>
+<p>If you do not run the wizard, the application will continue to use
+the values your program is already supplying through the existing code
+and legacy-compatible runtime behavior.</p>
+<p>That means many older <strong>vuMail</strong> applications can move
+to <strong>vuMailKit</strong> and continue working without forcing an
+immediate workflow change for the user.</p>
+<h2 id="what-happens-after-you-do-run-the-wizard">What happens after you
+do run the wizard</h2>
+<p>Once the user runs the wizard and saves a profile,
+<strong>vuMailKit</strong> begins using the managed-profile model for
+normal persistence.</p>
+<p>That means:</p>
+<ul>
+<li>the saved profile becomes the normal active profile</li>
+<li>the application can use the modern stored profile behavior on later
+runs</li>
+<li>OAuth-capable providers and modern TLS-driven setups become much
+easier to support</li>
+</ul>
+<h2 id="remove-old-runtime-files">Remove old runtime files</h2>
+<p>If you still have copies of the old <strong>vuMail</strong> DLL in
+the application folder, delete them.</p>
+<p>You do not want the old runtime files lingering in the application
+directory after migration.</p>
+<h2 id="new-runtime-deployment-behavior">New runtime deployment
+behavior</h2>
+<p>The <strong>vuMailKit</strong> template automatically places a copy
+of <strong>vuMailKit.dll</strong> into the application folder at compile
+time.</p>
+<p>Because <strong>vuMailKit</strong> now uses the flattened single-DLL
+deployment model for the Basic edition, that runtime deployment is
+simpler than older multi-file managed deployment approaches.</p>
+<h2 id="recommended-migration-checklist">Recommended migration
+checklist</h2>
+<ul>
+<li>Install <strong>vuMailKit</strong>.</li>
+<li>Register the <strong>vuMailKit</strong> template.</li>
+<li>Remove the old <strong>vuMail</strong> global extension.</li>
+<li>Add the new <strong>vuMailKit</strong> global extension.</li>
+<li>Enter your developer license in single quotes.</li>
+<li>If desired, enable Microsoft OAuth and enter the Microsoft Client ID
+in single quotes.</li>
+<li>If desired, enable Google OAuth and enter the Google Client ID and
+Google Secret in single quotes.</li>
+<li>Recompile the application.</li>
+<li>Remove any old <strong>vuMail</strong> DLL files from the
+application folder.</li>
+<li>Decide whether you want to stay with your legacy-compatible flow or
+move users to the setup wizard.</li>
+</ul>
+<h2 id="in-short">In short</h2>
+<p>If you do not need OAuth, many applications can move from
+<strong>vuMail</strong> to <strong>vuMailKit</strong> with very little
+disruption.</p>
+<p>If you do want OAuth and modern provider setup, add the template
+settings, compile, and then use the wizard to let the application
+transition into the newer managed-profile model.</p>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>

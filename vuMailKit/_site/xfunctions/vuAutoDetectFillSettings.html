@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAutoDetectFillSettings</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuautodetectfillsettings">vuAutoDetectFillSettings</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Auto-detect provider settings from an email address and fill writable
+output buffers with the recommended values. This legacy-compatible entry
+now runs the full deep-scan pipeline.</p>
+<h2 id="export-name">Export name</h2>
+<ul>
+<li><code>vuAutoDetectFillSettings</code></li>
+</ul>
+<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
+Global MAP)</h2>
+<ul>
+<li><code>vuAutoDetectFillSettings(*CString InEmailAddress,LONG InOutBufLen,*CString OutProfileEmailAddress,*LONG OutConfidence,*LONG OutDetectSource,*LONG OutProviderId,*LONG OutSmtpAuthModeHint,*LONG OutPopAuthModeHint,*LONG OutImapAuthModeHint,*CString OutSmtpHost,*LONG OutSmtpPort,*LONG OutSmtpSecurityMode,*CString OutSmtpUser,*CString OutPopHost,*LONG OutPopPort,*LONG OutPopSecurityMode,*CString OutPopUser,*CString OutImapHost,*LONG OutImapPort,*LONG OutImapSecurityMode,*CString OutImapUser),Signed,PROC,Pascal,Raw,Name('vuAutoDetectFillSettings')</code></li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Expected values / range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InEmailAddress</td>
+<td>*CSTRING</td>
+<td>Input email address to inspect, such as
+<code>user@example.com</code>.</td>
+<td>Must be a non-blank email address.</td>
+</tr>
+<tr>
+<td>InOutBufLen</td>
+<td>LONG</td>
+<td>Common buffer length used for the writable text output buffers.</td>
+<td>Pass the size of the text buffers, such as
+<code>SIZE(Buffer)</code>.</td>
+</tr>
+<tr>
+<td>OutProfileEmailAddress</td>
+<td>*CSTRING</td>
+<td>Receives the normalized profile email address.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutConfidence</td>
+<td>*LONG</td>
+<td>Receives confidence level for the detection result.</td>
+<td>Higher values mean higher confidence.</td>
+</tr>
+<tr>
+<td>OutDetectSource</td>
+<td>*LONG</td>
+<td>Receives the source used for the detection result.</td>
+<td><code>0=None</code>, <code>1=KnownProvider</code>,
+<code>2=DnsSrv</code>, <code>3=DomainAutoconfig</code>,
+<code>4=ISPDB</code>, <code>5=MxHeuristic</code>,
+<code>6=GuessProbe</code>.</td>
+</tr>
+<tr>
+<td>OutProviderId</td>
+<td>*LONG</td>
+<td>Receives the detected provider ID.</td>
+<td><code>0=None</code>, <code>1=Google</code>,
+<code>2=Microsoft</code>, <code>3=Yahoo</code>.</td>
+</tr>
+<tr>
+<td>OutSmtpAuthModeHint</td>
+<td>*LONG</td>
+<td>Receives the recommended SMTP auth mode.</td>
+<td><code>0=Unknown</code>, <code>1=Password</code>,
+<code>2=OAuth</code>.</td>
+</tr>
+<tr>
+<td>OutPopAuthModeHint</td>
+<td>*LONG</td>
+<td>Receives the recommended POP auth mode.</td>
+<td><code>0=Unknown</code>, <code>1=Password</code>,
+<code>2=OAuth</code>.</td>
+</tr>
+<tr>
+<td>OutImapAuthModeHint</td>
+<td>*LONG</td>
+<td>Receives the recommended IMAP auth mode.</td>
+<td><code>0=Unknown</code>, <code>1=Password</code>,
+<code>2=OAuth</code>.</td>
+</tr>
+<tr>
+<td>OutSmtpHost</td>
+<td>*CSTRING</td>
+<td>Receives the detected SMTP host name.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutSmtpPort</td>
+<td>*LONG</td>
+<td>Receives the detected SMTP port.</td>
+<td>Typical values are 25, 465, or 587.</td>
+</tr>
+<tr>
+<td>OutSmtpSecurityMode</td>
+<td>*LONG</td>
+<td>Receives the detected SMTP security mode.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>OutSmtpUser</td>
+<td>*CSTRING</td>
+<td>Receives the suggested SMTP user name.</td>
+<td>Usually the email address.</td>
+</tr>
+<tr>
+<td>OutPopHost</td>
+<td>*CSTRING</td>
+<td>Receives the detected POP host name.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutPopPort</td>
+<td>*LONG</td>
+<td>Receives the detected POP port.</td>
+<td>Typical values are 110 or 995.</td>
+</tr>
+<tr>
+<td>OutPopSecurityMode</td>
+<td>*LONG</td>
+<td>Receives the detected POP security mode.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>OutPopUser</td>
+<td>*CSTRING</td>
+<td>Receives the suggested POP user name.</td>
+<td>Usually the email address.</td>
+</tr>
+<tr>
+<td>OutImapHost</td>
+<td>*CSTRING</td>
+<td>Receives the detected IMAP host name.</td>
+<td>Writable text buffer.</td>
+</tr>
+<tr>
+<td>OutImapPort</td>
+<td>*LONG</td>
+<td>Receives the detected IMAP port.</td>
+<td>Typical values are 143 or 993.</td>
+</tr>
+<tr>
+<td>OutImapSecurityMode</td>
+<td>*LONG</td>
+<td>Receives the detected IMAP security mode.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
+</tr>
+<tr>
+<td>OutImapUser</td>
+<td>*CSTRING</td>
+<td>Receives the suggested IMAP user name.</td>
+<td>Usually the email address.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-values-and-ranges">Expected values and ranges</h2>
+<ul>
+<li>Provider IDs: <code>0 = None</code>, <code>1 = Google</code>,
+<code>2 = Microsoft</code>, <code>3 = Yahoo</code>.</li>
+<li>Detect source values: <code>0 = None</code>,
+<code>1 = KnownProvider</code>, <code>2 = DnsSrv</code>,
+<code>3 = DomainAutoconfig</code>, <code>4 = ISPDB</code>,
+<code>5 = MxHeuristic</code>, <code>6 = GuessProbe</code>.</li>
+<li>Auth mode hints: <code>0 = Unknown</code>,
+<code>1 = Password</code>, <code>2 = OAuth</code>.</li>
+<li>Security mode values: <code>0 = None</code>,
+<code>1 = StartTls</code>, <code>2 = ImplicitTls</code>.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li><code>1</code> = detection succeeded and output values were filled
+as available.</li>
+<li><code>0</code> = detection failed or no useful settings were
+found.</li>
+</ul>
+<h2 id="scan-behavior">Scan behavior</h2>
+<ul>
+<li><code>vuAutoDetectFillSettings</code> now behaves as the full
+deep-scan version for backward compatibility.</li>
+<li>For a faster first-pass lookup, use
+<code>vuAutoDetectFillSettingsFast</code>.</li>
+<li>For an explicit full scan, use
+<code>vuAutoDetectFillSettingsDeep</code>.</li>
+</ul>
+<h2 id="clarion-example">Clarion example</h2>
+<pre class="clarion"><code>EmailAddress            CSTRING(254)
+BufLen                  LONG
+ProfileEmail            CSTRING(254)
+Confidence              LONG
+DetectSource            LONG
+ProviderId              LONG
+SmtpAuthModeHint        LONG
+PopAuthModeHint         LONG
+ImapAuthModeHint        LONG
+SmtpHost                CSTRING(254)
+SmtpPort                LONG
+SmtpSecurityMode        LONG
+SmtpUser                CSTRING(254)
+PopHost                 CSTRING(254)
+PopPort                 LONG
+PopSecurityMode         LONG
+PopUser                 CSTRING(254)
+ImapHost                CSTRING(254)
+ImapPort                LONG
+ImapSecurityMode        LONG
+ImapUser                CSTRING(254)
+Result                  LONG
+
+EmailAddress = &#39;user@example.com&#39;
+BufLen = SIZE(ProfileEmail)
+CLEAR(ProfileEmail)
+CLEAR(SmtpHost)
+CLEAR(PopHost)
+CLEAR(ImapHost)
+
+Result = vuAutoDetectFillSettings(EmailAddress, BufLen, ProfileEmail, Confidence, DetectSource, ProviderId, |
+  SmtpAuthModeHint, PopAuthModeHint, ImapAuthModeHint, SmtpHost, SmtpPort, SmtpSecurityMode, SmtpUser, |
+  PopHost, PopPort, PopSecurityMode, PopUser, ImapHost, ImapPort, ImapSecurityMode, ImapUser)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This function is designed for setup wizards and first-run
+configuration screens.</li>
+<li>For the best user experience, use
+<code>vuAutoDetectFillSettingsFast</code> first and offer
+<code>vuAutoDetectFillSettingsDeep</code> only when the user wants a
+deeper scan.</li>
+<li>After detection, developers typically copy the detected values into
+the normal SMTP/POP globals, optionally send a test message, and then
+call <code>vuSaveProfile</code> to persist the configuration.</li>
+</ul>
+</body>
+</html>

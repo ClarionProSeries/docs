@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuPOP3GetHTMLText</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vupop3gethtmltext">vuPOP3GetHTMLText()</h1>
+<pre class="Prototype"><code>vuPOP3GetHTMLText(), CSTRING</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns the HTML body of the message currently loaded into the POP3
+message buffer.</p>
+<p>This is a legacy vuMail-style text getter. In Clarion, it is normally
+declared as returning <code>CSTRING</code>, even though the underlying
+compatibility behavior comes from an internal null-terminated text
+buffer managed by the DLL.</p>
+<h2 id="return-value">Return value</h2>
+<ul>
+<li>Returns the requested text value.</li>
+<li>Returns an empty string if no value is currently available.</li>
+</ul>
+<h2 id="when-to-use-it">When to use it</h2>
+<p>Use this function when you want to inspect the current POP3 runtime
+configuration or read fields from the message that was most recently
+loaded with <code>vuPOP3LoadHeader()</code> or
+<code>vuPOP3LoadEmail()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MESSAGE(vuPOP3GetHTMLText())</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>These legacy text getters are kept for compatibility with older
+Clarion code written for vuMail.</li>
+<li>For configuration values such as server, user, password, and folder,
+the returned value reflects the current live runtime setting.</li>
+<li>For message values such as subject, from, date, and body text, the
+returned value reflects the message currently loaded into the internal
+POP3 message buffer.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

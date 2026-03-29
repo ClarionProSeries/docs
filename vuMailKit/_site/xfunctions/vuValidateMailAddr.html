@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuValidateMailAddr</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vuvalidatemailaddr">vuValidateMailAddr()</h1>
+<pre class="Prototype"><code>vuValidateMailAddr(*CSTRING), LONG</code></pre>
+<h2 id="description">Description</h2>
+<p>Validates a practical real-world internet email address. It rejects
+obvious malformed values such as missing top-level domains, spaces,
+trailing junk, malformed dots, bad domain labels, and slash characters
+in the local part. It also returns a separate suspicious status for
+certain typo-like domains such as gmail.com.com, lansrad.com.com so
+callers can warn the user before running deeper detection. This is used
+internally by helper flows such as vuSetFromReplyTo() and send-path
+validation.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Address</td>
+<td>*CSTRING</td>
+<td>Email address to validate.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1: Address is a valid practical internet email address</li>
+<li>2: Address is valid but suspicious and should be reviewed</li>
+<li>0: Address is malformed or incomplete</li>
+</ul>
+<h3 id="clarion-caller-note">Clarion caller note</h3>
+<p>Clean entry-field values before calling this function. In Clarion, a
+practical pattern is:</p>
+<pre class="Clarion"><code>EmailAddress = CLIP(LEFT(EmailAddress))
+DISPLAY(EmailAddress)
+RC = vuValidateMailAddr(EmailAddress)</code></pre>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ROUTINE:Test_vuValidateMailAddr   ROUTINE
+  DATA
+RC            LONG
+EmailAddress  CSTRING(260)
+
+  CODE
+  EmailAddress = &#39;  user@example.com  &#39;
+  EmailAddress = CLIP(LEFT(EmailAddress))
+  RC = vuValidateMailAddr(EmailAddress)
+  STOP(&#39;RC=&#39; &amp; RC &amp; &#39;|Addr=&#39; &amp; EmailAddress)</code></pre>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<p>Note: addresses with repeated trailing suffixes such as
+<code>example.com.com</code> now return <code>2</code> (valid but
+suspicious).</p>
+</body>
+</html>

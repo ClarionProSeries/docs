@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailLastError</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumaillasterror">vuMailLastError()</h1>
+<pre class="Prototype"><code>vuMailLastError(), CSTRING</code></pre>
+<p>This legacy function is declared as returning <code>CSTRING</code> in
+Clarion to preserve original vuMail template behavior. Under the hood,
+the export returns a pointer to a null-terminated C string buffer, and
+Clarion consumes it directly as text, as shown in the examples
+below.</p>
+<h2 id="description">Description</h2>
+<p>Gets the current last-error text using the original vuMail
+compatibility behavior.</p>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li>Returns the current last-error text using the original vuMail legacy
+text-return style.</li>
+<li>In Clarion, this function can be used directly in text expressions
+such as <code>MESSAGE()</code> and string assignment.</li>
+<li>Returns a blank string when no error text is currently
+available.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>ROUTINE:Test_vuMailLastError   ROUTINE
+DATA
+RC  LONG
+
+  CODE
+  RC = vuTestSetLastError(&#39;This is a forced test error string from Clarion&#39;)
+  STOP(&#39;RC=&#39; &amp; RC &amp; &#39;  vuMailLastError()=&#39; &amp; vuMailLastError())</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Original vuMail behavior: this returns the last verbose error
+message as text, and it is blank if no error was generated during the
+last send.</li>
+<li>Legacy compatibility exception: in the original PowerBasic vuMail
+code these functions exported a numeric <code>DWORD</code> that was
+actually the address of an internal C string buffer. Clarion can consume
+that value directly in string expressions, which is why the legacy
+examples use assignment and <code>MESSAGE()</code> style calls because
+the Clarion prototype is declared as <code>CSTRING</code>.</li>
+<li>New text-return APIs should use caller-owned <code>*CSTRING</code>
+output buffers.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

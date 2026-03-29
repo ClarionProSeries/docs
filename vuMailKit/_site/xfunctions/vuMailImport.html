@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailImport</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumailimportxfilepath">vuMailImport(xFilePath)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Loads an RFC822 message file and stores it as the current legacy
+in-process message.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xFilePath</code> (*CSTRING): Source message file path.</li>
+</ul>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>0</code>: Success.</li>
+<li><code>-1</code>: Blank file path.</li>
+<li><code>-2</code>: File not found or read/parse error.</li>
+<li><code>-3</code>: File exists but is empty.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuMailImport(*CSTRING xFilePath),LONG,PASCAL,RAW,NAME(&#39;vuMailImport&#39;)
+  END
+END
+
+rc LONG
+src CSTRING(260)
+src = &#39;C:\Temp\inbound.eml&#39;
+rc = vuMailImport(src)
+IF rc &lt;&gt; 0
+  MESSAGE(&#39;Import failed code &#39; &amp; rc &amp; &#39;: &#39; &amp; vuMailLastError())
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>On success, the imported message becomes available to legacy
+read/export helpers.</li>
+<li>AuthMode/OAuth is not used by this function.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailImport</code>.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

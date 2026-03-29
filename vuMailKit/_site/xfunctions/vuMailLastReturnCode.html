@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailLastReturnCode</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h2 id="purpose">Purpose</h2>
+<p><code>vuMailLastReturnCode()</code> returns a numeric code that
+describes what happened in the most recent completed send operation.</p>
+<p>This is intended to be machine-readable, so calling code can react
+without parsing <code>vuMailLastError()</code> text.</p>
+<h2 id="when-to-call-it">When to call it</h2>
+<p>Call this after a send has completed, for example:</p>
+<ul>
+<li>After <code>vuSendMailWait()</code> returns.</li>
+<li>After your <code>vuSendMail()</code> call has queued a send and your
+polling loop sees <code>vuMailStatus()</code> return 0.</li>
+<li>After <code>vuSendMailFromFile()</code> has finished processing the
+file (if you are waiting for completion).</li>
+</ul>
+<h2 id="return-values">Return values</h2>
+<p>These codes supplement the legacy return codes from
+<code>vuSendMail*()</code>.</p>
+<ul>
+<li><code>0</code> No additional detail available, or success.</li>
+<li><code>-701</code> OAuth needs re-authorization. The refresh token is
+invalid, expired, or revoked.</li>
+<li><code>-702</code> OAuth temporary failure. Retry later (network,
+provider outage, throttling).</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>If <code>vuMailLastReturnCode()</code> is <code>-701</code>, your UI
+should prompt the user to run the OAuth authorization flow again for the
+affected account.</li>
+<li>If <code>vuMailLastReturnCode()</code> is <code>-702</code>, treat
+it as temporary and retry later.</li>
+</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<pre class="clarion"><code>  MODULE(&#39;vuMailKit.dll&#39;)
+  vuMailLastReturnCode(),LONG,PROC,Pascal,Raw,Name(&#39;vuMailLastReturnCode&#39;)
+  END</code></pre>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>  WaitRC  LONG
+  LastRC  LONG
+  LastMsg CSTRING(2048)
+
+  WaitRC = vuSendMailWait(cFrom,cTo,cCC,cBCC,cSubject,cBody,cAttach)
+
+  LastRC = vuMailLastReturnCode()
+  LastMsg = vuMailLastError()
+
+  IF (LastRC = -701)
+    MESSAGE(&#39;OAuth needs re-authorization.|&#39; &amp; LastMsg,&#39;vuMailKit&#39;,ICON:Exclamation)
+  ELSIF (LastRC = -702)
+    MESSAGE(&#39;Temporary OAuth failure.|&#39; &amp; LastMsg,&#39;vuMailKit&#39;,ICON:Exclamation)
+  END</code></pre>
+<h2 id="related-functions">Related functions</h2>
+<ul>
+<li><code>vuMailLastError()</code></li>
+<li><code>vuMailStatus()</code></li>
+<li><code>vuSendMail()</code></li>
+<li><code>vuSendMailWait()</code></li>
+<li><code>vuSendMailFromFile()</code></li>
+</ul>
+</body>
+</html>

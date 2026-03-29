@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailImportHeader</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="vumailimportheaderxname">vuMailImportHeader(xName)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Loads only the header block from an email file and places those
+headers into the current legacy in-process message buffer.</p>
+<p>Use this when you want quick access to header fields without loading
+and parsing the full body and attachment content.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xName</code> (*CSTRING): Source <code>.eml</code> file
+path.</li>
+</ul>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>0</code>: Header import succeeded.</li>
+<li><code>-1</code>: Blank filename.</li>
+<li><code>-2</code>: File not found, open failure, or parse
+failure.</li>
+<li><code>-3</code>: File exists but is empty.</li>
+</ul>
+<h2 id="what-this-loads">What this loads</h2>
+<p>This function is header-only.</p>
+<p>That means it is useful for things like:</p>
+<ul>
+<li>subject</li>
+<li>from</li>
+<li>date</li>
+<li>message-id</li>
+<li>routing headers</li>
+</ul>
+<p>If you need body text, attachments, or embedded content, use a full
+message load/import path instead.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuMailImportHeader(*CSTRING xName),LONG,PASCAL,RAW,NAME(&#39;vuMailImportHeader&#39;)
+  END
+END
+
+rc LONG
+src CSTRING(260)
+
+src = &#39;C:\Temp\inbound.eml&#39;
+rc = vuMailImportHeader(src)
+IF rc &lt;&gt; 0
+  MESSAGE(&#39;Import header failed code &#39; &amp; rc &amp; &#39;: &#39; &amp; vuMailLastError())
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This function updates the current legacy message/session state.</li>
+<li>It does not connect to POP3 or IMAP.</li>
+<li>Body content is intentionally not loaded.</li>
+<li>AuthMode and OAuth are not involved.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailImportHeader</code>.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

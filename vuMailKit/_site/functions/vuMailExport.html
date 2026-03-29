@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailExport</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vumailexportxfilepath">vuMailExport(xFilePath)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Writes the currently loaded in-process message to an RFC822
+<code>.eml</code> file.</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xFilePath</code> (*CSTRING): Destination file path.</li>
+</ul>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>0</code>: Success.</li>
+<li><code>-1</code>: Blank file path or no message currently
+loaded.</li>
+<li><code>-2</code>: Write/open failure or other exception.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuMailExport(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailExport&#39;)
+  END
+END
+
+rc LONG
+path CSTRING(260)
+path = &#39;C:\Temp\exported.eml&#39;
+rc = vuMailExport(path)
+IF rc &lt;&gt; 0
+  MESSAGE(&#39;Export failed code &#39; &amp; rc &amp; &#39;: &#39; &amp; vuMailLastError())
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Creates the destination directory when needed.</li>
+<li>This export depends on a message already loaded into the legacy
+session state.</li>
+<li>AuthMode/OAuth is not used by this function.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailExport</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

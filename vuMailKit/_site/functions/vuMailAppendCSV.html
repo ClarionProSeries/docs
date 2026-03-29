@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailAppendCSV</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1
+id="vumailappendcsvxfrom-xto-xcc-xbcc-xsubject-xbody-xattachment">vuMailAppendCSV(xFrom,
+xTo, xCc, xBcc, xSubject, xBody, xAttachment)</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Appends one CSV row with message fields to the file previously
+selected by <code>vuMailCreateCSV()</code> (or
+<code>vuMailSelectCSV()</code>).</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li><code>xFrom</code> (*CSTRING): From address/text.</li>
+<li><code>xTo</code> (*CSTRING): To address/text.</li>
+<li><code>xCc</code> (*CSTRING): CC address/text.</li>
+<li><code>xBcc</code> (*CSTRING): BCC address/text.</li>
+<li><code>xSubject</code> (*CSTRING): Subject text.</li>
+<li><code>xBody</code> (*CSTRING): Body text.</li>
+<li><code>xAttachment</code> (*CSTRING): Attachment path/text.</li>
+</ul>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<ul>
+<li><code>1</code>: Row appended.</li>
+<li><code>0</code>: Failure (for example no selected CSV file, selected
+file missing, or write failure). Error text is available through
+<code>vuMailLastError()</code>.</li>
+</ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuMail.dll&#39;)
+    vuMailAppendCSV(*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach,*CSTRING InFrom),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailAppendCSV&#39;)
+  END
+END
+
+fromAddr  CSTRING(128)
+toAddr    CSTRING(128)
+ccAddr    CSTRING(1)
+bccAddr   CSTRING(1)
+subject   LONG
+body      CSTRING(256)
+attach    CSTRING(260)
+
+fromAddr = &#39;sender@example.com&#39;
+toAddr = &#39;to@example.com&#39;
+ccAddr = &#39;&#39;
+bccAddr = &#39;&#39;
+subject = &#39;Test subject&#39;
+body = &#39;Test body&#39;
+attach = &#39;C:\Temp\a.pdf&#39;
+
+IF vuMailAppendCSV(fromAddr,toAddr,ccAddr,bccAddr,subject,body,attach) = 0
+  MESSAGE(&#39;Append failed: &#39; &amp; vuMailLastError())
+END</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Uses ASCII encoding and CSV quoting/escaping for commas, quotes, and
+line breaks.</li>
+<li>Requires a selected CSV path from
+<code>vuMailCreateCSV()</code>/<code>vuMailSelectCSV()</code>.</li>
+<li>AuthMode/OAuth is not used by this function.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailAppendCSV</code>.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuAutoDetectReleaseDeepScan</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1
+id="vuautodetectreleasedeepscaninhandle">vuAutoDetectReleaseDeepScan(InHandle)</h1>
+<pre class="Prototype"><code>vuAutoDetectReleaseDeepScan(LONG InHandle),Signed,PROC,Pascal,Raw,Name(&#39;vuAutoDetectReleaseDeepScan&#39;)</code></pre>
+<h2 id="description">Description</h2>
+<p>Releases the stored state for an asynchronous deep autodetect job
+after completion or cancel.</p>
+<p>This is the cleanup call for the deep-scan handle lifecycle.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InHandle</td>
+<td>LONG</td>
+<td>Handle returned by <code>vuAutoDetectStartDeepScan()</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="returns">Returns</h2>
+<ul>
+<li><code>1</code> = stored job state released</li>
+<li><code>0</code> = handle not found</li>
+<li><code>-401</code> = <code>vuMailKitInitialize()</code> was not
+called</li>
+<li><code>-402</code> = invalid license or failed initialization</li>
+<li><code>-403</code> = current license tier does not allow this
+feature</li>
+</ul>
+<p>When the function returns <code>0</code>, call
+<code>vuMailLastError()</code> for the failure text.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Release the handle after you have either copied the final result or
+decided you no longer need the canceled or failed job state.</li>
+<li>Once released, the handle is no longer valid for polling, canceling,
+or result retrieval.</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuLogSetFile</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vulogsetfile">vuLogSetFile()</h1>
+<h2 id="description">Description</h2>
+<p>Sets the mail log file path. (legacy name:
+<code>vuSetMailLog()</code>).</p>
+<p>Previously exported as (legacy name, still supported):</p>
+<ul>
+<li><a href="vuSetMailLog.html">vuSetMailLog()</a></li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><code>xFileName</code> (CSTRING) - Full path to the log file to be
+used by vuMailKit.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A LONG value indicating the result.</p>
+<ul>
+<li>1: Success (this function always returns 1)</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<p>Use <code>vuGlobalsSave()</code> if you want to persist it to the
+registry (key: "SentLogFile").</p>
+<h3 id="example-clarion">Example (Clarion)</h3>
+<pre class="clarion"><code>ROUTINE:Test_vuLogSetFile   ROUTINE
+  DATA
+cLog   CSTRING(520)
+RC     LONG
+
+  CODE
+  cLog = CLIP(PATH()) &amp; &#39;\MailLog.txt&#39;
+  RC = vuLogSetFile(cLog)
+  STOP(&#39;RC=&#39; &amp; RC)</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

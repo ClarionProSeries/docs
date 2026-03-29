@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AboutGlobalMemory</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+<h1 id="about-global-memory">About global memory</h1>
+<p>vuMailKit keeps a set of live runtime values in memory while the DLL
+is loaded. These values represent the current email configuration that
+send, receive, autodetect, and related functions use while your program
+is running.</p>
+<p>This page explains the difference between:</p>
+<ul>
+<li>live in-memory settings</li>
+<li>legacy global save/load behavior</li>
+<li>managed profile behavior after a profile has been created</li>
+</ul>
+<h2 id="the-important-idea">The important idea</h2>
+<p>There are always live runtime values in memory while vuMailKit is
+active.</p>
+<p>Setter functions change those live runtime values immediately.</p>
+<p>Examples include functions that set values such as:</p>
+<ul>
+<li>SMTP server</li>
+<li>port</li>
+<li>user ID</li>
+<li>password</li>
+<li>log file</li>
+<li>reply-to</li>
+<li>security mode</li>
+</ul>
+<p>If you change one of those values with a setter function, vuMailKit
+uses the new in-memory value right away for the current session.</p>
+<h2 id="two-operating-modes">Two operating modes</h2>
+<p>vuMailKit can operate in two different configuration modes.</p>
+<h3 id="1-legacy-compatibility-mode">1. Legacy compatibility mode</h3>
+<p>This is the old vuMail style behavior.</p>
+<p>In this mode:</p>
+<ul>
+<li>settings live in memory while the program is running</li>
+<li><code>vuGlobalsLoad()</code> and <code>vuMailGetGlobals()</code>
+load saved global values</li>
+<li><code>vuGlobalsSave()</code> and <code>vuMailSaveGlobals()</code>
+save current global values</li>
+<li>the legacy registry location may still be used</li>
+</ul>
+<p>This mode is mainly relevant before a managed profile has ever been
+created.</p>
+<h3 id="2-managed-profile-mode">2. Managed profile mode</h3>
+<p>This mode becomes the normal model once a managed profile exists.</p>
+<p>In this mode:</p>
+<ul>
+<li>settings still live in memory while the program is running</li>
+<li>the active managed profile becomes the normal persistence
+source</li>
+<li>global load/save functions operate against the active managed
+profile</li>
+<li>the old vuMail registry location is no longer the primary place
+where settings are stored</li>
+</ul>
+<p>This is the mode most developers and end users will be using after
+the setup wizard has successfully created and saved a profile.</p>
+<h2 id="what-happens-before-any-profile-exists">What happens before any
+profile exists</h2>
+<p>Before a managed profile has been created, vuMailKit can still behave
+like the older vuMail product.</p>
+<p>That means:</p>
+<ul>
+<li>you can set values one at a time with setter functions</li>
+<li>you can load saved globals</li>
+<li>you can save globals</li>
+<li>legacy registry-backed behavior may still be used</li>
+</ul>
+<p>Legacy registry location:</p>
+<ul>
+<li><code>HKCU\SOFTWARE\vuPrograms\vuMail</code></li>
+</ul>
+<p>This exists for compatibility with older usage patterns and migration
+from the original vuMail model.</p>
+<h2 id="what-changes-after-a-profile-is-created">What changes after a
+profile is created</h2>
+<p>Once a managed profile has been created, vuMailKit switches to
+managed-profile-based persistence for normal operation.</p>
+<p>At that point:</p>
+<ul>
+<li>live runtime values still exist and are still used</li>
+<li>setter functions still work</li>
+<li>save/load behavior now targets the active managed profile</li>
+<li>the old <code>vuMail</code> registry location is no longer the
+normal primary store for email settings</li>
+</ul>
+<p>Managed profile data is stored under Local AppData, including
+locations such as:</p>
+<ul>
+<li><code>%LOCALAPPDATA%\vuPrograms\vuMailKit\profiles</code></li>
+<li><code>%LOCALAPPDATA%\vuPrograms\vuMailKit\secrets</code></li>
+<li><code>%LOCALAPPDATA%\vuPrograms\vuMailKit\state</code></li>
+</ul>
+<p>vuMailKit may also keep active-profile bookkeeping under a
+<code>vuMailKit</code> registry node, but the old <code>vuMail</code>
+registry key is not the normal primary store once managed profiles are
+in use.</p>
+<h2 id="do-setter-functions-still-matter-after-profiles-exist">Do setter
+functions still matter after profiles exist</h2>
+<p>Yes.</p>
+<p>That is important for legacy compatibility.</p>
+<p>Even after a profile exists:</p>
+<ul>
+<li>setter functions still change the live runtime values for the
+current session</li>
+<li>send and receive operations use those current in-memory values</li>
+<li>if you then save globals, vuMailKit saves the current runtime values
+into the active managed profile</li>
+</ul>
+<p>So setter functions remain valid. Their role is simply different once
+managed profiles are active.</p>
+<h3 id="in-legacy-compatibility-mode">In legacy compatibility mode</h3>
+<p>Setter functions act like runtime changes to values that may later be
+saved through the legacy global save path.</p>
+<h3 id="in-managed-profile-mode">In managed profile mode</h3>
+<p>Setter functions act like runtime changes to the currently active
+profile context.</p>
+<p>If you save after making those changes, the active managed profile is
+updated.</p>
+<h2 id="loading-and-saving-globals">Loading and saving globals</h2>
+<p>Preferred functions:</p>
+<ul>
+<li><code>vuGlobalsLoad()</code></li>
+<li><code>vuGlobalsSave()</code></li>
+</ul>
+<p>Legacy names still supported:</p>
+<ul>
+<li><code>vuMailGetGlobals()</code> is the legacy name for
+<code>vuGlobalsLoad()</code></li>
+<li><code>vuMailSaveGlobals()</code> is the legacy name for
+<code>vuGlobalsSave()</code></li>
+</ul>
+<h3 id="what-these-do-before-profiles-exist">What these do before
+profiles exist</h3>
+<p>Before managed profiles exist:</p>
+<ul>
+<li>load pulls values into runtime memory from the legacy persistence
+model</li>
+<li>save writes current runtime values back to that legacy persistence
+model</li>
+</ul>
+<h3 id="what-these-do-after-profiles-exist">What these do after profiles
+exist</h3>
+<p>After managed profiles exist:</p>
+<ul>
+<li>load pulls values from the active managed profile into runtime
+memory</li>
+<li>save writes current runtime values back to the active managed
+profile</li>
+</ul>
+<p>That means the function names stay the same, but the persistence
+target changes once the product has moved into managed profile mode.</p>
+<h2 id="immediate-runtime-behavior">Immediate runtime behavior</h2>
+<p>vuMailKit always uses the live runtime values that are currently in
+memory.</p>
+<p>That means:</p>
+<ul>
+<li>if you load settings, those values become active</li>
+<li>if you call setters, the new values become active</li>
+<li>if you save a profile through the wizard, that saved profile is
+applied to the active runtime</li>
+<li>if you restart the application, the active managed profile is loaded
+again for normal use</li>
+</ul>
+<h2 id="preventing-password-storage-in-the-legacy-model">Preventing
+password storage in the legacy model</h2>
+<p>Some developers do not want passwords written to the registry in the
+old compatibility model.</p>
+<p>Use:</p>
+<ul>
+<li><code>vuNoPasswordInRegistry(1)</code></li>
+</ul>
+<p>When this is enabled, the SMTP password may be omitted from legacy
+registry persistence.</p>
+<p>Note:</p>
+<ul>
+<li>this setting is mainly relevant to the old legacy global save
+behavior</li>
+<li>once managed profiles are in normal use, profile and secret storage
+are handled through the managed-profile system instead of the old
+<code>vuMail</code> registry storage model</li>
+</ul>
+<h2 id="typical-usage-pattern-today">Typical usage pattern today</h2>
+<p>For most new development using the setup wizard:</p>
+<ul>
+<li>let the wizard detect or collect the settings</li>
+<li>send a test message</li>
+<li>save the managed profile</li>
+<li>allow vuMailKit to use that managed profile as the normal
+persistence source</li>
+</ul>
+<p>In that scenario, most developers do not need to manually set
+individual values unless they want to override something at runtime.</p>
+<h2 id="typical-legacy-style-pattern">Typical legacy-style pattern</h2>
+<p>If you are using vuMailKit in a more manual or legacy-compatible way,
+a common pattern is:</p>
+<ul>
+<li>load globals</li>
+<li>override one or more values with setter functions</li>
+<li>use the updated runtime values</li>
+<li>save globals if you want those changes persisted</li>
+</ul>
+<p>Example (Clarion):</p>
+<pre class="Clarion"><code>  RC = vuGlobalsLoad()
+
+  RC = vuSmtpSetServer(&#39;smtp.example.com&#39;, 587)
+  RC = vuLogSetFile(CLIP(PATH()) &amp; &#39;\mail.log&#39;)
+
+  RC = vuNoPasswordInRegistry(1)
+
+  RC = vuGlobalsSave()</code></pre>
+<h2 id="summary">Summary</h2>
+<p>The easiest way to think about vuMailKit is this:</p>
+<ul>
+<li>runtime values always live in memory while the DLL is active</li>
+<li>setter functions always affect those live runtime values</li>
+<li>before profiles exist, global save/load can still use the old legacy
+model</li>
+<li>after a managed profile exists, global save/load normally target the
+active managed profile instead</li>
+<li>once the wizard has created and saved a profile, that managed
+profile becomes the normal configuration path going forward</li>
+</ul>
+<p><a href="index.html">All functions</a> | <a
+href="legacy-index.html">Legacy functions</a> | <a
+href="AboutFunctionNames.html">About function names</a></p>
+</body>
+</html>
