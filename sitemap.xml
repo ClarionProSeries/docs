@@ -4,28 +4,78 @@
   <!-- Docs root -->
   <url>
     <loc>https://clarionproseries.github.io/docs/index.html</loc>
-    <lastmod>2025-10-12</lastmod>
+    <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- vuFileTools root pages -->
   <url>
-    <loc>https://clarionproseries.github.io/docs/vuFileTools/index.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/</loc>
+    <lastmod>2026-03-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://clarionproseries.github.io/docs/vuFileTools/functions/functions-index.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/introduction.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/requirements.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/install.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/template-registration.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/template-usage.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/deployment.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/functions/</loc>
+    <lastmod>2026-03-20</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/index.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/</loc>
+    <lastmod>2026-03-20</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/whatsnew.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/version-history.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/support.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/prohelpstudio.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- vuFileTools categories (from your existing sitemap) -->
+  <!-- vuFileTools categories -->
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/desktop-and-other-functions.html</loc>
     <lastmod>2025-09-23</lastmod>
@@ -303,11 +353,72 @@
     <lastmod>2025-11-06</lastmod>
     <priority>0.6</priority>
   </url>
-  <!-- If you publish a "Using AI with QBAI" page under this product, add its final URL here -->
-  <!-- <url>
-    <loc>https://clarionproseries.github.io/docs/ClarionQBWrapper/using-ai-with-qbai.html</loc>
-    <lastmod>2025-11-06</lastmod>
+
+  <!-- vuMailKit root pages -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/introduction.html</loc>
+    <lastmod>2026-03-26</lastmod>
     <priority>0.6</priority>
-  </url> -->
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/requirements.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/install.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/template-registration.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/template-usage.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/migrating.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/deployment.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/functions/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/whatsnew.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/version-history.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/support.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuMailKit/prohelpstudio.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.4</priority>
+  </url>
 
 </urlset>
