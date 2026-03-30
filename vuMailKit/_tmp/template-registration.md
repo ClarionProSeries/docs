@@ -1,5 +1,5 @@
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)
 
 # vuMailKit - Template Registration
 
@@ -16,4 +16,14 @@ If you decide not to allow that, or if you need to re-register the template late
 
 If you install or upgrade to a new version of Clarion, you may need to re-register **vuMailKit** in that version.
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+## OAuth note
+
+If your application will use Microsoft or Google / Gmail OAuth sign-in, the provider credentials are entered later in the **vuMailKit global template** on the **OAuth Settings** tab.
+
+For step-by-step instructions on obtaining those provider credentials and entering them into the template in the correct quoted format, see:
+
+- [OAuth Setup](oauth/index.md)
+- [Microsoft OAuth Setup](oauth/microsoft.md)
+- [Google / Gmail OAuth Setup](oauth/google-gmail.md)
+
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)

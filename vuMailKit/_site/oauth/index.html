@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">OAuth</a> |
+<a href="microsoft.html">Microsoft OAuth</a> | <a
+href="google-gmail.html">Google / Gmail OAuth</a></p>
+<h1 id="oauth-setup">OAuth Setup</h1>
+<p>This section explains how to prepare OAuth credentials for use with
+vuMailKit.</p>
+<p>OAuth is commonly required for modern Microsoft 365, Outlook.com,
+Google, and Gmail accounts. vuMailKit includes built-in OAuth support
+and helper functions, but the developer must still obtain provider
+credentials from Microsoft or Google before those flows can be used in
+an application.</p>
+<h2 id="where-these-values-go-in-vumailkit">Where these values go in
+vuMailKit</h2>
+<p>OAuth credentials are entered in the <strong>vuMailKit global
+template</strong>.</p>
+<p>Go to:</p>
+<ul>
+<li><strong>vuMailKit global template</strong></li>
+<li><strong>OAuth Settings</strong> tab</li>
+</ul>
+<p>There you can:</p>
+<ul>
+<li>check <strong>Enable Microsoft OAuth Support</strong></li>
+<li>enter the <strong>Microsoft Client ID</strong></li>
+<li>check <strong>Enable Google OAuth Support</strong></li>
+<li>enter the <strong>Google Client ID</strong></li>
+<li>enter the <strong>Google Secret</strong></li>
+</ul>
+<p>Enter each credential value in this format:</p>
+<pre class="text"><code>&#39;client-string&#39;</code></pre>
+<p>The surrounding single quotes are required because these values are
+stored in the template in quoted string form.</p>
+<h2 id="which-guide-should-you-use">Which guide should you use?</h2>
+<p>Use the Microsoft guide if you are working with accounts such as:</p>
+<ul>
+<li>Microsoft 365</li>
+<li>Office 365</li>
+<li>Outlook.com</li>
+<li>Hotmail.com</li>
+<li>Live.com</li>
+</ul>
+<p>Use the Google / Gmail guide if you are working with accounts such
+as:</p>
+<ul>
+<li>Gmail.com</li>
+<li>Google Workspace hosted mailboxes</li>
+<li>other mailboxes that authenticate through Google OAuth</li>
+</ul>
+<h2 id="step-by-step-guides">Step-by-step guides</h2>
+<ul>
+<li><a href="microsoft.html">Microsoft OAuth Setup</a></li>
+<li><a href="google-gmail.html">Google / Gmail OAuth Setup</a></li>
+</ul>
+<h2 id="related-function-category">Related function category</h2>
+<p>The OAuth-related runtime functions are documented in the function
+reference here:</p>
+<ul>
+<li><a href="../functions/index.html#oauth-related">OAuth Related
+functions</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>These guides are written specifically for vuMailKit developers. Their
+purpose is to show what you need to create at the provider side and
+exactly how those values are entered into the vuMailKit template.</p>
+<p>Provider portals change over time, so some screen labels may vary
+slightly from what you see today. The important part is to collect the
+correct credential values and enter them into vuMailKit in the format
+shown above.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">OAuth</a> |
+<a href="microsoft.html">Microsoft OAuth</a> | <a
+href="google-gmail.html">Google / Gmail OAuth</a></p>
+</body>
+</html>

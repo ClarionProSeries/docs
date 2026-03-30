@@ -28,7 +28,8 @@
 </head>
 <body>
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+functions</a> | <a href="categories/index.html">Categories</a> | <a
+href="oauth/index.html">OAuth</a></p>
 <h1 id="vumailkit---template-usage">vuMailKit - Template Usage</h1>
 <p>To use <strong>vuMailKit</strong>, add the global extension template
 to your application.</p>
@@ -51,14 +52,29 @@ responsibilities</h2>
 <code>vuMailKitInitialize()</code></li>
 <li>configure product-wide defaults such as OAuth support</li>
 <li>supply OAuth client settings for supported providers</li>
-<li>it also generates the public Clarion prototypes used by the
-application</li>
+<li>generate the public Clarion prototypes used by the application</li>
+</ul>
+<h2 id="oauth-setup-note">OAuth setup note</h2>
+<p>If you enable OAuth support in the <strong>vuMailKit global
+template</strong>, open the <strong>OAuth Settings</strong> tab and
+enter the provider values in quoted form.</p>
+<p>Example format:</p>
+<pre class="text"><code>&#39;client-string&#39;</code></pre>
+<p>For Google / Gmail support, both the <strong>Google Client
+ID</strong> and <strong>Google Secret</strong> are entered this way.</p>
+<p>For step-by-step provider setup instructions, see:</p>
+<ul>
+<li><a href="oauth/index.html">OAuth Setup</a></li>
+<li><a href="oauth/microsoft.html">Microsoft OAuth Setup</a></li>
+<li><a href="oauth/google-gmail.html">Google / Gmail OAuth
+Setup</a></li>
 </ul>
 <h2 id="deployment-reminder">Deployment reminder</h2>
 <p>Include <strong>vuMailKit.dll</strong> with your application at
 runtime. The <strong>.lib</strong> file is used only at compile
 time.</p>
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+functions</a> | <a href="categories/index.html">Categories</a> | <a
+href="oauth/index.html">OAuth</a></p>
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)
 
 # vuMailKit - Template Usage
 
@@ -20,11 +20,29 @@ The template is the normal place to:
 - provide the license string used by `vuMailKitInitialize()`
 - configure product-wide defaults such as OAuth support
 - supply OAuth client settings for supported providers
-- it also generates the public Clarion prototypes used by the application
+- generate the public Clarion prototypes used by the application
+
+## OAuth setup note
+
+If you enable OAuth support in the **vuMailKit global template**, open the **OAuth Settings** tab and enter the provider values in quoted form.
+
+Example format:
+
+```text
+'client-string'
+```
+
+For Google / Gmail support, both the **Google Client ID** and **Google Secret** are entered this way.
+
+For step-by-step provider setup instructions, see:
+
+- [OAuth Setup](oauth/index.md)
+- [Microsoft OAuth Setup](oauth/microsoft.md)
+- [Google / Gmail OAuth Setup](oauth/google-gmail.md)
 
 ## Deployment reminder
 
 Include **vuMailKit.dll** with your application at runtime.
 The **.lib** file is used only at compile time.
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)

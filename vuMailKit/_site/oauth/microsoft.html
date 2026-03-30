@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>microsoft</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">OAuth</a> |
+<a href="google-gmail.html">Google / Gmail OAuth</a></p>
+<h1 id="microsoft-oauth-setup">Microsoft OAuth Setup</h1>
+<p>This guide explains how to create Microsoft OAuth credentials for use
+with vuMailKit.</p>
+<p>Microsoft OAuth is commonly needed for Microsoft 365, Office 365,
+Outlook.com, Hotmail.com, and Live.com accounts when modern
+authentication is required.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>Make sure you have:</p>
+<ul>
+<li>a working vuMailKit installation</li>
+<li>access to the Microsoft account or tenant that will own the app
+registration</li>
+<li>permission to create or manage the Microsoft application
+registration</li>
+<li>your vuMailKit project ready for testing</li>
+</ul>
+<h2 id="what-you-will-need-from-microsoft">What you will need from
+Microsoft</h2>
+<p>For vuMailKit Basic, you will typically need:</p>
+<ul>
+<li><strong>Microsoft Client ID</strong></li>
+</ul>
+<p>Copy that value carefully. You will later place it into the vuMailKit
+template in quoted form.</p>
+<h2 id="where-you-enter-it-in-vumailkit">Where you enter it in
+vuMailKit</h2>
+<p>In your Clarion application, open the:</p>
+<ul>
+<li><strong>vuMailKit global template</strong></li>
+<li><strong>OAuth Settings</strong> tab</li>
+</ul>
+<p>Then:</p>
+<ul>
+<li>check <strong>Enable Microsoft OAuth Support</strong></li>
+<li>paste the Microsoft Client ID into the <strong>Microsoft Client
+ID</strong> field</li>
+</ul>
+<p>Enter it in this format:</p>
+<pre class="text"><code>&#39;client-string&#39;</code></pre>
+<p>Example:</p>
+<pre class="text"><code>&#39;12345678-90ab-cdef-1234-567890abcdef&#39;</code></pre>
+<p>Do not remove the single quotes.</p>
+<h2 id="general-setup-flow">General setup flow</h2>
+<h2 id="1-open-the-microsoft-entra-admin-center">1. Open the Microsoft
+Entra admin center</h2>
+<p>Go directly to the Microsoft Entra admin center:</p>
+<pre class="text"><code>https://entra.microsoft.com/</code></pre>
+<p>Sign in with the Microsoft account or Microsoft 365 tenant account
+that will own the app registration.</p>
+<p>If you have access to more than one tenant, switch to the correct
+tenant first.</p>
+<p>Then go to:</p>
+<p><strong>Entra ID</strong> &gt; <strong>App registrations</strong>
+&gt; <strong>New registration</strong></p>
+<h2 id="2-create-a-new-application-registration">2. Create a new
+application registration</h2>
+<p>Create a new registration for your vuMailKit-based application.</p>
+<p>Use a clear name so you can identify it later.</p>
+<h2 id="3-choose-the-supported-account-types">3. Choose the supported
+account types</h2>
+<p>Microsoft will ask which types of accounts your registration should
+support.</p>
+<p>Choose the option that matches the accounts your application is
+expected to work with. This matters because it controls which Microsoft
+users can complete authorization.</p>
+<h2 id="4-configure-the-registration-for-the-flow-you-will-use">4.
+Configure the registration for the flow you will use</h2>
+<p>Set the registration options to match the OAuth flow expected by your
+vuMailKit-based application.</p>
+<p>The exact labels in the Microsoft portal may change over time, but
+the goal is the same: create the registration so it can be used for the
+Microsoft OAuth sign-in process your application will invoke.</p>
+<h2 id="5-copy-the-microsoft-client-id">5. Copy the Microsoft Client
+ID</h2>
+<p>Once the registration has been created, copy the <strong>Application
+(client) ID</strong> value.</p>
+<p>This is the value you place into the <strong>Microsoft Client
+ID</strong> field in the vuMailKit template.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p>Common setup problems include:</p>
+<ul>
+<li>choosing the wrong supported account type</li>
+<li>copying the wrong value instead of the Application (client) ID</li>
+<li>landing in <strong>Enterprise applications</strong> instead of
+<strong>App registrations</strong></li>
+<li>forgetting to wrap the value in single quotes in the template</li>
+<li>enabling Microsoft OAuth support in the template but leaving the
+Client ID blank</li>
+<li>testing with a Microsoft account type that the registration was not
+configured to support</li>
+</ul>
+<h2 id="after-setup">After setup</h2>
+<p>After entering the Microsoft Client ID into the vuMailKit
+template:</p>
+<ul>
+<li>save the template settings</li>
+<li>regenerate and compile your application</li>
+<li>test the Microsoft OAuth flow in your application</li>
+</ul>
+<p>For related runtime functions, see:</p>
+<ul>
+<li><a href="../functions/index.html#oauth-related">OAuth Related
+functions</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">OAuth</a> |
+<a href="google-gmail.html">Google / Gmail OAuth</a></p>
+</body>
+</html>
