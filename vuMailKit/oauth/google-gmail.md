@@ -4,7 +4,7 @@ summary: "How to create Google OAuth credentials for use with vuMailKit."
 description: "Step-by-step guide for creating Google or Gmail OAuth credentials and entering them into the vuMailKit global template."
 keywords: ["vuMailKit", "OAuth", "Google", "Gmail", "Google Workspace", "Clarion", "email"]
 page_type: "guide"
-last_updated: "2026-03-30"
+last_updated: "2026-04-03"
 ---
 
 [Home](../index.md) | [OAuth](index.md) | [Microsoft OAuth](microsoft.md)
@@ -85,6 +85,23 @@ In Google Cloud Console, look for:
 
 If the Google Auth platform is not configured yet, complete the required setup there.
 
+### Important note for production applications
+
+If you plan to publish a production application that uses Google OAuth for external users, Google may require more than just the OAuth client itself. Depending on the scopes used and how your application is published, you may also need items such as:
+
+- a public homepage
+- a privacy policy
+- a terms of service page
+- completed consent-screen or verification details on the Google side
+
+These website and policy requirements are set by Google and are the responsibility of the application publisher, not vuMailKit itself.
+
+If you want to provide direct access to those pages from inside your application, vuMailKit already includes a helper function for opening a URL in the user's default browser:
+
+- [vuShellOpenUrl](../functions/vuShellOpenUrl.md)
+
+This can be called from a button, menu option, or similar UI element in your application.
+
 ## 3. Open the credentials area
 
 To create the actual OAuth client, go to:
@@ -124,6 +141,7 @@ Common setup problems include:
 
 - creating the OAuth client under the wrong Google project
 - failing to complete consent or branding setup when required
+- not realizing that a production external app may also need a homepage, privacy policy, and terms page
 - copying the wrong values
 - forgetting to wrap both values in single quotes in the template
 - enabling Google OAuth support in the template but leaving either field blank
