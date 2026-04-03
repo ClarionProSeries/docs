@@ -47,7 +47,7 @@ registration</li>
 </ul>
 <h2 id="what-you-will-need-from-microsoft">What you will need from
 Microsoft</h2>
-<p>For vuMailKit Basic, you will typically need:</p>
+<p>For vuMailKit Basic, you will need this Microsoft value:</p>
 <ul>
 <li><strong>Microsoft Client ID</strong></li>
 </ul>
@@ -71,6 +71,63 @@ ID</strong> field</li>
 <p>Example:</p>
 <pre class="text"><code>&#39;12345678-90ab-cdef-1234-567890abcdef&#39;</code></pre>
 <p>Do not remove the single quotes.</p>
+<h2 id="custom-domains-and-manual-microsoft-oauth-setup">Custom domains
+and manual Microsoft OAuth setup</h2>
+<p>Some Microsoft-hosted mailboxes use a custom company domain instead
+of an address that obviously looks like Microsoft 365 or
+Outlook.com.</p>
+<p>For example, a mailbox such as <code>user@yourcompany.com</code> may
+still be hosted by Microsoft 365 even though the email address itself
+does not show that.</p>
+<p>In those cases, vuMailKit may not detect from the domain alone that
+the mailbox should use Microsoft OAuth.</p>
+<p>If autodetect does not identify the account as OAuth, but you know
+the mailbox is hosted by Microsoft 365, use <strong>Manual
+Configuration</strong> in the wizard and select the Microsoft OAuth
+sign-in method.</p>
+<p>Typical Microsoft 365 settings are:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Typical value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outgoing server</td>
+<td><code>smtp.office365.com</code></td>
+</tr>
+<tr>
+<td>Outgoing port</td>
+<td><code>587</code></td>
+</tr>
+<tr>
+<td>Outgoing security</td>
+<td><code>STARTTLS</code></td>
+</tr>
+<tr>
+<td>Incoming server</td>
+<td><code>outlook.office365.com</code></td>
+</tr>
+<tr>
+<td>Incoming port</td>
+<td><code>993</code> for IMAP or <code>995</code> for POP3</td>
+</tr>
+<tr>
+<td>Incoming security</td>
+<td><code>SSL/TLS</code></td>
+</tr>
+<tr>
+<td>Sign-in method</td>
+<td><strong>Microsoft Sign-In</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Use the mailbox owner's actual email address as the account name
+unless your Microsoft 365 environment requires something different.</p>
+<p>If your tenant uses non-standard settings, confirm them with the
+mailbox administrator.</p>
 <h2 id="general-setup-flow">General setup flow</h2>
 <h2 id="1-open-the-microsoft-entra-admin-center">1. Open the Microsoft
 Entra admin center</h2>
@@ -119,6 +176,8 @@ ID</strong> field in the vuMailKit template.</p>
 Client ID blank</li>
 <li>testing with a Microsoft account type that the registration was not
 configured to support</li>
+<li>assuming a custom domain mailbox is not Microsoft-hosted just
+because the address does not end in an obvious Microsoft domain</li>
 </ul>
 <h2 id="after-setup">After setup</h2>
 <p>After entering the Microsoft Client ID into the vuMailKit

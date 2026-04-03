@@ -45,12 +45,15 @@ the OAuth client</li>
 </ul>
 <h2 id="what-you-will-need-from-google">What you will need from
 Google</h2>
-<p>For vuMailKit Basic, you will typically need:</p>
+<p>For vuMailKit Basic, you will need these Google values:</p>
 <ul>
 <li><strong>Google Client ID</strong></li>
 <li><strong>Google Secret</strong></li>
 </ul>
-<p>Copy both values carefully. You will later place them into the
+<p>You will also choose the name you want vuMailKit to display on the
+Google OAuth success page after the user completes authorization
+successfully.</p>
+<p>Copy the Google values carefully. You will later place them into the
 vuMailKit template in quoted form.</p>
 <h2 id="where-you-enter-them-in-vumailkit">Where you enter them in
 vuMailKit</h2>
@@ -66,13 +69,80 @@ vuMailKit</h2>
 ID</strong> field</li>
 <li>paste the Google Secret into the <strong>Google Secret</strong>
 field</li>
+<li>enter the name you want shown on the Google success page into the
+<strong>OAuth Success Name</strong> field</li>
 </ul>
 <p>Enter each value in this format:</p>
 <pre class="text"><code>&#39;client-string&#39;</code></pre>
 <p>Example:</p>
 <pre class="text"><code>&#39;123456789012-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com&#39;
-&#39;GOCSPX-abcdefghijklmnopqrstuvwxyz123456&#39;</code></pre>
+&#39;GOCSPX-abcdefghijklmnopqrstuvwxyz123456&#39;
+&#39;My Application Name&#39;</code></pre>
 <p>Do not remove the single quotes.</p>
+<h2 id="what-oauth-success-name-does">What OAuth Success Name does</h2>
+<p>The <strong>OAuth Success Name</strong> value is used on the Google
+success page that the user sees after authorization completes
+successfully.</p>
+<p>This lets you display your product name, company name, or application
+name on that page instead of a more generic label.</p>
+<p>This setting is only for the success page display. It does not
+replace or change your Google Client ID or Google Secret.</p>
+<h2 id="custom-domains-and-manual-google-oauth-setup">Custom domains and
+manual Google OAuth setup</h2>
+<p>Some Google-hosted mailboxes use a custom company domain instead of
+an address that obviously looks like Gmail.</p>
+<p>For example, a mailbox such as <code>user@yourcompany.com</code> may
+still be hosted by Google Workspace even though the email address itself
+does not end in <code>gmail.com</code>.</p>
+<p>In those cases, vuMailKit may not detect from the domain alone that
+the mailbox should use Google OAuth.</p>
+<p>If autodetect does not identify the account as OAuth, but you know
+the mailbox is hosted by Google Workspace, use <strong>Manual
+Configuration</strong> in the wizard and select the Google OAuth sign-in
+method.</p>
+<p>Typical Google Workspace settings are:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Typical value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outgoing server</td>
+<td><code>smtp.gmail.com</code></td>
+</tr>
+<tr>
+<td>Outgoing port</td>
+<td><code>587</code></td>
+</tr>
+<tr>
+<td>Outgoing security</td>
+<td><code>STARTTLS</code></td>
+</tr>
+<tr>
+<td>Incoming server</td>
+<td><code>imap.gmail.com</code> or <code>pop.gmail.com</code></td>
+</tr>
+<tr>
+<td>Incoming port</td>
+<td><code>993</code> for IMAP or <code>995</code> for POP3</td>
+</tr>
+<tr>
+<td>Incoming security</td>
+<td><code>SSL/TLS</code></td>
+</tr>
+<tr>
+<td>Sign-in method</td>
+<td><strong>Google Sign-In</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Use the mailbox owner's actual email address as the account name
+unless the hosted environment requires something different.</p>
+<p>If the site uses non-standard settings, confirm them with the mailbox
+administrator.</p>
 <h2 id="general-setup-flow">General setup flow</h2>
 <h2 id="1-open-google-cloud-console">1. Open Google Cloud Console</h2>
 <p>Go directly to Google Cloud Console:</p>
@@ -89,6 +159,29 @@ information before the client can be fully used.</p>
 <strong>Branding</strong></p>
 <p>If the Google Auth platform is not configured yet, complete the
 required setup there.</p>
+<h3 id="important-note-for-production-applications">Important note for
+production applications</h3>
+<p>If you plan to publish a production application that uses Google
+OAuth for external users, Google may require more than just the OAuth
+client itself. Depending on the scopes used and how your application is
+published, you may also need items such as:</p>
+<ul>
+<li>a public homepage</li>
+<li>a privacy policy</li>
+<li>a terms of service page</li>
+<li>completed consent-screen or verification details on the Google
+side</li>
+</ul>
+<p>These website and policy requirements are set by Google and are the
+responsibility of the application publisher, not vuMailKit itself.</p>
+<p>If you want to provide direct access to those pages from inside your
+application, vuMailKit already includes a helper function for opening a
+URL in the user's default browser:</p>
+<ul>
+<li><a href="../functions/vuShellOpenUrl.html">vuShellOpenUrl</a></li>
+</ul>
+<p>This can be called from a button, menu option, or similar UI element
+in your application.</p>
 <h2 id="3-open-the-credentials-area">3. Open the credentials area</h2>
 <p>To create the actual OAuth client, go to:</p>
 <p><strong>APIs &amp; Services</strong> &gt;
@@ -120,14 +213,20 @@ Google Client ID and Google Secret</h2>
 <ul>
 <li>creating the OAuth client under the wrong Google project</li>
 <li>failing to complete consent or branding setup when required</li>
+<li>not realizing that a production external app may also need a
+homepage, privacy policy, and terms page</li>
 <li>copying the wrong values</li>
 <li>forgetting to wrap both values in single quotes in the template</li>
 <li>enabling Google OAuth support in the template but leaving either
 field blank</li>
+<li>forgetting to enter the <strong>OAuth Success Name</strong> value
+you want shown on the Google success page</li>
+<li>assuming a custom domain mailbox is not Google-hosted just because
+the address does not end in <code>gmail.com</code></li>
 </ul>
 <h2 id="after-setup">After setup</h2>
-<p>After entering the Google Client ID and Google Secret into the
-vuMailKit template:</p>
+<p>After entering the Google Client ID, Google Secret, and OAuth Success
+Name into the vuMailKit template:</p>
 <ul>
 <li>save the template settings</li>
 <li>regenerate and compile your application</li>

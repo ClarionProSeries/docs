@@ -26,12 +26,14 @@ Make sure you have:
 
 ## What you will need from Google
 
-For vuMailKit Basic, you will typically need:
+For vuMailKit Basic, you will need these Google values:
 
 - **Google Client ID**
 - **Google Secret**
 
-Copy both values carefully. You will later place them into the vuMailKit template in quoted form.
+You will also choose the name you want vuMailKit to display on the Google OAuth success page after the user completes authorization successfully.
+
+Copy the Google values carefully. You will later place them into the vuMailKit template in quoted form.
 
 ## Where you enter them in vuMailKit
 
@@ -45,6 +47,7 @@ Then:
 - check **Enable Google OAuth Support**
 - paste the Google Client ID into the **Google Client ID** field
 - paste the Google Secret into the **Google Secret** field
+- enter the name you want shown on the Google success page into the **OAuth Success Name** field
 
 Enter each value in this format:
 
@@ -57,9 +60,44 @@ Example:
 ```text
 '123456789012-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com'
 'GOCSPX-abcdefghijklmnopqrstuvwxyz123456'
+'My Application Name'
 ```
 
 Do not remove the single quotes.
+
+## What OAuth Success Name does
+
+The **OAuth Success Name** value is used on the Google success page that the user sees after authorization completes successfully.
+
+This lets you display your product name, company name, or application name on that page instead of a more generic label.
+
+This setting is only for the success page display. It does not replace or change your Google Client ID or Google Secret.
+
+## Custom domains and manual Google OAuth setup
+
+Some Google-hosted mailboxes use a custom company domain instead of an address that obviously looks like Gmail.
+
+For example, a mailbox such as `user@yourcompany.com` may still be hosted by Google Workspace even though the email address itself does not end in `gmail.com`.
+
+In those cases, vuMailKit may not detect from the domain alone that the mailbox should use Google OAuth.
+
+If autodetect does not identify the account as OAuth, but you know the mailbox is hosted by Google Workspace, use **Manual Configuration** in the wizard and select the Google OAuth sign-in method.
+
+Typical Google Workspace settings are:
+
+| Setting | Typical value |
+|------|------|
+| Outgoing server | `smtp.gmail.com` |
+| Outgoing port | `587` |
+| Outgoing security | `STARTTLS` |
+| Incoming server | `imap.gmail.com` or `pop.gmail.com` |
+| Incoming port | `993` for IMAP or `995` for POP3 |
+| Incoming security | `SSL/TLS` |
+| Sign-in method | **Google Sign-In** |
+
+Use the mailbox owner's actual email address as the account name unless the hosted environment requires something different.
+
+If the site uses non-standard settings, confirm them with the mailbox administrator.
 
 ## General setup flow
 
@@ -145,10 +183,12 @@ Common setup problems include:
 - copying the wrong values
 - forgetting to wrap both values in single quotes in the template
 - enabling Google OAuth support in the template but leaving either field blank
+- forgetting to enter the **OAuth Success Name** value you want shown on the Google success page
+- assuming a custom domain mailbox is not Google-hosted just because the address does not end in `gmail.com`
 
 ## After setup
 
-After entering the Google Client ID and Google Secret into the vuMailKit template:
+After entering the Google Client ID, Google Secret, and OAuth Success Name into the vuMailKit template:
 
 - save the template settings
 - regenerate and compile your application

@@ -54,6 +54,8 @@ template</strong>.</p>
 <li>check <strong>Enable Google OAuth Support</strong></li>
 <li>enter the <strong>Google Client ID</strong></li>
 <li>enter the <strong>Google Secret</strong></li>
+<li>enter the <strong>OAuth Success Name</strong> used for the Google
+success page</li>
 </ul>
 <p>Enter each credential value in this format:</p>
 <pre class="text"><code>&#39;client-string&#39;</code></pre>
@@ -74,6 +76,31 @@ as:</p>
 <li>Gmail.com</li>
 <li>Google Workspace hosted mailboxes</li>
 <li>other mailboxes that authenticate through Google OAuth</li>
+</ul>
+<h2 id="custom-domains-and-manual-oauth-selection">Custom domains and
+manual OAuth selection</h2>
+<p>Some email addresses use a custom domain that does not clearly
+identify the real provider.</p>
+<p>For example, a mailbox such as <code>user@yourcompany.com</code> may
+actually be hosted by:</p>
+<ul>
+<li><strong>Google Workspace</strong></li>
+<li><strong>Microsoft 365</strong></li>
+</ul>
+<p>In cases like that, vuMailKit may not be able to determine from the
+domain alone that OAuth should be used.</p>
+<p>If autodetect does not identify the mailbox as an OAuth account, but
+you know the mailbox is hosted by Google or Microsoft, use
+<strong>Manual Configuration</strong> in the wizard and select the
+appropriate sign-in method and server settings for the real
+provider.</p>
+<p>This does not mean OAuth is unsupported for that mailbox. It only
+means the provider could not be safely identified from the email domain
+alone.</p>
+<p>For provider-specific guidance, see:</p>
+<ul>
+<li><a href="microsoft.html">Microsoft OAuth Setup</a></li>
+<li><a href="google-gmail.html">Google / Gmail OAuth Setup</a></li>
 </ul>
 <h2 id="step-by-step-guides">Step-by-step guides</h2>
 <ul>

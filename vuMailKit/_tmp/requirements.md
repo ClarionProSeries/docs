@@ -3,7 +3,7 @@
 
 # vuMailKit - Requirements
 
-vuMailKit supports Clarion 9 and later.
+vuMailKit supports Clarion 5.5 and later.
 
 Supported Clarion versions include:
 
@@ -11,8 +11,14 @@ Supported Clarion versions include:
 - **Clarion 11.x**
 - **Clarion 10**
 - **Clarion 9.x**
- 
-NOTE: vuMailKit also works with older versions of Clarion back to Clarion 5.5.
+- **Clarion 8.x**
+- **Clarion 7.x**
+- **Clarion 6.x**
+- **Clarion 5.5**
+
+Effective 2026-04-03, the installer and documentation were updated to again provide full support for Clarion versions back to Clarion 5.5.
+
+We made this change because many developers still maintain older Clarion applications that need reliable email support for their users, and vuMailKit is well suited to that role.
 
 vuMailKit works with both template chains:
 

@@ -4,7 +4,7 @@ summary: "How to create Microsoft OAuth credentials for use with vuMailKit."
 description: "Step-by-step guide for creating Microsoft OAuth credentials and entering them into the vuMailKit global template."
 keywords: ["vuMailKit", "OAuth", "Microsoft", "Microsoft 365", "Outlook", "Clarion", "email"]
 page_type: "guide"
-last_updated: "2026-03-30"
+last_updated: "2026-04-03"
 ---
 
 [Home](../index.md) | [OAuth](index.md) | [Google / Gmail OAuth](google-gmail.md)
@@ -26,7 +26,7 @@ Make sure you have:
 
 ## What you will need from Microsoft
 
-For vuMailKit Basic, you will typically need:
+For vuMailKit Basic, you will need this Microsoft value:
 
 - **Microsoft Client ID**
 
@@ -57,6 +57,32 @@ Example:
 ```
 
 Do not remove the single quotes.
+
+## Custom domains and manual Microsoft OAuth setup
+
+Some Microsoft-hosted mailboxes use a custom company domain instead of an address that obviously looks like Microsoft 365 or Outlook.com.
+
+For example, a mailbox such as `user@yourcompany.com` may still be hosted by Microsoft 365 even though the email address itself does not show that.
+
+In those cases, vuMailKit may not detect from the domain alone that the mailbox should use Microsoft OAuth.
+
+If autodetect does not identify the account as OAuth, but you know the mailbox is hosted by Microsoft 365, use **Manual Configuration** in the wizard and select the Microsoft OAuth sign-in method.
+
+Typical Microsoft 365 settings are:
+
+| Setting | Typical value |
+|------|------|
+| Outgoing server | `smtp.office365.com` |
+| Outgoing port | `587` |
+| Outgoing security | `STARTTLS` |
+| Incoming server | `outlook.office365.com` |
+| Incoming port | `993` for IMAP or `995` for POP3 |
+| Incoming security | `SSL/TLS` |
+| Sign-in method | **Microsoft Sign-In** |
+
+Use the mailbox owner's actual email address as the account name unless your Microsoft 365 environment requires something different.
+
+If your tenant uses non-standard settings, confirm them with the mailbox administrator.
 
 ## General setup flow
 
@@ -110,6 +136,7 @@ Common setup problems include:
 - forgetting to wrap the value in single quotes in the template
 - enabling Microsoft OAuth support in the template but leaving the Client ID blank
 - testing with a Microsoft account type that the registration was not configured to support
+- assuming a custom domain mailbox is not Microsoft-hosted just because the address does not end in an obvious Microsoft domain
 
 ## After setup
 

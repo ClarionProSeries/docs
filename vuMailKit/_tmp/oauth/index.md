@@ -23,6 +23,7 @@ There you can:
 - check **Enable Google OAuth Support**
 - enter the **Google Client ID**
 - enter the **Google Secret**
+- enter the **OAuth Success Name** used for the Google success page
 
 Enter each credential value in this format:
 
@@ -47,6 +48,26 @@ Use the Google / Gmail guide if you are working with accounts such as:
 - Gmail.com
 - Google Workspace hosted mailboxes
 - other mailboxes that authenticate through Google OAuth
+
+## Custom domains and manual OAuth selection
+
+Some email addresses use a custom domain that does not clearly identify the real provider.
+
+For example, a mailbox such as `user@yourcompany.com` may actually be hosted by:
+
+- **Google Workspace**
+- **Microsoft 365**
+
+In cases like that, vuMailKit may not be able to determine from the domain alone that OAuth should be used.
+
+If autodetect does not identify the mailbox as an OAuth account, but you know the mailbox is hosted by Google or Microsoft, use **Manual Configuration** in the wizard and select the appropriate sign-in method and server settings for the real provider.
+
+This does not mean OAuth is unsupported for that mailbox. It only means the provider could not be safely identified from the email domain alone.
+
+For provider-specific guidance, see:
+
+- [Microsoft OAuth Setup](microsoft.md)
+- [Google / Gmail OAuth Setup](google-gmail.md)
 
 ## Step-by-step guides
 

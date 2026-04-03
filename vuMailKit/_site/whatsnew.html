@@ -30,22 +30,25 @@
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 <h1 id="whats-new-in-vumailkit">What's New in vuMailKit</h1>
-<p>Basic edition documentation refresh</p>
-<p>Release date: 2026-03-26</p>
-<p>This page highlights the major areas that were recently stabilized
-and documented in the current vuMailKit Basic edition work.</p>
+<p>Build 1.51 update</p>
+<p>Release date: 2026-04-03</p>
+<p>This page highlights the most recent improvements in the current
+vuMailKit Basic edition.</p>
 <h2 id="recent-highlights">Recent highlights</h2>
 <ul>
-<li>Added licensing initialization and license-diagnostics
-documentation</li>
-<li>Added DEMO-mode documentation and restrictions</li>
-<li>Clarified managed profile save, load, and immediate-apply
-behavior</li>
-<li>Expanded the function-level documentation for autodetect, deep scan,
-POP3, globals, logging, and profile workflows</li>
+<li>Added improved Gmail OAuth success page handling for a cleaner
+post-authorization experience</li>
+<li>Added the new <strong>OAuth Success Name</strong> setting in the
+global template for Google OAuth</li>
+<li>Expanded template guidance so developers know where to enter the
+name shown on the Google success page</li>
+<li>Continued clarification of Google OAuth setup requirements and
+related documentation links</li>
+<li>Clarified supported Clarion version coverage and installer support
+for older Clarion environments</li>
 </ul>
-<h2 id="major-function-areas-now-documented">Major function areas now
-documented</h2>
+<h2 id="major-function-and-setup-areas-affected">Major function and
+setup areas affected</h2>
 <table>
 <thead>
 <tr>
@@ -55,33 +58,39 @@ documented</h2>
 </thead>
 <tbody>
 <tr>
-<td>Licensing</td>
-<td><code>vuMailKitInitialize()</code> and
-<code>vuMailKitGetLicenseInfo()</code> now reflect the current
-Basic-edition licensing model.</td>
+<td>Google OAuth</td>
+<td>Gmail authorization now supports a better-looking success page after
+successful OAuth completion.</td>
 </tr>
 <tr>
-<td>Managed Profiles</td>
-<td>Save/load behavior now documents the current managed-profile storage
-model and the same-session apply behavior after save.</td>
+<td>Template Settings</td>
+<td>The global template now includes <strong>OAuth Success
+Name</strong>, which lets the developer control the name shown on the
+Google success page.</td>
 </tr>
 <tr>
-<td>Autodetect and Deep Scan</td>
-<td>The async deep-scan flow now explains handle lifecycle, polling,
-result retrieval, and cleanup.</td>
+<td>Documentation</td>
+<td>Template usage and related OAuth setup pages now explain where this
+setting is entered and what it affects.</td>
 </tr>
 <tr>
-<td>POP3 Message Handling</td>
-<td>Getter, flag, save, and extraction pages now explain the
-loaded-message workflow more clearly.</td>
-</tr>
-<tr>
-<td>Globals and Logging</td>
-<td>The docs now clearly distinguish legacy <code>vuMail</code> registry
-behavior from the managed-profile model used once profiles exist.</td>
+<td>Compatibility</td>
+<td>Documentation now reflects active installer support for Clarion
+versions back to Clarion 5.5.</td>
 </tr>
 </tbody>
 </table>
+<h2 id="earlier-documentation-refresh-highlights">Earlier documentation
+refresh highlights</h2>
+<ul>
+<li>Added licensing initialization and license-diagnostics
+documentation</li>
+<li>Added DEMO-mode documentation and restrictions</li>
+<li>Clarified managed profile save, load, and immediate-apply
+behavior</li>
+<li>Expanded the function-level documentation for autodetect, deep scan,
+POP3, globals, logging, and profile workflows</li>
+</ul>
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 </body>

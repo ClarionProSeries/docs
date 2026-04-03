@@ -2,9 +2,9 @@
 title: "vuMailKit - Template Usage"
 summary: "To use vuMailKit, add the global extension template to your application."
 description: "To use vuMailKit, add the global extension template to your application and configure the options needed for your application build."
-keywords: ["documentation", "template", "application", "vuMailKit", "Clarion", "global", "usage"]
+keywords: ["documentation", "template", "application", "vuMailKit", "Clarion", "global", "usage", "OAuth"]
 page_type: "guide"
-last_updated: "2026-03-30"
+last_updated: "2026-04-03"
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)
@@ -42,6 +42,22 @@ Example format:
 
 For Google / Gmail support, both the **Google Client ID** and **Google Secret** are entered this way.
 
+## OAuth Success Name
+
+When using Google / Gmail OAuth, the **OAuth Success Name** field lets you specify the name shown to the user on the Google success page after authorization completes successfully.
+
+This is useful when you want the post-login success page to display your product name, company name, or application name instead of a more generic label.
+
+Example:
+
+```text
+'My Mail Utility'
+```
+
+Enter the value in quoted form, the same way you enter the Google client values.
+
+This setting is used for the Google success page presentation only. It does not replace your Google Client ID or Google Secret.
+
 For step-by-step provider setup instructions, see:
 
 - [OAuth Setup](oauth/index.md)
@@ -50,7 +66,7 @@ For step-by-step provider setup instructions, see:
 
 ## Deployment reminder
 
-Include **vuMailKit.dll** with your application at runtime.
+Include **vuMailKit.dll** with your application at runtime.  
 The **.lib** file is used only at compile time.
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)
