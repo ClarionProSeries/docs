@@ -8,9 +8,11 @@ vuPOP3Connect(*CSTRING InServer,*CSTRING InUser,*CSTRING InPassword),LONG,PROC,P
 ```
 
 ## Purpose
+
 Connects and authenticates to a POP3 server for subsequent POP3 receive operations.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InServer | *CSTRING | POP3 server host name (or IP). |
@@ -18,10 +20,12 @@ Connects and authenticates to a POP3 server for subsequent POP3 receive operatio
 | InPassword | *CSTRING | POP3 password. |
 
 ## Return value / error codes
-- `0`: Connected successfully.
-- `< 0`: Connection or authentication failed.
+
+- 0: Connected successfully.
+- < 0: Connection or authentication failed.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -45,7 +49,8 @@ END
 ```
 
 ## Notes
-- Call this before `vuPOP3Count`, `vuPOP3LoadHeader`, or `vuPOP3LoadEmail`.
-- Pair with `vuPOP3Disconnect()` when finished.
+
+- Call this before vuPOP3Count, vuPOP3LoadHeader, or vuPOP3LoadEmail.
+- Pair with vuPOP3Disconnect() when finished.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

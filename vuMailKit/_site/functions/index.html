@@ -68,6 +68,31 @@ and managed profile behavior.</td>
 </thead>
 <tbody>
 <tr>
+<td><a href="vuGetCodePage.html">vuGetCodePage</a></td>
+<td>Legacy alias for vuGlobalsGetCodePage().</td>
+</tr>
+<tr>
+<td><a href="vuMailGetGlobals.html">vuMailGetGlobals</a></td>
+<td>Legacy alias for vuGlobalsLoad().</td>
+</tr>
+<tr>
+<td><a href="vuMailSaveGlobals.html">vuMailSaveGlobals</a></td>
+<td>Legacy alias for vuGlobalsSave().</td>
+</tr>
+<tr>
+<td><a
+href="vuNoPasswordInRegistry.html">vuNoPasswordInRegistry</a></td>
+<td>Legacy alias for vuGlobalsSetNoPasswordInRegistry().</td>
+</tr>
+<tr>
+<td><a href="vuSetCodePage.html">vuSetCodePage</a></td>
+<td>Legacy alias for vuGlobalsSetCodePage().</td>
+</tr>
+<tr>
+<td><a href="vuSetSaveFolder.html">vuSetSaveFolder</a></td>
+<td>Legacy alias for vuGlobalsSetEmailFolder().</td>
+</tr>
+<tr>
 <td><a href="vuGlobalsLoad.html">vuGlobalsLoad</a></td>
 <td>Loads vuMailKit global settings into active runtime memory.</td>
 </tr>
@@ -110,6 +135,18 @@ href="vuGlobalsSetNoPasswordInRegistry.html">vuGlobalsSetNoPasswordInRegistry</a
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="vuGetMailLogLevel.html">vuGetMailLogLevel</a></td>
+<td>Gets the standard mail log verbosity level.</td>
+</tr>
+<tr>
+<td><a href="vuSetMailLog.html">vuSetMailLog</a></td>
+<td>Legacy alias for vuLogSetFile().</td>
+</tr>
+<tr>
+<td><a href="vuSetMailLogLevel.html">vuSetMailLogLevel</a></td>
+<td>Sets the standard mail log verbosity level.</td>
+</tr>
 <tr>
 <td><a href="vuLogSetFile.html">vuLogSetFile</a></td>
 <td>Sets the mail log file path.</td>
@@ -185,6 +222,11 @@ for the current Windows user.</td>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="vuMailLastReturnCode.html">vuMailLastReturnCode</a></td>
+<td>Returns the numeric status code for the most recent completed send
+operation.</td>
+</tr>
 <tr>
 <td><a href="vuCloseWhenComplete.html">vuCloseWhenComplete</a></td>
 <td>Sets the legacy CloseWhenComplete runtime flag.</td>
@@ -431,6 +473,30 @@ setup details in the message body.</td>
 </thead>
 <tbody>
 <tr>
+<td><a
+href="vuOAuthLaunchAuthorizeUrl.html">vuOAuthLaunchAuthorizeUrl</a></td>
+<td>Build and launch the provider authorization URL for an OAuth login
+flow.</td>
+</tr>
+<tr>
+<td><a
+href="vuOAuthSetClientSecret.html">vuOAuthSetClientSecret</a></td>
+<td>Store the OAuth client secret for the specified provider and account
+key.</td>
+</tr>
+<tr>
+<td><a
+href="vuOAuthSetLoopbackPort.html">vuOAuthSetLoopbackPort</a></td>
+<td>Store the loopback port used for OAuth providers that complete login
+through a local callback.</td>
+</tr>
+<tr>
+<td><a
+href="vuOAuthSetProviderEnabled.html">vuOAuthSetProviderEnabled</a></td>
+<td>Enable or disable OAuth support for a specific provider at
+runtime.</td>
+</tr>
+<tr>
 <td><a href="vuOAuthSetProvider.html">vuOAuthSetProvider</a></td>
 <td>Sets the default OAuth provider name used by helper flows.</td>
 </tr>
@@ -661,13 +727,50 @@ message.</td>
 </thead>
 <tbody>
 <tr>
+<td><a href="vuSetImageSize.html">vuSetImageSize</a></td>
+<td>Sets legacy runtime image-size hints for compatibility.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetAuthMode.html">vuSmtpGetAuthMode</a></td>
+<td>Returns the current SMTP authentication mode flag.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo</a></td>
+<td>Gets default From and Reply-To addresses from runtime globals.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetSecurity.html">vuSmtpGetSecurity</a></td>
+<td>Gets SMTP user, password, security type, and SSL flag from runtime
+globals.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpGetServer.html">vuSmtpGetServer</a></td>
+<td>Gets the outbound SMTP server name and port.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetAuthMode.html">vuSmtpSetAuthMode</a></td>
+<td>Sets SMTP authentication mode to password or OAuth.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetFromReplyTo.html">vuSmtpSetFromReplyTo</a></td>
+<td>Sets default From and Reply-To addresses in runtime globals.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetSecurity.html">vuSmtpSetSecurity</a></td>
+<td>Sets SMTP user, password, security type, and SSL flag in runtime
+globals.</td>
+</tr>
+<tr>
+<td><a href="vuSmtpSetServer.html">vuSmtpSetServer</a></td>
+<td>Sets the outbound SMTP server name and port.</td>
+</tr>
+<tr>
 <td><a href="vuSmtpGetAuthMode.html">vuSMTPGetAuthMode</a></td>
-<td>Gets current SMTP auth mode (<code>0</code> password, <code>1</code>
-OAuth).</td>
+<td>Gets current SMTP auth mode (0 password, 1 OAuth).</td>
 </tr>
 <tr>
 <td><a href="vuSmtpSetAuthMode.html">vuSMTPSetAuthMode</a></td>
-<td>Sets SMTP auth mode (<code>0</code> password, non-zero OAuth).</td>
+<td>Sets SMTP auth mode (0 password, non-zero OAuth).</td>
 </tr>
 <tr>
 <td><a href="vuSmtpGetFromReplyTo.html">vuSMTPGetFromReplyTo</a></td>
@@ -736,6 +839,10 @@ eye button.</td>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="vuClipboardSetText.html">vuClipboardSetText</a></td>
+<td>Copies text into the Windows clipboard.</td>
+</tr>
 <tr>
 <td><a href="vuANSItoUTF8.html">vuANSItoUTF8</a></td>
 <td>Converts ANSI text to a byte-preserving UTF-8 encoded legacy

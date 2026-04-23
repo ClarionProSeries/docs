@@ -14,7 +14,8 @@ last_updated: "2026-01-07"
 # vuLogSetFile()
 
 ## Description
-Sets the mail log file path. (legacy name: `vuSetMailLog()`).
+
+Sets the mail log file path. (legacy name: vuSetMailLog()).
 
 Previously exported as (legacy name, still supported):
 
@@ -22,7 +23,7 @@ Previously exported as (legacy name, still supported):
 
 ### Parameters
 
-- `xFileName` (CSTRING) - Full path to the log file to be used by vuMailKit.
+- xFileName (CSTRING) - Full path to the log file to be used by vuMailKit.
 
 ### Returns
 
@@ -32,7 +33,7 @@ A LONG value indicating the result.
 
 ### Notes
 
-Use `vuGlobalsSave()` if you want to persist it to the registry (key: "SentLogFile").
+Use vuGlobalsSave() if you want to persist it to the registry (key: "SentLogFile").
 
 ### Example (Clarion)
 

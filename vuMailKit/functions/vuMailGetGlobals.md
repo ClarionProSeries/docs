@@ -14,12 +14,13 @@ last_updated: "2026-01-07"
 # vuMailGetGlobals()
 
 ## Description
-This is the legacy vuMail function name for `vuGlobalsLoad()`.
+
+This is the legacy vuMail function name for vuGlobalsLoad().
 
 Preferred function name:
 
 - [vuGlobalsLoad()](vuGlobalsLoad.md)
 
-This function is exported for backward compatibility and behaves identically to `vuGlobalsLoad()`.
+This function is exported for backward compatibility and behaves identically to vuGlobalsLoad().
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

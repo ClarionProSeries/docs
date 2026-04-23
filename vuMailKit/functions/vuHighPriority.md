@@ -18,12 +18,15 @@ vuHighPriority(),SIGNED,PROC,PASCAL,RAW,NAME('vuHighPriority')
 ```
 
 ## Description
+
 Sets the runtime flag that marks the next email sent through vuMailKit as high priority.
 
 ## Return value
+
 Returns 1 on success.
 
 ## Notes
+
 - Set this before sending so the next send operation can apply it.
 
 ### Example

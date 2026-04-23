@@ -37,12 +37,13 @@ href="AboutFunctionNames.html">About function names</a></p>
 workflows.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuLoadProfileEx</code></li>
+<li>vuLoadProfileEx</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuLoadProfileEx(*CSTRING ProfileName),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfileEx')</code></li>
+<li>vuLoadProfileEx(*CSTRING
+ProfileName),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfileEx')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <table>
@@ -59,23 +60,21 @@ Global MAP)</h2>
 <td>ProfileName</td>
 <td>*CSTRING</td>
 <td>Managed profile name to load.</td>
-<td>Example: <code>work-account</code>. Blank falls back to
-<code>default</code>.</td>
+<td>Example: work-account. Blank falls back to default.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = success</li>
-<li><code>0</code> = load failed</li>
-<li><code>-401</code> = vuMailKit was not initialized</li>
-<li><code>-402</code> = license is invalid or initialization failed</li>
-<li><code>-403</code> = current license tier does not allow this
-feature</li>
+<li>1 = success</li>
+<li>0 = load failed</li>
+<li>-401 = vuMailKit was not initialized</li>
+<li>-402 = license is invalid or initialization failed</li>
+<li>-403 = current license tier does not allow this feature</li>
 </ul>
 <h2 id="what-it-does">What it does</h2>
-<p><code>vuLoadProfileEx()</code> performs an explicit managed-profile
-load of the named profile.</p>
+<p>vuLoadProfileEx() performs an explicit managed-profile load of the
+named profile.</p>
 <p>After a successful load:</p>
 <ul>
 <li>the current live runtime values are replaced by the saved values
@@ -93,10 +92,9 @@ Result = vuLoadProfileEx(ProfileName)</code></pre>
 <ul>
 <li>This is an explicit replace operation.</li>
 <li>This function is gated to Pro and Back Office editions.</li>
-<li>If <code>ProfileName</code> is blank, the load falls back to
-<code>default</code>.</li>
-<li>Call <code>vuMailKitInitialize(LicenseString)</code> at EXE startup
-before using this function.</li>
+<li>If ProfileName is blank, the load falls back to default.</li>
+<li>Call vuMailKitInitialize(LicenseString) at EXE startup before using
+this function.</li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a

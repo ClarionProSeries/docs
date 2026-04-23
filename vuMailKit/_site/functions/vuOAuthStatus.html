@@ -63,15 +63,16 @@ returns provider/core status text.</p>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of <code>OutText</code> buffer in bytes.</td>
+<td>Size of OutText buffer in bytes.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>&gt;= 0</code>: Status/result code from core OAuth status
-call.</li>
-<li><code>-9</code>: Core unavailable or exception.</li>
+<li><blockquote>
+<p>= 0: Status/result code from core OAuth status call.</p>
+</blockquote></li>
+<li>-9: Core unavailable or exception.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP

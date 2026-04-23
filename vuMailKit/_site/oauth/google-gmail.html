@@ -91,9 +91,10 @@ replace or change your Google Client ID or Google Secret.</p>
 manual Google OAuth setup</h2>
 <p>Some Google-hosted mailboxes use a custom company domain instead of
 an address that obviously looks like Gmail.</p>
-<p>For example, a mailbox such as <code>user@yourcompany.com</code> may
-still be hosted by Google Workspace even though the email address itself
-does not end in <code>gmail.com</code>.</p>
+<p>For example, a mailbox such as <a
+href="mailto:user@yourcompany.com">user@yourcompany.com</a> may still be
+hosted by Google Workspace even though the email address itself does not
+end in gmail.com.</p>
 <p>In those cases, vuMailKit may not detect from the domain alone that
 the mailbox should use Google OAuth.</p>
 <p>If autodetect does not identify the account as OAuth, but you know
@@ -111,27 +112,27 @@ method.</p>
 <tbody>
 <tr>
 <td>Outgoing server</td>
-<td><code>smtp.gmail.com</code></td>
+<td>smtp.gmail.com</td>
 </tr>
 <tr>
 <td>Outgoing port</td>
-<td><code>587</code></td>
+<td>587</td>
 </tr>
 <tr>
 <td>Outgoing security</td>
-<td><code>STARTTLS</code></td>
+<td>STARTTLS</td>
 </tr>
 <tr>
 <td>Incoming server</td>
-<td><code>imap.gmail.com</code> or <code>pop.gmail.com</code></td>
+<td>imap.gmail.com or pop.gmail.com</td>
 </tr>
 <tr>
 <td>Incoming port</td>
-<td><code>993</code> for IMAP or <code>995</code> for POP3</td>
+<td>993 for IMAP or 995 for POP3</td>
 </tr>
 <tr>
 <td>Incoming security</td>
-<td><code>SSL/TLS</code></td>
+<td>SSL/TLS</td>
 </tr>
 <tr>
 <td>Sign-in method</td>
@@ -222,7 +223,7 @@ field blank</li>
 <li>forgetting to enter the <strong>OAuth Success Name</strong> value
 you want shown on the Google success page</li>
 <li>assuming a custom domain mailbox is not Google-hosted just because
-the address does not end in <code>gmail.com</code></li>
+the address does not end in gmail.com</li>
 </ul>
 <h2 id="after-setup">After setup</h2>
 <p>After entering the Google Client ID, Google Secret, and OAuth Success

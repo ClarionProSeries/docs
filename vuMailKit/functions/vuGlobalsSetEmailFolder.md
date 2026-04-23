@@ -18,17 +18,21 @@ vuGlobalsSetEmailFolder(*CSTRING InFolder),SIGNED,PROC,PASCAL,RAW,NAME('vuGlobal
 ```
 
 ## Purpose
-Sets the in-memory `EmailFolder` path used by vuMailKit.
+
+Sets the in-memory EmailFolder path used by vuMailKit.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InFolder | *CSTRING | Folder path for message output/storage. |
 
 ## Return value / error codes
-- `1`: Success.
+
+- 1: Success.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -47,9 +51,10 @@ END
 ```
 
 ## Notes
+
 - Legacy alias: [vuSetSaveFolder()](vuSetSaveFolder.md).
 - vuMailKit attempts to create the folder if it does not already exist.
-- This updates runtime memory only; call `vuGlobalsSave()` to persist to registry.
+- This updates runtime memory only; call vuGlobalsSave() to persist to registry.
 - AuthMode/OAuth is not used by this function.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -32,18 +32,17 @@ functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailselectcsvxcsvfilepath">vuMailSelectCSV(xCsvFilePath)</h1>
 <h2 id="purpose">Purpose</h2>
-<p>Selects an existing CSV file so later <code>vuMailAppendCSV()</code>
-calls append rows to that file.</p>
+<p>Selects an existing CSV file so later vuMailAppendCSV() calls append
+rows to that file.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xCsvFilePath</code> (*CSTRING): Full path to an existing CSV
-file.</li>
+<li>xCsvFilePath (*CSTRING): Full path to an existing CSV file.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: CSV file exists and is now selected.</li>
-<li><code>0</code>: Failed. Common cases are blank path or file not
-found. Use <code>vuMailLastError()</code> for details.</li>
+<li>1: CSV file exists and is now selected.</li>
+<li>0: Failed. Common cases are blank path or file not found. Use
+vuMailLastError() for details.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -62,12 +61,11 @@ IF rc = 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This function does not create a file; use
-<code>vuMailCreateCSV()</code> when you need to create/truncate a CSV
-first.</li>
+<li>This function does not create a file; use vuMailCreateCSV() when you
+need to create/truncate a CSV first.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
-<code>vuMailSelectCSV</code>.</li>
+<li>Legacy reference: vuMailDump.pdf, section heading
+vuMailSelectCSV.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

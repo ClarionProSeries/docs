@@ -8,24 +8,24 @@ vuSetFromReplyTo(*CSTRING InFromEmail,*CSTRING InReplyToEmail),SIGNED,PROC,PASCA
 ```
 
 ## Description
+
 This is the legacy vuMail function name.
 
 Preferred function name:
 
 - [vuSmtpSetFromReplyTo()](vuSmtpSetFromReplyTo.md)
 
-This function is exported for backward compatibility and behaves identically to `vuSmtpSetFromReplyTo()`.
+This function is exported for backward compatibility and behaves identically to vuSmtpSetFromReplyTo().
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
-
 ## From value rules
 
-`vuSetFromReplyTo()` now accepts any of these forms for the From value:
+vuSetFromReplyTo() now accepts any of these forms for the From value:
 
-- Plain email address: `sender@example.com`
-- Full mailbox: `Sender Name <sender@example.com>`
-- Display name only: `Technical Support`
+- Plain email address: sender@example.com
+- Full mailbox: Sender Name <sender@example.com>
+- Display name only: Technical Support
 
 Behavior:
 

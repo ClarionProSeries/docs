@@ -8,21 +8,25 @@ vuOAuthClear(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutText
 ```
 
 ## Purpose
+
 Removes OAuth state/token information for the specified provider/account key.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Provider | *CSTRING | Provider identifier. |
 | AccountKey | *CSTRING | Account key identifier. |
 | OutText | *CSTRING | Output buffer receiving clear status text. |
-| OutTextLen | LONG | Size of `OutText` buffer in bytes. |
+| OutTextLen | LONG | Size of OutText buffer in bytes. |
 
 ## Return value / error codes
-- `>= 0`: Result code from core OAuth clear operation.
-- `-9`: Core unavailable or exception.
+
+- >= 0: Result code from core OAuth clear operation.
+- -9: Core unavailable or exception.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,6 +52,7 @@ END
 ```
 
 ## Notes
+
 - Clear affects only the specified Provider/AccountKey context.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

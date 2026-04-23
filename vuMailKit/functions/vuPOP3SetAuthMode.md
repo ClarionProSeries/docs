@@ -18,17 +18,21 @@ vuPOP3SetAuthMode(LONG InAuthMode),SIGNED,PROC,PASCAL,RAW,NAME('vuPOP3SetAuthMod
 ```
 
 ## Purpose
+
 Configures POP3 authentication mode used by subsequent POP3 connect operations.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
-| InAuthMode | LONG | `0` = password authentication, non-zero = OAuth authentication. |
+| InAuthMode | LONG | 0 = password authentication, non-zero = OAuth authentication. |
 
 ## Return value / error codes
-- `1`: Auth mode stored successfully.
+
+- 1: Auth mode stored successfully.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,6 +52,7 @@ END
 ```
 
 ## Notes
-- This setting controls whether POP3 uses password (`0`) or OAuth (`non-zero`) during `vuPOP3Connect`.
+
+- This setting controls whether POP3 uses password (0) or OAuth (non-zero) during vuPOP3Connect.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

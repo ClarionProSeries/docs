@@ -7,8 +7,8 @@
 
 Basic edition documentation
 
-Last Updated: 2026-04-03
-Build: 151
+Last Updated: 2026-04-22
+Build: 152
 
 Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 

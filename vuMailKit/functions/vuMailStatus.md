@@ -14,6 +14,7 @@ last_updated: "2026-01-07"
 # vuMailStatus()
 
 ## Description
+
 Returns send queue and background send status.
 
 ### Returns

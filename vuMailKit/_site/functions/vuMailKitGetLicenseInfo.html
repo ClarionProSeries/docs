@@ -39,12 +39,13 @@ test harness, About box, setup screen, or support dialog when you want
 to confirm what the DLL believes about the current license.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuMailKitGetLicenseInfo</code></li>
+<li>vuMailKitGetLicenseInfo</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuMailKitGetLicenseInfo(*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')</code></li>
+<li>vuMailKitGetLicenseInfo(*CSTRING OutText,LONG
+OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <table>
@@ -66,17 +67,17 @@ Global MAP)</h2>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of <code>OutText</code> in bytes.</td>
-<td>Normally <code>SIZE(OutText)</code>.</td>
+<td>Size of OutText in bytes.</td>
+<td>Normally SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>0</code> = no valid tier is active</li>
-<li><code>1</code> = Basic</li>
-<li><code>2</code> = Pro</li>
-<li><code>3</code> = Back Office</li>
+<li>0 = no valid tier is active</li>
+<li>1 = Basic</li>
+<li>2 = Pro</li>
+<li>3 = Back Office</li>
 <li>negative value = function failed</li>
 </ul>
 <h2 id="what-the-text-includes">What the text includes</h2>
@@ -93,7 +94,9 @@ Global MAP)</h2>
 </ul>
 <p>Example output:</p>
 <ul>
-<li><code>Initialized=1; Valid=1; Attempted=1; LastInitCode=0; LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0; Name=Charles; Number=16123</code></li>
+<li>Initialized=1; Valid=1; Attempted=1; LastInitCode=0;
+LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0;
+Name=Charles; Number=16123</li>
 </ul>
 <h2 id="clarion-example">Clarion example</h2>
 <pre class="clarion"><code>OutText                  CSTRING(512)
@@ -103,8 +106,8 @@ CLEAR(OutText)
 Result = vuMailKitGetLicenseInfo(OutText, SIZE(OutText))</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call <code>vuMailKitInitialize()</code> first if you want this
-function to reflect the intended active license.</li>
+<li>Call vuMailKitInitialize() first if you want this function to
+reflect the intended active license.</li>
 <li>This function is useful when testing normal licenses, DEMO licenses,
 and invalid-license behavior.</li>
 <li>The text is meant for display and diagnostics. Do not write program

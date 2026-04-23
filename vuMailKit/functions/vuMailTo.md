@@ -14,21 +14,25 @@ last_updated: "2026-03-27"
 # vuMailTo(xTo, xCc, xBcc, xSubject, xBody)
 
 ## Purpose
-Builds a `mailto:` URI and asks Windows Shell to open it with the default mail client.
+
+Builds a mailto: URI and asks Windows Shell to open it with the default mail client.
 
 ## Parameters
-- `xTo` (*CSTRING): To recipients string.
-- `xCc` (*CSTRING): Cc recipients string.
-- `xBcc` (*CSTRING): Bcc recipients string.
-- `xSubject` (*CSTRING): Subject text.
-- `xBody` (*CSTRING): Body text.
+
+- xTo (*CSTRING): To recipients string.
+- xCc (*CSTRING): Cc recipients string.
+- xBcc (*CSTRING): Bcc recipients string.
+- xSubject (*CSTRING): Subject text.
+- xBody (*CSTRING): Body text.
 
 ## Return value / error codes
-- Returns the Win32 `ShellExecute` result value.
-- Values greater than `32` typically indicate the shell accepted the open request.
-- `0`: Exception path; details are written to `vuMailLastError()`.
+
+- Returns the Win32 ShellExecute result value.
+- Values greater than 32 typically indicate the shell accepted the open request.
+- 0: Exception path; details are written to vuMailLastError().
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -55,9 +59,10 @@ END
 ```
 
 ## Notes
+
 - This API opens the client compose UI; it does not send mail directly.
 - Input fields are not URL-encoded by this function.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailTo`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailTo.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

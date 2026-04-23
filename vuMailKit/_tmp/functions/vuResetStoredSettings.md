@@ -9,15 +9,15 @@ Clears persisted vuMail/vuMailKit registry settings, saved profiles, active prof
 
 ## Export name
 
-- `vuResetStoredSettings`
+- vuResetStoredSettings
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuResetStoredSettings(),SIGNED,PROC,PASCAL,RAW,NAME('vuResetStoredSettings')`
+- vuResetStoredSettings(),SIGNED,PROC,PASCAL,RAW,NAME('vuResetStoredSettings')
 
 ## Return value
 
-- Returns `1` when the operation succeeds, otherwise `0`. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Notes
 

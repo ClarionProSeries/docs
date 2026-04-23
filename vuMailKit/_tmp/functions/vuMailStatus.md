@@ -4,6 +4,7 @@
 # vuMailStatus()
 
 ## Description
+
 Returns send queue and background send status.
 
 ### Returns

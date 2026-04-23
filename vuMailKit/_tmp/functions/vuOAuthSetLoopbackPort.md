@@ -9,31 +9,31 @@ Store the loopback port used for OAuth providers that complete login through a l
 
 ## Export name
 
-- `vuOAuthSetLoopbackPort`
+- vuOAuthSetLoopbackPort
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuOAuthSetLoopbackPort(*CSTRING Provider,*CSTRING AccountKey,LONG LoopbackPort,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetLoopbackPort')`
+- vuOAuthSetLoopbackPort(*CSTRING Provider,*CSTRING AccountKey,LONG LoopbackPort,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetLoopbackPort')
 
 ## Parameters
 
 | Parameter | Type | Description | Expected values / range |
 |---|---|---|---|
-| Provider | *CSTRING | Provider name. | Typical values: `google`, `microsoft`. |
+| Provider | *CSTRING | Provider name. | Typical values: google, microsoft. |
 | AccountKey | *CSTRING | Account key that owns this app configuration. | Usually the email address. |
-| LoopbackPort | LONG | Loopback TCP port to use for callback handling. | Use a valid TCP port such as `8085`. |
+| LoopbackPort | LONG | Loopback TCP port to use for callback handling. | Use a valid TCP port such as 8085. |
 | OutText | *CSTRING | Receives status text. | Writable text buffer. |
-| OutTextLen | LONG | Length of `OutText` in bytes. | Pass `SIZE(OutText)`. |
+| OutTextLen | LONG | Length of OutText in bytes. | Pass SIZE(OutText). |
 
 ## Expected values and ranges
 
-- `LoopbackPort` should be a valid TCP port number.
+- LoopbackPort should be a valid TCP port number.
 - Use the same port in your provider app registration if the provider requires an exact redirect URI.
 
 ## Return value
 
-- `1` = loopback port stored successfully.
-- `0` = the operation failed.
+- 1 = loopback port stored successfully.
+- 0 = the operation failed.
 
 ## Clarion example
 

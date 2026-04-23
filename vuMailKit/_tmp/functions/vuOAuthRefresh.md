@@ -8,21 +8,25 @@ vuOAuthRefresh(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTe
 ```
 
 ## Purpose
+
 Refreshes OAuth access token state for the specified provider/account pair.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Provider | *CSTRING | Provider identifier. |
 | AccountKey | *CSTRING | Account key identifier. |
 | OutText | *CSTRING | Output buffer receiving refresh status text. |
-| OutTextLen | LONG | Size of `OutText` buffer in bytes. |
+| OutTextLen | LONG | Size of OutText buffer in bytes. |
 
 ## Return value / error codes
-- `>= 0`: Result code from core OAuth refresh operation.
-- `-9`: Core unavailable or exception.
+
+- >= 0: Result code from core OAuth refresh operation.
+- -9: Core unavailable or exception.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,6 +52,7 @@ END
 ```
 
 ## Notes
+
 - Refresh semantics depend on provider token policy and stored refresh token availability.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

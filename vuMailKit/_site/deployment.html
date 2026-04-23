@@ -40,14 +40,14 @@ should reside in the same folder as your application EXE file.</p>
 sure the matching import library and template files were installed at
 development time:</p>
 <ul>
-<li><code>vuMailKit.lib</code> for linking</li>
-<li><code>vuMailKit.tpl</code> for the template integration</li>
+<li>vuMailKit.lib for linking</li>
+<li>vuMailKit.tpl for the template integration</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Most vuMailKit functions require parameters. Create and use the
 proper Clarion data elements for each function. Numeric values can often
 be passed directly where appropriate, but string values should be placed
-into <code>CSTRING</code> variables before the function call.</p>
+into CSTRING variables before the function call.</p>
 <p>The function pages in this documentation show:</p>
 <ul>
 <li>the calling prototype</li>
@@ -68,25 +68,22 @@ because they show real working flows such as:</p>
 code.</p>
 <h2 id="licensing-startup-call">Licensing startup call</h2>
 <p>vuMailKit uses a startup initialization call for licensed use. In a
-normal Clarion application, call <code>vuMailKitInitialize()</code> once
-during EXE startup before you invoke the wizard, autodetect, or send
-functions.</p>
+normal Clarion application, call vuMailKitInitialize() once during EXE
+startup before you invoke the wizard, autodetect, or send functions.</p>
 <p>The template-generated startup code is the normal way to handle
 this.</p>
 <h2 id="profile-storage">Profile storage</h2>
 <p>Once a managed profile has been created, vuMailKit normally uses the
 managed profile store under Local AppData rather than the old legacy
-<code>vuMail</code> registry model.</p>
+vuMail registry model.</p>
 <h2 id="typical-deployment-checklist">Typical deployment checklist</h2>
 <ul>
 <li>Install the template into Clarion.</li>
 <li>Be sure to enter your license information in the global
 template.</li>
-<li>Build your application with the <code>vuMailKit.lib</code> import
-library.</li>
-<li>Deploy <code>vuMailKit.dll</code> with the EXE.</li>
-<li>Make sure your startup path calls
-<code>vuMailKitInitialize()</code>.</li>
+<li>Build your application with the vuMailKit.lib import library.</li>
+<li>Deploy vuMailKit.dll with the EXE.</li>
+<li>Make sure your startup path calls vuMailKitInitialize().</li>
 <li>If you use OAuth, configure the provider credentials in the template
 or application settings.</li>
 </ul>

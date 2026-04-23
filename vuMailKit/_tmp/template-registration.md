@@ -10,7 +10,7 @@ If you decide not to allow that, or if you need to re-register the template late
 1. In the Clarion IDE, click **Tools** > **Edit Template Registry**.
 2. In the **Template Registry** window, click **Register**.
 3. In the file picker, navigate to:
-   `C:\ClarionXX\accessory\template\win\`
+   C:\ClarionXX\accessory\template\win\
 4. Select **vuMailKit.tpl** and click **Open**.
 5. Confirm that **vuMailKit** appears in the list of registered templates and click **OK**.
 

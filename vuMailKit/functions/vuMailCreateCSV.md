@@ -14,16 +14,20 @@ last_updated: "2026-03-27"
 # vuMailCreateCSV(xCsvFilePath)
 
 ## Purpose
-Creates (or truncates) the target CSV file and stores it as the selected CSV used by `vuMailAppendCSV()`.
+
+Creates (or truncates) the target CSV file and stores it as the selected CSV used by vuMailAppendCSV().
 
 ## Parameters
-- `xCsvFilePath` (*CSTRING): Full path to the CSV file.
+
+- xCsvFilePath (*CSTRING): Full path to the CSV file.
 
 ## Return value / error codes
-- `1`: CSV created and selected.
-- `0`: Failure (for example blank path or file create failure). Error text is available through `vuMailLastError()`.
+
+- 1: CSV created and selected.
+- 0: Failure (for example blank path or file create failure). Error text is available through vuMailLastError().
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -39,9 +43,10 @@ END
 ```
 
 ## Notes
+
 - If needed, parent directories are created.
-- A blank path returns `0`.
+- A blank path returns 0.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailCreateCSV`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailCreateCSV.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

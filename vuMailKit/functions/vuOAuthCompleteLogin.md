@@ -18,22 +18,26 @@ vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText
 ```
 
 ## Purpose
+
 Finalizes OAuth sign-in using callback data or verification result text and stores token state for later SMTP/POP3 use.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Provider | *CSTRING | Provider identifier used in BeginLogin. |
 | AccountKey | *CSTRING | Account key used in BeginLogin. |
 | CallbackText | *CSTRING | Callback payload or verification completion text. |
 | OutText | *CSTRING | Output buffer receiving completion status text. |
-| OutTextLen | LONG | Size of `OutText` buffer in bytes. |
+| OutTextLen | LONG | Size of OutText buffer in bytes. |
 
 ## Return value / error codes
-- `>= 0`: Result code from the OAuth core Complete operation.
-- `-9`: Core unavailable or exception.
+
+- >= 0: Result code from the OAuth core Complete operation.
+- -9: Core unavailable or exception.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -61,7 +65,8 @@ END
 ```
 
 ## Notes
-- `Provider` and `AccountKey` must match the values used for BeginLogin state.
-- This function returns detailed diagnostic text through `OutText`.
+
+- Provider and AccountKey must match the values used for BeginLogin state.
+- This function returns detailed diagnostic text through OutText.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

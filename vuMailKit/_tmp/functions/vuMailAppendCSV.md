@@ -4,22 +4,26 @@
 # vuMailAppendCSV(xFrom, xTo, xCc, xBcc, xSubject, xBody, xAttachment)
 
 ## Purpose
-Appends one CSV row with message fields to the file previously selected by `vuMailCreateCSV()` (or `vuMailSelectCSV()`).
+
+Appends one CSV row with message fields to the file previously selected by vuMailCreateCSV() (or vuMailSelectCSV()).
 
 ## Parameters
-- `xFrom` (*CSTRING): From address/text.
-- `xTo` (*CSTRING): To address/text.
-- `xCc` (*CSTRING): CC address/text.
-- `xBcc` (*CSTRING): BCC address/text.
-- `xSubject` (*CSTRING): Subject text.
-- `xBody` (*CSTRING): Body text.
-- `xAttachment` (*CSTRING): Attachment path/text.
+
+- xFrom (*CSTRING): From address/text.
+- xTo (*CSTRING): To address/text.
+- xCc (*CSTRING): CC address/text.
+- xBcc (*CSTRING): BCC address/text.
+- xSubject (*CSTRING): Subject text.
+- xBody (*CSTRING): Body text.
+- xAttachment (*CSTRING): Attachment path/text.
 
 ## Return value / error codes
-- `1`: Row appended.
-- `0`: Failure (for example no selected CSV file, selected file missing, or write failure). Error text is available through `vuMailLastError()`.
+
+- 1: Row appended.
+- 0: Failure (for example no selected CSV file, selected file missing, or write failure). Error text is available through vuMailLastError().
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -49,9 +53,10 @@ END
 ```
 
 ## Notes
+
 - Uses ASCII encoding and CSV quoting/escaping for commas, quotes, and line breaks.
-- Requires a selected CSV path from `vuMailCreateCSV()`/`vuMailSelectCSV()`.
+- Requires a selected CSV path from vuMailCreateCSV()/vuMailSelectCSV().
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailAppendCSV`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailAppendCSV.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

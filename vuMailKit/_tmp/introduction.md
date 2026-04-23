@@ -30,7 +30,7 @@ Then review:
 
 ## Important note about licensing
 
-vuMailKit uses a startup licensing call. In normal use, the application should call `vuMailKitInitialize()` once during startup before invoking the wizard, autodetect, send, or profile functions.  The code for this is handled automatically by the template but if you are hand-coding you will need to replicate that part of the code in your app.
+vuMailKit uses a startup licensing call. In normal use, the application should call vuMailKitInitialize() once during startup before invoking the wizard, autodetect, send, or profile functions.  The code for this is handled automatically by the template but if you are hand-coding you will need to replicate that part of the code in your app.
 
 ## About the function reference
 

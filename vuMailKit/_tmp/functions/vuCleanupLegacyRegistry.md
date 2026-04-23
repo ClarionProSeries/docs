@@ -9,11 +9,11 @@ Safely remove legacy registry settings after managed profile migration has been 
 
 ## Export name
 
-- `vuCleanupLegacyRegistry`
+- vuCleanupLegacyRegistry
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuCleanupLegacyRegistry(),LONG,PROC,PASCAL,RAW,NAME('vuCleanupLegacyRegistry')`
+- vuCleanupLegacyRegistry(),LONG,PROC,PASCAL,RAW,NAME('vuCleanupLegacyRegistry')
 
 ## Parameters
 
@@ -26,8 +26,8 @@ This function takes no parameters.
 
 ## Return value
 
-- `1` = cleanup completed.
-- `0` = cleanup refused or failed.
+- 1 = cleanup completed.
+- 0 = cleanup refused or failed.
 
 ## Clarion example
 

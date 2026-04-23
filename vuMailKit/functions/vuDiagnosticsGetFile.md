@@ -19,17 +19,17 @@ Gets the currently configured diagnostics log file path.
 
 ## Export name
 
-- `vuDiagnosticsGetFile`
+- vuDiagnosticsGetFile
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuDiagnosticsGetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsGetFile')`
+- vuDiagnosticsGetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsGetFile')
 
 ## Return value
 
-- Returns `1` when the operation succeeds, otherwise `0`. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Notes
 
-- Pass the address of a writable `CSTRING` buffer.
+- Pass the address of a writable CSTRING buffer.
 - If no diagnostics file has been configured yet, an empty string is returned.

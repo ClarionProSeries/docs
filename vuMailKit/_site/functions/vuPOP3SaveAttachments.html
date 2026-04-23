@@ -39,9 +39,8 @@ message.</p>
 <p>This function has no parameters.</p>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: One or more attachments were saved.</li>
-<li><code>0</code>: No attachments were saved or save operation
-failed.</li>
+<li>1: One or more attachments were saved.</li>
+<li>0: No attachments were saved or save operation failed.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -58,8 +57,8 @@ IF rc = 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call <code>vuPOP3LoadEmail</code> before saving attachments.</li>
-<li>Output folder comes from <code>vuPOP3SetFolder</code> / POP3 folder
+<li>Call vuPOP3LoadEmail before saving attachments.</li>
+<li>Output folder comes from vuPOP3SetFolder / POP3 folder
 configuration.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

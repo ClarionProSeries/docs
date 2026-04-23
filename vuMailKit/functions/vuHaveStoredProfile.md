@@ -22,11 +22,11 @@ This helper is mainly useful for:
 
 ## Export name
 
-- `vuHaveStoredProfile`
+- vuHaveStoredProfile
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')`
+- vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')
 
 ## Parameters
 
@@ -34,12 +34,12 @@ This helper is mainly useful for:
 
 ## Return value
 
-- `1` = at least one managed profile exists
-- `0` = no managed profile exists, or the check failed
+- 1 = at least one managed profile exists
+- 0 = no managed profile exists, or the check failed
 
 ## What it does
 
-`vuHaveStoredProfile()` checks the managed profile store under the current Windows user and reports whether any saved managed profile files are present.
+vuHaveStoredProfile() checks the managed profile store under the current Windows user and reports whether any saved managed profile files are present.
 
 This function only answers the managed-profile question.
 
@@ -65,7 +65,7 @@ END
 ## Notes
 
 - This function is best used as a gentle setup hint, not as a hard requirement.
-- For migrated legacy applications, `0` may simply mean the developer has not moved the application to managed profiles yet.
-- In a demo application, a result of `0` is a good time to offer the setup wizard.
+- For migrated legacy applications, 0 may simply mean the developer has not moved the application to managed profiles yet.
+- In a demo application, a result of 0 is a good time to offer the setup wizard.
 
 [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)

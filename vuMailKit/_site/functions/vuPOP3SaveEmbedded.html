@@ -54,9 +54,8 @@ POP3 message by filename.</p>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: Embedded content item saved successfully.</li>
-<li><code>0</code>: <code>FileName</code> is blank, embedded item not
-found, or save failed.</li>
+<li>1: Embedded content item saved successfully.</li>
+<li>0: FileName is blank, embedded item not found, or save failed.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -75,9 +74,8 @@ IF rc = 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call <code>vuPOP3LoadEmail</code> before saving embedded
-content.</li>
-<li>Output folder comes from <code>vuPOP3SetFolder</code> / POP3 folder
+<li>Call vuPOP3LoadEmail before saving embedded content.</li>
+<li>Output folder comes from vuPOP3SetFolder / POP3 folder
 configuration.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

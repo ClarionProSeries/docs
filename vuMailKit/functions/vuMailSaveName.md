@@ -18,6 +18,7 @@ vuMailSaveName(*CSTRING FileName),SIGNED,PROC,PASCAL,RAW,NAME('vuMailSaveName')
 ```
 
 ## Description
+
 Sets the file name (or full path) used when vuMailKit saves the next sent email as an .eml file.
 
 ### Parameters
@@ -27,10 +28,12 @@ Sets the file name (or full path) used when vuMailKit saves the next sent email 
 | FileName | *CSTRING | File name (or full path) to use for the next saved .eml message. |
 
 ## Return value
+
 - Returns 0 on success.
 - Returns -1 if FileName is blank.
 
 ## Notes
+
 - Call this before the send operation so the value is applied to that send.
 
 ### Example

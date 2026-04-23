@@ -13,30 +13,30 @@ last_updated: "2026-03-27"
 
 ## Purpose
 
-`vuMailLastReturnCode()` returns a numeric code that describes what happened in the most recent completed send operation.
+vuMailLastReturnCode() returns a numeric code that describes what happened in the most recent completed send operation.
 
-This is intended to be machine-readable, so calling code can react without parsing `vuMailLastError()` text.
+This is intended to be machine-readable, so calling code can react without parsing vuMailLastError() text.
 
 ## When to call it
 
 Call this after a send has completed, for example:
 
-- After `vuSendMailWait()` returns.
-- After your `vuSendMail()` call has queued a send and your polling loop sees `vuMailStatus()` return 0.
-- After `vuSendMailFromFile()` has finished processing the file (if you are waiting for completion).
+- After vuSendMailWait() returns.
+- After your vuSendMail() call has queued a send and your polling loop sees vuMailStatus() return 0.
+- After vuSendMailFromFile() has finished processing the file (if you are waiting for completion).
 
 ## Return values
 
-These codes supplement the legacy return codes from `vuSendMail*()`.
+These codes supplement the legacy return codes from vuSendMail*().
 
-- `0`  No additional detail available, or success.
-- `-701`  OAuth needs re-authorization. The refresh token is invalid, expired, or revoked.
-- `-702`  OAuth temporary failure. Retry later (network, provider outage, throttling).
+- 0  No additional detail available, or success.
+- -701  OAuth needs re-authorization. The refresh token is invalid, expired, or revoked.
+- -702  OAuth temporary failure. Retry later (network, provider outage, throttling).
 
 Notes:
 
-- If `vuMailLastReturnCode()` is `-701`, your UI should prompt the user to run the OAuth authorization flow again for the affected account.
-- If `vuMailLastReturnCode()` is `-702`, treat it as temporary and retry later.
+- If vuMailLastReturnCode() is -701, your UI should prompt the user to run the OAuth authorization flow again for the affected account.
+- If vuMailLastReturnCode() is -702, treat it as temporary and retry later.
 
 ## Clarion prototype
 
@@ -67,8 +67,8 @@ Notes:
 
 ## Related functions
 
-- `vuMailLastError()`
-- `vuMailStatus()`
-- `vuSendMail()`
-- `vuSendMailWait()`
-- `vuSendMailFromFile()`
+- vuMailLastError()
+- vuMailStatus()
+- vuSendMail()
+- vuSendMailWait()
+- vuSendMailFromFile()

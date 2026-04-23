@@ -14,7 +14,8 @@ last_updated: "2026-01-07"
 # vuSmtpSetServer()
 
 ## Description
-Sets the outbound SMTP server name and port. (legacy name: `vuSetMailServer()`).
+
+Sets the outbound SMTP server name and port. (legacy name: vuSetMailServer()).
 
 Previously exported as (legacy name, still supported):
 
@@ -22,8 +23,8 @@ Previously exported as (legacy name, still supported):
 
 ### Parameters
 
-- `xServer` (CSTRING) - SMTP server host name or IP.
-- `xPort` (LONG) - SMTP server port.
+- xServer (CSTRING) - SMTP server host name or IP.
+- xPort (LONG) - SMTP server port.
 
 ### Returns
 
@@ -33,7 +34,7 @@ A LONG value indicating the result.
 
 ### Notes
 
-This sets the values stored in the current vuMailKit session. Use `vuGlobalsSave()` if you want to persist them to the registry.
+This sets the values stored in the current vuMailKit session. Use vuGlobalsSave() if you want to persist them to the registry.
 
 ### Example (Clarion)
 

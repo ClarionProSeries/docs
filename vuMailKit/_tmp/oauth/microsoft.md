@@ -54,7 +54,7 @@ Do not remove the single quotes.
 
 Some Microsoft-hosted mailboxes use a custom company domain instead of an address that obviously looks like Microsoft 365 or Outlook.com.
 
-For example, a mailbox such as `user@yourcompany.com` may still be hosted by Microsoft 365 even though the email address itself does not show that.
+For example, a mailbox such as user@yourcompany.com may still be hosted by Microsoft 365 even though the email address itself does not show that.
 
 In those cases, vuMailKit may not detect from the domain alone that the mailbox should use Microsoft OAuth.
 
@@ -64,12 +64,12 @@ Typical Microsoft 365 settings are:
 
 | Setting | Typical value |
 |------|------|
-| Outgoing server | `smtp.office365.com` |
-| Outgoing port | `587` |
-| Outgoing security | `STARTTLS` |
-| Incoming server | `outlook.office365.com` |
-| Incoming port | `993` for IMAP or `995` for POP3 |
-| Incoming security | `SSL/TLS` |
+| Outgoing server | smtp.office365.com |
+| Outgoing port | 587 |
+| Outgoing security | STARTTLS |
+| Incoming server | outlook.office365.com |
+| Incoming port | 993 for IMAP or 995 for POP3 |
+| Incoming security | SSL/TLS |
 | Sign-in method | **Microsoft Sign-In** |
 
 Use the mailbox owner's actual email address as the account name unless your Microsoft 365 environment requires something different.

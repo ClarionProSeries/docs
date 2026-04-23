@@ -60,9 +60,8 @@ field.</td>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: At least one valid row was queued.</li>
-<li><code>0</code>: File missing/invalid, no valid rows, or processing
-failure.</li>
+<li>1: At least one valid row was queued.</li>
+<li>0: File missing/invalid, no valid rows, or processing failure.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -83,23 +82,23 @@ MESSAGE(&#39;vuSendMailFromFile rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Blank lines and invalid rows are skipped.</li>
-<li>If no valid rows remain after parsing, the function returns
-<code>0</code>.</li>
+<li>If no valid rows remain after parsing, the function returns 0.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h2 id="from-column-behavior">From column behavior</h2>
 <p>The CSV From column follows the same sender-selection rules as
-<code>vuSendMail()</code> and <code>vuSendMailWait()</code>:</p>
+vuSendMail() and vuSendMailWait():</p>
 <ul>
 <li>Blank From column uses the saved/default profile sender.</li>
-<li>Full mailbox like <code>Support &lt;support@example.com&gt;</code>
-is used as supplied for that row.</li>
+<li>Full mailbox like Support <a
+href="mailto:support@example.com">support@example.com</a> is used as
+supplied for that row.</li>
 <li>Plain email address uses that address with no display name
 override.</li>
-<li>Plain display name only, such as <code>Technical Support</code>,
-combines that name with the saved/default profile sender address.</li>
+<li>Plain display name only, such as Technical Support, combines that
+name with the saved/default profile sender address.</li>
 </ul>
 <p>If a row supplies a display name only and there is no saved/default
 profile sender address available, that row is treated as invalid and is

@@ -18,29 +18,29 @@ This is the named-profile load function for Pro and Back Office workflows.
 
 ## Export name
 
-- `vuLoadProfileEx`
+- vuLoadProfileEx
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuLoadProfileEx(*CSTRING ProfileName),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfileEx')`
+- vuLoadProfileEx(*CSTRING ProfileName),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfileEx')
 
 ## Parameters
 
 | Parameter | Type | Description | Expected values / range |
 |---|---|---|---|
-| ProfileName | *CSTRING | Managed profile name to load. | Example: `work-account`. Blank falls back to `default`. |
+| ProfileName | *CSTRING | Managed profile name to load. | Example: work-account. Blank falls back to default. |
 
 ## Return value
 
-- `1` = success
-- `0` = load failed
-- `-401` = vuMailKit was not initialized
-- `-402` = license is invalid or initialization failed
-- `-403` = current license tier does not allow this feature
+- 1 = success
+- 0 = load failed
+- -401 = vuMailKit was not initialized
+- -402 = license is invalid or initialization failed
+- -403 = current license tier does not allow this feature
 
 ## What it does
 
-`vuLoadProfileEx()` performs an explicit managed-profile load of the named profile.
+vuLoadProfileEx() performs an explicit managed-profile load of the named profile.
 
 After a successful load:
 
@@ -62,7 +62,7 @@ Result = vuLoadProfileEx(ProfileName)
 
 - This is an explicit replace operation.
 - This function is gated to Pro and Back Office editions.
-- If `ProfileName` is blank, the load falls back to `default`.
-- Call `vuMailKitInitialize(LicenseString)` at EXE startup before using this function.
+- If ProfileName is blank, the load falls back to default.
+- Call vuMailKitInitialize(LicenseString) at EXE startup before using this function.
 
 [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)

@@ -17,7 +17,7 @@ To use **vuMailKit**, add the global extension template to your application.
 
 The template is the normal place to:
 
-- provide the license string used by `vuMailKitInitialize()`
+- provide the license string used by vuMailKitInitialize()
 - configure product-wide defaults such as OAuth support
 - supply OAuth client settings for supported providers
 - generate the public Clarion prototypes used by the application

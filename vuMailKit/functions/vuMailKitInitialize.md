@@ -18,11 +18,11 @@ Call this once at EXE startup and pass the license string generated for the deve
 
 ## Export name
 
-- `vuMailKitInitialize`
+- vuMailKitInitialize
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuMailKitInitialize(*CSTRING LicenseString),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitInitialize')`
+- vuMailKitInitialize(*CSTRING LicenseString),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitInitialize')
 
 ## Parameters
 
@@ -32,12 +32,12 @@ Call this once at EXE startup and pass the license string generated for the deve
 
 ## When to call this
 
-Call `vuMailKitInitialize()` once before `Main` or before you open windows that can use vuMailKit.
+Call vuMailKitInitialize() once before Main or before you open windows that can use vuMailKit.
 
 Typical EXE startup pattern:
 
-- copy the developer license string into a `CSTRING`
-- call `vuMailKitInitialize(LicenseString)`
+- copy the developer license string into a CSTRING
+- call vuMailKitInitialize(LicenseString)
 - continue into the rest of the application
 
 This is the normal pattern for:
@@ -49,12 +49,12 @@ This is the normal pattern for:
 
 ## Return value
 
-- `0` = initialization succeeded
+- 0 = initialization succeeded
 - negative value = initialization failed
 
 Common negative results:
 
-- `-402` = license was invalid or initialization failed
+- -402 = license was invalid or initialization failed
 
 ## Clarion example
 
@@ -71,7 +71,7 @@ Result = vuMailKitInitialize(LicenseString)
 - This call is now part of the normal startup flow for licensed vuMailKit use.
 - Basic features such as send, autodetect, and profile save are license-gated and should not rely on implicit startup behavior.
 - A DEMO license should also be passed through this function.
-- If initialization fails, later gated calls can return licensing results such as `-401`, `-402`, or `-403`.
-- Use `vuMailKitGetLicenseInfo()` if you want a diagnostic text summary of the license state for a test harness, support screen, or About box.
+- If initialization fails, later gated calls can return licensing results such as -401, -402, or -403.
+- Use vuMailKitGetLicenseInfo() if you want a diagnostic text summary of the license state for a test harness, support screen, or About box.
 
 [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)

@@ -9,15 +9,15 @@ Deletes the current diagnostics log file and SMTP protocol log file when they ex
 
 ## Export name
 
-- `vuDiagnosticsClearLogs`
+- vuDiagnosticsClearLogs
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuDiagnosticsClearLogs(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsClearLogs')`
+- vuDiagnosticsClearLogs(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsClearLogs')
 
 ## Return value
 
-- Returns `1` when the operation succeeds, otherwise `0`. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Notes
 

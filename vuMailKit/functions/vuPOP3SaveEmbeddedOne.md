@@ -18,18 +18,22 @@ vuPOP3SaveEmbeddedOne(LONG Index),SIGNED,PROC,PASCAL,RAW,NAME('vuPOP3SaveEmbedde
 ```
 
 ## Purpose
+
 Saves one embedded (inline) content item from the currently loaded POP3 message by index.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Index | LONG | 1-based embedded content index. |
 
 ## Return value / error codes
-- `1`: Embedded content item saved successfully.
-- `0`: Invalid index, item not found, or save failed.
+
+- 1: Embedded content item saved successfully.
+- 0: Invalid index, item not found, or save failed.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,7 +52,8 @@ END
 ```
 
 ## Notes
-- Call `vuPOP3LoadEmail` before saving embedded content.
-- Output folder comes from `vuPOP3SetFolder` / POP3 folder configuration.
+
+- Call vuPOP3LoadEmail before saving embedded content.
+- Output folder comes from vuPOP3SetFolder / POP3 folder configuration.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

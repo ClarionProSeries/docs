@@ -1,77 +1,95 @@
 ---
 title: "vuOAuthBeginLogin"
-summary: "Starts OAuth login and returns provider-specific callback or device-verification text."
-description: "Starts OAuth login and returns provider-specific callback or device-verification text. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+summary: "Starts an OAuth login flow using the specified provider/account settings."
+description: "Starts an OAuth login flow using the specified provider/account settings. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
 keywords: ["vuMailKit", "OAuth", "vuOAuthBeginLogin"]
 function_name: "vuOAuthBeginLogin"
 category: "OAuth"
 version_added: "Legacy"
-last_updated: "2026-03-27"
+last_updated: "2026-04-19"
 ---
-
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuOAuthBeginLogin()
 
 ```Prototype
-vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,*CSTRING ClientId,*CSTRING RedirectUri,*CSTRING Scope,*CSTRING Tenant,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthBeginLogin')
+vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientId,*CSTRING Tenant,*CSTRING Scopes,*CSTRING FlowType,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthBeginLogin')
 ```
 
 ## Purpose
-Starts an OAuth sign-in flow for a provider/account pair and returns flow text (for example device verification info or callback instructions).
+
+Starts an OAuth login flow for the specified provider and account key.
+
+This call initializes the provider-specific login state, chooses the appropriate login flow, and writes status or detail text into OutText.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
-| Provider | *CSTRING | Provider identifier. |
-| AccountKey | *CSTRING | Account key used to isolate token state. |
-| OutText | *CSTRING | OAuth client/application ID. |
-| ClientId | *CSTRING | Tenant/authority string (provider-specific). |
-| RedirectUri | *CSTRING | Space-delimited OAuth scopes. |
-| Scope | *CSTRING | Flow mode indicator (provider-specific). |
-| Tenant | *CSTRING | Output buffer receiving status/detail text from BeginLogin. |
-| OutTextLen | LONG | Size of `OutText` buffer in bytes. |
+| Provider | *CSTRING | Provider name, such as google or microsoft. |
+| AccountKey | *CSTRING | Account key used to isolate stored OAuth state for this login. |
+| ClientId | *CSTRING | OAuth client or application ID. |
+| Tenant | *CSTRING | Tenant or authority string when the provider requires it. |
+| Scopes | *CSTRING | Space-delimited OAuth scopes to request. |
+| FlowType | *CSTRING | Flow mode string used by the provider-specific login implementation. |
+| OutText | *CSTRING | Output buffer receiving status or detail text from the BeginLogin call. |
+| OutTextLen | LONG | Size of the OutText buffer in bytes. |
 
 ## Return value / error codes
-- `>= 0`: Result code from the OAuth core Begin operation.
-- `-9`: Core unavailable or exception.
+
+- 1: BeginLogin completed successfully.
+- 0: BeginLogin did not complete successfully.
+- -9: Exception while starting the login flow.
+
+## Notes
+
+- The actual flow used depends on the provider and the current runtime implementation.
+- OutText is intended for human-readable status or detail text.
+- After a successful call, use the other OAuth helper functions that fit the selected flow, such as:
+  - vuOAuthGetDeviceInfo()
+  - vuOAuthLaunchUserVerification()
+  - vuOAuthLaunchAuthorizeUrl()
+  - vuOAuthCompleteLogin()
 
 ## Example (Clarion)
+
 ```clarion
 MAP
-  MODULE('vuMail.dll')
-    vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,*CSTRING ClientId,*CSTRING RedirectUri,*CSTRING Scope,*CSTRING Tenant,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthBeginLogin')
+  MODULE('vuMailKit.dll')
+    vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientId,*CSTRING Tenant,*CSTRING Scopes,*CSTRING FlowType,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthBeginLogin')
   END
 END
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-clientId   CSTRING(256)
-tenant     CSTRING(128)
-scopes     CSTRING(512)
-flowType   CSTRING(32)
-outText    CSTRING(2048)
-outLen     LONG
+provider    CSTRING(32)
+accountKey  CSTRING(128)
+clientId    CSTRING(256)
+tenant      CSTRING(128)
+scopes      CSTRING(512)
+flowType    CSTRING(64)
+outText     CSTRING(1024)
+outLen      LONG
+rc          LONG
 
-provider   = 'Microsoft'
+provider   = 'microsoft'
 accountKey = 'user@example.com'
-clientId   = '00000000-0000-0000-0000-000000000000'
+clientId   = 'your-client-id'
 tenant     = 'common'
-scopes     = 'offline_access https://outlook.office.com/SMTP.Send'
-flowType   = 'device'
+scopes     = 'offline_access https://graph.microsoft.com/Mail.Send'
+flowType   = ''
 outText    = ''
 outLen     = SIZE(outText)
 
 rc = vuOAuthBeginLogin(provider, accountKey, clientId, tenant, scopes, flowType, outText, outLen)
-IF rc < 0
-  MESSAGE('BeginLogin failed: ' & rc & '| ' & outText)
-END
+MESSAGE('rc=' & rc & ' text=' & outText)
 ```
 
-## Notes
-- `OutText` is the handoff text used by later OAuth steps.
-- Use the same `Provider` and `AccountKey` values on subsequent status/complete/clear/refresh calls.
-- Alias export [vuOAuth_BeginLogin()](vuOAuth_BeginLogin.md) is available for compatibility.
+## See also
+
+- vuOAuthDetectProviderFromEmail()
+- vuOAuthGetDeviceInfo()
+- vuOAuthLaunchUserVerification()
+- vuOAuthLaunchAuthorizeUrl()
+- vuOAuthCompleteLogin()
+- vuOAuthStatus()
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

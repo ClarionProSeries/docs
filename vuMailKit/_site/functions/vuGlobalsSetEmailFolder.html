@@ -33,8 +33,7 @@ href="../categories/index.html">Categories</a></p>
 <h1 id="vuglobalssetemailfolder">vuGlobalsSetEmailFolder()</h1>
 <pre class="Prototype"><code>vuGlobalsSetEmailFolder(*CSTRING InFolder),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGlobalsSetEmailFolder&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Sets the in-memory <code>EmailFolder</code> path used by
-vuMailKit.</p>
+<p>Sets the in-memory EmailFolder path used by vuMailKit.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -54,7 +53,7 @@ vuMailKit.</p>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: Success.</li>
+<li>1: Success.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -77,8 +76,8 @@ END</code></pre>
 href="vuSetSaveFolder.html">vuSetSaveFolder()</a>.</li>
 <li>vuMailKit attempts to create the folder if it does not already
 exist.</li>
-<li>This updates runtime memory only; call <code>vuGlobalsSave()</code>
-to persist to registry.</li>
+<li>This updates runtime memory only; call vuGlobalsSave() to persist to
+registry.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

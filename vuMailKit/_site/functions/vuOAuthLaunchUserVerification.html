@@ -59,8 +59,7 @@ and optionally copy a device code to the clipboard.</p>
 <tr>
 <td>CopyCodeToClipboard</td>
 <td>LONG</td>
-<td><code>0</code> = do not copy, non-zero = copy code when
-available.</td>
+<td>0 = do not copy, non-zero = copy code when available.</td>
 </tr>
 <tr>
 <td>OutText</td>
@@ -70,17 +69,16 @@ available.</td>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of <code>OutText</code> buffer in bytes.</td>
+<td>Size of OutText buffer in bytes.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: Browser launch succeeded (clipboard warning may
-still be included in OutText).</li>
-<li><code>-8</code>: Browser launch failed.</li>
-<li><code>-9</code>: BeginLogin state missing, URL missing, or
-exception.</li>
+<li>1: Browser launch succeeded (clipboard warning may still be included
+in OutText).</li>
+<li>-8: Browser launch failed.</li>
+<li>-9: BeginLogin state missing, URL missing, or exception.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -108,8 +106,8 @@ IF rc &lt;&gt; 1
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call this after a successful BeginLogin for the same
-<code>Provider</code> + <code>AccountKey</code>.</li>
+<li>Call this after a successful BeginLogin for the same Provider +
+AccountKey.</li>
 <li>This function attempts desktop browser automation and can fail in
 locked-down/server environments.</li>
 </ul>

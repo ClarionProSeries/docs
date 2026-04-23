@@ -36,12 +36,14 @@ href="../functions-by-category.html">By category</a></p>
 through a local callback.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuOAuthSetLoopbackPort</code></li>
+<li>vuOAuthSetLoopbackPort</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuOAuthSetLoopbackPort(*CSTRING Provider,*CSTRING AccountKey,LONG LoopbackPort,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetLoopbackPort')</code></li>
+<li>vuOAuthSetLoopbackPort(*CSTRING Provider,*CSTRING AccountKey,LONG
+LoopbackPort,*CSTRING OutText,LONG
+OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetLoopbackPort')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <table>
@@ -58,7 +60,7 @@ Global MAP)</h2>
 <td>Provider</td>
 <td>*CSTRING</td>
 <td>Provider name.</td>
-<td>Typical values: <code>google</code>, <code>microsoft</code>.</td>
+<td>Typical values: google, microsoft.</td>
 </tr>
 <tr>
 <td>AccountKey</td>
@@ -70,7 +72,7 @@ Global MAP)</h2>
 <td>LoopbackPort</td>
 <td>LONG</td>
 <td>Loopback TCP port to use for callback handling.</td>
-<td>Use a valid TCP port such as <code>8085</code>.</td>
+<td>Use a valid TCP port such as 8085.</td>
 </tr>
 <tr>
 <td>OutText</td>
@@ -81,21 +83,21 @@ Global MAP)</h2>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Length of <code>OutText</code> in bytes.</td>
-<td>Pass <code>SIZE(OutText)</code>.</td>
+<td>Length of OutText in bytes.</td>
+<td>Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="expected-values-and-ranges">Expected values and ranges</h2>
 <ul>
-<li><code>LoopbackPort</code> should be a valid TCP port number.</li>
+<li>LoopbackPort should be a valid TCP port number.</li>
 <li>Use the same port in your provider app registration if the provider
 requires an exact redirect URI.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = loopback port stored successfully.</li>
-<li><code>0</code> = the operation failed.</li>
+<li>1 = loopback port stored successfully.</li>
+<li>0 = the operation failed.</li>
 </ul>
 <h2 id="clarion-example">Clarion example</h2>
 <pre class="clarion"><code>Provider                 CSTRING(40)

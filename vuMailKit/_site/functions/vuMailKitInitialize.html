@@ -39,12 +39,13 @@ running process, including Basic, Pro, Back Office, and DEMO
 licenses.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuMailKitInitialize</code></li>
+<li>vuMailKitInitialize</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuMailKitInitialize(*CSTRING LicenseString),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitInitialize')</code></li>
+<li>vuMailKitInitialize(*CSTRING
+LicenseString),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitInitialize')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <table>
@@ -67,12 +68,12 @@ string leaves the process unlicensed.</td>
 </tbody>
 </table>
 <h2 id="when-to-call-this">When to call this</h2>
-<p>Call <code>vuMailKitInitialize()</code> once before <code>Main</code>
-or before you open windows that can use vuMailKit.</p>
+<p>Call vuMailKitInitialize() once before Main or before you open
+windows that can use vuMailKit.</p>
 <p>Typical EXE startup pattern:</p>
 <ul>
-<li>copy the developer license string into a <code>CSTRING</code></li>
-<li>call <code>vuMailKitInitialize(LicenseString)</code></li>
+<li>copy the developer license string into a CSTRING</li>
+<li>call vuMailKitInitialize(LicenseString)</li>
 <li>continue into the rest of the application</li>
 </ul>
 <p>This is the normal pattern for:</p>
@@ -84,13 +85,12 @@ or before you open windows that can use vuMailKit.</p>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>0</code> = initialization succeeded</li>
+<li>0 = initialization succeeded</li>
 <li>negative value = initialization failed</li>
 </ul>
 <p>Common negative results:</p>
 <ul>
-<li><code>-402</code> = license was invalid or initialization
-failed</li>
+<li>-402 = license was invalid or initialization failed</li>
 </ul>
 <h2 id="clarion-example">Clarion example</h2>
 <pre class="clarion"><code>LicenseString            CSTRING(512)
@@ -106,11 +106,10 @@ vuMailKit use.</li>
 license-gated and should not rely on implicit startup behavior.</li>
 <li>A DEMO license should also be passed through this function.</li>
 <li>If initialization fails, later gated calls can return licensing
-results such as <code>-401</code>, <code>-402</code>, or
-<code>-403</code>.</li>
-<li>Use <code>vuMailKitGetLicenseInfo()</code> if you want a diagnostic
-text summary of the license state for a test harness, support screen, or
-About box.</li>
+results such as -401, -402, or -403.</li>
+<li>Use vuMailKitGetLicenseInfo() if you want a diagnostic text summary
+of the license state for a test harness, support screen, or About
+box.</li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a

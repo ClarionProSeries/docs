@@ -8,21 +8,25 @@ vuOAuthStatus(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTex
 ```
 
 ## Purpose
+
 Queries OAuth status for a specific provider/account token store and returns provider/core status text.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Provider | *CSTRING | Provider identifier. |
 | AccountKey | *CSTRING | Account key identifier. |
 | OutText | *CSTRING | Output buffer receiving status text. |
-| OutTextLen | LONG | Size of `OutText` buffer in bytes. |
+| OutTextLen | LONG | Size of OutText buffer in bytes. |
 
 ## Return value / error codes
-- `>= 0`: Status/result code from core OAuth status call.
-- `-9`: Core unavailable or exception.
+
+- >= 0: Status/result code from core OAuth status call.
+- -9: Core unavailable or exception.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -46,6 +50,7 @@ MESSAGE('Status rc=' & rc & '| ' & outText)
 ```
 
 ## Notes
+
 - Status checks only the specified Provider/AccountKey scope.
 - Alias export [vuOAuth_Status()](vuOAuth_Status.md) is available for compatibility.
 

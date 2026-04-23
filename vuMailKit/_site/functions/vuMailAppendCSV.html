@@ -35,24 +35,23 @@ id="vumailappendcsvxfrom-xto-xcc-xbcc-xsubject-xbody-xattachment">vuMailAppendCS
 xTo, xCc, xBcc, xSubject, xBody, xAttachment)</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Appends one CSV row with message fields to the file previously
-selected by <code>vuMailCreateCSV()</code> (or
-<code>vuMailSelectCSV()</code>).</p>
+selected by vuMailCreateCSV() (or vuMailSelectCSV()).</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xFrom</code> (*CSTRING): From address/text.</li>
-<li><code>xTo</code> (*CSTRING): To address/text.</li>
-<li><code>xCc</code> (*CSTRING): CC address/text.</li>
-<li><code>xBcc</code> (*CSTRING): BCC address/text.</li>
-<li><code>xSubject</code> (*CSTRING): Subject text.</li>
-<li><code>xBody</code> (*CSTRING): Body text.</li>
-<li><code>xAttachment</code> (*CSTRING): Attachment path/text.</li>
+<li>xFrom (*CSTRING): From address/text.</li>
+<li>xTo (*CSTRING): To address/text.</li>
+<li>xCc (*CSTRING): CC address/text.</li>
+<li>xBcc (*CSTRING): BCC address/text.</li>
+<li>xSubject (*CSTRING): Subject text.</li>
+<li>xBody (*CSTRING): Body text.</li>
+<li>xAttachment (*CSTRING): Attachment path/text.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: Row appended.</li>
-<li><code>0</code>: Failure (for example no selected CSV file, selected
-file missing, or write failure). Error text is available through
-<code>vuMailLastError()</code>.</li>
+<li>1: Row appended.</li>
+<li>0: Failure (for example no selected CSV file, selected file missing,
+or write failure). Error text is available through
+vuMailLastError().</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -85,10 +84,10 @@ END</code></pre>
 <li>Uses ASCII encoding and CSV quoting/escaping for commas, quotes, and
 line breaks.</li>
 <li>Requires a selected CSV path from
-<code>vuMailCreateCSV()</code>/<code>vuMailSelectCSV()</code>.</li>
+vuMailCreateCSV()/vuMailSelectCSV().</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
-<code>vuMailAppendCSV</code>.</li>
+<li>Legacy reference: vuMailDump.pdf, section heading
+vuMailAppendCSV.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

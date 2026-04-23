@@ -18,18 +18,22 @@ vuPOP3LoadHeader(LONG InMessageNumber),LONG,PROC,PASCAL,RAW,NAME('vuPOP3LoadHead
 ```
 
 ## Purpose
+
 Retrieves and parses only message headers for one POP3 message.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InMessageNumber | LONG | 1-based POP3 message number to load. |
 
 ## Return value / error codes
-- `0`: Headers loaded successfully.
-- `< 0`: POP3 command, message index, or parse/state failure.
+
+- 0: Headers loaded successfully.
+- < 0: POP3 command, message index, or parse/state failure.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,7 +52,8 @@ END
 ```
 
 ## Notes
-- Call `vuPOP3Connect` first.
-- For MIME body and attachment parsing, use `vuPOP3LoadEmail` instead.
+
+- Call vuPOP3Connect first.
+- For MIME body and attachment parsing, use vuPOP3LoadEmail instead.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

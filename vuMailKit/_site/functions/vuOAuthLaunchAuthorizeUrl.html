@@ -36,12 +36,14 @@ href="../functions-by-category.html">By category</a></p>
 flow.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuOAuthLaunchAuthorizeUrl</code></li>
+<li>vuOAuthLaunchAuthorizeUrl</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG CopyUrlToClipboard,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')</code></li>
+<li>vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG
+CopyUrlToClipboard,*CSTRING OutText,LONG
+OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <table>
@@ -58,7 +60,7 @@ Global MAP)</h2>
 <td>Provider</td>
 <td>*CSTRING</td>
 <td>Provider name.</td>
-<td>Typical values: <code>google</code>, <code>microsoft</code>.</td>
+<td>Typical values: google, microsoft.</td>
 </tr>
 <tr>
 <td>AccountKey</td>
@@ -70,7 +72,7 @@ Global MAP)</h2>
 <td>CopyUrlToClipboard</td>
 <td>LONG</td>
 <td>Whether to also copy the URL to the clipboard.</td>
-<td><code>0 = no</code>, <code>1 = yes</code>.</td>
+<td>0 = no, 1 = yes.</td>
 </tr>
 <tr>
 <td>OutText</td>
@@ -81,21 +83,19 @@ Global MAP)</h2>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Length of <code>OutText</code> in bytes.</td>
-<td>Pass <code>SIZE(OutText)</code>.</td>
+<td>Length of OutText in bytes.</td>
+<td>Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="expected-values-and-ranges">Expected values and ranges</h2>
 <ul>
-<li><code>CopyUrlToClipboard</code>: <code>0 = no</code>,
-<code>1 = yes</code>.</li>
+<li>CopyUrlToClipboard: 0 = no, 1 = yes.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = authorize URL built and launch attempted
-successfully.</li>
-<li><code>0</code> = the operation failed.</li>
+<li>1 = authorize URL built and launch attempted successfully.</li>
+<li>0 = the operation failed.</li>
 </ul>
 <h2 id="clarion-example">Clarion example</h2>
 <pre class="clarion"><code>Provider                 CSTRING(40)

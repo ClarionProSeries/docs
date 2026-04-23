@@ -68,15 +68,16 @@ text and stores token state for later SMTP/POP3 use.</p>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of <code>OutText</code> buffer in bytes.</td>
+<td>Size of OutText buffer in bytes.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>&gt;= 0</code>: Result code from the OAuth core Complete
-operation.</li>
-<li><code>-9</code>: Core unavailable or exception.</li>
+<li><blockquote>
+<p>= 0: Result code from the OAuth core Complete operation.</p>
+</blockquote></li>
+<li>-9: Core unavailable or exception.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -104,10 +105,9 @@ IF rc &lt; 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><code>Provider</code> and <code>AccountKey</code> must match the
-values used for BeginLogin state.</li>
-<li>This function returns detailed diagnostic text through
-<code>OutText</code>.</li>
+<li>Provider and AccountKey must match the values used for BeginLogin
+state.</li>
+<li>This function returns detailed diagnostic text through OutText.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

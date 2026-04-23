@@ -18,12 +18,13 @@ vuGetFromReplyTo(*CSTRING OutFromEmail,*CSTRING OutReplyToEmail),SIGNED,PROC,PAS
 ```
 
 ## Description
+
 This is the legacy vuMail function name.
 
 Preferred function name:
 
 - [vuSmtpGetFromReplyTo()](vuSmtpGetFromReplyTo.md)
 
-This function is exported for backward compatibility and behaves identically to `vuSmtpGetFromReplyTo()`.
+This function is exported for backward compatibility and behaves identically to vuSmtpGetFromReplyTo().
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

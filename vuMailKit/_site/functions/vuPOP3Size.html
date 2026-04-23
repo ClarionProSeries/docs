@@ -54,10 +54,12 @@ POP3 session.</p>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>&gt; 0</code>: Message size in bytes.</li>
-<li><code>0</code>: No size available (for example, message not found or
-no active message list).</li>
-<li><code>&lt; 0</code>: Error code from POP3 session operations.</li>
+<li><blockquote>
+<p>0: Message size in bytes.</p>
+</blockquote></li>
+<li>0: No size available (for example, message not found or no active
+message list).</li>
+<li>&lt; 0: Error code from POP3 session operations.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -78,10 +80,8 @@ ELSE
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Use <code>vuPOP3Count()</code> first to validate message-number
-range.</li>
-<li>This call expects a connected POP3 session
-(<code>vuPOP3Connect()</code>).</li>
+<li>Use vuPOP3Count() first to validate message-number range.</li>
+<li>This call expects a connected POP3 session (vuPOP3Connect()).</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

@@ -34,7 +34,7 @@ href="../categories/index.html">Categories</a></p>
 <pre class="Prototype"><code>vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetDeviceInfo&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
 <p>Returns the verification URL and user code captured by the most
-recent matching <code>vuOAuthBeginLogin()</code> call.</p>
+recent matching vuOAuthBeginLogin() call.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -63,7 +63,7 @@ recent matching <code>vuOAuthBeginLogin()</code> call.</p>
 <tr>
 <td>OutUrlLen</td>
 <td>LONG</td>
-<td>Size of <code>OutUrl</code> in bytes.</td>
+<td>Size of OutUrl in bytes.</td>
 </tr>
 <tr>
 <td>OutCode</td>
@@ -73,17 +73,16 @@ recent matching <code>vuOAuthBeginLogin()</code> call.</p>
 <tr>
 <td>OutCodeLen</td>
 <td>LONG</td>
-<td>Size of <code>OutCode</code> in bytes.</td>
+<td>Size of OutCode in bytes.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: Success.</li>
-<li><code>-2</code>: No prior BeginLogin context was captured.</li>
-<li><code>-3</code>: Provider/account mismatch with captured BeginLogin
-context.</li>
-<li><code>-4</code>: URL and/or code not available.</li>
+<li>1: Success.</li>
+<li>-2: No prior BeginLogin context was captured.</li>
+<li>-3: Provider/account mismatch with captured BeginLogin context.</li>
+<li>-4: URL and/or code not available.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -115,8 +114,8 @@ ELSE
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><code>Provider</code> and <code>AccountKey</code> must match the
-values used for the captured BeginLogin call.</li>
+<li>Provider and AccountKey must match the values used for the captured
+BeginLogin call.</li>
 <li>Call this after BeginLogin when using a device-code style login
 flow.</li>
 </ul>

@@ -31,11 +31,13 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthbeginlogin">vuOAuthBeginLogin()</h1>
-<pre class="Prototype"><code>vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,*CSTRING ClientId,*CSTRING RedirectUri,*CSTRING Scope,*CSTRING Tenant,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthBeginLogin&#39;)</code></pre>
+<pre class="Prototype"><code>vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientId,*CSTRING Tenant,*CSTRING Scopes,*CSTRING FlowType,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthBeginLogin&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Starts an OAuth sign-in flow for a provider/account pair and returns
-flow text (for example device verification info or callback
-instructions).</p>
+<p>Starts an OAuth login flow for the specified provider and account
+key.</p>
+<p>This call initializes the provider-specific login state, chooses the
+appropriate login flow, and writes status or detail text into
+OutText.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -49,90 +51,103 @@ instructions).</p>
 <tr>
 <td>Provider</td>
 <td>*CSTRING</td>
-<td>Provider identifier.</td>
+<td>Provider name, such as google or microsoft.</td>
 </tr>
 <tr>
 <td>AccountKey</td>
 <td>*CSTRING</td>
-<td>Account key used to isolate token state.</td>
-</tr>
-<tr>
-<td>OutText</td>
-<td>*CSTRING</td>
-<td>OAuth client/application ID.</td>
+<td>Account key used to isolate stored OAuth state for this login.</td>
 </tr>
 <tr>
 <td>ClientId</td>
 <td>*CSTRING</td>
-<td>Tenant/authority string (provider-specific).</td>
-</tr>
-<tr>
-<td>RedirectUri</td>
-<td>*CSTRING</td>
-<td>Space-delimited OAuth scopes.</td>
-</tr>
-<tr>
-<td>Scope</td>
-<td>*CSTRING</td>
-<td>Flow mode indicator (provider-specific).</td>
+<td>OAuth client or application ID.</td>
 </tr>
 <tr>
 <td>Tenant</td>
 <td>*CSTRING</td>
-<td>Output buffer receiving status/detail text from BeginLogin.</td>
+<td>Tenant or authority string when the provider requires it.</td>
+</tr>
+<tr>
+<td>Scopes</td>
+<td>*CSTRING</td>
+<td>Space-delimited OAuth scopes to request.</td>
+</tr>
+<tr>
+<td>FlowType</td>
+<td>*CSTRING</td>
+<td>Flow mode string used by the provider-specific login
+implementation.</td>
+</tr>
+<tr>
+<td>OutText</td>
+<td>*CSTRING</td>
+<td>Output buffer receiving status or detail text from the BeginLogin
+call.</td>
 </tr>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of <code>OutText</code> buffer in bytes.</td>
+<td>Size of the OutText buffer in bytes.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>&gt;= 0</code>: Result code from the OAuth core Begin
-operation.</li>
-<li><code>-9</code>: Core unavailable or exception.</li>
+<li>1: BeginLogin completed successfully.</li>
+<li>0: BeginLogin did not complete successfully.</li>
+<li>-9: Exception while starting the login flow.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The actual flow used depends on the provider and the current runtime
+implementation.</li>
+<li>OutText is intended for human-readable status or detail text.</li>
+<li>After a successful call, use the other OAuth helper functions that
+fit the selected flow, such as:
+<ul>
+<li>vuOAuthGetDeviceInfo()</li>
+<li>vuOAuthLaunchUserVerification()</li>
+<li>vuOAuthLaunchAuthorizeUrl()</li>
+<li>vuOAuthCompleteLogin()</li>
+</ul></li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,*CSTRING ClientId,*CSTRING RedirectUri,*CSTRING Scope,*CSTRING Tenant,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthBeginLogin&#39;)
+  MODULE(&#39;vuMailKit.dll&#39;)
+    vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientId,*CSTRING Tenant,*CSTRING Scopes,*CSTRING FlowType,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthBeginLogin&#39;)
   END
 END
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-clientId   CSTRING(256)
-tenant     CSTRING(128)
-scopes     CSTRING(512)
-flowType   CSTRING(32)
-outText    CSTRING(2048)
-outLen     LONG
+provider    CSTRING(32)
+accountKey  CSTRING(128)
+clientId    CSTRING(256)
+tenant      CSTRING(128)
+scopes      CSTRING(512)
+flowType    CSTRING(64)
+outText     CSTRING(1024)
+outLen      LONG
+rc          LONG
 
-provider   = &#39;Microsoft&#39;
+provider   = &#39;microsoft&#39;
 accountKey = &#39;user@example.com&#39;
-clientId   = &#39;00000000-0000-0000-0000-000000000000&#39;
+clientId   = &#39;your-client-id&#39;
 tenant     = &#39;common&#39;
-scopes     = &#39;offline_access https://outlook.office.com/SMTP.Send&#39;
-flowType   = &#39;device&#39;
+scopes     = &#39;offline_access https://graph.microsoft.com/Mail.Send&#39;
+flowType   = &#39;&#39;
 outText    = &#39;&#39;
 outLen     = SIZE(outText)
 
 rc = vuOAuthBeginLogin(provider, accountKey, clientId, tenant, scopes, flowType, outText, outLen)
-IF rc &lt; 0
-  MESSAGE(&#39;BeginLogin failed: &#39; &amp; rc &amp; &#39;| &#39; &amp; outText)
-END</code></pre>
-<h2 id="notes">Notes</h2>
+MESSAGE(&#39;rc=&#39; &amp; rc &amp; &#39; text=&#39; &amp; outText)</code></pre>
+<h2 id="see-also">See also</h2>
 <ul>
-<li><code>OutText</code> is the handoff text used by later OAuth
-steps.</li>
-<li>Use the same <code>Provider</code> and <code>AccountKey</code>
-values on subsequent status/complete/clear/refresh calls.</li>
-<li>Alias export <a
-href="vuOAuth_BeginLogin.html">vuOAuth_BeginLogin()</a> is available for
-compatibility.</li>
+<li>vuOAuthDetectProviderFromEmail()</li>
+<li>vuOAuthGetDeviceInfo()</li>
+<li>vuOAuthLaunchUserVerification()</li>
+<li>vuOAuthLaunchAuthorizeUrl()</li>
+<li>vuOAuthCompleteLogin()</li>
+<li>vuOAuthStatus()</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

@@ -4,7 +4,7 @@ summary: "Basic edition documentation root files for vuMailKit."
 description: "Root documentation pages for vuMailKit, including installation, deployment, OAuth setup, categories, release notes, and the function reference links."
 keywords: ["documentation", "vuMailKit", "Clarion", "email", "SMTP", "POP3", "OAuth"]
 page_type: "overview"
-last_updated: "2026-03-30"
+last_updated: "2026-04-22"
 ---
 
 [Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
@@ -15,8 +15,8 @@ last_updated: "2026-03-30"
 
 Basic edition documentation
 
-Last Updated: 2026-04-03
-Build: 151
+Last Updated: 2026-04-22
+Build: 152
 
 Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 

@@ -16,21 +16,21 @@ Store the OAuth client secret for the specified provider and account key.
 
 ## Export name
 
-- `vuOAuthSetClientSecret`
+- vuOAuthSetClientSecret
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuOAuthSetClientSecret(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientSecret,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetClientSecret')`
+- vuOAuthSetClientSecret(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientSecret,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetClientSecret')
 
 ## Parameters
 
 | Parameter | Type | Description | Expected values / range |
 |---|---|---|---|
-| Provider | *CSTRING | Provider name. | Typical values: `google`, `microsoft`. |
+| Provider | *CSTRING | Provider name. | Typical values: google, microsoft. |
 | AccountKey | *CSTRING | Account key that owns this app configuration. | Usually the email address or profile account key. |
 | ClientSecret | *CSTRING | OAuth client secret to store. | Plain text secret provided by the provider portal. |
 | OutText | *CSTRING | Receives status text. | Writable text buffer. |
-| OutTextLen | LONG | Length of `OutText` in bytes. | Pass `SIZE(OutText)`. |
+| OutTextLen | LONG | Length of OutText in bytes. | Pass SIZE(OutText). |
 
 ## Expected values and ranges
 
@@ -39,8 +39,8 @@ Store the OAuth client secret for the specified provider and account key.
 
 ## Return value
 
-- `1` = client secret stored successfully.
-- `0` = the operation failed.
+- 1 = client secret stored successfully.
+- 0 = the operation failed.
 
 ## Clarion example
 

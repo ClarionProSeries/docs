@@ -33,8 +33,8 @@ href="../categories/index.html">Categories</a></p>
 <h1 id="vusendmailwait">vuSendMailWait()</h1>
 <pre class="Prototype"><code>vuSendMailWait(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMailWait&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Queues one message (same input contract as <code>vuSendMail()</code>)
-and blocks until queue processing finishes.</p>
+<p>Queues one message (same input contract as vuSendMail()) and blocks
+until queue processing finishes.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -85,9 +85,9 @@ a display name only, or blank. See From selection rules below.</td>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>1</code>: Send completed successfully.</li>
-<li><code>0</code>: Send did not complete successfully.</li>
-<li><code>-2</code>: Invalid From or To address format.</li>
+<li>1: Send completed successfully.</li>
+<li>0: Send did not complete successfully.</li>
+<li>-2: Invalid From or To address format.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>MAP
@@ -119,8 +119,8 @@ MESSAGE(&#39;vuSendMailWait rc=&#39; &amp; rc)</code></pre>
 <ul>
 <li>This call waits until the SMTP worker is idle and queue depth is
 zero.</li>
-<li>Check <code>vuMailLastError()</code> for verbose send diagnostics
-after a non-<code>1</code> result.</li>
+<li>Check vuMailLastError() for verbose send diagnostics after a non-1
+result.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
@@ -128,7 +128,8 @@ href="../categories/index.html">Categories</a></p>
 <h2 id="from-display-name-behavior">From display name behavior</h2>
 <ul>
 <li>If a sender display name has been configured, vuMailKit formats the
-From header as <code>Display Name &lt;email@address&gt;</code>.</li>
+From header as Display Name <a
+href="mailto:email@address">email@address</a>.</li>
 <li>If no display name exists, vuMailKit falls back to the plain email
 address.</li>
 <li>This preserves compatibility with legacy code that only supplies an
@@ -137,25 +138,25 @@ address.</li>
 <h2 id="from-selection-rules">From selection rules</h2>
 <p>vuSendMailWait() resolves the effective sender using these rules:</p>
 <ul>
-<li>If <code>xFrom</code> is blank, vuMailKit uses the saved/default
-profile sender.</li>
-<li>If <code>xFrom</code> contains a full mailbox like
-<code>Support &lt;support@example.com&gt;</code>, vuMailKit uses it as
-the sender for that message.</li>
-<li>If <code>xFrom</code> contains only a plain email address like
-<code>support@example.com</code>, vuMailKit uses that address with no
-display name override.</li>
-<li>If <code>xFrom</code> contains only a display name like
-<code>Technical Support</code>, vuMailKit combines that name with the
-saved/default profile sender address.</li>
+<li>If xFrom is blank, vuMailKit uses the saved/default profile
+sender.</li>
+<li>If xFrom contains a full mailbox like Support <a
+href="mailto:support@example.com">support@example.com</a>, vuMailKit
+uses it as the sender for that message.</li>
+<li>If xFrom contains only a plain email address like <a
+href="mailto:support@example.com">support@example.com</a>, vuMailKit
+uses that address with no display name override.</li>
+<li>If xFrom contains only a display name like Technical Support,
+vuMailKit combines that name with the saved/default profile sender
+address.</li>
 </ul>
 <p>This keeps legacy behavior intact while allowing per-message
 display-name overrides when a stored profile sender already exists.</p>
 <h2 id="notes-on-oauthprofile-sends">Notes on OAuth/profile sends</h2>
 <ul>
-<li>When you pass a different <strong>email address</strong> in
-<code>xFrom</code>, the provider/server may still reject that message if
-the authenticated account is not allowed to send as that address.</li>
+<li>When you pass a different <strong>email address</strong> in xFrom,
+the provider/server may still reject that message if the authenticated
+account is not allowed to send as that address.</li>
 <li>A <strong>display-name-only</strong> override is safe because it
 keeps the stored profile sender address and changes only the visible
 name.</li>

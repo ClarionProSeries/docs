@@ -9,17 +9,17 @@ Disables diagnostic logging without deleting the configured diagnostics file pat
 
 ## Export name
 
-- `vuDiagnosticsDisable`
+- vuDiagnosticsDisable
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuDiagnosticsDisable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsDisable')`
+- vuDiagnosticsDisable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsDisable')
 
 ## Return value
 
-- Returns `1` when the operation succeeds, otherwise `0`. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Notes
 
 - This does not delete existing log files.
-- Use `vuDiagnosticsClearLogs()` if you want to remove prior log files.
+- Use vuDiagnosticsClearLogs() if you want to remove prior log files.

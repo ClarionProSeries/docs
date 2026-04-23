@@ -61,7 +61,7 @@ Use the Google / Gmail guide if you are working with accounts such as:
 
 Some email addresses use a custom domain that does not clearly identify the real provider.
 
-For example, a mailbox such as `user@yourcompany.com` may actually be hosted by:
+For example, a mailbox such as user@yourcompany.com may actually be hosted by:
 
 - **Google Workspace**
 - **Microsoft 365**

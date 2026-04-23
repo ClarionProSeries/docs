@@ -8,17 +8,21 @@ vuOAuthGetProvider(*CSTRING OutProvider),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthGet
 ```
 
 ## Purpose
+
 Returns the currently stored default OAuth provider string.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutProvider | *CSTRING | Output buffer that receives the provider name. |
 
 ## Return value / error codes
-- `1`: Success.
+
+- 1: Success.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -39,6 +43,7 @@ END
 ```
 
 ## Notes
+
 - The output buffer should be sized for at least 64 bytes to match runtime usage.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -11,25 +11,25 @@ This is mainly a diagnostics and support function. It is useful in a test harnes
 
 ## Export name
 
-- `vuMailKitGetLicenseInfo`
+- vuMailKitGetLicenseInfo
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuMailKitGetLicenseInfo(*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')`
+- vuMailKitGetLicenseInfo(*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')
 
 ## Parameters
 
 | Parameter | Type | Description | Expected values / range |
 |---|---|---|---|
 | OutText | *CSTRING | Receives the license status text. | Pass a writable text buffer. |
-| OutTextLen | LONG | Size of `OutText` in bytes. | Normally `SIZE(OutText)`. |
+| OutTextLen | LONG | Size of OutText in bytes. | Normally SIZE(OutText). |
 
 ## Return value
 
-- `0` = no valid tier is active
-- `1` = Basic
-- `2` = Pro
-- `3` = Back Office
+- 0 = no valid tier is active
+- 1 = Basic
+- 2 = Pro
+- 3 = Back Office
 - negative value = function failed
 
 ## What the text includes
@@ -47,7 +47,7 @@ The returned text can include items such as:
 
 Example output:
 
-- `Initialized=1; Valid=1; Attempted=1; LastInitCode=0; LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0; Name=Charles; Number=16123`
+- Initialized=1; Valid=1; Attempted=1; LastInitCode=0; LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0; Name=Charles; Number=16123
 
 ## Clarion example
 
@@ -61,7 +61,7 @@ Result = vuMailKitGetLicenseInfo(OutText, SIZE(OutText))
 
 ## Notes
 
-- Call `vuMailKitInitialize()` first if you want this function to reflect the intended active license.
+- Call vuMailKitInitialize() first if you want this function to reflect the intended active license.
 - This function is useful when testing normal licenses, DEMO licenses, and invalid-license behavior.
 - The text is meant for display and diagnostics. Do not write program logic that depends on parsing the exact wording.
 

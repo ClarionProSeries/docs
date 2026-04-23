@@ -8,23 +8,27 @@ vuOAuthLaunchUserVerification(*CSTRING Provider,*CSTRING AccountKey,LONG CopyCod
 ```
 
 ## Purpose
+
 Uses BeginLogin state to open the user verification URL in a browser and optionally copy a device code to the clipboard.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Provider | *CSTRING | Provider identifier used in BeginLogin. |
 | AccountKey | *CSTRING | Account key used in BeginLogin. |
-| CopyCodeToClipboard | LONG | `0` = do not copy, non-zero = copy code when available. |
+| CopyCodeToClipboard | LONG | 0 = do not copy, non-zero = copy code when available. |
 | OutText | *CSTRING | Output buffer receiving launch metadata and diagnostics. |
-| OutTextLen | LONG | Size of `OutText` buffer in bytes. |
+| OutTextLen | LONG | Size of OutText buffer in bytes. |
 
 ## Return value / error codes
-- `1`: Browser launch succeeded (clipboard warning may still be included in OutText).
-- `-8`: Browser launch failed.
-- `-9`: BeginLogin state missing, URL missing, or exception.
+
+- 1: Browser launch succeeded (clipboard warning may still be included in OutText).
+- -8: Browser launch failed.
+- -9: BeginLogin state missing, URL missing, or exception.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -52,7 +56,8 @@ END
 ```
 
 ## Notes
-- Call this after a successful BeginLogin for the same `Provider` + `AccountKey`.
+
+- Call this after a successful BeginLogin for the same Provider + AccountKey.
 - This function attempts desktop browser automation and can fail in locked-down/server environments.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

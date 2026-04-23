@@ -18,18 +18,22 @@ vuSmtpGetFromReplyTo(*CSTRING OutFromEmail,*CSTRING OutReplyToEmail),SIGNED,PROC
 ```
 
 ## Purpose
-Reads default `From` and `Reply-To` values from vuMailKit runtime globals.
+
+Reads default From and Reply-To values from vuMailKit runtime globals.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutFromEmail | *CSTRING | Output buffer receiving current sender address. |
 | OutReplyToEmail | *CSTRING | Output buffer receiving current reply-to address. |
 
 ## Return value / error codes
-- `1`: Success.
+
+- 1: Success.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -52,8 +56,9 @@ END
 ```
 
 ## Notes
+
 - Legacy alias: [vuGetFromReplyTo()](vuGetFromReplyTo.md).
-- Returns runtime values; call `vuGlobalsLoad()` first if you need persisted values reloaded.
+- Returns runtime values; call vuGlobalsLoad() first if you need persisted values reloaded.
 - AuthMode/OAuth is not used by this function.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -18,6 +18,12 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 
 | Function | Description |
 |---|---|
+| [vuGetCodePage](vuGetCodePage.md) | Legacy alias for vuGlobalsGetCodePage(). |
+| [vuMailGetGlobals](vuMailGetGlobals.md) | Legacy alias for vuGlobalsLoad(). |
+| [vuMailSaveGlobals](vuMailSaveGlobals.md) | Legacy alias for vuGlobalsSave(). |
+| [vuNoPasswordInRegistry](vuNoPasswordInRegistry.md) | Legacy alias for vuGlobalsSetNoPasswordInRegistry(). |
+| [vuSetCodePage](vuSetCodePage.md) | Legacy alias for vuGlobalsSetCodePage(). |
+| [vuSetSaveFolder](vuSetSaveFolder.md) | Legacy alias for vuGlobalsSetEmailFolder(). |
 | [vuGlobalsLoad](vuGlobalsLoad.md) | Loads vuMailKit global settings into active runtime memory. |
 | [vuGlobalsSave](vuGlobalsSave.md) | Saves active runtime settings using the current persistence model. |
 | [vuGlobalsSetCodePage](vuGlobalsSetCodePage.md) | Sets the CodePage value used by vuMailKit. |
@@ -30,6 +36,9 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 
 | Function | Description |
 |---|---|
+| [vuGetMailLogLevel](vuGetMailLogLevel.md) | Gets the standard mail log verbosity level. |
+| [vuSetMailLog](vuSetMailLog.md) | Legacy alias for vuLogSetFile(). |
+| [vuSetMailLogLevel](vuSetMailLogLevel.md) | Sets the standard mail log verbosity level. |
 | [vuLogSetFile](vuLogSetFile.md) | Sets the mail log file path. |
 | [vuLogGetFile](vuLogGetFile.md) | Gets the mail log file path. |
 | [vuDiagnosticsEnable](vuDiagnosticsEnable.md) | Enables diagnostics logging. |
@@ -49,6 +58,7 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 
 | Function | Description |
 |---|---|
+| [vuMailLastReturnCode](vuMailLastReturnCode.md) | Returns the numeric status code for the most recent completed send operation. |
 | [vuCloseWhenComplete](vuCloseWhenComplete.md) | Sets the legacy CloseWhenComplete runtime flag. |
 | [vuFailureNotice](vuFailureNotice.md) | Requests a failure notice (delivery failure notification) for the next sent email. |
 | [vuGetFromReplyTo](vuGetFromReplyTo.md) | Gets the default From and Reply-To email addresses for outgoing mail. |
@@ -91,7 +101,6 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 | [vuNetSetProxy](vuNetSetProxy.md) | Sets the proxy server name and port used by vuMailKit. |
 | [vuNetGetProxy](vuNetGetProxy.md) | Gets the proxy server name and port used by vuMailKit. |
 
-
 ## Autodetect and Setup
 
 | Function | Description |
@@ -112,6 +121,10 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 
 | Function | Description |
 |---|---|
+| [vuOAuthLaunchAuthorizeUrl](vuOAuthLaunchAuthorizeUrl.md) | Build and launch the provider authorization URL for an OAuth login flow. |
+| [vuOAuthSetClientSecret](vuOAuthSetClientSecret.md) | Store the OAuth client secret for the specified provider and account key. |
+| [vuOAuthSetLoopbackPort](vuOAuthSetLoopbackPort.md) | Store the loopback port used for OAuth providers that complete login through a local callback. |
+| [vuOAuthSetProviderEnabled](vuOAuthSetProviderEnabled.md) | Enable or disable OAuth support for a specific provider at runtime. |
 | [vuOAuthSetProvider](vuOAuthSetProvider.md) | Sets the default OAuth provider name used by helper flows. |
 | [vuOAuthGetProvider](vuOAuthGetProvider.md) | Gets the default OAuth provider name from global settings. |
 | [vuOAuthDetectProviderFromEmail](vuOAuthDetectProviderFromEmail.md) | Detects OAuth provider/auth mode from an email address. |
@@ -174,8 +187,17 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 
 | Function | Description |
 |---|---|
-| [vuSMTPGetAuthMode](vuSmtpGetAuthMode.md) | Gets current SMTP auth mode (`0` password, `1` OAuth). |
-| [vuSMTPSetAuthMode](vuSmtpSetAuthMode.md) | Sets SMTP auth mode (`0` password, non-zero OAuth). |
+| [vuSetImageSize](vuSetImageSize.md) | Sets legacy runtime image-size hints for compatibility. |
+| [vuSmtpGetAuthMode](vuSmtpGetAuthMode.md) | Returns the current SMTP authentication mode flag. |
+| [vuSmtpGetFromReplyTo](vuSmtpGetFromReplyTo.md) | Gets default From and Reply-To addresses from runtime globals. |
+| [vuSmtpGetSecurity](vuSmtpGetSecurity.md) | Gets SMTP user, password, security type, and SSL flag from runtime globals. |
+| [vuSmtpGetServer](vuSmtpGetServer.md) | Gets the outbound SMTP server name and port. |
+| [vuSmtpSetAuthMode](vuSmtpSetAuthMode.md) | Sets SMTP authentication mode to password or OAuth. |
+| [vuSmtpSetFromReplyTo](vuSmtpSetFromReplyTo.md) | Sets default From and Reply-To addresses in runtime globals. |
+| [vuSmtpSetSecurity](vuSmtpSetSecurity.md) | Sets SMTP user, password, security type, and SSL flag in runtime globals. |
+| [vuSmtpSetServer](vuSmtpSetServer.md) | Sets the outbound SMTP server name and port. |
+| [vuSMTPGetAuthMode](vuSmtpGetAuthMode.md) | Gets current SMTP auth mode (0 password, 1 OAuth). |
+| [vuSMTPSetAuthMode](vuSmtpSetAuthMode.md) | Sets SMTP auth mode (0 password, non-zero OAuth). |
 | [vuSMTPGetFromReplyTo](vuSmtpGetFromReplyTo.md) | Gets default From and Reply-To email addresses for outgoing mail. |
 | [vuSMTPSetFromReplyTo](vuSmtpSetFromReplyTo.md) | Sets default From and Reply-To email addresses for outgoing mail. |
 | [vuSMTPGetSecurity](vuSmtpGetSecurity.md) | Gets SMTP user, password, security type, and SSL flag. |
@@ -196,6 +218,7 @@ The Legacy names from the old vuMail functions remain supported and are listed o
 
 | Function | Description |
 |---|---|
+| [vuClipboardSetText](vuClipboardSetText.md) | Copies text into the Windows clipboard. |
 | [vuANSItoUTF8](vuANSItoUTF8.md) | Converts ANSI text to a byte-preserving UTF-8 encoded legacy string. |
 | [vuExtractMailAddr](vuExtractMailAddr.md) | Extracts the first email address found in input text. |
 | [vuGetUCodeFile](vuGetUCodeFile.md) | Returns the default UCode.txt compatibility file path. |

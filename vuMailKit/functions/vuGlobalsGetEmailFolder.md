@@ -14,15 +14,19 @@ last_updated: "2026-03-27"
 # vuGlobalsGetEmailFolder(xFolder)
 
 ## Purpose
+
 Copies the current runtime EmailFolder (save folder) path into a caller-provided buffer.
 
 ## Parameters
-- `xFolder` (*CSTRING): Output buffer that receives the folder path.
+
+- xFolder (*CSTRING): Output buffer that receives the folder path.
 
 ## Return value / error codes
-- `1`: Success.
+
+- 1: Success.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -43,9 +47,10 @@ END
 ```
 
 ## Notes
+
 - Legacy alias: [vuGetSaveFolder()](vuGetSaveFolder.md).
-- Value is returned from in-memory globals (load with `vuGlobalsLoad()` if needed).
+- Value is returned from in-memory globals (load with vuGlobalsLoad() if needed).
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuGetSaveFolder` / `vuGlobalsGetEmailFolder`.
+- Legacy reference: vuMailDump.pdf, section heading vuGetSaveFolder / vuGlobalsGetEmailFolder.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

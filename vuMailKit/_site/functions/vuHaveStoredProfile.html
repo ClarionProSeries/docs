@@ -42,12 +42,12 @@ for the current Windows user.</p>
 </ul>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuHaveStoredProfile</code></li>
+<li>vuHaveStoredProfile</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')</code></li>
+<li>vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
@@ -55,13 +55,13 @@ Global MAP)</h2>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = at least one managed profile exists</li>
-<li><code>0</code> = no managed profile exists, or the check failed</li>
+<li>1 = at least one managed profile exists</li>
+<li>0 = no managed profile exists, or the check failed</li>
 </ul>
 <h2 id="what-it-does">What it does</h2>
-<p><code>vuHaveStoredProfile()</code> checks the managed profile store
-under the current Windows user and reports whether any saved managed
-profile files are present.</p>
+<p>vuHaveStoredProfile() checks the managed profile store under the
+current Windows user and reports whether any saved managed profile files
+are present.</p>
 <p>This function only answers the managed-profile question.</p>
 <p>It does <strong>not</strong> mean:</p>
 <ul>
@@ -84,10 +84,10 @@ END</code></pre>
 <ul>
 <li>This function is best used as a gentle setup hint, not as a hard
 requirement.</li>
-<li>For migrated legacy applications, <code>0</code> may simply mean the
-developer has not moved the application to managed profiles yet.</li>
-<li>In a demo application, a result of <code>0</code> is a good time to
-offer the setup wizard.</li>
+<li>For migrated legacy applications, 0 may simply mean the developer
+has not moved the application to managed profiles yet.</li>
+<li>In a demo application, a result of 0 is a good time to offer the
+setup wizard.</li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a

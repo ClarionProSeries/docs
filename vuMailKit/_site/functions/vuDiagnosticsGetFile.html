@@ -34,22 +34,22 @@ functions</a> | <a href="legacy-index.html">Legacy functions</a></p>
 <p>Gets the currently configured diagnostics log file path.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuDiagnosticsGetFile</code></li>
+<li>vuDiagnosticsGetFile</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuDiagnosticsGetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsGetFile')</code></li>
+<li>vuDiagnosticsGetFile(*CSTRING
+xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsGetFile')</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li>Returns <code>1</code> when the operation succeeds, otherwise
-<code>0</code>. Use <code>vuMailLastError()</code> for more detail when
-needed.</li>
+<li>Returns 1 when the operation succeeds, otherwise 0. Use
+vuMailLastError() for more detail when needed.</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Pass the address of a writable <code>CSTRING</code> buffer.</li>
+<li>Pass the address of a writable CSTRING buffer.</li>
 <li>If no diagnostics file has been configured yet, an empty string is
 returned.</li>
 </ul>

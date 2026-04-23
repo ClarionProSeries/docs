@@ -14,7 +14,8 @@ last_updated: "2026-01-07"
 # vuLogGetFile()
 
 ## Description
-Gets the mail log file path. (legacy name: `vuGetMailLog()`).
+
+Gets the mail log file path. (legacy name: vuGetMailLog()).
 
 Previously exported as (legacy name, still supported):
 
@@ -22,7 +23,7 @@ Previously exported as (legacy name, still supported):
 
 ### Parameters
 
-- `xFileName` (CSTRING) - Receives the current log file path.
+- xFileName (CSTRING) - Receives the current log file path.
 
 ### Returns
 

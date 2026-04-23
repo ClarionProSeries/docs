@@ -32,19 +32,19 @@ href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
 <h1 id="vuloadprofile">vuLoadProfile</h1>
 <h2 id="purpose">Purpose</h2>
-<p>Load the managed profile named <code>default</code> into active
-runtime memory.</p>
+<p>Load the managed profile named default into active runtime
+memory.</p>
 <p>This is the normal Basic-safe profile load function when you want to
 explicitly replace the current runtime settings with the saved default
 managed profile.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuLoadProfile</code></li>
+<li>vuLoadProfile</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuLoadProfile(),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfile')</code></li>
+<li>vuLoadProfile(),LONG,PROC,PASCAL,RAW,NAME('vuLoadProfile')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
@@ -52,17 +52,17 @@ Global MAP)</h2>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = success</li>
-<li><code>0</code> = load failed</li>
+<li>1 = success</li>
+<li>0 = load failed</li>
 </ul>
 <h2 id="what-it-does">What it does</h2>
-<p><code>vuLoadProfile()</code> performs an explicit managed-profile
-load of <code>default</code>.</p>
+<p>vuLoadProfile() performs an explicit managed-profile load of
+default.</p>
 <p>After a successful load:</p>
 <ul>
 <li>the current live runtime values are replaced by the saved values
-from <code>default</code></li>
-<li><code>default</code> becomes the active managed profile</li>
+from default</li>
+<li>default becomes the active managed profile</li>
 <li>unsaved runtime changes from the current session are discarded</li>
 </ul>
 <h2 id="clarion-example">Clarion example</h2>
@@ -75,8 +75,8 @@ Result = vuLoadProfile()</code></pre>
 <li>In the normal Basic wizard flow, developers often do not need to
 call this manually because the saved active profile is applied
 automatically after profile save and on later application startup.</li>
-<li>Use <code>vuLoadProfileEx(ProfileName)</code> when you need to load
-a named profile in a licensed Pro or Back Office workflow.</li>
+<li>Use vuLoadProfileEx(ProfileName) when you need to load a named
+profile in a licensed Pro or Back Office workflow.</li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a

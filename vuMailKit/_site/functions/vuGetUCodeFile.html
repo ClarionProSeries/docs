@@ -37,15 +37,15 @@ href="../categories/index.html">Categories</a></p>
 compatibility behavior.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xIgnored</code> (*CSTRING): Ignored legacy parameter retained
-for compatibility.</li>
+<li>xIgnored (*CSTRING): Ignored legacy parameter retained for
+compatibility.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
 <li>Returns text using the original vuMail legacy text-return
 style.</li>
 <li>In Clarion, this function can be used directly in text expressions
-such as <code>MESSAGE()</code> and string assignment.</li>
+such as MESSAGE() and string assignment.</li>
 <li>If no text is available, the result may be empty.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
@@ -56,7 +56,7 @@ MESSAGE(&#39;UCode file: &#39; &amp; vuGetUCodeFile(ignored))</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>This is a legacy compatibility exception. New text-return APIs
-should use caller-owned <code>*CSTRING</code> output buffers.</li>
+should use caller-owned *CSTRING output buffers.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

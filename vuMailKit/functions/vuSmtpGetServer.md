@@ -14,7 +14,8 @@ last_updated: "2026-01-07"
 # vuSmtpGetServer()
 
 ## Description
-Gets the outbound SMTP server name and port. (legacy name: `vuGetMailServer()`).
+
+Gets the outbound SMTP server name and port. (legacy name: vuGetMailServer()).
 
 Previously exported as (legacy name, still supported):
 
@@ -22,8 +23,8 @@ Previously exported as (legacy name, still supported):
 
 ### Parameters
 
-- `xServer` (CSTRING) - Receives the SMTP server host name.
-- `xPort` (LONG) - Receives the SMTP server port.
+- xServer (CSTRING) - Receives the SMTP server host name.
+- xPort (LONG) - Receives the SMTP server port.
 
 ### Returns
 
@@ -33,7 +34,7 @@ A LONG value indicating the result.
 
 ### Notes
 
-Values are read from the current vuMailKit session. Call `vuGlobalsLoad()` first if you want values loaded from the registry.
+Values are read from the current vuMailKit session. Call vuGlobalsLoad() first if you want values loaded from the registry.
 
 ### Example (Clarion)
 

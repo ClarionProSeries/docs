@@ -19,15 +19,15 @@ Enables diagnostic logging using the configured diagnostics file. If no diagnost
 
 ## Export name
 
-- `vuDiagnosticsEnable`
+- vuDiagnosticsEnable
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuDiagnosticsEnable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsEnable')`
+- vuDiagnosticsEnable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsEnable')
 
 ## Return value
 
-- Returns `1` when the operation succeeds, otherwise `0`. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Notes
 

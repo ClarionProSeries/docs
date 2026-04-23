@@ -17,6 +17,7 @@ vuPOP3SetFolder(*CSTRING InFolder),SIGNED,PROC,PASCAL,RAW,NAME('vuPOP3SetFolder'
 ```
 
 ## Description
+
 Sets the POP3 save folder used by vuMailKit POP3 receive operations.
 
 ### Parameters
@@ -26,6 +27,7 @@ Sets the POP3 save folder used by vuMailKit POP3 receive operations.
 | InFolder | *CSTRING | The value to store. |
 
 ### Returns
+
 Returns 0 (this function always returns 0).
 
 ### Example

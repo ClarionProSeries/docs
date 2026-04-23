@@ -69,7 +69,7 @@ This setting is only for the success page display. It does not replace or change
 
 Some Google-hosted mailboxes use a custom company domain instead of an address that obviously looks like Gmail.
 
-For example, a mailbox such as `user@yourcompany.com` may still be hosted by Google Workspace even though the email address itself does not end in `gmail.com`.
+For example, a mailbox such as user@yourcompany.com may still be hosted by Google Workspace even though the email address itself does not end in gmail.com.
 
 In those cases, vuMailKit may not detect from the domain alone that the mailbox should use Google OAuth.
 
@@ -79,12 +79,12 @@ Typical Google Workspace settings are:
 
 | Setting | Typical value |
 |------|------|
-| Outgoing server | `smtp.gmail.com` |
-| Outgoing port | `587` |
-| Outgoing security | `STARTTLS` |
-| Incoming server | `imap.gmail.com` or `pop.gmail.com` |
-| Incoming port | `993` for IMAP or `995` for POP3 |
-| Incoming security | `SSL/TLS` |
+| Outgoing server | smtp.gmail.com |
+| Outgoing port | 587 |
+| Outgoing security | STARTTLS |
+| Incoming server | imap.gmail.com or pop.gmail.com |
+| Incoming port | 993 for IMAP or 995 for POP3 |
+| Incoming security | SSL/TLS |
 | Sign-in method | **Google Sign-In** |
 
 Use the mailbox owner's actual email address as the account name unless the hosted environment requires something different.
@@ -176,7 +176,7 @@ Common setup problems include:
 - forgetting to wrap both values in single quotes in the template
 - enabling Google OAuth support in the template but leaving either field blank
 - forgetting to enter the **OAuth Success Name** value you want shown on the Google success page
-- assuming a custom domain mailbox is not Google-hosted just because the address does not end in `gmail.com`
+- assuming a custom domain mailbox is not Google-hosted just because the address does not end in gmail.com
 
 ## After setup
 

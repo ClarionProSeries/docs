@@ -18,17 +18,21 @@ vuGlobalsSetCodePage(*CSTRING xPage),SIGNED,PROC,PASCAL,RAW,NAME('vuGlobalsSetCo
 ```
 
 ## Purpose
-Sets the in-memory `CodePage` setting used by vuMailKit.
+
+Sets the in-memory CodePage setting used by vuMailKit.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
-| xPage | *CSTRING | Code page string to store (for example `UTF-8`). |
+| xPage | *CSTRING | Code page string to store (for example UTF-8). |
 
 ## Return value / error codes
-- `1`: Success.
+
+- 1: Success.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -47,8 +51,9 @@ END
 ```
 
 ## Notes
+
 - Legacy alias: [vuSetCodePage()](vuSetCodePage.md).
-- This updates runtime memory only; call `vuGlobalsSave()` to persist to registry.
+- This updates runtime memory only; call vuGlobalsSave() to persist to registry.
 - AuthMode/OAuth is not used by this function.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -9,30 +9,30 @@ Build and launch the provider authorization URL for an OAuth login flow.
 
 ## Export name
 
-- `vuOAuthLaunchAuthorizeUrl`
+- vuOAuthLaunchAuthorizeUrl
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG CopyUrlToClipboard,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')`
+- vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG CopyUrlToClipboard,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')
 
 ## Parameters
 
 | Parameter | Type | Description | Expected values / range |
 |---|---|---|---|
-| Provider | *CSTRING | Provider name. | Typical values: `google`, `microsoft`. |
+| Provider | *CSTRING | Provider name. | Typical values: google, microsoft. |
 | AccountKey | *CSTRING | Account key used to bind the OAuth session. | Usually the email address. |
-| CopyUrlToClipboard | LONG | Whether to also copy the URL to the clipboard. | `0 = no`, `1 = yes`. |
+| CopyUrlToClipboard | LONG | Whether to also copy the URL to the clipboard. | 0 = no, 1 = yes. |
 | OutText | *CSTRING | Receives status text or the URL. | Writable text buffer. |
-| OutTextLen | LONG | Length of `OutText` in bytes. | Pass `SIZE(OutText)`. |
+| OutTextLen | LONG | Length of OutText in bytes. | Pass SIZE(OutText). |
 
 ## Expected values and ranges
 
-- `CopyUrlToClipboard`: `0 = no`, `1 = yes`.
+- CopyUrlToClipboard: 0 = no, 1 = yes.
 
 ## Return value
 
-- `1` = authorize URL built and launch attempted successfully.
-- `0` = the operation failed.
+- 1 = authorize URL built and launch attempted successfully.
+- 0 = the operation failed.
 
 ## Clarion example
 

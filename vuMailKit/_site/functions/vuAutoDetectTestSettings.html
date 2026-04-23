@@ -36,12 +36,17 @@ href="../functions-by-category.html">By category</a></p>
 text into the output buffers.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuAutoDetectTestSettings</code></li>
+<li>vuAutoDetectTestSettings</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuAutoDetectTestSettings(LONG InOutBufLen,*CSTRING InSmtpHost,LONG InSmtpPort,LONG InSmtpSecurityMode,*CSTRING InPopHost,LONG InPopPort,LONG InPopSecurityMode,*CSTRING InImapHost,LONG InImapPort,LONG InImapSecurityMode,*CSTRING OutSmtpTestResult,*CSTRING OutPopTestResult,*CSTRING OutImapTestResult),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectTestSettings')</code></li>
+<li>vuAutoDetectTestSettings(LONG InOutBufLen,*CSTRING InSmtpHost,LONG
+InSmtpPort,LONG InSmtpSecurityMode,*CSTRING InPopHost,LONG
+InPopPort,LONG InPopSecurityMode,*CSTRING InImapHost,LONG
+InImapPort,LONG InImapSecurityMode,*CSTRING OutSmtpTestResult,*CSTRING
+OutPopTestResult,*CSTRING
+OutImapTestResult),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectTestSettings')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <table>
@@ -70,15 +75,13 @@ Global MAP)</h2>
 <td>InSmtpPort</td>
 <td>LONG</td>
 <td>SMTP port to test.</td>
-<td>Common values: <code>25</code>, <code>465</code>,
-<code>587</code>.</td>
+<td>Common values: 25, 465, 587.</td>
 </tr>
 <tr>
 <td>InSmtpSecurityMode</td>
 <td>LONG</td>
 <td>SMTP security mode to test.</td>
-<td><code>0=None</code>, <code>1=StartTls</code>,
-<code>2=ImplicitTls</code>.</td>
+<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
 </tr>
 <tr>
 <td>InPopHost</td>
@@ -90,14 +93,13 @@ Global MAP)</h2>
 <td>InPopPort</td>
 <td>LONG</td>
 <td>POP port to test.</td>
-<td>Common values: <code>110</code>, <code>995</code>.</td>
+<td>Common values: 110, 995.</td>
 </tr>
 <tr>
 <td>InPopSecurityMode</td>
 <td>LONG</td>
 <td>POP security mode to test.</td>
-<td><code>0=None</code>, <code>1=StartTls</code>,
-<code>2=ImplicitTls</code>.</td>
+<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
 </tr>
 <tr>
 <td>InImapHost</td>
@@ -109,14 +111,13 @@ Global MAP)</h2>
 <td>InImapPort</td>
 <td>LONG</td>
 <td>IMAP port to test.</td>
-<td>Common values: <code>143</code>, <code>993</code>.</td>
+<td>Common values: 143, 993.</td>
 </tr>
 <tr>
 <td>InImapSecurityMode</td>
 <td>LONG</td>
 <td>IMAP security mode to test.</td>
-<td><code>0=None</code>, <code>1=StartTls</code>,
-<code>2=ImplicitTls</code>.</td>
+<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
 </tr>
 <tr>
 <td>OutSmtpTestResult</td>
@@ -141,14 +142,13 @@ Global MAP)</h2>
 <h2 id="expected-values-and-ranges">Expected values and ranges</h2>
 <ul>
 <li>Port values are the literal port numbers to test.</li>
-<li>Security mode values: <code>0 = None</code>,
-<code>1 = StartTls</code>, <code>2 = ImplicitTls</code>.</li>
+<li>Security mode values: 0 = None, 1 = StartTls, 2 = ImplicitTls.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = at least one test completed successfully enough to
-return useful results.</li>
-<li><code>0</code> = the requested tests failed.</li>
+<li>1 = at least one test completed successfully enough to return useful
+results.</li>
+<li>0 = the requested tests failed.</li>
 </ul>
 <h2 id="clarion-example">Clarion example</h2>
 <pre class="clarion"><code>BufLen                  LONG

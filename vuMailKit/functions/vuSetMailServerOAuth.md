@@ -18,18 +18,22 @@ vuSetMailServerOAuth(*CSTRING InServer,LONG InPort),SIGNED,PROC,PASCAL,RAW,NAME(
 ```
 
 ## Purpose
+
 Stores OAuth-specific SMTP host/port settings in the active runtime configuration.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InServer | *CSTRING | OAuth SMTP server host name. |
 | InPort | LONG | OAuth SMTP server port. |
 
 ## Return value / error codes
-- `1`: Settings saved in runtime state.
+
+- 1: Settings saved in runtime state.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,7 +52,8 @@ MESSAGE('vuSetMailServerOAuth rc=' & rc)
 ```
 
 ## Notes
-- The function attempts to persist configuration via globals save; return value remains `1`.
-- Use with OAuth auth mode (`vuSmtpSetAuthMode(1)`) when routing SMTP sends through OAuth settings.
+
+- The function attempts to persist configuration via globals save; return value remains 1.
+- Use with OAuth auth mode (vuSmtpSetAuthMode(1)) when routing SMTP sends through OAuth settings.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

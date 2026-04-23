@@ -4,7 +4,7 @@ summary: "vuMailKit supports Clarion 5.5 and later."
 description: "vuMailKit supports Clarion 5.5 and later and is designed for both ABC and Legacy applications."
 keywords: ["documentation", "requirements", "Clarion", "vuMailKit", "supported versions", "installer"]
 page_type: "overview"
-last_updated: "2026-04-03"
+last_updated: "2026-04-22"
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

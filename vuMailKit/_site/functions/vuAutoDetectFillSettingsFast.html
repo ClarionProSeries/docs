@@ -36,12 +36,20 @@ href="../functions-by-category.html">By category</a></p>
 entering the slower deep-scan probes.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuAutoDetectFillSettingsFast</code></li>
+<li>vuAutoDetectFillSettingsFast</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuAutoDetectFillSettingsFast(*CSTRING InEmailAddress,LONG InOutBufLen,*CSTRING OutProfileEmailAddress,*LONG OutConfidence,*LONG OutDetectSource,*LONG OutProviderId,*LONG OutSmtpAuthModeHint,*LONG OutPopAuthModeHint,*LONG OutImapAuthModeHint,*CSTRING OutSmtpHost,*LONG OutSmtpPort,*LONG OutSmtpSecurityMode,*CSTRING OutSmtpUser,*CSTRING OutPopHost,*LONG OutPopPort,*LONG OutPopSecurityMode,*CSTRING OutPopUser,*CSTRING OutImapHost,*LONG OutImapPort,*LONG OutImapSecurityMode,*CSTRING OutImapUser),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectFillSettingsFast')</code></li>
+<li>vuAutoDetectFillSettingsFast(*CSTRING InEmailAddress,LONG
+InOutBufLen,*CSTRING OutProfileEmailAddress,*LONG OutConfidence,*LONG
+OutDetectSource,*LONG OutProviderId,*LONG OutSmtpAuthModeHint,*LONG
+OutPopAuthModeHint,*LONG OutImapAuthModeHint,*CSTRING OutSmtpHost,*LONG
+OutSmtpPort,*LONG OutSmtpSecurityMode,*CSTRING OutSmtpUser,*CSTRING
+OutPopHost,*LONG OutPopPort,*LONG OutPopSecurityMode,*CSTRING
+OutPopUser,*CSTRING OutImapHost,*LONG OutImapPort,*LONG
+OutImapSecurityMode,*CSTRING
+OutImapUser),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectFillSettingsFast')</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
@@ -50,11 +58,11 @@ Global MAP)</h2>
 second.</li>
 <li>Fast mode returns quickly when no match is found, which helps keep
 setup screens responsive.</li>
-<li>If Fast mode returns <code>0</code>, developers can offer manual
-setup immediately or let the user request a deeper scan.</li>
+<li>If Fast mode returns 0, developers can offer manual setup
+immediately or let the user request a deeper scan.</li>
 <li>Return values, output parameters, provider IDs, auth hints,
 detect-source values, and security values are the same as
-<code>vuAutoDetectFillSettings</code>.</li>
+vuAutoDetectFillSettings.</li>
 </ul>
 </body>
 </html>

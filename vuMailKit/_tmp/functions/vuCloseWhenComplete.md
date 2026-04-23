@@ -4,16 +4,20 @@
 # vuCloseWhenComplete(closeWhenComplete)
 
 ## Purpose
+
 Sets the legacy runtime flag that indicates whether the client should close when a send completes.
 
 ## Parameters
-- `closeWhenComplete` (LONG): Flag value written into runtime configuration.
+
+- closeWhenComplete (LONG): Flag value written into runtime configuration.
 
 ## Return value / error codes
-- `1`: Value stored successfully.
-- `0`: Failure. `vuMailLastError()` is set with text beginning `vuCloseWhenComplete failed:`.
+
+- 1: Value stored successfully.
+- 0: Failure. vuMailLastError() is set with text beginning vuCloseWhenComplete failed:.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -29,8 +33,9 @@ END
 ```
 
 ## Notes
+
 - This function only sets an internal compatibility flag.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuCloseWhenComplete`.
+- Legacy reference: vuMailDump.pdf, section heading vuCloseWhenComplete.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

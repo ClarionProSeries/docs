@@ -33,17 +33,17 @@ href="AboutFunctionNames.html">About function names</a></p>
 <h1 id="vusaveprofile">vuSaveProfile</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Save the current active runtime values into the managed profile named
-<code>default</code>.</p>
+default.</p>
 <p>This is the normal Basic-safe profile save function used by the setup
 wizard and by single-profile applications.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuSaveProfile</code></li>
+<li>vuSaveProfile</li>
 </ul>
 <h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
 Global MAP)</h2>
 <ul>
-<li><code>vuSaveProfile(),LONG,PROC,PASCAL,RAW,NAME('vuSaveProfile')</code></li>
+<li>vuSaveProfile(),LONG,PROC,PASCAL,RAW,NAME('vuSaveProfile')</li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
@@ -51,17 +51,15 @@ Global MAP)</h2>
 </ul>
 <h2 id="return-value">Return value</h2>
 <ul>
-<li><code>1</code> = success</li>
-<li><code>0</code> = save failed</li>
-<li><code>-401</code> = vuMailKit was not initialized</li>
-<li><code>-402</code> = license is invalid or initialization failed</li>
-<li><code>-403</code> = current license tier does not allow this
-feature</li>
+<li>1 = success</li>
+<li>0 = save failed</li>
+<li>-401 = vuMailKit was not initialized</li>
+<li>-402 = license is invalid or initialization failed</li>
+<li>-403 = current license tier does not allow this feature</li>
 </ul>
 <h2 id="what-it-does">What it does</h2>
-<p><code>vuSaveProfile()</code> saves the current live runtime
-configuration into the internal managed profile key
-<code>default</code>.</p>
+<p>vuSaveProfile() saves the current live runtime configuration into the
+internal managed profile key default.</p>
 <p>That includes the current settings already loaded or set in memory,
 such as:</p>
 <ul>
@@ -73,8 +71,7 @@ such as:</p>
 </ul>
 <p>After a successful save:</p>
 <ul>
-<li>the <code>default</code> managed profile becomes the active
-profile</li>
+<li>the default managed profile becomes the active profile</li>
 <li>the current process immediately applies that saved managed
 profile</li>
 <li>a same-session send can use the saved profile without requiring an
@@ -87,10 +84,10 @@ Result = vuSaveProfile()</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>This is the normal profile-save function for the Basic edition.</li>
-<li>It does not save to the old <code>vuMail</code> registry model once
-managed profiles are active.</li>
-<li>Use <code>vuSaveProfileEx(ProfileName)</code> only when you need
-named profiles and have the required license tier.</li>
+<li>It does not save to the old vuMail registry model once managed
+profiles are active.</li>
+<li>Use vuSaveProfileEx(ProfileName) only when you need named profiles
+and have the required license tier.</li>
 <li>In the normal wizard flow, this is the function that transitions the
 application into managed-profile-based persistence.</li>
 </ul>

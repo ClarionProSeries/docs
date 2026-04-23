@@ -8,20 +8,24 @@ vuSmtpGetSecurity(*CSTRING OutUser,*CSTRING OutPassword,*LONG OutSecurityMode,*L
 ```
 
 ## Purpose
+
 Reads SMTP credentials and security flags from vuMailKit runtime globals.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutUser | *CSTRING | Output buffer receiving SMTP login/user ID. |
 | OutPassword | *CSTRING | Output buffer receiving SMTP password. |
 | OutSecurityMode | *LONG | Receives legacy SMTP security type value. |
-| OutUseSsl | *LONG | Receives SSL flag (`0` off, non-zero on). |
+| OutUseSsl | *LONG | Receives SSL flag (0 off, non-zero on). |
 
 ## Return value / error codes
-- `1`: Success.
+
+- 1: Success.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
   MODULE('vuMail.dll')
@@ -48,8 +52,9 @@ END
 ```
 
 ## Notes
+
 - Legacy alias: [vuGetMailSecurity()](vuGetMailSecurity.md).
-- Returns runtime memory values; call `vuGlobalsLoad()` first if needed.
+- Returns runtime memory values; call vuGlobalsLoad() first if needed.
 - AuthMode/OAuth selection is handled by separate AuthMode/OAuth functions.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

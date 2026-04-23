@@ -6,36 +6,39 @@ keywords: ["vuMailKit", "vuMail", "vuclipboardsettext", "clipboard"]
 function_name: "vuClipboardSetText"
 category: "Utilities"
 version_added: "Additive"
-last_updated: "2026-03-27"
+last_updated: "2026-04-19"
 ---
-
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuClipboardSetText()
 
 ```Prototype
-vuClipboardSetText(*CSTRING InText,*CSTRING InFormat,LONG InFlags),SIGNED,PROC,PASCAL,RAW,NAME('vuClipboardSetText')
+vuClipboardSetText(*CSTRING InText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuClipboardSetText')
 ```
 
 ## Purpose
-Copies provided text to the Windows clipboard and returns diagnostic text.
+
+Copies text into the Windows clipboard and returns diagnostic text.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
-| InText | *CSTRING | Text to copy to clipboard. |
-| InFormat | *CSTRING | Output buffer receiving diagnostic text (`ok` on success). |
-| InFlags | LONG | Size of `OutText` buffer in bytes. |
+| InText | *CSTRING | Text to copy to the Windows clipboard. |
+| OutText | *CSTRING | Output buffer receiving diagnostic text. |
+| OutTextLen | LONG | Size of the OutText buffer in bytes. |
 
 ## Return value / error codes
-- `1`: Success.
-- `-7`: Clipboard operation failed; `OutText` contains exception details.
+
+- 1: Success.
+- -7: Clipboard operation failed; OutText contains exception details.
 
 ## Example (Clarion)
+
 ```clarion
 MAP
-  MODULE('vuMail.dll')
-    vuClipboardSetText(*CSTRING InText,*CSTRING InFormat,LONG InFlags),SIGNED,PROC,PASCAL,RAW,NAME('vuClipboardSetText')
+  MODULE('vuMailKit.dll')
+    vuClipboardSetText(*CSTRING InText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuClipboardSetText')
   END
 END
 
@@ -54,8 +57,9 @@ END
 ```
 
 ## Notes
+
 - Text longer than 65,535 characters is truncated before clipboard write.
-- This function also updates LastError internally (`0` on success, `-7` on failure).
-- AuthMode/OAuth is not required, but this helper is commonly used in OAuth device-code UX flows.
+- This function also updates LastError internally.
+- This helper is commonly used in OAuth device-code UX flows.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

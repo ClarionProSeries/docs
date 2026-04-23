@@ -9,17 +9,17 @@ Sets the diagnostic log file path used by vuDiagnosticsEnable() and by protocol 
 
 ## Export name
 
-- `vuDiagnosticsSetFile`
+- vuDiagnosticsSetFile
 
 ## Clarion prototype (Inside Global MAP)
 
-- `vuDiagnosticsSetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsSetFile')`
+- vuDiagnosticsSetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsSetFile')
 
 ## Return value
 
-- Returns `1` when the operation succeeds, otherwise `0`. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Notes
 
-- Pass the address of a `CSTRING` buffer containing the full path.
+- Pass the address of a CSTRING buffer containing the full path.
 - Setting the file path does not automatically enable diagnostics.

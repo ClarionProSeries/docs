@@ -8,6 +8,7 @@ vuMailSuccessDisplay(LONG Enable),SIGNED,PROC,PASCAL,RAW,NAME('vuMailSuccessDisp
 ```
 
 ## Description
+
 Sets the runtime flag that controls whether vuMailKit automatically displays a success message after an email is sent.
 
 ### Parameters
@@ -17,9 +18,11 @@ Sets the runtime flag that controls whether vuMailKit automatically displays a s
 | Enable | LONG | 1 enables automatic success display. 0 disables it. |
 
 ## Return value
+
 Returns 1 on success.
 
 ## Notes
+
 - This is a compatibility export. It controls vuMailKit behavior, not any legacy code path.
 
 ### Example
