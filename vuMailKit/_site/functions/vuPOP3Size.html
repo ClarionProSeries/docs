@@ -31,7 +31,9 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vupop3size">vuPOP3Size()</h1>
-<pre class="Prototype"><code>vuPOP3Size(LONG InMessageNumber),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3Size&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuPOP3Size(LONG InMessageNumber), LONG,
+PROC, PASCAL, RAW, NAME('vuPOP3Size')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Returns the size (in bytes) of the specified message in the active
 POP3 session.</p>
@@ -54,21 +56,13 @@ POP3 session.</p>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><blockquote>
-<p>0: Message size in bytes.</p>
-</blockquote></li>
+<li><code>&gt; 0</code>: Message size in bytes.</li>
 <li>0: No size available (for example, message not found or no active
 message list).</li>
-<li>&lt; 0: Error code from POP3 session operations.</li>
+<li><code>&lt; 0</code>: Error code from POP3 session operations.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuPOP3Size(LONG InMessageNumber),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3Size&#39;)
-  END
-END
-
-msgNo   LONG
+<pre class="clarion"><code>msgNo   LONG
 sizeB   LONG
 
 msgNo = 1
@@ -80,8 +74,10 @@ ELSE
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Use vuPOP3Count() first to validate message-number range.</li>
-<li>This call expects a connected POP3 session (vuPOP3Connect()).</li>
+<li>Use <code>vuPOP3Count()</code> first to validate message-number
+range.</li>
+<li>This call expects a connected POP3 session
+(<code>vuPOP3Connect()</code>).</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

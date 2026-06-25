@@ -1,13 +1,13 @@
 ---
 title: "Function Categories"
 summary: "Browse vuMailKit functions by category."
-description: "Category-based function browsing for vuMailKit, including mail, POP3, SMTP, OAuth, diagnostics, utilities, and setup functions."
-keywords: ["vuMailKit", "functions", "categories", "Clarion", "SMTP", "POP3", "OAuth"]
+description: "Category-based function browsing for vuMailKit, including mail, POP3, SMTP, OAuth, diagnostics, template and mail merge, utilities, and setup functions."
+keywords: ["vuMailKit", "functions", "categories", "Clarion", "SMTP", "POP3", "OAuth", "mail merge"]
 page_type: "overview"
-last_updated: "2026-03-30"
+last_updated: "2026-06-22"
 ---
 
-[Home](../index.md) | [Browse by Category](index.md) | [All functions](../functions/index.md)
+[Home](../index.md) | [Browse by Category](index.md) | [OAuth](../oauth/index.md) | [All functions](../functions/index.md)
 
 # Function Categories
 
@@ -26,7 +26,7 @@ If you prefer a single master list instead, use [All functions](../functions/ind
 | Category | Description |
 |---|---|
 | [Global Variable Related](../functions/index.md#global-variable-related) | Global runtime settings, active memory, registry behavior, and profile-related storage settings. |
-| [Logging](../functions/index.md#logging) | Diagnostics, protocol logs, cleanup, stored settings reset, and managed profile helpers. |
+| [Logging](../functions/index.md#logging) | Legacy sent-mail CSV logging, diagnostics, protocol logs, cleanup, stored settings reset, and managed profile helpers. |
 
 ## Mail sending and message handling
 
@@ -34,6 +34,7 @@ If you prefer a single master list instead, use [All functions](../functions/ind
 |---|---|
 | [Mailing Related](../functions/index.md#mailing-related) | Core message sending, CSV-based sending, mail server settings, reply settings, status, and related mail helpers. |
 | [SMTP Related](../functions/index.md#smtp-related) | SMTP-specific runtime settings, security, server selection, and SMTP auth mode handling. |
+| [Template and Mail Merge](../functions/index.md#template-and-mail-merge) | External body templates, TokenMerge helpers, and mail-merge style content preparation. |
 
 ## Receiving mail
 
@@ -64,7 +65,8 @@ If you prefer a single master list instead, use [All functions](../functions/ind
 
 ## Related pages
 
+- [Getting Started](../getting-started/index.md)
 - [All functions](../functions/index.md)
-- [OAuth Setup](../oauth/index.md)
+- [OAuth Support](../oauth.md)
 
-[Home](../index.md) | [Browse by Category](index.md) | [All functions](../functions/index.md)
+[Home](../index.md) | [Browse by Category](index.md) | [OAuth](../oauth/index.md) | [All functions](../functions/index.md)

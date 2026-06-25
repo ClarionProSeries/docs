@@ -3,27 +3,25 @@
 
 # vuGlobalsGetEmailFolder(xFolder)
 
-## Purpose
+## Clarion prototype
 
+**Prototype:** vuGlobalsGetEmailFolder(*CSTRING OutFolder), SIGNED, PROC, PASCAL, RAW, NAME('vuGlobalsGetEmailFolder')
+
+## Purpose
 Copies the current runtime EmailFolder (save folder) path into a caller-provided buffer.
 
 ## Parameters
-
-- xFolder (*CSTRING): Output buffer that receives the folder path.
+| Parameter | Type | Description |
+|---|---|---|
+| OutFolder | *CSTRING | Caller-provided output buffer that receives the current folder path. |
 
 ## Return value / error codes
-
-- 1: Success.
+| Value | Meaning |
+|---|---|
+| 1 | Success. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuGlobalsGetEmailFolder(*CSTRING OutFolder),SIGNED,PROC,PASCAL,RAW,NAME('vuGlobalsGetEmailFolder')
-  END
-END
-
 folder CSTRING(520)
 rc     LONG
 
@@ -37,10 +35,9 @@ END
 ```
 
 ## Notes
-
 - Legacy alias: [vuGetSaveFolder()](vuGetSaveFolder.md).
-- Value is returned from in-memory globals (load with vuGlobalsLoad() if needed).
+- Value is returned from in-memory globals. Call `vuGlobalsLoad()` first if you need the saved registry value loaded into memory.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: vuMailDump.pdf, section heading vuGetSaveFolder / vuGlobalsGetEmailFolder.
+- Legacy reference: `vuMailDump.pdf`, section heading `vuGetSaveFolder` / `vuGlobalsGetEmailFolder`.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

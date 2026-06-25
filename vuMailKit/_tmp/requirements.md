@@ -1,5 +1,5 @@
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
 # vuMailKit - Requirements
 
@@ -31,4 +31,4 @@ vuMailKit works with both single EXE and multi-DLL applications.
 
 The Basic edition uses a single-DLL deployment model for the runtime functions.
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)

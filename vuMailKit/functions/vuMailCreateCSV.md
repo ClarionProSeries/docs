@@ -1,7 +1,7 @@
 ---
 title: "vuMailCreateCSV"
 summary: "Creates or truncates a CSV file and selects it for vuMailAppendCSV()."
-description: "Creates or truncates a CSV file and selects it for vuMailAppendCSV(). [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Creates or truncates a CSV file and selects it for vuMailAppendCSV()."
 keywords: ["vuMailKit", "vuMail", "vumailcreatecsv"]
 function_name: "vuMailCreateCSV"
 category: "Legacy Compatibility"
@@ -13,28 +13,24 @@ last_updated: "2026-03-27"
 
 # vuMailCreateCSV(xCsvFilePath)
 
-## Purpose
+## Clarion prototype
 
-Creates (or truncates) the target CSV file and stores it as the selected CSV used by vuMailAppendCSV().
+**Prototype:** vuMailCreateCSV(*CSTRING InFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuMailCreateCSV')
+
+## Purpose
+Creates (or truncates) the target CSV file and stores it as the selected CSV used by `vuMailAppendCSV()`.
 
 ## Parameters
-
-- xCsvFilePath (*CSTRING): Full path to the CSV file.
+- `xCsvFilePath` (*CSTRING): Full path to the CSV file.
 
 ## Return value / error codes
-
-- 1: CSV created and selected.
-- 0: Failure (for example blank path or file create failure). Error text is available through vuMailLastError().
+| Value | Meaning |
+|---|---|
+| 1 | CSV created and selected. |
+| 0 | Failure (for example blank path or file create failure). Error text is available through `vuMailLastError()`. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuMailCreateCSV(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuMailCreateCSV')
-  END
-END
-
 csvPath CSTRING(260)
 csvPath = 'C:\Temp\mailout.csv'
 IF vuMailCreateCSV(csvPath) = 0
@@ -43,10 +39,9 @@ END
 ```
 
 ## Notes
-
 - If needed, parent directories are created.
 - A blank path returns 0.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: vuMailDump.pdf, section heading vuMailCreateCSV.
+- Legacy reference: `vuMailDump.pdf`, section heading `vuMailCreateCSV`.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

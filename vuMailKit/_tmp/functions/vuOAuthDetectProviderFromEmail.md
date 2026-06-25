@@ -1,73 +1,73 @@
+
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuOAuthDetectProviderFromEmail()
 
-```Prototype
-vuOAuthDetectProviderFromEmail(*CSTRING InEmailAddress,*CSTRING OutProviderName,LONG OutProviderNameLen,*LONG OutAuthMode,*CSTRING OutReason,LONG OutReasonLen),LONG,PROC,PASCAL,RAW,NAME('vuOAuthDetectProviderFromEmail')
-```
-
 ## Purpose
 
-Inspects an email address and returns the detected provider name, recommended auth mode, and reason text.
+Inspects an email address and reports whether the domain maps to a known OAuth provider. This is mainly for setup screens and the vuMailKit Email Setup Wizard.
+
+The function writes the detected provider name, recommended auth mode, and explanatory reason text to caller-supplied outputs.
+
+## Clarion prototype
+
+**Prototype:** vuOAuthDetectProviderFromEmail(*CSTRING InEmailAddress, *CSTRING OutProviderName, LONG OutProviderNameLen, *LONG OutAuthMode, *CSTRING OutReason, LONG OutReasonLen), LONG, PROC, PASCAL, RAW, NAME('vuOAuthDetectProviderFromEmail')
 
 ## Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| InEmailAddress | *CSTRING | Input email address to inspect. |
-| OutProviderName | *CSTRING | Output buffer receiving the detected provider name. |
-| OutProviderNameLen | LONG | Size of the OutProviderName buffer in bytes. |
-| OutAuthMode | *LONG | Output value receiving the recommended auth mode integer. |
-| OutReason | *CSTRING | Output buffer receiving reason or status text from the detector. |
-| OutReasonLen | LONG | Size of the OutReason buffer in bytes. |
+| InEmailAddress | *CSTRING | Email address to inspect. |
+| OutProviderName | *CSTRING | Output buffer receiving the detected provider name, such as google or microsoft. |
+| OutProviderNameLen | LONG | Size of OutProviderName in bytes. |
+| OutAuthMode | *LONG | Output LONG receiving the recommended auth mode. Current OAuth detections use 1. |
+| OutReason | *CSTRING | Output buffer receiving the detection explanation or failure reason. |
+| OutReasonLen | LONG | Size of OutReason in bytes. |
 
 ## Return value / error codes
 
-- 2: Microsoft detected and supported.
-- 1: Google detected and supported.
-- 0: Email is blank or the domain is not recognized as an OAuth provider.
-- Negative provider ID: Provider was detected but is not supported by the current runtime configuration.
-- -100: Invalid email format or missing domain.
-- -9: Exception while detecting provider.
-
-## Notes
-
-- The function return value reports provider detection/support status.
-- OutAuthMode is separate from the function return value.
-- OutReason contains human-readable diagnostic text that explains the detection result.
+| Value | Meaning |
+|---|---|
+| 2 | Microsoft provider detected and supported in the current runtime settings. |
+| 1 | Google provider detected and supported in the current runtime settings. |
+| 0 | Blank email or no OAuth provider detected for the domain. |
+| -1 | Google provider detected, but not currently supported because it is disabled or required credentials are missing. |
+| -2 | Microsoft provider detected, but not currently supported because it is disabled or required credentials are missing. |
+| -3 | Yahoo/AOL provider detected but OAuth is not supported. Current detector builds normally leave Yahoo/AOL to standard mail autodetect instead. |
+| -9 | Exception while detecting provider. |
+| -100 | Invalid email format or missing/empty domain. |
 
 ## Example (Clarion)
 
 ```clarion
-MAP
-  MODULE('vuMailKit.dll')
-    vuOAuthDetectProviderFromEmail(*CSTRING InEmailAddress,*CSTRING OutProviderName,LONG OutProviderNameLen,*LONG OutAuthMode,*CSTRING OutReason,LONG OutReasonLen),LONG,PROC,PASCAL,RAW,NAME('vuOAuthDetectProviderFromEmail')
-  END
+Result         LONG
+EmailAddress   CSTRING(256)
+ProviderName   CSTRING(64)
+ProviderLen    LONG
+AuthMode       LONG
+ReasonText     CSTRING(512)
+ReasonLen      LONG
+
+EmailAddress = 'user@gmail.com'
+CLEAR(ProviderName)
+ProviderLen  = SIZE(ProviderName)
+AuthMode     = 0
+CLEAR(ReasonText)
+ReasonLen    = SIZE(ReasonText)
+
+Result = vuOAuthDetectProviderFromEmail(EmailAddress, ProviderName, ProviderLen, AuthMode, ReasonText, ReasonLen)
+IF Result > 0
+  MESSAGE('OAuth provider=' & ProviderName & '| AuthMode=' & AuthMode)
+ELSE
+  MESSAGE('OAuth detection result=' & Result & '| ' & ReasonText)
 END
-
-email           CSTRING(254)
-outProvider     CSTRING(64)
-outProviderMax  LONG
-authMode        LONG
-outReason       CSTRING(256)
-outReasonMax    LONG
-rc              LONG
-
-email          = 'user@example.com'
-outProvider    = ''
-outProviderMax = SIZE(outProvider)
-authMode       = 0
-outReason      = ''
-outReasonMax   = SIZE(outReason)
-
-rc = vuOAuthDetectProviderFromEmail(email, outProvider, outProviderMax, authMode, outReason, outReasonMax)
-MESSAGE('rc=' & rc & ' provider=' & outProvider & ' authMode=' & authMode & ' reason=' & outReason)
 ```
 
-## See also
+## Notes
 
-- vuOAuthSetProvider()
-- vuOAuthBeginLogin()
-- vuOAuthStatus()
+- Gmail and googlemail.com map to Google.
+- Outlook.com, Hotmail.com, Live.com, MSN.com, and onmicrosoft.com domains map to Microsoft.
+- Custom Google Workspace or Microsoft 365 domains may not be identifiable from the email address alone. In that case, use Manual Configuration in the [vuMailKit Email Setup Wizard](../getting-started/vumailkit-email-setup-wizard.md).
+- Some older source comments and MAP samples call the fourth output OutProviderId and the final text output OutDomain. The current behavior is auth mode plus reason text.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

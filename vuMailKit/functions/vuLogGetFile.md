@@ -1,12 +1,12 @@
 ---
 title: "vuLogGetFile"
-summary: "Gets the mail log file path."
-description: "Gets the mail log file path. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+summary: "Gets the legacy sent-mail CSV log file path."
+description: "Gets the legacy sent-mail CSV log file path."
 keywords: ["vuMailKit", "vuMail", "vuloggetfile", "vugetmaillog"]
 function_name: "vuLogGetFile"
 category: "Logging"
 version_added: "Legacy"
-last_updated: "2026-01-07"
+last_updated: "2026-06-22"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -14,18 +14,17 @@ last_updated: "2026-01-07"
 # vuLogGetFile()
 
 ## Description
-
-Gets the mail log file path. (legacy name: vuGetMailLog()).
+Gets the legacy sent-mail CSV log file path. (legacy name: `vuGetMailLog()`).
 
 Previously exported as (legacy name, still supported):
 
 - [vuGetMailLog()](vuGetMailLog.md)
 
-### Parameters
+## Parameters
 
-- xFileName (CSTRING) - Receives the current log file path.
+- `xFileName` (CSTRING) - Receives the current log file path.
 
-### Returns
+## Return value
 
 A LONG value indicating the result.
 
@@ -33,9 +32,11 @@ A LONG value indicating the result.
 
 ### Notes
 
+This is separate from diagnostics logging. Use `vuDiagnosticsGetFile()` to read the diagnostics log path.
+
 This returns the log file path from the current session.
 
-### Example (Clarion)
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuLogGetFile   ROUTINE

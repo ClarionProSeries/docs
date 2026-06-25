@@ -31,11 +31,14 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumaillasterror">vuMailLastError()</h1>
-<pre class="Prototype"><code>vuMailLastError(),CSTRING,PROC,PASCAL,RAW,NAME(&#39;vuMailLastError&#39;)</code></pre>
-<p>This legacy function is declared as returning CSTRING in Clarion to
-preserve original vuMail template behavior. Under the hood, the export
-returns a pointer to a null-terminated C string buffer, and Clarion
-consumes it directly as text, as shown in the examples below.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailLastError(), CSTRING, PROC, PASCAL,
+RAW, NAME('vuMailLastError')</p>
+<p>This legacy function is declared as returning <code>CSTRING</code> in
+Clarion to preserve original vuMail template behavior. Under the hood,
+the export returns a pointer to a null-terminated C string buffer, and
+Clarion consumes it directly as text, as shown in the examples
+below.</p>
 <h2 id="description">Description</h2>
 <p>Gets the current last-error text using the original vuMail
 compatibility behavior.</p>
@@ -44,7 +47,7 @@ compatibility behavior.</p>
 <li>Returns the current last-error text using the original vuMail legacy
 text-return style.</li>
 <li>In Clarion, this function can be used directly in text expressions
-such as MESSAGE() and string assignment.</li>
+such as <code>MESSAGE()</code> and string assignment.</li>
 <li>Returns a blank string when no error text is currently
 available.</li>
 </ul>
@@ -56,19 +59,70 @@ RC  LONG
   CODE
   RC = vuTestSetLastError(&#39;This is a forced test error string from Clarion&#39;)
   STOP(&#39;RC=&#39; &amp; RC &amp; &#39;  vuMailLastError()=&#39; &amp; vuMailLastError())</code></pre>
+<h2 id="licensing-failures">Licensing failures</h2>
+<p>When a licensing gate fails, <code>vuMailLastError()</code> is
+populated even though no SMTP send was attempted. The message begins
+with <code>vuMailKit licensing failure</code> and explicitly states that
+the problem is not an SMTP, OAuth, Gmail, password, or mail-server
+authentication failure.</p>
+<p>Current licensing return codes:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-9001</td>
+<td>vuMailKit licensing was not initialized.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td>License string is invalid or initialization failed.</td>
+</tr>
+<tr>
+<td>-9003</td>
+<td>Current license tier does not allow the requested feature.</td>
+</tr>
+</tbody>
+</table>
+<p>Startup/deployment-folder conflict code:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-451</td>
+<td>vuMailKit detected conflicting .NET mail/runtime files in the
+application folder. This is an application-folder cleanup issue, not a
+license, SMTP, OAuth, Gmail, password, or mail-server authentication
+failure.</td>
+</tr>
+</tbody>
+</table>
+<p>This is especially important for hand-coded integrations that call
+<code>vuSendMail()</code> without registering the vuMailKit
+template/global extension or without calling
+<code>vuMailKitInitialize(LicenseString)</code> at EXE startup.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Original vuMail behavior: this returns the last verbose error
 message as text, and it is blank if no error was generated during the
 last send.</li>
 <li>Legacy compatibility exception: in the original PowerBasic vuMail
-code these functions exported a numeric DWORD that was actually the
-address of an internal C string buffer. Clarion can consume that value
-directly in string expressions, which is why the legacy examples use
-assignment and MESSAGE() style calls because the Clarion prototype is
-declared as CSTRING.</li>
-<li>New text-return APIs should use caller-owned *CSTRING output
-buffers.</li>
+code these functions exported a numeric <code>DWORD</code> that was
+actually the address of an internal C string buffer. Clarion can consume
+that value directly in string expressions, which is why the legacy
+examples use assignment and <code>MESSAGE()</code> style calls because
+the Clarion prototype is declared as <code>CSTRING</code>.</li>
+<li>New text-return APIs should use caller-owned <code>*CSTRING</code>
+output buffers.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

@@ -3,52 +3,53 @@
 
 # vuOAuthRefresh()
 
-```Prototype
-vuOAuthRefresh(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthRefresh')
-```
-
 ## Purpose
 
-Refreshes OAuth access token state for the specified provider/account pair.
+Requests an OAuth token refresh for a provider/account pair.
+
+This is an advanced/manual helper. The vuMailKit Email Setup Wizard handles OAuth status and token flow work in the normal setup path.
+
+## Clarion prototype
+
+**Prototype:** vuOAuthRefresh(*CSTRING Provider, *CSTRING AccountKey, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthRefresh')
 
 ## Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
 | Provider | *CSTRING | Provider identifier. |
-| AccountKey | *CSTRING | Account key identifier. |
-| OutText | *CSTRING | Output buffer receiving refresh status text. |
-| OutTextLen | LONG | Size of OutText buffer in bytes. |
+| AccountKey | *CSTRING | Account key identifier, usually the email address. |
+| OutText | *CSTRING | Output buffer receiving status text. |
+| OutTextLen | LONG | Size of OutText in bytes. Pass SIZE(OutText). |
 
 ## Return value / error codes
 
-- >= 0: Result code from core OAuth refresh operation.
-- -9: Core unavailable or exception.
+| Value | Meaning |
+|---|---|
+| 1 | Token state is present after refresh. |
+| 2 | Login is needed because refresh could not produce usable token state. |
+| 0 | No token state exists for this provider/account. |
+| -3 | Bad request. |
+| -5 | Requested provider/refresh family is not implemented. |
+| -12 | Yahoo/AOL OAuth is disabled in vuMailKit. |
+| -9 | Provider error, core unavailable, or internal exception. |
 
 ## Example (Clarion)
 
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuOAuthRefresh(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthRefresh')
-  END
-END
+Result     LONG
+Provider   CSTRING(64)
+AccountKey CSTRING(256)
+OutText    CSTRING(1024)
+OutTextLen LONG
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-outText    CSTRING(1024)
-outLen     LONG
+Provider   = 'microsoft'
+AccountKey = 'user@example.com'
+CLEAR(OutText)
+OutTextLen = SIZE(OutText)
 
-provider   = 'Microsoft'
-accountKey = 'user@example.com'
-outText    = ''
-outLen     = SIZE(outText)
-
-rc = vuOAuthRefresh(provider, accountKey, outText, outLen)
-IF rc < 0
-  MESSAGE('Refresh failed: ' & rc & '| ' & outText)
-END
+Result = vuOAuthRefresh(Provider, AccountKey, OutText, OutTextLen)
+MESSAGE('vuOAuthRefresh result=' & Result & '| ' & OutText)
 ```
 
 ## Notes

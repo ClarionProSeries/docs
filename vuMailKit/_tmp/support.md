@@ -1,5 +1,5 @@
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
 # vuMailKit - Support
 
@@ -28,4 +28,4 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://clarionproseries.github.io/docs/vuMailKit/
 ```
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)

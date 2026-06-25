@@ -1,57 +1,62 @@
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [By category](../functions-by-category.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
-# vuOAuthLaunchAuthorizeUrl
+# vuOAuthLaunchAuthorizeUrl()
 
 ## Purpose
 
-Build and launch the provider authorization URL for an OAuth login flow.
+Uses captured BeginLogin state to open an authorization URL in the default browser. The function can also copy the URL to the clipboard.
 
-## Export name
+This is an advanced/manual helper. The vuMailKit Email Setup Wizard handles browser launch and authorization in the normal setup path.
 
-- vuOAuthLaunchAuthorizeUrl
+## Clarion prototype
 
-## Clarion prototype (Inside Global MAP)
-
-- vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG CopyUrlToClipboard,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')
+**Prototype:** vuOAuthLaunchAuthorizeUrl(*CSTRING Provider, *CSTRING AccountKey, LONG CopyUrlToClipboard, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthLaunchAuthorizeUrl')
 
 ## Parameters
 
-| Parameter | Type | Description | Expected values / range |
-|---|---|---|---|
-| Provider | *CSTRING | Provider name. | Typical values: google, microsoft. |
-| AccountKey | *CSTRING | Account key used to bind the OAuth session. | Usually the email address. |
-| CopyUrlToClipboard | LONG | Whether to also copy the URL to the clipboard. | 0 = no, 1 = yes. |
-| OutText | *CSTRING | Receives status text or the URL. | Writable text buffer. |
-| OutTextLen | LONG | Length of OutText in bytes. | Pass SIZE(OutText). |
+| Parameter | Type | Description |
+|---|---|---|
+| Provider | *CSTRING | Provider identifier used in BeginLogin. |
+| AccountKey | *CSTRING | Account key used in BeginLogin. |
+| CopyUrlToClipboard | LONG | 0 = do not copy, non-zero = copy the authorization URL to the clipboard. |
+| OutText | *CSTRING | Output buffer receiving the URL and diagnostics. |
+| OutTextLen | LONG | Size of OutText in bytes. Pass SIZE(OutText). |
 
-## Expected values and ranges
+## Return value / error codes
 
-- CopyUrlToClipboard: 0 = no, 1 = yes.
+| Value | Meaning |
+|---|---|
+| 1 | Browser launch succeeded. OutText contains the URL and may include a clipboard warning. |
+| -8 | Browser launch failed. OutText includes launch diagnostics when available. |
+| -9 | BeginLogin state was missing, authorization URL was missing, or an exception occurred. |
+| -12 | Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP password configuration instead. |
 
-## Return value
-
-- 1 = authorize URL built and launch attempted successfully.
-- 0 = the operation failed.
-
-## Clarion example
+## Example (Clarion)
 
 ```clarion
-Provider                 CSTRING(40)
-AccountKey               CSTRING(254)
-CopyUrlToClipboard       LONG
-OutText                  CSTRING(1024)
-OutTextLen               LONG
-Result                   LONG
+Result             LONG
+Provider           CSTRING(64)
+AccountKey         CSTRING(256)
+CopyUrlToClipboard LONG
+OutText            CSTRING(2048)
+OutTextLen         LONG
 
-Provider = 'google'
-AccountKey = 'user@example.com'
+Provider           = 'google'
+AccountKey         = 'user@example.com'
 CopyUrlToClipboard = 1
-OutTextLen = SIZE(OutText)
 CLEAR(OutText)
+OutTextLen         = SIZE(OutText)
+
 Result = vuOAuthLaunchAuthorizeUrl(Provider, AccountKey, CopyUrlToClipboard, OutText, OutTextLen)
+IF Result <> 1
+  MESSAGE('LaunchAuthorizeUrl failed: ' & Result & '| ' & OutText)
+END
 ```
 
 ## Notes
 
-- BeginLogin creates the session state; this function handles the explicit browser launch for hosted flows.
+- BeginLogin must run first for the same Provider and AccountKey so this function has an authorization URL to launch.
+- Clipboard copy is best-effort. Browser launch failure is reported as -8.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

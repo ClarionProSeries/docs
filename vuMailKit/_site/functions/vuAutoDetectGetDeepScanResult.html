@@ -27,9 +27,61 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1
 id="vuautodetectgetdeepscanresult">vuAutoDetectGetDeepScanResult</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuAutoDetectGetDeepScanResult(LONG
+InHandle, LONG InOutBufLen, *CSTRING OutProfileEmailAddress, *LONG
+OutConfidence, *LONG OutDetectSource, *LONG OutProviderId, *LONG
+OutSmtpAuthModeHint, *LONG OutPopAuthModeHint, *LONG
+OutImapAuthModeHint, *CSTRING OutSmtpHost, *LONG OutSmtpPort, *LONG
+OutSmtpSecurityMode, *CSTRING OutSmtpUser, *CSTRING OutPopHost, *LONG
+OutPopPort, *LONG OutPopSecurityMode, *CSTRING OutPopUser, *CSTRING
+OutImapHost, *LONG OutImapPort, *LONG OutImapSecurityMode, *CSTRING
+OutImapUser), SIGNED, PROC, PASCAL, RAW,
+NAME('vuAutoDetectGetDeepScanResult')</p>
 <p>Copies final results from a completed asynchronous deep autodetect
-job into the same output variables used by vuAutoDetectFillSettings.</p>
+job into the same output variables used by
+<code>vuAutoDetectFillSettings</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc           LONG
+handle       LONG
+email        CSTRING(256)
+confidence   LONG
+source       LONG
+providerId   LONG
+smtpAuth     LONG
+popAuth      LONG
+imapAuth     LONG
+smtpHost     CSTRING(256)
+smtpPort     LONG
+smtpSecurity LONG
+smtpUser     CSTRING(256)
+popHost      CSTRING(256)
+popPort      LONG
+popSecurity  LONG
+popUser      CSTRING(256)
+imapHost     CSTRING(256)
+imapPort     LONG
+imapSecurity LONG
+imapUser     CSTRING(256)
+
+handle = 1   ! Use a completed deep-scan handle.
+
+rc = vuAutoDetectGetDeepScanResult(handle, SIZE(email), email, |
+     confidence, source, providerId, smtpAuth, popAuth, imapAuth, |
+     smtpHost, smtpPort, smtpSecurity, smtpUser, |
+     popHost, popPort, popSecurity, popUser, |
+     imapHost, imapPort, imapSecurity, imapUser)
+
+IF rc &gt; 0
+  MESSAGE(&#39;SMTP host=&#39; &amp; CLIP(smtpHost) &amp; &#39;|Port=&#39; &amp; smtpPort)
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

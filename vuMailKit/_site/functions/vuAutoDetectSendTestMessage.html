@@ -29,26 +29,24 @@
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
-href="../functions-by-category.html">By category</a></p>
+href="../categories/index.html">Categories</a></p>
 <h1 id="vuautodetectsendtestmessage">vuAutoDetectSendTestMessage</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Send a temporary SMTP test message using the supplied settings
 without requiring the developer to save a profile first.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuAutoDetectSendTestMessage</li>
+<li><code>vuAutoDetectSendTestMessage</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuAutoDetectSendTestMessage(LONG InOutBufLen,*CSTRING
-InFromEmail,*CSTRING InToEmail,*CSTRING InSubjectPrefix,LONG
-InConfigOrigin,*CSTRING InSmtpHost,LONG InSmtpPort,LONG
-InSmtpSecurityMode,LONG InSmtpAuthMode,*CSTRING InSmtpUser,*CSTRING
-InPassword,LONG InProviderId,*CSTRING InOAuthAccountKey,*CSTRING
-OutSmtpResponseCode,*CSTRING
-OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessage')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuAutoDetectSendTestMessage(LONG
+InOutBufLen, *CSTRING InFromEmail, *CSTRING InToEmail, *CSTRING
+InSubjectPrefix, LONG InConfigOrigin, *CSTRING InSmtpHost, LONG
+InSmtpPort, LONG InSmtpSecurityMode, LONG InSmtpAuthMode, *CSTRING
+InSmtpUser, *CSTRING InPassword, LONG InProviderId, *CSTRING
+InOAuthAccountKey, *CSTRING OutSmtpResponseCode, *CSTRING
+OutSmtpResponseText), SIGNED, PROC, PASCAL, RAW,
+NAME('vuAutoDetectSendTestMessage')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -88,13 +86,14 @@ OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessage')<
 <td>InConfigOrigin</td>
 <td>LONG</td>
 <td>Indicates where the settings came from.</td>
-<td>0=Manual, 1=Autodetect.</td>
+<td><code>0=Manual</code>, <code>1=Autodetect</code>.</td>
 </tr>
 <tr>
 <td>InSmtpHost</td>
 <td>*CSTRING</td>
 <td>SMTP server host name.</td>
-<td>Examples: smtp.gmail.com, smtp.office365.com.</td>
+<td>Examples: <code>smtp.gmail.com</code>,
+<code>smtp.office365.com</code>.</td>
 </tr>
 <tr>
 <td>InSmtpPort</td>
@@ -106,13 +105,15 @@ OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessage')<
 <td>InSmtpSecurityMode</td>
 <td>LONG</td>
 <td>SMTP security mode.</td>
-<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
+<td><code>0=None</code>, <code>1=StartTls</code>,
+<code>2=ImplicitTls</code>.</td>
 </tr>
 <tr>
 <td>InSmtpAuthMode</td>
 <td>LONG</td>
 <td>SMTP auth mode.</td>
-<td>0=Unknown, 1=Password, 2=OAuth.</td>
+<td><code>0=Unknown</code>, <code>1=Password</code>,
+<code>2=OAuth</code>.</td>
 </tr>
 <tr>
 <td>InSmtpUser</td>
@@ -130,7 +131,8 @@ OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessage')<
 <td>InProviderId</td>
 <td>LONG</td>
 <td>Provider ID for OAuth-aware testing.</td>
-<td>0=None, 1=Google, 2=Microsoft, 3=Yahoo.</td>
+<td><code>0=None</code>, <code>1=Google</code>,
+<code>2=Microsoft</code>, <code>3=Yahoo</code>.</td>
 </tr>
 <tr>
 <td>InOAuthAccountKey</td>
@@ -155,21 +157,40 @@ selected.</td>
 </table>
 <h2 id="expected-values-and-ranges">Expected values and ranges</h2>
 <ul>
-<li>InConfigOrigin: 0 = Manual, 1 = Autodetect.</li>
-<li>The generated subject suffix now uses mixed-case labels: (Manual) or
-(Auto-Detect).</li>
-<li>InSmtpSecurityMode: 0 = None, 1 = StartTls, 2 = ImplicitTls.</li>
-<li>InSmtpAuthMode: 0 = Unknown, 1 = Password, 2 = OAuth.</li>
-<li>InProviderId: 0 = None, 1 = Google, 2 = Microsoft, 3 = Yahoo.</li>
-<li>OutSmtpResponseCode is text, not a numeric LONG output variable. Use
-a CSTRING buffer.</li>
+<li><code>InConfigOrigin</code>: <code>0 = Manual</code>,
+<code>1 = Autodetect</code>.</li>
+<li>The generated subject suffix now uses mixed-case labels:
+<code>(Manual)</code> or <code>(Auto-Detect)</code>.</li>
+<li><code>InSmtpSecurityMode</code>: <code>0 = None</code>,
+<code>1 = StartTls</code>, <code>2 = ImplicitTls</code>.</li>
+<li><code>InSmtpAuthMode</code>: <code>0 = Unknown</code>,
+<code>1 = Password</code>, <code>2 = OAuth</code>.</li>
+<li><code>InProviderId</code>: <code>0 = None</code>,
+<code>1 = Google</code>, <code>2 = Microsoft</code>,
+<code>3 = Yahoo</code>.</li>
+<li><code>OutSmtpResponseCode</code> is text, not a numeric LONG output
+variable. Use a <code>CSTRING</code> buffer.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
-<ul>
-<li>1 = the test send completed successfully.</li>
-<li>0 = the test send failed.</li>
-</ul>
-<h2 id="clarion-example">Clarion example</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>the test send completed successfully.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>the test send failed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>BufLen                  LONG
 FromEmail               CSTRING(254)
 ToEmail                 CSTRING(254)
@@ -203,9 +224,21 @@ OAuthAccountKey = &#39;&#39;
 CLEAR(SmtpResponseCode)
 CLEAR(SmtpResponseText)
 
-Result = vuAutoDetectSendTestMessage(BufLen, FromEmail, ToEmail, SubjectPrefix, ConfigOrigin, SmtpHost, |
-  SmtpPort, SmtpSecurityMode, SmtpAuthMode, SmtpUser, Password, ProviderId, OAuthAccountKey, |
+Result = vuAutoDetectSendTestMessage(BufLen, FromEmail, ToEmail, |
+  SubjectPrefix, ConfigOrigin, SmtpHost, SmtpPort, SmtpSecurityMode, |
+  SmtpAuthMode, SmtpUser, Password, ProviderId, OAuthAccountKey, |
   SmtpResponseCode, SmtpResponseText)</code></pre>
+<h2 id="legacy-save-folder-and-mail-log-behavior">Legacy save-folder and
+mail-log behavior</h2>
+<p>Setup/test-send messages honor the same legacy save-folder and
+sent-mail log settings as normal sends. If
+<code>vuSetSaveFolder()</code> or <code>vuGlobalsSetEmailFolder()</code>
+has set a valid folder before the test send, vuMailKit saves the
+outgoing test message as an <code>.eml</code> file before the SMTP send
+attempt. If <code>vuSetMailLog()</code> or <code>vuLogSetFile()</code>
+has selected a sent-mail CSV log, the test-send attempt is logged.
+Successful sends include the saved path when an outgoing copy was saved.
+Failed sends are logged with the result text.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>This function is intended for setup-time validation.</li>
@@ -213,11 +246,14 @@ Result = vuAutoDetectSendTestMessage(BufLen, FromEmail, ToEmail, SubjectPrefix, 
 as a vuMailKit message.</li>
 <li>This base function includes the outgoing SMTP settings in the
 generated body.</li>
-<li>Use vuAutoDetectSendTestMessageEx when you also want POP3 and IMAP
-settings included in the setup-record email body.</li>
+<li>Use <code>vuAutoDetectSendTestMessageEx</code> when you also want
+POP3 and IMAP settings included in the setup-record email body.</li>
 <li>A successful test does not persist anything by itself. Call the
-normal setters and vuSaveProfile when you want to keep the
+normal setters and <code>vuSaveProfile</code> when you want to keep the
 settings.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

@@ -31,14 +31,34 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusetmaillog">vuSetMailLog()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetMailLog(*CSTRING InFileName),
+SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailLog')</p>
 <h2 id="description">Description</h2>
-<p>This is the legacy vuMail function name for vuLogSetFile().</p>
+<p>This is the legacy vuMail function name for
+<code>vuLogSetFile()</code>.</p>
 <p>Preferred function name:</p>
 <ul>
 <li><a href="vuLogSetFile.html">vuLogSetFile()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuLogSetFile().</p>
+identically to <code>vuLogSetFile()</code>. It selects the legacy
+sent-mail CSV log file. Successful and failed send attempts append rows
+in this format:</p>
+<pre class="text"><code>Date,Time,From,To,Subject,SavedEmailPath,ResultText</code></pre>
+<p>This is separate from diagnostics logging. Use
+<code>vuDiagnosticsSetFile()</code> for diagnostics and
+<code>vuClearMailLog()</code> to clear the sent-mail CSV log.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc      LONG
+logFile CSTRING(260)
+
+logFile = &#39;C:\MyApp\Logs\sent-mail.csv&#39;
+rc = vuSetMailLog(logFile)
+
+IF rc = 0
+  MESSAGE(&#39;Mail log was not accepted: &#39; &amp; vuMailLastError())
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

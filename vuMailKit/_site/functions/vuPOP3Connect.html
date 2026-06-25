@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vupop3connect">vuPOP3Connect()</h1>
-<pre class="Prototype"><code>vuPOP3Connect(*CSTRING InServer,*CSTRING InUser,*CSTRING InPassword),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3Connect&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuPOP3Connect(*CSTRING InServer, *CSTRING
+InUser, *CSTRING InPassword), LONG, PROC, PASCAL, RAW,
+NAME('vuPOP3Connect')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Connects and authenticates to a POP3 server for subsequent POP3
 receive operations.</p>
@@ -63,18 +66,25 @@ receive operations.</p>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Connected successfully.</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>0: Connected successfully.</li>
-<li>&lt; 0: Connection or authentication failed.</li>
+<li><code>&lt; 0</code>: Connection or authentication failed.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuPOP3Connect(*CSTRING InServer,*CSTRING InUser,*CSTRING InPassword),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3Connect&#39;)
-  END
-END
-
-rc       LONG
+<pre class="clarion"><code>rc       LONG
 host     CSTRING(128)
 userId   CSTRING(128)
 password CSTRING(128)
@@ -89,9 +99,9 @@ IF rc &lt; 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call this before vuPOP3Count, vuPOP3LoadHeader, or
-vuPOP3LoadEmail.</li>
-<li>Pair with vuPOP3Disconnect() when finished.</li>
+<li>Call this before <code>vuPOP3Count</code>,
+<code>vuPOP3LoadHeader</code>, or <code>vuPOP3LoadEmail</code>.</li>
+<li>Pair with <code>vuPOP3Disconnect()</code> when finished.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

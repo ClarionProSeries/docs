@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuClearMailLog</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vuclearmaillog">vuClearMailLog()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuClearMailLog(), SIGNED, PROC, PASCAL,
+RAW, NAME('vuClearMailLog')</p>
+<h2 id="description">Description</h2>
+<p>Clears the current legacy sent-mail CSV log file.</p>
+<p>The file cleared is the mail log selected by:</p>
+<ul>
+<li><a href="vuLogSetFile.html">vuLogSetFile()</a></li>
+<li><a href="vuSetMailLog.html">vuSetMailLog()</a></li>
+</ul>
+<p>This function is intentionally separate from diagnostics logging. It
+does <strong>not</strong> clear the diagnostics log or SMTP protocol
+log.</p>
+<h2 id="parameters">Parameters</h2>
+<p>This function takes no parameters.</p>
+<h2 id="return-value">Return value</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>if the mail log was cleared, or if no mail log file is currently
+configured.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>if the log file could not be cleared. Call <a
+href="vuMailLastError.html">vuMailLastError()</a> for details.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>vuLogSetFile()</code> / <code>vuSetMailLog()</code> select the
+legacy sent-mail CSV log.</li>
+<li>Successful and failed send attempts append CSV rows to that
+file.</li>
+<li>The CSV row format follows the old vuMail behavior:</li>
+</ul>
+<pre class="text"><code>Date,Time,From,To,Subject,SavedEmailPath,ResultText</code></pre>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>Result SIGNED
+
+Result = vuClearMailLog()
+IF Result = 0
+  MESSAGE(&#39;Could not clear mail log: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

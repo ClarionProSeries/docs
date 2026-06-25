@@ -31,22 +31,32 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusmtpgetauthmode">vuSmtpGetAuthMode()</h1>
-<pre class="Prototype"><code>vuSmtpGetAuthMode(),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSmtpGetAuthMode&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSmtpGetAuthMode(), SIGNED, PROC,
+PASCAL, RAW, NAME('vuSmtpGetAuthMode')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Reads the current SMTP authentication mode from runtime globals.</p>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>0: Password-based SMTP mode.</li>
-<li>1: OAuth SMTP mode.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Password-based SMTP mode.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OAuth SMTP mode.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSmtpGetAuthMode(),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSmtpGetAuthMode&#39;)
-  END
-END
-
-mode LONG
+<pre class="clarion"><code>mode LONG
 mode = vuSmtpGetAuthMode()
 IF mode = 1
   MESSAGE(&#39;SMTP auth mode is OAuth&#39;)
@@ -55,7 +65,7 @@ ELSE
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Pair with vuSmtpSetAuthMode() to switch modes.</li>
+<li>Pair with <code>vuSmtpSetAuthMode()</code> to switch modes.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

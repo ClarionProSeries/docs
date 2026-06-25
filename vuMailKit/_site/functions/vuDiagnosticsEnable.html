@@ -28,7 +28,8 @@
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
-functions</a> | <a href="legacy-index.html">Legacy functions</a></p>
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1 id="vudiagnosticsenable">vuDiagnosticsEnable()</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Enables diagnostic logging using the configured diagnostics file. If
@@ -36,18 +37,23 @@ no diagnostics file has been configured yet, a default file path is
 chosen automatically.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuDiagnosticsEnable</li>
+<li><code>vuDiagnosticsEnable</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuDiagnosticsEnable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsEnable')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuDiagnosticsEnable(), SIGNED, PROC,
+PASCAL, RAW, NAME('vuDiagnosticsEnable')</p>
 <h2 id="return-value">Return value</h2>
 <ul>
 <li>Returns 1 when the operation succeeds, otherwise 0. Use
-vuMailLastError() for more detail when needed.</li>
+<code>vuMailLastError()</code> for more detail when needed.</li>
 </ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc LONG
+
+rc = vuDiagnosticsEnable()
+IF rc = 0
+  MESSAGE(&#39;Diagnostics could not be enabled: &#39; &amp; vuMailLastError())
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>This turns on the diagnostics writer used by SMTP transport
@@ -55,5 +61,8 @@ diagnostics.</li>
 <li>The SMTP protocol log is written in the same folder as the
 diagnostics file.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

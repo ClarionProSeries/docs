@@ -27,71 +27,189 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
-<p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
-<h1 id="whats-new-in-vumailkit">What's New in vuMailKit</h1>
-<p>Build 1.51 update</p>
-<p>Release date: 2026-04-03</p>
-<p>This page highlights the most recent improvements in the current
-vuMailKit Basic edition.</p>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
+<h1 id="whats-new-in-vumailkit-110">What's New in vuMailKit 1.1.0</h1>
+<p>This page summarizes the current documentation and product highlights
+for <strong>vuMailKit 1.1.0 Basic edition</strong>.</p>
+<h2 id="vumailkit-110-at-a-glance">vuMailKit 1.1.0 at a glance</h2>
+<p>vuMailKit 1.1.0 is the current Basic edition release. It keeps the
+familiar vuMail-compatible send surface, but adds the practical pieces
+developers need for modern day-to-day use:</p>
+<ul>
+<li>Simple HTML email helpers for good-looking messages without
+hand-building the outer HTML wrapper.</li>
+<li>TokenMerge helpers for template-based email and report-to-text
+insertion.</li>
+<li>Save-folder and legacy sent-mail CSV logging compatibility for
+normal sends, CSV sends, and setup/test sends.</li>
+<li>Clearer licensing/setup diagnostics using the private -9001, -9002,
+and -9003 range.</li>
+<li>Expanded Email Setup Wizard documentation, including CTRL+U import,
+provider autodetect, OAuth authorization, test send, and profile
+save.</li>
+<li>A copyable recommended send flow that checks for a stored profile,
+offers the wizard when needed, validates the recipient, sends, and shows
+useful diagnostics.</li>
+</ul>
 <h2 id="recent-highlights">Recent highlights</h2>
+<h3 id="vumailkit-email-setup-wizard-visibility">vuMailKit Email Setup
+Wizard visibility</h3>
+<p>The <strong>vuMailKit Email Setup Wizard</strong> is now documented
+as a first-class part of the normal setup path.</p>
 <ul>
-<li>Added improved Gmail OAuth success page handling for a cleaner
-post-authorization experience</li>
-<li>Added the new <strong>OAuth Success Name</strong> setting in the
-global template for Google OAuth</li>
-<li>Expanded template guidance so developers know where to enter the
-name shown on the Google success page</li>
-<li>Continued clarification of Google OAuth setup requirements and
-related documentation links</li>
-<li>Clarified supported Clarion version coverage and installer support
-for older Clarion environments</li>
+<li>After adding and configuring the global template, use the Clarion
+<strong>Utility Template</strong> command, <strong>CTRL+U</strong>, to
+import the vuMailKit Email Setup Wizard into the application.</li>
+<li>The vuMailKit Email Setup Wizard validates the email address before
+setup continues.</li>
+<li>It detects common provider/server settings so users usually do not
+need to know server names, ports, or TLS choices.</li>
+<li>When OAuth is enabled and required, it walks the user through the
+authorization process.</li>
+<li>It sends a test email and saves the working result into a reusable
+vuMailKit profile.</li>
+<li>For normal Microsoft or Google OAuth accounts, that profile lets
+send code run without hand-coded OAuth flow code.</li>
 </ul>
-<h2 id="major-function-and-setup-areas-affected">Major function and
-setup areas affected</h2>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Google OAuth</td>
-<td>Gmail authorization now supports a better-looking success page after
-successful OAuth completion.</td>
-</tr>
-<tr>
-<td>Template Settings</td>
-<td>The global template now includes <strong>OAuth Success
-Name</strong>, which lets the developer control the name shown on the
-Google success page.</td>
-</tr>
-<tr>
-<td>Documentation</td>
-<td>Template usage and related OAuth setup pages now explain where this
-setting is entered and what it affects.</td>
-</tr>
-<tr>
-<td>Compatibility</td>
-<td>Documentation now reflects active installer support for Clarion
-versions back to Clarion 5.5.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="earlier-documentation-refresh-highlights">Earlier documentation
-refresh highlights</h2>
+<p>Start here: <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a>.</p>
+<h3 id="recommended-stored-profile-send-flow">Recommended stored-profile
+send flow</h3>
+<p>The new <a
+href="getting-started/recommended-send-flow.html">Recommended send flow
+with a stored profile</a> guide shows a practical Clarion button-handler
+pattern that developers can copy and adapt. It checks whether a profile
+exists, offers to run the setup wizard when needed, validates the
+recipient, sends with a stored profile, and turns common return codes
+into useful messages.</p>
+<p>This keeps the normal path simple: let the wizard create the profile,
+then send from your application without writing OAuth flow code.</p>
+<h3 id="easier-startup-and-clearer-licensing-failures">Easier startup
+and clearer licensing failures</h3>
 <ul>
-<li>Added licensing initialization and license-diagnostics
-documentation</li>
-<li>Added DEMO-mode documentation and restrictions</li>
-<li>Clarified managed profile save, load, and immediate-apply
-behavior</li>
-<li>Expanded the function-level documentation for autodetect, deep scan,
-POP3, globals, logging, and profile workflows</li>
+<li>The docs now emphasize that the developer license belongs in the
+vuMailKit global template inside single quotes.</li>
+<li>The global template generates the startup call to <a
+href="functions/vuMailKitInitialize.html">vuMailKitInitialize</a>.</li>
+<li>In Clarion multi-DLL applications, the vuMailKit global template
+belongs on the EXE app, not on the supporting DLL apps.</li>
+<li>Private vuMailKit licensing/setup failures use the -9001, -9002, and
+-9003 range.</li>
+<li>Licensing/setup failures are reported as vuMailKit startup problems,
+not mail-server authentication problems.</li>
 </ul>
-<p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+<h3 id="simple-html-mode">Simple HTML mode</h3>
+<p>Simple HTML mode is a major convenience feature for developers who
+want a well-dressed email without building a full HTML wrapper.</p>
+<ul>
+<li><a href="functions/vuSetSimpleHTML.html">vuSetSimpleHTML</a> turns
+Simple HTML mode on or off.</li>
+<li><a
+href="functions/vuSetSimpleHTMLHeaderImage.html">vuSetSimpleHTMLHeaderImage</a>
+adds an optional header image.</li>
+<li><a
+href="functions/vuSetSimpleHTMLFooterImage.html">vuSetSimpleHTMLFooterImage</a>
+adds an optional footer image.</li>
+<li><a
+href="functions/vuSetSimpleHTMLNormalizeBody.html">vuSetSimpleHTMLNormalizeBody</a>
+controls whether the body is treated as ordinary text or an HTML
+fragment.</li>
+<li><a href="functions/vuResetSimpleHTML.html">vuResetSimpleHTML</a>
+clears the runtime Simple HTML settings.</li>
+</ul>
+<p>With Simple HTML mode, you can send ordinary body content and let
+vuMailKit create the HTML wrapper while still using the normal MIME
+build path that creates a plain-text alternative.</p>
+<p>Start here:</p>
+<ul>
+<li><a
+href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
+a Simple HTML email with a company logo</a></li>
+</ul>
+<h3 id="tokenmerge-and-template-based-email">TokenMerge and
+template-based email</h3>
+<p>vuMailKit now includes TokenMerge helpers so developers do not have
+to rebuild the same mail-merge plumbing in every application.</p>
+<ul>
+<li><a href="functions/TokenMergeInString.html">TokenMergeInString</a>
+replaces tokens in memory.</li>
+<li><a href="functions/TokenMergeInFile.html">TokenMergeInFile</a> reads
+a template file and writes a merged output file.</li>
+<li><a
+href="functions/TokenMergeFileIntoFile.html">TokenMergeFileIntoFile</a>
+inserts the contents of one file into a token location in another
+file.</li>
+</ul>
+<p>This supports practical workflows such as inserting Clarion
+report-to-text invoice detail into an HTML email body before sending the
+merged output file.</p>
+<h3
+id="save-folder-and-legacy-sent-mail-logging-compatibility">Save-folder
+and legacy sent-mail logging compatibility</h3>
+<ul>
+<li><a href="functions/vuSetSaveFolder.html">vuSetSaveFolder</a> and <a
+href="functions/vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder</a>
+are aliases for the same runtime email-folder setting.</li>
+<li>Normal sends, CSV-file sends, and setup/autodetect test sends honor
+the same save-folder and one-shot save-name behavior.</li>
+<li>When the save folder is set, vuMailKit saves an outgoing .eml copy
+before the SMTP send attempt.</li>
+<li><a href="functions/vuSetMailLog.html">vuSetMailLog</a> and <a
+href="functions/vuLogSetFile.html">vuLogSetFile</a> select the legacy
+sent-mail CSV log.</li>
+<li>Send attempts can be logged as success or failure, with the saved
+.eml path included when an outgoing copy was saved.</li>
+</ul>
+<h3 id="diagnostics-logging-is-separate">Diagnostics logging is
+separate</h3>
+<p>Diagnostics logging is intentionally separate from the legacy
+sent-mail CSV log.</p>
+<ul>
+<li><a
+href="functions/vuDiagnosticsSetFile.html">vuDiagnosticsSetFile</a>
+selects the diagnostics log file.</li>
+<li><a href="functions/vuDiagnosticsEnable.html">vuDiagnosticsEnable</a>
+enables diagnostics output.</li>
+<li><a
+href="functions/vuClearDiagnosticsLog.html">vuClearDiagnosticsLog</a>
+clears diagnostics/protocol logs.</li>
+<li><a
+href="functions/vuDiagnosticsClearLogs.html">vuDiagnosticsClearLogs</a>
+remains supported for the same diagnostics clear behavior.</li>
+<li><a href="functions/vuClearMailLog.html">vuClearMailLog</a> clears
+the legacy sent-mail CSV log only.</li>
+</ul>
+<h3 id="getting-started-documentation">Getting Started
+documentation</h3>
+<ul>
+<li>Added task-based <a href="getting-started/index.html">Getting
+Started</a> guides.</li>
+<li>The guides now take developers from the simplest send path to Simple
+HTML, then to external HTML and TokenMerge workflows.</li>
+<li>The docs call out the CTRL+U wizard import step and the compile step
+between adding the template and running the vuMailKit Email Setup Wizard
+so the setup flow is not presented as a single IDE-only step.</li>
+</ul>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="getting-started/index.html">Getting Started</a></li>
+<li><a
+href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
+a Simple HTML email with a company logo</a></li>
+<li><a
+href="getting-started/use-tokenmerge-with-email-templates.html">Use
+TokenMerge with email templates</a></li>
+<li><a href="preferred-index.html">Preferred Functions</a></li>
+<li><a href="functions/index.html">All functions</a></li>
+<li><a href="version-history.html">Version History</a></li>
+</ul>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
 </body>
 </html>

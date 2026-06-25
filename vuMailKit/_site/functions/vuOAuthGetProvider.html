@@ -31,9 +31,14 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthgetprovider">vuOAuthGetProvider()</h1>
-<pre class="Prototype"><code>vuOAuthGetProvider(*CSTRING OutProvider),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetProvider&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
 <p>Returns the currently stored default OAuth provider string.</p>
+<p>This is an advanced/manual helper. Most applications use the
+vuMailKit Email Setup Wizard and saved profile behavior instead of
+reading the provider directly.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthGetProvider(*CSTRING OutProvider),
+SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthGetProvider')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -47,35 +52,39 @@ href="../categories/index.html">Categories</a></p>
 <tr>
 <td>OutProvider</td>
 <td>*CSTRING</td>
-<td>Output buffer that receives the provider name.</td>
+<td>Output buffer that receives the provider name. Use a writable
+CSTRING of at least 64 bytes.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthGetProvider(*CSTRING OutProvider),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetProvider&#39;)
-  END
-END
+<pre class="clarion"><code>Result      LONG
+OutProvider CSTRING(64)
 
-rc           LONG
-outProvider  CSTRING(64)
-
-outProvider = &#39;&#39;
-rc = vuOAuthGetProvider(outProvider)
-IF rc = 1
-  MESSAGE(&#39;Provider=&#39; &amp; outProvider)
-ELSE
-  MESSAGE(&#39;vuOAuthGetProvider failed: &#39; &amp; rc)
+CLEAR(OutProvider)
+Result = vuOAuthGetProvider(OutProvider)
+IF Result = 1
+  MESSAGE(&#39;Provider=&#39; &amp; OutProvider)
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The output buffer should be sized for at least 64 bytes to match
-runtime usage.</li>
+<li>This function has no buffer-length parameter. Size the output
+CSTRING generously.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

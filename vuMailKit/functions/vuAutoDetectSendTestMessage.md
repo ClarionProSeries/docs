@@ -3,10 +3,10 @@ title: "vuAutoDetectSendTestMessage"
 summary: "Send a temporary SMTP test message using the supplied settings without requiring the developer to save a profile first."
 function_name: "vuAutoDetectSendTestMessage"
 category: "Autodetect"
-last_updated: "2026-03-27"
+last_updated: "2026-06-23"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [By category](../functions-by-category.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuAutoDetectSendTestMessage
 
@@ -16,11 +16,11 @@ Send a temporary SMTP test message using the supplied settings without requiring
 
 ## Export name
 
-- vuAutoDetectSendTestMessage
+- `vuAutoDetectSendTestMessage`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuAutoDetectSendTestMessage(LONG InOutBufLen,*CSTRING InFromEmail,*CSTRING InToEmail,*CSTRING InSubjectPrefix,LONG InConfigOrigin,*CSTRING InSmtpHost,LONG InSmtpPort,LONG InSmtpSecurityMode,LONG InSmtpAuthMode,*CSTRING InSmtpUser,*CSTRING InPassword,LONG InProviderId,*CSTRING InOAuthAccountKey,*CSTRING OutSmtpResponseCode,*CSTRING OutSmtpResponseText),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectSendTestMessage')
+**Prototype:** vuAutoDetectSendTestMessage(LONG InOutBufLen, *CSTRING InFromEmail, *CSTRING InToEmail, *CSTRING InSubjectPrefix, LONG InConfigOrigin, *CSTRING InSmtpHost, LONG InSmtpPort, LONG InSmtpSecurityMode, LONG InSmtpAuthMode, *CSTRING InSmtpUser, *CSTRING InPassword, LONG InProviderId, *CSTRING InOAuthAccountKey, *CSTRING OutSmtpResponseCode, *CSTRING OutSmtpResponseText), SIGNED, PROC, PASCAL, RAW, NAME('vuAutoDetectSendTestMessage')
 
 ## Parameters
 
@@ -30,33 +30,35 @@ Send a temporary SMTP test message using the supplied settings without requiring
 | InFromEmail | *CSTRING | From address for the test message. | Valid email address. |
 | InToEmail | *CSTRING | Recipient address for the test message. | Valid email address. |
 | InSubjectPrefix | *CSTRING | Optional subject prefix placed in the generated test subject. | May be blank. |
-| InConfigOrigin | LONG | Indicates where the settings came from. | 0=Manual, 1=Autodetect. |
-| InSmtpHost | *CSTRING | SMTP server host name. | Examples: smtp.gmail.com, smtp.office365.com. |
+| InConfigOrigin | LONG | Indicates where the settings came from. | `0=Manual`, `1=Autodetect`. |
+| InSmtpHost | *CSTRING | SMTP server host name. | Examples: `smtp.gmail.com`, `smtp.office365.com`. |
 | InSmtpPort | LONG | SMTP server port. | Common values: 25, 465, 587. |
-| InSmtpSecurityMode | LONG | SMTP security mode. | 0=None, 1=StartTls, 2=ImplicitTls. |
-| InSmtpAuthMode | LONG | SMTP auth mode. | 0=Unknown, 1=Password, 2=OAuth. |
+| InSmtpSecurityMode | LONG | SMTP security mode. | `0=None`, `1=StartTls`, `2=ImplicitTls`. |
+| InSmtpAuthMode | LONG | SMTP auth mode. | `0=Unknown`, `1=Password`, `2=OAuth`. |
 | InSmtpUser | *CSTRING | SMTP login/user name. | Usually the email address. |
 | InPassword | *CSTRING | Password or app password for password-auth testing. | May be blank when OAuth is used. |
-| InProviderId | LONG | Provider ID for OAuth-aware testing. | 0=None, 1=Google, 2=Microsoft, 3=Yahoo. |
+| InProviderId | LONG | Provider ID for OAuth-aware testing. | `0=None`, `1=Google`, `2=Microsoft`, `3=Yahoo`. |
 | InOAuthAccountKey | *CSTRING | OAuth account key used to locate tokens when OAuth auth mode is selected. | Usually the email address. |
 | OutSmtpResponseCode | *CSTRING | Receives the SMTP response code text. | Examples: 250, 535, 0. |
 | OutSmtpResponseText | *CSTRING | Receives response text or the error message. | Writable text buffer. |
 
 ## Expected values and ranges
 
-- InConfigOrigin: 0 = Manual, 1 = Autodetect.
-- The generated subject suffix now uses mixed-case labels: (Manual) or (Auto-Detect).
-- InSmtpSecurityMode: 0 = None, 1 = StartTls, 2 = ImplicitTls.
-- InSmtpAuthMode: 0 = Unknown, 1 = Password, 2 = OAuth.
-- InProviderId: 0 = None, 1 = Google, 2 = Microsoft, 3 = Yahoo.
-- OutSmtpResponseCode is text, not a numeric LONG output variable. Use a CSTRING buffer.
+- `InConfigOrigin`: `0 = Manual`, `1 = Autodetect`.
+- The generated subject suffix now uses mixed-case labels: `(Manual)` or `(Auto-Detect)`.
+- `InSmtpSecurityMode`: `0 = None`, `1 = StartTls`, `2 = ImplicitTls`.
+- `InSmtpAuthMode`: `0 = Unknown`, `1 = Password`, `2 = OAuth`.
+- `InProviderId`: `0 = None`, `1 = Google`, `2 = Microsoft`, `3 = Yahoo`.
+- `OutSmtpResponseCode` is text, not a numeric LONG output variable. Use a `CSTRING` buffer.
 
 ## Return value
 
-- 1 = the test send completed successfully.
-- 0 = the test send failed.
+| Value | Meaning |
+|---|---|
+| 1 | the test send completed successfully. |
+| 0 | the test send failed. |
 
-## Clarion example
+## Example (Clarion)
 
 ```clarion
 BufLen                  LONG
@@ -92,15 +94,22 @@ OAuthAccountKey = ''
 CLEAR(SmtpResponseCode)
 CLEAR(SmtpResponseText)
 
-Result = vuAutoDetectSendTestMessage(BufLen, FromEmail, ToEmail, SubjectPrefix, ConfigOrigin, SmtpHost, |
-  SmtpPort, SmtpSecurityMode, SmtpAuthMode, SmtpUser, Password, ProviderId, OAuthAccountKey, |
+Result = vuAutoDetectSendTestMessage(BufLen, FromEmail, ToEmail, |
+  SubjectPrefix, ConfigOrigin, SmtpHost, SmtpPort, SmtpSecurityMode, |
+  SmtpAuthMode, SmtpUser, Password, ProviderId, OAuthAccountKey, |
   SmtpResponseCode, SmtpResponseText)
 ```
+
+## Legacy save-folder and mail-log behavior
+
+Setup/test-send messages honor the same legacy save-folder and sent-mail log settings as normal sends. If `vuSetSaveFolder()` or `vuGlobalsSetEmailFolder()` has set a valid folder before the test send, vuMailKit saves the outgoing test message as an `.eml` file before the SMTP send attempt. If `vuSetMailLog()` or `vuLogSetFile()` has selected a sent-mail CSV log, the test-send attempt is logged. Successful sends include the saved path when an outgoing copy was saved. Failed sends are logged with the result text.
 
 ## Notes
 
 - This function is intended for setup-time validation.
 - The generated body is now neutral and no longer brands the message as a vuMailKit message.
 - This base function includes the outgoing SMTP settings in the generated body.
-- Use vuAutoDetectSendTestMessageEx when you also want POP3 and IMAP settings included in the setup-record email body.
-- A successful test does not persist anything by itself. Call the normal setters and vuSaveProfile when you want to keep the settings.
+- Use `vuAutoDetectSendTestMessageEx` when you also want POP3 and IMAP settings included in the setup-record email body.
+- A successful test does not persist anything by itself. Call the normal setters and `vuSaveProfile` when you want to keep the settings.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -31,14 +31,28 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vugetmaillog">vuGetMailLog()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGetMailLog(*CSTRING OutLogFile),
+SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailLog')</p>
 <h2 id="description">Description</h2>
-<p>This is the legacy vuMail function name for vuLogGetFile().</p>
+<p>This is the legacy vuMail function name for
+<code>vuLogGetFile()</code>.</p>
 <p>Preferred function name:</p>
 <ul>
 <li><a href="vuLogGetFile.html">vuLogGetFile()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuLogGetFile().</p>
+identically to <code>vuLogGetFile()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc      LONG
+logFile CSTRING(260)
+
+logFile = &#39;&#39;
+rc = vuGetMailLog(logFile)
+
+IF rc = 1
+  MESSAGE(&#39;Current mail log: &#39; &amp; CLIP(logFile))
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

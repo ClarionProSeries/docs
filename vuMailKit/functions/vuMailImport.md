@@ -1,7 +1,7 @@
 ---
 title: "vuMailImport"
 summary: "Imports an .eml message file into the legacy in-process session."
-description: "Imports an .eml message file into the legacy in-process session. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Imports an .eml message file into the legacy in-process session."
 keywords: ["vuMailKit", "vuMail", "vumailimport"]
 function_name: "vuMailImport"
 category: "Legacy Compatibility"
@@ -13,30 +13,26 @@ last_updated: "2026-03-27"
 
 # vuMailImport(xFilePath)
 
-## Purpose
+## Clarion prototype
 
+**Prototype:** vuMailImport(*CSTRING InFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuMailImport')
+
+## Purpose
 Loads an RFC822 message file and stores it as the current legacy in-process message.
 
 ## Parameters
-
-- xFilePath (*CSTRING): Source message file path.
+- `xFilePath` (*CSTRING): Source message file path.
 
 ## Return value / error codes
-
-- 0: Success.
-- -1: Blank file path.
-- -2: File not found or read/parse error.
-- -3: File exists but is empty.
+| Value | Meaning |
+|---|---|
+| 0 | Success. |
+| -1 | Blank file path. |
+| -2 | File not found or read/parse error. |
+| -3 | File exists but is empty. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuMailImport(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuMailImport')
-  END
-END
-
 rc LONG
 src CSTRING(260)
 src = 'C:\Temp\inbound.eml'
@@ -47,9 +43,8 @@ END
 ```
 
 ## Notes
-
 - On success, the imported message becomes available to legacy read/export helpers.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: vuMailDump.pdf, section heading vuMailImport.
+- Legacy reference: `vuMailDump.pdf`, section heading `vuMailImport`.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

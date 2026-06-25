@@ -1,15 +1,15 @@
 ---
 title: "vuDiagnosticsSetFile"
 summary: "Set the diagnostics log file path."
-description: "Set the diagnostics log file path. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)"
+description: "Set the diagnostics log file path."
 keywords: ["vuMailKit","function","vudiagnosticssetfile"]
 function_name: "vuDiagnosticsSetFile"
 category: "Diagnostics"
 version_added: "1.0"
-last_updated: "2026-03-27"
+last_updated: "2026-06-22"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuDiagnosticsSetFile()
 
@@ -19,17 +19,33 @@ Sets the diagnostic log file path used by vuDiagnosticsEnable() and by protocol 
 
 ## Export name
 
-- vuDiagnosticsSetFile
+- `vuDiagnosticsSetFile`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuDiagnosticsSetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsSetFile')
+**Prototype:** vuDiagnosticsSetFile(*CSTRING xFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuDiagnosticsSetFile')
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+
+## Example (Clarion)
+```clarion
+rc      LONG
+diagLog CSTRING(260)
+
+diagLog = 'C:\MyApp\Logs\vumailkit-diagnostics.log'
+rc = vuDiagnosticsSetFile(diagLog)
+
+IF rc = 1
+  vuDiagnosticsEnable()
+END
+```
 
 ## Notes
 
-- Pass the address of a CSTRING buffer containing the full path.
+- This file is separate from the legacy sent-mail CSV log selected by `vuLogSetFile()` / `vuSetMailLog()`.
+- Pass the address of a `CSTRING` buffer containing the full path.
 - Setting the file path does not automatically enable diagnostics.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -1,5 +1,5 @@
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
 # About ProHelp Studio
 
@@ -18,4 +18,4 @@ The vuMailKit documentation set is being organized in a format that is compatibl
 
 For more information, visit https://prohelpstudio.com.
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)

@@ -32,21 +32,19 @@ functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vugetmailloglevel">vuGetMailLogLevel()</h1>
 <h2 id="purpose">Purpose</h2>
-<p>Gets the current verbosity level used by the standard vuMailKit mail
-log.</p>
+<p>Gets the current verbosity level used by the diagnostic-style
+logging.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuGetMailLogLevel</li>
+<li><code>vuGetMailLogLevel</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuGetMailLogLevel(*LONG
-OutLogLevel),SIGNED,PROC,PASCAL,RAW,NAME('vuGetMailLogLevel')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGetMailLogLevel(*LONG OutLogLevel),
+SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailLogLevel')</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>OutLogLevel (LONG) - Receives the current log verbosity level.
+<li><code>OutLogLevel</code> (LONG) - Receives the current log verbosity
+level.
 <ul>
 <li>0 = Normal</li>
 <li>1 = Trace</li>
@@ -55,15 +53,28 @@ OutLogLevel),SIGNED,PROC,PASCAL,RAW,NAME('vuGetMailLogLevel')</li>
 <h2 id="return-value">Return value</h2>
 <ul>
 <li>Returns 1 when the operation succeeds, otherwise 0. Use
-vuMailLastError() for more detail when needed.</li>
+<code>vuMailLastError()</code> for more detail when needed.</li>
 </ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc       LONG
+logLevel LONG
+
+logLevel = 0
+rc = vuGetMailLogLevel(logLevel)
+
+IF rc = 1
+  MESSAGE(&#39;Current log level: &#39; &amp; logLevel)
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This reports the current level for the standard mail log.</li>
+<li>This reports the current diagnostic-style logging level.</li>
 <li>If no value has been set yet, the default level is Normal.</li>
-<li>This function reports the level setting only. Actual logging still
-depends on a log file path being set with vuLogSetFile() or the legacy
-vuSetMailLog().</li>
+<li>This function reports the level setting only. Diagnostic file output
+is controlled separately with <code>vuDiagnosticsSetFile()</code> and
+<code>vuDiagnosticsEnable()</code>.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

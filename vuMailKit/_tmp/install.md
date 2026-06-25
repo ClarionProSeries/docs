@@ -1,5 +1,5 @@
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
 # vuMailKit - Installation
 
@@ -56,4 +56,4 @@ C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory\LANSRAD\vuMailKit
 
 Each demo folder contains the files relevant to that example application.
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)

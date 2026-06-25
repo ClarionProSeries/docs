@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>preferred-index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
+<h1 id="preferred-functions">Preferred Functions</h1>
+<p>For new work, use the preferred vuMailKit names and the profile-based
+workflow where possible.</p>
+<p>Legacy vuMail function names remain supported so old applications can
+continue to build, but new code should normally use the clearer
+vuMailKit names shown in the main function reference.</p>
+<h2 id="normal-setup-and-send-workflow">Normal setup and send
+workflow</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Preferred page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Understand the normal wizard-plus-send application flow</td>
+<td><a href="getting-started/recommended-send-flow.html">Recommended
+send flow with a stored profile</a></td>
+</tr>
+<tr>
+<td>Initialize vuMailKit licensing at startup</td>
+<td><a
+href="functions/vuMailKitInitialize.html">vuMailKitInitialize</a></td>
+</tr>
+<tr>
+<td>Run setup/autodetect</td>
+<td><a
+href="functions/vuAutoDetectFillSettings.html">vuAutoDetectFillSettings</a></td>
+</tr>
+<tr>
+<td>Send a setup test message</td>
+<td><a
+href="functions/vuAutoDetectSendTestMessage.html">vuAutoDetectSendTestMessage</a></td>
+</tr>
+<tr>
+<td>Save the working profile</td>
+<td><a href="functions/vuSaveProfile.html">vuSaveProfile</a></td>
+</tr>
+<tr>
+<td>Load the saved profile</td>
+<td><a href="functions/vuLoadProfile.html">vuLoadProfile</a></td>
+</tr>
+<tr>
+<td>Send one message</td>
+<td><a href="functions/vuSendMail.html">vuSendMail</a></td>
+</tr>
+<tr>
+<td>Send one message and wait for completion</td>
+<td><a href="functions/vuSendMailWait.html">vuSendMailWait</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="preferred-runtime-setting-names">Preferred runtime setting
+names</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Preferred pages</th>
+<th>Legacy compatibility notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMTP server</td>
+<td><a href="functions/vuSmtpSetServer.html">vuSmtpSetServer</a>, <a
+href="functions/vuSmtpGetServer.html">vuSmtpGetServer</a></td>
+<td>Legacy names include vuSetMailServer / vuGetMailServer.</td>
+</tr>
+<tr>
+<td>SMTP security</td>
+<td><a href="functions/vuSmtpSetSecurity.html">vuSmtpSetSecurity</a>, <a
+href="functions/vuSmtpGetSecurity.html">vuSmtpGetSecurity</a></td>
+<td>Legacy names include vuSetMailSecurity / vuGetMailSecurity.</td>
+</tr>
+<tr>
+<td>From / Reply-To</td>
+<td><a
+href="functions/vuSmtpSetFromReplyTo.html">vuSmtpSetFromReplyTo</a>, <a
+href="functions/vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo</a></td>
+<td>Legacy names include vuSetFromReplyTo / vuGetFromReplyTo.</td>
+</tr>
+<tr>
+<td>SMTP auth mode</td>
+<td><a href="functions/vuSmtpSetAuthMode.html">vuSmtpSetAuthMode</a>, <a
+href="functions/vuSmtpGetAuthMode.html">vuSmtpGetAuthMode</a></td>
+<td>Used when switching between password and OAuth modes.</td>
+</tr>
+<tr>
+<td>Save folder</td>
+<td><a
+href="functions/vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder</a>,
+<a
+href="functions/vuGlobalsGetEmailFolder.html">vuGlobalsGetEmailFolder</a></td>
+<td>Legacy names include vuSetSaveFolder / vuGetSaveFolder.</td>
+</tr>
+<tr>
+<td>Legacy sent-mail CSV log</td>
+<td><a href="functions/vuLogSetFile.html">vuLogSetFile</a>, <a
+href="functions/vuLogGetFile.html">vuLogGetFile</a>, <a
+href="functions/vuClearMailLog.html">vuClearMailLog</a></td>
+<td>Legacy names include vuSetMailLog / vuGetMailLog.</td>
+</tr>
+<tr>
+<td>Diagnostics</td>
+<td><a
+href="functions/vuDiagnosticsSetFile.html">vuDiagnosticsSetFile</a>, <a
+href="functions/vuDiagnosticsEnable.html">vuDiagnosticsEnable</a>, <a
+href="functions/vuClearDiagnosticsLog.html">vuClearDiagnosticsLog</a></td>
+<td>Diagnostics are separate from the legacy sent-mail CSV log.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="oauth-helpers">OAuth helpers</h2>
+<p>For normal OAuth setup, the preferred workflow is the <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a>. Configure provider values in the global template,
+import the wizard with CTRL+U, compile, run the wizard, and save the
+profile. The lower-level OAuth functions below are mainly for custom
+setup screens and special flows.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Preferred page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use the normal zero-OAuth-code setup path</td>
+<td><a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a></td>
+</tr>
+<tr>
+<td>Detect provider from email address</td>
+<td><a
+href="functions/vuOAuthDetectProviderFromEmail.html">vuOAuthDetectProviderFromEmail</a></td>
+</tr>
+<tr>
+<td>Start OAuth login manually</td>
+<td><a
+href="functions/vuOAuthBeginLogin.html">vuOAuthBeginLogin</a></td>
+</tr>
+<tr>
+<td>Launch verification manually</td>
+<td><a
+href="functions/vuOAuthLaunchUserVerification.html">vuOAuthLaunchUserVerification</a></td>
+</tr>
+<tr>
+<td>Complete login manually</td>
+<td><a
+href="functions/vuOAuthCompleteLogin.html">vuOAuthCompleteLogin</a></td>
+</tr>
+<tr>
+<td>Refresh stored tokens</td>
+<td><a href="functions/vuOAuthRefresh.html">vuOAuthRefresh</a></td>
+</tr>
+<tr>
+<td>Clear stored OAuth state</td>
+<td><a href="functions/vuOAuthClear.html">vuOAuthClear</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="template-mail-merge-and-simple-html-helpers">Template, mail
+merge, and Simple HTML helpers</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Preferred page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merge tokens in a string</td>
+<td><a
+href="functions/TokenMergeInString.html">TokenMergeInString</a></td>
+</tr>
+<tr>
+<td>Merge tokens from one file into another</td>
+<td><a href="functions/TokenMergeInFile.html">TokenMergeInFile</a></td>
+</tr>
+<tr>
+<td>Insert generated file content into a template file</td>
+<td><a
+href="functions/TokenMergeFileIntoFile.html">TokenMergeFileIntoFile</a></td>
+</tr>
+<tr>
+<td>Turn Simple HTML mode on or off</td>
+<td><a href="functions/vuSetSimpleHTML.html">vuSetSimpleHTML</a></td>
+</tr>
+<tr>
+<td>Set Simple HTML header image</td>
+<td><a
+href="functions/vuSetSimpleHTMLHeaderImage.html">vuSetSimpleHTMLHeaderImage</a></td>
+</tr>
+<tr>
+<td>Set Simple HTML footer image</td>
+<td><a
+href="functions/vuSetSimpleHTMLFooterImage.html">vuSetSimpleHTMLFooterImage</a></td>
+</tr>
+<tr>
+<td>Reset Simple HTML settings</td>
+<td><a
+href="functions/vuResetSimpleHTML.html">vuResetSimpleHTML</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="migrating-old-vumail-code">Migrating old vuMail code</h2>
+<p>Old function names remain listed here:</p>
+<ul>
+<li><a href="functions/legacy-index.html">Legacy vuMail Function
+Names</a></li>
+<li><a href="functions/AboutFunctionNames.html">About Function
+Names</a></li>
+</ul>
+<p>The legacy pages are intentional migration helpers. New
+vuMailKit-only features, such as Simple HTML and TokenMerge helpers, do
+not have old vuMail legacy pages.</p>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>recommended-send-flow</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="recommended-send-flow-with-a-stored-profile">Recommended Send
+Flow with a Stored Profile</h1>
+<p>After the <a href="vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a> has saved a working profile, most applications can send
+mail without hand-coding server setup or OAuth logic.</p>
+<p>This page shows a practical button-handler flow for a normal Clarion
+application:</p>
+<ol type="1">
+<li>Check whether a saved vuMailKit profile exists.</li>
+<li>If no profile exists, offer to run the <strong>vuMailKit Email Setup
+Wizard</strong>.</li>
+<li>Check the recipient address before sending.</li>
+<li>Warn the user if the address is valid but suspicious.</li>
+<li>Send using the saved profile.</li>
+<li>Show useful messages for licensing, setup, OAuth, connection,
+authentication, and provider rejection failures.</li>
+</ol>
+<p>For Microsoft or Google OAuth accounts, this is still the
+zero-OAuth-code path. The wizard handles authorization and profile
+saving. Your send code uses the saved profile.</p>
+<h2 id="where-this-fits">Where this fits</h2>
+<p>Use this pattern after the normal first-time setup work:</p>
+<ol type="1">
+<li>Add the vuMailKit global template to the EXE application.</li>
+<li>Enter the developer license string in the template, inside single
+quotes.</li>
+<li>Configure OAuth provider values in the template if your application
+supports Microsoft or Google OAuth accounts.</li>
+<li>Use CTRL+U to import the <strong>vuMailKit Email Setup
+Wizard</strong>.</li>
+<li>Compile and run the EXE.</li>
+<li>Let the user run the wizard, test the account, and save the
+profile.</li>
+<li>Use a send routine like the one below from your application.</li>
+</ol>
+<p>In a multi-DLL application, put the vuMailKit template on the EXE
+app. The EXE initializes vuMailKit once for the process.</p>
+<h2 id="copyable-clarion-pattern">Copyable Clarion pattern</h2>
+<p>The routine below is intentionally close to the flow used by the
+downloadable vuMailKit demo, but it is written as an application pattern
+rather than demo-only code.</p>
+<p>This version uses <a
+href="../functions/vuSendMailWait.html">vuSendMailWait</a> so the button
+handler can show an immediate success or failure result after the send
+finishes. If you prefer background sending, see the note after the
+example.</p>
+<pre class="clarion"><code>ROUTINE:SendMailFromSavedProfile ROUTINE
+  DATA
+HaveProfile     LONG
+WizardAnswer    LONG
+EmailAddressOK  LONG
+Result          LONG
+LastRC          LONG
+FinalText       CSTRING(2048)
+Detail          CSTRING(2048)
+
+cFrom           CSTRING(256)
+cTo             CSTRING(256)
+cCC             CSTRING(256)
+cBCC            CSTRING(256)
+cSubject        CSTRING(256)
+cBody           CSTRING(4096)
+cAttach         CSTRING(512)
+
+  CODE
+
+  cFrom    = &#39;&#39;              ! Blank uses the saved/default profile sender
+  cTo      = CLIP(MessageTo)
+  cCC      = &#39;&#39;
+  cBCC     = &#39;&#39;
+  cSubject = CLIP(Subject)
+  cBody    = CLIP(MessageBody)
+  cAttach  = &#39;&#39;
+
+  ! If no profile exists yet, offer the setup wizard.
+  HaveProfile = vuHaveStoredProfile()
+  IF HaveProfile = 0
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    WizardAnswer = MESSAGE(&#39;No email profile has been set up yet.|Would you like to run the Setup Wizard now?&#39;, |
+                   &#39;vuMailKit&#39;, ICON:Question, |
+                   BUTTON:Yes+BUTTON:No, BUTTON:Yes, 0)
+
+    CASE WizardAnswer
+    OF BUTTON:Yes
+      ! This is the wizard procedure imported into the demo application.
+      ! Use the procedure name from your imported vuMailKit Email Setup Wizard.
+      vuMailKitSetupWizard()
+
+      HaveProfile = vuHaveStoredProfile()
+      IF HaveProfile = 0
+        MESSAGE(&#39;A saved profile is required before this message can be sent.&#39;, |
+                &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+        EXIT
+      END
+    OF BUTTON:No
+      EXIT
+    END
+  END
+
+  ! Required recipient field.
+  IF LEN(CLIP(cTo)) = 0
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;The email address can not be blank.&#39;, |
+            &#39;Incomplete Email Address&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+    SELECT(?MessageTo)
+    EXIT
+  END
+
+  ! Validate the recipient before sending.
+  EmailAddressOK = vuValidateMailAddr(cTo)
+  CASE EmailAddressOK
+  OF 0
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;The email address is invalid.&#39;, |
+            &#39;Invalid Email Address&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+    SELECT(?MessageTo)
+    EXIT
+
+  OF 2
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    CASE MESSAGE(&#39;The email address looks suspicious.|Do you want to continue?&#39;, |
+         &#39;Suspicious Email Address&#39;, ICON:Exclamation, |
+         BUTTON:Yes+BUTTON:No, BUTTON:No, 0)
+    OF BUTTON:Yes
+      ! Continue.
+    OF BUTTON:No
+      SELECT(?MessageTo)
+      EXIT
+    END
+  END
+
+  ! Send using the saved/default profile.
+  Result = vuSendMailWait(cFrom, cTo, cCC, cBCC, cSubject, cBody, cAttach)
+
+  CASE Result
+  OF 1
+    MESSAGE(&#39;Your message was sent successfully.&#39;, |
+            &#39;vuMailKit&#39;, ICON:Asterisk, BUTTON:OK, BUTTON:OK, 0)
+
+  OF 0
+    FinalText = vuMailLastError()
+    LastRC = vuMailLastReturnCode()
+
+    CASE LastRC
+    OF -701
+      Detail = &#39;OAuth authorization needs to be refreshed. Please run the Setup Wizard again.&#39;
+    OF -702
+      Detail = &#39;OAuth is temporarily unavailable. Please try again in a moment.&#39;
+    OF -711
+      Detail = &#39;The mail server could not be reached. Please check the connection and server settings.&#39;
+    OF -712
+      Detail = &#39;The server rejected the sign-in. Please check the account settings and try again.&#39;
+    OF -713
+      Detail = &#39;The server rejected the message.&#39;
+    OF -9001
+      Detail = &#39;Blocked by licensing. vuMailKitInitialize was not called.&#39;
+    OF -9002
+      Detail = &#39;Blocked by licensing. License is invalid or initialization failed.&#39;
+    OF -9003
+      Detail = &#39;Blocked by licensing. Current license tier does not allow this feature.&#39;
+    ELSE
+      Detail = &#39;The message could not be sent.&#39;
+    END
+
+    IF LEN(CLIP(FinalText)) &gt; 0
+      Detail = CLIP(Detail) &amp; &#39;||Details: &#39; &amp; CLIP(FinalText)
+    END
+
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(Detail, &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+
+  OF -2
+    FinalText = vuMailLastError()
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;The message could not be sent because one or more email addresses are invalid.||Details: &#39; &amp; CLIP(FinalText), |
+            &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+
+  OF -451
+    FinalText = vuMailLastError()
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;vuMailKit detected conflicting mail/runtime files in the application folder.||Details: &#39; &amp; CLIP(FinalText), |
+            &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+
+  OF -9001
+    FinalText = vuMailLastError()
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;vuMailKit has not been initialized.||Details: &#39; &amp; CLIP(FinalText), |
+            &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+
+  OF -9002
+    FinalText = vuMailLastError()
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;The current license is not valid.||Details: &#39; &amp; CLIP(FinalText), |
+            &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+
+  OF -9003
+    FinalText = vuMailLastError()
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;The current license does not allow this feature.||Details: &#39; &amp; CLIP(FinalText), |
+            &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+
+  ELSE
+    FinalText = vuMailLastError()
+    LastRC = vuMailLastReturnCode()
+    BEEP(BEEP:SystemExclamation) ; YIELD()
+    MESSAGE(&#39;The message could not be sent.||Return code: &#39; &amp; LastRC &amp; &#39;||Details: &#39; &amp; CLIP(FinalText), |
+            &#39;vuMailKit&#39;, ICON:Exclamation, BUTTON:OK, BUTTON:OK, 0)
+  END</code></pre>
+<h2 id="if-you-use-vusendmail-instead">If you use vuSendMail
+instead</h2>
+<p><a href="../functions/vuSendMail.html">vuSendMail</a> is the
+background-send version. A return value of 1 means the message was
+accepted and queued, not necessarily that final SMTP delivery has
+already completed.</p>
+<p>Use <a href="../functions/vuMailStatus.html">vuMailStatus</a> to
+watch the queue and then read <a
+href="../functions/vuMailLastError.html">vuMailLastError</a> and <a
+href="../functions/vuMailLastReturnCode.html">vuMailLastReturnCode</a>
+after processing finishes.</p>
+<p>For a simple Send button that should immediately tell the user what
+happened, <a href="../functions/vuSendMailWait.html">vuSendMailWait</a>
+is usually easier.</p>
+<h2 id="why-the-profile-check-is-useful">Why the profile check is
+useful</h2>
+<p><a
+href="../functions/vuHaveStoredProfile.html">vuHaveStoredProfile</a>
+lets your application detect a common first-run condition and route the
+user into the wizard instead of letting the send fail later.</p>
+<p>A 0 return means no managed vuMailKit profile was found, or the check
+failed. In a new profile-based application, that is a good time to offer
+the setup wizard. In a legacy migration, remember that older registry
+settings may still exist even when no managed profile exists yet.</p>
+<h2 id="address-validation-return-values">Address validation return
+values</h2>
+<p><a href="../functions/vuValidateMailAddr.html">vuValidateMailAddr</a>
+returns:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Recommended action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Address has a valid practical internet email-address format.</td>
+<td>Continue.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Address is valid but suspicious, such as a typo-like repeated domain
+suffix.</td>
+<td>Warn the user and let them decide.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Address is malformed or incomplete.</td>
+<td>Stop and return focus to the address field.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="send-diagnostics-to-handle">Send diagnostics to handle</h2>
+<p>The direct return value from the send function tells you whether the
+call succeeded, failed, or hit an immediate validation/licensing
+problem. For a completed send that returns 0, use <a
+href="../functions/vuMailLastReturnCode.html">vuMailLastReturnCode</a>
+and <a href="../functions/vuMailLastError.html">vuMailLastError</a> for
+the user-facing reason.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Typical user guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-701</td>
+<td>OAuth reauthorization is required.</td>
+<td>Run the Setup Wizard again for that account.</td>
+</tr>
+<tr>
+<td>-702</td>
+<td>Temporary OAuth failure.</td>
+<td>Try again later.</td>
+</tr>
+<tr>
+<td>-711</td>
+<td>Provider or mail server could not be reached.</td>
+<td>Check connection and server settings.</td>
+</tr>
+<tr>
+<td>-712</td>
+<td>SMTP/authentication was rejected.</td>
+<td>Check account settings or rerun setup.</td>
+</tr>
+<tr>
+<td>-713</td>
+<td>Provider rejected the message.</td>
+<td>Review the recipient, sender, message, and provider policy.</td>
+</tr>
+<tr>
+<td>-451</td>
+<td>Conflicting mail/runtime files were found in the application
+folder.</td>
+<td>Clean up deployment files before troubleshooting mail settings.</td>
+</tr>
+<tr>
+<td>-9001</td>
+<td>vuMailKit licensing was not initialized.</td>
+<td>Add the global template to the EXE or call vuMailKitInitialize at
+startup.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td>License string is invalid or initialization failed.</td>
+<td>Check the license string and template/startup setup.</td>
+</tr>
+<tr>
+<td>-9003</td>
+<td>Current license tier does not allow the feature.</td>
+<td>Use a license tier that includes the feature.</td>
+</tr>
+</tbody>
+</table>
+<p>The important support point is that licensing/setup failures are not
+mail-server password failures. Show those messages differently so the
+user does not waste time changing mailbox credentials.</p>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="first-time-setup.html">First-time setup</a></li>
+<li><a href="vumailkit-email-setup-wizard.html">vuMailKit Email Setup
+Wizard</a></li>
+<li><a href="send-your-first-email.html">Send your first email</a></li>
+<li><a href="deployment-and-profiles.html">Deployment and
+profiles</a></li>
+<li><a
+href="../functions/vuHaveStoredProfile.html">vuHaveStoredProfile</a></li>
+<li><a
+href="../functions/vuValidateMailAddr.html">vuValidateMailAddr</a></li>
+<li><a href="../functions/vuSendMail.html">vuSendMail</a></li>
+<li><a href="../functions/vuSendMailWait.html">vuSendMailWait</a></li>
+<li><a href="../functions/vuMailLastError.html">vuMailLastError</a></li>
+<li><a
+href="../functions/vuMailLastReturnCode.html">vuMailLastReturnCode</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

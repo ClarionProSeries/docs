@@ -31,9 +31,13 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuglobalssetemailfolder">vuGlobalsSetEmailFolder()</h1>
-<pre class="Prototype"><code>vuGlobalsSetEmailFolder(*CSTRING InFolder),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGlobalsSetEmailFolder&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGlobalsSetEmailFolder(*CSTRING
+InFolder), SIGNED, PROC, PASCAL, RAW,
+NAME('vuGlobalsSetEmailFolder')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Sets the in-memory EmailFolder path used by vuMailKit.</p>
+<p>Sets the in-memory <code>EmailFolder</code> path used by vuMailKit
+for outgoing <code>.eml</code> message copies.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -47,25 +51,31 @@ href="../categories/index.html">Categories</a></p>
 <tr>
 <td>InFolder</td>
 <td>*CSTRING</td>
-<td>Folder path for message output/storage.</td>
+<td>Folder path for outgoing .eml message copies. Passing a blank value
+disables outgoing .eml copy saving.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuGlobalsSetEmailFolder(*CSTRING InFolder),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGlobalsSetEmailFolder&#39;)
-  END
-END
-
-rc      LONG
+<pre class="clarion"><code>rc      LONG
 folder  CSTRING(520)
 
-folder = &#39;C:\\Temp\\vuMail&#39;
+folder = &#39;C:\Temp\vuMail&#39;
 rc = vuGlobalsSetEmailFolder(folder)
 IF rc &lt;&gt; 1
   MESSAGE(&#39;vuGlobalsSetEmailFolder failed: &#39; &amp; rc)
@@ -74,10 +84,22 @@ END</code></pre>
 <ul>
 <li>Legacy alias: <a
 href="vuSetSaveFolder.html">vuSetSaveFolder()</a>.</li>
-<li>vuMailKit attempts to create the folder if it does not already
-exist.</li>
-<li>This updates runtime memory only; call vuGlobalsSave() to persist to
-registry.</li>
+<li>This is the same runtime setting used by the legacy
+<code>vuSetSaveFolder()</code> call. Either function may be used.</li>
+<li>Passing a blank folder turns off outgoing .eml copy saving.</li>
+<li>The save folder applies to normal sends, CSV-file sends, and
+setup/autodetect test-send messages.</li>
+<li>When the folder is set and valid, vuMailKit saves an outgoing .eml
+copy before the SMTP send attempt.</li>
+<li>vuMailKit attempts to create the folder when this function is
+called. The function still returns 1 after updating the runtime setting;
+if the folder remains invalid or cannot be created, the later send can
+fail with an email-save-folder error.</li>
+<li>If a sent-mail CSV log is also configured by
+<code>vuSetMailLog()</code> or <code>vuLogSetFile()</code>, successful
+rows include the saved .eml path.</li>
+<li>This updates runtime memory only; call <code>vuGlobalsSave()</code>
+to persist to registry.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

@@ -31,25 +31,35 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vupop3haveattachments">vuPOP3HaveAttachments()</h1>
-<pre class="Prototype"><code>vuPOP3HaveAttachments(),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3HaveAttachments&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuPOP3HaveAttachments(), LONG, PROC,
+PASCAL, RAW, NAME('vuPOP3HaveAttachments')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Checks the currently loaded POP3 message and reports whether
 attachment parts are present.</p>
 <h2 id="parameters">Parameters</h2>
 <p>This function has no parameters.</p>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Attachment content is present.</li>
-<li>0: No attachment content is present.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Attachment content is present.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No attachment content is present.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuPOP3HaveAttachments(),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3HaveAttachments&#39;)
-  END
-END
-
-hasAttach LONG
+<pre class="clarion"><code>hasAttach LONG
 
 hasAttach = vuPOP3HaveAttachments()
 IF hasAttach = 1
@@ -57,8 +67,8 @@ IF hasAttach = 1
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Load a full message with vuPOP3LoadEmail before querying attachment
-state.</li>
+<li>Load a full message with <code>vuPOP3LoadEmail</code> before
+querying attachment state.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

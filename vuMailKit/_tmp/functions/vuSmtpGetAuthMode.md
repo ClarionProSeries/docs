@@ -3,28 +3,21 @@
 
 # vuSmtpGetAuthMode()
 
-```Prototype
-vuSmtpGetAuthMode(),SIGNED,PROC,PASCAL,RAW,NAME('vuSmtpGetAuthMode')
-```
+## Clarion prototype
+
+**Prototype:** vuSmtpGetAuthMode(), SIGNED, PROC, PASCAL, RAW, NAME('vuSmtpGetAuthMode')
 
 ## Purpose
-
 Reads the current SMTP authentication mode from runtime globals.
 
 ## Return value / error codes
-
-- 0: Password-based SMTP mode.
-- 1: OAuth SMTP mode.
+| Value | Meaning |
+|---|---|
+| 0 | Password-based SMTP mode. |
+| 1 | OAuth SMTP mode. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuSmtpGetAuthMode(),SIGNED,PROC,PASCAL,RAW,NAME('vuSmtpGetAuthMode')
-  END
-END
-
 mode LONG
 mode = vuSmtpGetAuthMode()
 IF mode = 1
@@ -35,7 +28,6 @@ END
 ```
 
 ## Notes
-
-- Pair with vuSmtpSetAuthMode() to switch modes.
+- Pair with `vuSmtpSetAuthMode()` to switch modes.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

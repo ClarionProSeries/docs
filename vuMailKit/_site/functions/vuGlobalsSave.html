@@ -31,25 +31,33 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuglobalssave">vuGlobalsSave()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGlobalsSave(), SIGNED, PROC, PASCAL,
+RAW, NAME('vuGlobalsSave')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Saves current vuMailKit runtime global values to
-HKCU\SOFTWARE\vuPrograms\vuMail.</p>
+<code>HKCU\SOFTWARE\vuPrograms\vuMail</code>.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
 <li>None.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuGlobalsSave(),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGlobalsSave&#39;)
-  END
-END
-
-rc LONG
+<pre class="clarion"><code>rc LONG
 
 rc = vuGlobalsSave()
 IF rc &lt;&gt; 1
@@ -61,8 +69,8 @@ END</code></pre>
 href="vuMailSaveGlobals.html">vuMailSaveGlobals()</a>.</li>
 <li>Persists values such as SMTP/POP settings, proxy settings, code
 page, and email folder.</li>
-<li>If vuGlobalsSetNoPasswordInRegistry(1) is active, SMTP password is
-intentionally not written.</li>
+<li>If <code>vuGlobalsSetNoPasswordInRegistry(1)</code> is active, SMTP
+password is intentionally not written.</li>
 <li>AuthMode/OAuth settings are not changed by this call.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

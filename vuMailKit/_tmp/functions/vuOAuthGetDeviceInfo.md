@@ -3,13 +3,15 @@
 
 # vuOAuthGetDeviceInfo()
 
-```Prototype
-vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthGetDeviceInfo')
-```
-
 ## Purpose
 
-Returns the verification URL and user code captured by the most recent matching vuOAuthBeginLogin() call.
+Returns the verification URL and user code captured by the most recent matching [vuOAuthBeginLogin](vuOAuthBeginLogin.md) call.
+
+This is an advanced/manual helper. The vuMailKit Email Setup Wizard handles this work in the normal setup path.
+
+## Clarion prototype
+
+**Prototype:** vuOAuthGetDeviceInfo(*CSTRING Provider, *CSTRING AccountKey, *CSTRING OutUrl, LONG OutUrlLen, *CSTRING OutCode, LONG OutCodeLen), SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthGetDeviceInfo')
 
 ## Parameters
 
@@ -17,47 +19,43 @@ Returns the verification URL and user code captured by the most recent matching 
 |---|---|---|
 | Provider | *CSTRING | Provider identifier used in BeginLogin. |
 | AccountKey | *CSTRING | Account key used in BeginLogin. |
-| OutUrl | *CSTRING | Output buffer receiving verification URL text. |
-| OutUrlLen | LONG | Size of OutUrl in bytes. |
-| OutCode | *CSTRING | Output buffer receiving user verification code. |
-| OutCodeLen | LONG | Size of OutCode in bytes. |
+| OutUrl | *CSTRING | Output buffer receiving the verification URL. |
+| OutUrlLen | LONG | Size of OutUrl in bytes. Pass SIZE(OutUrl). |
+| OutCode | *CSTRING | Output buffer receiving the user verification code. |
+| OutCodeLen | LONG | Size of OutCode in bytes. Pass SIZE(OutCode). |
 
 ## Return value / error codes
 
-- 1: Success.
-- -2: No prior BeginLogin context was captured.
-- -3: Provider/account mismatch with captured BeginLogin context.
-- -4: URL and/or code not available.
+| Value | Meaning |
+|---|---|
+| 1 | Success. |
+| -2 | No prior BeginLogin context was captured. |
+| -3 | Provider/account mismatch with the captured BeginLogin context. |
+| -4 | URL and/or code was not available from the captured BeginLogin text. |
 
 ## Example (Clarion)
 
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthGetDeviceInfo')
-  END
-END
+Result     LONG
+Provider   CSTRING(64)
+AccountKey CSTRING(256)
+OutUrl     CSTRING(1024)
+OutUrlLen  LONG
+OutCode    CSTRING(128)
+OutCodeLen LONG
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-outUrl     CSTRING(1024)
-outUrlLen  LONG
-outCode    CSTRING(128)
-outCodeLen LONG
+Provider   = 'microsoft'
+AccountKey = 'user@example.com'
+CLEAR(OutUrl)
+OutUrlLen  = SIZE(OutUrl)
+CLEAR(OutCode)
+OutCodeLen = SIZE(OutCode)
 
-provider   = 'Microsoft'
-accountKey = 'user@example.com'
-outUrl     = ''
-outUrlLen  = SIZE(outUrl)
-outCode    = ''
-outCodeLen = SIZE(outCode)
-
-rc = vuOAuthGetDeviceInfo(provider, accountKey, outUrl, outUrlLen, outCode, outCodeLen)
-IF rc = 1
-  MESSAGE('Verify at: ' & outUrl & '| Code: ' & outCode)
+Result = vuOAuthGetDeviceInfo(Provider, AccountKey, OutUrl, OutUrlLen, OutCode, OutCodeLen)
+IF Result = 1
+  MESSAGE('Verify at: ' & OutUrl & '| Code: ' & OutCode)
 ELSE
-  MESSAGE('GetDeviceInfo failed: ' & rc)
+  MESSAGE('GetDeviceInfo failed: ' & Result)
 END
 ```
 

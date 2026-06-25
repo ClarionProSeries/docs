@@ -31,9 +31,12 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuglobalssetcodepage">vuGlobalsSetCodePage()</h1>
-<pre class="Prototype"><code>vuGlobalsSetCodePage(*CSTRING xPage),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGlobalsSetCodePage&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGlobalsSetCodePage(*CSTRING xPage),
+SIGNED, PROC, PASCAL, RAW, NAME('vuGlobalsSetCodePage')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Sets the in-memory CodePage setting used by vuMailKit.</p>
+<p>Sets the in-memory <code>CodePage</code> setting used by
+vuMailKit.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -47,22 +50,27 @@ href="../categories/index.html">Categories</a></p>
 <tr>
 <td>xPage</td>
 <td>*CSTRING</td>
-<td>Code page string to store (for example UTF-8).</td>
+<td>Code page string to store (for example <code>UTF-8</code>).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuGlobalsSetCodePage(*CSTRING xPage),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGlobalsSetCodePage&#39;)
-  END
-END
-
-rc       LONG
+<pre class="clarion"><code>rc       LONG
 cpValue  CSTRING(32)
 
 cpValue = &#39;UTF-8&#39;
@@ -73,9 +81,12 @@ END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Legacy alias: <a href="vuSetCodePage.html">vuSetCodePage()</a>.</li>
-<li>This updates runtime memory only; call vuGlobalsSave() to persist to
-registry.</li>
+<li>This updates runtime memory only; call <code>vuGlobalsSave()</code>
+to persist to registry.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
+<li>This is a legacy compatibility setting. The current SMTP send path
+emits modern MIME text parts as UTF-8. External body files containing
+accented or international characters should be saved as UTF-8.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

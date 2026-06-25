@@ -29,28 +29,62 @@
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
-href="../functions-by-category.html">By category</a></p>
+href="../categories/index.html">Categories</a></p>
 <h1 id="vuautodetectfillsettingsdeep">vuAutoDetectFillSettingsDeep</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Run the full autodetect pipeline including the slower deep-scan
 fallbacks.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuAutoDetectFillSettingsDeep</li>
+<li><code>vuAutoDetectFillSettingsDeep</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuAutoDetectFillSettingsDeep(*CSTRING InEmailAddress,LONG
-InOutBufLen,*CSTRING OutProfileEmailAddress,*LONG OutConfidence,*LONG
-OutDetectSource,*LONG OutProviderId,*LONG OutSmtpAuthModeHint,*LONG
-OutPopAuthModeHint,*LONG OutImapAuthModeHint,*CSTRING OutSmtpHost,*LONG
-OutSmtpPort,*LONG OutSmtpSecurityMode,*CSTRING OutSmtpUser,*CSTRING
-OutPopHost,*LONG OutPopPort,*LONG OutPopSecurityMode,*CSTRING
-OutPopUser,*CSTRING OutImapHost,*LONG OutImapPort,*LONG
-OutImapSecurityMode,*CSTRING
-OutImapUser),SIGNED,PROC,PASCAL,RAW,NAME('vuAutoDetectFillSettingsDeep')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuAutoDetectFillSettingsDeep(*CSTRING
+InEmailAddress, LONG InOutBufLen, *CSTRING OutProfileEmailAddress, *LONG
+OutConfidence, *LONG OutDetectSource, *LONG OutProviderId, *LONG
+OutSmtpAuthModeHint, *LONG OutPopAuthModeHint, *LONG
+OutImapAuthModeHint, *CSTRING OutSmtpHost, *LONG OutSmtpPort, *LONG
+OutSmtpSecurityMode, *CSTRING OutSmtpUser, *CSTRING OutPopHost, *LONG
+OutPopPort, *LONG OutPopSecurityMode, *CSTRING OutPopUser, *CSTRING
+OutImapHost, *LONG OutImapPort, *LONG OutImapSecurityMode, *CSTRING
+OutImapUser), SIGNED, PROC, PASCAL, RAW,
+NAME('vuAutoDetectFillSettingsDeep')</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>EmailAddress            CSTRING(254)
+BufLen                  LONG
+ProfileEmail            CSTRING(254)
+Confidence              LONG
+DetectSource            LONG
+ProviderId              LONG
+SmtpAuthModeHint        LONG
+PopAuthModeHint         LONG
+ImapAuthModeHint        LONG
+SmtpHost                CSTRING(254)
+SmtpPort                LONG
+SmtpSecurityMode        LONG
+SmtpUser                CSTRING(254)
+PopHost                 CSTRING(254)
+PopPort                 LONG
+PopSecurityMode         LONG
+PopUser                 CSTRING(254)
+ImapHost                CSTRING(254)
+ImapPort                LONG
+ImapSecurityMode        LONG
+ImapUser                CSTRING(254)
+Result                  LONG
+
+EmailAddress = &#39;user@example.com&#39;
+BufLen = SIZE(ProfileEmail)
+CLEAR(ProfileEmail)
+CLEAR(SmtpHost)
+CLEAR(PopHost)
+CLEAR(ImapHost)
+
+Result = vuAutoDetectFillSettingsDeep(EmailAddress, BufLen, ProfileEmail, |
+  Confidence, DetectSource, ProviderId, SmtpAuthModeHint, |
+  PopAuthModeHint, ImapAuthModeHint, SmtpHost, SmtpPort, |
+  SmtpSecurityMode, SmtpUser, PopHost, PopPort, PopSecurityMode, |
+  PopUser, ImapHost, ImapPort, ImapSecurityMode, ImapUser)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Deep mode includes the fast checks plus the slower fallbacks such as
@@ -61,7 +95,10 @@ domains.</li>
 fast pass did not find enough information.</li>
 <li>Return values, output parameters, provider IDs, auth hints,
 detect-source values, and security values are the same as
-vuAutoDetectFillSettings.</li>
+<code>vuAutoDetectFillSettings</code>.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

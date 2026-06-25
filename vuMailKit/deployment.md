@@ -2,12 +2,12 @@
 title: "vuMailKit - Deployment and Usage"
 summary: "vuMailKit deploys as a single runtime DLL for the Basic edition."
 description: "vuMailKit deploys as a single runtime DLL for the Basic edition and is designed to be easy to call from Clarion applications."
-keywords: ["documentation", "vuMailKit", "Clarion", "deployment", "usage", "DLL", "email"]
+keywords: ["documentation", "vuMailKit", "Clarion", "deployment", "usage", "DLL", "email", "license", "multi-DLL"]
 page_type: "guide"
-last_updated: "2026-03-26"
+last_updated: "2026-06-24"
 ---
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
 # vuMailKit - Deployment and Usage
 
@@ -17,12 +17,30 @@ vuMailKit deploys as a single runtime DLL for the Basic edition.
 
 Deploy **vuMailKit.dll** with your application.
 
-The Basic edition now uses a single-DLL deployment model.  This DLL should reside in the same folder as your application EXE file.
+The Basic edition uses a single-DLL deployment model. This DLL should reside in the same folder as your application EXE file.
 
 If your application was built with the Clarion template, also make sure the matching import library and template files were installed at development time:
 
 - vuMailKit.lib for linking
 - vuMailKit.tpl for the template integration
+
+## Licensing startup call
+
+vuMailKit uses a startup initialization call for licensed use. In a normal Clarion application, the global template generates the call to [vuMailKitInitialize](functions/vuMailKitInitialize.md) for you.
+
+Enter the developer license string in the template field inside single quotes:
+
+```text
+'license-string'
+```
+
+The initialization call must happen before the [vuMailKit Email Setup Wizard](getting-started/vumailkit-email-setup-wizard.md), autodetect, profile, or send functions are used. If initialization is skipped, license-gated calls return -9001 and [vuMailLastError](functions/vuMailLastError.md) explains that the failure is a vuMailKit licensing/setup problem.
+
+## Clarion multi-DLL applications
+
+In a Clarion multi-DLL application, add the vuMailKit global template to the EXE app.
+
+The supporting DLL apps do not need their own vuMailKit global extension. The EXE startup initializes the license for the process, and the runtime DLL is then available to send mail from code reached anywhere in the program.
 
 ## Usage
 
@@ -42,14 +60,8 @@ The example applications and samples in the docs are also useful because they sh
 - OAuth login for supported providers
 - saving and reusing managed profiles
 - sending test and production email
- 
-The Demo app and Email Client Wizard are good examples of using the code.
 
-## Licensing startup call
-
-vuMailKit uses a startup initialization call for licensed use. In a normal Clarion application, call vuMailKitInitialize() once during EXE startup before you invoke the wizard, autodetect, or send functions.
-
-The template-generated startup code is the normal way to handle this.
+The Demo app and [vuMailKit Email Setup Wizard](getting-started/vumailkit-email-setup-wizard.md) are good examples of using the code.
 
 ## Profile storage
 
@@ -58,10 +70,11 @@ Once a managed profile has been created, vuMailKit normally uses the managed pro
 ## Typical deployment checklist
 
 - Install the template into Clarion.
-- Be sure to enter your license information in the global template.
+- Add the vuMailKit global template to the EXE app.
+- Enter your license information in the global template, inside single quotes.
+- If you use OAuth, configure the provider credentials in the template.
 - Build your application with the vuMailKit.lib import library.
 - Deploy vuMailKit.dll with the EXE.
-- Make sure your startup path calls vuMailKitInitialize().
-- If you use OAuth, configure the provider credentials in the template or application settings.
+- Run the compiled application and use the [vuMailKit Email Setup Wizard](getting-started/vumailkit-email-setup-wizard.md) to test and save a profile.
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)

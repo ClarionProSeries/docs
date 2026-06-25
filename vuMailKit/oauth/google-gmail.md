@@ -7,7 +7,7 @@ page_type: "guide"
 last_updated: "2026-04-03"
 ---
 
-[Home](../index.md) | [OAuth](index.md) | [Microsoft OAuth](microsoft.md)
+[Home](../index.md) | [OAuth](index.md) | [Browse by Category](../categories/index.md) | [All functions](../functions/index.md)
 
 # Google / Gmail OAuth Setup
 
@@ -65,6 +65,13 @@ Example:
 
 Do not remove the single quotes.
 
+
+## How the wizard uses these values
+
+After the provider values are entered in the global template, import the **vuMailKit Email Setup Wizard** with Clarion **CTRL+U**, compile the EXE, and run the wizard from the application.
+
+The wizard uses the template settings to detect when Google OAuth is needed, guide the user through authorization, send a test email, and save the working setup into a reusable profile. In the normal wizard path, your application does not need to call the lower-level OAuth functions directly.
+
 ## What OAuth Success Name does
 
 The **OAuth Success Name** value is used on the Google success page that the user sees after authorization completes successfully.
@@ -81,7 +88,7 @@ For example, a mailbox such as user@yourcompany.com may still be hosted by Googl
 
 In those cases, vuMailKit may not detect from the domain alone that the mailbox should use Google OAuth.
 
-If autodetect does not identify the account as OAuth, but you know the mailbox is hosted by Google Workspace, use **Manual Configuration** in the wizard and select the Google OAuth sign-in method.
+If autodetect does not identify the account as OAuth, but you know the mailbox is hosted by Google Workspace, use **Manual Configuration** in the [vuMailKit Email Setup Wizard](../getting-started/vumailkit-email-setup-wizard.md) and select the Google OAuth sign-in method.
 
 Typical Google Workspace settings are:
 
@@ -192,10 +199,10 @@ After entering the Google Client ID, Google Secret, and OAuth Success Name into 
 
 - save the template settings
 - regenerate and compile your application
-- test the Google OAuth flow in your application
+- run the **vuMailKit Email Setup Wizard**, complete authorization if prompted, send a test email, and save the profile
 
 For related runtime functions, see:
 
 - [OAuth Related functions](../functions/index.md#oauth-related)
 
-[Home](../index.md) | [OAuth](index.md) | [Microsoft OAuth](microsoft.md)
+[Home](../index.md) | [OAuth](index.md) | [Browse by Category](../categories/index.md) | [All functions](../functions/index.md)

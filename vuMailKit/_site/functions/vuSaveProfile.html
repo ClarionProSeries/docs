@@ -27,39 +27,66 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
 <h1 id="vusaveprofile">vuSaveProfile</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Save the current active runtime values into the managed profile named
-default.</p>
-<p>This is the normal Basic-safe profile save function used by the setup
-wizard and by single-profile applications.</p>
+<code>default</code>.</p>
+<p>This is the normal Basic-safe profile save function used by the
+vuMailKit Email Setup Wizard and by single-profile applications.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuSaveProfile</li>
+<li><code>vuSaveProfile</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuSaveProfile(),LONG,PROC,PASCAL,RAW,NAME('vuSaveProfile')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSaveProfile(), LONG, PROC, PASCAL, RAW,
+NAME('vuSaveProfile')</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
 <li>None.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
-<ul>
-<li>1 = success</li>
-<li>0 = save failed</li>
-<li>-401 = vuMailKit was not initialized</li>
-<li>-402 = license is invalid or initialization failed</li>
-<li>-403 = current license tier does not allow this feature</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>save failed</td>
+</tr>
+<tr>
+<td>-9001</td>
+<td>vuMailKit licensing was not initialized. Register the
+template/global extension or call
+<code>vuMailKitInitialize(LicenseString)</code> at EXE startup.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td>license string is invalid or initialization failed.</td>
+</tr>
+<tr>
+<td>-9003</td>
+<td>current license tier does not allow this feature.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="what-it-does">What it does</h2>
-<p>vuSaveProfile() saves the current live runtime configuration into the
-internal managed profile key default.</p>
+<p><code>vuSaveProfile()</code> saves the current live runtime
+configuration into the internal managed profile key
+<code>default</code>.</p>
 <p>That includes the current settings already loaded or set in memory,
 such as:</p>
 <ul>
@@ -71,28 +98,38 @@ such as:</p>
 </ul>
 <p>After a successful save:</p>
 <ul>
-<li>the default managed profile becomes the active profile</li>
+<li>the <code>default</code> managed profile becomes the active
+profile</li>
 <li>the current process immediately applies that saved managed
 profile</li>
 <li>a same-session send can use the saved profile without requiring an
 application restart</li>
 </ul>
-<h2 id="clarion-example">Clarion example</h2>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>Result                   LONG
 
 Result = vuSaveProfile()</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This is the normal profile-save function for the Basic edition.</li>
-<li>It does not save to the old vuMail registry model once managed
-profiles are active.</li>
-<li>Use vuSaveProfileEx(ProfileName) only when you need named profiles
-and have the required license tier.</li>
-<li>In the normal wizard flow, this is the function that transitions the
-application into managed-profile-based persistence.</li>
+<li><p>For licensing failures, <code>vuMailLastError()</code> is updated
+with text that identifies the condition as a vuMailKit licensing/setup
+or license-edition problem, not an SMTP, OAuth, Gmail, password, or
+mail-server authentication failure.</p></li>
+<li><p>This is the normal profile-save function for the Basic
+edition.</p></li>
+<li><p>It does not save to the old <code>vuMail</code> registry model
+once managed profiles are active.</p></li>
+<li><p>Use <code>vuSaveProfileEx(ProfileName)</code> only when you need
+named profiles and have the required license tier.</p></li>
+<li><p>In the normal vuMailKit Email Setup Wizard flow, this is the
+function that transitions the application into managed-profile-based
+persistence.</p></li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

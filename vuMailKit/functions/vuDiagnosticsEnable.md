@@ -1,7 +1,7 @@
 ---
 title: "vuDiagnosticsEnable"
 summary: "Enable diagnostic file logging for vuMailKit."
-description: "Enable diagnostic file logging for vuMailKit. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)"
+description: "Enable diagnostic file logging for vuMailKit."
 keywords: ["vuMailKit","function","vudiagnosticsenable"]
 function_name: "vuDiagnosticsEnable"
 category: "Diagnostics"
@@ -9,7 +9,7 @@ version_added: "1.0"
 last_updated: "2026-03-27"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuDiagnosticsEnable()
 
@@ -19,17 +19,29 @@ Enables diagnostic logging using the configured diagnostics file. If no diagnost
 
 ## Export name
 
-- vuDiagnosticsEnable
+- `vuDiagnosticsEnable`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuDiagnosticsEnable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsEnable')
+**Prototype:** vuDiagnosticsEnable(), SIGNED, PROC, PASCAL, RAW, NAME('vuDiagnosticsEnable')
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+
+## Example (Clarion)
+```clarion
+rc LONG
+
+rc = vuDiagnosticsEnable()
+IF rc = 0
+  MESSAGE('Diagnostics could not be enabled: ' & vuMailLastError())
+END
+```
 
 ## Notes
 
 - This turns on the diagnostics writer used by SMTP transport diagnostics.
 - The SMTP protocol log is written in the same folder as the diagnostics file.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -31,14 +31,28 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusetmailserver">vuSetMailServer()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetMailServer(*CSTRING InServer, LONG
+InPort), SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailServer')</p>
 <h2 id="description">Description</h2>
-<p>This is the legacy vuMail function name for vuSmtpSetServer().</p>
+<p>This is the legacy vuMail function name for
+<code>vuSmtpSetServer()</code>.</p>
 <p>Preferred function name:</p>
 <ul>
 <li><a href="vuSmtpSetServer.html">vuSmtpSetServer()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuSmtpSetServer().</p>
+identically to <code>vuSmtpSetServer()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc     LONG
+server CSTRING(256)
+
+server = &#39;smtp.example.com&#39;
+rc = vuSetMailServer(server, 587)
+
+IF rc = 0
+  MESSAGE(&#39;SMTP server was not accepted: &#39; &amp; vuMailLastError())
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

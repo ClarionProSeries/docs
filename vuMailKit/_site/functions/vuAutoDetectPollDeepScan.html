@@ -27,14 +27,40 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1 id="vuautodetectpolldeepscan">vuAutoDetectPollDeepScan</h1>
-<p>Polls an asynchronous deep autodetect job. State values are 0 =
-running, 1 = completed, 2 = canceled, and -1 = failed. Stage values
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuAutoDetectPollDeepScan(LONG InHandle,
+*LONG OutState, *LONG OutStage, *CSTRING OutStatusText, LONG
+InOutStatusTextLen), SIGNED, PROC, PASCAL, RAW,
+NAME('vuAutoDetectPollDeepScan')</p>
+<p>Polls an asynchronous deep autodetect job. State values are
+<code>0 = running</code>, <code>1 = completed</code>,
+<code>2 = canceled</code>, and <code>-1 = failed</code>. Stage values
 mirror autodetect source values while the job is running.</p>
 <p>During long stage-6 probe scans, the returned status text may become
 stronger after about 90 seconds and 180 seconds to tell the UI that the
 scan is taking longer than normal. If the job reaches about 300 seconds,
 polling will transition to the failed state and the status text will
 indicate that the user should complete the settings manually.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc         LONG
+handle     LONG
+scanState  LONG
+scanStage  LONG
+statusText CSTRING(512)
+
+handle = 1   ! Use the handle returned by vuAutoDetectStartDeepScan.
+statusText = &#39;&#39;
+
+rc = vuAutoDetectPollDeepScan(handle, scanState, scanStage, |
+                              statusText, SIZE(statusText))
+
+MESSAGE(&#39;State=&#39; &amp; scanState &amp; &#39;|Stage=&#39; &amp; scanStage &amp; &#39;|Status=&#39; &amp; statusText)</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

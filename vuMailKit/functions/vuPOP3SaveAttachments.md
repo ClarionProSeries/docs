@@ -1,7 +1,7 @@
 ---
 title: "vuPOP3SaveAttachments"
 summary: "Saves all attachments from the loaded POP3 message into the configured POP3 folder."
-description: "Saves all attachments from the loaded POP3 message into the configured POP3 folder. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Saves all attachments from the loaded POP3 message into the configured POP3 folder."
 keywords: ["vuMailKit", "POP3", "vuPOP3SaveAttachments"]
 function_name: "vuPOP3SaveAttachments"
 category: "POP3 and Receiving"
@@ -13,32 +13,24 @@ last_updated: "2026-03-27"
 
 # vuPOP3SaveAttachments()
 
-```Prototype
-vuPOP3SaveAttachments(),LONG,PROC,PASCAL,RAW,NAME('vuPOP3SaveAttachments')
-```
+## Clarion prototype
+
+**Prototype:** vuPOP3SaveAttachments(), LONG, PROC, PASCAL, RAW, NAME('vuPOP3SaveAttachments')
 
 ## Purpose
-
 Saves all attachment parts from the currently loaded POP3 message.
 
 ## Parameters
-
 This function has no parameters.
 
 ## Return value / error codes
-
-- 1: One or more attachments were saved.
-- 0: No attachments were saved or save operation failed.
+| Value | Meaning |
+|---|---|
+| 1 | One or more attachments were saved. |
+| 0 | No attachments were saved or save operation failed. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuPOP3SaveAttachments(),LONG,PROC,PASCAL,RAW,NAME('vuPOP3SaveAttachments')
-  END
-END
-
 rc LONG
 
 rc = vuPOP3SaveAttachments()
@@ -48,8 +40,7 @@ END
 ```
 
 ## Notes
-
-- Call vuPOP3LoadEmail before saving attachments.
-- Output folder comes from vuPOP3SetFolder / POP3 folder configuration.
+- Call `vuPOP3LoadEmail` before saving attachments.
+- Output folder comes from `vuPOP3SetFolder` / POP3 folder configuration.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

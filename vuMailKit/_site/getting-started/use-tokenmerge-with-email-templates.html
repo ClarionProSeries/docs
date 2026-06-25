@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>use-tokenmerge-with-email-templates</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="use-tokenmerge-with-email-templates">Use TokenMerge with Email
+Templates</h1>
+<p>TokenMerge gives you a quick way to personalize text or HTML before
+you send it.</p>
+<p>Yes, every Clarion developer can write a mail-merge style
+search-and-replace function.</p>
+<p>But vuMailKit already includes one, so you do not have to reinvent it
+for every application.</p>
+<h2 id="what-tokenmerge-gives-you">What TokenMerge gives you</h2>
+<p>The TokenMerge helpers can:</p>
+<ul>
+<li>replace a token inside a CSTRING and write the result to an output
+buffer</li>
+<li>replace tokens while copying a template file to a target file</li>
+<li>insert the full contents of one file into a token location in
+another file</li>
+<li>replace all matches or only the first match</li>
+<li>use case-sensitive matching or ignore-case matching</li>
+</ul>
+<p>The recommended token style is something visible such as
+<code>[[CustomerName]]</code> or <code>[[InvoiceBody]]</code>.</p>
+<h2 id="typical-workflow">Typical workflow</h2>
+<p>A common pattern is:</p>
+<ol type="1">
+<li>Create a text or HTML template.</li>
+<li>Put tokens in it such as <code>[[FirstName]]</code> and
+<code>[[Code]]</code>.</li>
+<li>Use TokenMerge to replace those tokens.</li>
+<li>Send the finished result with vuMailKit.</li>
+</ol>
+<p>This works well for plain text or HTML, whether the source started in
+a file or in memory.</p>
+<h2 id="generated-report-or-invoice-content">Generated report or invoice
+content</h2>
+<p>One of the strongest uses for <code>TokenMergeFileIntoFile</code> is
+inserting generated file content into an email template.</p>
+<p>For example, a Clarion report can output invoice or statement detail
+to a text file. Then vuMailKit can insert that text file into a token
+such as <code>[[InvoiceBody]]</code> inside an HTML email template.</p>
+<p>That lets you send the invoice content inside the email body instead
+of always sending it as a PDF attachment.</p>
+<p>A typical flow is:</p>
+<ol type="1">
+<li>Generate invoice or statement lines to a text file.</li>
+<li>Start with an HTML email template containing
+<code>[[InvoiceBody]]</code>.</li>
+<li>Use <code>TokenMergeFileIntoFile</code> to insert the generated text
+file.</li>
+<li>Send the merged output file with <a
+href="../functions/vuSendMail.html">vuSendMail</a> or <a
+href="../functions/vuSendMailWait.html">vuSendMailWait</a>.</li>
+</ol>
+<p>When the generated file is plain text and the target is HTML, use
+<code>contentFlags = 1</code> so normal text-file line endings are
+converted to HTML line breaks.</p>
+<h2 id="output-buffer-warning">Output buffer warning</h2>
+<p>For <code>TokenMergeInString</code>, the output buffer must be large
+enough to hold the fully merged result.</p>
+<p>If the output buffer is too small, the merged text will be
+truncated.</p>
+<h2 id="why-it-fits-vumailkit-so-well">Why it fits vuMailKit so
+well</h2>
+<p>This is especially useful when the email body lives in an external
+file.</p>
+<p>That lets you:</p>
+<ul>
+<li>write the email in an editor</li>
+<li>ask AI to help draft the body</li>
+<li>keep the content outside your Clarion source</li>
+<li>personalize the final result just before send</li>
+<li>reuse the same template for many customers</li>
+</ul>
+<h2
+id="tokenmergefileintofile-content-flag-reminder">TokenMergeFileIntoFile
+content flag reminder</h2>
+<p>When you use <code>TokenMergeFileIntoFile</code> with an HTML
+template:</p>
+<ul>
+<li>use <code>contentFlags = 1</code> if the replacement file is plain
+text and you want its line endings converted to HTML line breaks</li>
+<li>use <code>contentFlags = 0</code> if the replacement file already
+contains HTML markup and should be inserted unchanged</li>
+</ul>
+<p>If you use <code>contentFlags = 0</code> with plain text, the text
+will still be inserted, but normal HTML rendering will collapse the
+plain line breaks as whitespace.</p>
+<h2 id="related-reference-pages">Related reference pages</h2>
+<ul>
+<li><a
+href="../functions/TokenMergeInString.html">TokenMergeInString</a></li>
+<li><a
+href="../functions/TokenMergeInFile.html">TokenMergeInFile</a></li>
+<li><a
+href="../functions/TokenMergeFileIntoFile.html">TokenMergeFileIntoFile</a></li>
+<li><a href="send-a-branded-html-email-from-a-template.html">Send a
+branded HTML email from a template</a></li>
+<li><a
+href="send-a-form-letter-invoice-email-with-an-optional-personal-message.html">Send
+a form-letter invoice email with an optional personal message</a></li>
+<li><a href="send-an-html-email.html">Send an HTML email</a></li>
+<li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML email with a company logo</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

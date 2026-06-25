@@ -31,11 +31,13 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailsavenamefilename">vuMailSaveName(FileName)</h1>
-<pre class="Prototype"><code>vuMailSaveName(*CSTRING FileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailSaveName&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailSaveName(*CSTRING FileName),
+SIGNED, PROC, PASCAL, RAW, NAME('vuMailSaveName')</p>
 <h2 id="description">Description</h2>
 <p>Sets the file name (or full path) used when vuMailKit saves the next
 sent email as an .eml file.</p>
-<h3 id="parameters">Parameters</h3>
+<h2 id="parameters">Parameters</h2>
 <table>
 <thead>
 <tr>
@@ -63,7 +65,7 @@ message.</td>
 <li>Call this before the send operation so the value is applied to that
 send.</li>
 </ul>
-<h3 id="example">Example</h3>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>ROUTINE:Test_vuMailSaveName   ROUTINE
   DATA
 RC        LONG

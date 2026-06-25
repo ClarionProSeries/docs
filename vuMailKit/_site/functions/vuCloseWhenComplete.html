@@ -32,28 +32,39 @@ functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1
 id="vuclosewhencompleteclosewhencomplete">vuCloseWhenComplete(closeWhenComplete)</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuCloseWhenComplete(LONG InValue),
+SIGNED, PROC, PASCAL, RAW, NAME('vuCloseWhenComplete')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Sets the legacy runtime flag that indicates whether the client should
 close when a send completes.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>closeWhenComplete (LONG): Flag value written into runtime
-configuration.</li>
+<li><code>closeWhenComplete</code> (LONG): Flag value written into
+runtime configuration.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Value stored successfully.</li>
-<li>0: Failure. vuMailLastError() is set with text beginning
-vuCloseWhenComplete failed:.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Value stored successfully.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure. <code>vuMailLastError()</code> is set with text beginning
+<code>vuCloseWhenComplete failed:</code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuCloseWhenComplete(LONG InValue),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuCloseWhenComplete&#39;)
-  END
-END
-
-rc LONG
+<pre class="clarion"><code>rc LONG
 rc = vuCloseWhenComplete(1)
 IF rc = 0
   MESSAGE(&#39;Could not set CloseWhenComplete: &#39; &amp; vuMailLastError())
@@ -62,8 +73,8 @@ END</code></pre>
 <ul>
 <li>This function only sets an internal compatibility flag.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: vuMailDump.pdf, section heading
-vuCloseWhenComplete.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuCloseWhenComplete</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

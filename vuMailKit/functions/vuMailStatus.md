@@ -1,7 +1,7 @@
 ---
 title: "vuMailStatus"
 summary: "Returns send queue and background send status."
-description: "Returns send queue and background send status. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Returns send queue and background send status."
 keywords: ["vuMailKit", "vuMail", "vumailstatus"]
 function_name: "vuMailStatus"
 category: "Status and Queue"
@@ -14,10 +14,9 @@ last_updated: "2026-01-07"
 # vuMailStatus()
 
 ## Description
-
 Returns send queue and background send status.
 
-### Returns
+## Return value
 
 A LONG value indicating current send status.
 
@@ -31,7 +30,7 @@ A LONG value indicating current send status.
 This function is used to poll status during asynchronous sending.
 
 NOTE: A good place to call this function is: Window Events, Close Window, Before <'Generated Code'>. 
-### Example (Clarion)
+## Example (Clarion)
 
 ````clarion
   IF vuMailStatus()

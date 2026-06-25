@@ -31,27 +31,39 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuviewmailxfilepath">vuViewMail(xFilePath)</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuViewMail(*CSTRING InFileName), SIGNED,
+PROC, PASCAL, RAW, NAME('vuViewMail')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Opens the specified mail file (for example .eml) using the default
-Windows shell association.</p>
+<p>Opens the specified mail file (for example <code>.eml</code>) using
+the default Windows shell association.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>xFilePath (*CSTRING): Full path to an existing mail file.</li>
+<li><code>xFilePath</code> (*CSTRING): Full path to an existing mail
+file.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: File open request started.</li>
-<li>0: Failed. Typical cases include blank path or file not found. Error
-details are available in vuMailLastError().</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>File open request started.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failed. Typical cases include blank path or file not found. Error
+details are available in <code>vuMailLastError()</code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuViewMail(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuViewMail&#39;)
-  END
-END
-
-mailFile CSTRING(260)
+<pre class="clarion"><code>mailFile CSTRING(260)
 rc       LONG
 
 mailFile = &#39;C:\Temp\sample.eml&#39;
@@ -65,7 +77,8 @@ END</code></pre>
 <li>This function starts an external viewer and returns
 immediately.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: vuMailDump.pdf, section heading vuViewMail.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuViewMail</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

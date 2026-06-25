@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vugetfromreplyto">vuGetFromReplyTo()</h1>
-<pre class="Prototype"><code>vuGetFromReplyTo(*CSTRING OutFromEmail,*CSTRING OutReplyToEmail),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGetFromReplyTo&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGetFromReplyTo(*CSTRING OutFromEmail,
+*CSTRING OutReplyToEmail), SIGNED, PROC, PASCAL, RAW,
+NAME('vuGetFromReplyTo')</p>
 <h2 id="description">Description</h2>
 <p>This is the legacy vuMail function name.</p>
 <p>Preferred function name:</p>
@@ -39,7 +42,19 @@ href="../categories/index.html">Categories</a></p>
 <li><a href="vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuSmtpGetFromReplyTo().</p>
+identically to <code>vuSmtpGetFromReplyTo()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc      LONG
+fromAdr CSTRING(256)
+replyTo CSTRING(256)
+
+fromAdr = &#39;&#39;
+replyTo = &#39;&#39;
+rc = vuGetFromReplyTo(fromAdr, replyTo)
+
+IF rc = 1
+  MESSAGE(&#39;From=&#39; &amp; CLIP(fromAdr) &amp; &#39;|Reply-To=&#39; &amp; CLIP(replyTo))
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

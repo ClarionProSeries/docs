@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [OAuth](index.md) | [Google / Gmail OAuth](google-gmail.md)
+[Home](../index.md) | [OAuth](index.md) | [Browse by Category](../categories/index.md) | [All functions](../functions/index.md)
 
 # Microsoft OAuth Setup
 
@@ -50,6 +50,13 @@ Example:
 
 Do not remove the single quotes.
 
+
+## How the wizard uses these values
+
+After the provider values are entered in the global template, import the **vuMailKit Email Setup Wizard** with Clarion **CTRL+U**, compile the EXE, and run the wizard from the application.
+
+The wizard uses the template settings to detect when Microsoft OAuth is needed, guide the user through authorization, send a test email, and save the working setup into a reusable profile. In the normal wizard path, your application does not need to call the lower-level OAuth functions directly.
+
 ## Custom domains and manual Microsoft OAuth setup
 
 Some Microsoft-hosted mailboxes use a custom company domain instead of an address that obviously looks like Microsoft 365 or Outlook.com.
@@ -58,7 +65,7 @@ For example, a mailbox such as user@yourcompany.com may still be hosted by Micro
 
 In those cases, vuMailKit may not detect from the domain alone that the mailbox should use Microsoft OAuth.
 
-If autodetect does not identify the account as OAuth, but you know the mailbox is hosted by Microsoft 365, use **Manual Configuration** in the wizard and select the Microsoft OAuth sign-in method.
+If autodetect does not identify the account as OAuth, but you know the mailbox is hosted by Microsoft 365, use **Manual Configuration** in the [vuMailKit Email Setup Wizard](../getting-started/vumailkit-email-setup-wizard.md) and select the Microsoft OAuth sign-in method.
 
 Typical Microsoft 365 settings are:
 
@@ -136,10 +143,10 @@ After entering the Microsoft Client ID into the vuMailKit template:
 
 - save the template settings
 - regenerate and compile your application
-- test the Microsoft OAuth flow in your application
+- run the **vuMailKit Email Setup Wizard**, complete authorization if prompted, send a test email, and save the profile
 
 For related runtime functions, see:
 
 - [OAuth Related functions](../functions/index.md#oauth-related)
 
-[Home](../index.md) | [OAuth](index.md) | [Google / Gmail OAuth](google-gmail.md)
+[Home](../index.md) | [OAuth](index.md) | [Browse by Category](../categories/index.md) | [All functions](../functions/index.md)

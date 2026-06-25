@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>what-most-developers-actually-use</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="what-most-developers-actually-use">What Most Developers Actually
+Use</h1>
+<p>vuMailKit includes many functions, but most developers do not need
+most of them for everyday mail sending.</p>
+<p>A large part of the library exists for:</p>
+<ul>
+<li>legacy compatibility</li>
+<li>diagnostics</li>
+<li>setup support</li>
+<li>advanced control</li>
+<li>specialized workflows</li>
+</ul>
+<p>For normal outbound email, start with the shortest path that
+works.</p>
+<h2 id="the-common-workflow">The common workflow</h2>
+<p>In many cases, this is all you need:</p>
+<ol type="1">
+<li>Add the global template to the EXE app.</li>
+<li>Enter the developer license string in single quotes.</li>
+<li>Use CTRL+U to import the <a
+href="vumailkit-email-setup-wizard.html">vuMailKit Email Setup
+Wizard</a>.</li>
+<li>Compile the application.</li>
+<li>Run the compiled EXE.</li>
+<li>Run the <strong>vuMailKit Email Setup Wizard</strong>, send a test
+email, and save the profile.</li>
+<li>Call a send function.</li>
+</ol>
+<p>Once the <strong>vuMailKit Email Setup Wizard</strong> succeeds and
+the profile is saved, the profile is ready to use.</p>
+<p>That is a major simplification compared with older usage patterns
+where developers expected to keep filling in server settings manually. A
+normal Send button can then follow the <a
+href="recommended-send-flow.html">recommended send flow</a>: check for a
+saved profile, offer the wizard if needed, validate the recipient, send,
+and show useful diagnostics.</p>
+<h2 id="what-most-developers-usually-touch-first">What most developers
+usually touch first</h2>
+<p>The first things many developers care about are:</p>
+<ul>
+<li><a href="vumailkit-email-setup-wizard.html">vuMailKit Email Setup
+Wizard</a> setup</li>
+<li>saved profile behavior</li>
+<li>sending one email</li>
+<li>sending a good-looking Simple HTML email</li>
+<li>using an external text or HTML file</li>
+<li>personalizing content with TokenMerge</li>
+<li>attachments or embedded images</li>
+<li>CSV-based batch sending</li>
+</ul>
+<p>That is why the <a href="index.html">Getting Started</a> section is
+task-based.</p>
+<h2 id="simple-html-is-the-first-html-path-to-try">Simple HTML is the
+first HTML path to try</h2>
+<p>Simple HTML mode can make an ordinary text body look like a clean
+HTML message without requiring you to build a full HTML wrapper.</p>
+<p>You can turn it on, optionally set a header image and footer image,
+pass body content, and let vuMailKit use its normal multipart MIME path
+to send both the HTML version and the plain-text alternative.</p>
+<p>Start here:</p>
+<ul>
+<li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML email with a company logo</a></li>
+</ul>
+<h2 id="tokenmerge-is-already-built-in">TokenMerge is already built
+in</h2>
+<p>TokenMerge gives you reusable mail-merge behavior without making
+every developer reinvent it.</p>
+<p>Use it when you want to replace tokens in memory, replace tokens
+while copying a template file to an output file, or insert generated
+text-file content into an HTML email template.</p>
+<p>Start here:</p>
+<ul>
+<li><a href="use-tokenmerge-with-email-templates.html">Use TokenMerge
+with email templates</a></li>
+<li><a
+href="send-a-form-letter-invoice-email-with-an-optional-personal-message.html">Send
+a form-letter invoice email with an optional personal message</a></li>
+</ul>
+<h2 id="when-the-larger-function-library-matters">When the larger
+function library matters</h2>
+<p>The broader function library becomes useful when you need:</p>
+<ul>
+<li>diagnostics</li>
+<li>compatibility behavior</li>
+<li>direct setting control</li>
+<li>POP3 retrieval</li>
+<li>OAuth flows</li>
+<li>deep autodetect</li>
+<li>profile management beyond the basic path</li>
+</ul>
+<p>Those features matter, but they do not have to be learned first.</p>
+<h2 id="recommendation">Recommendation</h2>
+<p>Start with the simplest successful path first:</p>
+<ul>
+<li><a href="first-time-setup.html">First-time setup</a></li>
+<li><a href="send-your-first-email.html">Send your first email</a></li>
+<li><a href="recommended-send-flow.html">Recommended send flow with a
+stored profile</a></li>
+<li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML email with a company logo</a></li>
+</ul>
+<p>Then branch out only when you need more.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

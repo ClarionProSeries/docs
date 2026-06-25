@@ -3,16 +3,14 @@
 
 # vuShellOpenUrl()
 
-```Prototype
-vuShellOpenUrl(*CSTRING Url,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuShellOpenUrl')
-```
+## Clarion prototype
+
+**Prototype:** vuShellOpenUrl(*CSTRING Url, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW, NAME('vuShellOpenUrl')
 
 ## Purpose
-
 Attempts to launch a URL in the user’s default browser and writes diagnostic text to an output buffer.
 
 ## Parameters
-
 | Parameter | Type | Description |
 |---|---|---|
 | Url | *CSTRING | URL to open. |
@@ -20,19 +18,13 @@ Attempts to launch a URL in the user’s default browser and writes diagnostic t
 | OutTextLen | LONG | Size of xOutText in bytes. |
 
 ## Return value / error codes
-
-- 1: Launch request accepted.
-- -8: Launch failed (details written to output text and LastError).
+| Value | Meaning |
+|---|---|
+| 1 | Launch request accepted. |
+| -8 | Launch failed (details written to output text and LastError). |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuShellOpenUrl(*CSTRING Url,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuShellOpenUrl')
-  END
-END
-
 rc      LONG
 url     CSTRING(512)
 outTxt  CSTRING(512)
@@ -49,7 +41,6 @@ END
 ```
 
 ## Notes
-
 - URL input is sanitized and capped before launch attempts.
 - This helper is frequently used by OAuth login flows that need interactive browser verification.
 

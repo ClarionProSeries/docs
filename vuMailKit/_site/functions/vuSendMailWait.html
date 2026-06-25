@@ -31,10 +31,14 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusendmailwait">vuSendMailWait()</h1>
-<pre class="Prototype"><code>vuSendMailWait(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMailWait&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSendMailWait(*CSTRING InFrom, *CSTRING
+InTo, *CSTRING InCC, *CSTRING InBCC, *CSTRING InSubject, *CSTRING
+InBody, *CSTRING InAttach), SIGNED, PROC, PASCAL, RAW,
+NAME('vuSendMailWait')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Queues one message (same input contract as vuSendMail()) and blocks
-until queue processing finishes.</p>
+<p>Queues one message (same input contract as <code>vuSendMail()</code>)
+and blocks until queue processing finishes.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -79,24 +83,53 @@ a display name only, or blank. See From selection rules below.</td>
 <tr>
 <td>InAttach</td>
 <td>*CSTRING</td>
-<td>Attachment file path.</td>
+<td>Optional attachment file path, comma/semicolon-separated attachment
+list, or wildcard mask.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Send completed successfully.</li>
-<li>0: Send did not complete successfully.</li>
-<li>-2: Invalid From or To address format.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Send completed successfully.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Send did not complete successfully.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>Invalid From or To address format.</td>
+</tr>
+<tr>
+<td>-451</td>
+<td>vuMailKit detected conflicting .NET mail/runtime files in the
+application folder before the send operation.</td>
+</tr>
+<tr>
+<td>-9001</td>
+<td>vuMailKit licensing was not initialized.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td>license string is invalid or initialization failed.</td>
+</tr>
+<tr>
+<td>-9003</td>
+<td>current license tier does not allow this feature.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMailWait(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMailWait&#39;)
-  END
-END
-
-rc      LONG
+<pre class="clarion"><code>rc      LONG
 cFrom   CSTRING(256)
 cTo     CSTRING(256)
 cCC     CSTRING(256)
@@ -117,19 +150,84 @@ rc = vuSendMailWait(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
 MESSAGE(&#39;vuSendMailWait rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This call waits until the SMTP worker is idle and queue depth is
-zero.</li>
-<li>Check vuMailLastError() for verbose send diagnostics after a non-1
-result.</li>
+<li><p>Register the vuMailKit template/global extension or call
+<code>vuMailKitInitialize(LicenseString)</code> at EXE startup before
+using this function. If this licensing startup step is missed, the
+function returns -9001 and <code>vuMailLastError()</code> explains that
+the problem is vuMailKit licensing/setup, not mail-server
+authentication.</p></li>
+<li><p>If this function returns -451, clean up the application folder.
+That code means unrelated .NET mail/OAuth/runtime files may interfere
+with vuMailKit's embedded dependencies; it is not a mail-server
+authentication error.</p></li>
+<li><p>This call waits until the SMTP worker is idle and queue depth is
+zero.</p></li>
+<li><p>The wait is indefinite, matching legacy vuMail behavior.</p></li>
+<li><p>It returns 1 only when the final send result is the success
+state; otherwise it returns 0, except for immediate validation/licensing
+failures.</p></li>
+<li><p>If a save folder was set with <code>vuSetSaveFolder()</code> or
+<code>vuGlobalsSetEmailFolder()</code> before this call, vuMailKit
+captures that folder with the queued message and saves an outgoing .eml
+copy before the SMTP send attempt.</p></li>
+<li><p>If a sent-mail CSV log was set with <code>vuSetMailLog()</code>
+or <code>vuLogSetFile()</code> before this call, vuMailKit appends a row
+for the send attempt. Successful sends include the saved .eml path when
+an outgoing copy was saved. Failed sends are logged with the result
+text, and legacy logging never blocks a completed send.</p></li>
+<li><p>Attachments may be blank, a single full path, a
+comma/semicolon-separated list, or wildcard masks such as
+<code>C:\Temp\*.pdf</code>.</p></li>
+<li><p>Check <code>vuMailLastError()</code> for verbose send diagnostics
+after a non-1 result.</p></li>
+<li><p>HTML markup in <code>InBody</code> is auto-detected on the SMTP
+path.</p></li>
+<li><p>When HTML is detected, vuMailKit sends both a plain-text
+alternative body and the original HTML body.</p></li>
+<li><p>The verified MIME structure for HTML messages is
+<code>multipart/alternative</code>, with the HTML body wrapped in
+<code>multipart/related</code> when inline CID resources are
+present.</p></li>
+<li><p>Regular file attachments continue to work with both plain text
+and HTML sends.</p></li>
+<li><p>Local image references in HTML <code>img src</code> values are
+embedded as inline CID resources on the SMTP path.</p></li>
+<li><p>The legacy <code>_embed attachments_</code> body tag is supported
+again for image attachments, including optional <code>height=</code> and
+<code>width=</code> attributes.</p></li>
+<li><p>If <code>InBody</code> is an existing file path, vuMailKit loads
+the file contents before HTML detection.</p></li>
+<li><p>External body files that contain accented or international
+characters should be saved as UTF-8. HTML files should also include a
+normal charset declaration such as
+<code>&lt;meta charset="utf-8"&gt;</code>.</p></li>
+<li><p>When you hard-code HTML directly in a Clarion source string
+literal, write each literal <code>&lt;</code> as <code>&lt;&lt;</code>.
+Runtime HTML loaded from a file, database, or entry control does not
+need that source-level escaping.</p></li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All
-functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
-href="../categories/index.html">Categories</a></p>
+<h2 id="html-example-clarion-source-literal">HTML example (Clarion
+source literal)</h2>
+<pre class="clarion"><code>cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;h2&gt;vuMailKit HTML Test&lt;&lt;/h2&gt;&#39; &amp; |
+        &#39;&lt;&lt;p&gt;This is a test email sent by vuMailKit.&lt;&lt;/p&gt;&#39; &amp; |
+        &#39;&lt;&lt;ul&gt;&lt;&lt;li&gt;First item&lt;&lt;/li&gt;&#39; &amp; |
+        &#39;&lt;&lt;li&gt;&lt;&lt;strong&gt;Second item should be bold&lt;&lt;/strong&gt;&lt;&lt;/li&gt;&lt;&lt;/ul&gt;&#39; &amp; |
+        &#39;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
+cAttach = &#39;&#39;</code></pre>
+<h2 id="inline-image-example-clarion-source-literal">Inline image
+example (Clarion source literal)</h2>
+<pre class="clarion"><code>cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;p&gt;Inline image test&lt;&lt;/p&gt;&#39; &amp; |
+        &#39;&lt;&lt;p&gt;&lt;&lt;img src=&quot;C:\Temp\test.jpg&quot;&gt;&lt;&lt;/p&gt;&#39; &amp; |
+        &#39;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
+cAttach = &#39;&#39;</code></pre>
+<h2 id="legacy-inline-attachment-embed-example">Legacy inline-attachment
+embed example</h2>
+<pre class="clarion"><code>cBody = &#39;_embed attachments width=300 height=150_&#39;
+cAttach = &#39;C:\Temp\test.jpg&#39;</code></pre>
 <h2 id="from-display-name-behavior">From display name behavior</h2>
 <ul>
 <li>If a sender display name has been configured, vuMailKit formats the
-From header as Display Name <a
-href="mailto:email@address">email@address</a>.</li>
+From header as <code>Display Name &lt;email@address&gt;</code>.</li>
 <li>If no display name exists, vuMailKit falls back to the plain email
 address.</li>
 <li>This preserves compatibility with legacy code that only supplies an
@@ -138,28 +236,40 @@ address.</li>
 <h2 id="from-selection-rules">From selection rules</h2>
 <p>vuSendMailWait() resolves the effective sender using these rules:</p>
 <ul>
-<li>If xFrom is blank, vuMailKit uses the saved/default profile
-sender.</li>
-<li>If xFrom contains a full mailbox like Support <a
-href="mailto:support@example.com">support@example.com</a>, vuMailKit
-uses it as the sender for that message.</li>
-<li>If xFrom contains only a plain email address like <a
-href="mailto:support@example.com">support@example.com</a>, vuMailKit
-uses that address with no display name override.</li>
-<li>If xFrom contains only a display name like Technical Support,
-vuMailKit combines that name with the saved/default profile sender
-address.</li>
+<li>If <code>xFrom</code> is blank, vuMailKit uses the saved/default
+profile sender.</li>
+<li>If <code>xFrom</code> contains a full mailbox like
+<code>Support &lt;support@example.com&gt;</code>, vuMailKit uses it as
+the sender for that message.</li>
+<li>If <code>xFrom</code> contains only a plain email address like
+<code>support@example.com</code>, vuMailKit uses that address with no
+display name override.</li>
+<li>If <code>xFrom</code> contains only a display name like
+<code>Technical Support</code>, vuMailKit combines that name with the
+saved/default profile sender address.</li>
 </ul>
 <p>This keeps legacy behavior intact while allowing per-message
 display-name overrides when a stored profile sender already exists.</p>
 <h2 id="notes-on-oauthprofile-sends">Notes on OAuth/profile sends</h2>
 <ul>
-<li>When you pass a different <strong>email address</strong> in xFrom,
-the provider/server may still reject that message if the authenticated
-account is not allowed to send as that address.</li>
+<li>When you pass a different <strong>email address</strong> in
+<code>xFrom</code>, the provider/server may still reject that message if
+the authenticated account is not allowed to send as that address.</li>
 <li>A <strong>display-name-only</strong> override is safe because it
 keeps the stored profile sender address and changes only the visible
 name.</li>
 </ul>
+<h2 id="related-getting-started-pages">Related getting started
+pages</h2>
+<ul>
+<li><a href="../getting-started/recommended-send-flow.html">Recommended
+send flow with a stored profile</a></li>
+<li><a
+href="../getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
+a Simple HTML Email with a Company Logo</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ---
 title: "vuDiagnosticsDisable"
 summary: "Disable diagnostic file logging for vuMailKit."
-description: "Disable diagnostic file logging for vuMailKit. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)"
+description: "Disable diagnostic file logging for vuMailKit."
 keywords: ["vuMailKit","function","vudiagnosticsdisable"]
 function_name: "vuDiagnosticsDisable"
 category: "Diagnostics"
@@ -9,7 +9,7 @@ version_added: "1.0"
 last_updated: "2026-03-27"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuDiagnosticsDisable()
 
@@ -19,17 +19,29 @@ Disables diagnostic logging without deleting the configured diagnostics file pat
 
 ## Export name
 
-- vuDiagnosticsDisable
+- `vuDiagnosticsDisable`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuDiagnosticsDisable(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsDisable')
+**Prototype:** vuDiagnosticsDisable(), SIGNED, PROC, PASCAL, RAW, NAME('vuDiagnosticsDisable')
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+
+## Example (Clarion)
+```clarion
+rc LONG
+
+rc = vuDiagnosticsDisable()
+IF rc = 0
+  MESSAGE('Diagnostics could not be disabled: ' & vuMailLastError())
+END
+```
 
 ## Notes
 
 - This does not delete existing log files.
-- Use vuDiagnosticsClearLogs() if you want to remove prior log files.
+- Use `vuDiagnosticsClearLogs()` if you want to remove prior log files.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

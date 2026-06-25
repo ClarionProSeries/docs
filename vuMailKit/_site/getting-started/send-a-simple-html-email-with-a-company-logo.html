@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>send-a-simple-html-email-with-a-company-logo</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="send-a-simple-html-email-with-a-company-logo">Send a Simple HTML
+Email with a Company Logo</h1>
+<p>Simple HTML mode gives you an easy way to send a cleaner-looking HTML
+email without hand-coding a full HTML document.</p>
+<p>This is included in <strong>vuMailKit Basic</strong>.</p>
+<p>The important point is that you do <strong>not</strong> have to
+create the HTML wrapper yourself. Turn Simple HTML on, pass the body
+content, optionally set header and footer images, and vuMailKit builds
+the message as HTML while still using the normal MIME path that creates
+a plain-text alternative.</p>
+<p>That makes this the first HTML option most developers should try.</p>
+<h2 id="what-simple-html-mode-does">What Simple HTML mode does</h2>
+<p>When Simple HTML mode is on, vuMailKit:</p>
+<ul>
+<li>creates a modest HTML wrapper for you</li>
+<li>inserts an optional header image above the message body</li>
+<li>inserts an optional footer image below the message body</li>
+<li>places your body content in the center area</li>
+<li>uses the normal HTML send path so the plain-text alternative is
+generated</li>
+</ul>
+<h2 id="important-body-rule">Important body rule</h2>
+<p>When Simple HTML mode is enabled, the body should contain the
+<strong>message body only</strong>.</p>
+<p>Do <strong>not</strong> pass a full HTML document with html, head, or
+body tags when Simple HTML mode is active.</p>
+<h2 id="end-to-end-example">End-to-end example</h2>
+<pre class="clarion"><code>Result      LONG
+FromAdr     CSTRING(256)
+ToAdr       CSTRING(256)
+CCAdr       CSTRING(256)
+BCCAdr      CSTRING(256)
+Subject     CSTRING(256)
+Body        CSTRING(2048)
+Attach      CSTRING(260)
+HeaderImage CSTRING(260)
+FooterImage CSTRING(260)
+
+Result = vuResetSimpleHTML()
+Result = vuSetSimpleHTML(1)
+
+! Use 1 when Body is ordinary text.
+! Use 0 when Body is already an HTML fragment.
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+! Optional: image above the body area.
+HeaderImage = CLIP(PATH()) &amp; &#39;\CompanyHeader.png&#39;
+Result = vuSetSimpleHTMLHeaderImage(HeaderImage)
+
+! Optional: image below the body area.
+FooterImage = CLIP(PATH()) &amp; &#39;\CompanyFooter.png&#39;
+Result = vuSetSimpleHTMLFooterImage(FooterImage)
+
+FromAdr = &#39;&#39;
+ToAdr   = &#39;customer@example.com&#39;
+CCAdr   = &#39;&#39;
+BCCAdr  = &#39;&#39;
+Subject = &#39;Thank you for your order&#39;
+Body    = &#39;Dear Customer,&lt;13,10&gt;&#39; &amp; |
+          &#39;Your order is ready.&lt;13,10&gt;&#39; &amp; |
+          &#39;Thank you for your business.&#39;
+Attach  = &#39;&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
+END
+
+! Clear Simple HTML settings so the next unrelated send starts clean.
+Result = vuResetSimpleHTML()</code></pre>
+<h2 id="plain-text-body">Plain text body</h2>
+<p>With NormalizeBody on, vuMailKit treats the body as ordinary text. It
+normalizes line endings, converts them into HTML-friendly breaks, and
+safely escapes HTML-sensitive characters.</p>
+<p>That is the easiest setting when you are building the body from
+normal text fields, a memo, a TPS record, or a simple Clarion
+string.</p>
+<h2 id="html-fragment-body">HTML fragment body</h2>
+<p>With NormalizeBody off, vuMailKit treats the body as an HTML fragment
+and inserts it as supplied.</p>
+<p>Use this when you already have a body fragment such as:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Dear [[CustomerName]],<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Your invoice is ready.<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Thank you.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>That fragment should still be only the body area. Do not include a
+full HTML document when Simple HTML mode is active.</p>
+<h2 id="how-this-works-with-tokenmerge">How this works with
+TokenMerge</h2>
+<p>The cleanest order is usually:</p>
+<ol type="1">
+<li>Build or merge the body content first.</li>
+<li>Turn on Simple HTML mode.</li>
+<li>Set optional header and footer images.</li>
+<li>Send the email.</li>
+<li>Reset Simple HTML mode.</li>
+</ol>
+<p>That means you can combine Simple HTML mode with:</p>
+<ul>
+<li><a
+href="../functions/TokenMergeInString.html">TokenMergeInString</a></li>
+<li><a
+href="../functions/TokenMergeInFile.html">TokenMergeInFile</a></li>
+<li><a
+href="../functions/TokenMergeFileIntoFile.html">TokenMergeFileIntoFile</a></li>
+</ul>
+<h2 id="why-this-is-useful">Why this is useful</h2>
+<p>Simple HTML mode is a good fit for common business messages such
+as:</p>
+<ul>
+<li>confirmations</li>
+<li>service reminders</li>
+<li>payment reminders</li>
+<li>appointment notices</li>
+<li>invoices or statements with a small branded header</li>
+<li>support messages that need to look more professional than plain
+text</li>
+</ul>
+<p>You can get a well-dressed email without asking every developer to
+learn the details of HTML email wrappers and multipart MIME.</p>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="send-an-html-email.html">Send an HTML email</a></li>
+<li><a href="use-tokenmerge-with-email-templates.html">Use TokenMerge
+with email templates</a></li>
+<li><a
+href="send-a-form-letter-invoice-email-with-an-optional-personal-message.html">Send
+a form-letter invoice email with an optional personal message</a></li>
+<li><a href="../functions/vuSetSimpleHTML.html">vuSetSimpleHTML</a></li>
+<li><a
+href="../functions/vuResetSimpleHTML.html">vuResetSimpleHTML</a></li>
+<li><a href="../functions/vuSendMail.html">vuSendMail</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

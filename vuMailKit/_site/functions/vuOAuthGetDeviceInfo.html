@@ -31,10 +31,17 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthgetdeviceinfo">vuOAuthGetDeviceInfo()</h1>
-<pre class="Prototype"><code>vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetDeviceInfo&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
 <p>Returns the verification URL and user code captured by the most
-recent matching vuOAuthBeginLogin() call.</p>
+recent matching <a href="vuOAuthBeginLogin.html">vuOAuthBeginLogin</a>
+call.</p>
+<p>This is an advanced/manual helper. The vuMailKit Email Setup Wizard
+handles this work in the normal setup path.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthGetDeviceInfo(*CSTRING Provider,
+*CSTRING AccountKey, *CSTRING OutUrl, LONG OutUrlLen, *CSTRING OutCode,
+LONG OutCodeLen), SIGNED, PROC, PASCAL, RAW,
+NAME('vuOAuthGetDeviceInfo')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -58,59 +65,74 @@ recent matching vuOAuthBeginLogin() call.</p>
 <tr>
 <td>OutUrl</td>
 <td>*CSTRING</td>
-<td>Output buffer receiving verification URL text.</td>
+<td>Output buffer receiving the verification URL.</td>
 </tr>
 <tr>
 <td>OutUrlLen</td>
 <td>LONG</td>
-<td>Size of OutUrl in bytes.</td>
+<td>Size of OutUrl in bytes. Pass SIZE(OutUrl).</td>
 </tr>
 <tr>
 <td>OutCode</td>
 <td>*CSTRING</td>
-<td>Output buffer receiving user verification code.</td>
+<td>Output buffer receiving the user verification code.</td>
 </tr>
 <tr>
 <td>OutCodeLen</td>
 <td>LONG</td>
-<td>Size of OutCode in bytes.</td>
+<td>Size of OutCode in bytes. Pass SIZE(OutCode).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-<li>-2: No prior BeginLogin context was captured.</li>
-<li>-3: Provider/account mismatch with captured BeginLogin context.</li>
-<li>-4: URL and/or code not available.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>No prior BeginLogin context was captured.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Provider/account mismatch with the captured BeginLogin context.</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>URL and/or code was not available from the captured BeginLogin
+text.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthGetDeviceInfo(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutUrl,LONG OutUrlLen,*CSTRING OutCode,LONG OutCodeLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthGetDeviceInfo&#39;)
-  END
-END
+<pre class="clarion"><code>Result     LONG
+Provider   CSTRING(64)
+AccountKey CSTRING(256)
+OutUrl     CSTRING(1024)
+OutUrlLen  LONG
+OutCode    CSTRING(128)
+OutCodeLen LONG
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-outUrl     CSTRING(1024)
-outUrlLen  LONG
-outCode    CSTRING(128)
-outCodeLen LONG
+Provider   = &#39;microsoft&#39;
+AccountKey = &#39;user@example.com&#39;
+CLEAR(OutUrl)
+OutUrlLen  = SIZE(OutUrl)
+CLEAR(OutCode)
+OutCodeLen = SIZE(OutCode)
 
-provider   = &#39;Microsoft&#39;
-accountKey = &#39;user@example.com&#39;
-outUrl     = &#39;&#39;
-outUrlLen  = SIZE(outUrl)
-outCode    = &#39;&#39;
-outCodeLen = SIZE(outCode)
-
-rc = vuOAuthGetDeviceInfo(provider, accountKey, outUrl, outUrlLen, outCode, outCodeLen)
-IF rc = 1
-  MESSAGE(&#39;Verify at: &#39; &amp; outUrl &amp; &#39;| Code: &#39; &amp; outCode)
+Result = vuOAuthGetDeviceInfo(Provider, AccountKey, OutUrl, OutUrlLen, OutCode, OutCodeLen)
+IF Result = 1
+  MESSAGE(&#39;Verify at: &#39; &amp; OutUrl &amp; &#39;| Code: &#39; &amp; OutCode)
 ELSE
-  MESSAGE(&#39;GetDeviceInfo failed: &#39; &amp; rc)
+  MESSAGE(&#39;GetDeviceInfo failed: &#39; &amp; Result)
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>

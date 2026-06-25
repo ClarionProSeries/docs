@@ -1,7 +1,7 @@
 ---
 title: "vuMailExport"
 summary: "Exports the currently loaded legacy message to an .eml file."
-description: "Exports the currently loaded legacy message to an .eml file. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Exports the currently loaded legacy message to an .eml file."
 keywords: ["vuMailKit", "vuMail", "vumailexport"]
 function_name: "vuMailExport"
 category: "Legacy Compatibility"
@@ -13,29 +13,25 @@ last_updated: "2026-03-27"
 
 # vuMailExport(xFilePath)
 
-## Purpose
+## Clarion prototype
 
-Writes the currently loaded in-process message to an RFC822 .eml file.
+**Prototype:** vuMailExport(*CSTRING InFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuMailExport')
+
+## Purpose
+Writes the currently loaded in-process message to an RFC822 `.eml` file.
 
 ## Parameters
-
-- xFilePath (*CSTRING): Destination file path.
+- `xFilePath` (*CSTRING): Destination file path.
 
 ## Return value / error codes
-
-- 0: Success.
-- -1: Blank file path or no message currently loaded.
-- -2: Write/open failure or other exception.
+| Value | Meaning |
+|---|---|
+| 0 | Success. |
+| -1 | Blank file path or no message currently loaded. |
+| -2 | Write/open failure or other exception. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuMailExport(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuMailExport')
-  END
-END
-
 rc LONG
 path CSTRING(260)
 path = 'C:\Temp\exported.eml'
@@ -46,10 +42,9 @@ END
 ```
 
 ## Notes
-
 - Creates the destination directory when needed.
 - This export depends on a message already loaded into the legacy session state.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: vuMailDump.pdf, section heading vuMailExport.
+- Legacy reference: `vuMailDump.pdf`, section heading `vuMailExport`.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

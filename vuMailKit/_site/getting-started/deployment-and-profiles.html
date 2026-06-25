@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>deployment-and-profiles</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="deployment-and-profiles">Deployment and Profiles</h1>
+<p>A saved vuMailKit profile belongs to the environment where it was
+created and saved.</p>
+<p>That affects how sender identity behaves in real deployments.</p>
+<h2 id="one-machine-per-sender">One machine per sender</h2>
+<p>If you want each user to send from that user's own email address,
+each machine that runs the program should run the vuMailKit Email Setup
+Wizard and save its own working profile.</p>
+<p>That gives each machine its own sender setup.</p>
+<h2 id="shared-install-or-shared-machine">Shared install or shared
+machine</h2>
+<p>If the application is installed on one shared machine and the <a
+href="vumailkit-email-setup-wizard.html">vuMailKit Email Setup
+Wizard</a> is run there, the profile on that machine becomes the sender
+configuration that is used unless your application overrides sender
+details at send time.</p>
+<p>That means a shared install may still work from multiple
+workstations, but the actual sender email address will normally come
+from the saved profile on the machine where the mail is being sent.</p>
+<h2 id="display-name-versus-email-address">Display name versus email
+address</h2>
+<p>The visible sender name can be changed from one email to the
+next.</p>
+<p>For example, the saved profile may use your real email address, but
+your application can choose a display name such as
+<code>LANSRAD Support</code> for a particular message.</p>
+<p>If you do not override it, vuMailKit uses the sender information
+stored in the profile.</p>
+<h2 id="recommendation">Recommendation</h2>
+<p>Decide early whether you want:</p>
+<ul>
+<li>one sender identity per workstation</li>
+<li>one shared sender identity</li>
+<li>a saved sender email address with per-message display-name
+changes</li>
+</ul>
+<p>That will help you choose the right deployment approach.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

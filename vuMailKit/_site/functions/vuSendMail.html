@@ -23,71 +23,6 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
@@ -96,7 +31,11 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusendmail">vuSendMail()</h1>
-<pre class="Prototype"><code>vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSendMail(*CSTRING InFrom, *CSTRING
+InTo, *CSTRING InCC, *CSTRING InBCC, *CSTRING InSubject, *CSTRING
+InBody, *CSTRING InAttach), SIGNED, PROC, PASCAL, RAW,
+NAME('vuSendMail')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Validates and queues one outbound email record to the SMTP worker
 queue.</p>
@@ -113,9 +52,8 @@ queue.</p>
 <tr>
 <td>InFrom</td>
 <td>*CSTRING</td>
-<td>Optional sender display name override. Leave blank to use the
-display name and email address saved in the active profile. See From
-behavior below.</td>
+<td>Sender selector. You may pass a full mailbox, a plain email address,
+a display name only, or blank. See From selection rules below.</td>
 </tr>
 <tr>
 <td>InTo</td>
@@ -140,54 +78,58 @@ behavior below.</td>
 <tr>
 <td>InBody</td>
 <td>*CSTRING</td>
-<td>Message body content. May be plain text, HTML text, or a file
-name/path pointing to a text or HTML file to use as the body. If HTML is
-detected, vuMailKit sends a multipart message containing both plain text
-and HTML content.</td>
+<td>Message body text.</td>
 </tr>
 <tr>
 <td>InAttach</td>
 <td>*CSTRING</td>
-<td>Attachment file path. Attachments are sent as normal file
-attachments. Image files may also be embedded inline when referenced
-from HTML or when using the legacy <em>embed attachments</em> tag.</td>
+<td>Optional attachment file path, comma/semicolon-separated attachment
+list, or wildcard mask.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Message accepted/queued.</li>
-<li>0: Queueing failed.</li>
-<li>-2: Invalid From or To address format.</li>
-</ul>
-<h2 id="html-body-note-for-clarion-developers">HTML body note for
-Clarion developers</h2>
-<p>InBody may contain plain text, HTML text, or the path to a text or
-HTML file.</p>
-<p>For larger HTML messages, the easiest approach is usually to create
-the HTML in an external editor and pass the file name in InBody. This
-avoids Clarion source-string escaping and makes the HTML easier to
-maintain. It also makes it easy to edit the file, save it, and send
-again without recompiling.</p>
-<p>If you hard-code HTML directly in a Clarion string literal, literal
-&lt; characters must be written as &lt;&lt;.</p>
-<p>For example, this Clarion source:</p>
-<pre class="clarion"><code>cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;p&gt;Hello&lt;&lt;/p&gt;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;</code></pre>
-<p>produces this runtime HTML:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;&lt;</span><span class="kw">body</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;/</span><span class="kw">body</span><span class="dt">&gt;&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>If your HTML comes from an external file, database, editor control,
-or other runtime source, this Clarion source escaping rule does not
-apply to that external content.</p>
-<h2 id="example-clarion---plain-text">Example (Clarion) - plain
-text</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
-  END
-END
-
-rc      LONG
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Message accepted/queued.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Queueing failed.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>Invalid From or To address format.</td>
+</tr>
+<tr>
+<td>-451</td>
+<td>vuMailKit detected conflicting .NET mail/runtime files in the
+application folder before the send operation.</td>
+</tr>
+<tr>
+<td>-9001</td>
+<td>vuMailKit licensing was not initialized.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td>license string is invalid or initialization failed.</td>
+</tr>
+<tr>
+<td>-9003</td>
+<td>current license tier does not allow this feature.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc      LONG
 cFrom   CSTRING(256)
 cTo     CSTRING(256)
 cCC     CSTRING(256)
@@ -196,7 +138,7 @@ cSubj   CSTRING(256)
 cBody   CSTRING(1024)
 cAttach CSTRING(260)
 
-cFrom = &#39;&#39;
+cFrom = &#39;sender@example.com&#39;
 cTo = &#39;recipient@example.com&#39;
 cCC = &#39;&#39;
 cBCC = &#39;&#39;
@@ -206,196 +148,123 @@ cAttach = &#39;&#39;
 
 rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
 MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
-<h2 id="example-clarion---html-body-from-an-external-file">Example
-(Clarion) - HTML body from an external file</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
-  END
-END
-
-rc      LONG
-cFrom   CSTRING(256)
-cTo     CSTRING(256)
-cCC     CSTRING(256)
-cBCC    CSTRING(256)
-cSubj   CSTRING(256)
-cBody   CSTRING(260)
-cAttach CSTRING(260)
-
-cFrom = &#39;&#39;
-cTo = &#39;recipient@example.com&#39;
-cCC = &#39;&#39;
-cBCC = &#39;&#39;
-cSubj = &#39;vuMailKit external body test&#39;
-cBody = &#39;.\emailbody.txt&#39;
-cAttach = &#39;&#39;
-
-rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
-MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
-<p>If the external file contains HTML, vuMailKit detects that and sends
-it as HTML. This is often the easiest way to work with larger or
-AI-generated HTML messages.</p>
-<p>A fully qualified path also works:</p>
-<pre class="clarion"><code>cBody = &#39;C:\MyFolder\emailbody.txt&#39;</code></pre>
-<h2
-id="example-clarion---html-embedded-directly-in-clarion-source">Example
-(Clarion) - HTML embedded directly in Clarion source</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
-  END
-END
-
-rc      LONG
-cFrom   CSTRING(256)
-cTo     CSTRING(256)
-cCC     CSTRING(256)
-cBCC    CSTRING(256)
-cSubj   CSTRING(256)
-cBody   CSTRING(4096)
-cAttach CSTRING(260)
-
-cFrom = &#39;&#39;
-cTo = &#39;recipient@example.com&#39;
-cCC = &#39;&#39;
-cBCC = &#39;&#39;
-cSubj = &#39;HTML test&#39;
-cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;h2&gt;vuMailKit HTML Test&lt;&lt;/h2&gt;&lt;&lt;p&gt;This message was sent as &lt;strong&gt;HTML&lt;&lt;/strong&gt;.&lt;&lt;/p&gt;&lt;&lt;p&gt;If your mail client supports HTML, this text should be formatted.&lt;&lt;/p&gt;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
-cAttach = &#39;&#39;
-
-rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
-MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
-<h2 id="example-clarion---html-email-with-inline-image">Example
-(Clarion) - HTML email with inline image</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
-  END
-END
-
-rc      LONG
-cFrom   CSTRING(256)
-cTo     CSTRING(256)
-cCC     CSTRING(256)
-cBCC    CSTRING(256)
-cSubj   CSTRING(256)
-cBody   CSTRING(4096)
-cAttach CSTRING(260)
-
-cFrom = &#39;&#39;
-cTo = &#39;recipient@example.com&#39;
-cCC = &#39;&#39;
-cBCC = &#39;&#39;
-cSubj = &#39;Inline image test&#39;
-cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;h2&gt;Inline Image Test&lt;&lt;/h2&gt;&lt;&lt;p&gt;This should show text above the image.&lt;&lt;/p&gt;&lt;&lt;p&gt;&lt;&lt;img src=&quot;C:\Images\Test.jpg&quot;&gt;&lt;&lt;/p&gt;&lt;&lt;p&gt;&lt;&lt;strong&gt;This line should be bold.&lt;&lt;/strong&gt;&lt;&lt;/p&gt;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
-cAttach = &#39;&#39;
-
-rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
-MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
-<h2 id="example-clarion---legacy-embed-attachments-tag">Example
-(Clarion) - legacy <em>embed attachments</em> tag</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
-  END
-END
-
-rc      LONG
-cFrom   CSTRING(256)
-cTo     CSTRING(256)
-cCC     CSTRING(256)
-cBCC    CSTRING(256)
-cSubj   CSTRING(256)
-cBody   CSTRING(1024)
-cAttach CSTRING(260)
-
-cFrom = &#39;&#39;
-cTo = &#39;recipient@example.com&#39;
-cCC = &#39;&#39;
-cBCC = &#39;&#39;
-cSubj = &#39;Embedded attachment image test&#39;
-cBody = &#39;_embed attachments width=300 height=150_&#39;
-cAttach = &#39;C:\Images\Test.jpg&#39;
-
-rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
-MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
-<h2 id="example-clarion---regular-file-attachment">Example (Clarion) -
-regular file attachment</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSendMail(*CSTRING InFrom,*CSTRING InTo,*CSTRING InCC,*CSTRING InBCC,*CSTRING InSubject,*CSTRING InBody,*CSTRING InAttach),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSendMail&#39;)
-  END
-END
-
-rc      LONG
-cFrom   CSTRING(256)
-cTo     CSTRING(256)
-cCC     CSTRING(256)
-cBCC    CSTRING(256)
-cSubj   CSTRING(256)
-cBody   CSTRING(1024)
-cAttach CSTRING(260)
-
-cFrom = &#39;&#39;
-cTo = &#39;recipient@example.com&#39;
-cCC = &#39;&#39;
-cBCC = &#39;&#39;
-cSubj = &#39;Attachment test&#39;
-cBody = &#39;This message includes a normal file attachment.&#39;
-cAttach = &#39;C:\Docs\Report.pdf&#39;
-
-rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
-MESSAGE(&#39;vuSendMail rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>vuSendMail() returns after enqueue. Delivery continues in
-background.</li>
-<li>Use vuMailStatus() and vuMailLastError() to inspect asynchronous
-send results.</li>
-<li>When HTML is detected, vuMailKit generates a multipart email with
-both plain text and HTML content.</li>
-<li>If inline images are present, the HTML portion is sent as related
-MIME content with CID references so the images can display inside the
-message body.</li>
+<li><p>Register the vuMailKit template/global extension or call
+<code>vuMailKitInitialize(LicenseString)</code> at EXE startup before
+using this function. If this licensing startup step is missed, the
+function returns -9001 and <code>vuMailLastError()</code> explains that
+the problem is vuMailKit licensing/setup, not mail-server
+authentication.</p></li>
+<li><p>If this function returns -451, clean up the application folder.
+That code means unrelated .NET mail/OAuth/runtime files may interfere
+with vuMailKit's embedded dependencies; it is not a mail-server
+authentication error.</p></li>
+<li><p><code>vuSendMail()</code> returns after enqueue; delivery
+continues in background.</p></li>
+<li><p>Use <code>vuMailStatus()</code> and
+<code>vuMailLastError()</code> to inspect asynchronous send
+results.</p></li>
+<li><p>If a save folder was set with <code>vuSetSaveFolder()</code> or
+<code>vuGlobalsSetEmailFolder()</code> before this call, vuMailKit
+captures that folder with the queued message and saves an outgoing .eml
+copy before the SMTP send attempt.</p></li>
+<li><p>If a sent-mail CSV log was set with <code>vuSetMailLog()</code>
+or <code>vuLogSetFile()</code> before this call, vuMailKit appends a row
+for the send attempt. Successful sends include the saved .eml path when
+an outgoing copy was saved. Failed sends are logged with the result
+text, and legacy logging never blocks a completed send.</p></li>
+<li><p>Attachments may be blank, a single full path, a
+comma/semicolon-separated list, or wildcard masks such as
+<code>C:\Temp\*.pdf</code>.</p></li>
+<li><p>HTML markup in <code>InBody</code> is auto-detected on the SMTP
+path.</p></li>
+<li><p>When HTML is detected, vuMailKit sends both a plain-text
+alternative body and the original HTML body.</p></li>
+<li><p>The verified MIME structure for HTML messages is
+<code>multipart/alternative</code>, with the HTML body wrapped in
+<code>multipart/related</code> when inline CID resources are
+present.</p></li>
+<li><p>Regular file attachments continue to work with both plain text
+and HTML sends.</p></li>
+<li><p>Local image references in HTML <code>img src</code> values are
+embedded as inline CID resources on the SMTP path.</p></li>
+<li><p>The legacy <code>_embed attachments_</code> body tag is supported
+again for image attachments, including optional <code>height=</code> and
+<code>width=</code> attributes.</p></li>
+<li><p>If <code>InBody</code> is an existing file path, vuMailKit loads
+the file contents before HTML detection.</p></li>
+<li><p>External body files that contain accented or international
+characters should be saved as UTF-8. HTML files should also include a
+normal charset declaration such as
+<code>&lt;meta charset="utf-8"&gt;</code>.</p></li>
+<li><p>When you hard-code HTML directly in a Clarion source string
+literal, write each literal <code>&lt;</code> as <code>&lt;&lt;</code>.
+Runtime HTML loaded from a file, database, or entry control does not
+need that source-level escaping.</p></li>
 </ul>
-<h2 id="from-behavior">From behavior</h2>
-<p>When the setup wizard is completed, the active profile stores
-both:</p>
+<h2 id="html-example-clarion-source-literal">HTML example (Clarion
+source literal)</h2>
+<pre class="clarion"><code>cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;h2&gt;vuMailKit HTML Test&lt;&lt;/h2&gt;&#39; &amp; |
+        &#39;&lt;&lt;p&gt;This is a test email sent by vuMailKit.&lt;&lt;/p&gt;&#39; &amp; |
+        &#39;&lt;&lt;ul&gt;&lt;&lt;li&gt;First item&lt;&lt;/li&gt;&#39; &amp; |
+        &#39;&lt;&lt;li&gt;&lt;&lt;strong&gt;Second item should be bold&lt;&lt;/strong&gt;&lt;&lt;/li&gt;&lt;&lt;/ul&gt;&#39; &amp; |
+        &#39;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
+cAttach = &#39;&#39;</code></pre>
+<h2 id="inline-image-example-clarion-source-literal">Inline image
+example (Clarion source literal)</h2>
+<pre class="clarion"><code>cBody = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&lt;&lt;p&gt;Inline image test&lt;&lt;/p&gt;&#39; &amp; |
+        &#39;&lt;&lt;p&gt;&lt;&lt;img src=&quot;C:\Temp\test.jpg&quot;&gt;&lt;&lt;/p&gt;&#39; &amp; |
+        &#39;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
+cAttach = &#39;&#39;</code></pre>
+<h2 id="legacy-inline-attachment-embed-example">Legacy inline-attachment
+embed example</h2>
+<pre class="clarion"><code>cBody = &#39;_embed attachments width=300 height=150_&#39;
+cAttach = &#39;C:\Temp\test.jpg&#39;</code></pre>
+<h2 id="from-display-name-behavior">From display name behavior</h2>
 <ul>
-<li>the sender display name entered in the wizard</li>
-<li>the sender email address used to complete the wizard</li>
-</ul>
-<p>If InFrom is blank, vuMailKit uses both of those stored values. In
-other words, the message is sent using the display name from the profile
-together with the sender email address from the profile.</p>
-<p>If you want to change only the visible display name for a message,
-pass a plain text string in InFrom, such as:</p>
-<pre class="clarion"><code>cFrom = &#39;Support Department&#39;</code></pre>
-<p>vuMailKit then uses that display name together with the sender email
-address from the active stored profile.</p>
-<h2 id="important-sender-limitation">Important sender limitation</h2>
-<p>InFrom is <strong>not</strong> intended to let you switch to a
-different sender email address on the fly.</p>
-<p>Do not rely on InFrom to send as another full mailbox or another
-email address. With stored profiles, and especially with OAuth-backed
-sends, the authenticated account is expected to send using the email
-address saved in the active profile. Attempting to substitute a
-different sender email address may be ignored or rejected by the
-provider.</p>
-<p>The practical rule is simple:</p>
-<ul>
-<li>Leave InFrom blank to use the stored profile display name and email
+<li>If a sender display name has been configured, vuMailKit formats the
+From header as <code>Display Name &lt;email@address&gt;</code>.</li>
+<li>If no display name exists, vuMailKit falls back to the plain email
 address.</li>
-<li>Put a plain display-name string in InFrom if you want to change only
-the visible sender name for that message.</li>
+<li>This preserves compatibility with legacy code that only supplies an
+address.</li>
 </ul>
-<h2 id="see-also">See also</h2>
+<h2 id="from-selection-rules">From selection rules</h2>
+<p>vuSendMail() now resolves the effective sender using these rules:</p>
 <ul>
-<li>vuSendMailWait()</li>
-<li>vuSendMailFromFile()</li>
-<li>Planned practical examples page for larger end-to-end send
-samples</li>
+<li>If <code>xFrom</code> is blank, vuMailKit uses the saved/default
+profile sender.</li>
+<li>If <code>xFrom</code> contains a full mailbox like
+<code>Support &lt;support@example.com&gt;</code>, vuMailKit uses it as
+the sender for that message.</li>
+<li>If <code>xFrom</code> contains only a plain email address like
+<code>support@example.com</code>, vuMailKit uses that address with no
+display name override.</li>
+<li>If <code>xFrom</code> contains only a display name like
+<code>Technical Support</code>, vuMailKit combines that name with the
+saved/default profile sender address.</li>
+</ul>
+<p>This lets legacy applications keep working while also allowing
+per-message display-name overrides without repeating the stored profile
+address every time.</p>
+<h2 id="notes-on-oauthprofile-sends">Notes on OAuth/profile sends</h2>
+<ul>
+<li>When you pass a different <strong>email address</strong> in
+<code>xFrom</code>, the provider/server may still reject that message if
+the authenticated account is not allowed to send as that address.</li>
+<li>A <strong>display-name-only</strong> override is safe because it
+keeps the stored profile sender address and changes only the visible
+name.</li>
+</ul>
+<h2 id="related-getting-started-pages">Related getting started
+pages</h2>
+<ul>
+<li><a href="../getting-started/recommended-send-flow.html">Recommended
+send flow with a stored profile</a></li>
+<li><a
+href="../getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
+a Simple HTML Email with a Company Logo</a></li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

@@ -3,28 +3,24 @@
 
 # vuMailSelectCSV(xCsvFilePath)
 
-## Purpose
+## Clarion prototype
 
-Selects an existing CSV file so later vuMailAppendCSV() calls append rows to that file.
+**Prototype:** vuMailSelectCSV(*CSTRING OutText), SIGNED, PROC, PASCAL, RAW, NAME('vuMailSelectCSV')
+
+## Purpose
+Selects an existing CSV file so later `vuMailAppendCSV()` calls append rows to that file.
 
 ## Parameters
-
-- xCsvFilePath (*CSTRING): Full path to an existing CSV file.
+- `xCsvFilePath` (*CSTRING): Full path to an existing CSV file.
 
 ## Return value / error codes
-
-- 1: CSV file exists and is now selected.
-- 0: Failed. Common cases are blank path or file not found. Use vuMailLastError() for details.
+| Value | Meaning |
+|---|---|
+| 1 | CSV file exists and is now selected. |
+| 0 | Failed. Common cases are blank path or file not found. Use `vuMailLastError()` for details. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuMailSelectCSV(*CSTRING OutText),SIGNED,PROC,PASCAL,RAW,NAME('vuMailSelectCSV')
-  END
-END
-
 csvPath CSTRING(260)
 rc      LONG
 
@@ -36,9 +32,8 @@ END
 ```
 
 ## Notes
-
-- This function does not create a file; use vuMailCreateCSV() when you need to create/truncate a CSV first.
+- This function does not create a file; use `vuMailCreateCSV()` when you need to create/truncate a CSV first.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: vuMailDump.pdf, section heading vuMailSelectCSV.
+- Legacy reference: `vuMailDump.pdf`, section heading `vuMailSelectCSV`.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

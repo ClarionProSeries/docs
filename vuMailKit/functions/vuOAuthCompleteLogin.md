@@ -1,25 +1,27 @@
 ---
 title: "vuOAuthCompleteLogin"
-summary: "Completes an OAuth login after callback/device verification data is available."
-description: "Completes an OAuth login after callback/device verification data is available. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+summary: "Completes or polls an advanced/manual OAuth login flow."
+description: "Completes or polls an advanced/manual OAuth login flow after callback, device, or loopback verification data is available. Normal applications should use the vuMailKit Email Setup Wizard instead."
 keywords: ["vuMailKit", "OAuth", "vuOAuthCompleteLogin"]
 function_name: "vuOAuthCompleteLogin"
 category: "OAuth"
 version_added: "Legacy"
-last_updated: "2026-03-27"
+last_updated: "2026-06-24"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuOAuthCompleteLogin()
 
-```Prototype
-vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthCompleteLogin')
-```
-
 ## Purpose
 
-Finalizes OAuth sign-in using callback data or verification result text and stores token state for later SMTP/POP3 use.
+Completes or polls an OAuth sign-in flow for a provider/account pair and stores token state when authorization succeeds.
+
+For normal applications, use the [vuMailKit Email Setup Wizard](../getting-started/vumailkit-email-setup-wizard.md) instead of calling this directly.
+
+## Clarion prototype
+
+**Prototype:** vuOAuthCompleteLogin(*CSTRING Provider, *CSTRING AccountKey, *CSTRING CallbackText, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthCompleteLogin')
 
 ## Parameters
 
@@ -27,46 +29,53 @@ Finalizes OAuth sign-in using callback data or verification result text and stor
 |---|---|---|
 | Provider | *CSTRING | Provider identifier used in BeginLogin. |
 | AccountKey | *CSTRING | Account key used in BeginLogin. |
-| CallbackText | *CSTRING | Callback payload or verification completion text. |
+| CallbackText | *CSTRING | Callback payload, pasted redirect URL/code, or blank/poll text depending on flow type. |
 | OutText | *CSTRING | Output buffer receiving completion status text. |
-| OutTextLen | LONG | Size of OutText buffer in bytes. |
+| OutTextLen | LONG | Size of OutText in bytes. Pass SIZE(OutText). |
 
 ## Return value / error codes
 
-- >= 0: Result code from the OAuth core Complete operation.
-- -9: Core unavailable or exception.
+| Value | Meaning |
+|---|---|
+| 1 | Token state is present and usable. |
+| 3 | Authorization is still pending. |
+| 2 | Login is needed or the pending login expired/failed in a way that requires a new login. |
+| 0 | No token or pending state exists for this provider/account. |
+| -3 | Bad request, such as missing provider/account or missing required callback code. |
+| -5 | Requested provider/flow is not implemented. |
+| -9 | Provider error, invalid response, listener error, core unavailable, or internal exception. |
+| -12 | Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP password configuration instead. |
 
 ## Example (Clarion)
 
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthCompleteLogin')
-  END
-END
+Result       LONG
+Provider     CSTRING(64)
+AccountKey   CSTRING(256)
+CallbackText CSTRING(2048)
+OutText      CSTRING(2048)
+OutTextLen   LONG
 
-rc           LONG
-provider     CSTRING(64)
-accountKey   CSTRING(128)
-callbackData CSTRING(2048)
-outText      CSTRING(2048)
-outLen       LONG
+Provider     = 'microsoft'
+AccountKey   = 'user@example.com'
+CallbackText = ''
+CLEAR(OutText)
+OutTextLen   = SIZE(OutText)
 
-provider     = 'Microsoft'
-accountKey   = 'user@example.com'
-callbackData = 'code=...&state=...'
-outText      = ''
-outLen       = SIZE(outText)
-
-rc = vuOAuthCompleteLogin(provider, accountKey, callbackData, outText, outLen)
-IF rc < 0
-  MESSAGE('CompleteLogin failed: ' & rc & '| ' & outText)
+Result = vuOAuthCompleteLogin(Provider, AccountKey, CallbackText, OutText, OutTextLen)
+IF Result = 1
+  MESSAGE('OAuth authorization complete.')
+ELSIF Result = 3
+  MESSAGE('Authorization is still pending.')
+ELSE
+  MESSAGE('CompleteLogin result=' & Result & '| ' & OutText)
 END
 ```
 
 ## Notes
 
 - Provider and AccountKey must match the values used for BeginLogin state.
-- This function returns detailed diagnostic text through OutText.
+- Detailed provider or diagnostic text is returned through OutText when available.
+- After this function returns 1, later send/receive operations can use the stored OAuth token state for the same account.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

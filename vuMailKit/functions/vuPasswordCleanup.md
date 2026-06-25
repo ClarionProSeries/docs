@@ -1,7 +1,7 @@
 ---
 title: "vuPasswordCleanup"
 summary: "Removes the managed password-control behavior and destroys the generated eye button."
-description: "Performs deterministic cleanup for a managed password control by removing the eye button, restoring the original subclass chain, and releasing the helper state for that control. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Performs deterministic cleanup for a managed password control by removing the eye button, restoring the original subclass chain, and releasing the helper state for that control."
 keywords: ["vuMailKit", "password", "cleanup", "Clarion", "vuPasswordCleanup", "unsubclass"]
 function_name: "vuPasswordCleanup"
 category: "UI Helpers"
@@ -13,9 +13,9 @@ last_updated: "2026-03-27"
 
 # vuPasswordCleanup(ControlHandle)
 
-```Prototype
-vuPasswordCleanup(LONG InHwnd),SIGNED,PROC,PASCAL,RAW,NAME('vuPasswordCleanup')
-```
+## Clarion prototype
+
+**Prototype:** vuPasswordCleanup(LONG InHwnd), SIGNED, PROC, PASCAL, RAW, NAME('vuPasswordCleanup')
 
 ## Description
 
@@ -33,16 +33,18 @@ While Windows often tears this down automatically when a window closes, this fun
 
 | Parameter | Data Type | Description |
 |---|---|---|
-| InHwnd | LONG | Handle of the target control previously initialized with vuPasswordInit(). |
+| InHwnd | LONG | Handle of the target control previously initialized with `vuPasswordInit()`. |
 
 ## Returns
 
-- 1 = Cleanup successful
-- -5 = Control was not initialized
+| Value | Meaning |
+|---|---|
+| 1 | Cleanup successful |
+| -5 | Control was not initialized |
 
-## Example
+## Example (Clarion)
 
-```Clarion
+```clarion
 RC LONG
 
 RC = vuPasswordCleanup(?MyPassword{PROP:Handle})
@@ -52,7 +54,7 @@ RC = vuPasswordCleanup(?MyPassword{PROP:Handle})
 
 - This function is optional, but recommended when you want deterministic cleanup during window teardown.
 - A good place to call it is during your window shutdown logic.
-- After cleanup, the control is no longer managed by the password helper until vuPasswordInit() is called again.
+- After cleanup, the control is no longer managed by the password helper until `vuPasswordInit()` is called again.
 
 ## Related functions
 

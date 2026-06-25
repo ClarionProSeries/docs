@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusetmailsecurity">vuSetMailSecurity()</h1>
-<pre class="Prototype"><code>vuSetMailSecurity(*CSTRING InUser,*CSTRING InPassword,LONG InSecurityMode,LONG InUseSsl),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSetMailSecurity&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetMailSecurity(*CSTRING InUser,
+*CSTRING InPassword, LONG InSecurityMode, LONG InUseSsl), SIGNED, PROC,
+PASCAL, RAW, NAME('vuSetMailSecurity')</p>
 <h2 id="description">Description</h2>
 <p>This is the legacy vuMail function name.</p>
 <p>Preferred function name:</p>
@@ -39,7 +42,19 @@ href="../categories/index.html">Categories</a></p>
 <li><a href="vuSmtpSetSecurity.html">vuSmtpSetSecurity()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuSmtpSetSecurity().</p>
+identically to <code>vuSmtpSetSecurity()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc       LONG
+userName CSTRING(256)
+password CSTRING(256)
+
+userName = &#39;sender@example.com&#39;
+password = &#39;app-password-or-smtp-password&#39;
+
+rc = vuSetMailSecurity(userName, password, 1, 1)
+IF rc = 0
+  MESSAGE(&#39;SMTP security was not accepted: &#39; &amp; vuMailLastError())
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

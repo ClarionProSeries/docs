@@ -34,10 +34,11 @@ functions</a></p>
 <h1 id="vumailkit">vuMailKit</h1>
 <p><img src="assets/images/vuMailKit270x90.png" alt="vuMailKit" /></p>
 <p>Basic edition documentation</p>
-<p>Last Updated: 2026-04-22 Build: 152</p>
+<p>Current Version: <strong>vuMailKit 1.1.0</strong></p>
+<p>Last Updated: 2026-06-25</p>
 <p>Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights
 reserved.</p>
-<p>This documentation covers the current vuMailKit Basic edition
+<p>This documentation covers the current vuMailKit 1.1.0 Basic edition
 function set and the supporting setup, deployment, and usage notes
 needed by Clarion developers.</p>
 <p>Use the links below to browse the documentation.</p>
@@ -50,6 +51,7 @@ Template</a></li>
 <li><a href="template-usage.html">Using the Template in Your
 Application</a></li>
 <li><a href="migrating.html">Migrating from vuMail</a></li>
+<li><a href="getting-started/index.html">Getting Started</a></li>
 <li><a href="oauth/index.html">OAuth Setup</a></li>
 <li><a href="categories/index.html">Browse Functions by
 Category</a></li>
@@ -60,24 +62,156 @@ Category</a></li>
 <li><a href="support.html">Support</a></li>
 <li><a href="prohelpstudio.html">About ProHelp Studio</a></li>
 </ul>
+<h2 id="vumailkit-is-your-fastest-path-to-sending-an-email">vuMailKit is
+your fastest path to sending an email</h2>
+<p>vuMailKit is designed so you do not have to learn the whole function
+library before you can send mail.</p>
+<p>For a normal Clarion application, the short path is:</p>
+<ol type="1">
+<li>Add the vuMailKit global template to the EXE application.</li>
+<li>Enter the developer license string in the template, inside single
+quotes.</li>
+<li>Use the Clarion Utility Template command, CTRL+U, to import the <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a>.</li>
+<li>Compile the application.</li>
+<li>Run the compiled EXE and use the <strong>vuMailKit Email Setup
+Wizard</strong> to test the account.</li>
+<li>Save the working profile.</li>
+<li>Call a send function such as <a
+href="functions/vuSendMail.html">vuSendMail</a> or <a
+href="functions/vuSendMailWait.html">vuSendMailWait</a>. For normal
+Microsoft or Google OAuth accounts, the wizard handles authorization and
+profile saving, so your application does not need hand-coded OAuth flow
+code.</li>
+</ol>
+<p>In a Clarion multi-DLL application, add the vuMailKit template to the
+EXE app, not to the supporting DLL apps. The EXE startup code
+initializes vuMailKit licensing for the process, and the runtime DLL can
+then be used from anywhere in the running program.</p>
+<p>Hand-coded integrations must call <a
+href="functions/vuMailKitInitialize.html">vuMailKitInitialize</a> once
+at EXE startup before calling send, setup, autodetect, or profile
+functions. If initialization is skipped, those calls return -9001 and <a
+href="functions/vuMailLastError.html">vuMailLastError</a> reports a
+vuMailKit licensing/setup problem.</p>
+<h2 id="easier-html-email">Easier HTML email</h2>
+<p>If you want a cleaner-looking message, start with <a
+href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Simple
+HTML mode</a>. You can turn it on, optionally set a header image and
+footer image, pass ordinary body text, and let vuMailKit create the HTML
+wrapper and plain-text alternative for you.</p>
+<p>For more advanced work, use <a
+href="getting-started/use-tokenmerge-with-email-templates.html">TokenMerge</a>
+with external files so your application can personalize templates,
+insert generated invoice or statement text, and send the final result
+without rebuilding a mail-merge engine yourself.</p>
+<h2 id="start-here">Start here</h2>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="getting-started/index.html">Getting Started</a></td>
+<td>Task-based guides for the quickest path to success.</td>
+</tr>
+<tr>
+<td><a
+href="getting-started/what-most-developers-actually-use.html">What most
+developers actually use</a></td>
+<td>Explains the small set of calls most developers need day to
+day.</td>
+</tr>
+<tr>
+<td><a href="getting-started/first-time-setup.html">First-time
+setup</a></td>
+<td>Add the template, import the vuMailKit Email Setup Wizard with
+CTRL+U, compile the EXE, test settings, and save a reusable
+profile.</td>
+</tr>
+<tr>
+<td><a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a></td>
+<td>The vuMailKit Email Setup Wizard validates the address, detects
+server/OAuth settings, sends a test email, and saves the profile.</td>
+</tr>
+<tr>
+<td><a href="getting-started/send-your-first-email.html">Send your first
+email</a></td>
+<td>Send mail after vuMailKit has been initialized and a working profile
+has been saved.</td>
+</tr>
+<tr>
+<td><a href="getting-started/recommended-send-flow.html">Recommended
+send flow with a stored profile</a></td>
+<td>A copyable Clarion button-handler pattern for checking setup,
+offering the wizard, validating the recipient, sending, and showing
+useful diagnostics.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="oauth-setup">OAuth setup</h2>
 <p>If you plan to use Microsoft 365, Outlook.com, Google, or Gmail
-accounts with OAuth sign-in, start here:</p>
+accounts with OAuth sign-in, the normal path is still the
+<strong>vuMailKit Email Setup Wizard</strong>. Configure the provider
+values in the global template, import the wizard with CTRL+U, and let
+the wizard handle provider detection, authorization, testing, and
+profile save. Start here:</p>
 <ul>
 <li><a href="oauth/index.html">OAuth Overview</a></li>
 <li><a href="oauth/microsoft.html">Microsoft OAuth Setup</a></li>
 <li><a href="oauth/google-gmail.html">Google / Gmail OAuth
 Setup</a></li>
+<li><a href="functions-oauth.html">OAuth function notes</a></li>
 </ul>
 <h2 id="function-reference-browsing">Function reference browsing</h2>
-<p>You can browse the function reference in two ways:</p>
+<p>You can browse the function reference in several ways:</p>
 <ul>
 <li><a href="functions/index.html">View All Functions</a></li>
 <li><a href="categories/index.html">Browse by Category</a></li>
+<li><a href="functions/legacy-index.html">Legacy vuMail Function
+Names</a></li>
+<li><a href="functions/AboutFunctionNames.html">About Function
+Names</a></li>
+<li><a href="preferred-index.html">Preferred Functions for New
+Work</a></li>
+</ul>
+<h2 id="common-task-guides">Common task guides</h2>
+<ul>
+<li><a href="getting-started/recommended-send-flow.html">Recommended
+send flow with a stored profile</a></li>
+<li><a href="getting-started/send-an-html-email.html">Send an HTML
+email</a></li>
+<li><a
+href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
+a Simple HTML email with a company logo</a></li>
+<li><a
+href="getting-started/send-an-email-from-an-external-file.html">Send an
+email from an external file</a></li>
+<li><a
+href="getting-started/use-tokenmerge-with-email-templates.html">Use
+TokenMerge with email templates</a></li>
+<li><a
+href="getting-started/send-a-branded-html-email-from-a-template.html">Send
+a branded HTML email from a template</a></li>
+<li><a
+href="getting-started/send-a-form-letter-invoice-email-with-an-optional-personal-message.html">Send
+a form-letter invoice email with an optional personal message</a></li>
+<li><a href="getting-started/send-attachments.html">Send
+attachments</a></li>
+<li><a href="getting-started/send-an-embedded-image.html">Send an
+embedded image</a></li>
+<li><a href="getting-started/send-a-batch-from-csv.html">Send a batch of
+emails from CSV</a></li>
 </ul>
 <p>For the most up-to-date documentation:</p>
 <ul>
-<li>Online docs (recommended): <a
+<li>Online docs: <a
 href="https://clarionproseries.github.io/docs/vuMailKit/">https://clarionproseries.github.io/docs/vuMailKit/</a></li>
 <li>Source on GitHub: <a
 href="https://github.com/ClarionProSeries/docs/tree/main/vuMailKit">https://github.com/ClarionProSeries/docs/tree/main/vuMailKit</a></li>

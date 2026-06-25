@@ -31,7 +31,9 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vupop3delete">vuPOP3Delete()</h1>
-<pre class="Prototype"><code>vuPOP3Delete(LONG InMessageNumber),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3Delete&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuPOP3Delete(LONG InMessageNumber), LONG,
+PROC, PASCAL, RAW, NAME('vuPOP3Delete')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Marks one POP3 message for deletion on the server.</p>
 <h2 id="parameters">Parameters</h2>
@@ -52,18 +54,26 @@ href="../categories/index.html">Categories</a></p>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Message marked for deletion.</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>0: Message marked for deletion.</li>
-<li>&lt; 0: Invalid message number or POP3 command/state error.</li>
+<li><code>&lt; 0</code>: Invalid message number or POP3 command/state
+error.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuPOP3Delete(LONG InMessageNumber),LONG,PROC,PASCAL,RAW,NAME(&#39;vuPOP3Delete&#39;)
-  END
-END
-
-rc    LONG
+<pre class="clarion"><code>rc    LONG
 msgNo LONG
 
 msgNo = 1

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>functions-oauth</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
+<h1 id="oauth-functions">OAuth Functions</h1>
+<p>vuMailKit includes OAuth helper functions for modern provider sign-in
+flows.</p>
+<p>For most applications, these are advanced/manual helpers. The normal
+path is to configure OAuth provider values in the vuMailKit global
+template, import the <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a> with Clarion <strong>CTRL+U</strong>, compile the EXE,
+and let the wizard handle provider detection, OAuth authorization, test
+send, and profile save.</p>
+<p>After the wizard saves the working profile, normal send functions can
+use the saved profile without hand-coded OAuth flow code.</p>
+<p>For provider credential setup, start with:</p>
+<ul>
+<li><a href="oauth/index.html">OAuth Setup Overview</a></li>
+<li><a href="oauth/microsoft.html">Microsoft OAuth Setup</a></li>
+<li><a href="oauth/google-gmail.html">Google / Gmail OAuth
+Setup</a></li>
+</ul>
+<h2 id="common-oauth-functions">Common OAuth functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="functions/vuOAuthDetectProviderFromEmail.html">vuOAuthDetectProviderFromEmail</a></td>
+<td>Detects whether an email address maps to a known OAuth provider and
+reports the recommended auth mode/reason text.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthSetProvider.html">vuOAuthSetProvider</a></td>
+<td>Sets the default OAuth provider name used by helper flows.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthGetProvider.html">vuOAuthGetProvider</a></td>
+<td>Gets the default OAuth provider name from global settings.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthSetProviderEnabled.html">vuOAuthSetProviderEnabled</a></td>
+<td>Enables or disables provider support at runtime.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthSetClientSecret.html">vuOAuthSetClientSecret</a></td>
+<td>Stores a provider/account client secret for advanced manual OAuth
+flows.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthSetLoopbackPort.html">vuOAuthSetLoopbackPort</a></td>
+<td>Stores a loopback callback port for advanced manual OAuth
+flows.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthBeginLogin.html">vuOAuthBeginLogin</a></td>
+<td>Starts an OAuth login flow.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthLaunchUserVerification.html">vuOAuthLaunchUserVerification</a></td>
+<td>Opens the verification URL from a device-code style login and can
+copy the user code.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthLaunchAuthorizeUrl.html">vuOAuthLaunchAuthorizeUrl</a></td>
+<td>Opens the authorization URL captured from a BeginLogin flow.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthGetDeviceInfo.html">vuOAuthGetDeviceInfo</a></td>
+<td>Returns verification URL and user code captured from the last
+matching BeginLogin call.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuOAuthCompleteLogin.html">vuOAuthCompleteLogin</a></td>
+<td>Completes or polls OAuth login using callback or verification
+data.</td>
+</tr>
+<tr>
+<td><a href="functions/vuOAuthStatus.html">vuOAuthStatus</a></td>
+<td>Returns OAuth status text for a provider/account pair.</td>
+</tr>
+<tr>
+<td><a href="functions/vuOAuthRefresh.html">vuOAuthRefresh</a></td>
+<td>Refreshes OAuth tokens for a provider/account pair.</td>
+</tr>
+<tr>
+<td><a href="functions/vuOAuthClear.html">vuOAuthClear</a></td>
+<td>Clears stored OAuth state/tokens for a provider/account pair.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="provider-detection-return-codes">Provider-detection return
+codes</h2>
+<p>The <a
+href="functions/vuOAuthDetectProviderFromEmail.html">vuOAuthDetectProviderFromEmail</a>
+page contains the authoritative return-code details for provider
+detection. Review that page before relying on numeric provider codes in
+application logic.</p>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="preferred-index.html">Preferred Functions</a></li>
+<li><a href="functions/index.html#oauth-related">OAuth Related
+functions</a></li>
+<li><a href="getting-started/index.html">Getting Started</a></li>
+</ul>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
+</body>
+</html>

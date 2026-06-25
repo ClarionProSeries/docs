@@ -31,27 +31,39 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailselectcsvxcsvfilepath">vuMailSelectCSV(xCsvFilePath)</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailSelectCSV(*CSTRING OutText),
+SIGNED, PROC, PASCAL, RAW, NAME('vuMailSelectCSV')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Selects an existing CSV file so later vuMailAppendCSV() calls append
-rows to that file.</p>
+<p>Selects an existing CSV file so later <code>vuMailAppendCSV()</code>
+calls append rows to that file.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>xCsvFilePath (*CSTRING): Full path to an existing CSV file.</li>
+<li><code>xCsvFilePath</code> (*CSTRING): Full path to an existing CSV
+file.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: CSV file exists and is now selected.</li>
-<li>0: Failed. Common cases are blank path or file not found. Use
-vuMailLastError() for details.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CSV file exists and is now selected.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failed. Common cases are blank path or file not found. Use
+<code>vuMailLastError()</code> for details.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuMailSelectCSV(*CSTRING OutText),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailSelectCSV&#39;)
-  END
-END
-
-csvPath CSTRING(260)
+<pre class="clarion"><code>csvPath CSTRING(260)
 rc      LONG
 
 csvPath = &#39;C:\Temp\mailout.csv&#39;
@@ -61,11 +73,12 @@ IF rc = 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This function does not create a file; use vuMailCreateCSV() when you
-need to create/truncate a CSV first.</li>
+<li>This function does not create a file; use
+<code>vuMailCreateCSV()</code> when you need to create/truncate a CSV
+first.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: vuMailDump.pdf, section heading
-vuMailSelectCSV.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailSelectCSV</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

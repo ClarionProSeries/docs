@@ -7,7 +7,7 @@ page_type: "overview"
 last_updated: "2026-03-30"
 ---
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
 # vuMailKit - Template Registration
 
@@ -34,4 +34,4 @@ For step-by-step instructions on obtaining those provider credentials and enteri
 - [Microsoft OAuth Setup](oauth/microsoft.md)
 - [Google / Gmail OAuth Setup](oauth/google-gmail.md)
 
-[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md) | [OAuth](oauth/index.md)
+[Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)

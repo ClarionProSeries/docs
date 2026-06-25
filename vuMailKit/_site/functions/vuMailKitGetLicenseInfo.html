@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
@@ -39,14 +42,12 @@ test harness, About box, setup screen, or support dialog when you want
 to confirm what the DLL believes about the current license.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuMailKitGetLicenseInfo</li>
+<li><code>vuMailKitGetLicenseInfo</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuMailKitGetLicenseInfo(*CSTRING OutText,LONG
-OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailKitGetLicenseInfo(*CSTRING OutText,
+LONG OutTextLen), SIGNED, PROC, PASCAL, RAW,
+NAME('vuMailKitGetLicenseInfo')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -68,16 +69,38 @@ OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')</li>
 <td>OutTextLen</td>
 <td>LONG</td>
 <td>Size of OutText in bytes.</td>
-<td>Normally SIZE(OutText).</td>
+<td>Normally <code>SIZE(OutText)</code>.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value">Return value</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>no valid tier is active</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Basic</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pro</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Back Office</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>0 = no valid tier is active</li>
-<li>1 = Basic</li>
-<li>2 = Pro</li>
-<li>3 = Back Office</li>
 <li>negative value = function failed</li>
 </ul>
 <h2 id="what-the-text-includes">What the text includes</h2>
@@ -85,7 +108,8 @@ OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')</li>
 <ul>
 <li>whether initialization has been attempted</li>
 <li>whether the license is valid</li>
-<li>the last initialization result</li>
+<li>the last initialization result, including -9002 for invalid license
+initialization</li>
 <li>tier level</li>
 <li>tier token</li>
 <li>DEMO flag</li>
@@ -94,11 +118,9 @@ OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitGetLicenseInfo')</li>
 </ul>
 <p>Example output:</p>
 <ul>
-<li>Initialized=1; Valid=1; Attempted=1; LastInitCode=0;
-LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0;
-Name=Charles; Number=16123</li>
+<li><code>Initialized=1; Valid=1; Attempted=1; LastInitCode=0; LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0; Name=Charles; Number=16123</code></li>
 </ul>
-<h2 id="clarion-example">Clarion example</h2>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>OutText                  CSTRING(512)
 Result                   SIGNED
 
@@ -106,8 +128,11 @@ CLEAR(OutText)
 Result = vuMailKitGetLicenseInfo(OutText, SIZE(OutText))</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call vuMailKitInitialize() first if you want this function to
-reflect the intended active license.</li>
+<li>Current licensing/setup failures use -9001, -9002, and -9003 on
+gated functions. This diagnostic text can help confirm whether
+initialization was skipped, attempted, or successful.</li>
+<li>Call <code>vuMailKitInitialize()</code> first if you want this
+function to reflect the intended active license.</li>
 <li>This function is useful when testing normal licenses, DEMO licenses,
 and invalid-license behavior.</li>
 <li>The text is meant for display and diagnostics. Do not write program
@@ -116,5 +141,8 @@ logic that depends on parsing the exact wording.</li>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

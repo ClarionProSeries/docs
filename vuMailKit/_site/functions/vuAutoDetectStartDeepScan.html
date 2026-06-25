@@ -27,12 +27,34 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1 id="vuautodetectstartdeepscan">vuAutoDetectStartDeepScan</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuAutoDetectStartDeepScan(*CSTRING
+InEmailAddress), SIGNED, PROC, PASCAL, RAW,
+NAME('vuAutoDetectStartDeepScan')</p>
 <p>Starts an asynchronous deep autodetect job and returns a positive
-scan handle on success. Use this together with vuAutoDetectPollDeepScan,
-vuAutoDetectGetDeepScanResult, and vuAutoDetectReleaseDeepScan.</p>
+scan handle on success. Use this together with
+<code>vuAutoDetectPollDeepScan</code>,
+<code>vuAutoDetectGetDeepScanResult</code>, and
+<code>vuAutoDetectReleaseDeepScan</code>.</p>
 <p>Deep scan includes a DLL-side hard timeout of about 300 seconds so
-obviously bad or non-responsive domains do not leave the wizard probing
-forever.</p>
+obviously bad or non-responsive domains do not leave the vuMailKit Email
+Setup Wizard probing forever.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>handle LONG
+email  CSTRING(256)
+
+email = &#39;user@example.com&#39;
+handle = vuAutoDetectStartDeepScan(email)
+
+IF handle &lt;= 0
+  MESSAGE(&#39;Deep scan did not start: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

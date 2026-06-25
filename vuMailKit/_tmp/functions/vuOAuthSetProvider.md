@@ -3,41 +3,40 @@
 
 # vuOAuthSetProvider()
 
-```Prototype
-vuOAuthSetProvider(*CSTRING InProvider),LONG,PROC,PASCAL,RAW,NAME('vuOAuthSetProvider')
-```
-
 ## Purpose
 
 Stores the default OAuth provider identifier used by OAuth helper operations.
+
+This is an advanced/manual helper. The vuMailKit Email Setup Wizard normally detects and stores the provider as part of the setup/profile flow.
+
+## Clarion prototype
+
+**Prototype:** vuOAuthSetProvider(*CSTRING InProvider), LONG, PROC, PASCAL, RAW, NAME('vuOAuthSetProvider')
 
 ## Parameters
 
 | Parameter | Type | Description |
 |---|---|---|
-| InProvider | *CSTRING | Provider name to store (for example Microsoft or Google). |
+| InProvider | *CSTRING | Provider name to store, normally microsoft or google. |
 
 ## Return value / error codes
 
-- 1: Success.
-- -3: Bad request (provider string was blank).
+| Value | Meaning |
+|---|---|
+| 1 | Success. |
+| -3 | Bad request because the provider string was blank. |
+| -12 | Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP password configuration instead. |
 
 ## Example (Clarion)
 
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuOAuthSetProvider(*CSTRING InProvider),LONG,PROC,PASCAL,RAW,NAME('vuOAuthSetProvider')
-  END
-END
+Result   LONG
+Provider CSTRING(64)
 
-rc        LONG
-provider  CSTRING(64)
-
-provider = 'Microsoft'
-rc = vuOAuthSetProvider(provider)
-IF rc <> 1
-  MESSAGE('vuOAuthSetProvider failed: ' & rc)
+Provider = 'microsoft'
+Result = vuOAuthSetProvider(Provider)
+IF Result <> 1
+  MESSAGE('vuOAuthSetProvider failed: ' & Result)
 END
 ```
 

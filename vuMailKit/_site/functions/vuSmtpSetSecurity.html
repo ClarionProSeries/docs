@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusmtpsetsecurity">vuSmtpSetSecurity()</h1>
-<pre class="Prototype"><code>vuSmtpSetSecurity(*CSTRING InUser,*CSTRING InPassword,LONG InSecurityMode,LONG InUseSsl),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSmtpSetSecurity&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSmtpSetSecurity(*CSTRING InUser,
+*CSTRING InPassword, LONG InSecurityMode, LONG InUseSsl), SIGNED, PROC,
+PASCAL, RAW, NAME('vuSmtpSetSecurity')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Sets SMTP credentials and security flags used by vuMailKit send
 operations.</p>
@@ -68,17 +71,22 @@ operations.</p>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuSmtpSetSecurity(*CSTRING InUser,*CSTRING InPassword,LONG InSecurityMode,LONG InUseSsl),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSmtpSetSecurity&#39;)
-  END
-END
-
-rc       LONG
+<pre class="clarion"><code>rc       LONG
 userId   CSTRING(260)
 passwd   CSTRING(260)
 secType  LONG
@@ -96,7 +104,8 @@ END</code></pre>
 <ul>
 <li>Legacy alias: <a
 href="vuSetMailSecurity.html">vuSetMailSecurity()</a>.</li>
-<li>Writes runtime memory only; call vuGlobalsSave() to persist.</li>
+<li>Writes runtime memory only; call <code>vuGlobalsSave()</code> to
+persist.</li>
 <li>AuthMode/OAuth is configured separately via AuthMode/OAuth functions
 and is not set by this call.</li>
 </ul>

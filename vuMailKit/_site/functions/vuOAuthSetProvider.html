@@ -31,10 +31,15 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthsetprovider">vuOAuthSetProvider()</h1>
-<pre class="Prototype"><code>vuOAuthSetProvider(*CSTRING InProvider),LONG,PROC,PASCAL,RAW,NAME(&#39;vuOAuthSetProvider&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
 <p>Stores the default OAuth provider identifier used by OAuth helper
 operations.</p>
+<p>This is an advanced/manual helper. The vuMailKit Email Setup Wizard
+normally detects and stores the provider as part of the setup/profile
+flow.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthSetProvider(*CSTRING InProvider),
+LONG, PROC, PASCAL, RAW, NAME('vuOAuthSetProvider')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -48,29 +53,42 @@ operations.</p>
 <tr>
 <td>InProvider</td>
 <td>*CSTRING</td>
-<td>Provider name to store (for example Microsoft or Google).</td>
+<td>Provider name to store, normally microsoft or google.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Success.</li>
-<li>-3: Bad request (provider string was blank).</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Bad request because the provider string was blank.</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP
+password configuration instead.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthSetProvider(*CSTRING InProvider),LONG,PROC,PASCAL,RAW,NAME(&#39;vuOAuthSetProvider&#39;)
-  END
-END
+<pre class="clarion"><code>Result   LONG
+Provider CSTRING(64)
 
-rc        LONG
-provider  CSTRING(64)
-
-provider = &#39;Microsoft&#39;
-rc = vuOAuthSetProvider(provider)
-IF rc &lt;&gt; 1
-  MESSAGE(&#39;vuOAuthSetProvider failed: &#39; &amp; rc)
+Provider = &#39;microsoft&#39;
+Result = vuOAuthSetProvider(Provider)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;vuOAuthSetProvider failed: &#39; &amp; Result)
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>

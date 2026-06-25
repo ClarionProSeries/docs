@@ -31,7 +31,9 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vupop3getmessageid">vuPOP3GetMessageId()</h1>
-<pre class="Prototype"><code>vuPOP3GetMessageId(),CSTRING,PROC,PASCAL,RAW,NAME(&#39;vuPOP3GetMessageId&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuPOP3GetMessageId(), CSTRING, PROC,
+PASCAL, RAW, NAME('vuPOP3GetMessageId')</p>
 <h2 id="description">Description</h2>
 <p>Gets message-id text using the original vuMail compatibility
 behavior.</p>
@@ -40,7 +42,7 @@ behavior.</p>
 <li>Returns text using the original vuMail legacy text-return
 style.</li>
 <li>In Clarion, this function can be used directly in text expressions
-such as MESSAGE() and string assignment.</li>
+such as <code>MESSAGE()</code> and string assignment.</li>
 <li>If no text is available, the result may be empty.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
@@ -48,13 +50,13 @@ such as MESSAGE() and string assignment.</li>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Legacy compatibility exception: in the original PowerBasic vuMail
-code these functions exported a numeric DWORD that was actually the
-address of an internal C string buffer. Clarion can consume that value
-directly in string expressions, which is why the legacy examples use
-assignment and MESSAGE() style calls because the Clarion prototype is
-declared as CSTRING.</li>
-<li>New text-return APIs should use caller-owned *CSTRING output
-buffers.</li>
+code these functions exported a numeric <code>DWORD</code> that was
+actually the address of an internal C string buffer. Clarion can consume
+that value directly in string expressions, which is why the legacy
+examples use assignment and <code>MESSAGE()</code> style calls because
+the Clarion prototype is declared as <code>CSTRING</code>.</li>
+<li>New text-return APIs should use caller-owned <code>*CSTRING</code>
+output buffers.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

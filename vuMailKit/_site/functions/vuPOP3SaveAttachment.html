@@ -31,7 +31,9 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vupop3saveattachment">vuPOP3SaveAttachment()</h1>
-<pre class="Prototype"><code>vuPOP3SaveAttachment(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuPOP3SaveAttachment&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuPOP3SaveAttachment(*CSTRING
+InFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuPOP3SaveAttachment')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Saves one attachment from the currently loaded POP3 message by
 filename.</p>
@@ -53,19 +55,26 @@ filename.</p>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Attachment saved successfully.</li>
-<li>0: FileName is blank, attachment name not found, or save
-failed.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Attachment saved successfully.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>FileName is blank, attachment name not found, or save failed.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuPOP3SaveAttachment(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuPOP3SaveAttachment&#39;)
-  END
-END
-
-rc       LONG
+<pre class="clarion"><code>rc       LONG
 fileName CSTRING(260)
 
 fileName = &#39;invoice.pdf&#39;
@@ -75,8 +84,8 @@ IF rc = 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call vuPOP3LoadEmail before saving attachments.</li>
-<li>Output folder comes from vuPOP3SetFolder / POP3 folder
+<li>Call <code>vuPOP3LoadEmail</code> before saving attachments.</li>
+<li>Output folder comes from <code>vuPOP3SetFolder</code> / POP3 folder
 configuration.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

@@ -31,10 +31,16 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthcompletelogin">vuOAuthCompleteLogin()</h1>
-<pre class="Prototype"><code>vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthCompleteLogin&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Finalizes OAuth sign-in using callback data or verification result
-text and stores token state for later SMTP/POP3 use.</p>
+<p>Completes or polls an OAuth sign-in flow for a provider/account pair
+and stores token state when authorization succeeds.</p>
+<p>For normal applications, use the <a
+href="../getting-started/vumailkit-email-setup-wizard.html">vuMailKit
+Email Setup Wizard</a> instead of calling this directly.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthCompleteLogin(*CSTRING Provider,
+*CSTRING AccountKey, *CSTRING CallbackText, *CSTRING OutText, LONG
+OutTextLen), SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthCompleteLogin')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -58,7 +64,8 @@ text and stores token state for later SMTP/POP3 use.</p>
 <tr>
 <td>CallbackText</td>
 <td>*CSTRING</td>
-<td>Callback payload or verification completion text.</td>
+<td>Callback payload, pasted redirect URL/code, or blank/poll text
+depending on flow type.</td>
 </tr>
 <tr>
 <td>OutText</td>
@@ -68,46 +75,87 @@ text and stores token state for later SMTP/POP3 use.</p>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of OutText buffer in bytes.</td>
+<td>Size of OutText in bytes. Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li><blockquote>
-<p>= 0: Result code from the OAuth core Complete operation.</p>
-</blockquote></li>
-<li>-9: Core unavailable or exception.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Token state is present and usable.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Authorization is still pending.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Login is needed or the pending login expired/failed in a way that
+requires a new login.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No token or pending state exists for this provider/account.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Bad request, such as missing provider/account or missing required
+callback code.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Requested provider/flow is not implemented.</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>Provider error, invalid response, listener error, core unavailable,
+or internal exception.</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP
+password configuration instead.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthCompleteLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING CallbackText,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthCompleteLogin&#39;)
-  END
-END
+<pre class="clarion"><code>Result       LONG
+Provider     CSTRING(64)
+AccountKey   CSTRING(256)
+CallbackText CSTRING(2048)
+OutText      CSTRING(2048)
+OutTextLen   LONG
 
-rc           LONG
-provider     CSTRING(64)
-accountKey   CSTRING(128)
-callbackData CSTRING(2048)
-outText      CSTRING(2048)
-outLen       LONG
+Provider     = &#39;microsoft&#39;
+AccountKey   = &#39;user@example.com&#39;
+CallbackText = &#39;&#39;
+CLEAR(OutText)
+OutTextLen   = SIZE(OutText)
 
-provider     = &#39;Microsoft&#39;
-accountKey   = &#39;user@example.com&#39;
-callbackData = &#39;code=...&amp;state=...&#39;
-outText      = &#39;&#39;
-outLen       = SIZE(outText)
-
-rc = vuOAuthCompleteLogin(provider, accountKey, callbackData, outText, outLen)
-IF rc &lt; 0
-  MESSAGE(&#39;CompleteLogin failed: &#39; &amp; rc &amp; &#39;| &#39; &amp; outText)
+Result = vuOAuthCompleteLogin(Provider, AccountKey, CallbackText, OutText, OutTextLen)
+IF Result = 1
+  MESSAGE(&#39;OAuth authorization complete.&#39;)
+ELSIF Result = 3
+  MESSAGE(&#39;Authorization is still pending.&#39;)
+ELSE
+  MESSAGE(&#39;CompleteLogin result=&#39; &amp; Result &amp; &#39;| &#39; &amp; OutText)
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Provider and AccountKey must match the values used for BeginLogin
 state.</li>
-<li>This function returns detailed diagnostic text through OutText.</li>
+<li>Detailed provider or diagnostic text is returned through OutText
+when available.</li>
+<li>After this function returns 1, later send/receive operations can use
+the stored OAuth token state for the same account.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

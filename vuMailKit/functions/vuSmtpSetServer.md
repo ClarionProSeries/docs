@@ -1,7 +1,7 @@
 ---
 title: "vuSmtpSetServer"
 summary: "Sets the outbound SMTP server name and port."
-description: "Sets the outbound SMTP server name and port. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Sets the outbound SMTP server name and port."
 keywords: ["vuMailKit", "vuMail", "vusmtpsetserver", "vusetmailserver"]
 function_name: "vuSmtpSetServer"
 category: "SMTP"
@@ -14,19 +14,18 @@ last_updated: "2026-01-07"
 # vuSmtpSetServer()
 
 ## Description
-
-Sets the outbound SMTP server name and port. (legacy name: vuSetMailServer()).
+Sets the outbound SMTP server name and port. (legacy name: `vuSetMailServer()`).
 
 Previously exported as (legacy name, still supported):
 
 - [vuSetMailServer()](vuSetMailServer.md)
 
-### Parameters
+## Parameters
 
-- xServer (CSTRING) - SMTP server host name or IP.
-- xPort (LONG) - SMTP server port.
+- `xServer` (CSTRING) - SMTP server host name or IP.
+- `xPort` (LONG) - SMTP server port.
 
-### Returns
+## Return value
 
 A LONG value indicating the result.
 
@@ -34,9 +33,9 @@ A LONG value indicating the result.
 
 ### Notes
 
-This sets the values stored in the current vuMailKit session. Use vuGlobalsSave() if you want to persist them to the registry.
+This sets the values stored in the current vuMailKit session. Use `vuGlobalsSave()` if you want to persist them to the registry.
 
-### Example (Clarion)
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuSmtpSetServer   ROUTINE

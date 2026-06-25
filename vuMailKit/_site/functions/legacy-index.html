@@ -27,19 +27,23 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
 <h1 id="vumail-legacy-functions">vuMail Legacy Functions</h1>
 <p>Legacy vuMail function names are maintained for backward
-compatibility. Where a preferred modern function name exists, the legacy
-page points to it.</p>
+compatibility. Each page links back to the preferred vuMailKit
+function.</p>
 <p>Important legacy note: several original vuMail text helpers are
-documented as Clarion LONG returns, but in the original PowerBASIC DLL
-that numeric value was actually the address of an internal C string
-buffer. That is why the legacy Clarion examples use these functions
-directly in assignments and MESSAGE() expressions. This behavior is
-preserved only for compatibility and is not the model for new APIs.</p>
+documented as Clarion <code>LONG</code> returns, but in the original
+PowerBasic DLL that numeric value was actually the address of an
+internal C string buffer. That is why the legacy Clarion examples use
+these functions directly in assignments and <code>MESSAGE()</code>
+expressions. This behavior is preserved only for compatibility and is
+not the model for new APIs.</p>
 <table>
 <thead>
 <tr>
@@ -60,8 +64,8 @@ and managed profile behavior.</td>
 </tr>
 <tr>
 <td><a href="vuANSItoUTF8.html">vuANSItoUTF8</a></td>
-<td>Legacy ANSI-to-UTF8 conversion helper retained for
-compatibility.</td>
+<td>Converts ANSI text to a byte-preserving UTF-8 encoded legacy
+string.</td>
 </tr>
 <tr>
 <td><a href="vuCloseWhenComplete.html">vuCloseWhenComplete</a></td>
@@ -69,45 +73,51 @@ compatibility.</td>
 </tr>
 <tr>
 <td><a href="vuExtractMailAddr.html">vuExtractMailAddr</a></td>
-<td>Legacy email-address parsing helper retained for compatibility.</td>
+<td>Extracts the first email address found in input text.</td>
 </tr>
 <tr>
 <td><a href="vuFailureNotice.html">vuFailureNotice</a></td>
-<td>Requests a delivery failure notice for the next sent email.</td>
+<td>Requests a failure notice (delivery failure notification) for the
+next sent email.</td>
 </tr>
 <tr>
 <td><a href="vuGetCodePage.html">vuGetCodePage</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsGetCodePage.html">vuGlobalsGetCodePage</a>.</td>
+<td>Legacy alias for vuGlobalsGetCodePage(). (Preferred: <a
+href="vuGlobalsGetCodePage.html">vuGlobalsGetCodePage</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetFromReplyTo.html">vuGetFromReplyTo</a></td>
-<td>Legacy alias for <a
-href="vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo</a>.</td>
+<td>Legacy alias for vuSmtpGetFromReplyTo(). (Preferred: <a
+href="vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetMailLog.html">vuGetMailLog</a></td>
-<td>Legacy alias for <a href="vuLogGetFile.html">vuLogGetFile</a>.</td>
+<td>Gets the legacy sent-mail CSV log file path. (Preferred: <a
+href="vuLogGetFile.html">vuLogGetFile</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetMailProxy.html">vuGetMailProxy</a></td>
-<td>Legacy alias for <a
-href="vuNetGetProxy.html">vuNetGetProxy</a>.</td>
+<td>Legacy alias for vuNetGetProxy(). (Preferred: <a
+href="vuNetGetProxy.html">vuNetGetProxy</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetMailSecurity.html">vuGetMailSecurity</a></td>
-<td>Legacy alias for <a
-href="vuSmtpGetSecurity.html">vuSmtpGetSecurity</a>.</td>
+<td>Legacy alias for vuSmtpGetSecurity(). (Preferred: <a
+href="vuSmtpGetSecurity.html">vuSmtpGetSecurity</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetMailServer.html">vuGetMailServer</a></td>
-<td>Legacy alias for <a
-href="vuSmtpGetServer.html">vuSmtpGetServer</a>.</td>
+<td>Gets the outbound SMTP server name and port. (Preferred: <a
+href="vuSmtpGetServer.html">vuSmtpGetServer</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetSaveFolder.html">vuGetSaveFolder</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsGetEmailFolder.html">vuGlobalsGetEmailFolder</a>.</td>
+<td>Legacy alias for vuGlobalsGetEmailFolder(). (Preferred: <a
+href="vuGlobalsGetEmailFolder.html">vuGlobalsGetEmailFolder</a>)</td>
+</tr>
+<tr>
+<td><a href="vuGetUCodeFile.html">vuGetUCodeFile</a></td>
+<td>Returns the default UCode.txt compatibility file path.</td>
 </tr>
 <tr>
 <td><a href="vuHighPriority.html">vuHighPriority</a></td>
@@ -119,7 +129,7 @@ href="vuGlobalsGetEmailFolder.html">vuGlobalsGetEmailFolder</a>.</td>
 </tr>
 <tr>
 <td><a href="vuMailClient.html">vuMailClient</a></td>
-<td>Legacy default-mail-client helper retained for compatibility.</td>
+<td>Returns the default mail client name from the Windows registry.</td>
 </tr>
 <tr>
 <td><a href="vuMailCreateCSV.html">vuMailCreateCSV</a></td>
@@ -128,7 +138,8 @@ vuMailAppendCSV().</td>
 </tr>
 <tr>
 <td><a href="vuMailErrorDisplay.html">vuMailErrorDisplay</a></td>
-<td>Enables or disables automatic verbose error message display.</td>
+<td>Automatically displays a verbose error message when a send
+fails.</td>
 </tr>
 <tr>
 <td><a href="vuMailExport.html">vuMailExport</a></td>
@@ -136,8 +147,8 @@ vuMailAppendCSV().</td>
 </tr>
 <tr>
 <td><a href="vuMailGetGlobals.html">vuMailGetGlobals</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsLoad.html">vuGlobalsLoad</a>.</td>
+<td>Loads vuMailKit global settings into active runtime memory.
+(Preferred: <a href="vuGlobalsLoad.html">vuGlobalsLoad</a>)</td>
 </tr>
 <tr>
 <td><a href="vuMailImport.html">vuMailImport</a></td>
@@ -151,23 +162,21 @@ session.</td>
 </tr>
 <tr>
 <td><a href="vuMailLastError.html">vuMailLastError</a></td>
-<td>Gets the current last-error text using the legacy vuMail
-compatibility pattern using the legacy pointer-to-CString compatibility
-pattern.</td>
+<td>Returns the last verbose error message text.</td>
 </tr>
 <tr>
 <td><a href="vuMailSaveGlobals.html">vuMailSaveGlobals</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsSave.html">vuGlobalsSave</a>.</td>
+<td>Saves active runtime settings using the current persistence model.
+(Preferred: <a href="vuGlobalsSave.html">vuGlobalsSave</a>)</td>
 </tr>
 <tr>
 <td><a href="vuMailSaveName.html">vuMailSaveName</a></td>
-<td>Sets the .eml file name used when saving the next sent email.</td>
+<td>Sets the filename used when saving the next sent email as an .eml
+file.</td>
 </tr>
 <tr>
 <td><a href="vuMailSelectCSV.html">vuMailSelectCSV</a></td>
-<td>Selects an existing CSV file for subsequent vuMailAppendCSV()
-calls.</td>
+<td>Selects an existing CSV file for vuMailAppendCSV().</td>
 </tr>
 <tr>
 <td><a href="vuMailStatus.html">vuMailStatus</a></td>
@@ -175,217 +184,113 @@ calls.</td>
 </tr>
 <tr>
 <td><a href="vuMailSuccessDisplay.html">vuMailSuccessDisplay</a></td>
-<td>Enables or disables automatic success message display.</td>
+<td>Displays a success message each time an email is sent
+successfully.</td>
 </tr>
 <tr>
 <td><a href="vuMailTo.html">vuMailTo</a></td>
-<td>Opens the default mail client using a mailto: URI built from message
+<td>Opens the default mail client with To/Cc/Bcc/Subject/Body
 fields.</td>
 </tr>
 <tr>
 <td><a href="vuMailToA.html">vuMailToA</a></td>
-<td>Opens the default mail client using a mailto: URI and includes an
-attachment hint parameter.</td>
+<td>Opens the default mail client with To/Cc/Bcc/Subject/Body plus
+attachment hint.</td>
 </tr>
 <tr>
 <td><a
 href="vuNoPasswordInRegistry.html">vuNoPasswordInRegistry</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsSetNoPasswordInRegistry.html">vuGlobalsSetNoPasswordInRegistry</a>.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3AttachmentName.html">vuPOP3AttachmentName</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3Connect.html">vuPOP3Connect</a></td>
-<td>Opens a POP3 connection using host, user, and password values.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3Count.html">vuPOP3Count</a></td>
-<td>Returns the number of messages currently available in the POP3
-mailbox.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3Delete.html">vuPOP3Delete</a></td>
-<td>Marks a POP3 message for deletion by message number.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3Disconnect.html">vuPOP3Disconnect</a></td>
-<td>Closes the active POP3 connection.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetDate.html">vuPOP3GetDate</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
+<td>Controls whether the SMTP password is saved in the registry.
+(Preferred: <a
+href="vuGlobalsSetNoPasswordInRegistry.html">vuGlobalsSetNoPasswordInRegistry</a>)</td>
 </tr>
 <tr>
 <td><a href="vuPOP3GetFolder.html">vuPOP3GetFolder</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetFrom.html">vuPOP3GetFrom</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetHTMLText.html">vuPOP3GetHTMLText</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetMessageId.html">vuPOP3GetMessageId</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
+<td>Gets the POP3 folder used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3GetPassword.html">vuPOP3GetPassword</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetPlainText.html">vuPOP3GetPlainText</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetReturnPath.html">vuPOP3GetReturnPath</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
+<td>Gets the POP3 password used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3GetServer.html">vuPOP3GetServer</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3GetSubject.html">vuPOP3GetSubject</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
+<td>Gets the POP3 server used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3GetUser.html">vuPOP3GetUser</a></td>
-<td>Legacy POP3 text getter retained for compatibility.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3HaveAttachments.html">vuPOP3HaveAttachments</a></td>
-<td>Reports whether the currently loaded POP3 message contains
-attachments.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3HaveHTMLText.html">vuPOP3HaveHTMLText</a></td>
-<td>Reports whether the currently loaded POP3 message contains an HTML
-body.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3HavePlainText.html">vuPOP3HavePlainText</a></td>
-<td>Reports whether the currently loaded POP3 message contains a
-plain-text body.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3LoadEmail.html">vuPOP3LoadEmail</a></td>
-<td>Loads a full POP3 message by message number into the current
-in-process session.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3LoadHeader.html">vuPOP3LoadHeader</a></td>
-<td>Loads POP3 headers for a message by message number into the current
-in-process session.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3SaveAttachment.html">vuPOP3SaveAttachment</a></td>
-<td>Saves a named attachment from the loaded POP3 message into the
-configured POP3 folder.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3SaveAttachments.html">vuPOP3SaveAttachments</a></td>
-<td>Saves all attachments from the loaded POP3 message into the
-configured POP3 folder.</td>
+<td>Gets the POP3 user used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3SetFolder.html">vuPOP3SetFolder</a></td>
-<td>Sets the POP3 save folder in memory.</td>
+<td>Sets the POP3 folder used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3SetPassword.html">vuPOP3SetPassword</a></td>
-<td>Sets the POP3 password in memory.</td>
+<td>Sets the POP3 password used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3SetServer.html">vuPOP3SetServer</a></td>
-<td>Sets the POP3 server name in memory.</td>
+<td>Sets the POP3 server used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuPOP3SetUser.html">vuPOP3SetUser</a></td>
-<td>Sets the POP3 user name in memory.</td>
-</tr>
-<tr>
-<td><a href="vuPOP3Size.html">vuPOP3Size</a></td>
-<td>Returns the size, in bytes, of a POP3 message by message
-number.</td>
+<td>Sets the POP3 user used for receiving email.</td>
 </tr>
 <tr>
 <td><a href="vuReadUCodeFile.html">vuReadUCodeFile</a></td>
-<td>Legacy UCode file-read helper retained for compatibility.</td>
+<td>Reads UTF-8 text from a specified UCode file path.</td>
 </tr>
 <tr>
 <td><a href="vuRequestReceipt.html">vuRequestReceipt</a></td>
 <td>Requests a return receipt for the next sent email.</td>
 </tr>
 <tr>
-<td><a href="vuSendMail.html">vuSendMail</a></td>
-<td>Queues one email for background SMTP delivery.</td>
-</tr>
-<tr>
-<td><a href="vuSendMailFromFile.html">vuSendMailFromFile</a></td>
-<td>Queues outbound emails from a CSV file.</td>
-</tr>
-<tr>
-<td><a href="vuSendMailWait.html">vuSendMailWait</a></td>
-<td>Queues one email and waits for SMTP processing to finish.</td>
-</tr>
-<tr>
 <td><a href="vuSetCodePage.html">vuSetCodePage</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsSetCodePage.html">vuGlobalsSetCodePage</a>.</td>
+<td>Legacy alias for vuGlobalsSetCodePage(). (Preferred: <a
+href="vuGlobalsSetCodePage.html">vuGlobalsSetCodePage</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetFromReplyTo.html">vuSetFromReplyTo</a></td>
-<td>Legacy alias for <a
-href="vuSmtpSetFromReplyTo.html">vuSmtpSetFromReplyTo</a>.</td>
-</tr>
-<tr>
-<td><a href="vuSetImageSize.html">vuSetImageSize</a></td>
-<td>Legacy image-size hint setter retained for compatibility.</td>
+<td>Legacy alias for vuSmtpSetFromReplyTo(). (Preferred: <a
+href="vuSmtpSetFromReplyTo.html">vuSmtpSetFromReplyTo</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetMailLog.html">vuSetMailLog</a></td>
-<td>Legacy alias for <a href="vuLogSetFile.html">vuLogSetFile</a>.</td>
+<td>Sets the legacy sent-mail CSV log file path. (Preferred: <a
+href="vuLogSetFile.html">vuLogSetFile</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetMailProxy.html">vuSetMailProxy</a></td>
-<td>Legacy alias for <a
-href="vuNetSetProxy.html">vuNetSetProxy</a>.</td>
+<td>Legacy alias for vuNetSetProxy(). (Preferred: <a
+href="vuNetSetProxy.html">vuNetSetProxy</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetMailSecurity.html">vuSetMailSecurity</a></td>
-<td>Legacy alias for <a
-href="vuSmtpSetSecurity.html">vuSmtpSetSecurity</a>.</td>
+<td>Legacy alias for vuSmtpSetSecurity(). (Preferred: <a
+href="vuSmtpSetSecurity.html">vuSmtpSetSecurity</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetMailServer.html">vuSetMailServer</a></td>
-<td>Legacy alias for <a
-href="vuSmtpSetServer.html">vuSmtpSetServer</a>.</td>
+<td>Sets the outbound SMTP server name and port. (Preferred: <a
+href="vuSmtpSetServer.html">vuSmtpSetServer</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetSaveFolder.html">vuSetSaveFolder</a></td>
-<td>Legacy alias for <a
-href="vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder</a>.</td>
+<td>Legacy alias for vuGlobalsSetEmailFolder(). (Preferred: <a
+href="vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder</a>)</td>
 </tr>
 <tr>
 <td><a href="vuUTF8toANSI.html">vuUTF8toANSI</a></td>
-<td>Legacy UTF8-to-ANSI conversion helper retained for
-compatibility.</td>
+<td>Converts byte-preserving UTF-8 input to decoded text.</td>
 </tr>
 <tr>
 <td><a href="vuValidateMailAddr.html">vuValidateMailAddr</a></td>
-<td>Validates a practical real-world internet email address, rejects
-obvious malformed values, and flags certain typo-like domains as
-suspicious.</td>
+<td>Validates a practical internet email address, rejects malformed
+values, and can flag suspicious typo-like domains.</td>
 </tr>
 <tr>
 <td><a href="vuViewMail.html">vuViewMail</a></td>
-<td>Opens an existing mail file using the Windows shell-associated
+<td>Opens a mail file using the default shell-associated
 application.</td>
 </tr>
 </tbody>
@@ -393,5 +298,8 @@ application.</td>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

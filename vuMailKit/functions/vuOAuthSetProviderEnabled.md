@@ -1,47 +1,56 @@
 ---
 title: "vuOAuthSetProviderEnabled"
-summary: "Enable or disable OAuth support for a specific provider at runtime."
+summary: "Enables or disables OAuth support for a provider at runtime."
 version_added: "1.0"
-last_updated: "2026-03-01"
+last_updated: "2026-06-24"
 ---
 
-# vuOAuthSetProviderEnabled
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
-This is a preferred function introduced in vuMailKit 1.0.
+# vuOAuthSetProviderEnabled()
 
 ## Purpose
 
-Allow the application to explicitly enable or suppress OAuth support for a specific provider.
-This is used to keep the setup UX honest: if a provider is detected but the application does not
-support OAuth for that provider (for example, no app credentials have been configured yet, or the
-developer chooses to suppress it), vuMailKit should not present OAuth as an available option.
+Enables or disables OAuth support for a specific provider during the current process.
+
+This is used by setup screens to keep provider detection honest. A provider may be detected from an address, but OAuth should not be offered unless that provider is enabled and the required app credentials are present.
 
 This function does not persist settings. It affects the current process runtime only.
 
+## Clarion prototype
+
+**Prototype:** vuOAuthSetProviderEnabled(LONG InProviderId, LONG InEnabled), LONG, PROC, PASCAL, RAW, NAME('vuOAuthSetProviderEnabled')
+
 ## Parameters
 
-- Provider (LONG)  
-  Provider constant:
+| Parameter | Type | Description |
+|---|---|---|
+| InProviderId | LONG | Provider id: 1 = Google/Gmail, 2 = Microsoft, 3 = Yahoo/AOL legacy disabled. |
+| InEnabled | LONG | 0 = disable OAuth for this provider, 1 = enable OAuth for this provider. |
 
-  - 1 = Google / Gmail
-  - 2 = Microsoft 365 / Outlook
-  - 3 = Yahoo / AOL (legacy disabled; enabling it does not restore active Yahoo OAuth support)
+## Return value / error codes
 
-- EnableFlag (LONG)  
-  - 0 = Disable OAuth for this provider
-  - 1 = Enable OAuth for this provider
+| Value | Meaning |
+|---|---|
+| 1 | Success. |
+| 0 | Unknown provider id. |
+| -3 | InEnabled was not 0 or 1. |
 
-## Return Value
+## Example (Clarion)
 
-Returns a LONG result code:
+```clarion
+Result LONG
 
-- 1 = Success
-- 0 = Failure (unknown provider)
+! Enable Google/Gmail OAuth for the current process.
+Result = vuOAuthSetProviderEnabled(1, 1)
+IF Result <> 1
+  MESSAGE('OAuth provider setting was not changed: ' & Result)
+END
+```
 
 ## Notes
 
-- This function is part of the "hybrid" policy model:
-  - A provider must be enabled, and required app credentials must be present, for OAuth to be considered supported.
-- See also:
-  - [vuOAuthDetectProviderFromEmail](../functions-oauth.md)
-    - [OAuth Support](../oauth.md)
+- Provider id 3 is preserved for Yahoo/AOL legacy-disabled handling. Enabling it does not restore active Yahoo OAuth support.
+- A provider must be enabled and have required app credentials before [vuOAuthDetectProviderFromEmail](vuOAuthDetectProviderFromEmail.md) reports it as supported.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

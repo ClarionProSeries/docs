@@ -1,4 +1,6 @@
 
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
+
 [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)
 
 # vuHaveStoredProfile
@@ -10,16 +12,16 @@ Return whether any managed vuMailKit profile has already been saved for the curr
 This helper is mainly useful for:
 
 - demo app first-run logic
-- offering the setup wizard when no secure profile exists yet
+- offering the vuMailKit Email Setup Wizard when no secure profile exists yet
 - diagnostics and support checks
 
 ## Export name
 
-- vuHaveStoredProfile
+- `vuHaveStoredProfile`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')
+**Prototype:** vuHaveStoredProfile(), LONG, PROC, PASCAL, RAW, NAME('vuHaveStoredProfile')
 
 ## Parameters
 
@@ -27,12 +29,14 @@ This helper is mainly useful for:
 
 ## Return value
 
-- 1 = at least one managed profile exists
-- 0 = no managed profile exists, or the check failed
+| Value | Meaning |
+|---|---|
+| 1 | at least one managed profile exists |
+| 0 | no managed profile exists, or the check failed |
 
 ## What it does
 
-vuHaveStoredProfile() checks the managed profile store under the current Windows user and reports whether any saved managed profile files are present.
+`vuHaveStoredProfile()` checks the managed profile store under the current Windows user and reports whether any saved managed profile files are present.
 
 This function only answers the managed-profile question.
 
@@ -44,14 +48,15 @@ It does **not** mean:
 
 That distinction matters for migration scenarios. An older vuMail application may still have working legacy settings even when no managed profile exists yet.
 
-## Clarion example
+## Example (Clarion)
 
 ```clarion
 HaveProfile            LONG
 
 HaveProfile = vuHaveStoredProfile()
 IF (HaveProfile = 0)
-  MESSAGE('No secure vuMailKit profile was found. You may want to run the setup wizard now.')
+  MESSAGE('No secure vuMailKit profile was found. ' & |
+    'You may want to run the vuMailKit Email Setup Wizard now.')
 END
 ```
 
@@ -59,6 +64,9 @@ END
 
 - This function is best used as a gentle setup hint, not as a hard requirement.
 - For migrated legacy applications, 0 may simply mean the developer has not moved the application to managed profiles yet.
-- In a demo application, a result of 0 is a good time to offer the setup wizard.
+- In a demo application or first-run profile-based application, a result of 0 is a good time to offer the vuMailKit Email Setup Wizard.
+- See [Recommended send flow with a stored profile](../getting-started/recommended-send-flow.md) for a fuller button-handler pattern.
 
 [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSetSimpleHTMLNormalizeBody</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1
+id="vusetsimplehtmlnormalizebody">vuSetSimpleHTMLNormalizeBody()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetSimpleHTMLNormalizeBody(LONG
+InState), SIGNED, PROC, PASCAL, RAW,
+NAME('vuSetSimpleHTMLNormalizeBody')</p>
+<p>Controls how the center body content is prepared when Simple HTML
+mode is active.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InState</td>
+<td>0 inserts the body as an HTML fragment exactly as supplied. Any
+non-zero value treats the body as ordinary text, normalizes line
+endings, converts them into HTML-friendly breaks, and safely escapes
+HTML-sensitive characters.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc LONG
+
+! Use ordinary text in the email body and let vuMailKit make it HTML-safe.
+rc = vuSetSimpleHTMLNormalizeBody(1)
+
+! Use this instead when cBody already contains an HTML fragment.
+! rc = vuSetSimpleHTMLNormalizeBody(0)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>The default after <a
+href="vuResetSimpleHTML.html">vuResetSimpleHTML</a> is on.</li>
+<li>Use <code>TRUE</code> when the body is ordinary text.</li>
+<li>Use <code>FALSE</code> when the body is already an HTML fragment and
+should be inserted as-is.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

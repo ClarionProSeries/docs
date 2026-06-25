@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
@@ -37,31 +40,44 @@ for the current Windows user.</p>
 <p>This helper is mainly useful for:</p>
 <ul>
 <li>demo app first-run logic</li>
-<li>offering the setup wizard when no secure profile exists yet</li>
+<li>offering the vuMailKit Email Setup Wizard when no secure profile
+exists yet</li>
 <li>diagnostics and support checks</li>
 </ul>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuHaveStoredProfile</li>
+<li><code>vuHaveStoredProfile</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuHaveStoredProfile(),LONG,PROC,PASCAL,RAW,NAME('vuHaveStoredProfile')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuHaveStoredProfile(), LONG, PROC,
+PASCAL, RAW, NAME('vuHaveStoredProfile')</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
 <li>None.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
-<ul>
-<li>1 = at least one managed profile exists</li>
-<li>0 = no managed profile exists, or the check failed</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>at least one managed profile exists</td>
+</tr>
+<tr>
+<td>0</td>
+<td>no managed profile exists, or the check failed</td>
+</tr>
+</tbody>
+</table>
 <h2 id="what-it-does">What it does</h2>
-<p>vuHaveStoredProfile() checks the managed profile store under the
-current Windows user and reports whether any saved managed profile files
-are present.</p>
+<p><code>vuHaveStoredProfile()</code> checks the managed profile store
+under the current Windows user and reports whether any saved managed
+profile files are present.</p>
 <p>This function only answers the managed-profile question.</p>
 <p>It does <strong>not</strong> mean:</p>
 <ul>
@@ -73,12 +89,13 @@ manually</li>
 <p>That distinction matters for migration scenarios. An older vuMail
 application may still have working legacy settings even when no managed
 profile exists yet.</p>
-<h2 id="clarion-example">Clarion example</h2>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>HaveProfile            LONG
 
 HaveProfile = vuHaveStoredProfile()
 IF (HaveProfile = 0)
-  MESSAGE(&#39;No secure vuMailKit profile was found. You may want to run the setup wizard now.&#39;)
+  MESSAGE(&#39;No secure vuMailKit profile was found. &#39; &amp; |
+    &#39;You may want to run the vuMailKit Email Setup Wizard now.&#39;)
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
@@ -86,11 +103,18 @@ END</code></pre>
 requirement.</li>
 <li>For migrated legacy applications, 0 may simply mean the developer
 has not moved the application to managed profiles yet.</li>
-<li>In a demo application, a result of 0 is a good time to offer the
-setup wizard.</li>
+<li>In a demo application or first-run profile-based application, a
+result of 0 is a good time to offer the vuMailKit Email Setup
+Wizard.</li>
+<li>See <a
+href="../getting-started/recommended-send-flow.html">Recommended send
+flow with a stored profile</a> for a fuller button-handler pattern.</li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a
 href="AboutFunctionNames.html">About function names</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

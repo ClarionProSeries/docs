@@ -31,27 +31,39 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailcreatecsvxcsvfilepath">vuMailCreateCSV(xCsvFilePath)</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailCreateCSV(*CSTRING InFileName),
+SIGNED, PROC, PASCAL, RAW, NAME('vuMailCreateCSV')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Creates (or truncates) the target CSV file and stores it as the
-selected CSV used by vuMailAppendCSV().</p>
+selected CSV used by <code>vuMailAppendCSV()</code>.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>xCsvFilePath (*CSTRING): Full path to the CSV file.</li>
+<li><code>xCsvFilePath</code> (*CSTRING): Full path to the CSV
+file.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: CSV created and selected.</li>
-<li>0: Failure (for example blank path or file create failure). Error
-text is available through vuMailLastError().</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CSV created and selected.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure (for example blank path or file create failure). Error text
+is available through <code>vuMailLastError()</code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuMailCreateCSV(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailCreateCSV&#39;)
-  END
-END
-
-csvPath CSTRING(260)
+<pre class="clarion"><code>csvPath CSTRING(260)
 csvPath = &#39;C:\Temp\mailout.csv&#39;
 IF vuMailCreateCSV(csvPath) = 0
   MESSAGE(&#39;Create CSV failed: &#39; &amp; vuMailLastError())
@@ -61,8 +73,8 @@ END</code></pre>
 <li>If needed, parent directories are created.</li>
 <li>A blank path returns 0.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: vuMailDump.pdf, section heading
-vuMailCreateCSV.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailCreateCSV</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

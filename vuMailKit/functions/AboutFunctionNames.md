@@ -1,7 +1,7 @@
 ---
 title: "AboutFunctionNames"
 summary: "How vuMailKit preferred function names are structured and why they exist."
-description: "Explains the preferred vuMailKit function naming scheme, how it groups related functions, and how it relates to legacy vuMail names. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Explains the preferred vuMailKit function naming scheme, how it groups related functions, and how it relates to legacy vuMail names."
 keywords: ["vuMailKit", "vuMail", "function names", "naming", "api", "aliases", "Clarion"]
 function_name: "AboutFunctionNames"
 category: "Concepts"
@@ -24,24 +24,24 @@ Preferred names exist so new development can use a cleaner, grouped naming patte
 
 All preferred names follow this format:
 
-- vu + Subsystem + Verb + Thing
+- `vu` + `Subsystem` + `Verb` + `Thing`
 
 Rules:
 
-- Preferred names start with the lowercase prefix vu.
-- Immediately after vu is a subsystem marker that groups related functions together.
+- Preferred names start with the lowercase prefix `vu`.
+- Immediately after `vu` is a subsystem marker that groups related functions together.
 - Within a subsystem, function names use consistent verb and noun ordering.
 
 Examples:
 
-- vuSmtpSetServer
-- vuSmtpGetServer
-- vuLogSetFile
-- vuLogGetFile
-- vuGlobalsSave
-- vuGlobalsLoad
-- vuPop3Connect
-- vuPop3LoadEmail
+- `vuSmtpSetServer`
+- `vuSmtpGetServer`
+- `vuLogSetFile`
+- `vuLogGetFile`
+- `vuGlobalsSave`
+- `vuGlobalsLoad`
+- `vuPop3Connect`
+- `vuPop3LoadEmail`
 
 ## Subsystem markers
 
@@ -55,7 +55,7 @@ Examples:
 | vuLog | Log file path and logging options |
 | vuNet | Proxy, transport, and network related settings |
 
-Additional subsystem markers may be added as needed, but the rule remains: the subsystem marker comes immediately after vu.
+Additional subsystem markers may be added as needed, but the rule remains: the subsystem marker comes immediately after `vu`.
 
 ## How to read the names
 
@@ -63,9 +63,9 @@ The subsystem tells you where to look, and the verb tells you what the function 
 
 Examples:
 
-- vuSmtpSetServer means "SMTP subsystem, set the server value".
-- vuLogGetFile means "Log subsystem, get the configured file path".
-- vuGlobalsLoad means "Globals subsystem, load values into memory for this run".
+- `vuSmtpSetServer` means "SMTP subsystem, set the server value".
+- `vuLogGetFile` means "Log subsystem, get the configured file path".
+- `vuGlobalsLoad` means "Globals subsystem, load values into memory for this run".
 
 ## How this relates to legacy names
 

@@ -27,26 +27,22 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
-<p><a href="index.html">All functions</a> | <a
-href="legacy-index.html">Legacy functions</a> | <a
-href="AboutFunctionNames.html">About function names</a></p>
-<h1 id="vumailkitinitialize">vuMailKitInitialize</h1>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vumailkitinitialize">vuMailKitInitialize()</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Initialize vuMailKit licensing for the current process.</p>
 <p>Call this once at EXE startup and pass the license string generated
 for the developer. This call enables the licensed feature set for the
 running process, including Basic, Pro, Back Office, and DEMO
 licenses.</p>
-<h2 id="export-name">Export name</h2>
-<ul>
-<li>vuMailKitInitialize</li>
-</ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuMailKitInitialize(*CSTRING
-LicenseString),SIGNED,PROC,PASCAL,RAW,NAME('vuMailKitInitialize')</li>
-</ul>
+<p>In a normal Clarion application, the vuMailKit global template
+generates this startup call for you.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailKitInitialize(*CSTRING
+LicenseString), SIGNED, PROC, PASCAL, RAW,
+NAME('vuMailKitInitialize')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -67,52 +63,126 @@ string leaves the process unlicensed.</td>
 </tr>
 </tbody>
 </table>
+<h2 id="template-license-format">Template license format</h2>
+<p>When you enter the license in the vuMailKit global template, enter it
+inside single quotes.</p>
+<p>Example format:</p>
+<pre class="text"><code>&#39;license-string&#39;</code></pre>
+<p>The template places that value into the generated startup code and
+passes it to <code>vuMailKitInitialize()</code>.</p>
 <h2 id="when-to-call-this">When to call this</h2>
-<p>Call vuMailKitInitialize() once before Main or before you open
-windows that can use vuMailKit.</p>
+<p>Call <code>vuMailKitInitialize()</code> once before setup,
+autodetect, profile, or send code can run.</p>
 <p>Typical EXE startup pattern:</p>
 <ul>
 <li>copy the developer license string into a CSTRING</li>
-<li>call vuMailKitInitialize(LicenseString)</li>
+<li>call <code>vuMailKitInitialize(LicenseString)</code></li>
 <li>continue into the rest of the application</li>
 </ul>
-<p>This is the normal pattern for:</p>
-<ul>
-<li>Basic</li>
-<li>Pro</li>
-<li>Back Office</li>
-<li>DEMO builds</li>
-</ul>
-<h2 id="return-value">Return value</h2>
-<ul>
-<li>0 = initialization succeeded</li>
-<li>negative value = initialization failed</li>
-</ul>
-<p>Common negative results:</p>
-<ul>
-<li>-402 = license was invalid or initialization failed</li>
-</ul>
-<h2 id="clarion-example">Clarion example</h2>
-<pre class="clarion"><code>LicenseString            CSTRING(512)
-Result                   SIGNED
+<p>In a Clarion multi-DLL application, initialize from the EXE app. The
+supporting DLL apps should not each try to own licensing startup.</p>
+<h2 id="return-value-from-this-function">Return value from this
+function</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Initialization succeeded.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td>License string was blank or invalid, initialization was attempted
+again with a different license string, or initialization failed
+unexpectedly.</td>
+</tr>
+<tr>
+<td>-451</td>
+<td>vuMailKit detected conflicting .NET mail/runtime files in the
+application folder before license validation started. Move the Clarion
+EXE/runtime to a clean folder or remove the unrelated .NET
+mail/OAuth/runtime files from that folder.</td>
+</tr>
+</tbody>
+</table>
+<p>The -451 result is a deployment-folder conflict warning. It is not a
+virus warning, not a license failure, and not an SMTP, OAuth, Gmail,
+password, or mail-server authentication failure.</p>
+<h2 id="related-licensing-return-codes-from-later-calls">Related
+licensing return codes from later calls</h2>
+<p><code>vuMailKitInitialize()</code> itself does not return -9001 or
+-9003. Those are returned by later license-gated functions.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Where it appears</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-9001</td>
+<td>Later gated functions</td>
+<td>vuMailKit licensing was never initialized. The EXE did not call
+<code>vuMailKitInitialize()</code> successfully before using send,
+setup, autodetect, or profile functions.</td>
+</tr>
+<tr>
+<td>-9002</td>
+<td><code>vuMailKitInitialize()</code> or later gated functions</td>
+<td>The license string is invalid, initialization failed, or a prior
+initialization attempt failed.</td>
+</tr>
+<tr>
+<td>-9003</td>
+<td>Later gated functions</td>
+<td>The current license edition does not allow the requested
+feature.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>LicenseString CSTRING(512)
+Result        SIGNED
 
-LicenseString = &#39;Charles-basic-16123&#39;
-Result = vuMailKitInitialize(LicenseString)</code></pre>
+LicenseString = &#39;license-string&#39;
+Result = vuMailKitInitialize(LicenseString)
+
+IF Result &lt;&gt; 0
+  MESSAGE(&#39;vuMailKit startup failed: &#39; &amp; vuMailLastError())
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This call is now part of the normal startup flow for licensed
-vuMailKit use.</li>
+<li>The global template is the preferred Clarion path because it
+generates the startup call and public prototypes.</li>
 <li>Basic features such as send, autodetect, and profile save are
 license-gated and should not rely on implicit startup behavior.</li>
 <li>A DEMO license should also be passed through this function.</li>
-<li>If initialization fails, later gated calls can return licensing
-results such as -401, -402, or -403.</li>
-<li>Use vuMailKitGetLicenseInfo() if you want a diagnostic text summary
-of the license state for a test harness, support screen, or About
-box.</li>
+<li>If initialization is skipped, later gated calls return -9001.</li>
+<li>If initialization fails because the license is bad, the initialize
+call returns -9002 and later gated calls also report -9002.</li>
+<li>If a lower edition calls a higher-tier feature, the later gated call
+returns -9003.</li>
+<li>For licensing failures, <code>vuMailLastError()</code> is updated
+with text that identifies the condition as a vuMailKit licensing/setup
+problem, not an SMTP, OAuth, Gmail, password, or mail-server
+authentication failure.</li>
+<li>For -451 deployment-folder conflicts, <code>vuMailLastError()</code>
+identifies conflicting .NET mail/runtime files in the application
+folder. Clean up the application folder before troubleshooting license
+or mail-provider settings.</li>
+<li>Use <code>vuMailKitGetLicenseInfo()</code> if you want a diagnostic
+text summary of the license state for a test harness, support screen, or
+About box.</li>
 </ul>
-<p><a href="index.html">All functions</a> | <a
-href="legacy-index.html">Legacy functions</a> | <a
-href="AboutFunctionNames.html">About function names</a></p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

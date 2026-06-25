@@ -1,7 +1,7 @@
 ---
 title: "vuGlobalsSetNoPasswordInRegistry"
 summary: "Controls whether the SMTP password is saved in the registry."
-description: "Controls whether the SMTP password is saved in the registry. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Controls whether the SMTP password is saved in the registry."
 keywords: ["vuMailKit", "vuMail", "vuglobalssetnopasswordinregistry", "vunopasswordinregistry"]
 function_name: "vuGlobalsSetNoPasswordInRegistry"
 category: "Globals and Configuration"
@@ -14,18 +14,17 @@ last_updated: "2026-01-07"
 # vuGlobalsSetNoPasswordInRegistry()
 
 ## Description
-
-Controls whether the SMTP password is saved in the registry. (legacy name: vuNoPasswordInRegistry()).
+Controls whether the SMTP password is saved in the registry. (legacy name: `vuNoPasswordInRegistry()`).
 
 Previously exported as (legacy name, still supported):
 
 - [vuNoPasswordInRegistry()](vuNoPasswordInRegistry.md)
 
-### Parameters
+## Parameters
 
-- xFlag (LONG) - 0 allows saving the password, non-zero disables saving the password.
+- `xFlag` (LONG) - 0 allows saving the password, non-zero disables saving the password.
 
-### Returns
+## Return value
 
 A LONG value indicating the result.
 
@@ -33,9 +32,9 @@ A LONG value indicating the result.
 
 ### Notes
 
-When enabled, vuGlobalsSave() (legacy: vuMailSaveGlobals()) will skip writing the "Password" registry value.
+When enabled, `vuGlobalsSave()` (legacy: `vuMailSaveGlobals()`) will skip writing the "Password" registry value.
 
-### Example (Clarion)
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuGlobalsSetNoPasswordInRegistry   ROUTINE

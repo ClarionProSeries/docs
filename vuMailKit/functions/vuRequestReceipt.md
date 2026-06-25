@@ -1,7 +1,7 @@
 ---
 title: "vuRequestReceipt"
 summary: "Requests a return receipt for the next sent email."
-description: "Requests a return receipt for the next sent email. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Requests a return receipt for the next sent email."
 keywords: ["vuMailKit", "vuMail", "vurequestreceipt"]
 function_name: "vuRequestReceipt"
 category: "SMTP"
@@ -13,23 +13,20 @@ last_updated: "2026-03-27"
 
 # vuRequestReceipt()
 
-```Prototype
-vuRequestReceipt(),SIGNED,PROC,PASCAL,RAW,NAME('vuRequestReceipt')
-```
+## Clarion prototype
+
+**Prototype:** vuRequestReceipt(), SIGNED, PROC, PASCAL, RAW, NAME('vuRequestReceipt')
 
 ## Description
-
 Sets the runtime flag that requests a return receipt for the next email sent through vuMailKit.
 
 ## Return value
-
 Returns 1 on success.
 
 ## Notes
-
 - Set this before sending so the next send operation can apply it.
 
-### Example
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuRequestReceipt   ROUTINE

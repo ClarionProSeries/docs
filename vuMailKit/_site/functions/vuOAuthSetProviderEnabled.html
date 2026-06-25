@@ -27,53 +27,89 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
-<h1 id="vuoauthsetproviderenabled">vuOAuthSetProviderEnabled</h1>
-<p>This is a preferred function introduced in vuMailKit 1.0.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vuoauthsetproviderenabled">vuOAuthSetProviderEnabled()</h1>
 <h2 id="purpose">Purpose</h2>
-<p>Allow the application to explicitly enable or suppress OAuth support
-for a specific provider. This is used to keep the setup UX honest: if a
-provider is detected but the application does not support OAuth for that
-provider (for example, no app credentials have been configured yet, or
-the developer chooses to suppress it), vuMailKit should not present
-OAuth as an available option.</p>
+<p>Enables or disables OAuth support for a specific provider during the
+current process.</p>
+<p>This is used by setup screens to keep provider detection honest. A
+provider may be detected from an address, but OAuth should not be
+offered unless that provider is enabled and the required app credentials
+are present.</p>
 <p>This function does not persist settings. It affects the current
 process runtime only.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthSetProviderEnabled(LONG
+InProviderId, LONG InEnabled), LONG, PROC, PASCAL, RAW,
+NAME('vuOAuthSetProviderEnabled')</p>
 <h2 id="parameters">Parameters</h2>
-<ul>
-<li><p>Provider (LONG)<br />
-Provider constant:</p>
-<ul>
-<li>1 = Google / Gmail</li>
-<li>2 = Microsoft 365 / Outlook</li>
-<li>3 = Yahoo / AOL (legacy disabled; enabling it does not restore
-active Yahoo OAuth support)</li>
-</ul></li>
-<li><p>EnableFlag (LONG)</p>
-<ul>
-<li>0 = Disable OAuth for this provider</li>
-<li>1 = Enable OAuth for this provider</li>
-</ul></li>
-</ul>
-<h2 id="return-value">Return Value</h2>
-<p>Returns a LONG result code:</p>
-<ul>
-<li>1 = Success</li>
-<li>0 = Failure (unknown provider)</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InProviderId</td>
+<td>LONG</td>
+<td>Provider id: 1 = Google/Gmail, 2 = Microsoft, 3 = Yahoo/AOL legacy
+disabled.</td>
+</tr>
+<tr>
+<td>InEnabled</td>
+<td>LONG</td>
+<td>0 = disable OAuth for this provider, 1 = enable OAuth for this
+provider.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Success.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Unknown provider id.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>InEnabled was not 0 or 1.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>Result LONG
+
+! Enable Google/Gmail OAuth for the current process.
+Result = vuOAuthSetProviderEnabled(1, 1)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;OAuth provider setting was not changed: &#39; &amp; Result)
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This function is part of the "hybrid" policy model:
-<ul>
-<li>A provider must be enabled, and required app credentials must be
-present, for OAuth to be considered supported.</li>
-</ul></li>
-<li>See also:
-<ul>
-<li><a href="../functions-oauth.html">vuOAuthDetectProviderFromEmail</a>
-<ul>
-<li><a href="../oauth.html">OAuth Support</a></li>
-</ul></li>
-</ul></li>
+<li>Provider id 3 is preserved for Yahoo/AOL legacy-disabled handling.
+Enabling it does not restore active Yahoo OAuth support.</li>
+<li>A provider must be enabled and have required app credentials before
+<a
+href="vuOAuthDetectProviderFromEmail.html">vuOAuthDetectProviderFromEmail</a>
+reports it as supported.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

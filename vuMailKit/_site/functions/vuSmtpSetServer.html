@@ -33,25 +33,26 @@ href="../categories/index.html">Categories</a></p>
 <h1 id="vusmtpsetserver">vuSmtpSetServer()</h1>
 <h2 id="description">Description</h2>
 <p>Sets the outbound SMTP server name and port. (legacy name:
-vuSetMailServer()).</p>
+<code>vuSetMailServer()</code>).</p>
 <p>Previously exported as (legacy name, still supported):</p>
 <ul>
 <li><a href="vuSetMailServer.html">vuSetMailServer()</a></li>
 </ul>
-<h3 id="parameters">Parameters</h3>
+<h2 id="parameters">Parameters</h2>
 <ul>
-<li>xServer (CSTRING) - SMTP server host name or IP.</li>
-<li>xPort (LONG) - SMTP server port.</li>
+<li><code>xServer</code> (CSTRING) - SMTP server host name or IP.</li>
+<li><code>xPort</code> (LONG) - SMTP server port.</li>
 </ul>
-<h3 id="returns">Returns</h3>
+<h2 id="return-value">Return value</h2>
 <p>A LONG value indicating the result.</p>
 <ul>
 <li>1: Success (this function always returns 1)</li>
 </ul>
 <h3 id="notes">Notes</h3>
 <p>This sets the values stored in the current vuMailKit session. Use
-vuGlobalsSave() if you want to persist them to the registry.</p>
-<h3 id="example-clarion">Example (Clarion)</h3>
+<code>vuGlobalsSave()</code> if you want to persist them to the
+registry.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>ROUTINE:Test_vuSmtpSetServer   ROUTINE
   DATA
 cServer   CSTRING(256)

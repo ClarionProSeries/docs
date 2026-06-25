@@ -1,12 +1,12 @@
 ---
 title: "vuLogSetFile"
-summary: "Sets the mail log file path."
-description: "Sets the mail log file path. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+summary: "Sets the legacy sent-mail CSV log file path."
+description: "Sets the legacy sent-mail CSV log file path."
 keywords: ["vuMailKit", "vuMail", "vulogsetfile", "vusetmaillog"]
 function_name: "vuLogSetFile"
 category: "Logging"
 version_added: "Legacy"
-last_updated: "2026-01-07"
+last_updated: "2026-06-22"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -14,18 +14,17 @@ last_updated: "2026-01-07"
 # vuLogSetFile()
 
 ## Description
-
-Sets the mail log file path. (legacy name: vuSetMailLog()).
+Sets the legacy sent-mail CSV log file path. (legacy name: `vuSetMailLog()`).
 
 Previously exported as (legacy name, still supported):
 
 - [vuSetMailLog()](vuSetMailLog.md)
 
-### Parameters
+## Parameters
 
-- xFileName (CSTRING) - Full path to the log file to be used by vuMailKit.
+- `xFileName` (CSTRING) - Full path to the legacy sent-mail CSV log file to be used by vuMailKit.
 
-### Returns
+## Return value
 
 A LONG value indicating the result.
 
@@ -33,9 +32,17 @@ A LONG value indicating the result.
 
 ### Notes
 
-Use vuGlobalsSave() if you want to persist it to the registry (key: "SentLogFile").
+Use `vuGlobalsSave()` if you want to persist it to the registry (key: "SentLogFile").
 
-### Example (Clarion)
+This file is a legacy sent-mail CSV log, not the diagnostics log. Each successful or failed send attempt appends one CSV row in this format:
+
+```text
+Date,Time,From,To,Subject,SavedEmailPath,ResultText
+```
+
+Use `vuDiagnosticsSetFile()` for diagnostic troubleshooting output. Use `vuClearMailLog()` to clear this sent-mail CSV log.
+
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuLogSetFile   ROUTINE
@@ -44,7 +51,7 @@ cLog   CSTRING(520)
 RC     LONG
 
   CODE
-  cLog = CLIP(PATH()) & '\MailLog.txt'
+  cLog = CLIP(PATH()) & '\MailLog.csv'
   RC = vuLogSetFile(cLog)
   STOP('RC=' & RC)
 ````

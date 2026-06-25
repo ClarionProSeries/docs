@@ -1,7 +1,7 @@
 ---
 title: "vuDiagnosticsGetFile"
 summary: "Get the diagnostics log file path."
-description: "Get the diagnostics log file path. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)"
+description: "Get the diagnostics log file path."
 keywords: ["vuMailKit","function","vudiagnosticsgetfile"]
 function_name: "vuDiagnosticsGetFile"
 category: "Diagnostics"
@@ -9,7 +9,7 @@ version_added: "1.0"
 last_updated: "2026-03-27"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuDiagnosticsGetFile()
 
@@ -19,17 +19,32 @@ Gets the currently configured diagnostics log file path.
 
 ## Export name
 
-- vuDiagnosticsGetFile
+- `vuDiagnosticsGetFile`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuDiagnosticsGetFile(*CSTRING xFileName),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsGetFile')
+**Prototype:** vuDiagnosticsGetFile(*CSTRING xFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuDiagnosticsGetFile')
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+
+## Example (Clarion)
+```clarion
+rc      LONG
+diagLog CSTRING(260)
+
+diagLog = ''
+rc = vuDiagnosticsGetFile(diagLog)
+
+IF rc = 1
+  MESSAGE('Diagnostics log: ' & CLIP(diagLog))
+END
+```
 
 ## Notes
 
-- Pass the address of a writable CSTRING buffer.
+- Pass the address of a writable `CSTRING` buffer.
 - If no diagnostics file has been configured yet, an empty string is returned.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

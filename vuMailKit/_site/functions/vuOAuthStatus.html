@@ -31,10 +31,14 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthstatus">vuOAuthStatus()</h1>
-<pre class="Prototype"><code>vuOAuthStatus(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthStatus&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Queries OAuth status for a specific provider/account token store and
-returns provider/core status text.</p>
+<p>Queries the OAuth token/login status for a provider/account pair.</p>
+<p>This is an advanced/manual helper. The vuMailKit Email Setup Wizard
+handles OAuth status and token flow work in the normal setup path.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthStatus(*CSTRING Provider, *CSTRING
+AccountKey, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC, PASCAL,
+RAW, NAME('vuOAuthStatus')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -53,7 +57,7 @@ returns provider/core status text.</p>
 <tr>
 <td>AccountKey</td>
 <td>*CSTRING</td>
-<td>Account key identifier.</td>
+<td>Account key identifier, usually the email address.</td>
 </tr>
 <tr>
 <td>OutText</td>
@@ -63,42 +67,62 @@ returns provider/core status text.</p>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of OutText buffer in bytes.</td>
+<td>Size of OutText in bytes. Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li><blockquote>
-<p>= 0: Status/result code from core OAuth status call.</p>
-</blockquote></li>
-<li>-9: Core unavailable or exception.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Token state is present.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Login is needed.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No token state exists for this provider/account.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>Yahoo/AOL OAuth is disabled in vuMailKit.</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>Core unavailable or internal exception.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthStatus(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthStatus&#39;)
-  END
-END
+<pre class="clarion"><code>Result     LONG
+Provider   CSTRING(64)
+AccountKey CSTRING(256)
+OutText    CSTRING(1024)
+OutTextLen LONG
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-outText    CSTRING(1024)
-outLen     LONG
+Provider   = &#39;microsoft&#39;
+AccountKey = &#39;user@example.com&#39;
+CLEAR(OutText)
+OutTextLen = SIZE(OutText)
 
-provider   = &#39;Microsoft&#39;
-accountKey = &#39;user@example.com&#39;
-outText    = &#39;&#39;
-outLen     = SIZE(outText)
-
-rc = vuOAuthStatus(provider, accountKey, outText, outLen)
-MESSAGE(&#39;Status rc=&#39; &amp; rc &amp; &#39;| &#39; &amp; outText)</code></pre>
+Result = vuOAuthStatus(Provider, AccountKey, OutText, OutTextLen)
+MESSAGE(&#39;vuOAuthStatus result=&#39; &amp; Result &amp; &#39;| &#39; &amp; OutText)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Status checks only the specified Provider/AccountKey scope.</li>
-<li>Alias export <a href="vuOAuth_Status.html">vuOAuth_Status()</a> is
-available for compatibility.</li>
+<li>Status checks only the specified Provider and AccountKey scope.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

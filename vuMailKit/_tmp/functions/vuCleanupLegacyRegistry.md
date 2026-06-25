@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [By category](../functions-by-category.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuCleanupLegacyRegistry
 
@@ -9,11 +9,11 @@ Safely remove legacy registry settings after managed profile migration has been 
 
 ## Export name
 
-- vuCleanupLegacyRegistry
+- `vuCleanupLegacyRegistry`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuCleanupLegacyRegistry(),LONG,PROC,PASCAL,RAW,NAME('vuCleanupLegacyRegistry')
+**Prototype:** vuCleanupLegacyRegistry(), LONG, PROC, PASCAL, RAW, NAME('vuCleanupLegacyRegistry')
 
 ## Parameters
 
@@ -26,10 +26,12 @@ This function takes no parameters.
 
 ## Return value
 
-- 1 = cleanup completed.
-- 0 = cleanup refused or failed.
+| Value | Meaning |
+|---|---|
+| 1 | cleanup completed. |
+| 0 | cleanup refused or failed. |
 
-## Clarion example
+## Example (Clarion)
 
 ```clarion
 Result                   LONG
@@ -40,3 +42,5 @@ Result = vuCleanupLegacyRegistry()
 ## Notes
 
 - Use this only after you have verified that managed profiles and managed secret loading work correctly for the account.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

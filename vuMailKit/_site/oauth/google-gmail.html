@@ -28,7 +28,8 @@
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">OAuth</a> |
-<a href="microsoft.html">Microsoft OAuth</a></p>
+<a href="../categories/index.html">Browse by Category</a> | <a
+href="../functions/index.html">All functions</a></p>
 <h1 id="google--gmail-oauth-setup">Google / Gmail OAuth Setup</h1>
 <p>This guide explains how to create Google OAuth credentials for use
 with vuMailKit.</p>
@@ -79,6 +80,17 @@ field</li>
 &#39;GOCSPX-abcdefghijklmnopqrstuvwxyz123456&#39;
 &#39;My Application Name&#39;</code></pre>
 <p>Do not remove the single quotes.</p>
+<h2 id="how-the-wizard-uses-these-values">How the wizard uses these
+values</h2>
+<p>After the provider values are entered in the global template, import
+the <strong>vuMailKit Email Setup Wizard</strong> with Clarion
+<strong>CTRL+U</strong>, compile the EXE, and run the wizard from the
+application.</p>
+<p>The wizard uses the template settings to detect when Google OAuth is
+needed, guide the user through authorization, send a test email, and
+save the working setup into a reusable profile. In the normal wizard
+path, your application does not need to call the lower-level OAuth
+functions directly.</p>
 <h2 id="what-oauth-success-name-does">What OAuth Success Name does</h2>
 <p>The <strong>OAuth Success Name</strong> value is used on the Google
 success page that the user sees after authorization completes
@@ -99,8 +111,9 @@ end in gmail.com.</p>
 the mailbox should use Google OAuth.</p>
 <p>If autodetect does not identify the account as OAuth, but you know
 the mailbox is hosted by Google Workspace, use <strong>Manual
-Configuration</strong> in the wizard and select the Google OAuth sign-in
-method.</p>
+Configuration</strong> in the <a
+href="../getting-started/vumailkit-email-setup-wizard.html">vuMailKit
+Email Setup Wizard</a> and select the Google OAuth sign-in method.</p>
 <p>Typical Google Workspace settings are:</p>
 <table>
 <thead>
@@ -231,7 +244,8 @@ Name into the vuMailKit template:</p>
 <ul>
 <li>save the template settings</li>
 <li>regenerate and compile your application</li>
-<li>test the Google OAuth flow in your application</li>
+<li>run the <strong>vuMailKit Email Setup Wizard</strong>, complete
+authorization if prompted, send a test email, and save the profile</li>
 </ul>
 <p>For related runtime functions, see:</p>
 <ul>
@@ -239,6 +253,7 @@ Name into the vuMailKit template:</p>
 functions</a></li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">OAuth</a> |
-<a href="microsoft.html">Microsoft OAuth</a></p>
+<a href="../categories/index.html">Browse by Category</a> | <a
+href="../functions/index.html">All functions</a></p>
 </body>
 </html>

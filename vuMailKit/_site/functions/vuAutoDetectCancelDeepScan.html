@@ -27,9 +27,29 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1 id="vuautodetectcanceldeepscan">vuAutoDetectCancelDeepScan</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuAutoDetectCancelDeepScan(LONG
+InHandle), SIGNED, PROC, PASCAL, RAW,
+NAME('vuAutoDetectCancelDeepScan')</p>
 <p>Requests cancellation of an asynchronous deep autodetect job.
 Cancellation is cooperative and takes effect between autodetect stages
 and probe attempts.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc     LONG
+handle LONG
+
+handle = 1   ! Use the handle returned by vuAutoDetectStartDeepScan.
+rc = vuAutoDetectCancelDeepScan(handle)
+
+IF rc = 0
+  MESSAGE(&#39;Deep scan was not canceled: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

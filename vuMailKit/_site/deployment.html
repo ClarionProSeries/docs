@@ -27,15 +27,17 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
-<p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
 <h1 id="vumailkit---deployment-and-usage">vuMailKit - Deployment and
 Usage</h1>
 <p>vuMailKit deploys as a single runtime DLL for the Basic edition.</p>
 <h2 id="deployment">Deployment</h2>
 <p>Deploy <strong>vuMailKit.dll</strong> with your application.</p>
-<p>The Basic edition now uses a single-DLL deployment model. This DLL
-should reside in the same folder as your application EXE file.</p>
+<p>The Basic edition uses a single-DLL deployment model. This DLL should
+reside in the same folder as your application EXE file.</p>
 <p>If your application was built with the Clarion template, also make
 sure the matching import library and template files were installed at
 development time:</p>
@@ -43,6 +45,28 @@ development time:</p>
 <li>vuMailKit.lib for linking</li>
 <li>vuMailKit.tpl for the template integration</li>
 </ul>
+<h2 id="licensing-startup-call">Licensing startup call</h2>
+<p>vuMailKit uses a startup initialization call for licensed use. In a
+normal Clarion application, the global template generates the call to <a
+href="functions/vuMailKitInitialize.html">vuMailKitInitialize</a> for
+you.</p>
+<p>Enter the developer license string in the template field inside
+single quotes:</p>
+<pre class="text"><code>&#39;license-string&#39;</code></pre>
+<p>The initialization call must happen before the <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a>, autodetect, profile, or send functions are used. If
+initialization is skipped, license-gated calls return -9001 and <a
+href="functions/vuMailLastError.html">vuMailLastError</a> explains that
+the failure is a vuMailKit licensing/setup problem.</p>
+<h2 id="clarion-multi-dll-applications">Clarion multi-DLL
+applications</h2>
+<p>In a Clarion multi-DLL application, add the vuMailKit global template
+to the EXE app.</p>
+<p>The supporting DLL apps do not need their own vuMailKit global
+extension. The EXE startup initializes the license for the process, and
+the runtime DLL is then available to send mail from code reached
+anywhere in the program.</p>
 <h2 id="usage">Usage</h2>
 <p>Most vuMailKit functions require parameters. Create and use the
 proper Clarion data elements for each function. Numeric values can often
@@ -64,14 +88,9 @@ because they show real working flows such as:</p>
 <li>saving and reusing managed profiles</li>
 <li>sending test and production email</li>
 </ul>
-<p>The Demo app and Email Client Wizard are good examples of using the
-code.</p>
-<h2 id="licensing-startup-call">Licensing startup call</h2>
-<p>vuMailKit uses a startup initialization call for licensed use. In a
-normal Clarion application, call vuMailKitInitialize() once during EXE
-startup before you invoke the wizard, autodetect, or send functions.</p>
-<p>The template-generated startup code is the normal way to handle
-this.</p>
+<p>The Demo app and <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a> are good examples of using the code.</p>
 <h2 id="profile-storage">Profile storage</h2>
 <p>Once a managed profile has been created, vuMailKit normally uses the
 managed profile store under Local AppData rather than the old legacy
@@ -79,15 +98,20 @@ vuMail registry model.</p>
 <h2 id="typical-deployment-checklist">Typical deployment checklist</h2>
 <ul>
 <li>Install the template into Clarion.</li>
-<li>Be sure to enter your license information in the global
+<li>Add the vuMailKit global template to the EXE app.</li>
+<li>Enter your license information in the global template, inside single
+quotes.</li>
+<li>If you use OAuth, configure the provider credentials in the
 template.</li>
 <li>Build your application with the vuMailKit.lib import library.</li>
 <li>Deploy vuMailKit.dll with the EXE.</li>
-<li>Make sure your startup path calls vuMailKitInitialize().</li>
-<li>If you use OAuth, configure the provider credentials in the template
-or application settings.</li>
+<li>Run the compiled application and use the <a
+href="getting-started/vumailkit-email-setup-wizard.html">vuMailKit Email
+Setup Wizard</a> to test and save a profile.</li>
 </ul>
-<p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
 </body>
 </html>

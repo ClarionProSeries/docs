@@ -31,10 +31,14 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthrefresh">vuOAuthRefresh()</h1>
-<pre class="Prototype"><code>vuOAuthRefresh(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthRefresh&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Refreshes OAuth access token state for the specified provider/account
-pair.</p>
+<p>Requests an OAuth token refresh for a provider/account pair.</p>
+<p>This is an advanced/manual helper. The vuMailKit Email Setup Wizard
+handles OAuth status and token flow work in the normal setup path.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthRefresh(*CSTRING Provider,
+*CSTRING AccountKey, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC,
+PASCAL, RAW, NAME('vuOAuthRefresh')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -53,49 +57,74 @@ pair.</p>
 <tr>
 <td>AccountKey</td>
 <td>*CSTRING</td>
-<td>Account key identifier.</td>
+<td>Account key identifier, usually the email address.</td>
 </tr>
 <tr>
 <td>OutText</td>
 <td>*CSTRING</td>
-<td>Output buffer receiving refresh status text.</td>
+<td>Output buffer receiving status text.</td>
 </tr>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of OutText buffer in bytes.</td>
+<td>Size of OutText in bytes. Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li><blockquote>
-<p>= 0: Result code from core OAuth refresh operation.</p>
-</blockquote></li>
-<li>-9: Core unavailable or exception.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Token state is present after refresh.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Login is needed because refresh could not produce usable token
+state.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No token state exists for this provider/account.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Bad request.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Requested provider/refresh family is not implemented.</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>Yahoo/AOL OAuth is disabled in vuMailKit.</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>Provider error, core unavailable, or internal exception.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuOAuthRefresh(*CSTRING Provider,*CSTRING AccountKey,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthRefresh&#39;)
-  END
-END
+<pre class="clarion"><code>Result     LONG
+Provider   CSTRING(64)
+AccountKey CSTRING(256)
+OutText    CSTRING(1024)
+OutTextLen LONG
 
-rc         LONG
-provider   CSTRING(64)
-accountKey CSTRING(128)
-outText    CSTRING(1024)
-outLen     LONG
+Provider   = &#39;microsoft&#39;
+AccountKey = &#39;user@example.com&#39;
+CLEAR(OutText)
+OutTextLen = SIZE(OutText)
 
-provider   = &#39;Microsoft&#39;
-accountKey = &#39;user@example.com&#39;
-outText    = &#39;&#39;
-outLen     = SIZE(outText)
-
-rc = vuOAuthRefresh(provider, accountKey, outText, outLen)
-IF rc &lt; 0
-  MESSAGE(&#39;Refresh failed: &#39; &amp; rc &amp; &#39;| &#39; &amp; outText)
-END</code></pre>
+Result = vuOAuthRefresh(Provider, AccountKey, OutText, OutTextLen)
+MESSAGE(&#39;vuOAuthRefresh result=&#39; &amp; Result &amp; &#39;| &#39; &amp; OutText)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Refresh semantics depend on provider token policy and stored refresh

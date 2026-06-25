@@ -28,7 +28,8 @@
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
-functions</a> | <a href="legacy-index.html">Legacy functions</a></p>
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1 id="vuresetstoredsettings">vuResetStoredSettings()</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Clears persisted vuMail/vuMailKit registry settings, saved profiles,
@@ -37,18 +38,24 @@ OAuth settings files. This is the nuclear reset option for
 troubleshooting.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuResetStoredSettings</li>
+<li><code>vuResetStoredSettings</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuResetStoredSettings(),SIGNED,PROC,PASCAL,RAW,NAME('vuResetStoredSettings')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuResetStoredSettings(), SIGNED, PROC,
+PASCAL, RAW, NAME('vuResetStoredSettings')</p>
 <h2 id="return-value">Return value</h2>
 <ul>
 <li>Returns 1 when the operation succeeds, otherwise 0. Use
-vuMailLastError() for more detail when needed.</li>
+<code>vuMailLastError()</code> for more detail when needed.</li>
 </ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc LONG
+
+IF MESSAGE(&#39;Clear stored vuMailKit settings?&#39;, &#39;Confirm&#39;, ICON:Question, |
+           BUTTON:Yes + BUTTON:No) = BUTTON:Yes
+  rc = vuResetStoredSettings()
+  MESSAGE(&#39;vuResetStoredSettings rc=&#39; &amp; rc)
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>This is intended for troubleshooting and clean-room testing.</li>
@@ -56,5 +63,8 @@ vuMailLastError() for more detail when needed.</li>
 held in the current process until the application or DLL is
 reinitialized.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

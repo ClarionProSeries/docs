@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
 # vuDiagnosticsClearLogs()
 
@@ -9,17 +9,33 @@ Deletes the current diagnostics log file and SMTP protocol log file when they ex
 
 ## Export name
 
-- vuDiagnosticsClearLogs
+- `vuDiagnosticsClearLogs`
 
-## Clarion prototype (Inside Global MAP)
+## Clarion prototype
 
-- vuDiagnosticsClearLogs(),SIGNED,PROC,PASCAL,RAW,NAME('vuDiagnosticsClearLogs')
+**Prototype:** vuDiagnosticsClearLogs(), SIGNED, PROC, PASCAL, RAW, NAME('vuDiagnosticsClearLogs')
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+
+## Example (Clarion)
+```clarion
+rc LONG
+
+rc = vuDiagnosticsClearLogs()
+IF rc = 0
+  MESSAGE('Diagnostic logs were not cleared: ' & vuMailLastError())
+END
+```
 
 ## Notes
 
 - This is intended for troubleshooting so each test starts with clean log files.
-- It attempts to delete the diagnostics log, protocol log, and the current legacy mail log file path when present.
+- It attempts to delete only the diagnostics log and SMTP protocol log. It no longer clears the legacy sent-mail CSV log. Use `vuClearMailLog()` for that file.
+
+## Preferred clear function
+
+`vuClearDiagnosticsLog()` is also available as the preferred diagnostics clear function name.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

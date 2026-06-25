@@ -30,8 +30,27 @@
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
+<h2 id="legacy-behavior-notes">Legacy behavior notes</h2>
+<ul>
+<li>This is the old vuMail function name for the same runtime setting
+exposed as <code>vuGlobalsSetEmailFolder()</code>.</li>
+<li>Passing a blank folder turns off outgoing .eml copy saving.</li>
+<li>When the folder is set and valid, vuMailKit saves an outgoing .eml
+copy before the SMTP send attempt.</li>
+<li>vuMailKit attempts to create the folder when this function is
+called. The function still returns 1 after updating the runtime setting;
+if the folder remains invalid or cannot be created, the later send can
+fail with an email-save-folder error.</li>
+<li>If <code>vuSetMailLog()</code> / <code>vuLogSetFile()</code> is also
+configured, successful sent-mail CSV rows include the saved .eml
+path.</li>
+<li>The folder must be set before calling the send/test-send function
+whose .eml copy should be saved.</li>
+</ul>
 <h1 id="vusetsavefolder">vuSetSaveFolder()</h1>
-<pre class="Prototype"><code>vuSetSaveFolder(*CSTRING InFolder),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSetSaveFolder&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetSaveFolder(*CSTRING InFolder),
+SIGNED, PROC, PASCAL, RAW, NAME('vuSetSaveFolder')</p>
 <h2 id="description">Description</h2>
 <p>This is the legacy vuMail function name.</p>
 <p>Preferred function name:</p>
@@ -40,7 +59,19 @@ href="../categories/index.html">Categories</a></p>
 href="vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuGlobalsSetEmailFolder().</p>
+identically to <code>vuGlobalsSetEmailFolder()</code>. It sets the
+outgoing .eml save folder used by normal sends, CSV-file sends, and
+setup/autodetect test-send messages.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc     LONG
+folder CSTRING(260)
+
+folder = &#39;C:\MyApp\SentMail&#39;
+rc = vuSetSaveFolder(folder)
+
+IF rc = 1
+  MESSAGE(&#39;Sent-mail save folder set to: &#39; &amp; CLIP(folder))
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

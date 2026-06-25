@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="getting-started">Getting Started</h1>
+<p>vuMailKit includes a large function library, but most real-world
+applications only need a small part of it at first.</p>
+<p>The lower-level and legacy-compatible functions remain available for
+continuity, diagnostics, setup, and advanced control. You do not need to
+learn all of them before sending mail.</p>
+<h2 id="fastest-path-to-a-working-send">Fastest path to a working
+send</h2>
+<p>For a normal Clarion application, start with this sequence:</p>
+<ol type="1">
+<li>Add the vuMailKit global template to the EXE application.</li>
+<li>Enter the developer license string in the template, inside single
+quotes.</li>
+<li>Use the Clarion Utility Template command, CTRL+U, to import the
+<strong>vuMailKit Email Setup Wizard</strong>.</li>
+<li>Compile the application.</li>
+<li>Run the compiled EXE.</li>
+<li>Use the <strong>vuMailKit Email Setup Wizard</strong> to validate
+the address, detect provider settings, send a test email, and save the
+profile.</li>
+<li>Call the send function you need.</li>
+</ol>
+<p>In a multi-DLL application, put the vuMailKit template on the EXE
+app. The EXE initializes licensing once, and the runtime DLL can be used
+from code reached anywhere in the program.</p>
+<p>Hand-coded integrations must call <a
+href="../functions/vuMailKitInitialize.html">vuMailKitInitialize</a>
+once at EXE startup before setup, autodetect, profile, or send functions
+are used.</p>
+<h2 id="start-here">Start here</h2>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="what-most-developers-actually-use.html">What most
+developers actually use</a></td>
+<td>Understand which parts of vuMailKit matter most in everyday
+use.</td>
+</tr>
+<tr>
+<td><a href="first-time-setup.html">First-time setup</a></td>
+<td>Add the template, import the vuMailKit Email Setup Wizard with
+CTRL+U, compile the EXE, run the vuMailKit Email Setup Wizard, test the
+connection, and save a working profile.</td>
+</tr>
+<tr>
+<td><a href="vumailkit-email-setup-wizard.html">vuMailKit Email Setup
+Wizard</a></td>
+<td>Let the vuMailKit Email Setup Wizard validate the address, detect
+server/OAuth settings, send a test email, and save the profile.</td>
+</tr>
+<tr>
+<td><a href="deployment-and-profiles.html">Deployment and
+profiles</a></td>
+<td>Understand how profiles behave on individual machines, shared
+installs, and networks.</td>
+</tr>
+<tr>
+<td><a href="send-your-first-email.html">Send your first email</a></td>
+<td>The simplest path to sending mail once licensing is initialized and
+a profile is saved.</td>
+</tr>
+<tr>
+<td><a href="recommended-send-flow.html">Recommended send flow with a
+stored profile</a></td>
+<td>A copyable Clarion button-handler pattern for checking setup,
+offering the wizard, validating the recipient, sending, and showing
+useful diagnostics.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="simple-html-should-usually-be-your-first-html-option">Simple
+HTML should usually be your first HTML option</h2>
+<p>If you want a good-looking HTML email, start with <a
+href="send-a-simple-html-email-with-a-company-logo.html">Send a Simple
+HTML Email with a Company Logo</a>.</p>
+<p>Simple HTML mode lets you pass the message body and let vuMailKit
+create the HTML wrapper. Header and footer images are optional. The
+normal MIME build path still creates the plain-text alternative.</p>
+<p>That means you can send a clean, branded email without first learning
+how to hand-build multipart HTML email.</p>
+<h2 id="common-next-steps">Common next steps</h2>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="send-an-html-email.html">Send an HTML email</a></td>
+<td>Start with Simple HTML, then move to external HTML files if you need
+more control.</td>
+</tr>
+<tr>
+<td><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML Email with a Company Logo</a></td>
+<td>Let vuMailKit Basic wrap body content in a modest HTML container
+with an optional header image and footer image.</td>
+</tr>
+<tr>
+<td><a href="send-an-email-from-an-external-file.html">Send an email
+from an external file</a></td>
+<td>Keep the message body outside your code and send it from a
+file.</td>
+</tr>
+<tr>
+<td><a href="use-tokenmerge-with-email-templates.html">Use TokenMerge
+with email templates</a></td>
+<td>Replace placeholder tokens in memory, files, or generated file
+content before sending.</td>
+</tr>
+<tr>
+<td><a href="send-attachments.html">Send attachments</a></td>
+<td>Attach files to outgoing email.</td>
+</tr>
+<tr>
+<td><a href="send-an-embedded-image.html">Send an embedded
+image</a></td>
+<td>Include an inline image in an HTML email.</td>
+</tr>
+<tr>
+<td><a href="send-a-branded-html-email-from-a-template.html">Send a
+branded HTML email from a template</a></td>
+<td>Reuse a logo, letterhead, and footer while merging changing message
+content into a separate output file.</td>
+</tr>
+<tr>
+<td><a
+href="send-a-form-letter-invoice-email-with-an-optional-personal-message.html">Send
+a form-letter invoice email with an optional personal message</a></td>
+<td>Combine fixed letter text, token values, and generated invoice
+content in a branded HTML email.</td>
+</tr>
+<tr>
+<td><a href="send-a-batch-from-csv.html">Send a batch of emails from
+CSV</a></td>
+<td>Send multiple messages from a CSV data source.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tokenmerge-is-built-in">TokenMerge is built in</h2>
+<p>Many Clarion developers can write their own search-and-replace code,
+but vuMailKit already includes TokenMerge helpers.</p>
+<p>You can replace tokens in a string, replace tokens while copying one
+file to another, or insert the contents of one file into a token
+location in another file. That last option is useful when a Clarion
+report writes invoice or statement detail to a text file and you want to
+insert that output into an email body.</p>
+<h2 id="a-note-about-profiles">A note about profiles</h2>
+<p>Once the <strong>vuMailKit Email Setup Wizard</strong> runs
+successfully, sends a test email, and saves the profile, the profile is
+ready to use.</p>
+<p>In most cases, you do not need to manually fill in server settings
+after that. For a fuller button-handler pattern that checks for the
+saved profile, offers the wizard when needed, validates the recipient,
+sends, and shows useful diagnostics, see <a
+href="recommended-send-flow.html">Recommended send flow with a stored
+profile</a>.</p>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="../categories/index.html">Function categories</a></li>
+<li><a href="../functions/index.html">All functions</a></li>
+<li><a href="../oauth/index.html">OAuth Support</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

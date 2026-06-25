@@ -31,11 +31,13 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailsuccessdisplayenable">vuMailSuccessDisplay(Enable)</h1>
-<pre class="Prototype"><code>vuMailSuccessDisplay(LONG Enable),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailSuccessDisplay&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailSuccessDisplay(LONG Enable),
+SIGNED, PROC, PASCAL, RAW, NAME('vuMailSuccessDisplay')</p>
 <h2 id="description">Description</h2>
 <p>Sets the runtime flag that controls whether vuMailKit automatically
 displays a success message after an email is sent.</p>
-<h3 id="parameters">Parameters</h3>
+<h2 id="parameters">Parameters</h2>
 <table>
 <thead>
 <tr>
@@ -59,7 +61,7 @@ displays a success message after an email is sent.</p>
 <li>This is a compatibility export. It controls vuMailKit behavior, not
 any legacy code path.</li>
 </ul>
-<h3 id="example">Example</h3>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>ROUTINE:Test_vuMailSuccessDisplay   ROUTINE
   DATA
 RC      LONG

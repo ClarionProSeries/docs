@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusetfromreplyto">vuSetFromReplyTo()</h1>
-<pre class="Prototype"><code>vuSetFromReplyTo(*CSTRING InFromEmail,*CSTRING InReplyToEmail),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuSetFromReplyTo&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetFromReplyTo(*CSTRING InFromEmail,
+*CSTRING InReplyToEmail), SIGNED, PROC, PASCAL, RAW,
+NAME('vuSetFromReplyTo')</p>
 <h2 id="description">Description</h2>
 <p>This is the legacy vuMail function name.</p>
 <p>Preferred function name:</p>
@@ -39,19 +42,15 @@ href="../categories/index.html">Categories</a></p>
 <li><a href="vuSmtpSetFromReplyTo.html">vuSmtpSetFromReplyTo()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuSmtpSetFromReplyTo().</p>
-<p><a href="../index.html">Home</a> | <a href="index.html">All
-functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
-href="../categories/index.html">Categories</a></p>
+identically to <code>vuSmtpSetFromReplyTo()</code>.</p>
 <h2 id="from-value-rules">From value rules</h2>
-<p>vuSetFromReplyTo() now accepts any of these forms for the From
-value:</p>
+<p><code>vuSetFromReplyTo()</code> now accepts any of these forms for
+the From value:</p>
 <ul>
-<li>Plain email address: <a
-href="mailto:sender@example.com">sender@example.com</a></li>
-<li>Full mailbox: Sender Name <a
-href="mailto:sender@example.com">sender@example.com</a></li>
-<li>Display name only: Technical Support</li>
+<li>Plain email address: <code>sender@example.com</code></li>
+<li>Full mailbox:
+<code>Sender Name &lt;sender@example.com&gt;</code></li>
+<li>Display name only: <code>Technical Support</code></li>
 </ul>
 <p>Behavior:</p>
 <ul>
@@ -63,5 +62,20 @@ updates only the display name.</li>
 </ul>
 <p>If a display name is supplied without an email address and there is
 no existing saved/default sender address available, the call fails.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc      LONG
+fromAdr CSTRING(256)
+replyTo CSTRING(256)
+
+fromAdr = &#39;sales@example.com&#39;
+replyTo = &#39;support@example.com&#39;
+
+rc = vuSetFromReplyTo(fromAdr, replyTo)
+IF rc = 0
+  MESSAGE(&#39;From/Reply-To was not accepted: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

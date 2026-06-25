@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuvalidatemailaddr">vuValidateMailAddr()</h1>
-<pre class="Prototype"><code>vuValidateMailAddr(*CSTRING InEmailAddress),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuValidateMailAddr&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuValidateMailAddr(*CSTRING
+InEmailAddress), SIGNED, PROC, PASCAL, RAW,
+NAME('vuValidateMailAddr')</p>
 <h2 id="description">Description</h2>
 <p>Validates a practical real-world internet email address. It rejects
 obvious malformed values such as missing top-level domains, spaces,
@@ -41,7 +44,7 @@ certain typo-like domains such as gmail.com.com, lansrad.com.com so
 callers can warn the user before running deeper detection. This is used
 internally by helper flows such as vuSetFromReplyTo() and send-path
 validation.</p>
-<h3 id="parameters">Parameters</h3>
+<h2 id="parameters">Parameters</h2>
 <table>
 <thead>
 <tr>
@@ -58,7 +61,7 @@ validation.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="returns">Returns</h3>
+<h2 id="return-value">Return value</h2>
 <ul>
 <li>1: Address is a valid practical internet email address</li>
 <li>2: Address is valid but suspicious and should be reviewed</li>
@@ -70,7 +73,7 @@ practical pattern is:</p>
 <pre class="Clarion"><code>EmailAddress = CLIP(LEFT(EmailAddress))
 DISPLAY(EmailAddress)
 RC = vuValidateMailAddr(EmailAddress)</code></pre>
-<h3 id="example">Example</h3>
+<h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="Clarion"><code>ROUTINE:Test_vuValidateMailAddr   ROUTINE
   DATA
 RC            LONG
@@ -81,10 +84,10 @@ EmailAddress  CSTRING(260)
   EmailAddress = CLIP(LEFT(EmailAddress))
   RC = vuValidateMailAddr(EmailAddress)
   STOP(&#39;RC=&#39; &amp; RC &amp; &#39;|Addr=&#39; &amp; EmailAddress)</code></pre>
+<p>Note: addresses with repeated trailing suffixes such as
+<code>example.com.com</code> now return 2 (valid but suspicious).</p>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
-<p>Note: addresses with repeated trailing suffixes such as
-example.com.com now return 2 (valid but suspicious).</p>
 </body>
 </html>

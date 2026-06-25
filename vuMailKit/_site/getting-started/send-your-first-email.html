@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>send-your-first-email</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="send-your-first-email">Send Your First Email</h1>
+<p>Once vuMailKit licensing is initialized, the <a
+href="vumailkit-email-setup-wizard.html">vuMailKit Email Setup
+Wizard</a> succeeds, and the profile is saved, sending email can be very
+simple.</p>
+<p>In many cases, the next step is just to call the send function with
+the values you want to send.</p>
+<h2 id="before-you-send">Before you send</h2>
+<p>The startup requirement is licensing initialization.</p>
+<p>The usual template/global extension handles this automatically when
+the compiled EXE starts. Hand-coded integrations must call <a
+href="../functions/vuMailKitInitialize.html">vuMailKitInitialize</a> at
+EXE startup before calling <a
+href="../functions/vuSendMail.html">vuSendMail</a>, <a
+href="../functions/vuSendMailWait.html">vuSendMailWait</a>, autodetect,
+or profile functions.</p>
+<p>If initialization is missed, the send call returns -9001, and <a
+href="../functions/vuMailLastError.html">vuMailLastError</a> identifies
+a vuMailKit licensing/setup failure.</p>
+<h2 id="minimal-send-example">Minimal send example</h2>
+<pre class="clarion"><code>Result  LONG
+FromAdr CSTRING(256)
+ToAdr   CSTRING(256)
+CCAdr   CSTRING(256)
+BCCAdr  CSTRING(256)
+Subject CSTRING(256)
+Body    CSTRING(2048)
+Attach  CSTRING(260)
+
+FromAdr = &#39;&#39;
+ToAdr   = &#39;customer@example.com&#39;
+CCAdr   = &#39;&#39;
+BCCAdr  = &#39;&#39;
+Subject = &#39;Test email from vuMailKit&#39;
+Body    = &#39;This is a test message from my Clarion application.&#39;
+Attach  = &#39;&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p>When <code>FromAdr</code> is blank, vuMailKit uses the saved/default
+profile sender. No OAuth code is needed here; if the saved profile uses
+Microsoft or Google OAuth, vuMailKit uses the stored OAuth state behind
+the normal send call.</p>
+<h2 id="optional-logging-and-sent-email-copies">Optional logging and
+sent-email copies</h2>
+<p>If you call <a href="../functions/vuSetMailLog.html">vuSetMailLog</a>
+or <a href="../functions/vuLogSetFile.html">vuLogSetFile</a>, vuMailKit
+appends a legacy sent-mail CSV row for each send attempt.</p>
+<p>If you call <a
+href="../functions/vuSetSaveFolder.html">vuSetSaveFolder</a> or <a
+href="../functions/vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder</a>,
+vuMailKit saves an outgoing .eml copy in that folder before the SMTP
+send attempt.</p>
+<p>These are optional. You do not need them for the first simple
+send.</p>
+<h2 id="more-complete-send-button-flow">More complete Send button
+flow</h2>
+<p>The minimal example above is useful for proving the saved profile
+works.</p>
+<p>For a more complete application pattern that checks whether a profile
+exists, offers to run the setup wizard, validates the recipient address,
+sends, and reports common diagnostics, see <a
+href="recommended-send-flow.html">Recommended send flow with a stored
+profile</a>.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>After a plain-text message works, the most useful next step is
+usually Simple HTML mode:</p>
+<ul>
+<li><a href="recommended-send-flow.html">Recommended send flow with a
+stored profile</a></li>
+<li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML email with a company logo</a></li>
+</ul>
+<p>Then branch out to:</p>
+<ul>
+<li><a href="send-an-html-email.html">Send an HTML email</a></li>
+<li><a href="send-an-email-from-an-external-file.html">Send an email
+from an external file</a></li>
+<li><a href="use-tokenmerge-with-email-templates.html">Use TokenMerge
+with email templates</a></li>
+<li><a href="send-attachments.html">Send attachments</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

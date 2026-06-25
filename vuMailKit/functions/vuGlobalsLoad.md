@@ -1,7 +1,7 @@
 ---
 title: "vuGlobalsLoad"
 summary: "Loads vuMailKit global settings from the Windows registry into runtime memory."
-description: "Loads vuMailKit global settings from the Windows registry into runtime memory. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Loads vuMailKit global settings from the Windows registry into runtime memory."
 keywords: ["vuMailKit", "vuMail", "vuglobalsload", "vumailgetglobals"]
 function_name: "vuGlobalsLoad"
 category: "Globals and Configuration"
@@ -13,27 +13,23 @@ last_updated: "2026-03-27"
 
 # vuGlobalsLoad()
 
-## Purpose
+## Clarion prototype
 
+**Prototype:** vuGlobalsLoad(), SIGNED, PROC, PASCAL, RAW, NAME('vuGlobalsLoad')
+
+## Purpose
 Loads persisted vuMailKit global settings from registry storage into current runtime memory.
 
 ## Parameters
-
 - None.
 
 ## Return value / error codes
-
-- 1: Success.
+| Value | Meaning |
+|---|---|
+| 1 | Success. |
 
 ## Example (Clarion)
-
 ```clarion
-MAP
-  MODULE('vuMail.dll')
-    vuGlobalsLoad(),SIGNED,PROC,PASCAL,RAW,NAME('vuGlobalsLoad')
-  END
-END
-
 rc LONG
 
 rc = vuGlobalsLoad()
@@ -43,9 +39,8 @@ END
 ```
 
 ## Notes
-
 - Legacy alias: [vuMailGetGlobals()](vuMailGetGlobals.md).
-- Reads values from HKCU\SOFTWARE\vuPrograms\vuMail.
+- Reads values from `HKCU\SOFTWARE\vuPrograms\vuMail`.
 - This function refreshes runtime configuration; call it again if registry values were changed outside the current process.
 - AuthMode/OAuth is not used by this function.
 

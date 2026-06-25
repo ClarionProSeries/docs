@@ -1,65 +1,66 @@
 ---
 title: "vuOAuthSetClientSecret"
-summary: "Store the OAuth client secret for the specified provider and account key."
+summary: "Stores an OAuth client secret for a provider/account pair in advanced/manual OAuth flows."
 function_name: "vuOAuthSetClientSecret"
 category: "OAuth"
-last_updated: "2026-03-27"
+last_updated: "2026-06-24"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [By category](../functions-by-category.md)
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
-# vuOAuthSetClientSecret
+# vuOAuthSetClientSecret()
 
 ## Purpose
 
-Store the OAuth client secret for the specified provider and account key.
+Stores an OAuth client secret for the specified provider/account pair.
 
-## Export name
+For normal applications, enter the Google Secret in the vuMailKit global template and use the [vuMailKit Email Setup Wizard](../getting-started/vumailkit-email-setup-wizard.md). Call this function only when you are building an advanced/manual setup flow.
 
-- vuOAuthSetClientSecret
+## Clarion prototype
 
-## Clarion prototype (Inside Global MAP)
-
-- vuOAuthSetClientSecret(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientSecret,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthSetClientSecret')
+**Prototype:** vuOAuthSetClientSecret(*CSTRING Provider, *CSTRING AccountKey, *CSTRING ClientSecret, *CSTRING OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW, NAME('vuOAuthSetClientSecret')
 
 ## Parameters
 
-| Parameter | Type | Description | Expected values / range |
-|---|---|---|---|
-| Provider | *CSTRING | Provider name. | Typical values: google, microsoft. |
-| AccountKey | *CSTRING | Account key that owns this app configuration. | Usually the email address or profile account key. |
-| ClientSecret | *CSTRING | OAuth client secret to store. | Plain text secret provided by the provider portal. |
-| OutText | *CSTRING | Receives status text. | Writable text buffer. |
-| OutTextLen | LONG | Length of OutText in bytes. | Pass SIZE(OutText). |
+| Parameter | Type | Description |
+|---|---|---|
+| Provider | *CSTRING | Provider name, normally google. |
+| AccountKey | *CSTRING | Account key that owns this app configuration, usually the email address. |
+| ClientSecret | *CSTRING | OAuth client secret to store. |
+| OutText | *CSTRING | Output buffer receiving status text. |
+| OutTextLen | LONG | Size of OutText in bytes. Pass SIZE(OutText). |
 
-## Expected values and ranges
+## Return value / error codes
 
-- Provider text should match the provider names used elsewhere in the OAuth API.
-- Use secure handling in your application UI because the input contains a secret.
+| Value | Meaning |
+|---|---|
+| 1 | Client secret stored successfully. |
+| -3 | Bad request, such as missing provider/account. |
+| -5 | Provider does not use this setting. |
+| -9 | Internal error. |
 
-## Return value
-
-- 1 = client secret stored successfully.
-- 0 = the operation failed.
-
-## Clarion example
+## Example (Clarion)
 
 ```clarion
-Provider                 CSTRING(40)
-AccountKey               CSTRING(254)
-ClientSecret             CSTRING(512)
-OutText                  CSTRING(512)
-OutTextLen               LONG
-Result                   LONG
+Result       LONG
+Provider     CSTRING(64)
+AccountKey   CSTRING(256)
+ClientSecret CSTRING(512)
+OutText      CSTRING(512)
+OutTextLen   LONG
 
-Provider = 'google'
-AccountKey = 'user@example.com'
+Provider     = 'google'
+AccountKey   = 'user@example.com'
 ClientSecret = 'your-client-secret'
-OutTextLen = SIZE(OutText)
 CLEAR(OutText)
+OutTextLen   = SIZE(OutText)
+
 Result = vuOAuthSetClientSecret(Provider, AccountKey, ClientSecret, OutText, OutTextLen)
 ```
 
 ## Notes
 
-- In managed mode, this is stored in secure storage rather than in plain text registry values.
+- In managed mode, the secret is stored through vuMailKit secure storage rather than plain text registry values.
+- Handle the input value as a secret in your application UI.
+
+[Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

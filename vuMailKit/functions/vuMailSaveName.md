@@ -1,7 +1,7 @@
 ---
 title: "vuMailSaveName"
 summary: "Sets the .eml file name used when saving the next sent email."
-description: "Sets the .eml file name used when saving the next sent email. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Sets the .eml file name used when saving the next sent email."
 keywords: ["vuMailKit", "vuMail", "vumailsavename"]
 function_name: "vuMailSaveName"
 category: "Logging"
@@ -13,30 +13,27 @@ last_updated: "2026-03-27"
 
 # vuMailSaveName(FileName)
 
-```Prototype
-vuMailSaveName(*CSTRING FileName),SIGNED,PROC,PASCAL,RAW,NAME('vuMailSaveName')
-```
+## Clarion prototype
+
+**Prototype:** vuMailSaveName(*CSTRING FileName), SIGNED, PROC, PASCAL, RAW, NAME('vuMailSaveName')
 
 ## Description
-
 Sets the file name (or full path) used when vuMailKit saves the next sent email as an .eml file.
 
-### Parameters
+## Parameters
 
 | Parameter | Data Type | Description |
 |---|---|---|
 | FileName | *CSTRING | File name (or full path) to use for the next saved .eml message. |
 
 ## Return value
-
 - Returns 0 on success.
 - Returns -1 if FileName is blank.
 
 ## Notes
-
 - Call this before the send operation so the value is applied to that send.
 
-### Example
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuMailSaveName   ROUTINE

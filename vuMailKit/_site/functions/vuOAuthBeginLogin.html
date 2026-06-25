@@ -31,13 +31,22 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vuoauthbeginlogin">vuOAuthBeginLogin()</h1>
-<pre class="Prototype"><code>vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientId,*CSTRING Tenant,*CSTRING Scopes,*CSTRING FlowType,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthBeginLogin&#39;)</code></pre>
 <h2 id="purpose">Purpose</h2>
-<p>Starts an OAuth login flow for the specified provider and account
-key.</p>
-<p>This call initializes the provider-specific login state, chooses the
-appropriate login flow, and writes status or detail text into
-OutText.</p>
+<p>Starts an OAuth sign-in flow for a provider/account pair and returns
+flow text through the output buffer. Depending on the provider and flow
+type, that text may be device verification instructions or an
+authorization URL.</p>
+<p>For normal applications, use the <a
+href="../getting-started/vumailkit-email-setup-wizard.html">vuMailKit
+Email Setup Wizard</a>. The wizard uses the configured provider values,
+handles OAuth authorization, sends a test email, and saves the working
+profile without requiring your application to call this function
+directly.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthBeginLogin(*CSTRING Provider,
+*CSTRING AccountKey, *CSTRING ClientId, *CSTRING Tenant, *CSTRING
+Scopes, *CSTRING FlowType, *CSTRING OutText, LONG OutTextLen), SIGNED,
+PROC, PASCAL, RAW, NAME('vuOAuthBeginLogin')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -51,103 +60,126 @@ OutText.</p>
 <tr>
 <td>Provider</td>
 <td>*CSTRING</td>
-<td>Provider name, such as google or microsoft.</td>
+<td>Provider identifier, normally google or microsoft. Yahoo/AOL OAuth
+is blocked in current builds.</td>
 </tr>
 <tr>
 <td>AccountKey</td>
 <td>*CSTRING</td>
-<td>Account key used to isolate stored OAuth state for this login.</td>
+<td>Account key used to isolate token state. This is usually the email
+address.</td>
 </tr>
 <tr>
 <td>ClientId</td>
 <td>*CSTRING</td>
-<td>OAuth client or application ID.</td>
+<td>Provider application/client ID. Microsoft can use the built-in
+default when blank; Google requires a configured client ID.</td>
 </tr>
 <tr>
 <td>Tenant</td>
 <td>*CSTRING</td>
-<td>Tenant or authority string when the provider requires it.</td>
+<td>Microsoft tenant value such as common. For Google manual loopback
+flows, this is normally blank when the secret has already been supplied
+through template settings or vuOAuthSetClientSecret.</td>
 </tr>
 <tr>
 <td>Scopes</td>
 <td>*CSTRING</td>
-<td>Space-delimited OAuth scopes to request.</td>
+<td>Space-delimited OAuth scopes. If blank, vuMailKit uses provider
+defaults.</td>
 </tr>
 <tr>
 <td>FlowType</td>
 <td>*CSTRING</td>
-<td>Flow mode string used by the provider-specific login
-implementation.</td>
+<td>Requested flow type. Common values are DEVICE, LOOPBACK, or PKCE,
+depending on provider support.</td>
 </tr>
 <tr>
 <td>OutText</td>
 <td>*CSTRING</td>
-<td>Output buffer receiving status or detail text from the BeginLogin
-call.</td>
+<td>Output buffer receiving provider instructions, an authorization URL,
+or diagnostic text.</td>
 </tr>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Size of the OutText buffer in bytes.</td>
+<td>Size of OutText in bytes. Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: BeginLogin completed successfully.</li>
-<li>0: BeginLogin did not complete successfully.</li>
-<li>-9: Exception while starting the login flow.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>Login flow started and user action is pending. OutText contains the
+next instruction or authorization URL.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Bad request, such as missing provider/account or required provider
+values.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Requested provider/flow is not implemented.</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>OAuth core unavailable, provider error, invalid provider response,
+or internal exception. OutText contains details when available.</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP
+password configuration instead.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>Result     LONG
+Provider   CSTRING(64)
+AccountKey CSTRING(256)
+ClientId   CSTRING(256)
+Tenant     CSTRING(128)
+Scopes     CSTRING(512)
+FlowType   CSTRING(32)
+OutText    CSTRING(2048)
+OutTextLen LONG
+
+Provider   = &#39;microsoft&#39;
+AccountKey = &#39;user@example.com&#39;
+ClientId   = &#39;00000000-0000-0000-0000-000000000000&#39;
+Tenant     = &#39;common&#39;
+Scopes     = &#39;offline_access https://outlook.office.com/SMTP.Send&#39;
+FlowType   = &#39;DEVICE&#39;
+CLEAR(OutText)
+OutTextLen = SIZE(OutText)
+
+Result = vuOAuthBeginLogin(Provider, AccountKey, ClientId, Tenant, Scopes, FlowType, OutText, OutTextLen)
+IF Result &lt; 0
+  MESSAGE(&#39;BeginLogin failed: &#39; &amp; Result &amp; &#39;| &#39; &amp; OutText)
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The actual flow used depends on the provider and the current runtime
-implementation.</li>
-<li>OutText is intended for human-readable status or detail text.</li>
-<li>After a successful call, use the other OAuth helper functions that
-fit the selected flow, such as:
-<ul>
-<li>vuOAuthGetDeviceInfo()</li>
-<li>vuOAuthLaunchUserVerification()</li>
-<li>vuOAuthLaunchAuthorizeUrl()</li>
-<li>vuOAuthCompleteLogin()</li>
-</ul></li>
-</ul>
-<h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMailKit.dll&#39;)
-    vuOAuthBeginLogin(*CSTRING Provider,*CSTRING AccountKey,*CSTRING ClientId,*CSTRING Tenant,*CSTRING Scopes,*CSTRING FlowType,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuOAuthBeginLogin&#39;)
-  END
-END
-
-provider    CSTRING(32)
-accountKey  CSTRING(128)
-clientId    CSTRING(256)
-tenant      CSTRING(128)
-scopes      CSTRING(512)
-flowType    CSTRING(64)
-outText     CSTRING(1024)
-outLen      LONG
-rc          LONG
-
-provider   = &#39;microsoft&#39;
-accountKey = &#39;user@example.com&#39;
-clientId   = &#39;your-client-id&#39;
-tenant     = &#39;common&#39;
-scopes     = &#39;offline_access https://graph.microsoft.com/Mail.Send&#39;
-flowType   = &#39;&#39;
-outText    = &#39;&#39;
-outLen     = SIZE(outText)
-
-rc = vuOAuthBeginLogin(provider, accountKey, clientId, tenant, scopes, flowType, outText, outLen)
-MESSAGE(&#39;rc=&#39; &amp; rc &amp; &#39; text=&#39; &amp; outText)</code></pre>
-<h2 id="see-also">See also</h2>
-<ul>
-<li>vuOAuthDetectProviderFromEmail()</li>
-<li>vuOAuthGetDeviceInfo()</li>
-<li>vuOAuthLaunchUserVerification()</li>
-<li>vuOAuthLaunchAuthorizeUrl()</li>
-<li>vuOAuthCompleteLogin()</li>
-<li>vuOAuthStatus()</li>
+<li>Use the same Provider and AccountKey values on subsequent status,
+complete, clear, refresh, and launch calls.</li>
+<li>Callers that use device-code flows can pass the returned text to <a
+href="vuOAuthLaunchUserVerification.html">vuOAuthLaunchUserVerification</a>
+or parse it with <a
+href="vuOAuthGetDeviceInfo.html">vuOAuthGetDeviceInfo</a>.</li>
+<li>Callers that use authorization-URL flows can use <a
+href="vuOAuthLaunchAuthorizeUrl.html">vuOAuthLaunchAuthorizeUrl</a>
+after BeginLogin captures the URL.</li>
+<li>This page documents the current exported wrapper order. Older
+internal notes and test MAP examples may show the obsolete OutText-first
+order; do not use that order for current builds.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

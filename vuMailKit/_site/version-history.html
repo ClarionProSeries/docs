@@ -27,8 +27,10 @@
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
 <body>
-<p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
 <h1 id="vumailkit---version-history">vuMailKit - Version History</h1>
 <p><em>Newest versions and release dates are listed first</em></p>
 <table>
@@ -42,6 +44,82 @@ functions</a> | <a href="categories/index.html">Categories</a></p>
 </thead>
 <tbody>
 <tr>
+<td style="text-align: left;">1.1.0</td>
+<td style="text-align: left;">157</td>
+<td style="text-align: left;">2026-06-25</td>
+<td style="text-align: left;">Minor feature release for the Basic
+edition. Groups the Simple HTML helpers, TokenMerge/template-mail
+helpers, save-folder/test-send compatibility work, clearer
+licensing/setup diagnostics, expanded Email Setup Wizard documentation,
+zero-OAuth-code OAuth positioning, and the new recommended
+stored-profile send flow into the current public release.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-06-24</td>
+<td style="text-align: left;">Expanded documentation for the vuMailKit
+Email Setup Wizard, including CTRL+U import, email-address validation,
+provider/server autodetect, OAuth authorization flow, zero-OAuth-code
+send positioning, test send, and profile save.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-06-23</td>
+<td style="text-align: left;">Save-folder and test-send compatibility
+update. Normal sends, CSV-file sends, and setup/autodetect test sends
+now honor the same <code>vuSetSaveFolder()</code> /
+<code>vuGlobalsSetEmailFolder()</code> outgoing .eml copy behavior and
+the same <code>vuSetMailLog()</code> / <code>vuLogSetFile()</code>
+sent-mail CSV log behavior.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-06-22</td>
+<td style="text-align: left;">Restored legacy sent-mail CSV logging as a
+separate log from diagnostics. Added <code>vuClearMailLog()</code> for
+the sent-mail CSV log and <code>vuClearDiagnosticsLog()</code> as the
+preferred diagnostics/protocol clear function.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-06-18</td>
+<td style="text-align: left;">Moved private licensing/setup failures to
+the -9001, -9002, and -9003 range and clarified that these are vuMailKit
+startup/license failures, not mail-server authentication failures.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-04-27</td>
+<td style="text-align: left;">Added Simple HTML mode:
+<code>vuSetSimpleHTML()</code>, optional header and footer images, body
+normalization control, and <code>vuResetSimpleHTML()</code>. Simple HTML
+mode lets developers send good-looking HTML email without building the
+outer HTML wrapper themselves.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-04-27</td>
+<td style="text-align: left;">Added
+<code>TokenMergeFileIntoFile()</code> for inserting generated file
+content into a token location in another file. Useful for inserting
+report-to-text invoice or statement output into HTML email
+templates.</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">156</td>
+<td style="text-align: left;">2026-04-26</td>
+<td style="text-align: left;">Added initial TokenMerge helpers:
+<code>TokenMergeInString()</code> and
+<code>TokenMergeInFile()</code>.</td>
+</tr>
+<tr>
 <td style="text-align: left;">1.0</td>
 <td style="text-align: left;">1.52</td>
 <td style="text-align: left;">2026-04-22</td>
@@ -53,13 +131,13 @@ improve stability under error conditions.</td>
 <td style="text-align: left;">1.0</td>
 <td style="text-align: left;">1.51</td>
 <td style="text-align: left;">2026-04-03</td>
-<td style="text-align: left;">Fixed a wizard navigation issue during
-manual setup, added the Google OAuth <strong>OAuth Success Name</strong>
-field for the post-authorization success page, improved the appearance
-of the Google OAuth success page, updated the Google OAuth
-documentation, and added guidance for manually configuring OAuth for
-custom-domain Google Workspace and Microsoft 365 mailboxes when
-autodetect does not identify the provider.</td>
+<td style="text-align: left;">Fixed a vuMailKit Email Setup Wizard
+navigation issue during manual setup, added the Google OAuth
+<strong>OAuth Success Name</strong> field for the post-authorization
+success page, improved the appearance of the Google OAuth success page,
+updated the Google OAuth documentation, and added guidance for manually
+configuring OAuth for custom-domain Google Workspace and Microsoft 365
+mailboxes when autodetect does not identify the provider.</td>
 </tr>
 <tr>
 <td style="text-align: left;">1.0</td>
@@ -69,7 +147,9 @@ autodetect does not identify the provider.</td>
 </tr>
 </tbody>
 </table>
-<p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+<p><a href="index.html">Home</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
+functions</a></p>
 </body>
 </html>

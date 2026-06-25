@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vushellopenurl">vuShellOpenUrl()</h1>
-<pre class="Prototype"><code>vuShellOpenUrl(*CSTRING Url,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuShellOpenUrl&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuShellOpenUrl(*CSTRING Url, *CSTRING
+OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW,
+NAME('vuShellOpenUrl')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Attempts to launch a URL in the user’s default browser and writes
 diagnostic text to an output buffer.</p>
@@ -63,19 +66,26 @@ diagnostic text to an output buffer.</p>
 </tbody>
 </table>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>1: Launch request accepted.</li>
-<li>-8: Launch failed (details written to output text and
-LastError).</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Launch request accepted.</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>Launch failed (details written to output text and LastError).</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuShellOpenUrl(*CSTRING Url,*CSTRING OutText,LONG OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuShellOpenUrl&#39;)
-  END
-END
-
-rc      LONG
+<pre class="clarion"><code>rc      LONG
 url     CSTRING(512)
 outTxt  CSTRING(512)
 

@@ -1,7 +1,7 @@
 ---
 title: "vuSmtpGetServer"
 summary: "Gets the outbound SMTP server name and port."
-description: "Gets the outbound SMTP server name and port. [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)"
+description: "Gets the outbound SMTP server name and port."
 keywords: ["vuMailKit", "vuMail", "vusmtpgetserver", "vugetmailserver"]
 function_name: "vuSmtpGetServer"
 category: "SMTP"
@@ -14,19 +14,18 @@ last_updated: "2026-01-07"
 # vuSmtpGetServer()
 
 ## Description
-
-Gets the outbound SMTP server name and port. (legacy name: vuGetMailServer()).
+Gets the outbound SMTP server name and port. (legacy name: `vuGetMailServer()`).
 
 Previously exported as (legacy name, still supported):
 
 - [vuGetMailServer()](vuGetMailServer.md)
 
-### Parameters
+## Parameters
 
-- xServer (CSTRING) - Receives the SMTP server host name.
-- xPort (LONG) - Receives the SMTP server port.
+- `xServer` (CSTRING) - Receives the SMTP server host name.
+- `xPort` (LONG) - Receives the SMTP server port.
 
-### Returns
+## Return value
 
 A LONG value indicating the result.
 
@@ -34,9 +33,9 @@ A LONG value indicating the result.
 
 ### Notes
 
-Values are read from the current vuMailKit session. Call vuGlobalsLoad() first if you want values loaded from the registry.
+Values are read from the current vuMailKit session. Call `vuGlobalsLoad()` first if you want values loaded from the registry.
 
-### Example (Clarion)
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuSmtpGetServer   ROUTINE

@@ -29,22 +29,19 @@
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
-href="../functions-by-category.html">By category</a></p>
-<h1 id="vuoauthlaunchauthorizeurl">vuOAuthLaunchAuthorizeUrl</h1>
+href="../categories/index.html">Categories</a></p>
+<h1 id="vuoauthlaunchauthorizeurl">vuOAuthLaunchAuthorizeUrl()</h1>
 <h2 id="purpose">Purpose</h2>
-<p>Build and launch the provider authorization URL for an OAuth login
-flow.</p>
-<h2 id="export-name">Export name</h2>
-<ul>
-<li>vuOAuthLaunchAuthorizeUrl</li>
-</ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuOAuthLaunchAuthorizeUrl(*CSTRING Provider,*CSTRING AccountKey,LONG
-CopyUrlToClipboard,*CSTRING OutText,LONG
-OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')</li>
-</ul>
+<p>Uses captured BeginLogin state to open an authorization URL in the
+default browser. The function can also copy the URL to the
+clipboard.</p>
+<p>This is an advanced/manual helper. The vuMailKit Email Setup Wizard
+handles browser launch and authorization in the normal setup path.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuOAuthLaunchAuthorizeUrl(*CSTRING
+Provider, *CSTRING AccountKey, LONG CopyUrlToClipboard, *CSTRING
+OutText, LONG OutTextLen), SIGNED, PROC, PASCAL, RAW,
+NAME('vuOAuthLaunchAuthorizeUrl')</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -52,69 +49,95 @@ OutTextLen),SIGNED,PROC,PASCAL,RAW,NAME('vuOAuthLaunchAuthorizeUrl')</li>
 <th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
-<th>Expected values / range</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Provider</td>
 <td>*CSTRING</td>
-<td>Provider name.</td>
-<td>Typical values: google, microsoft.</td>
+<td>Provider identifier used in BeginLogin.</td>
 </tr>
 <tr>
 <td>AccountKey</td>
 <td>*CSTRING</td>
-<td>Account key used to bind the OAuth session.</td>
-<td>Usually the email address.</td>
+<td>Account key used in BeginLogin.</td>
 </tr>
 <tr>
 <td>CopyUrlToClipboard</td>
 <td>LONG</td>
-<td>Whether to also copy the URL to the clipboard.</td>
-<td>0 = no, 1 = yes.</td>
+<td>0 = do not copy, non-zero = copy the authorization URL to the
+clipboard.</td>
 </tr>
 <tr>
 <td>OutText</td>
 <td>*CSTRING</td>
-<td>Receives status text or the URL.</td>
-<td>Writable text buffer.</td>
+<td>Output buffer receiving the URL and diagnostics.</td>
 </tr>
 <tr>
 <td>OutTextLen</td>
 <td>LONG</td>
-<td>Length of OutText in bytes.</td>
-<td>Pass SIZE(OutText).</td>
+<td>Size of OutText in bytes. Pass SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
-<h2 id="expected-values-and-ranges">Expected values and ranges</h2>
-<ul>
-<li>CopyUrlToClipboard: 0 = no, 1 = yes.</li>
-</ul>
-<h2 id="return-value">Return value</h2>
-<ul>
-<li>1 = authorize URL built and launch attempted successfully.</li>
-<li>0 = the operation failed.</li>
-</ul>
-<h2 id="clarion-example">Clarion example</h2>
-<pre class="clarion"><code>Provider                 CSTRING(40)
-AccountKey               CSTRING(254)
-CopyUrlToClipboard       LONG
-OutText                  CSTRING(1024)
-OutTextLen               LONG
-Result                   LONG
+<h2 id="return-value--error-codes">Return value / error codes</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Browser launch succeeded. OutText contains the URL and may include a
+clipboard warning.</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>Browser launch failed. OutText includes launch diagnostics when
+available.</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>BeginLogin state was missing, authorization URL was missing, or an
+exception occurred.</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>Yahoo/AOL OAuth is disabled in vuMailKit. Use standard SMTP/POP/IMAP
+password configuration instead.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>Result             LONG
+Provider           CSTRING(64)
+AccountKey         CSTRING(256)
+CopyUrlToClipboard LONG
+OutText            CSTRING(2048)
+OutTextLen         LONG
 
-Provider = &#39;google&#39;
-AccountKey = &#39;user@example.com&#39;
+Provider           = &#39;google&#39;
+AccountKey         = &#39;user@example.com&#39;
 CopyUrlToClipboard = 1
-OutTextLen = SIZE(OutText)
 CLEAR(OutText)
-Result = vuOAuthLaunchAuthorizeUrl(Provider, AccountKey, CopyUrlToClipboard, OutText, OutTextLen)</code></pre>
+OutTextLen         = SIZE(OutText)
+
+Result = vuOAuthLaunchAuthorizeUrl(Provider, AccountKey, CopyUrlToClipboard, OutText, OutTextLen)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;LaunchAuthorizeUrl failed: &#39; &amp; Result &amp; &#39;| &#39; &amp; OutText)
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>BeginLogin creates the session state; this function handles the
-explicit browser launch for hosted flows.</li>
+<li>BeginLogin must run first for the same Provider and AccountKey so
+this function has an authorization URL to launch.</li>
+<li>Clipboard copy is best-effort. Browser launch failure is reported as
+-8.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

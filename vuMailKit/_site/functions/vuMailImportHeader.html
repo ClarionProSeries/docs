@@ -31,28 +31,45 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailimportheaderxname">vuMailImportHeader(xName)</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailImportHeader(*CSTRING InFileName),
+SIGNED, PROC, PASCAL, RAW, NAME('vuMailImportHeader')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Loads only the header block from an email file and stores those
 headers in the legacy in-process message state.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>xName (*CSTRING): Source message file path.</li>
+<li><code>xName</code> (*CSTRING): Source message file path.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>0: Success.</li>
-<li>-1: Blank filename.</li>
-<li>-2: File not found or parse/open error.</li>
-<li>-3: File is empty.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Success.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Blank filename.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>File not found or parse/open error.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>File is empty.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuMailImportHeader(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailImportHeader&#39;)
-  END
-END
-
-rc LONG
+<pre class="clarion"><code>rc LONG
 src CSTRING(260)
 src = &#39;C:\Temp\inbound.eml&#39;
 rc = vuMailImportHeader(src)
@@ -63,8 +80,8 @@ END</code></pre>
 <ul>
 <li>Body content is not loaded by this function.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: vuMailDump.pdf, section heading
-vuMailImportHeader.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailImportHeader</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

@@ -3,23 +3,20 @@
 
 # vuFailureNotice()
 
-```Prototype
-vuFailureNotice(),SIGNED,PROC,PASCAL,RAW,NAME('vuFailureNotice')
-```
+## Clarion prototype
+
+**Prototype:** vuFailureNotice(), SIGNED, PROC, PASCAL, RAW, NAME('vuFailureNotice')
 
 ## Description
-
 Sets the runtime flag that requests a failure notice (delivery failure notification) for the next email sent through vuMailKit.
 
 ## Return value
-
 Returns 1 on success.
 
 ## Notes
-
 - Set this before sending so the next send operation can apply it.
 
-### Example
+## Example (Clarion)
 
 ````clarion
 ROUTINE:Test_vuFailureNotice   ROUTINE

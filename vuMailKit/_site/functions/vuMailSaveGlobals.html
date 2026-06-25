@@ -31,14 +31,25 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailsaveglobals">vuMailSaveGlobals()</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailSaveGlobals(), SIGNED, PROC,
+PASCAL, RAW, NAME('vuMailSaveGlobals')</p>
 <h2 id="description">Description</h2>
-<p>This is the legacy vuMail function name for vuGlobalsSave().</p>
+<p>This is the legacy vuMail function name for
+<code>vuGlobalsSave()</code>.</p>
 <p>Preferred function name:</p>
 <ul>
 <li><a href="vuGlobalsSave.html">vuGlobalsSave()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuGlobalsSave().</p>
+identically to <code>vuGlobalsSave()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc LONG
+
+rc = vuMailSaveGlobals()
+IF rc = 0
+  MESSAGE(&#39;Unable to save legacy global settings: &#39; &amp; vuMailLastError())
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

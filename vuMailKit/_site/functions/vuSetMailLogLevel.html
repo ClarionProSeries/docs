@@ -32,20 +32,17 @@ functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vusetmailloglevel">vuSetMailLogLevel()</h1>
 <h2 id="purpose">Purpose</h2>
-<p>Sets the verbosity level used by the standard vuMailKit mail log.</p>
+<p>Sets the verbosity level used by the diagnostic-style logging.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li>vuSetMailLogLevel</li>
+<li><code>vuSetMailLogLevel</code></li>
 </ul>
-<h2 id="clarion-prototype-inside-global-map">Clarion prototype (Inside
-Global MAP)</h2>
-<ul>
-<li>vuSetMailLogLevel(LONG
-InLogLevel),SIGNED,PROC,PASCAL,RAW,NAME('vuSetMailLogLevel')</li>
-</ul>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetMailLogLevel(LONG InLogLevel),
+SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailLogLevel')</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>InLogLevel (LONG) - Log verbosity level.
+<li><code>InLogLevel</code> (LONG) - Log verbosity level.
 <ul>
 <li>0 = Normal</li>
 <li>1 = Trace</li>
@@ -54,17 +51,26 @@ InLogLevel),SIGNED,PROC,PASCAL,RAW,NAME('vuSetMailLogLevel')</li>
 <h2 id="return-value">Return value</h2>
 <ul>
 <li>Returns 1 when the operation succeeds, otherwise 0. Use
-vuMailLastError() for more detail when needed.</li>
+<code>vuMailLastError()</code> for more detail when needed.</li>
 </ul>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc LONG
+
+rc = vuSetMailLogLevel(2)
+IF rc = 0
+  MESSAGE(&#39;Unable to set mail log level: &#39; &amp; vuMailLastError())
+END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This controls the standard mail log written through the current log
-file path.</li>
-<li>Logging still depends on a log file path being set with
-vuLogSetFile() or the legacy vuSetMailLog().</li>
+<li>This level applies to internal diagnostic-style logging, not the
+legacy sent-mail CSV rows written to the mail log selected by
+<code>vuLogSetFile()</code> / <code>vuSetMailLog()</code>.</li>
 <li>Normal is the default level.</li>
-<li>Trace adds deeper internal transport and setup details to the same
-standard log file.</li>
+<li>Trace adds deeper internal transport and setup details when
+diagnostics are enabled.</li>
 </ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

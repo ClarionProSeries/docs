@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>send-an-html-email</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+<h1 id="send-an-html-email">Send an HTML Email</h1>
+<p>If you want a good-looking HTML email, start with the Simple HTML
+functions.</p>
+<p>You do not have to create a full HTML wrapper just to send a clean
+message. Simple HTML mode lets vuMailKit build the wrapper, optionally
+place an image above and below the body, and use the normal MIME path so
+the message includes a plain-text alternative.</p>
+<h2 id="option-1-simple-html-mode">Option 1: Simple HTML mode</h2>
+<p>Use this when you want a clean, branded email without hand-writing a
+complete HTML document.</p>
+<pre class="clarion"><code>Result  LONG
+FromAdr CSTRING(256)
+ToAdr   CSTRING(256)
+CCAdr   CSTRING(256)
+BCCAdr  CSTRING(256)
+Subject CSTRING(256)
+Body    CSTRING(2048)
+Attach  CSTRING(260)
+ImgFile CSTRING(260)
+
+Result = vuResetSimpleHTML()
+Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+! Optional: show a logo or banner above the message body.
+ImgFile = CLIP(PATH()) &amp; &#39;\CompanyHeader.png&#39;
+Result = vuSetSimpleHTMLHeaderImage(ImgFile)
+
+! Optional: show a footer image below the message body.
+ImgFile = CLIP(PATH()) &amp; &#39;\CompanyFooter.png&#39;
+Result = vuSetSimpleHTMLFooterImage(ImgFile)
+
+FromAdr = &#39;&#39;
+ToAdr   = &#39;customer@example.com&#39;
+CCAdr   = &#39;&#39;
+BCCAdr  = &#39;&#39;
+Subject = &#39;Your service update&#39;
+Body    = &#39;Thank you for your business.&lt;13,10&gt;&#39; &amp; |
+          &#39;Your order is ready.&#39;
+Attach  = &#39;&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+
+! Avoid carrying this Simple HTML setup into a later unrelated send.
+Result = vuResetSimpleHTML()</code></pre>
+<p>With <code>vuSetSimpleHTMLNormalizeBody(1)</code>, the body is
+ordinary text. vuMailKit makes it HTML-safe and converts normal line
+breaks for HTML display.</p>
+<p>If the body is already an HTML fragment, call
+<code>vuSetSimpleHTMLNormalizeBody(0)</code> and pass only the fragment
+that belongs inside the body area. Do not pass a full HTML document when
+Simple HTML mode is on.</p>
+<h2 id="option-2-external-html-file">Option 2: External HTML file</h2>
+<p>Use an external file when you want full control over the HTML.</p>
+<p>For many developers, this path is:</p>
+<ol type="1">
+<li>Create an HTML body in an editor or with AI.</li>
+<li>Save it as an external UTF-8 file.</li>
+<li>Point vuMailKit at that file.</li>
+</ol>
+<p>This avoids Clarion string escaping issues and makes the content
+easier to maintain.</p>
+<h3 id="important">Important</h3>
+<p>Save external HTML files as <strong>UTF-8</strong>.</p>
+<p>That is especially important when your message includes accented
+characters or text in languages other than English. vuMailKit supports
+those characters correctly for both inline text and external files, as
+long as the external files are saved in UTF-8 format.</p>
+<h2 id="option-3-tokenmerge-plus-html">Option 3: TokenMerge plus
+HTML</h2>
+<p>Use TokenMerge when the same HTML email needs customer names, invoice
+numbers, dates, or generated report text.</p>
+<p>vuMailKit includes TokenMerge helpers so you can:</p>
+<ul>
+<li>replace every matching token or only the first one</li>
+<li>use case-sensitive or ignore-case matching</li>
+<li>merge tokens inside a CSTRING</li>
+<li>copy an external template to an output file while replacing
+tokens</li>
+<li>insert the contents of one file into a token location in another
+file</li>
+</ul>
+<p>That last option is useful when a Clarion report writes invoice
+detail to a text file and you want to insert that output into the email
+body.</p>
+<h2 id="inline-clarion-html">Inline Clarion HTML</h2>
+<p>You can also embed HTML directly in Clarion source.</p>
+<p>If you do, remember that the less-than sign must be doubled inside
+the Clarion source string.</p>
+<p>That works, but for anything beyond a very small message, many
+developers will find Simple HTML mode or an external file easier to
+create and maintain.</p>
+<h2 id="next-step">Next step</h2>
+<ul>
+<li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML Email with a Company Logo</a></li>
+<li><a href="use-tokenmerge-with-email-templates.html">Use TokenMerge
+with email templates</a></li>
+<li><a href="send-a-branded-html-email-from-a-template.html">Send a
+branded HTML email from a template</a></li>
+</ul>
+<h2 id="related-reference-pages">Related reference pages</h2>
+<ul>
+<li><a href="../functions/vuSetSimpleHTML.html">vuSetSimpleHTML</a></li>
+<li><a
+href="../functions/vuSetSimpleHTMLHeaderImage.html">vuSetSimpleHTMLHeaderImage</a></li>
+<li><a
+href="../functions/vuSetSimpleHTMLFooterImage.html">vuSetSimpleHTMLFooterImage</a></li>
+<li><a
+href="../functions/vuResetSimpleHTML.html">vuResetSimpleHTML</a></li>
+<li><a
+href="../functions/TokenMergeFileIntoFile.html">TokenMergeFileIntoFile</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../categories/index.html">Browse by Category</a>
+| <a href="../functions/index.html">All functions</a></p>
+</body>
+</html>

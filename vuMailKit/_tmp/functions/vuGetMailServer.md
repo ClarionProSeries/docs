@@ -3,14 +3,32 @@
 
 # vuGetMailServer()
 
-## Description
+## Clarion prototype
 
-This is the legacy vuMail function name for vuSmtpGetServer().
+**Prototype:** vuGetMailServer(*CSTRING OutServer, *LONG OutPort), SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailServer')
+
+## Description
+This is the legacy vuMail function name for `vuSmtpGetServer()`.
 
 Preferred function name:
 
 - [vuSmtpGetServer()](vuSmtpGetServer.md)
 
-This function is exported for backward compatibility and behaves identically to vuSmtpGetServer().
+This function is exported for backward compatibility and behaves identically to `vuSmtpGetServer()`.
+
+## Example (Clarion)
+```clarion
+rc     LONG
+server CSTRING(256)
+port   LONG
+
+server = ''
+port = 0
+rc = vuGetMailServer(server, port)
+
+IF rc = 1
+  MESSAGE('SMTP server=' & CLIP(server) & '|Port=' & port)
+END
+```
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

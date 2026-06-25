@@ -31,28 +31,45 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vumailimportxfilepath">vuMailImport(xFilePath)</h1>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuMailImport(*CSTRING InFileName),
+SIGNED, PROC, PASCAL, RAW, NAME('vuMailImport')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Loads an RFC822 message file and stores it as the current legacy
 in-process message.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li>xFilePath (*CSTRING): Source message file path.</li>
+<li><code>xFilePath</code> (*CSTRING): Source message file path.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
-<ul>
-<li>0: Success.</li>
-<li>-1: Blank file path.</li>
-<li>-2: File not found or read/parse error.</li>
-<li>-3: File exists but is empty.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Success.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Blank file path.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>File not found or read/parse error.</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>File exists but is empty.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>MAP
-  MODULE(&#39;vuMail.dll&#39;)
-    vuMailImport(*CSTRING InFileName),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuMailImport&#39;)
-  END
-END
-
-rc LONG
+<pre class="clarion"><code>rc LONG
 src CSTRING(260)
 src = &#39;C:\Temp\inbound.eml&#39;
 rc = vuMailImport(src)
@@ -64,7 +81,8 @@ END</code></pre>
 <li>On success, the imported message becomes available to legacy
 read/export helpers.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: vuMailDump.pdf, section heading vuMailImport.</li>
+<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
+<code>vuMailImport</code>.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

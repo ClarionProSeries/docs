@@ -31,7 +31,10 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vugetmailsecurity">vuGetMailSecurity()</h1>
-<pre class="Prototype"><code>vuGetMailSecurity(*CSTRING OutUser,*CSTRING OutPassword,*LONG OutSecurityMode,*LONG OutUseSsl),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuGetMailSecurity&#39;)</code></pre>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuGetMailSecurity(*CSTRING OutUser,
+*CSTRING OutPassword, *LONG OutSecurityMode, *LONG OutUseSsl), SIGNED,
+PROC, PASCAL, RAW, NAME('vuGetMailSecurity')</p>
 <h2 id="description">Description</h2>
 <p>This is the legacy vuMail function name.</p>
 <p>Preferred function name:</p>
@@ -39,7 +42,23 @@ href="../categories/index.html">Categories</a></p>
 <li><a href="vuSmtpGetSecurity.html">vuSmtpGetSecurity()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to vuSmtpGetSecurity().</p>
+identically to <code>vuSmtpGetSecurity()</code>.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>rc       LONG
+userName CSTRING(256)
+password CSTRING(256)
+secMode  LONG
+useSsl   LONG
+
+userName = &#39;&#39;
+password = &#39;&#39;
+secMode = 0
+useSsl = 0
+
+rc = vuGetMailSecurity(userName, password, secMode, useSsl)
+IF rc = 1
+  MESSAGE(&#39;User=&#39; &amp; CLIP(userName) &amp; &#39;|Security=&#39; &amp; secMode &amp; &#39;|SSL=&#39; &amp; useSsl)
+END</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
