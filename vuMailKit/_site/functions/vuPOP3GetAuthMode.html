@@ -40,9 +40,10 @@ PASCAL, RAW, NAME('vuPOP3GetAuthMode')</p>
 <p>This function has no parameters.</p>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>&gt;= 0</code>: Current POP3 auth mode numeric value.</li>
-<li><code>&lt; 0</code>: Auth mode not available due to runtime
-error.</li>
+<li><blockquote>
+<p>= 0: Current POP3 auth mode numeric value.</p>
+</blockquote></li>
+<li>&lt; 0: Auth mode not available due to runtime error.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>mode LONG
@@ -51,8 +52,8 @@ mode = vuPOP3GetAuthMode()
 MESSAGE(&#39;POP3 auth mode=&#39; &amp; mode)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Pair with <code>vuPOP3SetAuthMode()</code> to configure and verify
-POP3 auth behavior.</li>
+<li>Pair with vuPOP3SetAuthMode() to configure and verify POP3 auth
+behavior.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

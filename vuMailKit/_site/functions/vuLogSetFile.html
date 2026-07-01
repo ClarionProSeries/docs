@@ -33,15 +33,15 @@ href="../categories/index.html">Categories</a></p>
 <h1 id="vulogsetfile">vuLogSetFile()</h1>
 <h2 id="description">Description</h2>
 <p>Sets the legacy sent-mail CSV log file path. (legacy name:
-<code>vuSetMailLog()</code>).</p>
+vuSetMailLog()).</p>
 <p>Previously exported as (legacy name, still supported):</p>
 <ul>
 <li><a href="vuSetMailLog.html">vuSetMailLog()</a></li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xFileName</code> (CSTRING) - Full path to the legacy sent-mail
-CSV log file to be used by vuMailKit.</li>
+<li>xFileName (CSTRING) - Full path to the legacy sent-mail CSV log file
+to be used by vuMailKit.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <p>A LONG value indicating the result.</p>
@@ -49,15 +49,14 @@ CSV log file to be used by vuMailKit.</li>
 <li>1: Success (this function always returns 1)</li>
 </ul>
 <h3 id="notes">Notes</h3>
-<p>Use <code>vuGlobalsSave()</code> if you want to persist it to the
-registry (key: "SentLogFile").</p>
+<p>Use vuGlobalsSave() if you want to persist it to the registry (key:
+"SentLogFile").</p>
 <p>This file is a legacy sent-mail CSV log, not the diagnostics log.
 Each successful or failed send attempt appends one CSV row in this
 format:</p>
 <pre class="text"><code>Date,Time,From,To,Subject,SavedEmailPath,ResultText</code></pre>
-<p>Use <code>vuDiagnosticsSetFile()</code> for diagnostic
-troubleshooting output. Use <code>vuClearMailLog()</code> to clear this
-sent-mail CSV log.</p>
+<p>Use vuDiagnosticsSetFile() for diagnostic troubleshooting output. Use
+vuClearMailLog() to clear this sent-mail CSV log.</p>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>ROUTINE:Test_vuLogSetFile   ROUTINE
   DATA

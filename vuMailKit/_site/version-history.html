@@ -46,13 +46,20 @@ functions</a></p>
 <tr>
 <td style="text-align: left;">1.1.0</td>
 <td style="text-align: left;">157</td>
-<td style="text-align: left;">2026-06-25</td>
+<td style="text-align: left;">2026-07-01</td>
 <td style="text-align: left;">Minor feature release for the Basic
 edition. Groups the Simple HTML helpers, TokenMerge/template-mail
 helpers, save-folder/test-send compatibility work, clearer
 licensing/setup diagnostics, expanded Email Setup Wizard documentation,
-zero-OAuth-code OAuth positioning, and the new recommended
-stored-profile send flow into the current public release.</td>
+zero-OAuth-code OAuth positioning, the recommended stored-profile send
+flow, preferred diagnostics level functions vuSetDiagnosticsLevel() /
+vuGetDiagnosticsLevel(), the finalized build 157 logging model with
+diagnostics-off containment, expanded task help pages with real Clarion
+examples, restored old vuMail-compatible remote inline-image embedding
+for HTML body img src URLs, and clarified the easiest body-image path:
+Simple HTML with NormalizeBody on plus the embed-attachments marker for
+ordinary TEXT-control or memo content, including local image files and
+remote http/https image URLs passed through Attach.</td>
 </tr>
 <tr>
 <td style="text-align: left;">1.0</td>
@@ -69,9 +76,8 @@ send positioning, test send, and profile save.</td>
 <td style="text-align: left;">2026-06-23</td>
 <td style="text-align: left;">Save-folder and test-send compatibility
 update. Normal sends, CSV-file sends, and setup/autodetect test sends
-now honor the same <code>vuSetSaveFolder()</code> /
-<code>vuGlobalsSetEmailFolder()</code> outgoing .eml copy behavior and
-the same <code>vuSetMailLog()</code> / <code>vuLogSetFile()</code>
+now honor the same vuSetSaveFolder() / vuGlobalsSetEmailFolder()
+outgoing .eml copy behavior and the same vuSetMailLog() / vuLogSetFile()
 sent-mail CSV log behavior.</td>
 </tr>
 <tr>
@@ -79,9 +85,9 @@ sent-mail CSV log behavior.</td>
 <td style="text-align: left;">156</td>
 <td style="text-align: left;">2026-06-22</td>
 <td style="text-align: left;">Restored legacy sent-mail CSV logging as a
-separate log from diagnostics. Added <code>vuClearMailLog()</code> for
-the sent-mail CSV log and <code>vuClearDiagnosticsLog()</code> as the
-preferred diagnostics/protocol clear function.</td>
+separate log from diagnostics. Added vuClearMailLog() for the sent-mail
+CSV log and vuClearDiagnosticsLog() as the preferred diagnostics clear
+function.</td>
 </tr>
 <tr>
 <td style="text-align: left;">1.0</td>
@@ -95,29 +101,26 @@ startup/license failures, not mail-server authentication failures.</td>
 <td style="text-align: left;">1.0</td>
 <td style="text-align: left;">156</td>
 <td style="text-align: left;">2026-04-27</td>
-<td style="text-align: left;">Added Simple HTML mode:
-<code>vuSetSimpleHTML()</code>, optional header and footer images, body
-normalization control, and <code>vuResetSimpleHTML()</code>. Simple HTML
-mode lets developers send good-looking HTML email without building the
-outer HTML wrapper themselves.</td>
+<td style="text-align: left;">Added Simple HTML mode: vuSetSimpleHTML(),
+optional header and footer images, body normalization control, and
+vuResetSimpleHTML(). Simple HTML mode lets developers send good-looking
+HTML email without building the outer HTML wrapper themselves.</td>
 </tr>
 <tr>
 <td style="text-align: left;">1.0</td>
 <td style="text-align: left;">156</td>
 <td style="text-align: left;">2026-04-27</td>
-<td style="text-align: left;">Added
-<code>TokenMergeFileIntoFile()</code> for inserting generated file
-content into a token location in another file. Useful for inserting
-report-to-text invoice or statement output into HTML email
-templates.</td>
+<td style="text-align: left;">Added TokenMergeFileIntoFile() for
+inserting generated file content into a token location in another file.
+Useful for inserting report-to-text invoice or statement output into
+HTML email templates.</td>
 </tr>
 <tr>
 <td style="text-align: left;">1.0</td>
 <td style="text-align: left;">156</td>
 <td style="text-align: left;">2026-04-26</td>
 <td style="text-align: left;">Added initial TokenMerge helpers:
-<code>TokenMergeInString()</code> and
-<code>TokenMergeInFile()</code>.</td>
+TokenMergeInString() and TokenMergeInFile().</td>
 </tr>
 <tr>
 <td style="text-align: left;">1.0</td>

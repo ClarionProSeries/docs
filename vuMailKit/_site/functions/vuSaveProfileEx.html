@@ -41,7 +41,7 @@ profile.</p>
 workflows.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuSaveProfileEx</code></li>
+<li>vuSaveProfileEx</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuSaveProfileEx(*CSTRING ProfileName),
@@ -61,8 +61,7 @@ LONG, PROC, PASCAL, RAW, NAME('vuSaveProfileEx')</p>
 <td>ProfileName</td>
 <td>*CSTRING</td>
 <td>Managed profile name to save.</td>
-<td>Example: <code>work-account</code>. Blank falls back to
-default.</td>
+<td>Example: work-account. Blank falls back to default.</td>
 </tr>
 </tbody>
 </table>
@@ -86,8 +85,8 @@ default.</td>
 <tr>
 <td>-9001</td>
 <td>vuMailKit licensing was not initialized. Register the
-template/global extension or call
-<code>vuMailKitInitialize(LicenseString)</code> at EXE startup.</td>
+template/global extension or call vuMailKitInitialize(LicenseString) at
+EXE startup.</td>
 </tr>
 <tr>
 <td>-9002</td>
@@ -100,8 +99,8 @@ template/global extension or call
 </tbody>
 </table>
 <h2 id="what-it-does">What it does</h2>
-<p><code>vuSaveProfileEx()</code> saves the current live runtime
-configuration into the named managed profile.</p>
+<p>vuSaveProfileEx() saves the current live runtime configuration into
+the named managed profile.</p>
 <p>After a successful save:</p>
 <ul>
 <li>the named profile becomes the active managed profile</li>
@@ -117,18 +116,17 @@ ProfileName = &#39;work-account&#39;
 Result = vuSaveProfileEx(ProfileName)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><p>For licensing failures, <code>vuMailLastError()</code> is updated
-with text that identifies the condition as a vuMailKit licensing/setup
-or license-edition problem, not an SMTP, OAuth, Gmail, password, or
+<li><p>For licensing failures, vuMailLastError() is updated with text
+that identifies the condition as a vuMailKit licensing/setup or
+license-edition problem, not an SMTP, OAuth, Gmail, password, or
 mail-server authentication failure.</p></li>
 <li><p>This function is gated to Pro and Back Office editions.</p></li>
-<li><p>If <code>ProfileName</code> is blank, the save falls back to
-<code>default</code>.</p></li>
+<li><p>If ProfileName is blank, the save falls back to default.</p></li>
 <li><p>Secrets are stored through the managed secret store, not through
-the old <code>vuMail</code> registry model.</p></li>
+the old vuMail registry model.</p></li>
 <li><p>Register the vuMailKit template/global extension or call
-<code>vuMailKitInitialize(LicenseString)</code> at EXE startup before
-using this function.</p></li>
+vuMailKitInitialize(LicenseString) at EXE startup before using this
+function.</p></li>
 </ul>
 <p><a href="index.html">All functions</a> | <a
 href="legacy-index.html">Legacy functions</a> | <a

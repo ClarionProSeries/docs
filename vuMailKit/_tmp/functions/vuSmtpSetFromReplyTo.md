@@ -8,7 +8,7 @@
 **Prototype:** vuSmtpSetFromReplyTo(*CSTRING InFromEmail, *CSTRING InReplyToEmail), SIGNED, PROC, PASCAL, RAW, NAME('vuSmtpSetFromReplyTo')
 
 ## Purpose
-Sets default sender (`From`) and `Reply-To` values used for outgoing mail.
+Sets default sender (From) and Reply-To values used for outgoing mail.
 
 ## Parameters
 | Parameter | Type | Description |
@@ -39,15 +39,15 @@ END
 ## Notes
 - Legacy alias: [vuSetFromReplyTo()](vuSetFromReplyTo.md).
 - This function validates non-empty addresses and returns 0 if either address is invalid.
-- Writes runtime memory only; call `vuGlobalsSave()` to persist.
+- Writes runtime memory only; call vuGlobalsSave() to persist.
 - AuthMode/OAuth is not changed by this function.
 
 ## From value rules
 
-`vuSmtpSetFromReplyTo()` accepts the same From forms as `vuSetFromReplyTo()`:
+vuSmtpSetFromReplyTo() accepts the same From forms as vuSetFromReplyTo():
 
 - Plain email address
-- Full mailbox like `Sender Name <sender@example.com>`
+- Full mailbox like Sender Name &lt;sender@example.com&gt;
 - Display name only, which reuses the existing saved/default sender address
 
 If a display name is supplied without an email address and there is no existing saved/default sender address available, the call fails.

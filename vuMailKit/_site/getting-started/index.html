@@ -36,8 +36,8 @@ applications only need a small part of it at first.</p>
 <p>The lower-level and legacy-compatible functions remain available for
 continuity, diagnostics, setup, and advanced control. You do not need to
 learn all of them before sending mail.</p>
-<h2 id="fastest-path-to-a-working-send">Fastest path to a working
-send</h2>
+<h2 id="vumailkit-is-your-fastest-path-to-sending-an-email">vuMailKit is
+your fastest path to sending an email</h2>
 <p>For a normal Clarion application, start with this sequence:</p>
 <ol type="1">
 <li>Add the vuMailKit global template to the EXE application.</li>
@@ -106,16 +106,42 @@ useful diagnostics.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="simple-html-should-usually-be-your-first-html-option">Simple
-HTML should usually be your first HTML option</h2>
-<p>If you want a good-looking HTML email, start with <a
-href="send-a-simple-html-email-with-a-company-logo.html">Send a Simple
-HTML Email with a Company Logo</a>.</p>
-<p>Simple HTML mode lets you pass the message body and let vuMailKit
-create the HTML wrapper. Header and footer images are optional. The
-normal MIME build path still creates the plain-text alternative.</p>
-<p>That means you can send a clean, branded email without first learning
-how to hand-build multipart HTML email.</p>
+<h2 id="two-recommended-html-paths">Two recommended HTML paths</h2>
+<p>For most applications, choose one of these paths instead of
+hand-building a full HTML message inside Clarion source.</p>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Recommended path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ordinary text from a TEXT control, TPS memo, customer note, or
+generated report</td>
+<td>Use <a
+href="send-a-simple-html-email-with-a-company-logo.html">Simple HTML
+mode</a>, keep NormalizeBody on, and pass the text as-is.</td>
+</tr>
+<tr>
+<td>Ordinary text plus images inside the body</td>
+<td>Use <a href="send-an-embedded-image.html">Send an embedded image</a>
+with Simple HTML and the embed-attachments marker. Put the marker where
+the images should appear and pass local image files or remote http/https
+image URLs in Attach.</td>
+</tr>
+<tr>
+<td>Designed HTML with layout, images, and merge tokens</td>
+<td>Use an external UTF-8 HTML file and <a
+href="use-tokenmerge-with-email-templates.html">TokenMerge</a>, then
+send the merged output file.</td>
+</tr>
+</tbody>
+</table>
+<p>This keeps the common case easy. Developers can send clean HTML from
+normal Clarion fields, and they only need external HTML when they want
+full design control.</p>
 <h2 id="common-next-steps">Common next steps</h2>
 <table>
 <thead>
@@ -155,7 +181,9 @@ content before sending.</td>
 <tr>
 <td><a href="send-an-embedded-image.html">Send an embedded
 image</a></td>
-<td>Include an inline image in an HTML email.</td>
+<td>Put body-positioned images into ordinary text with Simple HTML plus
+the embed-attachments marker, or use local paths, remote URLs, and
+external HTML files.</td>
 </tr>
 <tr>
 <td><a href="send-a-branded-html-email-from-a-template.html">Send a

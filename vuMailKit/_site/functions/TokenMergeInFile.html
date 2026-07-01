@@ -62,7 +62,7 @@ the source template.</td>
 <tr>
 <td>InToken</td>
 <td>*CSTRING</td>
-<td>Full token text to replace, such as <code>[[FirstName]]</code>.</td>
+<td>Full token text to replace, such as [[FirstName]].</td>
 </tr>
 <tr>
 <td>InReplacement</td>
@@ -72,9 +72,8 @@ the source template.</td>
 <tr>
 <td>InFlags</td>
 <td>LONG</td>
-<td>Merge option flags. <code>0=Replace all, case-sensitive</code>,
-<code>1=First only</code>, <code>2=Ignore case</code>,
-<code>3=First only and ignore case</code>.</td>
+<td>Merge option flags. 0=Replace all, case-sensitive, 1=First only,
+2=Ignore case, 3=First only and ignore case.</td>
 </tr>
 </tbody>
 </table>
@@ -106,14 +105,14 @@ rc = TokenMergeInFile(srcFile, outFile, tokenText, valueText, flags)
 MESSAGE(&#39;TokenMergeInFile rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The function does not force a token format, but
-<code>[[TokenName]]</code> is strongly recommended.</li>
+<li>The function does not force a token format, but [[TokenName]] is
+strongly recommended.</li>
 <li>By default, the function replaces all matching tokens.</li>
 <li>Set flag bit 1 to replace only the first match.</li>
 <li>Set flag bit 2 to ignore case while matching the full token
 text.</li>
-<li>Use <code>TokenMergeInFile</code> when the replacement value is
-already in a string.</li>
+<li>Use TokenMergeInFile when the replacement value is already in a
+string.</li>
 <li>Use <a href="TokenMergeFileIntoFile.html">TokenMergeFileIntoFile</a>
 when the replacement value should come from another file.</li>
 <li>The function reads common UTF-8 files safely and falls back to

@@ -4,7 +4,7 @@
 # vuLogGetFile()
 
 ## Description
-Gets the legacy sent-mail CSV log file path. (legacy name: `vuGetMailLog()`).
+Gets the legacy sent-mail CSV log file path. (legacy name: vuGetMailLog()).
 
 Previously exported as (legacy name, still supported):
 
@@ -12,7 +12,7 @@ Previously exported as (legacy name, still supported):
 
 ## Parameters
 
-- `xFileName` (CSTRING) - Receives the current log file path.
+- xFileName (CSTRING) - Receives the current log file path.
 
 ## Return value
 
@@ -22,7 +22,7 @@ A LONG value indicating the result.
 
 ### Notes
 
-This is separate from diagnostics logging. Use `vuDiagnosticsGetFile()` to read the diagnostics log path.
+This is separate from diagnostics logging. Use vuDiagnosticsGetFile() to read the diagnostics log path.
 
 This returns the log file path from the current session.
 

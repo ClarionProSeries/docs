@@ -34,7 +34,7 @@ END
 ```
 
 ## Notes
-- Call `vuPOP3LoadEmail` before saving embedded content.
-- Output folder comes from `vuPOP3SetFolder` / POP3 folder configuration.
+- Call vuPOP3LoadEmail before saving embedded content.
+- Output folder comes from vuPOP3SetFolder / POP3 folder configuration.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

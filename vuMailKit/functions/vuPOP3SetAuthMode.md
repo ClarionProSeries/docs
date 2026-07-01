@@ -43,6 +43,6 @@ END
 ```
 
 ## Notes
-- This setting controls whether POP3 uses password (0) or OAuth (`non-zero`) during `vuPOP3Connect`.
+- This setting controls whether POP3 uses password (0) or OAuth (non-zero) during vuPOP3Connect.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

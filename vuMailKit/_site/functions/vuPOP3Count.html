@@ -40,8 +40,10 @@ NAME('vuPOP3Count')</p>
 <p>This function has no parameters.</p>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li><code>&gt;= 0</code>: Number of available messages.</li>
-<li><code>&lt; 0</code>: POP3 state or command error.</li>
+<li><blockquote>
+<p>= 0: Number of available messages.</p>
+</blockquote></li>
+<li>&lt; 0: POP3 state or command error.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>msgCount LONG
@@ -52,7 +54,7 @@ IF msgCount &gt;= 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Requires a successful <code>vuPOP3Connect()</code> call first.</li>
+<li>Requires a successful vuPOP3Connect() call first.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

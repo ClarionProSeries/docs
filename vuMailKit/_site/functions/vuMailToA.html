@@ -37,27 +37,24 @@ xCc, xBcc, xSubject, xBody, xAttachment)</h1>
 *CSTRING InBCC, *CSTRING InSubject, *CSTRING InBody, *CSTRING
 InAttachment), LONG, PROC, PASCAL, RAW, NAME('vuMailToA')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Builds a <code>mailto:</code> URI (including an <code>attach=</code>
-parameter) and asks Windows Shell to open it with the default mail
-client.</p>
+<p>Builds a mailto: URI (including an attach= parameter) and asks
+Windows Shell to open it with the default mail client.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xTo</code> (*CSTRING): To recipients string.</li>
-<li><code>xCc</code> (*CSTRING): Cc recipients string.</li>
-<li><code>xBcc</code> (*CSTRING): Bcc recipients string.</li>
-<li><code>xSubject</code> (*CSTRING): Subject text.</li>
-<li><code>xBody</code> (*CSTRING): Body text.</li>
-<li><code>xAttachment</code> (*CSTRING): Attachment path hint for
-clients that interpret <code>attach=</code> in <code>mailto:</code>
-URIs.</li>
+<li>xTo (*CSTRING): To recipients string.</li>
+<li>xCc (*CSTRING): Cc recipients string.</li>
+<li>xBcc (*CSTRING): Bcc recipients string.</li>
+<li>xSubject (*CSTRING): Subject text.</li>
+<li>xBody (*CSTRING): Body text.</li>
+<li>xAttachment (*CSTRING): Attachment path hint for clients that
+interpret attach= in mailto: URIs.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li>Returns the Win32 <code>ShellExecute</code> result value.</li>
+<li>Returns the Win32 ShellExecute result value.</li>
 <li>Values greater than 32 typically indicate the shell accepted the
 open request.</li>
-<li>0: Exception path; details are written to
-<code>vuMailLastError()</code>.</li>
+<li>0: Exception path; details are written to vuMailLastError().</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>toAddr  CSTRING(256)
@@ -80,12 +77,10 @@ IF rc &lt;= 32
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Many mail clients ignore non-standard <code>attach=</code> URI
-parameters.</li>
+<li>Many mail clients ignore non-standard attach= URI parameters.</li>
 <li>Input fields are not URL-encoded by this function.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
-<code>vuMailToA</code>.</li>
+<li>Legacy reference: vuMailDump.pdf, section heading vuMailToA.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

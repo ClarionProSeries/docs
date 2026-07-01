@@ -81,7 +81,7 @@ receive operations.</p>
 </tbody>
 </table>
 <ul>
-<li><code>&lt; 0</code>: Connection or authentication failed.</li>
+<li>&lt; 0: Connection or authentication failed.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc       LONG
@@ -99,9 +99,9 @@ IF rc &lt; 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call this before <code>vuPOP3Count</code>,
-<code>vuPOP3LoadHeader</code>, or <code>vuPOP3LoadEmail</code>.</li>
-<li>Pair with <code>vuPOP3Disconnect()</code> when finished.</li>
+<li>Call this before vuPOP3Count, vuPOP3LoadHeader, or
+vuPOP3LoadEmail.</li>
+<li>Pair with vuPOP3Disconnect() when finished.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

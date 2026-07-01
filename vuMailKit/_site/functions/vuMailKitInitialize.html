@@ -69,14 +69,14 @@ inside single quotes.</p>
 <p>Example format:</p>
 <pre class="text"><code>&#39;license-string&#39;</code></pre>
 <p>The template places that value into the generated startup code and
-passes it to <code>vuMailKitInitialize()</code>.</p>
+passes it to vuMailKitInitialize().</p>
 <h2 id="when-to-call-this">When to call this</h2>
-<p>Call <code>vuMailKitInitialize()</code> once before setup,
-autodetect, profile, or send code can run.</p>
+<p>Call vuMailKitInitialize() once before setup, autodetect, profile, or
+send code can run.</p>
 <p>Typical EXE startup pattern:</p>
 <ul>
 <li>copy the developer license string into a CSTRING</li>
-<li>call <code>vuMailKitInitialize(LicenseString)</code></li>
+<li>call vuMailKitInitialize(LicenseString)</li>
 <li>continue into the rest of the application</li>
 </ul>
 <p>In a Clarion multi-DLL application, initialize from the EXE app. The
@@ -115,8 +115,8 @@ virus warning, not a license failure, and not an SMTP, OAuth, Gmail,
 password, or mail-server authentication failure.</p>
 <h2 id="related-licensing-return-codes-from-later-calls">Related
 licensing return codes from later calls</h2>
-<p><code>vuMailKitInitialize()</code> itself does not return -9001 or
--9003. Those are returned by later license-gated functions.</p>
+<p>vuMailKitInitialize() itself does not return -9001 or -9003. Those
+are returned by later license-gated functions.</p>
 <table>
 <thead>
 <tr>
@@ -130,12 +130,12 @@ licensing return codes from later calls</h2>
 <td>-9001</td>
 <td>Later gated functions</td>
 <td>vuMailKit licensing was never initialized. The EXE did not call
-<code>vuMailKitInitialize()</code> successfully before using send,
-setup, autodetect, or profile functions.</td>
+vuMailKitInitialize() successfully before using send, setup, autodetect,
+or profile functions.</td>
 </tr>
 <tr>
 <td>-9002</td>
-<td><code>vuMailKitInitialize()</code> or later gated functions</td>
+<td>vuMailKitInitialize() or later gated functions</td>
 <td>The license string is invalid, initialization failed, or a prior
 initialization attempt failed.</td>
 </tr>
@@ -169,17 +169,17 @@ license-gated and should not rely on implicit startup behavior.</li>
 call returns -9002 and later gated calls also report -9002.</li>
 <li>If a lower edition calls a higher-tier feature, the later gated call
 returns -9003.</li>
-<li>For licensing failures, <code>vuMailLastError()</code> is updated
-with text that identifies the condition as a vuMailKit licensing/setup
-problem, not an SMTP, OAuth, Gmail, password, or mail-server
-authentication failure.</li>
-<li>For -451 deployment-folder conflicts, <code>vuMailLastError()</code>
-identifies conflicting .NET mail/runtime files in the application
-folder. Clean up the application folder before troubleshooting license
-or mail-provider settings.</li>
-<li>Use <code>vuMailKitGetLicenseInfo()</code> if you want a diagnostic
-text summary of the license state for a test harness, support screen, or
-About box.</li>
+<li>For licensing failures, vuMailLastError() is updated with text that
+identifies the condition as a vuMailKit licensing/setup problem, not an
+SMTP, OAuth, Gmail, password, or mail-server authentication
+failure.</li>
+<li>For -451 deployment-folder conflicts, vuMailLastError() identifies
+conflicting .NET mail/runtime files in the application folder. Clean up
+the application folder before troubleshooting license or mail-provider
+settings.</li>
+<li>Use vuMailKitGetLicenseInfo() if you want a diagnostic text summary
+of the license state for a test harness, support screen, or About
+box.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

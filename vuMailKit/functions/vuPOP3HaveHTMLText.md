@@ -40,6 +40,6 @@ END
 ```
 
 ## Notes
-- Load a full message with `vuPOP3LoadEmail` before checking MIME body availability.
+- Load a full message with vuPOP3LoadEmail before checking MIME body availability.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

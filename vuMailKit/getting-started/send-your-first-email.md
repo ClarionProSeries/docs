@@ -49,7 +49,7 @@ IF Result <> 1
 END
 ```
 
-When `FromAdr` is blank, vuMailKit uses the saved/default profile sender. No OAuth code is needed here; if the saved profile uses Microsoft or Google OAuth, vuMailKit uses the stored OAuth state behind the normal send call.
+When FromAdr is blank, vuMailKit uses the saved/default profile sender. No OAuth code is needed here; if the saved profile uses Microsoft or Google OAuth, vuMailKit uses the stored OAuth state behind the normal send call.
 
 ## Optional logging and sent-email copies
 

@@ -18,16 +18,16 @@ last_updated: "2026-03-27"
 **Prototype:** vuMailSelectCSV(*CSTRING OutText), SIGNED, PROC, PASCAL, RAW, NAME('vuMailSelectCSV')
 
 ## Purpose
-Selects an existing CSV file so later `vuMailAppendCSV()` calls append rows to that file.
+Selects an existing CSV file so later vuMailAppendCSV() calls append rows to that file.
 
 ## Parameters
-- `xCsvFilePath` (*CSTRING): Full path to an existing CSV file.
+- xCsvFilePath (*CSTRING): Full path to an existing CSV file.
 
 ## Return value / error codes
 | Value | Meaning |
 |---|---|
 | 1 | CSV file exists and is now selected. |
-| 0 | Failed. Common cases are blank path or file not found. Use `vuMailLastError()` for details. |
+| 0 | Failed. Common cases are blank path or file not found. Use vuMailLastError() for details. |
 
 ## Example (Clarion)
 ```clarion
@@ -42,8 +42,8 @@ END
 ```
 
 ## Notes
-- This function does not create a file; use `vuMailCreateCSV()` when you need to create/truncate a CSV first.
+- This function does not create a file; use vuMailCreateCSV() when you need to create/truncate a CSV first.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailSelectCSV`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailSelectCSV.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

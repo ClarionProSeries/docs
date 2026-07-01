@@ -37,7 +37,7 @@ id="vuautodetectsendtestmessageex">vuAutoDetectSendTestMessageEx</h1>
 incoming setup details in the generated message body.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuAutoDetectSendTestMessageEx</code></li>
+<li>vuAutoDetectSendTestMessageEx</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuAutoDetectSendTestMessageEx(LONG
@@ -54,14 +54,13 @@ NAME('vuAutoDetectSendTestMessageEx')</p>
 <h2 id="legacy-save-folder-and-mail-log-behavior">Legacy save-folder and
 mail-log behavior</h2>
 <p>Setup/test-send messages honor the same legacy save-folder and
-sent-mail log settings as normal sends. If
-<code>vuSetSaveFolder()</code> or <code>vuGlobalsSetEmailFolder()</code>
-has set a valid folder before the test send, vuMailKit saves the
-outgoing test message as an <code>.eml</code> file before the SMTP send
-attempt. If <code>vuSetMailLog()</code> or <code>vuLogSetFile()</code>
-has selected a sent-mail CSV log, the test-send attempt is logged.
-Successful sends include the saved path when an outgoing copy was saved.
-Failed sends are logged with the result text.</p>
+sent-mail log settings as normal sends. If vuSetSaveFolder() or
+vuGlobalsSetEmailFolder() has set a valid folder before the test send,
+vuMailKit saves the outgoing test message as an .eml file before the
+SMTP send attempt. If vuSetMailLog() or vuLogSetFile() has selected a
+sent-mail CSV log, the test-send attempt is logged. Successful sends
+include the saved path when an outgoing copy was saved. Failed sends are
+logged with the result text.</p>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc       LONG
 fromAdr  CSTRING(256)
@@ -89,21 +88,20 @@ rc = vuAutoDetectSendTestMessageEx(SIZE(text), fromAdr, toAdr, subject, |
 MESSAGE(&#39;Send test rc=&#39; &amp; rc &amp; &#39;|Response=&#39; &amp; CLIP(text))</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This additive export keeps the original
-<code>vuAutoDetectSendTestMessage</code> stable.</li>
-<li>The generated subject uses mixed-case suffixes:
-<code>(Auto-Detect)</code> or <code>(Manual)</code>.</li>
+<li>This additive export keeps the original vuAutoDetectSendTestMessage
+stable.</li>
+<li>The generated subject uses mixed-case suffixes: (Auto-Detect) or
+(Manual).</li>
 <li>The generated body uses the same wording style shown in the
-vuMailKit Email Setup Wizard, including <code>SIGN-IN METHOD</code>
-labels such as <code>Username / Password</code>,
-<code>Google Sign-In</code>, and <code>Microsoft Sign-In</code>.</li>
+vuMailKit Email Setup Wizard, including SIGN-IN METHOD labels such as
+Username / Password, Google Sign-In, and Microsoft Sign-In.</li>
 <li>When POP3 and IMAP values are supplied, those sections are included
 in the body so the message also serves as a setup record.</li>
 </ul>
 <h2 id="from-display-name-behavior">From display name behavior</h2>
 <ul>
 <li>If a sender display name has been configured, vuMailKit formats the
-From header as <code>Display Name &lt;email@address&gt;</code>.</li>
+From header as Display Name &lt;email@address&gt;.</li>
 <li>If no display name exists, vuMailKit falls back to the plain email
 address.</li>
 <li>This preserves compatibility with legacy code that only supplies an

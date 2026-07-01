@@ -36,8 +36,8 @@ href="../categories/index.html">Categories</a></p>
 InFromEmail, *CSTRING InReplyToEmail), SIGNED, PROC, PASCAL, RAW,
 NAME('vuSmtpSetFromReplyTo')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Sets default sender (<code>From</code>) and <code>Reply-To</code>
-values used for outgoing mail.</p>
+<p>Sets default sender (From) and Reply-To values used for outgoing
+mail.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -98,17 +98,16 @@ END</code></pre>
 href="vuSetFromReplyTo.html">vuSetFromReplyTo()</a>.</li>
 <li>This function validates non-empty addresses and returns 0 if either
 address is invalid.</li>
-<li>Writes runtime memory only; call <code>vuGlobalsSave()</code> to
-persist.</li>
+<li>Writes runtime memory only; call vuGlobalsSave() to persist.</li>
 <li>AuthMode/OAuth is not changed by this function.</li>
 </ul>
 <h2 id="from-value-rules">From value rules</h2>
-<p><code>vuSmtpSetFromReplyTo()</code> accepts the same From forms as
-<code>vuSetFromReplyTo()</code>:</p>
+<p>vuSmtpSetFromReplyTo() accepts the same From forms as
+vuSetFromReplyTo():</p>
 <ul>
 <li>Plain email address</li>
-<li>Full mailbox like
-<code>Sender Name &lt;sender@example.com&gt;</code></li>
+<li>Full mailbox like Sender Name &lt;<a
+href="mailto:sender@example.com">sender@example.com</a>&gt;</li>
 <li>Display name only, which reuses the existing saved/default sender
 address</li>
 </ul>

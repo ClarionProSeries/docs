@@ -42,7 +42,7 @@ RAW, NAME('vuClearMailLog')</p>
 <li><a href="vuSetMailLog.html">vuSetMailLog()</a></li>
 </ul>
 <p>This function is intentionally separate from diagnostics logging. It
-does <strong>not</strong> clear the diagnostics log or SMTP protocol
+does <strong>not</strong> clear the diagnostics log or diagnostics
 log.</p>
 <h2 id="parameters">Parameters</h2>
 <p>This function takes no parameters.</p>
@@ -69,8 +69,8 @@ href="vuMailLastError.html">vuMailLastError()</a> for details.</td>
 </table>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><code>vuLogSetFile()</code> / <code>vuSetMailLog()</code> select the
-legacy sent-mail CSV log.</li>
+<li>vuLogSetFile() / vuSetMailLog() select the legacy sent-mail CSV
+log.</li>
 <li>Successful and failed send attempts append CSV rows to that
 file.</li>
 <li>The CSV row format follows the old vuMail behavior:</li>

@@ -6,7 +6,7 @@ keywords: ["vuMailKit","function","vudiagnosticssetfile"]
 function_name: "vuDiagnosticsSetFile"
 category: "Diagnostics"
 version_added: "1.0"
-last_updated: "2026-06-22"
+last_updated: "2026-06-26"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -15,11 +15,11 @@ last_updated: "2026-06-22"
 
 ## Purpose
 
-Sets the diagnostic log file path used by vuDiagnosticsEnable() and by protocol logging.
+Sets the diagnostic log file path used by vuDiagnosticsEnable().
 
 ## Export name
 
-- `vuDiagnosticsSetFile`
+- vuDiagnosticsSetFile
 
 ## Clarion prototype
 
@@ -27,7 +27,7 @@ Sets the diagnostic log file path used by vuDiagnosticsEnable() and by protocol 
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Example (Clarion)
 ```clarion
@@ -44,8 +44,9 @@ END
 
 ## Notes
 
-- This file is separate from the legacy sent-mail CSV log selected by `vuLogSetFile()` / `vuSetMailLog()`.
-- Pass the address of a `CSTRING` buffer containing the full path.
-- Setting the file path does not automatically enable diagnostics.
+- This file is separate from the legacy sent-mail CSV log selected by vuLogSetFile() / vuSetMailLog().
+- Pass the address of a CSTRING buffer containing the full path.
+- Setting the file path does not automatically enable diagnostics and should not append diagnostics rows until vuDiagnosticsEnable() is called.
+- Use vuSetDiagnosticsLevel() to choose Normal or Trace diagnostics detail.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -34,10 +34,10 @@ href="../categories/index.html">Categories</a></p>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuGlobalsGetCodePage(), CSTRING, PROC,
 PASCAL, RAW, NAME('vuGlobalsGetCodePage')</p>
-<p>This function is declared as returning <code>LONG</code> at the
-Clarion boundary for legacy compatibility. The numeric return value is
-actually the address of a null-terminated C string buffer and can be
-consumed directly in Clarion string expressions, as shown below.</p>
+<p>This function is declared as returning LONG at the Clarion boundary
+for legacy compatibility. The numeric return value is actually the
+address of a null-terminated C string buffer and can be consumed
+directly in Clarion string expressions, as shown below.</p>
 <h2 id="description">Description</h2>
 <p>Gets the current runtime CodePage text using the same legacy behavior
 used by the original vuMail product.</p>
@@ -46,7 +46,7 @@ used by the original vuMail product.</p>
 <li>Returns the current CodePage text using the original vuMail legacy
 text-return style.</li>
 <li>In Clarion, this function can be used directly in text expressions
-such as <code>MESSAGE()</code> and string assignment.</li>
+such as MESSAGE() and string assignment.</li>
 <li>If no text is available, the result may be empty.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
@@ -55,9 +55,9 @@ such as <code>MESSAGE()</code> and string assignment.</li>
 <ul>
 <li>Legacy alias: <a href="vuGetCodePage.html">vuGetCodePage()</a>.</li>
 <li>This is a legacy compatibility exception. New text-return APIs
-should use caller-owned <code>*CSTRING</code> output buffers.</li>
-<li>Value is returned from in-memory globals (load with
-<code>vuGlobalsLoad()</code> if needed).</li>
+should use caller-owned *CSTRING output buffers.</li>
+<li>Value is returned from in-memory globals (load with vuGlobalsLoad()
+if needed).</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

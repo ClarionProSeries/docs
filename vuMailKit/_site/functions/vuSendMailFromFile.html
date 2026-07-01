@@ -110,11 +110,10 @@ MESSAGE(&#39;vuSendMailFromFile rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Register the vuMailKit template/global extension or call
-<code>vuMailKitInitialize(LicenseString)</code> at EXE startup before
-using this function. If this licensing startup step is missed, the
-function returns -9001 and <code>vuMailLastError()</code> explains that
-the problem is vuMailKit licensing/setup, not mail-server
-authentication.</li>
+vuMailKitInitialize(LicenseString) at EXE startup before using this
+function. If this licensing startup step is missed, the function returns
+-9001 and vuMailLastError() explains that the problem is vuMailKit
+licensing/setup, not mail-server authentication.</li>
 <li>If this function returns -451, clean up the application folder. That
 code means unrelated .NET mail/OAuth/runtime files may interfere with
 vuMailKit's embedded dependencies; it is not a mail-server
@@ -126,31 +125,31 @@ BCC, SUBJECT, BODY, ATTACH.</li>
 that row.</li>
 <li>If no valid rows remain after parsing, the function returns 0.</li>
 <li>Sender selection for the FROM column follows the same rules used by
-<code>vuSendMail()</code> and <code>vuSendMailWait()</code>.</li>
-<li>If a save folder was set with <code>vuSetSaveFolder()</code> or
-<code>vuGlobalsSetEmailFolder()</code> before this call, each queued row
-captures that folder and can save an outgoing .eml copy before its SMTP
-send attempt.</li>
-<li>If a sent-mail CSV log was set with <code>vuSetMailLog()</code> or
-<code>vuLogSetFile()</code> before this call, each row's send attempt
-can be logged. Successful sends include the saved .eml path when an
-outgoing copy was saved. Failed sends are logged with the result
-text.</li>
+vuSendMail() and vuSendMailWait().</li>
+<li>If a save folder was set with vuSetSaveFolder() or
+vuGlobalsSetEmailFolder() before this call, each queued row captures
+that folder and can save an outgoing .eml copy before its SMTP send
+attempt.</li>
+<li>If a sent-mail CSV log was set with vuSetMailLog() or vuLogSetFile()
+before this call, each row's send attempt can be logged. Successful
+sends include the saved .eml path when an outgoing copy was saved.
+Failed sends are logged with the result text.</li>
 <li>Attachments may be blank, a single full path, a
 comma/semicolon-separated list, or wildcard masks such as
-<code>C:\Mail\Statements\*.pdf</code>.</li>
+C:\Mail\Statements*.pdf.</li>
 </ul>
 <h2 id="from-column-behavior">From column behavior</h2>
 <p>The CSV FROM column follows the same sender-selection rules as
-<code>vuSendMail()</code> and <code>vuSendMailWait()</code>:</p>
+vuSendMail() and vuSendMailWait():</p>
 <ul>
 <li>Blank From column uses the saved/default profile sender.</li>
-<li>Full mailbox like <code>Support &lt;support@example.com&gt;</code>
-is used as supplied for that row.</li>
+<li>Full mailbox like Support &lt;<a
+href="mailto:support@example.com">support@example.com</a>&gt; is used as
+supplied for that row.</li>
 <li>Plain email address uses that address with no display name
 override.</li>
-<li>Plain display name only, such as <code>Technical Support</code>,
-combines that name with the saved/default profile sender address.</li>
+<li>Plain display name only, such as Technical Support, combines that
+name with the saved/default profile sender address.</li>
 </ul>
 <p>If a row supplies a display name only and there is no saved/default
 profile sender address available, that row is treated as invalid and is

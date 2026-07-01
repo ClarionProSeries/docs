@@ -1,12 +1,12 @@
 ---
 title: "vuDiagnosticsClearLogs"
-summary: "Delete the current diagnostic and protocol log files."
-description: "Delete the current diagnostic and protocol log files."
+summary: "Delete the current diagnostics log files."
+description: "Delete the current diagnostics log files."
 keywords: ["vuMailKit","function","vudiagnosticsclearlogs"]
 function_name: "vuDiagnosticsClearLogs"
 category: "Diagnostics"
 version_added: "1.0"
-last_updated: "2026-06-22"
+last_updated: "2026-06-25"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -15,11 +15,11 @@ last_updated: "2026-06-22"
 
 ## Purpose
 
-Deletes the current diagnostics log file and SMTP protocol log file when they exist.
+Deletes the current diagnostics log file when it exists.
 
 ## Export name
 
-- `vuDiagnosticsClearLogs`
+- vuDiagnosticsClearLogs
 
 ## Clarion prototype
 
@@ -27,7 +27,7 @@ Deletes the current diagnostics log file and SMTP protocol log file when they ex
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Example (Clarion)
 ```clarion
@@ -42,10 +42,10 @@ END
 ## Notes
 
 - This is intended for troubleshooting so each test starts with clean log files.
-- It attempts to delete only the diagnostics log and SMTP protocol log. It no longer clears the legacy sent-mail CSV log. Use `vuClearMailLog()` for that file.
+- It attempts to delete only the diagnostics log. It no longer clears the legacy sent-mail CSV log. Use vuClearMailLog() for that file.
 
 ## Preferred clear function
 
-`vuClearDiagnosticsLog()` is also available as the preferred diagnostics clear function name.
+vuClearDiagnosticsLog() is also available as the preferred diagnostics clear function name.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

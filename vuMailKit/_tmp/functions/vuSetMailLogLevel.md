@@ -3,42 +3,43 @@
 
 # vuSetMailLogLevel()
 
-## Purpose
+## Description
 
-Sets the verbosity level used by the diagnostic-style logging.
+vuSetMailLogLevel() is a legacy-compatible alias for the preferred function name:
 
-## Export name
+- [vuSetDiagnosticsLevel()](vuSetDiagnosticsLevel.md)
 
-- `vuSetMailLogLevel`
+The legacy name remains exported and supported so existing applications continue to compile and run.
+
+New code should use vuSetDiagnosticsLevel().
 
 ## Clarion prototype
 
 **Prototype:** vuSetMailLogLevel(LONG InLogLevel), SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailLogLevel')
 
-## Parameters
+## Important logging separation
 
-- `InLogLevel` (LONG) - Log verbosity level.
-  - 0 = Normal
-  - 1 = Trace
+Despite the legacy name, vuSetMailLogLevel() controls diagnostics verbosity only.
 
-## Return value
+It does not enable diagnostics logging, select the diagnostics log file, enable the sent-mail CSV/activity log, or select the CSV log file.
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+Use vuSetMailLog() or vuLogSetFile() to select the sent-mail CSV/activity log file.
+
+Use vuDiagnosticsSetFile(), vuSetDiagnosticsLevel(), and vuDiagnosticsEnable() for diagnostics.
+
+## Levels
+
+| Value | Meaning |
+|---:|---|
+| 0 | Normal diagnostics. |
+| 1 | Trace diagnostics. |
 
 ## Example (Clarion)
+
 ```clarion
-rc LONG
+Result SIGNED
 
-rc = vuSetMailLogLevel(2)
-IF rc = 0
-  MESSAGE('Unable to set mail log level: ' & vuMailLastError())
-END
+Result = vuSetMailLogLevel(1)   ! Legacy alias for vuSetDiagnosticsLevel(1)
 ```
-
-## Notes
-
-- This level applies to internal diagnostic-style logging, not the legacy sent-mail CSV rows written to the mail log selected by `vuLogSetFile()` / `vuSetMailLog()`.
-- Normal is the default level.
-- Trace adds deeper internal transport and setup details when diagnostics are enabled.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

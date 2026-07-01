@@ -18,12 +18,12 @@ last_updated: "2026-04-26"
 **Prototype:** vuGlobalsSetCodePage(*CSTRING xPage), SIGNED, PROC, PASCAL, RAW, NAME('vuGlobalsSetCodePage')
 
 ## Purpose
-Sets the in-memory `CodePage` setting used by vuMailKit.
+Sets the in-memory CodePage setting used by vuMailKit.
 
 ## Parameters
 | Parameter | Type | Description |
 |---|---|---|
-| xPage | *CSTRING | Code page string to store (for example `UTF-8`). |
+| xPage | *CSTRING | Code page string to store (for example UTF-8). |
 
 ## Return value / error codes
 | Value | Meaning |
@@ -44,7 +44,7 @@ END
 
 ## Notes
 - Legacy alias: [vuSetCodePage()](vuSetCodePage.md).
-- This updates runtime memory only; call `vuGlobalsSave()` to persist to registry.
+- This updates runtime memory only; call vuGlobalsSave() to persist to registry.
 - AuthMode/OAuth is not used by this function.
 - This is a legacy compatibility setting. The current SMTP send path emits modern MIME text parts as UTF-8. External body files containing accented or international characters should be saved as UTF-8.
 

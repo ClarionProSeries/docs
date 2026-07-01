@@ -27,7 +27,53 @@ When Simple HTML mode is enabled, the body should contain the **message body onl
 
 Do **not** pass a full HTML document with html, head, or body tags when Simple HTML mode is active.
 
+## Simplest body pattern
+
+For most messages, keep body normalization on and pass ordinary text:
+
+```clarion
+Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+! Body can be the text from a TEXT control, TPS memo, customer note,
+! report output, or any plain text string your application builds.
+Body = CLIP(CustomerMessageText)
+```
+
+CustomerMessageText can contain normal line breaks exactly as the user typed them. vuMailKit escapes HTML-sensitive characters and converts those line breaks for HTML display. Do not add &lt;br&gt; or &lt;p&gt; tags unless you are intentionally supplying an HTML fragment and have turned normalization off.
+
+## Body-positioned images without hand-coded HTML
+
+Header and footer images are good for branding. If you want images inside the body text, keep Simple HTML and NormalizeBody on and use the embed-attachments marker.
+
+The TEXT control or memo can contain ordinary text like this:
+
+```text
+Here are the photos from today's service call:
+
+_embed attachments width=600_
+
+Please call us if you have any questions.
+```
+
+Then pass the local image files or remote http/https image URLs in Attach:
+
+```clarion
+Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+Body   = CLIP(CustomerMessageText)
+Attach = 'C:\ServicePhotos\Photo1.jpg;C:\ServicePhotos\Photo2.jpg'
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+```
+
+vuMailKit replaces the marker with inline images and does not send those consumed image resources as normal attachments. For more body-image examples, see [Send an embedded image](send-an-embedded-image.md).
+
 ## End-to-end example
+
+**NOTE:** In the code example below, we use &lt;13,10&gt; to show how to enter a CRLF in code, but you can simply use text from a TEXT control and the **vuSetSimpleHTMLNormalizeBody(1)** function will automatically convert it to HTML for you.
+
 
 ```clarion
 Result      LONG
@@ -37,6 +83,7 @@ CCAdr       CSTRING(256)
 BCCAdr      CSTRING(256)
 Subject     CSTRING(256)
 Body        CSTRING(2048)
+BodyText    CSTRING(2048)
 Attach      CSTRING(260)
 HeaderImage CSTRING(260)
 FooterImage CSTRING(260)
@@ -61,10 +108,15 @@ ToAdr   = 'customer@example.com'
 CCAdr   = ''
 BCCAdr  = ''
 Subject = 'Thank you for your order'
-Body    = 'Dear Customer,<13,10>' & |
-          'Your order is ready.<13,10>' & |
-          'Thank you for your business.'
-Attach  = ''
+! This sample hard-codes the text so the example is self-contained.
+! In a real program, BodyText is usually filled from a TEXT control,
+! TPS memo, customer note, template merge, or generated report text.
+! It is plain text, not HTML.
+BodyText = 'Dear Customer,<13,10><13,10>' & |
+           'Your order is ready.<13,10><13,10>' & |
+           'Thank you for your business.'
+Body     = CLIP(BodyText)
+Attach   = ''
 
 Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
 IF Result <> 1
@@ -79,7 +131,7 @@ Result = vuResetSimpleHTML()
 
 With NormalizeBody on, vuMailKit treats the body as ordinary text. It normalizes line endings, converts them into HTML-friendly breaks, and safely escapes HTML-sensitive characters.
 
-That is the easiest setting when you are building the body from normal text fields, a memo, a TPS record, or a simple Clarion string.
+That is the easiest setting when you are building the body from normal text fields, a memo, a TPS record, generated text, or a simple Clarion string. If you hard-code a multi-line sample in Clarion source, you still have to put line breaks into the Clarion string. If the text already comes from a TEXT control or memo, you can pass it as-is.
 
 ## HTML fragment body
 
@@ -130,6 +182,7 @@ You can get a well-dressed email without asking every developer to learn the det
 - [Use TokenMerge with email templates](use-tokenmerge-with-email-templates.md)
 - [Send a form-letter invoice email with an optional personal message](send-a-form-letter-invoice-email-with-an-optional-personal-message.md)
 - [vuSetSimpleHTML](../functions/vuSetSimpleHTML.md)
+- [vuSetSimpleHTMLNormalizeBody](../functions/vuSetSimpleHTMLNormalizeBody.md)
 - [vuResetSimpleHTML](../functions/vuResetSimpleHTML.md)
 - [vuSendMail](../functions/vuSendMail.md)
 

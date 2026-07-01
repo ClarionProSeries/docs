@@ -24,8 +24,8 @@ Returns the currently configured POP3 authentication mode.
 This function has no parameters.
 
 ## Return value / error codes
-- `>= 0`: Current POP3 auth mode numeric value.
-- `< 0`: Auth mode not available due to runtime error.
+- >= 0: Current POP3 auth mode numeric value.
+- < 0: Auth mode not available due to runtime error.
 
 ## Example (Clarion)
 ```clarion
@@ -36,6 +36,6 @@ MESSAGE('POP3 auth mode=' & mode)
 ```
 
 ## Notes
-- Pair with `vuPOP3SetAuthMode()` to configure and verify POP3 auth behavior.
+- Pair with vuPOP3SetAuthMode() to configure and verify POP3 auth behavior.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -8,19 +8,23 @@
 **Prototype:** vuSetMailLog(*CSTRING InFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailLog')
 
 ## Description
-This is the legacy vuMail function name for `vuLogSetFile()`.
+This is the legacy vuMail function name for vuLogSetFile().
 
 Preferred function name:
 
 - [vuLogSetFile()](vuLogSetFile.md)
 
-This function is exported for backward compatibility and behaves identically to `vuLogSetFile()`. It selects the legacy sent-mail CSV log file. Successful and failed send attempts append rows in this format:
+This function is exported for backward compatibility and behaves identically to vuLogSetFile(). It selects the legacy sent-mail CSV log file. Successful and failed send attempts append rows in this format:
 
 ```text
 Date,Time,From,To,Subject,SavedEmailPath,ResultText
 ```
 
-This is separate from diagnostics logging. Use `vuDiagnosticsSetFile()` for diagnostics and `vuClearMailLog()` to clear the sent-mail CSV log.
+This is separate from diagnostics logging. Use vuDiagnosticsSetFile() for diagnostics and vuClearMailLog() to clear the sent-mail CSV log.
+
+If an outgoing .eml copy is saved because vuSetSaveFolder() or vuGlobalsSetEmailFolder() is set, the SavedEmailPath field contains the saved .eml path. If no outgoing .eml copy is saved, that field is blank.
+
+vuSetDiagnosticsLevel() and the legacy alias vuSetMailLogLevel() do not turn this CSV/activity log on or off. They control diagnostics verbosity only.
 
 ## Example (Clarion)
 ```clarion

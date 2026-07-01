@@ -38,6 +38,6 @@ END
 ```
 
 ## Notes
-- Pair with `vuSmtpSetAuthMode()` to switch modes.
+- Pair with vuSmtpSetAuthMode() to switch modes.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

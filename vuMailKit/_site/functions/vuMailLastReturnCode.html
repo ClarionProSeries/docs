@@ -31,27 +31,26 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h2 id="purpose">Purpose</h2>
-<p><code>vuMailLastReturnCode()</code> returns a numeric code that
-describes what happened in the most recent completed send or gated
-vuMailKit operation.</p>
+<p>vuMailLastReturnCode() returns a numeric code that describes what
+happened in the most recent completed send or gated vuMailKit
+operation.</p>
 <p>This is intended to be machine-readable, so calling code can react
-without parsing <code>vuMailLastError()</code> text.</p>
+without parsing vuMailLastError() text.</p>
 <h2 id="when-to-call-it">When to call it</h2>
 <p>Call this after a send has completed or after a gated vuMailKit
 function returns a negative licensing/setup code, for example:</p>
 <ul>
-<li>After <code>vuSendMailWait()</code> returns.</li>
-<li>After your <code>vuSendMail()</code> call has queued a send and your
-polling loop sees <code>vuMailStatus()</code> return 0.</li>
-<li>After <code>vuSendMailFromFile()</code> has finished processing the
-file (if you are waiting for completion).</li>
-<li>After <code>vuSendMail()</code>, <code>vuSaveProfile()</code>,
-<code>vuSaveProfileEx()</code>, or <code>vuLoadProfileEx()</code>
-returns -451, -9001, -9002, or -9003.</li>
+<li>After vuSendMailWait() returns.</li>
+<li>After your vuSendMail() call has queued a send and your polling loop
+sees vuMailStatus() return 0.</li>
+<li>After vuSendMailFromFile() has finished processing the file (if you
+are waiting for completion).</li>
+<li>After vuSendMail(), vuSaveProfile(), vuSaveProfileEx(), or
+vuLoadProfileEx() returns -451, -9001, -9002, or -9003.</li>
 </ul>
 <h2 id="return-values">Return values</h2>
 <p>These codes supplement the legacy return codes from
-<code>vuSendMail*()</code>.</p>
+vuSendMail*().</p>
 <table>
 <thead>
 <tr>
@@ -108,26 +107,24 @@ provider, or throttling problem.</td>
 </table>
 <p>Notes:</p>
 <ul>
-<li>If <code>vuMailLastReturnCode()</code> is -451, call
-<code>vuMailLastError()</code> and treat the result as an
-application-folder deployment conflict, not a provider authentication
-failure.</li>
-<li>If <code>vuMailLastReturnCode()</code> is -9001, -9002, or -9003,
-call <code>vuMailLastError()</code> and treat the result as a vuMailKit
-licensing/setup or license-edition problem, not a provider
+<li>If vuMailLastReturnCode() is -451, call vuMailLastError() and treat
+the result as an application-folder deployment conflict, not a provider
 authentication failure.</li>
-<li>If <code>vuMailLastReturnCode()</code> is -701, your UI should
-prompt the user to run the setup wizard or OAuth authorization flow
-again for the affected account.</li>
-<li>If <code>vuMailLastReturnCode()</code> is -702, treat it as
-temporary and retry later.</li>
-<li>If <code>vuMailLastReturnCode()</code> is -711, check connectivity
-and provider/server settings.</li>
-<li>If <code>vuMailLastReturnCode()</code> is -712, treat it as a
+<li>If vuMailLastReturnCode() is -9001, -9002, or -9003, call
+vuMailLastError() and treat the result as a vuMailKit licensing/setup or
+license-edition problem, not a provider authentication failure.</li>
+<li>If vuMailLastReturnCode() is -701, your UI should prompt the user to
+run the setup wizard or OAuth authorization flow again for the affected
+account.</li>
+<li>If vuMailLastReturnCode() is -702, treat it as temporary and retry
+later.</li>
+<li>If vuMailLastReturnCode() is -711, check connectivity and
+provider/server settings.</li>
+<li>If vuMailLastReturnCode() is -712, treat it as a
 sign-in/authentication rejection rather than a general connection
 failure.</li>
-<li>If <code>vuMailLastReturnCode()</code> is -713, the provider
-accepted the connection path but rejected the message.</li>
+<li>If vuMailLastReturnCode() is -713, the provider accepted the
+connection path but rejected the message.</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuMailLastReturnCode(), LONG, PROC,
@@ -155,11 +152,11 @@ PASCAL, RAW, NAME('vuMailLastReturnCode')</p>
   END</code></pre>
 <h2 id="related-functions">Related functions</h2>
 <ul>
-<li><code>vuMailLastError()</code></li>
-<li><code>vuMailStatus()</code></li>
-<li><code>vuSendMail()</code></li>
-<li><code>vuSendMailWait()</code></li>
-<li><code>vuSendMailFromFile()</code></li>
+<li>vuMailLastError()</li>
+<li>vuMailStatus()</li>
+<li>vuSendMail()</li>
+<li>vuSendMailWait()</li>
+<li>vuSendMailFromFile()</li>
 <li><a href="../getting-started/recommended-send-flow.html">Recommended
 send flow with a stored profile</a></li>
 </ul>

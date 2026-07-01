@@ -24,7 +24,7 @@ Preferred function name:
 
 - [vuSmtpGetSecurity()](vuSmtpGetSecurity.md)
 
-This function is exported for backward compatibility and behaves identically to `vuSmtpGetSecurity()`.
+This function is exported for backward compatibility and behaves identically to vuSmtpGetSecurity().
 
 ## Example (Clarion)
 ```clarion

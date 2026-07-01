@@ -70,8 +70,7 @@ embedded-content APIs can be used.</p>
 </tbody>
 </table>
 <ul>
-<li><code>&lt; 0</code>: POP3 command, message index, or parse/state
-failure.</li>
+<li>&lt; 0: POP3 command, message index, or parse/state failure.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc    LONG
@@ -84,9 +83,8 @@ IF rc &lt; 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Call <code>vuPOP3Connect</code> first.</li>
-<li>Use <code>vuPOP3LoadHeader</code> when only headers are
-required.</li>
+<li>Call vuPOP3Connect first.</li>
+<li>Use vuPOP3LoadHeader when only headers are required.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

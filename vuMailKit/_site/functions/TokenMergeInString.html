@@ -67,7 +67,7 @@ result to a caller-owned output buffer.</p>
 <tr>
 <td>InToken</td>
 <td>*CSTRING</td>
-<td>Full token text to replace, such as <code>[[FirstName]]</code>.</td>
+<td>Full token text to replace, such as [[FirstName]].</td>
 </tr>
 <tr>
 <td>InReplacement</td>
@@ -77,9 +77,8 @@ result to a caller-owned output buffer.</p>
 <tr>
 <td>InFlags</td>
 <td>LONG</td>
-<td>Merge option flags. <code>0=Replace all, case-sensitive</code>,
-<code>1=First only</code>, <code>2=Ignore case</code>,
-<code>3=First only and ignore case</code>.</td>
+<td>Merge option flags. 0=Replace all, case-sensitive, 1=First only,
+2=Ignore case, 3=First only and ignore case.</td>
 </tr>
 </tbody>
 </table>
@@ -109,14 +108,14 @@ rc = TokenMergeInString(srcText, outText, SIZE(outText), tokenText, valueText, f
 MESSAGE(&#39;TokenMergeInString rc=&#39; &amp; rc &amp; &#39; text=&#39; &amp; outText)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The function does not force a token format, but
-<code>[[TokenName]]</code> is strongly recommended.</li>
+<li>The function does not force a token format, but [[TokenName]] is
+strongly recommended.</li>
 <li>By default, the function replaces all matching tokens.</li>
 <li>Set flag bit 1 to replace only the first match.</li>
 <li>Set flag bit 2 to ignore case while matching the full token
 text.</li>
-<li><code>InSourceText</code> and <code>OutTargetText</code> may point
-to the same CSTRING buffer for in-place replacement.</li>
+<li>InSourceText and OutTargetText may point to the same CSTRING buffer
+for in-place replacement.</li>
 <li>The target buffer must be large enough to hold the merged
 result.</li>
 <li>If the target buffer is too small, the merged text will be

@@ -16,7 +16,7 @@ Send a temporary SMTP test message and include both outgoing and incoming setup 
 
 ## Export name
 
-- `vuAutoDetectSendTestMessageEx`
+- vuAutoDetectSendTestMessageEx
 
 ## Clarion prototype
 
@@ -24,7 +24,7 @@ Send a temporary SMTP test message and include both outgoing and incoming setup 
 
 ## Legacy save-folder and mail-log behavior
 
-Setup/test-send messages honor the same legacy save-folder and sent-mail log settings as normal sends. If `vuSetSaveFolder()` or `vuGlobalsSetEmailFolder()` has set a valid folder before the test send, vuMailKit saves the outgoing test message as an `.eml` file before the SMTP send attempt. If `vuSetMailLog()` or `vuLogSetFile()` has selected a sent-mail CSV log, the test-send attempt is logged. Successful sends include the saved path when an outgoing copy was saved. Failed sends are logged with the result text.
+Setup/test-send messages honor the same legacy save-folder and sent-mail log settings as normal sends. If vuSetSaveFolder() or vuGlobalsSetEmailFolder() has set a valid folder before the test send, vuMailKit saves the outgoing test message as an .eml file before the SMTP send attempt. If vuSetMailLog() or vuLogSetFile() has selected a sent-mail CSV log, the test-send attempt is logged. Successful sends include the saved path when an outgoing copy was saved. Failed sends are logged with the result text.
 
 ## Example (Clarion)
 ```clarion
@@ -56,14 +56,14 @@ MESSAGE('Send test rc=' & rc & '|Response=' & CLIP(text))
 
 ## Notes
 
-- This additive export keeps the original `vuAutoDetectSendTestMessage` stable.
-- The generated subject uses mixed-case suffixes: `(Auto-Detect)` or `(Manual)`.
-- The generated body uses the same wording style shown in the vuMailKit Email Setup Wizard, including `SIGN-IN METHOD` labels such as `Username / Password`, `Google Sign-In`, and `Microsoft Sign-In`.
+- This additive export keeps the original vuAutoDetectSendTestMessage stable.
+- The generated subject uses mixed-case suffixes: (Auto-Detect) or (Manual).
+- The generated body uses the same wording style shown in the vuMailKit Email Setup Wizard, including SIGN-IN METHOD labels such as Username / Password, Google Sign-In, and Microsoft Sign-In.
 - When POP3 and IMAP values are supplied, those sections are included in the body so the message also serves as a setup record.
 
 ## From display name behavior
 
-- If a sender display name has been configured, vuMailKit formats the From header as `Display Name <email@address>`.
+- If a sender display name has been configured, vuMailKit formats the From header as Display Name &lt;email@address&gt;.
 - If no display name exists, vuMailKit falls back to the plain email address.
 - This preserves compatibility with legacy code that only supplies an address.
 

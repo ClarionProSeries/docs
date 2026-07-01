@@ -24,7 +24,7 @@ Preferred function name:
 
 - [vuGlobalsGetEmailFolder()](vuGlobalsGetEmailFolder.md)
 
-This function is exported for backward compatibility and behaves identically to `vuGlobalsGetEmailFolder()`. It copies the current runtime EmailFolder value into the caller-provided output buffer.
+This function is exported for backward compatibility and behaves identically to vuGlobalsGetEmailFolder(). It copies the current runtime EmailFolder value into the caller-provided output buffer.
 
 ## Example (Clarion)
 ```clarion

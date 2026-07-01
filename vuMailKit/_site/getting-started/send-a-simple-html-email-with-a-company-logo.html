@@ -121,7 +121,50 @@ generated</li>
 <strong>message body only</strong>.</p>
 <p>Do <strong>not</strong> pass a full HTML document with html, head, or
 body tags when Simple HTML mode is active.</p>
+<h2 id="simplest-body-pattern">Simplest body pattern</h2>
+<p>For most messages, keep body normalization on and pass ordinary
+text:</p>
+<pre class="clarion"><code>Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+! Body can be the text from a TEXT control, TPS memo, customer note,
+! report output, or any plain text string your application builds.
+Body = CLIP(CustomerMessageText)</code></pre>
+<p>CustomerMessageText can contain normal line breaks exactly as the
+user typed them. vuMailKit escapes HTML-sensitive characters and
+converts those line breaks for HTML display. Do not add &lt;br&gt; or
+&lt;p&gt; tags unless you are intentionally supplying an HTML fragment
+and have turned normalization off.</p>
+<h2 id="body-positioned-images-without-hand-coded-html">Body-positioned
+images without hand-coded HTML</h2>
+<p>Header and footer images are good for branding. If you want images
+inside the body text, keep Simple HTML and NormalizeBody on and use the
+embed-attachments marker.</p>
+<p>The TEXT control or memo can contain ordinary text like this:</p>
+<pre class="text"><code>Here are the photos from today&#39;s service call:
+
+_embed attachments width=600_
+
+Please call us if you have any questions.</code></pre>
+<p>Then pass the local image files or remote http/https image URLs in
+Attach:</p>
+<pre class="clarion"><code>Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+Body   = CLIP(CustomerMessageText)
+Attach = &#39;C:\ServicePhotos\Photo1.jpg;C:\ServicePhotos\Photo2.jpg&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)</code></pre>
+<p>vuMailKit replaces the marker with inline images and does not send
+those consumed image resources as normal attachments. For more
+body-image examples, see <a href="send-an-embedded-image.html">Send an
+embedded image</a>.</p>
 <h2 id="end-to-end-example">End-to-end example</h2>
+<p><strong>NOTE:</strong> In the code example below, we use
+&lt;13,10&gt; to show how to enter a CRLF in code, but you can simply
+use text from a TEXT control and the
+<strong>vuSetSimpleHTMLNormalizeBody(1)</strong> function will
+automatically convert it to HTML for you.</p>
 <pre class="clarion"><code>Result      LONG
 FromAdr     CSTRING(256)
 ToAdr       CSTRING(256)
@@ -129,6 +172,7 @@ CCAdr       CSTRING(256)
 BCCAdr      CSTRING(256)
 Subject     CSTRING(256)
 Body        CSTRING(2048)
+BodyText    CSTRING(2048)
 Attach      CSTRING(260)
 HeaderImage CSTRING(260)
 FooterImage CSTRING(260)
@@ -153,10 +197,15 @@ ToAdr   = &#39;customer@example.com&#39;
 CCAdr   = &#39;&#39;
 BCCAdr  = &#39;&#39;
 Subject = &#39;Thank you for your order&#39;
-Body    = &#39;Dear Customer,&lt;13,10&gt;&#39; &amp; |
-          &#39;Your order is ready.&lt;13,10&gt;&#39; &amp; |
-          &#39;Thank you for your business.&#39;
-Attach  = &#39;&#39;
+! This sample hard-codes the text so the example is self-contained.
+! In a real program, BodyText is usually filled from a TEXT control,
+! TPS memo, customer note, template merge, or generated report text.
+! It is plain text, not HTML.
+BodyText = &#39;Dear Customer,&lt;13,10&gt;&lt;13,10&gt;&#39; &amp; |
+           &#39;Your order is ready.&lt;13,10&gt;&lt;13,10&gt;&#39; &amp; |
+           &#39;Thank you for your business.&#39;
+Body     = CLIP(BodyText)
+Attach   = &#39;&#39;
 
 Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
 IF Result &lt;&gt; 1
@@ -170,16 +219,18 @@ Result = vuResetSimpleHTML()</code></pre>
 normalizes line endings, converts them into HTML-friendly breaks, and
 safely escapes HTML-sensitive characters.</p>
 <p>That is the easiest setting when you are building the body from
-normal text fields, a memo, a TPS record, or a simple Clarion
-string.</p>
+normal text fields, a memo, a TPS record, generated text, or a simple
+Clarion string. If you hard-code a multi-line sample in Clarion source,
+you still have to put line breaks into the Clarion string. If the text
+already comes from a TEXT control or memo, you can pass it as-is.</p>
 <h2 id="html-fragment-body">HTML fragment body</h2>
 <p>With NormalizeBody off, vuMailKit treats the body as an HTML fragment
 and inserts it as supplied.</p>
 <p>Use this when you already have a body fragment such as:</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Dear [[CustomerName]],<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Your invoice is ready.<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Thank you.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Dear [[CustomerName]],<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Your invoice is ready.<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Thank you.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>That fragment should still be only the body area. Do not include a
 full HTML document when Simple HTML mode is active.</p>
 <h2 id="how-this-works-with-tokenmerge">How this works with
@@ -224,6 +275,8 @@ with email templates</a></li>
 href="send-a-form-letter-invoice-email-with-an-optional-personal-message.html">Send
 a form-letter invoice email with an optional personal message</a></li>
 <li><a href="../functions/vuSetSimpleHTML.html">vuSetSimpleHTML</a></li>
+<li><a
+href="../functions/vuSetSimpleHTMLNormalizeBody.html">vuSetSimpleHTMLNormalizeBody</a></li>
 <li><a
 href="../functions/vuResetSimpleHTML.html">vuResetSimpleHTML</a></li>
 <li><a href="../functions/vuSendMail.html">vuSendMail</a></li>

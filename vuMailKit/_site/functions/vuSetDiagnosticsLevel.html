@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuSetDiagnosticsLevel</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vusetdiagnosticslevel">vuSetDiagnosticsLevel()</h1>
+<h2 id="description">Description</h2>
+<p>Sets the diagnostics verbosity level used when diagnostics logging is
+enabled.</p>
+<p>This is the preferred function name for the behavior previously
+exposed as vuSetMailLogLevel(). The legacy name remains exported and
+supported, but new code should use vuSetDiagnosticsLevel() because the
+setting controls diagnostics detail, not the sent-mail CSV/activity
+log.</p>
+<h2 id="clarion-prototype">Clarion prototype</h2>
+<p><strong>Prototype:</strong> vuSetDiagnosticsLevel(LONG InLevel),
+SIGNED, PROC, PASCAL, RAW, NAME('vuSetDiagnosticsLevel')</p>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>InLevel (LONG) - Diagnostics verbosity level.</li>
+</ul>
+<h2 id="levels">Levels</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>Normal diagnostics. Writes the practical send timeline and important
+setup results.</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Trace diagnostics. Includes Normal output plus lower-level profile,
+enqueue, message-build, TLS, OAuth, and troubleshooting details.</td>
+</tr>
+</tbody>
+</table>
+<p>Values greater than zero are normalized to Trace.</p>
+<p>The selected level is also stored with the vuMailKit settings so
+diagnostics that happen early in a later application startup can honor
+the same Normal or Trace choice.</p>
+<h2 id="return-value">Return value</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>The diagnostics level was accepted.</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td>The diagnostics level could not be set. Call vuMailLastError() for
+details.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="important-logging-separation">Important logging separation</h2>
+<p>vuSetDiagnosticsLevel() controls diagnostics verbosity only.</p>
+<p>It does not enable diagnostics logging, select the diagnostics log
+file, enable the sent-mail CSV/activity log, select the CSV log file, or
+create a separate SMTP protocol log.</p>
+<p>Use these functions for diagnostics:</p>
+<ul>
+<li>vuDiagnosticsSetFile() selects the diagnostics log file.</li>
+<li>vuDiagnosticsEnable() turns diagnostics logging on.</li>
+<li>vuDiagnosticsDisable() turns diagnostics logging off.</li>
+<li>vuGetDiagnosticsLevel() reads the current diagnostics level.</li>
+</ul>
+<p>Use these functions for the sent-mail CSV/activity log:</p>
+<ul>
+<li>vuSetMailLog() or vuLogSetFile() selects the sent-mail CSV/activity
+log file.</li>
+<li>vuGetMailLog() or vuLogGetFile() reads the sent-mail CSV/activity
+log file path.</li>
+<li>vuClearMailLog() clears the sent-mail CSV/activity log file.</li>
+</ul>
+<h2 id="legacy-name">Legacy name</h2>
+<p>The old name is still supported:</p>
+<ul>
+<li><a href="vuSetMailLogLevel.html">vuSetMailLogLevel()</a></li>
+</ul>
+<p>That name is now documented as a legacy-compatible alias because it
+can sound like it controls the sent-mail CSV/activity log. It does
+not.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>DiagLog CSTRING(520)
+Result  SIGNED
+
+DiagLog = &#39;C:\vumailkit\logs\vuMailKit-diagnostics.log&#39;
+Result = vuDiagnosticsSetFile(DiagLog)
+
+IF Result = 1
+  Result = vuSetDiagnosticsLevel(1)   ! Trace diagnostics
+  Result = vuDiagnosticsEnable()
+END</code></pre>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

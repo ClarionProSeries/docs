@@ -36,11 +36,10 @@ href="../categories/index.html">Categories</a></p>
 SIGNED, PROC, PASCAL, RAW, NAME('vuMailCreateCSV')</p>
 <h2 id="purpose">Purpose</h2>
 <p>Creates (or truncates) the target CSV file and stores it as the
-selected CSV used by <code>vuMailAppendCSV()</code>.</p>
+selected CSV used by vuMailAppendCSV().</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xCsvFilePath</code> (*CSTRING): Full path to the CSV
-file.</li>
+<li>xCsvFilePath (*CSTRING): Full path to the CSV file.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <table>
@@ -58,7 +57,7 @@ file.</li>
 <tr>
 <td>0</td>
 <td>Failure (for example blank path or file create failure). Error text
-is available through <code>vuMailLastError()</code>.</td>
+is available through vuMailLastError().</td>
 </tr>
 </tbody>
 </table>
@@ -73,8 +72,8 @@ END</code></pre>
 <li>If needed, parent directories are created.</li>
 <li>A blank path returns 0.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
-<code>vuMailCreateCSV</code>.</li>
+<li>Legacy reference: vuMailDump.pdf, section heading
+vuMailCreateCSV.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

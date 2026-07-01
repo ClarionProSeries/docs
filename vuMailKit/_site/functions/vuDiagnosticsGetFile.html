@@ -35,7 +35,7 @@ href="../categories/index.html">Categories</a></p>
 <p>Gets the currently configured diagnostics log file path.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuDiagnosticsGetFile</code></li>
+<li>vuDiagnosticsGetFile</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuDiagnosticsGetFile(*CSTRING xFileName),
@@ -43,7 +43,7 @@ SIGNED, PROC, PASCAL, RAW, NAME('vuDiagnosticsGetFile')</p>
 <h2 id="return-value">Return value</h2>
 <ul>
 <li>Returns 1 when the operation succeeds, otherwise 0. Use
-<code>vuMailLastError()</code> for more detail when needed.</li>
+vuMailLastError() for more detail when needed.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc      LONG
@@ -57,7 +57,7 @@ IF rc = 1
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Pass the address of a writable <code>CSTRING</code> buffer.</li>
+<li>Pass the address of a writable CSTRING buffer.</li>
 <li>If no diagnostics file has been configured yet, an empty string is
 returned.</li>
 </ul>

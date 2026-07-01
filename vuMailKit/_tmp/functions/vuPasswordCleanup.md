@@ -23,7 +23,7 @@ While Windows often tears this down automatically when a window closes, this fun
 
 | Parameter | Data Type | Description |
 |---|---|---|
-| InHwnd | LONG | Handle of the target control previously initialized with `vuPasswordInit()`. |
+| InHwnd | LONG | Handle of the target control previously initialized with vuPasswordInit(). |
 
 ## Returns
 
@@ -44,7 +44,7 @@ RC = vuPasswordCleanup(?MyPassword{PROP:Handle})
 
 - This function is optional, but recommended when you want deterministic cleanup during window teardown.
 - A good place to call it is during your window shutdown logic.
-- After cleanup, the control is no longer managed by the password helper until `vuPasswordInit()` is called again.
+- After cleanup, the control is no longer managed by the password helper until vuPasswordInit() is called again.
 
 ## Related functions
 

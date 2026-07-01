@@ -37,7 +37,7 @@ output buffers with the recommended values. This legacy-compatible entry
 now runs the full deep-scan pipeline.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuAutoDetectFillSettings</code></li>
+<li>vuAutoDetectFillSettings</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuAutoDetectFillSettings(*CSTRING
@@ -64,16 +64,15 @@ NAME('vuAutoDetectFillSettings')</p>
 <tr>
 <td>InEmailAddress</td>
 <td>*CSTRING</td>
-<td>Input email address to inspect, such as
-<code>user@example.com</code>.</td>
+<td>Input email address to inspect, such as <a
+href="mailto:user@example.com">user@example.com</a>.</td>
 <td>Must be a non-blank email address.</td>
 </tr>
 <tr>
 <td>InOutBufLen</td>
 <td>LONG</td>
 <td>Common buffer length used for the writable text output buffers.</td>
-<td>Pass the size of the text buffers, such as
-<code>SIZE(Buffer)</code>.</td>
+<td>Pass the size of the text buffers, such as SIZE(Buffer).</td>
 </tr>
 <tr>
 <td>OutProfileEmailAddress</td>
@@ -91,38 +90,32 @@ NAME('vuAutoDetectFillSettings')</p>
 <td>OutDetectSource</td>
 <td>*LONG</td>
 <td>Receives the source used for the detection result.</td>
-<td><code>0=None</code>, <code>1=KnownProvider</code>,
-<code>2=DnsSrv</code>, <code>3=DomainAutoconfig</code>,
-<code>4=ISPDB</code>, <code>5=MxHeuristic</code>,
-<code>6=GuessProbe</code>.</td>
+<td>0=None, 1=KnownProvider, 2=DnsSrv, 3=DomainAutoconfig, 4=ISPDB,
+5=MxHeuristic, 6=GuessProbe.</td>
 </tr>
 <tr>
 <td>OutProviderId</td>
 <td>*LONG</td>
 <td>Receives the detected provider ID.</td>
-<td><code>0=None</code>, <code>1=Google</code>,
-<code>2=Microsoft</code>, <code>3=Yahoo</code>.</td>
+<td>0=None, 1=Google, 2=Microsoft, 3=Yahoo.</td>
 </tr>
 <tr>
 <td>OutSmtpAuthModeHint</td>
 <td>*LONG</td>
 <td>Receives the recommended SMTP auth mode.</td>
-<td><code>0=Unknown</code>, <code>1=Password</code>,
-<code>2=OAuth</code>.</td>
+<td>0=Unknown, 1=Password, 2=OAuth.</td>
 </tr>
 <tr>
 <td>OutPopAuthModeHint</td>
 <td>*LONG</td>
 <td>Receives the recommended POP auth mode.</td>
-<td><code>0=Unknown</code>, <code>1=Password</code>,
-<code>2=OAuth</code>.</td>
+<td>0=Unknown, 1=Password, 2=OAuth.</td>
 </tr>
 <tr>
 <td>OutImapAuthModeHint</td>
 <td>*LONG</td>
 <td>Receives the recommended IMAP auth mode.</td>
-<td><code>0=Unknown</code>, <code>1=Password</code>,
-<code>2=OAuth</code>.</td>
+<td>0=Unknown, 1=Password, 2=OAuth.</td>
 </tr>
 <tr>
 <td>OutSmtpHost</td>
@@ -140,8 +133,7 @@ NAME('vuAutoDetectFillSettings')</p>
 <td>OutSmtpSecurityMode</td>
 <td>*LONG</td>
 <td>Receives the detected SMTP security mode.</td>
-<td><code>0=None</code>, <code>1=StartTls</code>,
-<code>2=ImplicitTls</code>.</td>
+<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
 </tr>
 <tr>
 <td>OutSmtpUser</td>
@@ -165,8 +157,7 @@ NAME('vuAutoDetectFillSettings')</p>
 <td>OutPopSecurityMode</td>
 <td>*LONG</td>
 <td>Receives the detected POP security mode.</td>
-<td><code>0=None</code>, <code>1=StartTls</code>,
-<code>2=ImplicitTls</code>.</td>
+<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
 </tr>
 <tr>
 <td>OutPopUser</td>
@@ -190,8 +181,7 @@ NAME('vuAutoDetectFillSettings')</p>
 <td>OutImapSecurityMode</td>
 <td>*LONG</td>
 <td>Receives the detected IMAP security mode.</td>
-<td><code>0=None</code>, <code>1=StartTls</code>,
-<code>2=ImplicitTls</code>.</td>
+<td>0=None, 1=StartTls, 2=ImplicitTls.</td>
 </tr>
 <tr>
 <td>OutImapUser</td>
@@ -203,16 +193,11 @@ NAME('vuAutoDetectFillSettings')</p>
 </table>
 <h2 id="expected-values-and-ranges">Expected values and ranges</h2>
 <ul>
-<li>Provider IDs: <code>0 = None</code>, <code>1 = Google</code>,
-<code>2 = Microsoft</code>, <code>3 = Yahoo</code>.</li>
-<li>Detect source values: <code>0 = None</code>,
-<code>1 = KnownProvider</code>, <code>2 = DnsSrv</code>,
-<code>3 = DomainAutoconfig</code>, <code>4 = ISPDB</code>,
-<code>5 = MxHeuristic</code>, <code>6 = GuessProbe</code>.</li>
-<li>Auth mode hints: <code>0 = Unknown</code>,
-<code>1 = Password</code>, <code>2 = OAuth</code>.</li>
-<li>Security mode values: <code>0 = None</code>,
-<code>1 = StartTls</code>, <code>2 = ImplicitTls</code>.</li>
+<li>Provider IDs: 0 = None, 1 = Google, 2 = Microsoft, 3 = Yahoo.</li>
+<li>Detect source values: 0 = None, 1 = KnownProvider, 2 = DnsSrv, 3 =
+DomainAutoconfig, 4 = ISPDB, 5 = MxHeuristic, 6 = GuessProbe.</li>
+<li>Auth mode hints: 0 = Unknown, 1 = Password, 2 = OAuth.</li>
+<li>Security mode values: 0 = None, 1 = StartTls, 2 = ImplicitTls.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <table>
@@ -235,12 +220,11 @@ NAME('vuAutoDetectFillSettings')</p>
 </table>
 <h2 id="scan-behavior">Scan behavior</h2>
 <ul>
-<li><code>vuAutoDetectFillSettings</code> now behaves as the full
-deep-scan version for backward compatibility.</li>
+<li>vuAutoDetectFillSettings now behaves as the full deep-scan version
+for backward compatibility.</li>
 <li>For a faster first-pass lookup, use
-<code>vuAutoDetectFillSettingsFast</code>.</li>
-<li>For an explicit full scan, use
-<code>vuAutoDetectFillSettingsDeep</code>.</li>
+vuAutoDetectFillSettingsFast.</li>
+<li>For an explicit full scan, use vuAutoDetectFillSettingsDeep.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>EmailAddress            CSTRING(254)
@@ -282,13 +266,12 @@ Result = vuAutoDetectFillSettings(EmailAddress, BufLen, ProfileEmail, |
 <ul>
 <li>This function is designed for the vuMailKit Email Setup Wizard and
 first-run configuration screens.</li>
-<li>For the best user experience, use
-<code>vuAutoDetectFillSettingsFast</code> first and offer
-<code>vuAutoDetectFillSettingsDeep</code> only when the user wants a
-deeper scan.</li>
+<li>For the best user experience, use vuAutoDetectFillSettingsFast first
+and offer vuAutoDetectFillSettingsDeep only when the user wants a deeper
+scan.</li>
 <li>After detection, developers typically copy the detected values into
 the normal SMTP/POP globals, optionally send a test message, and then
-call <code>vuSaveProfile</code> to persist the configuration.</li>
+call vuSaveProfile to persist the configuration.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

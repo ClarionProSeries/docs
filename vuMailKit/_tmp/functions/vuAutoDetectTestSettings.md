@@ -9,7 +9,7 @@ Probe supplied SMTP, POP, and IMAP settings and write test-result text into the 
 
 ## Export name
 
-- `vuAutoDetectTestSettings`
+- vuAutoDetectTestSettings
 
 ## Clarion prototype
 
@@ -22,13 +22,13 @@ Probe supplied SMTP, POP, and IMAP settings and write test-result text into the 
 | InOutBufLen | LONG | Shared length for the writable text result buffers. | Pass the size of the result buffers. |
 | InSmtpHost | *CSTRING | SMTP host to test. | May be blank if SMTP is not being tested. |
 | InSmtpPort | LONG | SMTP port to test. | Common values: 25, 465, 587. |
-| InSmtpSecurityMode | LONG | SMTP security mode to test. | `0=None`, `1=StartTls`, `2=ImplicitTls`. |
+| InSmtpSecurityMode | LONG | SMTP security mode to test. | 0=None, 1=StartTls, 2=ImplicitTls. |
 | InPopHost | *CSTRING | POP host to test. | May be blank if POP is not being tested. |
 | InPopPort | LONG | POP port to test. | Common values: 110, 995. |
-| InPopSecurityMode | LONG | POP security mode to test. | `0=None`, `1=StartTls`, `2=ImplicitTls`. |
+| InPopSecurityMode | LONG | POP security mode to test. | 0=None, 1=StartTls, 2=ImplicitTls. |
 | InImapHost | *CSTRING | IMAP host to test. | May be blank if IMAP is not being tested. |
 | InImapPort | LONG | IMAP port to test. | Common values: 143, 993. |
-| InImapSecurityMode | LONG | IMAP security mode to test. | `0=None`, `1=StartTls`, `2=ImplicitTls`. |
+| InImapSecurityMode | LONG | IMAP security mode to test. | 0=None, 1=StartTls, 2=ImplicitTls. |
 | OutSmtpTestResult | *CSTRING | Receives the SMTP probe result text. | Writable text buffer. |
 | OutPopTestResult | *CSTRING | Receives the POP probe result text. | Writable text buffer. |
 | OutImapTestResult | *CSTRING | Receives the IMAP probe result text. | Writable text buffer. |
@@ -36,7 +36,7 @@ Probe supplied SMTP, POP, and IMAP settings and write test-result text into the 
 ## Expected values and ranges
 
 - Port values are the literal port numbers to test.
-- Security mode values: `0 = None`, `1 = StartTls`, `2 = ImplicitTls`.
+- Security mode values: 0 = None, 1 = StartTls, 2 = ImplicitTls.
 
 ## Return value
 

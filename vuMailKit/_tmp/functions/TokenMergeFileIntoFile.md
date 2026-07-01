@@ -15,10 +15,10 @@ Reads a source template file, replaces token text with the full contents of anot
 |---|---|---|
 | InSourceFile | *CSTRING | Source text or HTML template file to read. |
 | InTargetFile | *CSTRING | Target file to write. Must be different from InSourceFile so the template remains intact. |
-| InToken | *CSTRING | Full token text to replace, such as `[[MessageBody]]`. |
+| InToken | *CSTRING | Full token text to replace, such as [[MessageBody]]. |
 | InReplacementFile | *CSTRING | File whose contents will be inserted where the token appears. |
-| InMergeFlags | LONG | Merge option flags. `0=Replace all, case-sensitive`, `1=First only`, `2=Ignore case`, `3=First only and ignore case`. |
-| InContentFlags | LONG | Replacement-content preparation flags. `0=Insert file contents exactly as read`, `1=Convert replacement-file line endings to HTML <br> tags before insertion`. Use 0 when the replacement file already contains HTML. Use 1 when the replacement file is plain text and you want its lines to render as separate lines inside HTML. |
+| InMergeFlags | LONG | Merge option flags. 0=Replace all, case-sensitive, 1=First only, 2=Ignore case, 3=First only and ignore case. |
+| InContentFlags | LONG | Replacement-content preparation flags. 0=Insert file contents exactly as read, 1=Convert replacement-file line endings to HTML &lt;br&gt; tags before insertion. Use 0 when the replacement file already contains HTML. Use 1 when the replacement file is plain text and you want its lines to render as separate lines inside HTML. |
 
 ## Return value / error codes
 - Positive value: number of replacements performed.
@@ -98,13 +98,13 @@ MESSAGE('TokenMergeFileIntoFile rc=' & rc)
 ```
 
 ## Notes
-- Use `TokenMergeInFile` when the replacement value is already in a string.
-- Use `TokenMergeFileIntoFile` when the replacement value should come from another file.
+- Use TokenMergeInFile when the replacement value is already in a string.
+- Use TokenMergeFileIntoFile when the replacement value should come from another file.
 - For HTML email templates, the replacement file should normally contain plain text or an HTML fragment, not a full second HTML document.
-- When `InContentFlags = 1`, line-ending conversion applies only to the replacement file content, not the outer template.
-- Use `InContentFlags = 0` when the replacement file already contains HTML markup such as `<p>`, `<br>`, tables, or other HTML fragments.
-- Use `InContentFlags = 1` when the replacement file is plain text and you want normal text-file line endings to render as visible HTML line breaks.
+- When InContentFlags = 1, line-ending conversion applies only to the replacement file content, not the outer template.
+- Use InContentFlags = 0 when the replacement file already contains HTML markup such as &lt;p&gt;, &lt;br&gt;, tables, or other HTML fragments.
+- Use InContentFlags = 1 when the replacement file is plain text and you want normal text-file line endings to render as visible HTML line breaks.
 - This helper is useful for HTML email templates, invoices, statements, letterhead-style email, and generated Clarion report or body output.
-- External UTF-8 HTML templates are recommended because they avoid hard-coding long HTML strings in Clarion and avoid doubling every `<` character in Clarion source.
+- External UTF-8 HTML templates are recommended because they avoid hard-coding long HTML strings in Clarion and avoid doubling every < character in Clarion source.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -43,28 +43,28 @@ naming pattern that is easier to scan and search.</p>
 <h2 id="preferred-naming-format">Preferred naming format</h2>
 <p>All preferred names follow this format:</p>
 <ul>
-<li><code>vu</code> + <code>Subsystem</code> + <code>Verb</code> +
-<code>Thing</code></li>
+<li>vu + Subsystem + Verb + Thing</li>
 </ul>
 <p>Rules:</p>
 <ul>
-<li>Preferred names start with the lowercase prefix
-<code>vu</code>.</li>
-<li>Immediately after <code>vu</code> is a subsystem marker that groups
-related functions together.</li>
+<li>Preferred names start with the lowercase prefix vu.</li>
+<li>Immediately after vu is a subsystem marker that groups related
+functions together.</li>
 <li>Within a subsystem, function names use consistent verb and noun
 ordering.</li>
 </ul>
 <p>Examples:</p>
 <ul>
-<li><code>vuSmtpSetServer</code></li>
-<li><code>vuSmtpGetServer</code></li>
-<li><code>vuLogSetFile</code></li>
-<li><code>vuLogGetFile</code></li>
-<li><code>vuGlobalsSave</code></li>
-<li><code>vuGlobalsLoad</code></li>
-<li><code>vuPop3Connect</code></li>
-<li><code>vuPop3LoadEmail</code></li>
+<li>vuSmtpSetServer</li>
+<li>vuSmtpGetServer</li>
+<li>vuLogSetFile</li>
+<li>vuLogGetFile</li>
+<li>vuSetDiagnosticsLevel</li>
+<li>vuGetDiagnosticsLevel</li>
+<li>vuGlobalsSave</li>
+<li>vuGlobalsLoad</li>
+<li>vuPop3Connect</li>
+<li>vuPop3LoadEmail</li>
 </ul>
 <h2 id="subsystem-markers">Subsystem markers</h2>
 <table>
@@ -97,7 +97,7 @@ ordering.</li>
 </tr>
 <tr>
 <td>vuLog</td>
-<td>Log file path and logging options</td>
+<td>Legacy sent-mail CSV/activity log file path helpers</td>
 </tr>
 <tr>
 <td>vuNet</td>
@@ -105,21 +105,29 @@ ordering.</li>
 </tr>
 </tbody>
 </table>
-<p>Additional subsystem markers may be added as needed, but the rule
-remains: the subsystem marker comes immediately after
-<code>vu</code>.</p>
+<p>Additional subsystem markers may be added as needed. Some
+compatibility-improvement names, such as vuSetDiagnosticsLevel(), use a
+clearer verb-first phrase when that is the least confusing replacement
+for an older legacy name.</p>
 <h2 id="how-to-read-the-names">How to read the names</h2>
 <p>The subsystem tells you where to look, and the verb tells you what
 the function does.</p>
 <p>Examples:</p>
 <ul>
-<li><code>vuSmtpSetServer</code> means "SMTP subsystem, set the server
-value".</li>
-<li><code>vuLogGetFile</code> means "Log subsystem, get the configured
-file path".</li>
-<li><code>vuGlobalsLoad</code> means "Globals subsystem, load values
-into memory for this run".</li>
+<li>vuSmtpSetServer means "SMTP subsystem, set the server value".</li>
+<li>vuLogGetFile means "Log subsystem, get the sent-mail CSV/activity
+log file path".</li>
+<li>vuSetDiagnosticsLevel means "Diagnostics subsystem, set normal or
+trace troubleshooting detail".</li>
+<li>vuGlobalsLoad means "Globals subsystem, load values into memory for
+this run".</li>
 </ul>
+<h2 id="naming-note-for-logging-and-diagnostics">Naming note for logging
+and diagnostics</h2>
+<p>The old vuSetMailLogLevel() name is kept as a legacy alias, but new
+code should use vuSetDiagnosticsLevel(). The level setting controls
+diagnostics verbosity only. It does not control the sent-mail
+CSV/activity log selected by vuSetMailLog() or vuLogSetFile().</p>
 <h2 id="how-this-relates-to-legacy-names">How this relates to legacy
 names</h2>
 <p>When a preferred name exists, it is the recommended API for new

@@ -35,6 +35,6 @@ MESSAGE('vuSetMailServerOAuth rc=' & rc)
 
 ## Notes
 - The function attempts to persist configuration via globals save; return value remains 1.
-- Use with OAuth auth mode (`vuSmtpSetAuthMode(1)`) when routing SMTP sends through OAuth settings.
+- Use with OAuth auth mode (vuSmtpSetAuthMode(1)) when routing SMTP sends through OAuth settings.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

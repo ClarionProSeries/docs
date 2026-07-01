@@ -130,13 +130,13 @@ time you send a message.</p>
 <p>A practical branded-template workflow looks like this:</p>
 <ol type="1">
 <li>Create an external HTML template file</li>
-<li>Put a token such as <code>[[MessageBody]]</code> where the changing
-content should go</li>
+<li>Put a token such as [[MessageBody]] where the changing content
+should go</li>
 <li>Keep your logo, footer, and company information in the template</li>
 <li>Build the changing body content in Clarion or in another external
 file</li>
-<li>Use <code>TokenMergeInFile</code> or
-<code>TokenMergeFileIntoFile</code> to write a merged output file</li>
+<li>Use TokenMergeInFile or TokenMergeFileIntoFile to write a merged
+output file</li>
 <li>Send the merged output file with <a
 href="../functions/vuSendMail.html">vuSendMail</a> or <a
 href="../functions/vuSendMailWait.html">vuSendMailWait</a></li>
@@ -147,8 +147,8 @@ function.</p>
 to reinvent that plumbing in every application.</p>
 <p>Another practical version of this pattern is to have a Clarion report
 write invoice or statement lines to a text file, then use
-<code>TokenMergeFileIntoFile</code> to place those generated lines into
-the email body before sending the merged output file.</p>
+TokenMergeFileIntoFile to place those generated lines into the email
+body before sending the merged output file.</p>
 <h2 id="example-template-file">Example template file</h2>
 <p>Save the template as an external UTF-8 HTML file.</p>
 <div class="sourceCode" id="cb1"><pre
@@ -217,12 +217,12 @@ inserted content should match the outer template</h3>
 <p>If your outer file is HTML, the inserted content should normally be
 either plain text or an HTML fragment, not a full second HTML
 document.</p>
-<p>When the replacement content is plain text,
-<code>TokenMergeFileIntoFile</code> can optionally convert normal line
-endings to <code>&lt;br&gt;</code> tags before insertion.</p>
-<p>Use <code>contentFlags = 1</code> when the replacement file is plain
-text. Use <code>contentFlags = 0</code> when the replacement file
-already contains HTML markup.</p>
+<p>When the replacement content is plain text, TokenMergeFileIntoFile
+can optionally convert normal line endings to &lt;br&gt; tags before
+insertion.</p>
+<p>Use contentFlags = 1 when the replacement file is plain text. Use
+contentFlags = 0 when the replacement file already contains HTML
+markup.</p>
 <h3 id="embedded-images-require-html-email">Embedded images require HTML
 email</h3>
 <p>If you want the logo to appear in the message body, the email must be
@@ -235,8 +235,7 @@ external-template approach is often easier because:</p>
 <ul>
 <li>the template is easier to edit</li>
 <li>the template can be created with an HTML editor or AI</li>
-<li>you do not need doubled <code>&lt;</code> signs in the template file
-itself</li>
+<li>you do not need doubled &lt; signs in the template file itself</li>
 <li>the brand frame is reusable</li>
 <li>the changing content can stay simple</li>
 </ul>

@@ -23,6 +23,71 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="G:\Docs-Staging\vuMailKit\style.css" />
 </head>
@@ -31,21 +96,303 @@
 Started</a> | <a href="../categories/index.html">Browse by Category</a>
 | <a href="../functions/index.html">All functions</a></p>
 <h1 id="send-an-embedded-image">Send an Embedded Image</h1>
-<p>An embedded image appears inside the HTML email body instead of
-showing up only as a normal attachment.</p>
-<p>This is useful for:</p>
-<ul>
-<li>logos</li>
-<li>banners</li>
-<li>product images</li>
-<li>branded email content</li>
-</ul>
-<p>Keep the HTML simple at first and verify that the image path or image
-reference is correct for your chosen workflow.</p>
-<p>See also:</p>
+<p>An embedded image appears inside the HTML email body. That is
+different from a normal attachment, where the file is only listed as an
+attached file.</p>
+<p>Use this page when you want to put a logo, banner, report image,
+product photo, chart, or other picture <strong>inside the body of the
+email</strong>, not just as a Simple HTML header or footer image.</p>
+<p>vuMailKit supports the legacy vuMail image-embedding patterns as well
+as the newer Simple HTML helpers. For most new Clarion work, the easiest
+paths are the first two below.</p>
+<h2 id="recommended-paths">Recommended paths</h2>
+<table>
+<thead>
+<tr>
+<th>If your body starts as...</th>
+<th>Best path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ordinary text from a TEXT control, TPS memo, customer note,
+generated report, or normal Clarion string</td>
+<td>Use Simple HTML, keep NormalizeBody on, put the embed-attachments
+marker where the body images should appear, and pass local image files
+or remote image URLs in Attach.</td>
+</tr>
+<tr>
+<td>Designed HTML from an editor, AI, Word export, or reusable
+template</td>
+<td>Keep the HTML in an external UTF-8 file, use TokenMerge if needed,
+and put normal img tags in the HTML file.</td>
+</tr>
+<tr>
+<td>Very small hand-coded HTML in Clarion source</td>
+<td>You can put img tags directly in the Body string, but Clarion source
+strings require doubled less-than signs.</td>
+</tr>
+</tbody>
+</table>
+<p>The first path avoids hand-coding HTML in Clarion source. The second
+path avoids putting the HTML design inside your Clarion source code at
+all.</p>
+<h2 id="method-1-ordinary-text-plus-body-images">Method 1: Ordinary text
+plus body images</h2>
+<p>This is the easiest body-image path when the message text comes from
+a normal Clarion field.</p>
+<p>Turn on Simple HTML mode, keep NormalizeBody on, put the
+embed-attachments marker where the images should appear, and pass local
+image files or remote image URLs in Attach.</p>
+<p>The body text can come from a TEXT control, TPS memo, customer note,
+generated report, or other plain text source. It can contain normal line
+breaks. vuMailKit converts those line breaks for HTML display.</p>
+<h3 id="what-the-text-control-or-memo-can-contain">What the TEXT control
+or memo can contain</h3>
+<pre class="text"><code>Dear Customer,
+
+Here are the photos from today&#39;s service call:
+
+_embed attachments width=600_
+
+Please call us if you have any questions.</code></pre>
+<h3 id="clarion-send-code">Clarion send code</h3>
+<pre class="clarion"><code>Result  LONG
+FromAdr CSTRING(256)
+ToAdr   CSTRING(256)
+CCAdr   CSTRING(256)
+BCCAdr  CSTRING(256)
+Subject CSTRING(256)
+Body    CSTRING(8192)
+Attach  CSTRING(1024)
+
+Result = vuResetSimpleHTML()
+Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+FromAdr = &#39;&#39;
+ToAdr   = &#39;customer@example.com&#39;
+CCAdr   = &#39;&#39;
+BCCAdr  = &#39;&#39;
+Subject = &#39;Service photos&#39;
+
+! CustomerMessageText is ordinary text from a TEXT control, TPS memo,
+! customer note, generated report, or similar source.
+! It can include the _embed attachments_ marker exactly where
+! the image files should appear.
+Body   = CLIP(CustomerMessageText)
+Attach = &#39;C:\ServicePhotos\Photo1.jpg;C:\ServicePhotos\Photo2.jpg&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
+END
+
+Result = vuResetSimpleHTML()</code></pre>
+<p>vuMailKit replaces the marker with image tags and embeds the local or
+remote image resources inside the HTML body. The image resources
+consumed by this marker do <strong>not</strong> also appear as normal
+attachments.</p>
+<h3 id="marker-options">Marker options</h3>
+<p>Use the marker by itself:</p>
+<pre class="text"><code>_embed attachments_</code></pre>
+<p>Use width when you want the email client to preserve the image aspect
+ratio:</p>
+<pre class="text"><code>_embed attachments width=600_</code></pre>
+<p>Use both height and width only when you intentionally want to force
+the displayed size:</p>
+<pre class="text"><code>_embed attachments height=800 width=600_</code></pre>
+<h3 id="multiple-images-wildcards-and-remote-urls">Multiple images,
+wildcards, and remote URLs</h3>
+<p>The Attach parameter can list multiple image files:</p>
+<pre class="clarion"><code>Attach = &#39;C:\Reports\Page1.png;C:\Reports\Page2.png;C:\Reports\Page3.png&#39;</code></pre>
+<p>The Attach parameter can also use a wildcard mask:</p>
+<pre class="clarion"><code>Attach = &#39;C:\Reports\Current\*.png&#39;</code></pre>
+<p>This is useful for report-preview images or generated output
+folders.</p>
+<p>The Attach parameter can also use a remote http or https image URL
+when the marker is used:</p>
+<pre class="clarion"><code>Attach = &#39;https://www.example.com/images/ProductPhoto.jpg&#39;</code></pre>
+<p>That means an ordinary TEXT control or memo can still be the body
+source. The body text contains only the simple marker, not an HTML img
+tag:</p>
+<pre class="text"><code>Here is the product photo:
+
+_embed attachments width=600_
+
+Thank you.</code></pre>
+<p>Remote image URLs passed through Attach are downloaded and embedded
+when the marker consumes them. If a remote image cannot be downloaded,
+is not an image, is too large, or times out, vuMailKit skips that remote
+image and continues the send. Remote URLs are not sent as ordinary file
+attachments.</p>
+<h3 id="complete-normalized-body-example-with-a-remote-image">Complete
+normalized-body example with a remote image</h3>
+<p>This keeps the body as ordinary text and uses the marker for the
+remote image. The developer does not type an HTML img tag into the
+body.</p>
+<pre class="clarion"><code>Result  LONG
+FromAdr CSTRING(256)
+ToAdr   CSTRING(256)
+CCAdr   CSTRING(256)
+BCCAdr  CSTRING(256)
+Subject CSTRING(256)
+Body    CSTRING(8192)
+Attach  CSTRING(1024)
+
+Result = vuResetSimpleHTML()
+Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+FromAdr = &#39;&#39;
+ToAdr   = &#39;customer@example.com&#39;
+CCAdr   = &#39;&#39;
+BCCAdr  = &#39;&#39;
+Subject = &#39;Product photo&#39;
+
+! CustomerMessageText is ordinary text from a TEXT control, memo,
+! customer note, or generated field. It contains this marker where
+! the remote image should appear:
+! _embed attachments width=600_
+Body   = CLIP(CustomerMessageText)
+Attach = &#39;https://www.example.com/images/ProductPhoto.jpg&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
+END
+
+Result = vuResetSimpleHTML()</code></pre>
+<h2 id="method-2-external-html-file-with-images">Method 2: External HTML
+file with images</h2>
+<p>Use this when the email is easier to design outside Clarion
+source.</p>
+<p>Create the HTML in an editor, AI tool, Word export, or template
+workflow. Save it as a UTF-8 HTML file. Put image references in the HTML
+where the images should appear.</p>
+<p>Local images can be next to the HTML file, in a relative subfolder,
+or at a full local path. Remote http or https image URLs are downloaded
+at send time and embedded when they can be retrieved safely.</p>
+<h3 id="reminderhtml">Reminder.html</h3>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Dear Customer,<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Here is the product photo:<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;ProductPhoto.jpg&quot;</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;300&quot;</span><span class="ot"> alt</span><span class="op">=</span><span class="st">&quot;Product photo&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Thank you for your business.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<h3 id="clarion-send-code-1">Clarion send code</h3>
+<pre class="clarion"><code>BodyFile CSTRING(260)
+Attach   CSTRING(260)
+
+BodyFile = CLIP(PATH()) &amp; &#39;\Reminder.html&#39;
+Attach   = &#39;&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, BodyFile, Attach)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p>This path is also the best fit for <a
+href="use-tokenmerge-with-email-templates.html">TokenMerge</a>. Keep the
+HTML template outside the Clarion source, merge customer-specific values
+into a separate output file, and send the merged file.</p>
+<h2 id="method-3-remote-web-image-in-an-html-file-or-html-body">Method
+3: Remote web image in an HTML file or HTML body</h2>
+<p>For legacy vuMail compatibility, vuMailKit also supports remote
+images in HTML img src values. Use this path when the body is already
+real HTML, not normalized ordinary text.</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Here is the product image:<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://www.example.com/images/ProductPhoto.jpg&quot;</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;300&quot;</span><span class="ot"> alt</span><span class="op">=</span><span class="st">&quot;Product photo&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>When vuMailKit sees an http or https image URL, it tries to download
+the image at send time, embeds it as an inline CID image, and rewrites
+the HTML body to reference the embedded image.</p>
+<p>Remote image embedding is best for public images that your
+application is allowed to fetch and include. If the remote image cannot
+be downloaded, is not an image, is too large, or times out, vuMailKit
+leaves the original remote image reference in the HTML rather than
+failing the whole send.</p>
+<h2 id="method-4-small-hand-coded-html-in-clarion-source">Method 4:
+Small hand-coded HTML in Clarion source</h2>
+<p>This is supported, but it is not the easiest path for larger
+messages.</p>
+<p>In Clarion source strings, each literal less-than sign must be
+doubled. That can make HTML examples look rough. Prefer Method 1 for
+ordinary text or Method 2 for designed HTML.</p>
+<pre class="clarion"><code>Body    = &#39;&lt;&lt;html&gt;&lt;&lt;body&gt;&#39; &amp; |
+          &#39;&lt;&lt;p&gt;Here is the product photo:&lt;&lt;/p&gt;&#39; &amp; |
+          &#39;&lt;&lt;p&gt;&lt;&lt;img src=&quot;C:\Images\ProductPhoto.jpg&quot; width=&quot;300&quot;&gt;&lt;&lt;/p&gt;&#39; &amp; |
+          &#39;&lt;&lt;p&gt;Please let us know if you have any questions.&lt;&lt;/p&gt;&#39; &amp; |
+          &#39;&lt;&lt;/body&gt;&lt;&lt;/html&gt;&#39;
+Attach  = &#39;&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)</code></pre>
+<p>HTML loaded from a file, database field, TEXT control, or generated
+runtime string does not need that Clarion source-level escaping. The
+doubled less-than signs are only for HTML literals typed directly into
+Clarion source.</p>
+<h2 id="method-5-simple-html-header-and-footer-images">Method 5: Simple
+HTML header and footer images</h2>
+<p>Use Simple HTML header and footer images when you want branding above
+or below an ordinary text body.</p>
+<p>This is separate from placing images at arbitrary positions in the
+body. For body-positioned images with ordinary text, use Method 1.</p>
+<pre class="clarion"><code>Result      LONG
+HeaderImage CSTRING(260)
+FooterImage CSTRING(260)
+
+Result = vuResetSimpleHTML()
+Result = vuSetSimpleHTML(1)
+Result = vuSetSimpleHTMLNormalizeBody(1)
+
+HeaderImage = CLIP(PATH()) &amp; &#39;\CompanyHeader.png&#39;
+FooterImage = CLIP(PATH()) &amp; &#39;\CompanyFooter.png&#39;
+
+Result = vuSetSimpleHTMLHeaderImage(HeaderImage)
+Result = vuSetSimpleHTMLFooterImage(FooterImage)
+
+Body   = CLIP(CustomerMessageText)
+Attach = &#39;&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+Result = vuResetSimpleHTML()</code></pre>
+<p>CustomerMessageText can come from a TEXT control, TPS memo, customer
+note, generated report, template merge, or ordinary string. With
+vuSetSimpleHTMLNormalizeBody(1), vuMailKit treats it as ordinary text
+and converts its existing line breaks for HTML display.</p>
+<h2 id="important-normalizebody-rule">Important NormalizeBody rule</h2>
+<p>With NormalizeBody on, the body is ordinary text. That is why it is
+safe for user-entered text and memo fields.</p>
+<p>Do not type raw HTML img tags into normalized body text. If you type
+raw HTML into a normalized body, vuMailKit will escape it and display it
+as text.</p>
+<p>For body-positioned images with normalized text, use the
+embed-attachments marker and pass local image files or remote image URLs
+in Attach. For hand-authored img tags, use an external HTML file or turn
+NormalizeBody off and pass an HTML fragment intentionally.</p>
+<h2 id="already-embedded-cid-images">Already embedded CID images</h2>
+<p>If an HTML body already contains cid image references, vuMailKit
+leaves those references alone. This preserves HTML that was already
+prepared with embedded Content-ID image references.</p>
+<h2 id="related-pages">Related pages</h2>
 <ul>
 <li><a href="send-an-html-email.html">Send an HTML email</a></li>
 <li><a href="send-attachments.html">Send attachments</a></li>
+<li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
+Simple HTML Email with a Company Logo</a></li>
+<li><a href="use-tokenmerge-with-email-templates.html">Use TokenMerge
+with email templates</a></li>
+<li><a href="../functions/vuSetSimpleHTML.html">vuSetSimpleHTML</a></li>
+<li><a
+href="../functions/vuSetSimpleHTMLNormalizeBody.html">vuSetSimpleHTMLNormalizeBody</a></li>
+<li><a href="../functions/vuSendMail.html">vuSendMail</a></li>
+<li><a href="../functions/vuSendMailWait.html">vuSendMailWait</a></li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">Getting
 Started</a> | <a href="../categories/index.html">Browse by Category</a>

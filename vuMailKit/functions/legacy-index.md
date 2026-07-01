@@ -3,7 +3,7 @@ title: "vuMail Legacy Functions"
 summary: "vuMailKit function reference."
 description: "Function reference pages for vuMailKit. [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)"
 keywords: ["vuMailKit","vuMail","functions","Clarion"]
-last_updated: "2026-03-26"
+last_updated: "2026-06-25"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -14,7 +14,7 @@ last_updated: "2026-03-26"
 
 Legacy vuMail function names are maintained for backward compatibility. Each page links back to the preferred vuMailKit function.
 
-Important legacy note: several original vuMail text helpers are documented as Clarion `LONG` returns, but in the original PowerBasic DLL that numeric value was actually the address of an internal C string buffer. That is why the legacy Clarion examples use these functions directly in assignments and `MESSAGE()` expressions. This behavior is preserved only for compatibility and is not the model for new APIs.
+Important legacy note: several original vuMail text helpers are documented as Clarion LONG returns, but in the original PowerBasic DLL that numeric value was actually the address of an internal C string buffer. That is why the legacy Clarion examples use these functions directly in assignments and MESSAGE() expressions. This behavior is preserved only for compatibility and is not the model for new APIs.
 
 | Function | Description |
 |---|---|
@@ -27,6 +27,7 @@ Important legacy note: several original vuMail text helpers are documented as Cl
 | [vuGetCodePage](vuGetCodePage.md) | Legacy alias for vuGlobalsGetCodePage(). (Preferred: [vuGlobalsGetCodePage](vuGlobalsGetCodePage.md)) |
 | [vuGetFromReplyTo](vuGetFromReplyTo.md) | Legacy alias for vuSmtpGetFromReplyTo(). (Preferred: [vuSmtpGetFromReplyTo](vuSmtpGetFromReplyTo.md)) |
 | [vuGetMailLog](vuGetMailLog.md) | Gets the legacy sent-mail CSV log file path. (Preferred: [vuLogGetFile](vuLogGetFile.md)) |
+| [vuGetMailLogLevel](vuGetMailLogLevel.md) | Legacy alias for vuGetDiagnosticsLevel(). (Preferred: [vuGetDiagnosticsLevel](vuGetDiagnosticsLevel.md)) |
 | [vuGetMailProxy](vuGetMailProxy.md) | Legacy alias for vuNetGetProxy(). (Preferred: [vuNetGetProxy](vuNetGetProxy.md)) |
 | [vuGetMailSecurity](vuGetMailSecurity.md) | Legacy alias for vuSmtpGetSecurity(). (Preferred: [vuSmtpGetSecurity](vuSmtpGetSecurity.md)) |
 | [vuGetMailServer](vuGetMailServer.md) | Gets the outbound SMTP server name and port. (Preferred: [vuSmtpGetServer](vuSmtpGetServer.md)) |
@@ -63,6 +64,7 @@ Important legacy note: several original vuMail text helpers are documented as Cl
 | [vuSetCodePage](vuSetCodePage.md) | Legacy alias for vuGlobalsSetCodePage(). (Preferred: [vuGlobalsSetCodePage](vuGlobalsSetCodePage.md)) |
 | [vuSetFromReplyTo](vuSetFromReplyTo.md) | Legacy alias for vuSmtpSetFromReplyTo(). (Preferred: [vuSmtpSetFromReplyTo](vuSmtpSetFromReplyTo.md)) |
 | [vuSetMailLog](vuSetMailLog.md) | Sets the legacy sent-mail CSV log file path. (Preferred: [vuLogSetFile](vuLogSetFile.md)) |
+| [vuSetMailLogLevel](vuSetMailLogLevel.md) | Legacy alias for vuSetDiagnosticsLevel(). (Preferred: [vuSetDiagnosticsLevel](vuSetDiagnosticsLevel.md)) |
 | [vuSetMailProxy](vuSetMailProxy.md) | Legacy alias for vuNetSetProxy(). (Preferred: [vuNetSetProxy](vuNetSetProxy.md)) |
 | [vuSetMailSecurity](vuSetMailSecurity.md) | Legacy alias for vuSmtpSetSecurity(). (Preferred: [vuSmtpSetSecurity](vuSmtpSetSecurity.md)) |
 | [vuSetMailServer](vuSetMailServer.md) | Sets the outbound SMTP server name and port. (Preferred: [vuSmtpSetServer](vuSmtpSetServer.md)) |

@@ -31,48 +31,52 @@
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>
 <h1 id="vugetmailloglevel">vuGetMailLogLevel()</h1>
-<h2 id="purpose">Purpose</h2>
-<p>Gets the current verbosity level used by the diagnostic-style
-logging.</p>
-<h2 id="export-name">Export name</h2>
+<h2 id="description">Description</h2>
+<p>vuGetMailLogLevel() is a legacy-compatible alias for the preferred
+function name:</p>
 <ul>
-<li><code>vuGetMailLogLevel</code></li>
+<li><a
+href="vuGetDiagnosticsLevel.html">vuGetDiagnosticsLevel()</a></li>
 </ul>
+<p>The legacy name remains exported and supported so existing
+applications continue to compile and run.</p>
+<p>New code should use vuGetDiagnosticsLevel().</p>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuGetMailLogLevel(*LONG OutLogLevel),
 SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailLogLevel')</p>
-<h2 id="parameters">Parameters</h2>
-<ul>
-<li><code>OutLogLevel</code> (LONG) - Receives the current log verbosity
-level.
-<ul>
-<li>0 = Normal</li>
-<li>1 = Trace</li>
-</ul></li>
-</ul>
-<h2 id="return-value">Return value</h2>
-<ul>
-<li>Returns 1 when the operation succeeds, otherwise 0. Use
-<code>vuMailLastError()</code> for more detail when needed.</li>
-</ul>
+<h2 id="important-logging-separation">Important logging separation</h2>
+<p>Despite the legacy name, vuGetMailLogLevel() reports diagnostics
+verbosity only.</p>
+<p>It does not read the sent-mail CSV/activity log path and does not
+report whether sent-mail CSV/activity logging is selected.</p>
+<p>Use vuGetMailLog() or vuLogGetFile() to read the sent-mail
+CSV/activity log file path.</p>
+<p>Use vuDiagnosticsGetFile() and vuGetDiagnosticsLevel() for
+diagnostics.</p>
+<h2 id="levels">Levels</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>Normal diagnostics.</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Trace diagnostics.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="example-clarion">Example (Clarion)</h2>
-<pre class="clarion"><code>rc       LONG
-logLevel LONG
+<pre class="clarion"><code>Level  LONG
+Result SIGNED
 
-logLevel = 0
-rc = vuGetMailLogLevel(logLevel)
-
-IF rc = 1
-  MESSAGE(&#39;Current log level: &#39; &amp; logLevel)
-END</code></pre>
-<h2 id="notes">Notes</h2>
-<ul>
-<li>This reports the current diagnostic-style logging level.</li>
-<li>If no value has been set yet, the default level is Normal.</li>
-<li>This function reports the level setting only. Diagnostic file output
-is controlled separately with <code>vuDiagnosticsSetFile()</code> and
-<code>vuDiagnosticsEnable()</code>.</li>
-</ul>
+Result = vuGetMailLogLevel(Level)   ! Legacy alias for vuGetDiagnosticsLevel(Level)</code></pre>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a
 href="../categories/index.html">Categories</a></p>

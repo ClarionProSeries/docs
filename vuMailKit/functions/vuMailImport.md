@@ -21,7 +21,7 @@ last_updated: "2026-03-27"
 Loads an RFC822 message file and stores it as the current legacy in-process message.
 
 ## Parameters
-- `xFilePath` (*CSTRING): Source message file path.
+- xFilePath (*CSTRING): Source message file path.
 
 ## Return value / error codes
 | Value | Meaning |
@@ -45,6 +45,6 @@ END
 ## Notes
 - On success, the imported message becomes available to legacy read/export helpers.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailImport`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailImport.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

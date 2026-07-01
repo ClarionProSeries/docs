@@ -46,8 +46,8 @@ END
 
 ## Notes
 - Legacy alias: [vuGetSaveFolder()](vuGetSaveFolder.md).
-- Value is returned from in-memory globals. Call `vuGlobalsLoad()` first if you need the saved registry value loaded into memory.
+- Value is returned from in-memory globals. Call vuGlobalsLoad() first if you need the saved registry value loaded into memory.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuGetSaveFolder` / `vuGlobalsGetEmailFolder`.
+- Legacy reference: vuMailDump.pdf, section heading vuGetSaveFolder / vuGlobalsGetEmailFolder.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

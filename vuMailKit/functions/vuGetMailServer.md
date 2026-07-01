@@ -18,13 +18,13 @@ last_updated: "2026-01-07"
 **Prototype:** vuGetMailServer(*CSTRING OutServer, *LONG OutPort), SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailServer')
 
 ## Description
-This is the legacy vuMail function name for `vuSmtpGetServer()`.
+This is the legacy vuMail function name for vuSmtpGetServer().
 
 Preferred function name:
 
 - [vuSmtpGetServer()](vuSmtpGetServer.md)
 
-This function is exported for backward compatibility and behaves identically to `vuSmtpGetServer()`.
+This function is exported for backward compatibility and behaves identically to vuSmtpGetServer().
 
 ## Example (Clarion)
 ```clarion

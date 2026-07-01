@@ -21,7 +21,7 @@ last_updated: "2026-03-27"
 Loads only the header block from an email file and stores those headers in the legacy in-process message state.
 
 ## Parameters
-- `xName` (*CSTRING): Source message file path.
+- xName (*CSTRING): Source message file path.
 
 ## Return value / error codes
 | Value | Meaning |
@@ -45,6 +45,6 @@ END
 ## Notes
 - Body content is not loaded by this function.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailImportHeader`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailImportHeader.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

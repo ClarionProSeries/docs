@@ -33,16 +33,15 @@ href="../categories/index.html">Categories</a></p>
 <h1 id="vusmtpgetserver">vuSmtpGetServer()</h1>
 <h2 id="description">Description</h2>
 <p>Gets the outbound SMTP server name and port. (legacy name:
-<code>vuGetMailServer()</code>).</p>
+vuGetMailServer()).</p>
 <p>Previously exported as (legacy name, still supported):</p>
 <ul>
 <li><a href="vuGetMailServer.html">vuGetMailServer()</a></li>
 </ul>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xServer</code> (CSTRING) - Receives the SMTP server host
-name.</li>
-<li><code>xPort</code> (LONG) - Receives the SMTP server port.</li>
+<li>xServer (CSTRING) - Receives the SMTP server host name.</li>
+<li>xPort (LONG) - Receives the SMTP server port.</li>
 </ul>
 <h2 id="return-value">Return value</h2>
 <p>A LONG value indicating the result.</p>
@@ -51,8 +50,7 @@ name.</li>
 </ul>
 <h3 id="notes">Notes</h3>
 <p>Values are read from the current vuMailKit session. Call
-<code>vuGlobalsLoad()</code> first if you want values loaded from the
-registry.</p>
+vuGlobalsLoad() first if you want values loaded from the registry.</p>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>ROUTINE:Test_vuSmtpGetServer   ROUTINE
   DATA

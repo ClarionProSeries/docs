@@ -31,16 +31,16 @@ Example format:
 'license-string'
 ```
 
-The template places that value into the generated startup code and passes it to `vuMailKitInitialize()`.
+The template places that value into the generated startup code and passes it to vuMailKitInitialize().
 
 ## When to call this
 
-Call `vuMailKitInitialize()` once before setup, autodetect, profile, or send code can run.
+Call vuMailKitInitialize() once before setup, autodetect, profile, or send code can run.
 
 Typical EXE startup pattern:
 
 - copy the developer license string into a CSTRING
-- call `vuMailKitInitialize(LicenseString)`
+- call vuMailKitInitialize(LicenseString)
 - continue into the rest of the application
 
 In a Clarion multi-DLL application, initialize from the EXE app. The supporting DLL apps should not each try to own licensing startup.
@@ -57,12 +57,12 @@ The -451 result is a deployment-folder conflict warning. It is not a virus warni
 
 ## Related licensing return codes from later calls
 
-`vuMailKitInitialize()` itself does not return -9001 or -9003. Those are returned by later license-gated functions.
+vuMailKitInitialize() itself does not return -9001 or -9003. Those are returned by later license-gated functions.
 
 | Value | Where it appears | Meaning |
 |---|---|---|
-| -9001 | Later gated functions | vuMailKit licensing was never initialized. The EXE did not call `vuMailKitInitialize()` successfully before using send, setup, autodetect, or profile functions. |
-| -9002 | `vuMailKitInitialize()` or later gated functions | The license string is invalid, initialization failed, or a prior initialization attempt failed. |
+| -9001 | Later gated functions | vuMailKit licensing was never initialized. The EXE did not call vuMailKitInitialize() successfully before using send, setup, autodetect, or profile functions. |
+| -9002 | vuMailKitInitialize() or later gated functions | The license string is invalid, initialization failed, or a prior initialization attempt failed. |
 | -9003 | Later gated functions | The current license edition does not allow the requested feature. |
 
 ## Example (Clarion)
@@ -87,8 +87,8 @@ END
 - If initialization is skipped, later gated calls return -9001.
 - If initialization fails because the license is bad, the initialize call returns -9002 and later gated calls also report -9002.
 - If a lower edition calls a higher-tier feature, the later gated call returns -9003.
-- For licensing failures, `vuMailLastError()` is updated with text that identifies the condition as a vuMailKit licensing/setup problem, not an SMTP, OAuth, Gmail, password, or mail-server authentication failure.
-- For -451 deployment-folder conflicts, `vuMailLastError()` identifies conflicting .NET mail/runtime files in the application folder. Clean up the application folder before troubleshooting license or mail-provider settings.
-- Use `vuMailKitGetLicenseInfo()` if you want a diagnostic text summary of the license state for a test harness, support screen, or About box.
+- For licensing failures, vuMailLastError() is updated with text that identifies the condition as a vuMailKit licensing/setup problem, not an SMTP, OAuth, Gmail, password, or mail-server authentication failure.
+- For -451 deployment-folder conflicts, vuMailLastError() identifies conflicting .NET mail/runtime files in the application folder. Clean up the application folder before troubleshooting license or mail-provider settings.
+- Use vuMailKitGetLicenseInfo() if you want a diagnostic text summary of the license state for a test harness, support screen, or About box.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

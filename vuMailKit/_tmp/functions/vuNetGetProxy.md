@@ -39,7 +39,7 @@ END
 
 ## Notes
 - Legacy alias: [vuGetMailProxy()](vuGetMailProxy.md).
-- Returns runtime memory values; call `vuGlobalsLoad()` first if you need persisted registry values loaded into this process.
+- Returns runtime memory values; call vuGlobalsLoad() first if you need persisted registry values loaded into this process.
 - AuthMode/OAuth is not used by this function.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

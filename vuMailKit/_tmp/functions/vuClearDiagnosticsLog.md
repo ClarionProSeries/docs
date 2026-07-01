@@ -9,13 +9,13 @@
 
 ## Description
 
-Clears the current vuMailKit diagnostics log and SMTP protocol log files.
+Clears the current vuMailKit diagnostics log file.
 
 This function is the preferred clear function for diagnostics. The older diagnostics clear function remains supported:
 
 - [vuDiagnosticsClearLogs()](vuDiagnosticsClearLogs.md)
 
-This function does **not** clear the legacy sent-mail CSV log selected by `vuLogSetFile()` / `vuSetMailLog()`.
+This function does **not** clear the legacy sent-mail CSV log selected by vuLogSetFile() / vuSetMailLog().
 
 ## Parameters
 

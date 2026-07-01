@@ -19,7 +19,7 @@ Disables diagnostic logging without deleting the configured diagnostics file pat
 
 ## Export name
 
-- `vuDiagnosticsDisable`
+- vuDiagnosticsDisable
 
 ## Clarion prototype
 
@@ -27,7 +27,7 @@ Disables diagnostic logging without deleting the configured diagnostics file pat
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Example (Clarion)
 ```clarion
@@ -42,6 +42,6 @@ END
 ## Notes
 
 - This does not delete existing log files.
-- Use `vuDiagnosticsClearLogs()` if you want to remove prior log files.
+- Use vuDiagnosticsClearLogs() if you want to remove prior log files.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

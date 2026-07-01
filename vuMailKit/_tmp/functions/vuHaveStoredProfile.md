@@ -17,7 +17,7 @@ This helper is mainly useful for:
 
 ## Export name
 
-- `vuHaveStoredProfile`
+- vuHaveStoredProfile
 
 ## Clarion prototype
 
@@ -36,7 +36,7 @@ This helper is mainly useful for:
 
 ## What it does
 
-`vuHaveStoredProfile()` checks the managed profile store under the current Windows user and reports whether any saved managed profile files are present.
+vuHaveStoredProfile() checks the managed profile store under the current Windows user and reports whether any saved managed profile files are present.
 
 This function only answers the managed-profile question.
 

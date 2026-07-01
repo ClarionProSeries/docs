@@ -6,7 +6,7 @@ keywords: ["vuMailKit", "vuMail", "function names", "naming", "api", "aliases", 
 function_name: "AboutFunctionNames"
 category: "Concepts"
 version_added: "1.0"
-last_updated: "2026-01-07"
+last_updated: "2026-06-25"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -24,24 +24,26 @@ Preferred names exist so new development can use a cleaner, grouped naming patte
 
 All preferred names follow this format:
 
-- `vu` + `Subsystem` + `Verb` + `Thing`
+- vu + Subsystem + Verb + Thing
 
 Rules:
 
-- Preferred names start with the lowercase prefix `vu`.
-- Immediately after `vu` is a subsystem marker that groups related functions together.
+- Preferred names start with the lowercase prefix vu.
+- Immediately after vu is a subsystem marker that groups related functions together.
 - Within a subsystem, function names use consistent verb and noun ordering.
 
 Examples:
 
-- `vuSmtpSetServer`
-- `vuSmtpGetServer`
-- `vuLogSetFile`
-- `vuLogGetFile`
-- `vuGlobalsSave`
-- `vuGlobalsLoad`
-- `vuPop3Connect`
-- `vuPop3LoadEmail`
+- vuSmtpSetServer
+- vuSmtpGetServer
+- vuLogSetFile
+- vuLogGetFile
+- vuSetDiagnosticsLevel
+- vuGetDiagnosticsLevel
+- vuGlobalsSave
+- vuGlobalsLoad
+- vuPop3Connect
+- vuPop3LoadEmail
 
 ## Subsystem markers
 
@@ -52,10 +54,10 @@ Examples:
 | vuImap | IMAP receive and IMAP settings |
 | vuOAuth | OAuth login and token workflows |
 | vuGlobals | Registry persistence and runtime globals/session |
-| vuLog | Log file path and logging options |
+| vuLog | Legacy sent-mail CSV/activity log file path helpers |
 | vuNet | Proxy, transport, and network related settings |
 
-Additional subsystem markers may be added as needed, but the rule remains: the subsystem marker comes immediately after `vu`.
+Additional subsystem markers may be added as needed. Some compatibility-improvement names, such as vuSetDiagnosticsLevel(), use a clearer verb-first phrase when that is the least confusing replacement for an older legacy name.
 
 ## How to read the names
 
@@ -63,9 +65,14 @@ The subsystem tells you where to look, and the verb tells you what the function 
 
 Examples:
 
-- `vuSmtpSetServer` means "SMTP subsystem, set the server value".
-- `vuLogGetFile` means "Log subsystem, get the configured file path".
-- `vuGlobalsLoad` means "Globals subsystem, load values into memory for this run".
+- vuSmtpSetServer means "SMTP subsystem, set the server value".
+- vuLogGetFile means "Log subsystem, get the sent-mail CSV/activity log file path".
+- vuSetDiagnosticsLevel means "Diagnostics subsystem, set normal or trace troubleshooting detail".
+- vuGlobalsLoad means "Globals subsystem, load values into memory for this run".
+
+## Naming note for logging and diagnostics
+
+The old vuSetMailLogLevel() name is kept as a legacy alias, but new code should use vuSetDiagnosticsLevel(). The level setting controls diagnostics verbosity only. It does not control the sent-mail CSV/activity log selected by vuSetMailLog() or vuLogSetFile().
 
 ## How this relates to legacy names
 

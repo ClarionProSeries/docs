@@ -9,33 +9,33 @@
 
 ## Description
 
-Turns a standard Clarion `ENTRY` control with the `PASSWORD` attribute enabled into the kind of polished, modern password field users expect today, without forcing you to replace the control or redesign your window.
+Turns a standard Clarion ENTRY control with the PASSWORD attribute enabled into the kind of polished, modern password field users expect today, without forcing you to replace the control or redesign your window.
 
 With one function call, you can upgrade an old-style password entry into a more attractive and more user-friendly field that supports in-field cue text, an automatically generated show/hide eye button, and the smooth behavior people are used to from current desktop and web applications.
 
-It also gives you something many developers consider a major usability upgrade: built-in paste support for password-masked `ENTRY` controls. That means users can paste a password directly into the field instead of having to type it by hand, which makes the control feel much more in line with modern login screens and user expectations.
+It also gives you something many developers consider a major usability upgrade: built-in paste support for password-masked ENTRY controls. That means users can paste a password directly into the field instead of having to type it by hand, which makes the control feel much more in line with modern login screens and user expectations.
 
 It also adds a valuable security option for sensitive data. When enabled, vuMailKit can automatically clear the clipboard after a successful paste into the managed control, helping prevent a copied password from being pasted again into Notepad or somewhere else afterward.
 
-That means `vuPasswordInit()` is not just a visual upgrade. It is also a practical way to make password entry in your Clarion applications feel more modern, more professional, and more secure.
+That means vuPasswordInit() is not just a visual upgrade. It is also a practical way to make password entry in your Clarion applications feel more modern, more professional, and more secure.
 
-The control remains the original native Clarion `ENTRY` underneath, so normal Clarion behavior and embed points continue to work as usual. vuMailKit handles the eye button, visibility toggling, cue text support, built-in paste handling, optional clipboard protection, and synchronized enabled/disabled state for you.
+The control remains the original native Clarion ENTRY underneath, so normal Clarion behavior and embed points continue to work as usual. vuMailKit handles the eye button, visibility toggling, cue text support, built-in paste handling, optional clipboard protection, and synchronized enabled/disabled state for you.
 
 ## Important Clarion setup
 
-The underlying Clarion control should be a normal `ENTRY` control with the `PASSWORD` attribute enabled.
+The underlying Clarion control should be a normal ENTRY control with the PASSWORD attribute enabled.
 
 ```clarion
 ENTRY(@s40),AT(...),USE(?MyPassword),PASSWORD
 ```
 
-Call `vuPasswordInit()` after the window is open and the control handle is valid.
+Call vuPasswordInit() after the window is open and the control handle is valid.
 
 ## Parameters
 
 | Parameter | Data Type | Description |
 |---|---|---|
-| InHwnd | LONG | Handle of the target Clarion ENTRY control, passed as `?Control{PROP:Handle}`. |
+| InHwnd | LONG | Handle of the target Clarion ENTRY control, passed as ?Control{PROP:Handle}. |
 | InInitialMode | LONG | Starting mode. 0 for masked, 1 for visible text. |
 | InCueText | *CSTRING | Cue text to display when the field is empty. Pass a blank CSTRING if no cue text is wanted. |
 | InToolTip | *CSTRING | Tooltip text for the generated eye button. Pass a blank CSTRING if no tooltip is wanted. |
@@ -54,7 +54,7 @@ Call `vuPasswordInit()` after the window is open and the control handle is valid
 
 Use a fixed 5-parameter call from Clarion.
 
-Even when you do not want cue text or tooltip text, you should still pass both referenced `CSTRING` parameters and initialize them to blank values. You should also explicitly pass the clipboard behavior flag so the intended paste handling is clear in your source code.
+Even when you do not want cue text or tooltip text, you should still pass both referenced CSTRING parameters and initialize them to blank values. You should also explicitly pass the clipboard behavior flag so the intended paste handling is clear in your source code.
 
 This is the recommended and documented calling pattern for Clarion:
 
@@ -98,9 +98,9 @@ RC = vuPasswordInit(?LoginPassword{PROP:Handle}, LoginPasswordShowState, LoginPa
 
 ## Clipboard clearing behavior
 
-When `ClearClipboardAfterPaste` is set to 1, vuMailKit clears the clipboard after a successful paste into the managed control. This helps reduce the chance that a pasted password or other sensitive value can be pasted again somewhere else afterward.
+When ClearClipboardAfterPaste is set to 1, vuMailKit clears the clipboard after a successful paste into the managed control. This helps reduce the chance that a pasted password or other sensitive value can be pasted again somewhere else afterward.
 
-When `ClearClipboardAfterPaste` is set to 0, vuMailKit leaves the clipboard content alone, allowing the user to paste the same content elsewhere if needed.
+When ClearClipboardAfterPaste is set to 0, vuMailKit leaves the clipboard content alone, allowing the user to paste the same content elsewhere if needed.
 
 This option applies only to paste activity handled through the managed password control.
 
@@ -109,11 +109,11 @@ This option applies only to paste activity handled through the managed password 
 - The function creates its own eye button and manages its own tooltip. No extra Clarion controls are needed for the toggle button.
 - The eye button automatically follows the managed control's visibility and size changes.
 - If the entry control is disabled or enabled, the eye button is disabled or enabled too.
-- Cue text is optional. If `CueText` is blank, no cue text is drawn.
-- Tooltip text is optional. If `TooltipText` is blank, no tooltip is shown.
-- Built-in paste support for password-masked `ENTRY` controls is part of the feature set and helps the control behave the way users expect from a modern password field.
-- Clipboard clearing after paste is optional and controlled by `ClearClipboardAfterPaste`.
-- The control supports normal keyboard and paste behavior while still using a native Clarion password `ENTRY`.
+- Cue text is optional. If CueText is blank, no cue text is drawn.
+- Tooltip text is optional. If TooltipText is blank, no tooltip is shown.
+- Built-in paste support for password-masked ENTRY controls is part of the feature set and helps the control behave the way users expect from a modern password field.
+- Clipboard clearing after paste is optional and controlled by ClearClipboardAfterPaste.
+- The control supports normal keyboard and paste behavior while still using a native Clarion password ENTRY.
 
 ## Related functions
 

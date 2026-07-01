@@ -35,20 +35,25 @@ href="../categories/index.html">Categories</a></p>
 <p><strong>Prototype:</strong> vuSetMailLog(*CSTRING InFileName),
 SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailLog')</p>
 <h2 id="description">Description</h2>
-<p>This is the legacy vuMail function name for
-<code>vuLogSetFile()</code>.</p>
+<p>This is the legacy vuMail function name for vuLogSetFile().</p>
 <p>Preferred function name:</p>
 <ul>
 <li><a href="vuLogSetFile.html">vuLogSetFile()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to <code>vuLogSetFile()</code>. It selects the legacy
-sent-mail CSV log file. Successful and failed send attempts append rows
-in this format:</p>
+identically to vuLogSetFile(). It selects the legacy sent-mail CSV log
+file. Successful and failed send attempts append rows in this
+format:</p>
 <pre class="text"><code>Date,Time,From,To,Subject,SavedEmailPath,ResultText</code></pre>
-<p>This is separate from diagnostics logging. Use
-<code>vuDiagnosticsSetFile()</code> for diagnostics and
-<code>vuClearMailLog()</code> to clear the sent-mail CSV log.</p>
+<p>This is separate from diagnostics logging. Use vuDiagnosticsSetFile()
+for diagnostics and vuClearMailLog() to clear the sent-mail CSV log.</p>
+<p>If an outgoing .eml copy is saved because vuSetSaveFolder() or
+vuGlobalsSetEmailFolder() is set, the SavedEmailPath field contains the
+saved .eml path. If no outgoing .eml copy is saved, that field is
+blank.</p>
+<p>vuSetDiagnosticsLevel() and the legacy alias vuSetMailLogLevel() do
+not turn this CSV/activity log on or off. They control diagnostics
+verbosity only.</p>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc      LONG
 logFile CSTRING(260)

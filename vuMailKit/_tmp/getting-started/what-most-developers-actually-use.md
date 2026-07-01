@@ -41,7 +41,7 @@ The first things many developers care about are:
 - sending a good-looking Simple HTML email
 - using an external text or HTML file
 - personalizing content with TokenMerge
-- attachments or embedded images
+- attachments or embedded images, including body-positioned images and the legacy embed-attachments marker
 - CSV-based batch sending
 
 That is why the [Getting Started](index.md) section is task-based.
@@ -50,11 +50,15 @@ That is why the [Getting Started](index.md) section is task-based.
 
 Simple HTML mode can make an ordinary text body look like a clean HTML message without requiring you to build a full HTML wrapper.
 
-You can turn it on, optionally set a header image and footer image, pass body content, and let vuMailKit use its normal multipart MIME path to send both the HTML version and the plain-text alternative.
+For ordinary text from a TEXT control, TPS memo, customer note, generated report, or similar field, turn Simple HTML on, keep NormalizeBody on, and pass the text as-is. vuMailKit converts existing line breaks for HTML display.
+
+If you also need images inside the message body, do not type raw HTML image tags into the normalized text. Put the embed-attachments marker where the images should appear and pass local image files or remote http/https image URLs in the Attach parameter. vuMailKit replaces the marker with inline images and still treats the rest of the body as ordinary text.
 
 Start here:
 
 - [Send a Simple HTML email with a company logo](send-a-simple-html-email-with-a-company-logo.md)
+- [Send an embedded image](send-an-embedded-image.md)
+- [Send an HTML email](send-an-html-email.md)
 
 ## TokenMerge is already built in
 
@@ -89,6 +93,7 @@ Start with the simplest successful path first:
 - [Send your first email](send-your-first-email.md)
 - [Recommended send flow with a stored profile](recommended-send-flow.md)
 - [Send a Simple HTML email with a company logo](send-a-simple-html-email-with-a-company-logo.md)
+- [Send an embedded image](send-an-embedded-image.md)
 
 Then branch out only when you need more.
 

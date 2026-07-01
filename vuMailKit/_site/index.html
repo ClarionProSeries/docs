@@ -34,13 +34,14 @@ functions</a></p>
 <h1 id="vumailkit">vuMailKit</h1>
 <p><img src="assets/images/vuMailKit270x90.png" alt="vuMailKit" /></p>
 <p>Basic edition documentation</p>
-<p>Current Version: <strong>vuMailKit 1.1.0</strong></p>
-<p>Last Updated: 2026-06-25</p>
+<p>Current Version: <strong>vuMailKit 1.1.0 build 157</strong></p>
+<p>Release Date: 2026-07-01</p>
+<p>Last Updated: 2026-07-01</p>
 <p>Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights
 reserved.</p>
-<p>This documentation covers the current vuMailKit 1.1.0 Basic edition
-function set and the supporting setup, deployment, and usage notes
-needed by Clarion developers.</p>
+<p>This documentation covers the current vuMailKit 1.1.0 build 157 Basic
+edition function set and the supporting setup, deployment, and usage
+notes needed by Clarion developers.</p>
 <p>Use the links below to browse the documentation.</p>
 <ul>
 <li><a href="introduction.html">Introduction</a></li>
@@ -98,14 +99,20 @@ vuMailKit licensing/setup problem.</p>
 <h2 id="easier-html-email">Easier HTML email</h2>
 <p>If you want a cleaner-looking message, start with <a
 href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Simple
-HTML mode</a>. You can turn it on, optionally set a header image and
-footer image, pass ordinary body text, and let vuMailKit create the HTML
-wrapper and plain-text alternative for you.</p>
-<p>For more advanced work, use <a
+HTML mode</a>. You can turn it on, keep body normalization on, pass
+ordinary body text from a TEXT control or memo, and let vuMailKit create
+the HTML wrapper and plain-text alternative for you.</p>
+<p>For body-positioned images in ordinary text, use <a
+href="getting-started/send-an-embedded-image.html">Send an embedded
+image</a>. The easiest pattern is Simple HTML plus the embed-attachments
+marker: put the marker where the images should appear in the body text,
+and pass local image files or remote http/https image URLs in the Attach
+parameter.</p>
+<p>For designed HTML, use <a
 href="getting-started/use-tokenmerge-with-email-templates.html">TokenMerge</a>
 with external files so your application can personalize templates,
 insert generated invoice or statement text, and send the final result
-without rebuilding a mail-merge engine yourself.</p>
+without hand-building HTML strings in Clarion source.</p>
 <h2 id="start-here">Start here</h2>
 <table>
 <thead>
@@ -205,7 +212,8 @@ a form-letter invoice email with an optional personal message</a></li>
 <li><a href="getting-started/send-attachments.html">Send
 attachments</a></li>
 <li><a href="getting-started/send-an-embedded-image.html">Send an
-embedded image</a></li>
+embedded image</a> — includes the easy Simple HTML plus
+embed-attachments marker path</li>
 <li><a href="getting-started/send-a-batch-from-csv.html">Send a batch of
 emails from CSV</a></li>
 </ul>

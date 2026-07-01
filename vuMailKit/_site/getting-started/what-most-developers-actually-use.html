@@ -77,7 +77,8 @@ Wizard</a> setup</li>
 <li>sending a good-looking Simple HTML email</li>
 <li>using an external text or HTML file</li>
 <li>personalizing content with TokenMerge</li>
-<li>attachments or embedded images</li>
+<li>attachments or embedded images, including body-positioned images and
+the legacy embed-attachments marker</li>
 <li>CSV-based batch sending</li>
 </ul>
 <p>That is why the <a href="index.html">Getting Started</a> section is
@@ -86,13 +87,23 @@ task-based.</p>
 first HTML path to try</h2>
 <p>Simple HTML mode can make an ordinary text body look like a clean
 HTML message without requiring you to build a full HTML wrapper.</p>
-<p>You can turn it on, optionally set a header image and footer image,
-pass body content, and let vuMailKit use its normal multipart MIME path
-to send both the HTML version and the plain-text alternative.</p>
+<p>For ordinary text from a TEXT control, TPS memo, customer note,
+generated report, or similar field, turn Simple HTML on, keep
+NormalizeBody on, and pass the text as-is. vuMailKit converts existing
+line breaks for HTML display.</p>
+<p>If you also need images inside the message body, do not type raw HTML
+image tags into the normalized text. Put the embed-attachments marker
+where the images should appear and pass local image files or remote
+http/https image URLs in the Attach parameter. vuMailKit replaces the
+marker with inline images and still treats the rest of the body as
+ordinary text.</p>
 <p>Start here:</p>
 <ul>
 <li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
 Simple HTML email with a company logo</a></li>
+<li><a href="send-an-embedded-image.html">Send an embedded
+image</a></li>
+<li><a href="send-an-html-email.html">Send an HTML email</a></li>
 </ul>
 <h2 id="tokenmerge-is-already-built-in">TokenMerge is already built
 in</h2>
@@ -131,6 +142,8 @@ function library matters</h2>
 stored profile</a></li>
 <li><a href="send-a-simple-html-email-with-a-company-logo.html">Send a
 Simple HTML email with a company logo</a></li>
+<li><a href="send-an-embedded-image.html">Send an embedded
+image</a></li>
 </ul>
 <p>Then branch out only when you need more.</p>
 <p><a href="../index.html">Home</a> | <a href="index.html">Getting

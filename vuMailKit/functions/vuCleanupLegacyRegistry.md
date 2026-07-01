@@ -16,7 +16,7 @@ Safely remove legacy registry settings after managed profile migration has been 
 
 ## Export name
 
-- `vuCleanupLegacyRegistry`
+- vuCleanupLegacyRegistry
 
 ## Clarion prototype
 

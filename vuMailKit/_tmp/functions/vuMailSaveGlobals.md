@@ -8,13 +8,13 @@
 **Prototype:** vuMailSaveGlobals(), SIGNED, PROC, PASCAL, RAW, NAME('vuMailSaveGlobals')
 
 ## Description
-This is the legacy vuMail function name for `vuGlobalsSave()`.
+This is the legacy vuMail function name for vuGlobalsSave().
 
 Preferred function name:
 
 - [vuGlobalsSave()](vuGlobalsSave.md)
 
-This function is exported for backward compatibility and behaves identically to `vuGlobalsSave()`.
+This function is exported for backward compatibility and behaves identically to vuGlobalsSave().
 
 ## Example (Clarion)
 ```clarion

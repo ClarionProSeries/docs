@@ -33,17 +33,17 @@ That means you do not have to hand-build the whole HTML email inside Clarion, an
 A practical branded-template workflow looks like this:
 
 1. Create an external HTML template file
-2. Put a token such as `[[MessageBody]]` where the changing content should go
+2. Put a token such as [[MessageBody]] where the changing content should go
 3. Keep your logo, footer, and company information in the template
 4. Build the changing body content in Clarion or in another external file
-5. Use `TokenMergeInFile` or `TokenMergeFileIntoFile` to write a merged output file
+5. Use TokenMergeInFile or TokenMergeFileIntoFile to write a merged output file
 6. Send the merged output file with [vuSendMail](../functions/vuSendMail.md) or [vuSendMailWait](../functions/vuSendMailWait.md)
 
 Yes, every developer can write a mail-merge style search-and-replace function.
 
 But vuMailKit already includes TokenMerge helpers, so you do not have to reinvent that plumbing in every application.
 
-Another practical version of this pattern is to have a Clarion report write invoice or statement lines to a text file, then use `TokenMergeFileIntoFile` to place those generated lines into the email body before sending the merged output file.
+Another practical version of this pattern is to have a Clarion report write invoice or statement lines to a text file, then use TokenMergeFileIntoFile to place those generated lines into the email body before sending the merged output file.
 
 ## Example template file
 
@@ -127,9 +127,9 @@ That makes it easy to reuse the same branded frame over and over.
 
 If your outer file is HTML, the inserted content should normally be either plain text or an HTML fragment, not a full second HTML document.
 
-When the replacement content is plain text, `TokenMergeFileIntoFile` can optionally convert normal line endings to `<br>` tags before insertion.
+When the replacement content is plain text, TokenMergeFileIntoFile can optionally convert normal line endings to &lt;br&gt; tags before insertion.
 
-Use `contentFlags = 1` when the replacement file is plain text. Use `contentFlags = 0` when the replacement file already contains HTML markup.
+Use contentFlags = 1 when the replacement file is plain text. Use contentFlags = 0 when the replacement file already contains HTML markup.
 
 ### Embedded images require HTML email
 
@@ -143,7 +143,7 @@ You can build HTML directly inside Clarion if you want, but this external-templa
 
 - the template is easier to edit
 - the template can be created with an HTML editor or AI
-- you do not need doubled `<` signs in the template file itself
+- you do not need doubled < signs in the template file itself
 - the brand frame is reusable
 - the changing content can stay simple
 

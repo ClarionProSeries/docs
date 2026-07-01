@@ -129,8 +129,7 @@ template remains intact.</td>
 <tr>
 <td>InToken</td>
 <td>*CSTRING</td>
-<td>Full token text to replace, such as
-<code>[[MessageBody]]</code>.</td>
+<td>Full token text to replace, such as [[MessageBody]].</td>
 </tr>
 <tr>
 <td>InReplacementFile</td>
@@ -140,19 +139,17 @@ template remains intact.</td>
 <tr>
 <td>InMergeFlags</td>
 <td>LONG</td>
-<td>Merge option flags. <code>0=Replace all, case-sensitive</code>,
-<code>1=First only</code>, <code>2=Ignore case</code>,
-<code>3=First only and ignore case</code>.</td>
+<td>Merge option flags. 0=Replace all, case-sensitive, 1=First only,
+2=Ignore case, 3=First only and ignore case.</td>
 </tr>
 <tr>
 <td>InContentFlags</td>
 <td>LONG</td>
-<td>Replacement-content preparation flags.
-<code>0=Insert file contents exactly as read</code>,
-<code>1=Convert replacement-file line endings to HTML &lt;br&gt; tags before insertion</code>.
-Use 0 when the replacement file already contains HTML. Use 1 when the
-replacement file is plain text and you want its lines to render as
-separate lines inside HTML.</td>
+<td>Replacement-content preparation flags. 0=Insert file contents
+exactly as read, 1=Convert replacement-file line endings to HTML
+&lt;br&gt; tags before insertion. Use 0 when the replacement file
+already contains HTML. Use 1 when the replacement file is plain text and
+you want its lines to render as separate lines inside HTML.</td>
 </tr>
 </tbody>
 </table>
@@ -228,27 +225,27 @@ rc = TokenMergeFileIntoFile(templateFile, mergedFile, tokenText, |
 MESSAGE(&#39;TokenMergeFileIntoFile rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Use <code>TokenMergeInFile</code> when the replacement value is
-already in a string.</li>
-<li>Use <code>TokenMergeFileIntoFile</code> when the replacement value
-should come from another file.</li>
+<li>Use TokenMergeInFile when the replacement value is already in a
+string.</li>
+<li>Use TokenMergeFileIntoFile when the replacement value should come
+from another file.</li>
 <li>For HTML email templates, the replacement file should normally
 contain plain text or an HTML fragment, not a full second HTML
 document.</li>
-<li>When <code>InContentFlags = 1</code>, line-ending conversion applies
-only to the replacement file content, not the outer template.</li>
-<li>Use <code>InContentFlags = 0</code> when the replacement file
-already contains HTML markup such as <code>&lt;p&gt;</code>,
-<code>&lt;br&gt;</code>, tables, or other HTML fragments.</li>
-<li>Use <code>InContentFlags = 1</code> when the replacement file is
-plain text and you want normal text-file line endings to render as
-visible HTML line breaks.</li>
+<li>When InContentFlags = 1, line-ending conversion applies only to the
+replacement file content, not the outer template.</li>
+<li>Use InContentFlags = 0 when the replacement file already contains
+HTML markup such as &lt;p&gt;, &lt;br&gt;, tables, or other HTML
+fragments.</li>
+<li>Use InContentFlags = 1 when the replacement file is plain text and
+you want normal text-file line endings to render as visible HTML line
+breaks.</li>
 <li>This helper is useful for HTML email templates, invoices,
 statements, letterhead-style email, and generated Clarion report or body
 output.</li>
 <li>External UTF-8 HTML templates are recommended because they avoid
-hard-coding long HTML strings in Clarion and avoid doubling every
-<code>&lt;</code> character in Clarion source.</li>
+hard-coding long HTML strings in Clarion and avoid doubling every &lt;
+character in Clarion source.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

@@ -36,12 +36,12 @@ href="AboutFunctionNames.html">About function names</a></p>
 <h1 id="vusaveprofile">vuSaveProfile</h1>
 <h2 id="purpose">Purpose</h2>
 <p>Save the current active runtime values into the managed profile named
-<code>default</code>.</p>
+default.</p>
 <p>This is the normal Basic-safe profile save function used by the
 vuMailKit Email Setup Wizard and by single-profile applications.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuSaveProfile</code></li>
+<li>vuSaveProfile</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuSaveProfile(), LONG, PROC, PASCAL, RAW,
@@ -70,8 +70,8 @@ NAME('vuSaveProfile')</p>
 <tr>
 <td>-9001</td>
 <td>vuMailKit licensing was not initialized. Register the
-template/global extension or call
-<code>vuMailKitInitialize(LicenseString)</code> at EXE startup.</td>
+template/global extension or call vuMailKitInitialize(LicenseString) at
+EXE startup.</td>
 </tr>
 <tr>
 <td>-9002</td>
@@ -84,9 +84,8 @@ template/global extension or call
 </tbody>
 </table>
 <h2 id="what-it-does">What it does</h2>
-<p><code>vuSaveProfile()</code> saves the current live runtime
-configuration into the internal managed profile key
-<code>default</code>.</p>
+<p>vuSaveProfile() saves the current live runtime configuration into the
+internal managed profile key default.</p>
 <p>That includes the current settings already loaded or set in memory,
 such as:</p>
 <ul>
@@ -98,8 +97,7 @@ such as:</p>
 </ul>
 <p>After a successful save:</p>
 <ul>
-<li>the <code>default</code> managed profile becomes the active
-profile</li>
+<li>the default managed profile becomes the active profile</li>
 <li>the current process immediately applies that saved managed
 profile</li>
 <li>a same-session send can use the saved profile without requiring an
@@ -111,16 +109,16 @@ application restart</li>
 Result = vuSaveProfile()</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><p>For licensing failures, <code>vuMailLastError()</code> is updated
-with text that identifies the condition as a vuMailKit licensing/setup
-or license-edition problem, not an SMTP, OAuth, Gmail, password, or
+<li><p>For licensing failures, vuMailLastError() is updated with text
+that identifies the condition as a vuMailKit licensing/setup or
+license-edition problem, not an SMTP, OAuth, Gmail, password, or
 mail-server authentication failure.</p></li>
 <li><p>This is the normal profile-save function for the Basic
 edition.</p></li>
-<li><p>It does not save to the old <code>vuMail</code> registry model
-once managed profiles are active.</p></li>
-<li><p>Use <code>vuSaveProfileEx(ProfileName)</code> only when you need
-named profiles and have the required license tier.</p></li>
+<li><p>It does not save to the old vuMail registry model once managed
+profiles are active.</p></li>
+<li><p>Use vuSaveProfileEx(ProfileName) only when you need named
+profiles and have the required license tier.</p></li>
 <li><p>In the normal vuMailKit Email Setup Wizard flow, this is the
 function that transitions the application into managed-profile-based
 persistence.</p></li>

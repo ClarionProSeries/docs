@@ -55,7 +55,7 @@ END
 
 ## Notes
 - Legacy alias: [vuGetMailSecurity()](vuGetMailSecurity.md).
-- Returns runtime memory values; call `vuGlobalsLoad()` first if needed.
+- Returns runtime memory values; call vuGlobalsLoad() first if needed.
 - AuthMode/OAuth selection is handled by separate AuthMode/OAuth functions.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

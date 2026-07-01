@@ -5,11 +5,11 @@
 
 ## Purpose
 
-Deletes the current diagnostics log file and SMTP protocol log file when they exist.
+Deletes the current diagnostics log file when it exists.
 
 ## Export name
 
-- `vuDiagnosticsClearLogs`
+- vuDiagnosticsClearLogs
 
 ## Clarion prototype
 
@@ -17,7 +17,7 @@ Deletes the current diagnostics log file and SMTP protocol log file when they ex
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Example (Clarion)
 ```clarion
@@ -32,10 +32,10 @@ END
 ## Notes
 
 - This is intended for troubleshooting so each test starts with clean log files.
-- It attempts to delete only the diagnostics log and SMTP protocol log. It no longer clears the legacy sent-mail CSV log. Use `vuClearMailLog()` for that file.
+- It attempts to delete only the diagnostics log. It no longer clears the legacy sent-mail CSV log. Use vuClearMailLog() for that file.
 
 ## Preferred clear function
 
-`vuClearDiagnosticsLog()` is also available as the preferred diagnostics clear function name.
+vuClearDiagnosticsLog() is also available as the preferred diagnostics clear function name.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

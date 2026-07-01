@@ -68,18 +68,18 @@ The outer template holds:
 
 Use normal token merge for values such as:
 
-- `[[CustomerName]]`
-- `[[ServiceDate]]`
-- `[[PersonalMessage]]`
+- [[CustomerName]]
+- [[ServiceDate]]
+- [[PersonalMessage]]
 
 ### File-content insertion
 
-Use `TokenMergeFileIntoFile` when the invoice or statement body is already generated into another file.
+Use TokenMergeFileIntoFile when the invoice or statement body is already generated into another file.
 
 That replacement file can be:
 
-- plain text, optionally converted to `<br>` tags with `contentFlags = 1`
-- an HTML fragment inserted unchanged with `contentFlags = 0`
+- plain text, optionally converted to &lt;br&gt; tags with contentFlags = 1
+- an HTML fragment inserted unchanged with contentFlags = 0
 
 It should normally **not** be a full second HTML document.
 
@@ -87,8 +87,8 @@ It should normally **not** be a full second HTML document.
 
 1. Start with the branded HTML template
 2. Replace the simple tokens such as customer name and service date
-3. Optionally replace `[[PersonalMessage]]` with a short custom note or with a blank string
-4. Use `TokenMergeFileIntoFile` to replace `[[InvoiceBody]]` with the contents of the generated invoice file
+3. Optionally replace [[PersonalMessage]] with a short custom note or with a blank string
+4. Use TokenMergeFileIntoFile to replace [[InvoiceBody]] with the contents of the generated invoice file
 5. Send the final merged file with [vuSendMail](../functions/vuSendMail.md) or [vuSendMailWait](../functions/vuSendMailWait.md)
 
 ## Example (Clarion)

@@ -33,7 +33,7 @@ href="../categories/index.html">Categories</a></p>
 <h2 id="legacy-behavior-notes">Legacy behavior notes</h2>
 <ul>
 <li>This is the old vuMail function name for the same runtime setting
-exposed as <code>vuGlobalsSetEmailFolder()</code>.</li>
+exposed as vuGlobalsSetEmailFolder().</li>
 <li>Passing a blank folder turns off outgoing .eml copy saving.</li>
 <li>When the folder is set and valid, vuMailKit saves an outgoing .eml
 copy before the SMTP send attempt.</li>
@@ -41,9 +41,8 @@ copy before the SMTP send attempt.</li>
 called. The function still returns 1 after updating the runtime setting;
 if the folder remains invalid or cannot be created, the later send can
 fail with an email-save-folder error.</li>
-<li>If <code>vuSetMailLog()</code> / <code>vuLogSetFile()</code> is also
-configured, successful sent-mail CSV rows include the saved .eml
-path.</li>
+<li>If vuSetMailLog() / vuLogSetFile() is also configured, successful
+sent-mail CSV rows include the saved .eml path.</li>
 <li>The folder must be set before calling the send/test-send function
 whose .eml copy should be saved.</li>
 </ul>
@@ -59,9 +58,9 @@ SIGNED, PROC, PASCAL, RAW, NAME('vuSetSaveFolder')</p>
 href="vuGlobalsSetEmailFolder.html">vuGlobalsSetEmailFolder()</a></li>
 </ul>
 <p>This function is exported for backward compatibility and behaves
-identically to <code>vuGlobalsSetEmailFolder()</code>. It sets the
-outgoing .eml save folder used by normal sends, CSV-file sends, and
-setup/autodetect test-send messages.</p>
+identically to vuGlobalsSetEmailFolder(). It sets the outgoing .eml save
+folder used by normal sends, CSV-file sends, and setup/autodetect
+test-send messages.</p>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc     LONG
 folder CSTRING(260)

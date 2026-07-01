@@ -18,13 +18,14 @@ If you prefer a single master list instead, use [All functions](../functions/ind
 | Category | Description |
 |---|---|
 | [Global Variable Related](../functions/index.md#global-variable-related) | Global runtime settings, active memory, registry behavior, and profile-related storage settings. |
-| [Logging](../functions/index.md#logging) | Legacy sent-mail CSV logging, diagnostics, protocol logs, cleanup, stored settings reset, and managed profile helpers. |
+| [Logging](../functions/index.md#logging) | Legacy sent-mail CSV logging, diagnostics, cleanup, stored settings reset, and managed profile helpers. |
 
 ## Mail sending and message handling
 
 | Category | Description |
 |---|---|
 | [Mailing Related](../functions/index.md#mailing-related) | Core message sending, CSV-based sending, mail server settings, reply settings, status, and related mail helpers. |
+| [Embedded image guide](../getting-started/send-an-embedded-image.md) | Task guide for the easy Simple HTML plus embed-attachments marker path, local or remote body images passed through Attach, remote web img tags in HTML, external HTML image references, and Simple HTML header/footer images. |
 | [SMTP Related](../functions/index.md#smtp-related) | SMTP-specific runtime settings, security, server selection, and SMTP auth mode handling. |
 | [Template and Mail Merge](../functions/index.md#template-and-mail-merge) | External body templates, TokenMerge helpers, and mail-merge style content preparation. |
 

@@ -7,7 +7,7 @@ vuMailKit includes a large function library, but most real-world applications on
 
 The lower-level and legacy-compatible functions remain available for continuity, diagnostics, setup, and advanced control. You do not need to learn all of them before sending mail.
 
-## Fastest path to a working send
+## vuMailKit is your fastest path to sending an email
 
 For a normal Clarion application, start with this sequence:
 
@@ -34,13 +34,17 @@ Hand-coded integrations must call [vuMailKitInitialize](../functions/vuMailKitIn
 | [Send your first email](send-your-first-email.md) | The simplest path to sending mail once licensing is initialized and a profile is saved. |
 | [Recommended send flow with a stored profile](recommended-send-flow.md) | A copyable Clarion button-handler pattern for checking setup, offering the wizard, validating the recipient, sending, and showing useful diagnostics. |
 
-## Simple HTML should usually be your first HTML option
+## Two recommended HTML paths
 
-If you want a good-looking HTML email, start with [Send a Simple HTML Email with a Company Logo](send-a-simple-html-email-with-a-company-logo.md).
+For most applications, choose one of these paths instead of hand-building a full HTML message inside Clarion source.
 
-Simple HTML mode lets you pass the message body and let vuMailKit create the HTML wrapper. Header and footer images are optional. The normal MIME build path still creates the plain-text alternative.
+| Need | Recommended path |
+|---|---|
+| Ordinary text from a TEXT control, TPS memo, customer note, or generated report | Use [Simple HTML mode](send-a-simple-html-email-with-a-company-logo.md), keep NormalizeBody on, and pass the text as-is. |
+| Ordinary text plus images inside the body | Use [Send an embedded image](send-an-embedded-image.md) with Simple HTML and the embed-attachments marker. Put the marker where the images should appear and pass local image files or remote http/https image URLs in Attach. |
+| Designed HTML with layout, images, and merge tokens | Use an external UTF-8 HTML file and [TokenMerge](use-tokenmerge-with-email-templates.md), then send the merged output file. |
 
-That means you can send a clean, branded email without first learning how to hand-build multipart HTML email.
+This keeps the common case easy. Developers can send clean HTML from normal Clarion fields, and they only need external HTML when they want full design control.
 
 ## Common next steps
 
@@ -51,7 +55,7 @@ That means you can send a clean, branded email without first learning how to han
 | [Send an email from an external file](send-an-email-from-an-external-file.md) | Keep the message body outside your code and send it from a file. |
 | [Use TokenMerge with email templates](use-tokenmerge-with-email-templates.md) | Replace placeholder tokens in memory, files, or generated file content before sending. |
 | [Send attachments](send-attachments.md) | Attach files to outgoing email. |
-| [Send an embedded image](send-an-embedded-image.md) | Include an inline image in an HTML email. |
+| [Send an embedded image](send-an-embedded-image.md) | Put body-positioned images into ordinary text with Simple HTML plus the embed-attachments marker, or use local paths, remote URLs, and external HTML files. |
 | [Send a branded HTML email from a template](send-a-branded-html-email-from-a-template.md) | Reuse a logo, letterhead, and footer while merging changing message content into a separate output file. |
 | [Send a form-letter invoice email with an optional personal message](send-a-form-letter-invoice-email-with-an-optional-personal-message.md) | Combine fixed letter text, token values, and generated invoice content in a branded HTML email. |
 | [Send a batch of emails from CSV](send-a-batch-from-csv.md) | Send multiple messages from a CSV data source. |

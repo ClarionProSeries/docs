@@ -42,7 +42,7 @@ test harness, About box, setup screen, or support dialog when you want
 to confirm what the DLL believes about the current license.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuMailKitGetLicenseInfo</code></li>
+<li>vuMailKitGetLicenseInfo</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuMailKitGetLicenseInfo(*CSTRING OutText,
@@ -69,7 +69,7 @@ NAME('vuMailKitGetLicenseInfo')</p>
 <td>OutTextLen</td>
 <td>LONG</td>
 <td>Size of OutText in bytes.</td>
-<td>Normally <code>SIZE(OutText)</code>.</td>
+<td>Normally SIZE(OutText).</td>
 </tr>
 </tbody>
 </table>
@@ -118,7 +118,9 @@ initialization</li>
 </ul>
 <p>Example output:</p>
 <ul>
-<li><code>Initialized=1; Valid=1; Attempted=1; LastInitCode=0; LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0; Name=Charles; Number=16123</code></li>
+<li>Initialized=1; Valid=1; Attempted=1; LastInitCode=0;
+LastInitReason=Initialized; TierLevel=1; Tier=basic; Demo=0;
+Name=Charles; Number=16123</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>OutText                  CSTRING(512)
@@ -131,8 +133,8 @@ Result = vuMailKitGetLicenseInfo(OutText, SIZE(OutText))</code></pre>
 <li>Current licensing/setup failures use -9001, -9002, and -9003 on
 gated functions. This diagnostic text can help confirm whether
 initialization was skipped, attempted, or successful.</li>
-<li>Call <code>vuMailKitInitialize()</code> first if you want this
-function to reflect the intended active license.</li>
+<li>Call vuMailKitInitialize() first if you want this function to
+reflect the intended active license.</li>
 <li>This function is useful when testing normal licenses, DEMO licenses,
 and invalid-license behavior.</li>
 <li>The text is meant for display and diagnostics. Do not write program

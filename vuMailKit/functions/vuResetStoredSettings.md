@@ -19,7 +19,7 @@ Clears persisted vuMail/vuMailKit registry settings, saved profiles, active prof
 
 ## Export name
 
-- `vuResetStoredSettings`
+- vuResetStoredSettings
 
 ## Clarion prototype
 
@@ -27,7 +27,7 @@ Clears persisted vuMail/vuMailKit registry settings, saved profiles, active prof
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Example (Clarion)
 ```clarion

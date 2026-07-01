@@ -7,9 +7,13 @@ If you want a good-looking HTML email, start with the Simple HTML functions.
 
 You do not have to create a full HTML wrapper just to send a clean message. Simple HTML mode lets vuMailKit build the wrapper, optionally place an image above and below the body, and use the normal MIME path so the message includes a plain-text alternative.
 
+For ordinary text plus images inside the body, the easiest path is Simple HTML with NormalizeBody on plus the embed-attachments marker. For designed HTML, keep the HTML in an external file and use TokenMerge if you need personalized values.
+
 ## Option 1: Simple HTML mode
 
-Use this when you want a clean, branded email without hand-writing a complete HTML document.
+Use this when you want a clean, branded email without hand-writing a complete HTML document. The normal path is to turn on Simple HTML, turn on body normalization, and pass plain text from a TEXT control, memo field, customer note, generated report, or ordinary string. You do not need to add &lt;br&gt; or &lt;p&gt; tags just to preserve normal line breaks.
+
+The &lt;13,10&gt; line breaks in the sample below are only there because the sample builds a string in Clarion source. In a real program, a TEXT control, memo field, customer note, or generated text field can already contain normal line breaks, and vuSetSimpleHTMLNormalizeBody(1) will convert those line breaks for HTML display.
 
 ```clarion
 Result  LONG
@@ -19,6 +23,7 @@ CCAdr   CSTRING(256)
 BCCAdr  CSTRING(256)
 Subject CSTRING(256)
 Body    CSTRING(2048)
+BodyText CSTRING(2048)
 Attach  CSTRING(260)
 ImgFile CSTRING(260)
 
@@ -39,9 +44,14 @@ ToAdr   = 'customer@example.com'
 CCAdr   = ''
 BCCAdr  = ''
 Subject = 'Your service update'
-Body    = 'Thank you for your business.<13,10>' & |
-          'Your order is ready.'
-Attach  = ''
+! This sample hard-codes the text so the example is self-contained.
+! In a real program, BodyText is usually filled from a TEXT control,
+! TPS memo, customer note, template merge, or generated report text.
+! It is plain text, not HTML.
+BodyText = 'Thank you for your business.<13,10><13,10>' & |
+           'Your order is ready.'
+Body     = CLIP(BodyText)
+Attach   = ''
 
 Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
 
@@ -49,9 +59,11 @@ Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
 Result = vuResetSimpleHTML()
 ```
 
-With `vuSetSimpleHTMLNormalizeBody(1)`, the body is ordinary text. vuMailKit makes it HTML-safe and converts normal line breaks for HTML display.
+With vuSetSimpleHTMLNormalizeBody(1), the body is ordinary text. vuMailKit makes it HTML-safe and converts normal line breaks for HTML display. If the text already came from a TEXT control or memo, leave those normal line breaks in the text and pass the body as-is.
 
-If the body is already an HTML fragment, call `vuSetSimpleHTMLNormalizeBody(0)` and pass only the fragment that belongs inside the body area. Do not pass a full HTML document when Simple HTML mode is on.
+To place images inside that ordinary text body, put the embed-attachments marker in the text where the images should appear and pass local image files or remote http/https image URLs in Attach. Do not type raw HTML img tags into normalized body text; those tags will be escaped and displayed as text.
+
+If the body is already an HTML fragment, call vuSetSimpleHTMLNormalizeBody(0) and pass only the fragment that belongs inside the body area. Do not pass a full HTML document when Simple HTML mode is on.
 
 ## Option 2: External HTML file
 
@@ -61,9 +73,23 @@ For many developers, this path is:
 
 1. Create an HTML body in an editor or with AI.
 2. Save it as an external UTF-8 file.
-3. Point vuMailKit at that file.
+3. Pass the file path in the Body parameter.
 
 This avoids Clarion string escaping issues and makes the content easier to maintain.
+
+```clarion
+Body   = CLIP(PATH()) & '\CustomerNotice.html'
+Attach = ''
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+IF Result <> 1
+  MESSAGE('Send failed: ' & vuMailLastError())
+END
+```
+
+If the external HTML file contains image references, vuMailKit can embed those images inside the email body. Local image references such as &lt;img src="ProductPhoto.jpg"&gt; are resolved relative to the HTML file folder. Full local paths are also supported. Remote http and https image URLs are downloaded at send time and embedded when they can be retrieved safely.
+
+For a full body-image guide, including the legacy embed-attachments marker, see [Send an embedded image](send-an-embedded-image.md).
 
 ### Important
 
@@ -85,6 +111,25 @@ vuMailKit includes TokenMerge helpers so you can:
 
 That last option is useful when a Clarion report writes invoice detail to a text file and you want to insert that output into the email body.
 
+```clarion
+Result = TokenMergeFileIntoFile(TemplateFile, MergedFile, |
+                                '[[InvoiceBody]]', InvoiceTextFile, 0, 1)
+
+Body   = MergedFile
+Attach = ''
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+```
+
+Use the final 1 when the inserted file is plain text and you want its line endings converted to HTML line breaks.
+
+## Images inside the body
+
+If the message body is ordinary text, use Simple HTML with NormalizeBody on and the embed-attachments marker. That lets a TEXT control or memo contain normal text plus a simple marker where the images should appear.
+
+If the message body is designed HTML, use an external HTML file with normal img tags and send the file path as the Body parameter.
+
+For the full guide, see [Send an embedded image](send-an-embedded-image.md). That page shows the easy marker pattern, external HTML files with images, local img src paths, remote web image URLs, and the legacy compatibility behavior.
+
 ## Inline Clarion HTML
 
 You can also embed HTML directly in Clarion source.
@@ -102,6 +147,7 @@ That works, but for anything beyond a very small message, many developers will f
 ## Related reference pages
 
 - [vuSetSimpleHTML](../functions/vuSetSimpleHTML.md)
+- [vuSetSimpleHTMLNormalizeBody](../functions/vuSetSimpleHTMLNormalizeBody.md)
 - [vuSetSimpleHTMLHeaderImage](../functions/vuSetSimpleHTMLHeaderImage.md)
 - [vuSetSimpleHTMLFooterImage](../functions/vuSetSimpleHTMLFooterImage.md)
 - [vuResetSimpleHTML](../functions/vuResetSimpleHTML.md)

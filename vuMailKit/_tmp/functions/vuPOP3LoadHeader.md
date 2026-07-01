@@ -19,7 +19,7 @@ Retrieves and parses only message headers for one POP3 message.
 | Value | Meaning |
 |---|---|
 | 0 | Headers loaded successfully. |
-- `< 0`: POP3 command, message index, or parse/state failure.
+- < 0: POP3 command, message index, or parse/state failure.
 
 ## Example (Clarion)
 ```clarion
@@ -34,7 +34,7 @@ END
 ```
 
 ## Notes
-- Call `vuPOP3Connect` first.
-- For MIME body and attachment parsing, use `vuPOP3LoadEmail` instead.
+- Call vuPOP3Connect first.
+- For MIME body and attachment parsing, use vuPOP3LoadEmail instead.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

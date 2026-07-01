@@ -14,7 +14,7 @@ Preferred function name:
 
 - [vuNetSetProxy()](vuNetSetProxy.md)
 
-This function is exported for backward compatibility and behaves identically to `vuNetSetProxy()`.
+This function is exported for backward compatibility and behaves identically to vuNetSetProxy().
 
 ## Example (Clarion)
 ```clarion

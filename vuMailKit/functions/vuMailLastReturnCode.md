@@ -13,22 +13,22 @@ last_updated: "2026-06-25"
 
 ## Purpose
 
-`vuMailLastReturnCode()` returns a numeric code that describes what happened in the most recent completed send or gated vuMailKit operation.
+vuMailLastReturnCode() returns a numeric code that describes what happened in the most recent completed send or gated vuMailKit operation.
 
-This is intended to be machine-readable, so calling code can react without parsing `vuMailLastError()` text.
+This is intended to be machine-readable, so calling code can react without parsing vuMailLastError() text.
 
 ## When to call it
 
 Call this after a send has completed or after a gated vuMailKit function returns a negative licensing/setup code, for example:
 
-- After `vuSendMailWait()` returns.
-- After your `vuSendMail()` call has queued a send and your polling loop sees `vuMailStatus()` return 0.
-- After `vuSendMailFromFile()` has finished processing the file (if you are waiting for completion).
-- After `vuSendMail()`, `vuSaveProfile()`, `vuSaveProfileEx()`, or `vuLoadProfileEx()` returns -451, -9001, -9002, or -9003.
+- After vuSendMailWait() returns.
+- After your vuSendMail() call has queued a send and your polling loop sees vuMailStatus() return 0.
+- After vuSendMailFromFile() has finished processing the file (if you are waiting for completion).
+- After vuSendMail(), vuSaveProfile(), vuSaveProfileEx(), or vuLoadProfileEx() returns -451, -9001, -9002, or -9003.
 
 ## Return values
 
-These codes supplement the legacy return codes from `vuSendMail*()`.
+These codes supplement the legacy return codes from vuSendMail*().
 
 | Value | Meaning |
 |---|---|
@@ -45,13 +45,13 @@ These codes supplement the legacy return codes from `vuSendMail*()`.
 
 Notes:
 
-- If `vuMailLastReturnCode()` is -451, call `vuMailLastError()` and treat the result as an application-folder deployment conflict, not a provider authentication failure.
-- If `vuMailLastReturnCode()` is -9001, -9002, or -9003, call `vuMailLastError()` and treat the result as a vuMailKit licensing/setup or license-edition problem, not a provider authentication failure.
-- If `vuMailLastReturnCode()` is -701, your UI should prompt the user to run the setup wizard or OAuth authorization flow again for the affected account.
-- If `vuMailLastReturnCode()` is -702, treat it as temporary and retry later.
-- If `vuMailLastReturnCode()` is -711, check connectivity and provider/server settings.
-- If `vuMailLastReturnCode()` is -712, treat it as a sign-in/authentication rejection rather than a general connection failure.
-- If `vuMailLastReturnCode()` is -713, the provider accepted the connection path but rejected the message.
+- If vuMailLastReturnCode() is -451, call vuMailLastError() and treat the result as an application-folder deployment conflict, not a provider authentication failure.
+- If vuMailLastReturnCode() is -9001, -9002, or -9003, call vuMailLastError() and treat the result as a vuMailKit licensing/setup or license-edition problem, not a provider authentication failure.
+- If vuMailLastReturnCode() is -701, your UI should prompt the user to run the setup wizard or OAuth authorization flow again for the affected account.
+- If vuMailLastReturnCode() is -702, treat it as temporary and retry later.
+- If vuMailLastReturnCode() is -711, check connectivity and provider/server settings.
+- If vuMailLastReturnCode() is -712, treat it as a sign-in/authentication rejection rather than a general connection failure.
+- If vuMailLastReturnCode() is -713, the provider accepted the connection path but rejected the message.
 
 ## Clarion prototype
 
@@ -84,11 +84,11 @@ Notes:
 
 ## Related functions
 
-- `vuMailLastError()`
-- `vuMailStatus()`
-- `vuSendMail()`
-- `vuSendMailWait()`
-- `vuSendMailFromFile()`
+- vuMailLastError()
+- vuMailStatus()
+- vuSendMail()
+- vuSendMailWait()
+- vuSendMailFromFile()
 - [Recommended send flow with a stored profile](../getting-started/recommended-send-flow.md)
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -16,7 +16,7 @@ Run the quick autodetect pass for known providers and DNS SRV without entering t
 
 ## Export name
 
-- `vuAutoDetectFillSettingsFast`
+- vuAutoDetectFillSettingsFast
 
 ## Clarion prototype
 
@@ -67,6 +67,6 @@ Result = vuAutoDetectFillSettingsFast(EmailAddress, BufLen, ProfileEmail, |
 - Fast mode checks known-provider mappings first and DNS SRV second.
 - Fast mode returns quickly when no match is found, which helps keep setup screens responsive.
 - If Fast mode returns 0, developers can offer manual setup immediately or let the user request a deeper scan.
-- Return values, output parameters, provider IDs, auth hints, detect-source values, and security values are the same as `vuAutoDetectFillSettings`.
+- Return values, output parameters, provider IDs, auth hints, detect-source values, and security values are the same as vuAutoDetectFillSettings.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

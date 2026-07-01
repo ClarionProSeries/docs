@@ -20,7 +20,7 @@ This is the named-profile save function for Pro and Back Office workflows.
 
 ## Export name
 
-- `vuSaveProfileEx`
+- vuSaveProfileEx
 
 ## Clarion prototype
 
@@ -30,7 +30,7 @@ This is the named-profile save function for Pro and Back Office workflows.
 
 | Parameter | Type | Description | Expected values / range |
 |---|---|---|---|
-| ProfileName | *CSTRING | Managed profile name to save. | Example: `work-account`. Blank falls back to default. |
+| ProfileName | *CSTRING | Managed profile name to save. | Example: work-account. Blank falls back to default. |
 
 ## Return value
 
@@ -38,13 +38,13 @@ This is the named-profile save function for Pro and Back Office workflows.
 |---|---|
 | 1 | success |
 | 0 | save failed |
-| -9001 | vuMailKit licensing was not initialized. Register the template/global extension or call `vuMailKitInitialize(LicenseString)` at EXE startup. |
+| -9001 | vuMailKit licensing was not initialized. Register the template/global extension or call vuMailKitInitialize(LicenseString) at EXE startup. |
 | -9002 | license string is invalid or initialization failed. |
 | -9003 | current license tier does not allow this feature. |
 
 ## What it does
 
-`vuSaveProfileEx()` saves the current live runtime configuration into the named managed profile.
+vuSaveProfileEx() saves the current live runtime configuration into the named managed profile.
 
 After a successful save:
 
@@ -64,12 +64,12 @@ Result = vuSaveProfileEx(ProfileName)
 
 ## Notes
 
-- For licensing failures, `vuMailLastError()` is updated with text that identifies the condition as a vuMailKit licensing/setup or license-edition problem, not an SMTP, OAuth, Gmail, password, or mail-server authentication failure.
+- For licensing failures, vuMailLastError() is updated with text that identifies the condition as a vuMailKit licensing/setup or license-edition problem, not an SMTP, OAuth, Gmail, password, or mail-server authentication failure.
 
 - This function is gated to Pro and Back Office editions.
-- If `ProfileName` is blank, the save falls back to `default`.
-- Secrets are stored through the managed secret store, not through the old `vuMail` registry model.
-- Register the vuMailKit template/global extension or call `vuMailKitInitialize(LicenseString)` at EXE startup before using this function.
+- If ProfileName is blank, the save falls back to default.
+- Secrets are stored through the managed secret store, not through the old vuMail registry model.
+- Register the vuMailKit template/global extension or call vuMailKitInitialize(LicenseString) at EXE startup before using this function.
 
 [All functions](index.md) | [Legacy functions](legacy-index.md) | [About function names](AboutFunctionNames.md)
 

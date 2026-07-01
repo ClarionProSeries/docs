@@ -11,13 +11,13 @@
 
 Programmatically toggles a managed password control between visible-text mode and normal masked mode.
 
-The eye button created during `vuPasswordInit()` handles this automatically for the user, but this function allows the developer to force a state change through code when needed.
+The eye button created during vuPasswordInit() handles this automatically for the user, but this function allows the developer to force a state change through code when needed.
 
 ## Parameters
 
 | Parameter | Data Type | Description |
 |---|---|---|
-| InHwnd | LONG | Handle of the target password control previously initialized with `vuPasswordInit()`. |
+| InHwnd | LONG | Handle of the target password control previously initialized with vuPasswordInit(). |
 
 ## Returns
 
@@ -37,7 +37,7 @@ RC = vuPasswordToggle(?InPassword{PROP:Handle})
 
 ## Notes
 
-- `vuPasswordToggle()` only works on controls that have already been initialized with `vuPasswordInit()`.
+- vuPasswordToggle() only works on controls that have already been initialized with vuPasswordInit().
 - The returned value tells you the new state after the toggle completes.
 - In normal UI use, most developers will let the generated eye button handle toggling automatically.
 

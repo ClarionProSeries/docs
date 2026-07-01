@@ -16,7 +16,7 @@ The file cleared is the mail log selected by:
 - [vuLogSetFile()](vuLogSetFile.md)
 - [vuSetMailLog()](vuSetMailLog.md)
 
-This function is intentionally separate from diagnostics logging. It does **not** clear the diagnostics log or SMTP protocol log.
+This function is intentionally separate from diagnostics logging. It does **not** clear the diagnostics log or diagnostics log.
 
 ## Parameters
 
@@ -31,7 +31,7 @@ This function takes no parameters.
 
 ## Notes
 
-- `vuLogSetFile()` / `vuSetMailLog()` select the legacy sent-mail CSV log.
+- vuLogSetFile() / vuSetMailLog() select the legacy sent-mail CSV log.
 - Successful and failed send attempts append CSV rows to that file.
 - The CSV row format follows the old vuMail behavior:
 

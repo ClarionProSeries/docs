@@ -38,12 +38,11 @@ href="AboutFunctionNames.html">About function names</a></p>
 compatibility. Each page links back to the preferred vuMailKit
 function.</p>
 <p>Important legacy note: several original vuMail text helpers are
-documented as Clarion <code>LONG</code> returns, but in the original
-PowerBasic DLL that numeric value was actually the address of an
-internal C string buffer. That is why the legacy Clarion examples use
-these functions directly in assignments and <code>MESSAGE()</code>
-expressions. This behavior is preserved only for compatibility and is
-not the model for new APIs.</p>
+documented as Clarion LONG returns, but in the original PowerBasic DLL
+that numeric value was actually the address of an internal C string
+buffer. That is why the legacy Clarion examples use these functions
+directly in assignments and MESSAGE() expressions. This behavior is
+preserved only for compatibility and is not the model for new APIs.</p>
 <table>
 <thead>
 <tr>
@@ -94,6 +93,11 @@ href="vuSmtpGetFromReplyTo.html">vuSmtpGetFromReplyTo</a>)</td>
 <td><a href="vuGetMailLog.html">vuGetMailLog</a></td>
 <td>Gets the legacy sent-mail CSV log file path. (Preferred: <a
 href="vuLogGetFile.html">vuLogGetFile</a>)</td>
+</tr>
+<tr>
+<td><a href="vuGetMailLogLevel.html">vuGetMailLogLevel</a></td>
+<td>Legacy alias for vuGetDiagnosticsLevel(). (Preferred: <a
+href="vuGetDiagnosticsLevel.html">vuGetDiagnosticsLevel</a>)</td>
 </tr>
 <tr>
 <td><a href="vuGetMailProxy.html">vuGetMailProxy</a></td>
@@ -258,6 +262,11 @@ href="vuSmtpSetFromReplyTo.html">vuSmtpSetFromReplyTo</a>)</td>
 <td><a href="vuSetMailLog.html">vuSetMailLog</a></td>
 <td>Sets the legacy sent-mail CSV log file path. (Preferred: <a
 href="vuLogSetFile.html">vuLogSetFile</a>)</td>
+</tr>
+<tr>
+<td><a href="vuSetMailLogLevel.html">vuSetMailLogLevel</a></td>
+<td>Legacy alias for vuSetDiagnosticsLevel(). (Preferred: <a
+href="vuSetDiagnosticsLevel.html">vuSetDiagnosticsLevel</a>)</td>
 </tr>
 <tr>
 <td><a href="vuSetMailProxy.html">vuSetMailProxy</a></td>

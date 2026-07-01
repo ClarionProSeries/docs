@@ -52,8 +52,8 @@ This is the old vuMail style behavior.
 In this mode:
 
 - settings live in memory while the program is running
-- `vuGlobalsLoad()` and `vuMailGetGlobals()` load saved global values
-- `vuGlobalsSave()` and `vuMailSaveGlobals()` save current global values
+- vuGlobalsLoad() and vuMailGetGlobals() load saved global values
+- vuGlobalsSave() and vuMailSaveGlobals() save current global values
 - the legacy registry location may still be used
 
 This mode is mainly relevant before a managed profile has ever been created.
@@ -84,7 +84,7 @@ That means:
 
 Legacy registry location:
 
-- `HKCU\SOFTWARE\vuPrograms\vuMail`
+- HKCU\SOFTWARE\vuPrograms\vuMail
 
 This exists for compatibility with older usage patterns and migration from the original vuMail model.
 
@@ -97,15 +97,15 @@ At that point:
 - live runtime values still exist and are still used
 - setter functions still work
 - save/load behavior now targets the active managed profile
-- the old `vuMail` registry location is no longer the normal primary store for email settings
+- the old vuMail registry location is no longer the normal primary store for email settings
 
 Managed profile data is stored under Local AppData, including locations such as:
 
-- `%LOCALAPPDATA%\vuPrograms\vuMailKit\profiles`
-- `%LOCALAPPDATA%\vuPrograms\vuMailKit\secrets`
-- `%LOCALAPPDATA%\vuPrograms\vuMailKit\state`
+- %LOCALAPPDATA%\vuPrograms\vuMailKit\profiles
+- %LOCALAPPDATA%\vuPrograms\vuMailKit\secrets
+- %LOCALAPPDATA%\vuPrograms\vuMailKit\state
 
-vuMailKit may also keep active-profile bookkeeping under a `vuMailKit` registry node, but the old `vuMail` registry key is not the normal primary store once managed profiles are in use.
+vuMailKit may also keep active-profile bookkeeping under a vuMailKit registry node, but the old vuMail registry key is not the normal primary store once managed profiles are in use.
 
 ## Do setter functions still matter after profiles exist
 
@@ -135,13 +135,13 @@ If you save after making those changes, the active managed profile is updated.
 
 Preferred functions:
 
-- `vuGlobalsLoad()`
-- `vuGlobalsSave()`
+- vuGlobalsLoad()
+- vuGlobalsSave()
 
 Legacy names still supported:
 
-- `vuMailGetGlobals()` is the legacy name for `vuGlobalsLoad()`
-- `vuMailSaveGlobals()` is the legacy name for `vuGlobalsSave()`
+- vuMailGetGlobals() is the legacy name for vuGlobalsLoad()
+- vuMailSaveGlobals() is the legacy name for vuGlobalsSave()
 
 ### What these do before profiles exist
 
@@ -176,14 +176,14 @@ Some developers do not want passwords written to the registry in the old compati
 
 Use:
 
-- `vuNoPasswordInRegistry(1)`
+- vuNoPasswordInRegistry(1)
 
 When this is enabled, the SMTP password may be omitted from legacy registry persistence.
 
 Note:
 
 - this setting is mainly relevant to the old legacy global save behavior
-- once managed profiles are in normal use, profile and secret storage are handled through the managed-profile system instead of the old `vuMail` registry storage model
+- once managed profiles are in normal use, profile and secret storage are handled through the managed-profile system instead of the old vuMail registry storage model
 
 ## Typical usage pattern today
 

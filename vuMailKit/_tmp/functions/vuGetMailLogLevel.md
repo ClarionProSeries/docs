@@ -3,45 +3,44 @@
 
 # vuGetMailLogLevel()
 
-## Purpose
+## Description
 
-Gets the current verbosity level used by the diagnostic-style logging.
+vuGetMailLogLevel() is a legacy-compatible alias for the preferred function name:
 
-## Export name
+- [vuGetDiagnosticsLevel()](vuGetDiagnosticsLevel.md)
 
-- `vuGetMailLogLevel`
+The legacy name remains exported and supported so existing applications continue to compile and run.
+
+New code should use vuGetDiagnosticsLevel().
 
 ## Clarion prototype
 
 **Prototype:** vuGetMailLogLevel(*LONG OutLogLevel), SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailLogLevel')
 
-## Parameters
+## Important logging separation
 
-- `OutLogLevel` (LONG) - Receives the current log verbosity level.
-  - 0 = Normal
-  - 1 = Trace
+Despite the legacy name, vuGetMailLogLevel() reports diagnostics verbosity only.
 
-## Return value
+It does not read the sent-mail CSV/activity log path and does not report whether sent-mail CSV/activity logging is selected.
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+Use vuGetMailLog() or vuLogGetFile() to read the sent-mail CSV/activity log file path.
+
+Use vuDiagnosticsGetFile() and vuGetDiagnosticsLevel() for diagnostics.
+
+## Levels
+
+| Value | Meaning |
+|---:|---|
+| 0 | Normal diagnostics. |
+| 1 | Trace diagnostics. |
 
 ## Example (Clarion)
+
 ```clarion
-rc       LONG
-logLevel LONG
+Level  LONG
+Result SIGNED
 
-logLevel = 0
-rc = vuGetMailLogLevel(logLevel)
-
-IF rc = 1
-  MESSAGE('Current log level: ' & logLevel)
-END
+Result = vuGetMailLogLevel(Level)   ! Legacy alias for vuGetDiagnosticsLevel(Level)
 ```
-
-## Notes
-
-- This reports the current diagnostic-style logging level.
-- If no value has been set yet, the default level is Normal.
-- This function reports the level setting only. Diagnostic file output is controlled separately with `vuDiagnosticsSetFile()` and `vuDiagnosticsEnable()`.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

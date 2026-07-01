@@ -30,7 +30,7 @@ Legacy vuMail function names remain supported so old applications can continue t
 | SMTP auth mode | [vuSmtpSetAuthMode](functions/vuSmtpSetAuthMode.md), [vuSmtpGetAuthMode](functions/vuSmtpGetAuthMode.md) | Used when switching between password and OAuth modes. |
 | Save folder | [vuGlobalsSetEmailFolder](functions/vuGlobalsSetEmailFolder.md), [vuGlobalsGetEmailFolder](functions/vuGlobalsGetEmailFolder.md) | Legacy names include vuSetSaveFolder / vuGetSaveFolder. |
 | Legacy sent-mail CSV log | [vuLogSetFile](functions/vuLogSetFile.md), [vuLogGetFile](functions/vuLogGetFile.md), [vuClearMailLog](functions/vuClearMailLog.md) | Legacy names include vuSetMailLog / vuGetMailLog. |
-| Diagnostics | [vuDiagnosticsSetFile](functions/vuDiagnosticsSetFile.md), [vuDiagnosticsEnable](functions/vuDiagnosticsEnable.md), [vuClearDiagnosticsLog](functions/vuClearDiagnosticsLog.md) | Diagnostics are separate from the legacy sent-mail CSV log. |
+| Diagnostics | [vuDiagnosticsSetFile](functions/vuDiagnosticsSetFile.md), [vuSetDiagnosticsLevel](functions/vuSetDiagnosticsLevel.md), [vuDiagnosticsEnable](functions/vuDiagnosticsEnable.md), [vuClearDiagnosticsLog](functions/vuClearDiagnosticsLog.md) | Diagnostics are separate from the legacy sent-mail CSV log. |
 
 ## OAuth helpers
 

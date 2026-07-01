@@ -14,7 +14,7 @@ last_updated: "2026-01-07"
 # vuGlobalsSetNoPasswordInRegistry()
 
 ## Description
-Controls whether the SMTP password is saved in the registry. (legacy name: `vuNoPasswordInRegistry()`).
+Controls whether the SMTP password is saved in the registry. (legacy name: vuNoPasswordInRegistry()).
 
 Previously exported as (legacy name, still supported):
 
@@ -22,7 +22,7 @@ Previously exported as (legacy name, still supported):
 
 ## Parameters
 
-- `xFlag` (LONG) - 0 allows saving the password, non-zero disables saving the password.
+- xFlag (LONG) - 0 allows saving the password, non-zero disables saving the password.
 
 ## Return value
 
@@ -32,7 +32,7 @@ A LONG value indicating the result.
 
 ### Notes
 
-When enabled, `vuGlobalsSave()` (legacy: `vuMailSaveGlobals()`) will skip writing the "Password" registry value.
+When enabled, vuGlobalsSave() (legacy: vuMailSaveGlobals()) will skip writing the "Password" registry value.
 
 ## Example (Clarion)
 

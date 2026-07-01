@@ -26,9 +26,9 @@ Replaces token text inside a source string and writes the merged result to a cal
 | InSourceText | *CSTRING | Source text to inspect. |
 | OutTargetText | *CSTRING | Target buffer receiving the merged result. |
 | InOutTargetTextLen | LONG | Size of OutTargetText in bytes. |
-| InToken | *CSTRING | Full token text to replace, such as `[[FirstName]]`. |
+| InToken | *CSTRING | Full token text to replace, such as [[FirstName]]. |
 | InReplacement | *CSTRING | Replacement value to insert. |
-| InFlags | LONG | Merge option flags. `0=Replace all, case-sensitive`, `1=First only`, `2=Ignore case`, `3=First only and ignore case`. |
+| InFlags | LONG | Merge option flags. 0=Replace all, case-sensitive, 1=First only, 2=Ignore case, 3=First only and ignore case. |
 
 ## Return value / error codes
 - Positive value: number of replacements performed.
@@ -57,11 +57,11 @@ MESSAGE('TokenMergeInString rc=' & rc & ' text=' & outText)
 ```
 
 ## Notes
-- The function does not force a token format, but `[[TokenName]]` is strongly recommended.
+- The function does not force a token format, but [[TokenName]] is strongly recommended.
 - By default, the function replaces all matching tokens.
 - Set flag bit 1 to replace only the first match.
 - Set flag bit 2 to ignore case while matching the full token text.
-- `InSourceText` and `OutTargetText` may point to the same CSTRING buffer for in-place replacement.
+- InSourceText and OutTargetText may point to the same CSTRING buffer for in-place replacement.
 - The target buffer must be large enough to hold the merged result.
 - If the target buffer is too small, the merged text will be truncated.
 

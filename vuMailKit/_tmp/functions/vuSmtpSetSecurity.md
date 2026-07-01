@@ -43,7 +43,7 @@ END
 
 ## Notes
 - Legacy alias: [vuSetMailSecurity()](vuSetMailSecurity.md).
-- Writes runtime memory only; call `vuGlobalsSave()` to persist.
+- Writes runtime memory only; call vuGlobalsSave() to persist.
 - AuthMode/OAuth is configured separately via AuthMode/OAuth functions and is not set by this call.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

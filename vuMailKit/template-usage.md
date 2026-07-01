@@ -4,7 +4,7 @@ summary: "To use vuMailKit, add the global extension template to your applicatio
 description: "To use vuMailKit, add the global extension template to the Clarion EXE application, enter the developer license string in single quotes, and configure any OAuth settings needed for the application build."
 keywords: ["documentation", "template", "application", "vuMailKit", "Clarion", "global", "usage", "OAuth", "license", "multi-DLL"]
 page_type: "guide"
-last_updated: "2026-06-24"
+last_updated: "2026-07-01"
 ---
 
 [Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
@@ -13,23 +13,20 @@ last_updated: "2026-06-24"
 
 To use **vuMailKit**, add the global extension template to your Clarion application and enter the license supplied with your order.
 
-## Add the template
+## Add the template and setup wizard
 
 1. Open your EXE application in the Clarion IDE.
 2. Go to **Global Extensions** and click **Insert**.
 3. Type **vuMailKit** in the search box.
 4. Select the **vuMailKit** global extension entry and click **Select**.
 5. Enter the required template settings, including the developer license.
-6. Use the Clarion **Utility Template** command, **CTRL+U**, to import the [vuMailKit Email Setup Wizard](getting-started/vumailkit-email-setup-wizard.md).
+6. When the global template is configured, use Clarion **CTRL+U** to import the [vuMailKit Email Setup Wizard](getting-started/vumailkit-email-setup-wizard.md).
 7. Compile the application.
+8. Run the compiled EXE and open the **vuMailKit Email Setup Wizard** from your application.
 
-The **vuMailKit Email Setup Wizard** is imported into your Clarion application with **CTRL+U** and then run from the compiled application. Adding the global template in the IDE does not, by itself, run the vuMailKit Email Setup Wizard or create a profile.
+The global template initializes vuMailKit licensing and generates the Clarion prototypes your application needs. The **vuMailKit Email Setup Wizard** is a separate utility template that you import into the application and run from the compiled EXE.
 
-## Import the vuMailKit Email Setup Wizard
-
-After the global template is added and configured, use Clarion **CTRL+U** to import the **vuMailKit Email Setup Wizard**.
-
-The vuMailKit Email Setup Wizard lets the user enter an email address, detects the likely provider settings, handles OAuth authorization when the account requires it and OAuth support is enabled, sends a test email, and saves the working settings into a profile.
+The wizard lets the user enter an email address, detects likely provider settings, handles OAuth authorization when the account requires it and OAuth support is enabled, sends a test email, and saves the working settings into a reusable profile. Adding the global template alone does not create that profile.
 
 See [vuMailKit Email Setup Wizard](getting-started/vumailkit-email-setup-wizard.md) for the full workflow.
 

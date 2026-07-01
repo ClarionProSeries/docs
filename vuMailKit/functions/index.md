@@ -3,7 +3,7 @@ title: "vuMailKit Functions"
 summary: "vuMailKit function reference."
 description: "Function reference pages for vuMailKit."
 keywords: ["vuMailKit","vuMail","functions","Clarion"]
-last_updated: "2026-06-22"
+last_updated: "2026-06-25"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -40,14 +40,14 @@ Within each category, function names are listed alphabetically so known function
 | Function | Description |
 |---|---|
 | [vuCleanupLegacyRegistry](vuCleanupLegacyRegistry.md) | Deletes legacy registry settings after managed migration is verified. |
-| [vuClearDiagnosticsLog](vuClearDiagnosticsLog.md) | Clears the diagnostics and SMTP protocol log files. |
+| [vuClearDiagnosticsLog](vuClearDiagnosticsLog.md) | Clears the diagnostics log file. |
 | [vuClearMailLog](vuClearMailLog.md) | Clears the legacy sent-mail CSV log file. |
-| [vuDiagnosticsClearLogs](vuDiagnosticsClearLogs.md) | Deletes the current diagnostics and protocol log files. |
+| [vuDiagnosticsClearLogs](vuDiagnosticsClearLogs.md) | Deletes the current diagnostics log file. |
 | [vuDiagnosticsDisable](vuDiagnosticsDisable.md) | Disables diagnostics logging. |
 | [vuDiagnosticsEnable](vuDiagnosticsEnable.md) | Enables diagnostics logging. |
 | [vuDiagnosticsGetFile](vuDiagnosticsGetFile.md) | Gets the diagnostics log file path. |
 | [vuDiagnosticsSetFile](vuDiagnosticsSetFile.md) | Sets the diagnostics log file path. |
-| [vuGetMailLogLevel](vuGetMailLogLevel.md) | Gets the diagnostic-style logging verbosity level. |
+| [vuGetDiagnosticsLevel](vuGetDiagnosticsLevel.md) | Gets the diagnostics verbosity level. |
 | [vuHaveStoredProfile](vuHaveStoredProfile.md) | Returns whether any managed vuMailKit profile has already been saved for the current Windows user. |
 | [vuLoadProfile](vuLoadProfile.md) | Loads the internal default managed profile into active runtime memory. |
 | [vuLoadProfileEx](vuLoadProfileEx.md) | Loads a named managed profile into active runtime memory. Pro and Back Office only. |
@@ -56,7 +56,7 @@ Within each category, function names are listed alphabetically so known function
 | [vuResetStoredSettings](vuResetStoredSettings.md) | Clears stored vuMailKit settings, profiles, and OAuth state. |
 | [vuSaveProfile](vuSaveProfile.md) | Saves active runtime memory into the internal default managed profile. |
 | [vuSaveProfileEx](vuSaveProfileEx.md) | Saves active runtime memory into a named managed profile. Pro and Back Office only. |
-| [vuSetMailLogLevel](vuSetMailLogLevel.md) | Sets the diagnostic-style logging verbosity level. |
+| [vuSetDiagnosticsLevel](vuSetDiagnosticsLevel.md) | Sets the diagnostics verbosity level. |
 
 ## Mailing Related
 

@@ -23,7 +23,7 @@ That means a shared install may still work from multiple workstations, but the a
 
 The visible sender name can be changed from one email to the next.
 
-For example, the saved profile may use your real email address, but your application can choose a display name such as `LANSRAD Support` for a particular message.
+For example, the saved profile may use your real email address, but your application can choose a display name such as LANSRAD Support for a particular message.
 
 If you do not override it, vuMailKit uses the sender information stored in the profile.
 

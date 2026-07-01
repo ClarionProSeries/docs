@@ -31,7 +31,7 @@ Connects and authenticates to a POP3 server for subsequent POP3 receive operatio
 | Value | Meaning |
 |---|---|
 | 0 | Connected successfully. |
-- `< 0`: Connection or authentication failed.
+- < 0: Connection or authentication failed.
 
 ## Example (Clarion)
 ```clarion
@@ -51,7 +51,7 @@ END
 ```
 
 ## Notes
-- Call this before `vuPOP3Count`, `vuPOP3LoadHeader`, or `vuPOP3LoadEmail`.
-- Pair with `vuPOP3Disconnect()` when finished.
+- Call this before vuPOP3Count, vuPOP3LoadHeader, or vuPOP3LoadEmail.
+- Pair with vuPOP3Disconnect() when finished.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

@@ -24,7 +24,7 @@ Preferred function name:
 
 - [vuGlobalsSetCodePage()](vuGlobalsSetCodePage.md)
 
-This function is exported for backward compatibility and behaves identically to `vuGlobalsSetCodePage()`.
+This function is exported for backward compatibility and behaves identically to vuGlobalsSetCodePage().
 
 Important: this is a legacy compatibility setting. It does not replace the current recommendation that external body files containing accented or international characters should be saved as UTF-8.
 

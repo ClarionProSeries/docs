@@ -14,8 +14,8 @@ Gets the message count from the active POP3 mailbox.
 This function has no parameters.
 
 ## Return value / error codes
-- `>= 0`: Number of available messages.
-- `< 0`: POP3 state or command error.
+- >= 0: Number of available messages.
+- < 0: POP3 state or command error.
 
 ## Example (Clarion)
 ```clarion
@@ -28,6 +28,6 @@ END
 ```
 
 ## Notes
-- Requires a successful `vuPOP3Connect()` call first.
+- Requires a successful vuPOP3Connect() call first.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

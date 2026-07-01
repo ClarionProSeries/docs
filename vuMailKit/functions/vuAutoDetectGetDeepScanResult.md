@@ -12,7 +12,7 @@ last_updated: "2026-03-22"
 
 **Prototype:** vuAutoDetectGetDeepScanResult(LONG InHandle, LONG InOutBufLen, *CSTRING OutProfileEmailAddress, *LONG OutConfidence, *LONG OutDetectSource, *LONG OutProviderId, *LONG OutSmtpAuthModeHint, *LONG OutPopAuthModeHint, *LONG OutImapAuthModeHint, *CSTRING OutSmtpHost, *LONG OutSmtpPort, *LONG OutSmtpSecurityMode, *CSTRING OutSmtpUser, *CSTRING OutPopHost, *LONG OutPopPort, *LONG OutPopSecurityMode, *CSTRING OutPopUser, *CSTRING OutImapHost, *LONG OutImapPort, *LONG OutImapSecurityMode, *CSTRING OutImapUser), SIGNED, PROC, PASCAL, RAW, NAME('vuAutoDetectGetDeepScanResult')
 
-Copies final results from a completed asynchronous deep autodetect job into the same output variables used by `vuAutoDetectFillSettings`.
+Copies final results from a completed asynchronous deep autodetect job into the same output variables used by vuAutoDetectFillSettings.
 
 ## Example (Clarion)
 ```clarion

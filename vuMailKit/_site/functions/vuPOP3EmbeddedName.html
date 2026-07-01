@@ -34,24 +34,23 @@ href="../categories/index.html">Categories</a></p>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuPOP3EmbeddedName(LONG InIndex),
 CSTRING, PROC, PASCAL, RAW, NAME('vuPOP3EmbeddedName')</p>
-<p>This legacy function is declared as returning <code>CSTRING</code> in
-Clarion to preserve original vuMail template behavior. Under the hood,
-the export returns a pointer to a null-terminated C string buffer, and
-Clarion consumes it directly as text, as shown in the examples
-below.</p>
+<p>This legacy function is declared as returning CSTRING in Clarion to
+preserve original vuMail template behavior. Under the hood, the export
+returns a pointer to a null-terminated C string buffer, and Clarion
+consumes it directly as text, as shown in the examples below.</p>
 <h2 id="description">Description</h2>
 <p>Gets embedded name text for the selected item using the original
 vuMail compatibility behavior.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>Index</code> (LONG): 1-based item index.</li>
+<li>Index (LONG): 1-based item index.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
 <li>Returns text using the original vuMail legacy text-return
 style.</li>
 <li>In Clarion, this function can be used directly in text expressions
-such as <code>MESSAGE()</code> and string assignment.</li>
+such as MESSAGE() and string assignment.</li>
 <li>If no text is available, the result may be empty.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
@@ -62,7 +61,7 @@ MESSAGE(&#39;Embedded name: &#39; &amp; vuPOP3EmbeddedName(Index))</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>This is a legacy compatibility exception. New text-return APIs
-should use caller-owned <code>*CSTRING</code> output buffers.</li>
+should use caller-owned *CSTRING output buffers.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

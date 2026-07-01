@@ -36,9 +36,8 @@ href="../categories/index.html">Categories</a></p>
 *LONG OutState, *LONG OutStage, *CSTRING OutStatusText, LONG
 InOutStatusTextLen), SIGNED, PROC, PASCAL, RAW,
 NAME('vuAutoDetectPollDeepScan')</p>
-<p>Polls an asynchronous deep autodetect job. State values are
-<code>0 = running</code>, <code>1 = completed</code>,
-<code>2 = canceled</code>, and <code>-1 = failed</code>. Stage values
+<p>Polls an asynchronous deep autodetect job. State values are 0 =
+running, 1 = completed, 2 = canceled, and -1 = failed. Stage values
 mirror autodetect source values while the job is running.</p>
 <p>During long stage-6 probe scans, the returned status text may become
 stronger after about 90 seconds and 180 seconds to tell the UI that the

@@ -8,13 +8,13 @@
 **Prototype:** vuNoPasswordInRegistry(LONG InValue), LONG, PROC, PASCAL, RAW, NAME('vuNoPasswordInRegistry')
 
 ## Description
-This is the legacy vuMail function name for `vuGlobalsSetNoPasswordInRegistry()`.
+This is the legacy vuMail function name for vuGlobalsSetNoPasswordInRegistry().
 
 Preferred function name:
 
 - [vuGlobalsSetNoPasswordInRegistry()](vuGlobalsSetNoPasswordInRegistry.md)
 
-This function is exported for backward compatibility and behaves identically to `vuGlobalsSetNoPasswordInRegistry()`.
+This function is exported for backward compatibility and behaves identically to vuGlobalsSetNoPasswordInRegistry().
 
 ## Example (Clarion)
 ```clarion

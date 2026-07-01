@@ -47,6 +47,6 @@ EmailAddress  CSTRING(260)
   STOP('RC=' & RC & '|Addr=' & EmailAddress)
 ```
 
-Note: addresses with repeated trailing suffixes such as `example.com.com` now return 2 (valid but suspicious).
+Note: addresses with repeated trailing suffixes such as example.com.com now return 2 (valid but suspicious).
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

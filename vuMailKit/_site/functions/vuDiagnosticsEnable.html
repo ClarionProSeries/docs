@@ -37,7 +37,7 @@ no diagnostics file has been configured yet, a default file path is
 chosen automatically.</p>
 <h2 id="export-name">Export name</h2>
 <ul>
-<li><code>vuDiagnosticsEnable</code></li>
+<li>vuDiagnosticsEnable</li>
 </ul>
 <h2 id="clarion-prototype">Clarion prototype</h2>
 <p><strong>Prototype:</strong> vuDiagnosticsEnable(), SIGNED, PROC,
@@ -45,7 +45,7 @@ PASCAL, RAW, NAME('vuDiagnosticsEnable')</p>
 <h2 id="return-value">Return value</h2>
 <ul>
 <li>Returns 1 when the operation succeeds, otherwise 0. Use
-<code>vuMailLastError()</code> for more detail when needed.</li>
+vuMailLastError() for more detail when needed.</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>rc LONG
@@ -56,10 +56,16 @@ IF rc = 0
 END</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This turns on the diagnostics writer used by SMTP transport
+<li>This turns on the diagnostics writer used by vuMailKit
+troubleshooting output.</li>
+<li>Use vuSetDiagnosticsLevel() to choose Normal or Trace diagnostics
+detail.</li>
+<li>Normal diagnostics keep the practical SMTP send timeline. Trace
+diagnostics add lower-level troubleshooting detail.</li>
+<li>Diagnostics logging is separate from the sent-mail CSV/activity log
+selected by vuSetMailLog() or vuLogSetFile().</li>
+<li>vuMailKitSmtpProtocol.log is not part of normal customer-facing
 diagnostics.</li>
-<li>The SMTP protocol log is written in the same folder as the
-diagnostics file.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

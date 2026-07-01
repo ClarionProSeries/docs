@@ -8,13 +8,13 @@
 **Prototype:** vuSetMailServer(*CSTRING InServer, LONG InPort), SIGNED, PROC, PASCAL, RAW, NAME('vuSetMailServer')
 
 ## Description
-This is the legacy vuMail function name for `vuSmtpSetServer()`.
+This is the legacy vuMail function name for vuSmtpSetServer().
 
 Preferred function name:
 
 - [vuSmtpSetServer()](vuSmtpSetServer.md)
 
-This function is exported for backward compatibility and behaves identically to `vuSmtpSetServer()`.
+This function is exported for backward compatibility and behaves identically to vuSmtpSetServer().
 
 ## Example (Clarion)
 ```clarion

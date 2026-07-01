@@ -18,10 +18,10 @@ last_updated: "2026-03-27"
 **Prototype:** vuMailExport(*CSTRING InFileName), SIGNED, PROC, PASCAL, RAW, NAME('vuMailExport')
 
 ## Purpose
-Writes the currently loaded in-process message to an RFC822 `.eml` file.
+Writes the currently loaded in-process message to an RFC822 .eml file.
 
 ## Parameters
-- `xFilePath` (*CSTRING): Destination file path.
+- xFilePath (*CSTRING): Destination file path.
 
 ## Return value / error codes
 | Value | Meaning |
@@ -45,6 +45,6 @@ END
 - Creates the destination directory when needed.
 - This export depends on a message already loaded into the legacy session state.
 - AuthMode/OAuth is not used by this function.
-- Legacy reference: `vuMailDump.pdf`, section heading `vuMailExport`.
+- Legacy reference: vuMailDump.pdf, section heading vuMailExport.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

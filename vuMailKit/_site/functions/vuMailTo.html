@@ -37,23 +37,22 @@ xSubject, xBody)</h1>
 *CSTRING InBCC, *CSTRING InSubject, *CSTRING InBody), LONG, PROC,
 PASCAL, RAW, NAME('vuMailTo')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Builds a <code>mailto:</code> URI and asks Windows Shell to open it
-with the default mail client.</p>
+<p>Builds a mailto: URI and asks Windows Shell to open it with the
+default mail client.</p>
 <h2 id="parameters">Parameters</h2>
 <ul>
-<li><code>xTo</code> (*CSTRING): To recipients string.</li>
-<li><code>xCc</code> (*CSTRING): Cc recipients string.</li>
-<li><code>xBcc</code> (*CSTRING): Bcc recipients string.</li>
-<li><code>xSubject</code> (*CSTRING): Subject text.</li>
-<li><code>xBody</code> (*CSTRING): Body text.</li>
+<li>xTo (*CSTRING): To recipients string.</li>
+<li>xCc (*CSTRING): Cc recipients string.</li>
+<li>xBcc (*CSTRING): Bcc recipients string.</li>
+<li>xSubject (*CSTRING): Subject text.</li>
+<li>xBody (*CSTRING): Body text.</li>
 </ul>
 <h2 id="return-value--error-codes">Return value / error codes</h2>
 <ul>
-<li>Returns the Win32 <code>ShellExecute</code> result value.</li>
+<li>Returns the Win32 ShellExecute result value.</li>
 <li>Values greater than 32 typically indicate the shell accepted the
 open request.</li>
-<li>0: Exception path; details are written to
-<code>vuMailLastError()</code>.</li>
+<li>0: Exception path; details are written to vuMailLastError().</li>
 </ul>
 <h2 id="example-clarion">Example (Clarion)</h2>
 <pre class="clarion"><code>toAddr  CSTRING(256)
@@ -78,8 +77,7 @@ END</code></pre>
 directly.</li>
 <li>Input fields are not URL-encoded by this function.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
-<li>Legacy reference: <code>vuMailDump.pdf</code>, section heading
-<code>vuMailTo</code>.</li>
+<li>Legacy reference: vuMailDump.pdf, section heading vuMailTo.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="legacy-index.html">Legacy functions</a> | <a

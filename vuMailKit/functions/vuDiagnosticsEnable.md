@@ -6,7 +6,7 @@ keywords: ["vuMailKit","function","vudiagnosticsenable"]
 function_name: "vuDiagnosticsEnable"
 category: "Diagnostics"
 version_added: "1.0"
-last_updated: "2026-03-27"
+last_updated: "2026-06-26"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -19,7 +19,7 @@ Enables diagnostic logging using the configured diagnostics file. If no diagnost
 
 ## Export name
 
-- `vuDiagnosticsEnable`
+- vuDiagnosticsEnable
 
 ## Clarion prototype
 
@@ -27,7 +27,7 @@ Enables diagnostic logging using the configured diagnostics file. If no diagnost
 
 ## Return value
 
-- Returns 1 when the operation succeeds, otherwise 0. Use `vuMailLastError()` for more detail when needed.
+- Returns 1 when the operation succeeds, otherwise 0. Use vuMailLastError() for more detail when needed.
 
 ## Example (Clarion)
 ```clarion
@@ -41,7 +41,10 @@ END
 
 ## Notes
 
-- This turns on the diagnostics writer used by SMTP transport diagnostics.
-- The SMTP protocol log is written in the same folder as the diagnostics file.
+- This turns on the diagnostics writer used by vuMailKit troubleshooting output.
+- Use vuSetDiagnosticsLevel() to choose Normal or Trace diagnostics detail.
+- Normal diagnostics keep the practical SMTP send timeline. Trace diagnostics add lower-level troubleshooting detail.
+- Diagnostics logging is separate from the sent-mail CSV/activity log selected by vuSetMailLog() or vuLogSetFile().
+- vuMailKitSmtpProtocol.log is not part of normal customer-facing diagnostics.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

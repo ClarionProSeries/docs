@@ -11,7 +11,7 @@ The wizard then runs from your compiled application. It is not a separate manual
 
 ## Zero OAuth code for normal applications
 
-For normal Microsoft or Google OAuth accounts, the wizard is the OAuth implementation path. Configure the provider values in the global template, import the wizard, and let the wizard perform the authorization and profile-save work. Your send code can then use the saved profile without calling `vuOAuthBeginLogin`, `vuOAuthCompleteLogin`, or the other lower-level OAuth helpers directly.
+For normal Microsoft or Google OAuth accounts, the wizard is the OAuth implementation path. Configure the provider values in the global template, import the wizard, and let the wizard perform the authorization and profile-save work. Your send code can then use the saved profile without calling vuOAuthBeginLogin, vuOAuthCompleteLogin, or the other lower-level OAuth helpers directly.
 
 ## Why the wizard matters
 

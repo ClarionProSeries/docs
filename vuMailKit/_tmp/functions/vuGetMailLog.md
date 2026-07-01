@@ -8,13 +8,13 @@
 **Prototype:** vuGetMailLog(*CSTRING OutLogFile), SIGNED, PROC, PASCAL, RAW, NAME('vuGetMailLog')
 
 ## Description
-This is the legacy vuMail function name for `vuLogGetFile()`.
+This is the legacy vuMail function name for vuLogGetFile().
 
 Preferred function name:
 
 - [vuLogGetFile()](vuLogGetFile.md)
 
-This function is exported for backward compatibility and behaves identically to `vuLogGetFile()`.
+This function is exported for backward compatibility and behaves identically to vuLogGetFile().
 
 ## Example (Clarion)
 ```clarion

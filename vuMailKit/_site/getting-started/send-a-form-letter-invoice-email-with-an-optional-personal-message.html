@@ -158,19 +158,18 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="
 <h3 id="simple-token-replacement">Simple token replacement</h3>
 <p>Use normal token merge for values such as:</p>
 <ul>
-<li><code>[[CustomerName]]</code></li>
-<li><code>[[ServiceDate]]</code></li>
-<li><code>[[PersonalMessage]]</code></li>
+<li>[[CustomerName]]</li>
+<li>[[ServiceDate]]</li>
+<li>[[PersonalMessage]]</li>
 </ul>
 <h3 id="file-content-insertion">File-content insertion</h3>
-<p>Use <code>TokenMergeFileIntoFile</code> when the invoice or statement
-body is already generated into another file.</p>
+<p>Use TokenMergeFileIntoFile when the invoice or statement body is
+already generated into another file.</p>
 <p>That replacement file can be:</p>
 <ul>
-<li>plain text, optionally converted to <code>&lt;br&gt;</code> tags
-with <code>contentFlags = 1</code></li>
-<li>an HTML fragment inserted unchanged with
-<code>contentFlags = 0</code></li>
+<li>plain text, optionally converted to &lt;br&gt; tags with
+contentFlags = 1</li>
+<li>an HTML fragment inserted unchanged with contentFlags = 0</li>
 </ul>
 <p>It should normally <strong>not</strong> be a full second HTML
 document.</p>
@@ -179,11 +178,10 @@ document.</p>
 <li>Start with the branded HTML template</li>
 <li>Replace the simple tokens such as customer name and service
 date</li>
-<li>Optionally replace <code>[[PersonalMessage]]</code> with a short
-custom note or with a blank string</li>
-<li>Use <code>TokenMergeFileIntoFile</code> to replace
-<code>[[InvoiceBody]]</code> with the contents of the generated invoice
-file</li>
+<li>Optionally replace [[PersonalMessage]] with a short custom note or
+with a blank string</li>
+<li>Use TokenMergeFileIntoFile to replace [[InvoiceBody]] with the
+contents of the generated invoice file</li>
 <li>Send the final merged file with <a
 href="../functions/vuSendMail.html">vuSendMail</a> or <a
 href="../functions/vuSendMailWait.html">vuSendMailWait</a></li>

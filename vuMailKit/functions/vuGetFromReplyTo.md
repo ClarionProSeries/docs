@@ -24,7 +24,7 @@ Preferred function name:
 
 - [vuSmtpGetFromReplyTo()](vuSmtpGetFromReplyTo.md)
 
-This function is exported for backward compatibility and behaves identically to `vuSmtpGetFromReplyTo()`.
+This function is exported for backward compatibility and behaves identically to vuSmtpGetFromReplyTo().
 
 ## Example (Clarion)
 ```clarion

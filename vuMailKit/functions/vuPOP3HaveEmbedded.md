@@ -40,6 +40,6 @@ END
 ```
 
 ## Notes
-- Load a full message with `vuPOP3LoadEmail` before querying embedded-part state.
+- Load a full message with vuPOP3LoadEmail before querying embedded-part state.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

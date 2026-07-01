@@ -15,9 +15,9 @@ Reads text from a source file, replaces token text, and writes the merged result
 |---|---|---|
 | InSourceFile | *CSTRING | Source text or HTML file to read. |
 | InTargetFile | *CSTRING | Target file to write. Use a different file when you want to preserve the source template. |
-| InToken | *CSTRING | Full token text to replace, such as `[[FirstName]]`. |
+| InToken | *CSTRING | Full token text to replace, such as [[FirstName]]. |
 | InReplacement | *CSTRING | Replacement value to insert. |
-| InFlags | LONG | Merge option flags. `0=Replace all, case-sensitive`, `1=First only`, `2=Ignore case`, `3=First only and ignore case`. |
+| InFlags | LONG | Merge option flags. 0=Replace all, case-sensitive, 1=First only, 2=Ignore case, 3=First only and ignore case. |
 
 ## Return value / error codes
 - Positive value: number of replacements performed.
@@ -47,11 +47,11 @@ MESSAGE('TokenMergeInFile rc=' & rc)
 ```
 
 ## Notes
-- The function does not force a token format, but `[[TokenName]]` is strongly recommended.
+- The function does not force a token format, but [[TokenName]] is strongly recommended.
 - By default, the function replaces all matching tokens.
 - Set flag bit 1 to replace only the first match.
 - Set flag bit 2 to ignore case while matching the full token text.
-- Use `TokenMergeInFile` when the replacement value is already in a string.
+- Use TokenMergeInFile when the replacement value is already in a string.
 - Use [TokenMergeFileIntoFile](TokenMergeFileIntoFile.md) when the replacement value should come from another file.
 - The function reads common UTF-8 files safely and falls back to Windows ANSI when needed.
 

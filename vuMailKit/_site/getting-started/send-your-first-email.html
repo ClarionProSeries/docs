@@ -71,8 +71,8 @@ Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
 IF Result &lt;&gt; 1
   MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
 END</code></pre>
-<p>When <code>FromAdr</code> is blank, vuMailKit uses the saved/default
-profile sender. No OAuth code is needed here; if the saved profile uses
+<p>When FromAdr is blank, vuMailKit uses the saved/default profile
+sender. No OAuth code is needed here; if the saved profile uses
 Microsoft or Google OAuth, vuMailKit uses the stored OAuth state behind
 the normal send call.</p>
 <h2 id="optional-logging-and-sent-email-copies">Optional logging and

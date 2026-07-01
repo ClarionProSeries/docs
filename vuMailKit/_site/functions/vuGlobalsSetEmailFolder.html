@@ -36,8 +36,8 @@ href="../categories/index.html">Categories</a></p>
 InFolder), SIGNED, PROC, PASCAL, RAW,
 NAME('vuGlobalsSetEmailFolder')</p>
 <h2 id="purpose">Purpose</h2>
-<p>Sets the in-memory <code>EmailFolder</code> path used by vuMailKit
-for outgoing <code>.eml</code> message copies.</p>
+<p>Sets the in-memory EmailFolder path used by vuMailKit for outgoing
+.eml message copies.</p>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -85,7 +85,7 @@ END</code></pre>
 <li>Legacy alias: <a
 href="vuSetSaveFolder.html">vuSetSaveFolder()</a>.</li>
 <li>This is the same runtime setting used by the legacy
-<code>vuSetSaveFolder()</code> call. Either function may be used.</li>
+vuSetSaveFolder() call. Either function may be used.</li>
 <li>Passing a blank folder turns off outgoing .eml copy saving.</li>
 <li>The save folder applies to normal sends, CSV-file sends, and
 setup/autodetect test-send messages.</li>
@@ -95,11 +95,10 @@ copy before the SMTP send attempt.</li>
 called. The function still returns 1 after updating the runtime setting;
 if the folder remains invalid or cannot be created, the later send can
 fail with an email-save-folder error.</li>
-<li>If a sent-mail CSV log is also configured by
-<code>vuSetMailLog()</code> or <code>vuLogSetFile()</code>, successful
-rows include the saved .eml path.</li>
-<li>This updates runtime memory only; call <code>vuGlobalsSave()</code>
-to persist to registry.</li>
+<li>If a sent-mail CSV log is also configured by vuSetMailLog() or
+vuLogSetFile(), successful rows include the saved .eml path.</li>
+<li>This updates runtime memory only; call vuGlobalsSave() to persist to
+registry.</li>
 <li>AuthMode/OAuth is not used by this function.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All

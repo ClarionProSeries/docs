@@ -40,7 +40,7 @@ END
 
 ## Notes
 - Legacy alias: [vuMailGetGlobals()](vuMailGetGlobals.md).
-- Reads values from `HKCU\SOFTWARE\vuPrograms\vuMail`.
+- Reads values from HKCU\SOFTWARE\vuPrograms\vuMail.
 - This function refreshes runtime configuration; call it again if registry values were changed outside the current process.
 - AuthMode/OAuth is not used by this function.
 

@@ -31,16 +31,21 @@
 href="categories/index.html">Browse by Category</a> | <a
 href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
 functions</a></p>
-<h1 id="whats-new-in-vumailkit-110">What's New in vuMailKit 1.1.0</h1>
+<h1 id="whats-new-in-vumailkit-110-build-157">What's New in vuMailKit
+1.1.0 build 157</h1>
 <p>This page summarizes the current documentation and product highlights
-for <strong>vuMailKit 1.1.0 Basic edition</strong>.</p>
-<h2 id="vumailkit-110-at-a-glance">vuMailKit 1.1.0 at a glance</h2>
-<p>vuMailKit 1.1.0 is the current Basic edition release. It keeps the
-familiar vuMail-compatible send surface, but adds the practical pieces
-developers need for modern day-to-day use:</p>
+for <strong>vuMailKit 1.1.0 build 157 Basic edition</strong>.</p>
+<p>Release date: <strong>2026-07-01</strong>.</p>
+<h2 id="vumailkit-110-build-157-at-a-glance">vuMailKit 1.1.0 build 157
+at a glance</h2>
+<p>vuMailKit 1.1.0 build 157 is the current Basic edition release. It
+keeps the familiar vuMail-compatible send surface, but adds the
+practical pieces developers need for modern day-to-day use:</p>
 <ul>
 <li>Simple HTML email helpers for good-looking messages without
 hand-building the outer HTML wrapper.</li>
+<li>Easy body-positioned images for ordinary text messages by using
+Simple HTML with NormalizeBody on and the embed-attachments marker.</li>
 <li>TokenMerge helpers for template-based email and report-to-text
 insertion.</li>
 <li>Save-folder and legacy sent-mail CSV logging compatibility for
@@ -53,6 +58,8 @@ save.</li>
 <li>A copyable recommended send flow that checks for a stored profile,
 offers the wizard when needed, validates the recipient, sends, and shows
 useful diagnostics.</li>
+<li>A cleaner build 157 logging model that keeps sent-mail CSV/activity
+logging, saved .eml copies, and diagnostics logging separate.</li>
 </ul>
 <h2 id="recent-highlights">Recent highlights</h2>
 <h3 id="vumailkit-email-setup-wizard-visibility">vuMailKit Email Setup
@@ -123,13 +130,68 @@ clears the runtime Simple HTML settings.</li>
 </ul>
 <p>With Simple HTML mode, you can send ordinary body content and let
 vuMailKit create the HTML wrapper while still using the normal MIME
-build path that creates a plain-text alternative.</p>
+build path that creates a plain-text alternative. Ordinary body text can
+come from a TEXT control, TPS memo, customer note, generated report, or
+similar Clarion field; the hard-coded &lt;13,10&gt; examples are only
+for self-contained sample strings.</p>
+<p>For body-positioned images in ordinary text, keep NormalizeBody on
+and place the embed-attachments marker where the images should appear.
+Pass local image files or remote http/https image URLs in the Attach
+parameter. vuMailKit replaces the marker with inline images and keeps
+the rest of the body as safe ordinary text.</p>
 <p>Start here:</p>
 <ul>
 <li><a
 href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
 a Simple HTML email with a company logo</a></li>
 </ul>
+<h3 id="task-guides-now-show-real-send-code">Task guides now show real
+send code</h3>
+<p>The getting-started help pages for attachments, embedded images, CSV
+batch sending, external body files, and TokenMerge template sending now
+include copyable Clarion examples instead of high-level stub text.</p>
+<p>These pages show the actual public API paths developers use:</p>
+<ul>
+<li>vuSendMailWait() with the Attach parameter for single files,
+multiple files, and wildcard attachments.</li>
+<li>vuSendMailFromFile() with the CSV field order FROM, TO, CC, BCC,
+SUBJECT, BODY, ATTACH.</li>
+<li>external body files passed in the Body parameter.</li>
+<li>Simple HTML header and footer images for branded emails.</li>
+<li>TokenMergeInString(), TokenMergeInFile(), and
+TokenMergeFileIntoFile() for template-based messages.</li>
+</ul>
+<p>The examples also reinforce that TEXT controls, TPS memos, customer
+notes, generated reports, and similar fields can already contain normal
+line breaks. Developers only need the hard-coded &lt;13,10&gt; pattern
+when the sample itself is building a multi-line Clarion source
+string.</p>
+<h3 id="embedded-images-inside-the-email-body">Embedded images inside
+the email body</h3>
+<p>The <a href="getting-started/send-an-embedded-image.html">Send an
+embedded image</a> guide now leads with the easiest body-positioned
+image path: Simple HTML with NormalizeBody on, ordinary TEXT-control or
+memo content, the embed-attachments marker, and local image files or
+remote http/https image URLs passed in Attach.</p>
+<p>It also clearly separates body-positioned embedded images from Simple
+HTML header/footer images.</p>
+<p>vuMailKit supports the legacy vuMail-compatible body-image
+patterns:</p>
+<ul>
+<li>local image paths in HTML img src values</li>
+<li>remote http and https image URLs in HTML img src values, downloaded
+and embedded at send time when safe</li>
+<li>image references inside external HTML body files</li>
+<li>existing cid image references, which are left unchanged</li>
+<li>the legacy embed-attachments marker that inserts local image files
+or remote http/https image URLs from the Attach parameter into the HTML
+body</li>
+</ul>
+<p>The embed-attachments marker supports single local images, multiple
+local images, wildcard local image lists, remote http/https image URLs,
+and optional width= and height= settings. Images consumed by that marker
+are embedded in the body and are not also sent as normal
+attachments.</p>
 <h3 id="tokenmerge-and-template-based-email">TokenMerge and
 template-based email</h3>
 <p>vuMailKit now includes TokenMerge helpers so developers do not have
@@ -167,7 +229,13 @@ sent-mail CSV log.</li>
 <h3 id="diagnostics-logging-is-separate">Diagnostics logging is
 separate</h3>
 <p>Diagnostics logging is intentionally separate from the legacy
-sent-mail CSV log.</p>
+sent-mail CSV log. Build 157 also makes Normal versus Trace diagnostics
+easier to understand: Normal diagnostics keep the practical SMTP send
+timeline, while Trace diagnostics add lower-level profile, enqueue,
+message-build, TLS, and OAuth troubleshooting detail. Diagnostics-off
+runs should not append setup/profile/log-selection rows to the
+diagnostics file. The old SMTP protocol sidecar log is not part of
+normal customer-facing diagnostics.</p>
 <ul>
 <li><a
 href="functions/vuDiagnosticsSetFile.html">vuDiagnosticsSetFile</a>
@@ -175,8 +243,11 @@ selects the diagnostics log file.</li>
 <li><a href="functions/vuDiagnosticsEnable.html">vuDiagnosticsEnable</a>
 enables diagnostics output.</li>
 <li><a
+href="functions/vuSetDiagnosticsLevel.html">vuSetDiagnosticsLevel</a>
+sets Normal versus Trace diagnostics detail.</li>
+<li><a
 href="functions/vuClearDiagnosticsLog.html">vuClearDiagnosticsLog</a>
-clears diagnostics/protocol logs.</li>
+clears diagnostics logs.</li>
 <li><a
 href="functions/vuDiagnosticsClearLogs.html">vuDiagnosticsClearLogs</a>
 remains supported for the same diagnostics clear behavior.</li>
@@ -200,6 +271,8 @@ so the setup flow is not presented as a single IDE-only step.</li>
 <li><a
 href="getting-started/send-a-simple-html-email-with-a-company-logo.html">Send
 a Simple HTML email with a company logo</a></li>
+<li><a href="getting-started/send-an-embedded-image.html">Send an
+embedded image</a></li>
 <li><a
 href="getting-started/use-tokenmerge-with-email-templates.html">Use
 TokenMerge with email templates</a></li>

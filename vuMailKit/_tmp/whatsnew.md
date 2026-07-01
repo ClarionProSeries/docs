@@ -1,20 +1,24 @@
 
 [Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
-# What's New in vuMailKit 1.1.0
+# What's New in vuMailKit 1.1.0 build 157
 
-This page summarizes the current documentation and product highlights for **vuMailKit 1.1.0 Basic edition**.
+This page summarizes the current documentation and product highlights for **vuMailKit 1.1.0 build 157 Basic edition**.
 
-## vuMailKit 1.1.0 at a glance
+Release date: **2026-07-01**.
 
-vuMailKit 1.1.0 is the current Basic edition release. It keeps the familiar vuMail-compatible send surface, but adds the practical pieces developers need for modern day-to-day use:
+## vuMailKit 1.1.0 build 157 at a glance
+
+vuMailKit 1.1.0 build 157 is the current Basic edition release. It keeps the familiar vuMail-compatible send surface, but adds the practical pieces developers need for modern day-to-day use:
 
 - Simple HTML email helpers for good-looking messages without hand-building the outer HTML wrapper.
+- Easy body-positioned images for ordinary text messages by using Simple HTML with NormalizeBody on and the embed-attachments marker.
 - TokenMerge helpers for template-based email and report-to-text insertion.
 - Save-folder and legacy sent-mail CSV logging compatibility for normal sends, CSV sends, and setup/test sends.
 - Clearer licensing/setup diagnostics using the private -9001, -9002, and -9003 range.
 - Expanded Email Setup Wizard documentation, including CTRL+U import, provider autodetect, OAuth authorization, test send, and profile save.
 - A copyable recommended send flow that checks for a stored profile, offers the wizard when needed, validates the recipient, sends, and shows useful diagnostics.
+- A cleaner build 157 logging model that keeps sent-mail CSV/activity logging, saved .eml copies, and diagnostics logging separate.
 
 ## Recent highlights
 
@@ -55,11 +59,45 @@ Simple HTML mode is a major convenience feature for developers who want a well-d
 - [vuSetSimpleHTMLNormalizeBody](functions/vuSetSimpleHTMLNormalizeBody.md) controls whether the body is treated as ordinary text or an HTML fragment.
 - [vuResetSimpleHTML](functions/vuResetSimpleHTML.md) clears the runtime Simple HTML settings.
 
-With Simple HTML mode, you can send ordinary body content and let vuMailKit create the HTML wrapper while still using the normal MIME build path that creates a plain-text alternative.
+With Simple HTML mode, you can send ordinary body content and let vuMailKit create the HTML wrapper while still using the normal MIME build path that creates a plain-text alternative. Ordinary body text can come from a TEXT control, TPS memo, customer note, generated report, or similar Clarion field; the hard-coded &lt;13,10&gt; examples are only for self-contained sample strings.
+
+For body-positioned images in ordinary text, keep NormalizeBody on and place the embed-attachments marker where the images should appear. Pass local image files or remote http/https image URLs in the Attach parameter. vuMailKit replaces the marker with inline images and keeps the rest of the body as safe ordinary text.
 
 Start here:
 
 - [Send a Simple HTML email with a company logo](getting-started/send-a-simple-html-email-with-a-company-logo.md)
+
+
+### Task guides now show real send code
+
+The getting-started help pages for attachments, embedded images, CSV batch sending, external body files, and TokenMerge template sending now include copyable Clarion examples instead of high-level stub text.
+
+These pages show the actual public API paths developers use:
+
+- vuSendMailWait() with the Attach parameter for single files, multiple files, and wildcard attachments.
+- vuSendMailFromFile() with the CSV field order FROM, TO, CC, BCC, SUBJECT, BODY, ATTACH.
+- external body files passed in the Body parameter.
+- Simple HTML header and footer images for branded emails.
+- TokenMergeInString(), TokenMergeInFile(), and TokenMergeFileIntoFile() for template-based messages.
+
+The examples also reinforce that TEXT controls, TPS memos, customer notes, generated reports, and similar fields can already contain normal line breaks. Developers only need the hard-coded &lt;13,10&gt; pattern when the sample itself is building a multi-line Clarion source string.
+
+
+### Embedded images inside the email body
+
+The [Send an embedded image](getting-started/send-an-embedded-image.md) guide now leads with the easiest body-positioned image path: Simple HTML with NormalizeBody on, ordinary TEXT-control or memo content, the embed-attachments marker, and local image files or remote http/https image URLs passed in Attach.
+
+It also clearly separates body-positioned embedded images from Simple HTML header/footer images.
+
+vuMailKit supports the legacy vuMail-compatible body-image patterns:
+
+- local image paths in HTML img src values
+- remote http and https image URLs in HTML img src values, downloaded and embedded at send time when safe
+- image references inside external HTML body files
+- existing cid image references, which are left unchanged
+- the legacy embed-attachments marker that inserts local image files or remote http/https image URLs from the Attach parameter into the HTML body
+
+The embed-attachments marker supports single local images, multiple local images, wildcard local image lists, remote http/https image URLs, and optional width= and height= settings. Images consumed by that marker are embedded in the body and are not also sent as normal attachments.
 
 ### TokenMerge and template-based email
 
@@ -81,11 +119,12 @@ This supports practical workflows such as inserting Clarion report-to-text invoi
 
 ### Diagnostics logging is separate
 
-Diagnostics logging is intentionally separate from the legacy sent-mail CSV log.
+Diagnostics logging is intentionally separate from the legacy sent-mail CSV log. Build 157 also makes Normal versus Trace diagnostics easier to understand: Normal diagnostics keep the practical SMTP send timeline, while Trace diagnostics add lower-level profile, enqueue, message-build, TLS, and OAuth troubleshooting detail. Diagnostics-off runs should not append setup/profile/log-selection rows to the diagnostics file. The old SMTP protocol sidecar log is not part of normal customer-facing diagnostics.
 
 - [vuDiagnosticsSetFile](functions/vuDiagnosticsSetFile.md) selects the diagnostics log file.
 - [vuDiagnosticsEnable](functions/vuDiagnosticsEnable.md) enables diagnostics output.
-- [vuClearDiagnosticsLog](functions/vuClearDiagnosticsLog.md) clears diagnostics/protocol logs.
+- [vuSetDiagnosticsLevel](functions/vuSetDiagnosticsLevel.md) sets Normal versus Trace diagnostics detail.
+- [vuClearDiagnosticsLog](functions/vuClearDiagnosticsLog.md) clears diagnostics logs.
 - [vuDiagnosticsClearLogs](functions/vuDiagnosticsClearLogs.md) remains supported for the same diagnostics clear behavior.
 - [vuClearMailLog](functions/vuClearMailLog.md) clears the legacy sent-mail CSV log only.
 
@@ -99,6 +138,7 @@ Diagnostics logging is intentionally separate from the legacy sent-mail CSV log.
 
 - [Getting Started](getting-started/index.md)
 - [Send a Simple HTML email with a company logo](getting-started/send-a-simple-html-email-with-a-company-logo.md)
+- [Send an embedded image](getting-started/send-an-embedded-image.md)
 - [Use TokenMerge with email templates](getting-started/use-tokenmerge-with-email-templates.md)
 - [Preferred Functions](preferred-index.md)
 - [All functions](functions/index.md)

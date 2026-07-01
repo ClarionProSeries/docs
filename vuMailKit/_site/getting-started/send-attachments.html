@@ -31,15 +31,70 @@
 Started</a> | <a href="../categories/index.html">Browse by Category</a>
 | <a href="../functions/index.html">All functions</a></p>
 <h1 id="send-attachments">Send Attachments</h1>
-<p>vuMailKit can send attachments along with outgoing email.</p>
-<p>Attachments do not have to be images. They can be ordinary files such
-as PDFs, documents, spreadsheets, or other content you want to
-include.</p>
-<p>If you want the image to appear inside the HTML body instead of as a
-normal attachment, see:</p>
+<p>vuMailKit sends normal file attachments through the last parameter on
+vuSendMail() and vuSendMailWait().</p>
+<p>You do not need a separate setup call just to attach a file. Put the
+attachment path, list, or wildcard mask into the Attach parameter when
+you send the message.</p>
+<h2 id="single-attachment">Single attachment</h2>
+<p>Use a full path when you can. That avoids surprises when the
+application current folder is not what you expected.</p>
+<pre class="clarion"><code>Result  LONG
+FromAdr CSTRING(256)
+ToAdr   CSTRING(256)
+CCAdr   CSTRING(256)
+BCCAdr  CSTRING(256)
+Subject CSTRING(256)
+Body    CSTRING(2048)
+Attach  CSTRING(260)
+
+FromAdr = &#39;&#39;
+ToAdr   = &#39;customer@example.com&#39;
+CCAdr   = &#39;&#39;
+BCCAdr  = &#39;&#39;
+Subject = &#39;Your invoice&#39;
+Body    = CLIP(CustomerMessageText)
+Attach  = &#39;C:\Invoices\Invoice12345.pdf&#39;
+
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)
+IF Result &lt;&gt; 1
+  MESSAGE(&#39;Send failed: &#39; &amp; vuMailLastError())
+END</code></pre>
+<p>CustomerMessageText can be text from a TEXT control, TPS memo,
+customer note, generated report, or ordinary Clarion string. You do not
+need to hard-code CRLF values when the text already comes from a field
+that contains normal line breaks.</p>
+<h2 id="multiple-attachments">Multiple attachments</h2>
+<p>Use a comma-separated or semicolon-separated list in the Attach
+parameter.</p>
+<pre class="clarion"><code>Attach = &#39;C:\Invoices\Invoice12345.pdf;C:\Invoices\Terms.pdf&#39;
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)</code></pre>
+<h2 id="wildcard-attachments">Wildcard attachments</h2>
+<p>Wildcard masks are supported for cases such as attaching every PDF in
+a generated output folder.</p>
+<pre class="clarion"><code>Attach = &#39;C:\Invoices\Batch12345\*.pdf&#39;
+Result = vuSendMailWait(FromAdr, ToAdr, CCAdr, BCCAdr, Subject, Body, Attach)</code></pre>
+<h2 id="attachments-with-html-email">Attachments with HTML email</h2>
+<p>The same Attach parameter works with plain text, normal HTML, Simple
+HTML mode, and external HTML body files.</p>
+<p>If you want an image to appear inside the HTML body instead of
+showing up as a normal attachment, use an embedded-image pattern
+instead.</p>
+<p>For old vuMail-style code and for easy Simple HTML messages, you can
+also put local image files or remote http/https image URLs in the Attach
+parameter and place the embed-attachments marker in the Body parameter.
+vuMailKit replaces the marker with inline images and does not send those
+consumed image resources as normal attachments. This is the easiest way
+to place images inside ordinary TEXT-control or memo text without
+hand-coding HTML. See <a href="send-an-embedded-image.html">Send an
+embedded image</a> for the exact body and attachment examples.</p>
+<h2 id="related-pages">Related pages</h2>
 <ul>
 <li><a href="send-an-embedded-image.html">Send an embedded
 image</a></li>
+<li><a href="send-your-first-email.html">Send your first email</a></li>
+<li><a href="../functions/vuSendMail.html">vuSendMail</a></li>
+<li><a href="../functions/vuSendMailWait.html">vuSendMailWait</a></li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">Getting
 Started</a> | <a href="../categories/index.html">Browse by Category</a>

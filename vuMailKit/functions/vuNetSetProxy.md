@@ -47,7 +47,7 @@ END
 
 ## Notes
 - Legacy alias: [vuSetMailProxy()](vuSetMailProxy.md).
-- This updates runtime memory only; call `vuGlobalsSave()` to persist to registry.
+- This updates runtime memory only; call vuGlobalsSave() to persist to registry.
 - AuthMode/OAuth is not set by this function.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

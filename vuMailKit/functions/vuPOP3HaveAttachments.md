@@ -40,6 +40,6 @@ END
 ```
 
 ## Notes
-- Load a full message with `vuPOP3LoadEmail` before querying attachment state.
+- Load a full message with vuPOP3LoadEmail before querying attachment state.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
