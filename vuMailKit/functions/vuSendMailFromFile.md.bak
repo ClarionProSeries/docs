@@ -21,14 +21,12 @@ last_updated: "2026-06-24"
 Reads a CSV file of messages, validates rows, and queues valid rows for SMTP delivery.
 
 ## Parameters
-
 | Parameter | Type | Description |
 |---|---|---|
 | InCsvFileName | *CSTRING | CSV file path to read. |
 | InDefaultAttachment | *CSTRING | Default attachment path/list applied when a CSV row has an empty ATTACH field. |
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 1 | At least one valid row was queued. |
