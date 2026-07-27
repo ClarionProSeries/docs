@@ -24,7 +24,6 @@ Creates (or truncates) the target CSV file and stores it as the selected CSV use
 - xCsvFilePath (*CSTRING): Full path to the CSV file.
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 1 | CSV created and selected. |

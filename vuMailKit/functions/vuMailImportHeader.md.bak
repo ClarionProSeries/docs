@@ -24,7 +24,6 @@ Loads only the header block from an email file and stores those headers in the l
 - xName (*CSTRING): Source message file path.
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 0 | Success. |

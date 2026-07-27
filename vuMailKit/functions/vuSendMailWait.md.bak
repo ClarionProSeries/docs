@@ -21,7 +21,6 @@ last_updated: "2026-06-26"
 Queues one message (same input contract as vuSendMail()) and blocks until queue processing finishes.
 
 ## Parameters
-
 | Parameter | Type | Description |
 |---|---|---|
 | InFrom | *CSTRING | Sender selector. You may pass a full mailbox, a plain email address, a display name only, or blank. See From selection rules below. |
@@ -33,7 +32,6 @@ Queues one message (same input contract as vuSendMail()) and blocks until queue 
 | InAttach | *CSTRING | Optional attachment file path, comma/semicolon-separated attachment list, or wildcard mask. |
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 1 | Send completed successfully. |

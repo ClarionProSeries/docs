@@ -21,6 +21,7 @@ last_updated: "2026-06-26"
 Validates and queues one outbound email record to the SMTP worker queue.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InFrom | *CSTRING | Sender selector. You may pass a full mailbox, a plain email address, a display name only, or blank. See From selection rules below. |
@@ -32,6 +33,7 @@ Validates and queues one outbound email record to the SMTP worker queue.
 | InAttach | *CSTRING | Optional attachment file path, comma/semicolon-separated attachment list, or wildcard mask. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Message accepted/queued. |

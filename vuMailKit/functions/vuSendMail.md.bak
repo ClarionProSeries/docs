@@ -1,9 +1,9 @@
 ---
-title: "vuSendMailWait"
-summary: "Queues one email and waits for SMTP processing to finish."
-description: "Queues one email and waits for SMTP processing to finish."
-keywords: ["vuMailKit", "vuMail", "vusendmailwait", "smtp"]
-function_name: "vuSendMailWait"
+title: "vuSendMail"
+summary: "Queues one email for background SMTP delivery."
+description: "Queues one email for background SMTP delivery."
+keywords: ["vuMailKit", "vuMail", "vusendmail", "smtp"]
+function_name: "vuSendMail"
 category: "SMTP"
 version_added: "Legacy"
 last_updated: "2026-06-26"
@@ -11,14 +11,14 @@ last_updated: "2026-06-26"
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
 
-# vuSendMailWait()
+# vuSendMail()
 
 ## Clarion prototype
 
-**Prototype:** vuSendMailWait(*CSTRING InFrom, *CSTRING InTo, *CSTRING InCC, *CSTRING InBCC, *CSTRING InSubject, *CSTRING InBody, *CSTRING InAttach), SIGNED, PROC, PASCAL, RAW, NAME('vuSendMailWait')
+**Prototype:** vuSendMail(*CSTRING InFrom, *CSTRING InTo, *CSTRING InCC, *CSTRING InBCC, *CSTRING InSubject, *CSTRING InBody, *CSTRING InAttach), SIGNED, PROC, PASCAL, RAW, NAME('vuSendMail')
 
 ## Purpose
-Queues one message (same input contract as vuSendMail()) and blocks until queue processing finishes.
+Validates and queues one outbound email record to the SMTP worker queue.
 
 ## Parameters
 
@@ -33,11 +33,10 @@ Queues one message (same input contract as vuSendMail()) and blocks until queue 
 | InAttach | *CSTRING | Optional attachment file path, comma/semicolon-separated attachment list, or wildcard mask. |
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
-| 1 | Send completed successfully. |
-| 0 | Send did not complete successfully. |
+| 1 | Message accepted/queued. |
+| 0 | Queueing failed. |
 | -2 | Invalid From or To address format. |
 | -451 | vuMailKit detected conflicting .NET mail/runtime files in the application folder before the send operation. |
 | -9001 | vuMailKit licensing was not initialized. |
@@ -59,25 +58,23 @@ cFrom = 'sender@example.com'
 cTo = 'recipient@example.com'
 cCC = ''
 cBCC = ''
-cSubj = 'Wait test'
-cBody = 'Send and wait'
+cSubj = 'Queue test'
+cBody = 'Hello from vuSendMail'
 cAttach = ''
 
-rc = vuSendMailWait(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
-MESSAGE('vuSendMailWait rc=' & rc)
+rc = vuSendMail(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
+MESSAGE('vuSendMail rc=' & rc)
 ```
 
 ## Notes
 - Register the vuMailKit template/global extension or call vuMailKitInitialize(LicenseString) at EXE startup before using this function. If this licensing startup step is missed, the function returns -9001 and vuMailLastError() explains that the problem is vuMailKit licensing/setup, not mail-server authentication.
 - If this function returns -451, clean up the application folder. That code means unrelated .NET mail/OAuth/runtime files may interfere with vuMailKit's embedded dependencies; it is not a mail-server authentication error.
-- This call waits until the SMTP worker is idle and queue depth is zero.
-- The wait is indefinite, matching legacy vuMail behavior.
-- It returns 1 only when the final send result is the success state; otherwise it returns 0, except for immediate validation/licensing failures.
+- vuSendMail() returns after enqueue; delivery continues in background.
+- Use vuMailStatus() and vuMailLastError() to inspect asynchronous send results.
 - If a save folder was set with vuSetSaveFolder() or vuGlobalsSetEmailFolder() before this call, vuMailKit captures that folder with the queued message and saves an outgoing .eml copy before the SMTP send attempt.
 
 - If a sent-mail CSV log was set with vuSetMailLog() or vuLogSetFile() before this call, vuMailKit appends a row for the send attempt. Successful sends include the saved .eml path when an outgoing copy was saved. Failed sends are logged with the result text, and legacy logging never blocks a completed send.
 - Attachments may be blank, a single full path, a comma/semicolon-separated list, or wildcard masks such as C:\Temp\*.pdf. For the legacy embed-attachments marker, Attach can also include remote http/https image URLs that should be embedded inside the body.
-- Check vuMailLastError() for verbose send diagnostics after a non-1 result.
 - HTML markup in InBody is auto-detected on the SMTP path.
 - When HTML is detected, vuMailKit sends both a plain-text alternative body and the original HTML body.
 - The verified MIME structure for HTML messages is multipart/alternative, with the HTML body wrapped in multipart/related when inline CID resources are present.
@@ -136,14 +133,14 @@ For more body-image patterns, including external HTML files with images and wild
 
 ## From selection rules
 
-vuSendMailWait() resolves the effective sender using these rules:
+vuSendMail() now resolves the effective sender using these rules:
 
 - If xFrom is blank, vuMailKit uses the saved/default profile sender.
 - If xFrom contains a full mailbox like Support &lt;support@example.com&gt;, vuMailKit uses it as the sender for that message.
 - If xFrom contains only a plain email address like support@example.com, vuMailKit uses that address with no display name override.
 - If xFrom contains only a display name like Technical Support, vuMailKit combines that name with the saved/default profile sender address.
 
-This keeps legacy behavior intact while allowing per-message display-name overrides when a stored profile sender already exists.
+This lets legacy applications keep working while also allowing per-message display-name overrides without repeating the stored profile address every time.
 
 ## Notes on OAuth/profile sends
 

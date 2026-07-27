@@ -24,7 +24,6 @@ Sets the legacy runtime flag that indicates whether the client should close when
 - closeWhenComplete (LONG): Flag value written into runtime configuration.
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 1 | Value stored successfully. |
