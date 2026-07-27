@@ -24,7 +24,6 @@ Checks the currently loaded POP3 message and reports whether a plain-text MIME b
 This function has no parameters.
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 1 | Plain-text body content is present. |

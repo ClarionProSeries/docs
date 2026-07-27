@@ -21,11 +21,13 @@ last_updated: "2026-03-27"
 Retrieves and parses one full POP3 message so body, attachment, and embedded-content APIs can be used.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InMessageNumber | LONG | 1-based POP3 message number to load. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Message loaded successfully. |

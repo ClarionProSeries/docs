@@ -24,7 +24,6 @@ Checks the currently loaded POP3 message and reports whether attachment parts ar
 This function has no parameters.
 
 ## Return value / error codes
-
 | Value | Meaning |
 |---|---|
 | 1 | Attachment content is present. |

@@ -21,7 +21,6 @@ last_updated: "2026-03-27"
 Returns the size (in bytes) of the specified message in the active POP3 session.
 
 ## Parameters
-
 | Parameter | Type | Description |
 |---|---|---|
 | InMessageNumber | LONG | 1-based POP3 message number. |
