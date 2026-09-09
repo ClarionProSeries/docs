@@ -8,7 +8,7 @@ keywords: ["vusetntfscompression", "vuFileTools", "specified", "ntfs", "compress
 function_name: "vuSetNTFSCompression"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -28,7 +28,7 @@ Enables or disables NTFS compression on the specified file or folder.
 | Parameter | Data Type    | Description                                                     |
 |-----------|--------------|-----------------------------------------------------------------|
 | pPath     | CSTRING(260) | Full path to the file or folder to modify.                      |
-| bEnable   | LONG         | Compression flag: `1` to enable compression, `0` to disable it. |
+| bEnable   | LONG         | Compression flag: 1 to enable compression, 0 to disable it. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

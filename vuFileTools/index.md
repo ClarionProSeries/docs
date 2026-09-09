@@ -1,31 +1,31 @@
 ---
 title: "vuFileTools"
-summary: "Version: 5."
+summary: "Version: 5.0"
 description: "Version: 5.0"
-build: "Build 207"
-keywords: ["documentation", "vufiletools", "Clarion", "vuFileTools", "version"]
+build: "Build 208"
+keywords: ["documentation", "vuFileTools", "Clarion", "vuFileTools", "version"]
 page_type: "overview"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools
 
 Version: 5.0
 
 
-Release date: 2025-11-12
+Release date: 2026-09-08
 
-Last Updated: 2026-03-20  (Build: 207)
+Last Updated: 2026-09-08  (Build: 208)
 
 Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 
-[![vuFileTools logo](assets/images/vuFileTools270x90.png)](https://www.clarionproseries.com/html/vufiletools.html)
+![vuFileTools logo](assets/images/vuFileTools270x90.png)
 
 [Visit the vuFileTools product page](https://www.clarionproseries.com/html/vufiletools.html)
 
-This documentation covers the 214 functions currently available in vuFileTools.
+This documentation covers the functions currently available in vuFileTools.
 
 Use the links below to browse the documentation.
 
@@ -37,6 +37,7 @@ Use the links below to browse the documentation.
 - [Deployment](deployment.md)
 - [View All Functions](functions/index.md)
 - [View Functions by Category](categories/index.md)
+- [Mailslots Overview](mailslots.md)
 - [What's New](whatsnew.md)
 - [Version History](version-history.md)
 - [Support](support.md)
@@ -52,4 +53,4 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://clarionproseries.github.io/docs/vuFileTools/
 ```
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

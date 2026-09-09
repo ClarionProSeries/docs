@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -173,7 +173,8 @@ ShowCmd    LONG
 WaitFlag   LONG
 Ret        LONG
 
-FilePath   = &#39;C:\Windows\Notepad.exe&#39;
+FilePath   = &#39;C:\Windows
+otepad.exe&#39;
 Params     = &#39;MyDoc.txt&#39;
 WorkFolder = &#39;&#39;
 ShowCmd    = 1
@@ -184,13 +185,12 @@ Ret = vuRunExWait(FilePath, Params, WorkFolder, ShowCmd, WaitFlag)
 MESSAGE(&#39;vuRunExWait returned: &#39; &amp; FORMAT(Ret), &#39;vuRunExWait Test&#39;)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li><code>vuRunExWait</code> is the modern counterpart to
-<code>vuRun</code> when you want separate file and parameter values plus
-optional wait behavior.</li>
-<li>Use <code>Wait = 1</code> when your program must not continue until
-the launched process finishes.</li>
-<li>Use <code>vuRunExDelayWait</code> when you also need a startup delay
-before the launch begins.</li>
+<li>vuRunExWait is the modern counterpart to vuRun when you want
+separate file and parameter values plus optional wait behavior.</li>
+<li>Use Wait = 1 when your program must not continue until the launched
+process finishes.</li>
+<li>Use vuRunExDelayWait when you also need a startup delay before the
+launch begins.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

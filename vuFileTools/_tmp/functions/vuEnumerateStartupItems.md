@@ -15,7 +15,7 @@ Enumerates all items in the Windows Startup folders. Use this function to determ
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| Scope     | LONG      | `0` = Current User Startup, `1` = Common (All Users) Startup.               |
+| Scope     | LONG      | 0 = Current User Startup, 1 = Common (All Users) Startup.               |
 
 ### Returns
 A LONG value indicating the number of startup items found.  

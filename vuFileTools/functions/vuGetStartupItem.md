@@ -1,7 +1,7 @@
 ---
 title: "vuGetStartupItem"
 summary: "Retrieves information about a specific startup item, including its name, path, and type."
-description: "Retrieves information about a specific startup item, including its name, path, and type. Use in combination with `vuEnumerateStartupItems` to list all startup entries. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._ ### Returns
+description: "Retrieves information about a specific startup item, including its name, path, and type. Use in combination with vuEnumerateStartupItems to list all startup entries. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._ ### Returns
 A LONG value indicating the type of startup item: - 0: File shortcut (.lnk)  
 - 1: Registry RUN entry  
 - 2: Registry RUNONCE entry  
@@ -10,7 +10,7 @@ keywords: ["vuFileTools", "about", "path", "retrieves", "including", "type", "in
 function_name: "vuGetStartupItem"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -23,13 +23,13 @@ vuGetStartupItem(LONG,LONG,*CSTRING,LONG,*CSTRING,LONG), LONG
 
 
 ## Description
-Retrieves information about a specific startup item, including its name, path, and type. Use in combination with `vuEnumerateStartupItems` to list all startup entries.
+Retrieves information about a specific startup item, including its name, path, and type. Use in combination with vuEnumerateStartupItems to list all startup entries.
 
 ### Parameters
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| Scope     | LONG         | `0` = Current User Startup, `1` = Common (All Users) Startup.               |
+| Scope     | LONG         | 0 = Current User Startup, 1 = Common (All Users) Startup.               |
 | Index     | LONG         | 1-based index of the startup item to retrieve.                              |
 | NameBuf   | CSTRING(*)   | Buffer to receive the name of the startup item.                             |
 | cchName   | LONG         | Size of the NameBuf buffer in characters.                                   |

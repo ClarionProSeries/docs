@@ -54,7 +54,8 @@ DelayMS    LONG
 WaitFlag   LONG
 Ret        LONG
 
-FilePath   = 'C:\Windows\Notepad.exe'
+FilePath   = 'C:\Windows
+otepad.exe'
 Params     = 'MyDoc.txt'
 WorkFolder = ''
 ShowCmd    = 1
@@ -69,6 +70,6 @@ MESSAGE('vuRunExDelayWait returned: ' & FORMAT(Ret), 'vuRunExDelayWait Test')
 ### Notes
 - Use this when you need all three behaviors together: explicit file and parameters, delayed launch, and optional wait.
 - This is useful when one process is expected to finish preparing a file before the launched process consumes it.
-- If you do not need the delay, use `vuRunExWait`.
+- If you do not need the delay, use vuRunExWait.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

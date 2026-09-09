@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -36,10 +36,10 @@ pDriveType)</h1>
 <h2 id="description">Description</h2>
 <p>Retrieves the next available drive and its type, with automatic start
 and cleanup.<br />
-Unlike the three-call sequence (<code>vuStartDriveEnum</code> /
-<code>vuGetNextDrive</code> / <code>vuEndDriveEnum</code>), this
-function lazily initializes the enumeration on the first call and
-automatically releases resources when there are no more drives.</p>
+Unlike the three-call sequence (vuStartDriveEnum / vuGetNextDrive /
+vuEndDriveEnum), this function lazily initializes the enumeration on the
+first call and automatically releases resources when there are no more
+drives.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -53,8 +53,7 @@ automatically releases resources when there are no more drives.</p>
 <tr>
 <td>pRootPath</td>
 <td>*CSTRING(4)</td>
-<td>Buffer that receives the drive root path (for example,
-<code>C:\</code>).</td>
+<td>Buffer that receives the drive root path (for example, C:).</td>
 </tr>
 <tr>
 <td>pDriveType</td>
@@ -113,9 +112,8 @@ Msg           CSTRING(100)
   END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>No separate <code>vuStartDriveEnum</code> or
-<code>vuEndDriveEnum</code> calls are required when using
-<code>vuGetNextDriveAuto</code>.</li>
+<li>No separate vuStartDriveEnum or vuEndDriveEnum calls are required
+when using vuGetNextDriveAuto.</li>
 <li>Drive type constants align with Windows values: 2=Removable,
 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.</li>
 <li>For scenarios requiring explicit control of setup and teardown, use

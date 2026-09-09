@@ -26,7 +26,7 @@ Runs an external program using the Windows shell with optional parameters and wo
 | pFile | CSTRING(260) | Path to the file or executable to run. |
 | pParams | CSTRING(260) | Optional command-line parameters to pass. |
 | pWork | CSTRING(260) | Working directory for the process. |
-| ShowCmd | LONG | Window show mode (see Windows `SW_*` constants). |
+| ShowCmd | LONG | Window show mode (see Windows SW_* constants). |
 | DelayMS | LONG | Delay in milliseconds before the launch begins. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
@@ -59,6 +59,6 @@ Ret = vuShellExDelay(FilePath, Params, WorkFolder, ShowCmd, DelayMS)
 
 ### Notes
 - Use this when you need Windows shell file-association behavior plus a startup delay.
-- If you do not need separate parameters or a working folder, `vuShellDelay` is the simpler choice.
+- If you do not need separate parameters or a working folder, vuShellDelay is the simpler choice.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -9,7 +9,7 @@ keywords: ["vuFileTools", "vufileexists", "specified", "exists", "disk", "whethe
 function_name: "vuFileExists"
 category: "File System"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -28,7 +28,7 @@ Checks whether a specified file exists on disk.
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Full path of the file to check (for example, `C:\Windows\Notepad.exe`).     |
+| pFile     | CSTRING(260) | Full path of the file to check (for example, C:\Windows\Notepad.exe).     |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools - Installation
 
@@ -59,4 +59,4 @@ Each demo folder contains the files relevant to that example application.
 
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

@@ -2,9 +2,9 @@
 title: "vuFileTools - Categories"
 summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
-keywords: ["vuFileTools", "functions", "categories", "Clarion", "home", "vufiletools"]
+keywords: ["vuFileTools", "functions", "categories", "Clarion", "home", "vuFileTools"]
 page_type: "category"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](../functions/index.md) | [Categories](index.md)

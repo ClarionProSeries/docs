@@ -6,7 +6,7 @@ keywords: ["vuprintexistsex", "print", "wait", "poll", "default printer", "vuFil
 function_name: "vuPrintExistsEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -57,6 +57,6 @@ Ret = vuPrintExistsEx(FilePath, 10, 200)
 
 ### Notes
 - Use this when another process is expected to create the print file shortly.
-- If you need a specific printer, use `vuPrintToExistsEx` instead.
+- If you need a specific printer, use vuPrintToExistsEx instead.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

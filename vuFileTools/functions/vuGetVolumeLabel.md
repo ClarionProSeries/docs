@@ -7,7 +7,7 @@ keywords: ["label", "vuFileTools", "specified", "directory", "volume", "root", "
 function_name: "vuGetVolumeLabel"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -26,7 +26,7 @@ Returns the volume label of the specified root directory. Supports both local dr
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| tDir      | CSTRING(128) | Path to the root directory (for example, `C:\` or `\\MyServer\C\`).         |
+| tDir      | CSTRING(128) | Path to the root directory (for example, C:\ or \\MyServer\C\).         |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

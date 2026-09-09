@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotCheck(SlotName, dBuffer)
 
@@ -9,32 +9,34 @@ vuMailSlotCheck(*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Checks the specified mail slot for pending messages and places the next message (if any) into `dBuffer`.
+Checks a registered mailslot and reads the next pending message into the caller-provided buffer.
 
 ### Parameters
 
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| SlotName  | CSTRING(256) | The name of the mail slot to check.                                         |
-| dBuffer   | CSTRING(512) | Buffer to receive the next message. Message size should not exceed 16K locally or 400 bytes across a domain. |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| SlotName | CSTRING | The logical name of the local mailslot to check. |
+| dBuffer | CSTRING | Destination buffer for the next message. This legacy function does not know the actual capacity of the caller buffer. |
 
 ### Returns
-- -1 on error  
-- 0 if no messages are pending  
-- Otherwise, the number of pending messages (including the one copied into `dBuffer`)  
+- -1 if GetMailslotInfo fails. Use vuMailSlotLastError for the Windows error.  
+- 0 if no message is pending, the slot is not registered, or the legacy ReadFile operation fails. A ReadFile failure leaves the Windows error available through vuMailSlotLastError.  
+- A value greater than 0 is the number of messages that were pending before the current message was read.  
 
 ### Example
 
 ```Clarion
-SlotName = 'Transactions'
-IF vuMailSlotCheck(SlotName, dBuffer) > 0
-  MESSAGE('You have mail: ' & dBuffer)
+GotMail = vuMailSlotCheck(Mailbox, MailBuffer)
+IF GotMail > 0
+  MESSAGE('You have mail: ' & MailBuffer)
+ELSIF GotMail < 0
+  MESSAGE('Unable to check the mail slot.')
 END
 ```
 
 ### Notes
-- The demo application included with vuFileTools shows a practical example of using mail slots for inter-process communication.  
-- Mail slots can be used for one application to send data to and manipulate another application.  
-- For more details, refer to the separate mail slots write-up included with the distribution package.
+- Build 208 corrects empty timer polling so an already-consumed message is not processed again on the next poll.  
+- Do not use only IF GotMail when receiving. Test GotMail > 0 before processing the buffer.  
+- For new code, use vuMailSlotCheckEx so vuFileTools can verify the destination buffer size before reading the message.  
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)

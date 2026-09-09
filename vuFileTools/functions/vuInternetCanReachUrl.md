@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "networking", "internet", "connectivity", "vuInternetC
 function_name: "vuInternetCanReachUrl"
 category: "Networking"
 version_added: "5.0"
-last_updated: "2025-12-03"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -27,7 +27,7 @@ This is useful for checking connectivity to a particular service endpoint, not j
 
 | Parameter | Data Type | Description |
 |----------|-----------|-------------|
-| Url      | *CSTRING  | Fully qualified URL to test, for example `https://www.example.com/`. |
+| Url      | *CSTRING  | Fully qualified URL to test, for example https://www.example.com/. |
 | TimeoutMs| LONG      | Timeout in milliseconds for both connect and receive operations. If less than or equal to 0, a default value of 5000 ms is used. |
 
 ### Returns

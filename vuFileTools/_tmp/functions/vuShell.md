@@ -42,7 +42,7 @@ END
 ```
 
 ### Notes
-- `vuShell` relies on the file association defined in Windows.
-- Use `vuShellEx` when you need separate parameters, a working folder, or control over window display.
+- vuShell relies on the file association defined in Windows.
+- Use vuShellEx when you need separate parameters, a working folder, or control over window display.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -37,10 +37,10 @@ KeyValue)</h1>
 the registry key structure. The function automatically creates the
 required key and subkeys. Keys are stored under:</p>
 <ul>
-<li><code>HKEY_CURRENT_USER\Software\vuPrograms\&lt;Your Program Name&gt;\KeyName</code>
-if <code>ByUser = 1</code></li>
-<li><code>HKEY_LOCAL_MACHINE\Software\vuPrograms\&lt;Your Program Name&gt;\KeyName</code>
-if <code>ByUser = 0</code></li>
+<li>HKEY_CURRENT_USER\Software\vuPrograms&lt;Your Program
+Name&gt;\KeyName if ByUser = 1</li>
+<li>HKEY_LOCAL_MACHINE\Software\vuPrograms&lt;Your Program
+Name&gt;\KeyName if ByUser = 0</li>
 </ul>
 <p>This allows each application to store values independently without
 overwriting each other.</p>
@@ -84,10 +84,9 @@ IF vuEZRegPut(0, KeyName, KeyValue) = 1
 END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Works together with <code>vuEZRegGet</code> to retrieve stored
-values.</li>
+<li>Works together with vuEZRegGet to retrieve stored values.</li>
 <li>Each program name is embedded in the registry path, so keys with the
-same <code>KeyName</code> will not conflict between applications.</li>
+same KeyName will not conflict between applications.</li>
 <li>Not a general-purpose registry API only designed for saving and
 retrieving simple values.</li>
 </ul>

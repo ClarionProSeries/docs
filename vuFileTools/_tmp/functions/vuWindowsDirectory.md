@@ -24,7 +24,7 @@ MESSAGE('The Windows directory is ' & vuWindowsDirectory())
 ```
 
 ### Notes
-- The return value is the full path to the Windows system directory (for example, `C:\Windows`).  
+- The return value is the full path to the Windows system directory (for example, C:\Windows).  
 - Useful for locating system files or ensuring application compatibility with system paths.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

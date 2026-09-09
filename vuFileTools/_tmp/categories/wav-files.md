@@ -1,5 +1,5 @@
 
-# vuFiletools - WAV File Related Functions
+# vuFileTools - WAV File Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 

@@ -3,13 +3,13 @@ title: "vuSystemDirectory"
 summary: "Returns the path to the Windows System Directory."
 description: "Returns the path to the Windows System Directory. ### Parameters ### Returns
 A CSTRING containing the fully qualified path to the Windows System Directory. ### Example ### Notes
-- The path returned typically looks like `C:\Windows\System32`.  
+- The path returned typically looks like C:\Windows\System32.  
 - Useful for locating system files or ensuring compatibility with system-level operations. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["windows", "vuFileTools", "path", "directory", "general", "returns", "system", "Clarion", "Windows", "vusystemdirectory"]
 function_name: "vuSystemDirectory"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -40,7 +40,7 @@ MESSAGE('The system directory = ' & vuSystemDirectory())
 ```
 
 ### Notes
-- The path returned typically looks like `C:\Windows\System32`.  
+- The path returned typically looks like C:\Windows\System32.  
 - Useful for locating system files or ensuring compatibility with system-level operations.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

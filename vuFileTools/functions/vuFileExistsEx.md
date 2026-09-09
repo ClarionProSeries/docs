@@ -10,7 +10,7 @@ keywords: ["optional", "vuFileTools", "specified", "exists", "whether", "waiting
 function_name: "vuFileExistsEx"
 category: "File System"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -30,7 +30,7 @@ This allows you to pause execution while waiting for a file to appear.
 
 | Parameter   | Data Type    | Description                                                                 |
 |-------------|--------------|-----------------------------------------------------------------------------|
-| pFile       | CSTRING(260) | Full path of the file to check (for example, `C:\Windows\Notepad.exe`).     |
+| pFile       | CSTRING(260) | Full path of the file to check (for example, C:\Windows\Notepad.exe).     |
 | WaitSeconds | LONG         | Maximum number of seconds to wait for the file to appear.                   |
 | PollMS      | LONG         | Polling interval in milliseconds while waiting.                            |
 

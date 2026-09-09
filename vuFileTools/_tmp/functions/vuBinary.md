@@ -18,7 +18,7 @@ Returns the binary representation of a LONG value.
 | LongValue | LONG      | The value to convert to binary |
 
 ### Returns
-The binary representation of `LongValue`.
+The binary representation of LongValue.
 
 ### Example
 

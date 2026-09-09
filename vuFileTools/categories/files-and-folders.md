@@ -2,9 +2,9 @@
 title: "vuFileTools - Files and Folder Related Functions"
 summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
-keywords: ["files", "vuFileTools", "functions", "categories", "Clarion", "home", "folder", "vufiletools", "related"]
+keywords: ["files", "vuFileTools", "functions", "categories", "Clarion", "home", "folder", "vuFileTools", "related"]
 page_type: "category"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 # vuFileTools - Files and Folder Related Functions

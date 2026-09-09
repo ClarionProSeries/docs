@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailSlotLastError</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../mailslots.html">Mailslots Overview</a> | <a
+href="index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="vumailslotlasterror">vuMailSlotLastError()</h1>
+<pre class="Prototype"><code>vuMailSlotLastError(), LONG</code></pre>
+<h2 id="description">Description</h2>
+<p>Returns the native Windows error code captured by the most recent
+mailslot operation in the current process.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td></td>
+<td>This function takes no parameters.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>Returns the stored Windows error code.</li>
+<li>Returns 0 when no mailslot error is currently stored.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>Result = vuMailSlotSend(SlotName, Data, LEN(Data), 1)
+IF Result = 0
+  ErrNo = vuMailSlotLastError()
+  MESSAGE(&#39;Windows error: &#39; &amp; ErrNo)
+END</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Added in Build 208.</li>
+<li>Call this immediately after a failed mailslot operation if you need
+the native Windows error.</li>
+<li>Use vuMailSlotLastErrorText to convert the error code into readable
+Windows text.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a
+href="../mailslots.html">Mailslots Overview</a> | <a
+href="index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

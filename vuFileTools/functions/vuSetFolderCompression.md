@@ -10,7 +10,7 @@ keywords: ["vuFileTools", "Clarion", "specified", "ntfs", "compression", "genera
 function_name: "vuSetFolderCompression"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -30,7 +30,7 @@ This allows you to toggle compression without recreating the folder.
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| zPath     | CSTRING   | Full path of the folder to update (for example, `C:\Testing\ToggleCompression`). |
+| zPath     | CSTRING   | Full path of the folder to update (for example, C:\Testing\ToggleCompression). |
 | Enable    | LONG      | 1 to enable compression, 0 to disable compression.                          |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._

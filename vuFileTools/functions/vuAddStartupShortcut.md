@@ -12,7 +12,7 @@ keywords: ["vuFileTools", "creates", "shortcut", "management", "vuaddstartupshor
 function_name: "vuAddStartupShortcut"
 category: "Startup Management"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -35,8 +35,8 @@ Creates a shortcut (.lnk file) in the Windows Startup folder so that the specifi
 | Params    | CSTRING(1024)| Optional command-line parameters for the executable.                        |
 | WorkDir   | CSTRING(1024)| Working directory for the executable.                                       |
 | ShowCmd   | LONG         | Window display option (see ShowWindow constants such as 1 = Normal).        |
-| LinkName  | CSTRING(260) | Name of the shortcut file (e.g., `MyApp.lnk`).                              |
-| Scope     | LONG         | `0` = Current User Startup, `1` = Common (All Users) Startup.               |
+| LinkName  | CSTRING(260) | Name of the shortcut file (e.g., MyApp.lnk).                              |
+| Scope     | LONG         | 0 = Current User Startup, 1 = Common (All Users) Startup.               |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._
 

@@ -2,9 +2,9 @@
 title: "vuFileTools - Windows Information Related Functions"
 summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
-keywords: ["vuFileTools", "functions", "categories", "information", "Clarion", "home", "vufiletools", "related", "windows"]
+keywords: ["vuFileTools", "functions", "categories", "information", "Clarion", "home", "vuFileTools", "related", "windows"]
 page_type: "category"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 # vuFileTools - Windows Information Related Functions

@@ -9,7 +9,7 @@ vuAnimateCloseBlend(LONG,LONG), Signed
 
 
 ## Description
-Animates the closing of a window by blending it into the background. The animation duration is defined by `dwTime` in milliseconds.
+Animates the closing of a window by blending it into the background. The animation duration is defined by dwTime in milliseconds.
 
 ### Parameters
 

@@ -40,7 +40,7 @@ END
 
 ### Notes
 - Supports moving files across different drives, including network locations.  
-- Wildcards (such as `*.*`) are supported.  
-- Internally calls `vuCopy()` followed by `vuDelete()`.
+- Wildcards (such as *.*) are supported.  
+- Internally calls vuCopy() followed by vuDelete().
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

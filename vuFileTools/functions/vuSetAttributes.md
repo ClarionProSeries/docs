@@ -12,7 +12,7 @@ keywords: ["group", "vuFileTools", "vusetattributes", "specified", "attributes",
 function_name: "vuSetAttributes"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -31,7 +31,7 @@ Sets or resets file attributes for the specified file or group of files. Wildcar
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| FileMask  | CSTRING(256) | Fully qualified path and filename. Wildcards (`*.*`) are allowed.            |
+| FileMask  | CSTRING(256) | Fully qualified path and filename. Wildcards (*.*) are allowed.            |
 | ReadOnly  | LONG         | 0 = Reset, 1 = Set the ReadOnly attribute.                                   |
 | Hidden    | LONG         | 0 = Reset, 1 = Set the Hidden attribute.                                     |
 | System    | LONG         | 0 = Reset, 1 = Set the System attribute.                                     |

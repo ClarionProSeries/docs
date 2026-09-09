@@ -36,7 +36,7 @@ END
 
 ### Notes
 - Requires Windows 2000 or higher.  
-- Use `vuGetDefaultPrinter()` to save the current default before switching.  
+- Use vuGetDefaultPrinter() to save the current default before switching.  
 - Typical usage pattern:  
   1. Save the current default printer.  
   2. Set a new default printer (for example, a label printer).  

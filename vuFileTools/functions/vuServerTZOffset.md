@@ -11,7 +11,7 @@ keywords: ["vuFileTools", "minutes", "specified", "zone", "relative", "general",
 function_name: "vuServerTZOffset"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -30,7 +30,7 @@ Returns the time zone bias, in minutes, of the specified server (or local PC) re
 
 | Parameter  | Data Type    | Description                                                                 |
 |------------|--------------|-----------------------------------------------------------------------------|
-| ServerName | CSTRING(256) | The name of the server (e.g., `\\MyServer`). Forward slashes are optional and will be added automatically. |
+| ServerName | CSTRING(256) | The name of the server (e.g., \\MyServer). Forward slashes are optional and will be added automatically. |
 
 ### Returns
 A CSTRING containing the bias, in minutes, of the PCs time zone offset from UTC.  

@@ -15,7 +15,7 @@ Captures the current Windows desktop and saves it as a bitmap file.
 
 | Parameter | Data Type    | Description                                                       |
 |-----------|--------------|-------------------------------------------------------------------|
-| FileName  | CSTRING(256) | Fully qualified filename for the bitmap file (must include `.bmp` extension). |
+| FileName  | CSTRING(256) | Fully qualified filename for the bitmap file (must include .bmp extension). |
 
 ### Returns
 A LONG value:  

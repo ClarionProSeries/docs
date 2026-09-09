@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "vucloseappex", "close", "shutdown", "warning", "count
 function_name: "vuCloseAppEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-01-03"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -9,7 +9,7 @@ vuCreateLinkEx(LONG,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by `vuCreateLink`.
+Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by vuCreateLink.
 
 ### Parameters
 
@@ -34,7 +34,7 @@ END
 ```
 
 ### Notes
-- Extends `vuCreateLink()` by adding `WorkingDir` and `Comment` parameters.  
-- Otherwise functionally identical to `vuCreateLink`.
+- Extends vuCreateLink() by adding WorkingDir and Comment parameters.  
+- Otherwise functionally identical to vuCreateLink.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -9,7 +9,7 @@ vuPlayWav(*CSTRING,LONG), Signed
 
 
 ## Description
-Plays a `.wav` audio file and optionally waits for playback to complete before returning.
+Plays a .wav audio file and optionally waits for playback to complete before returning.
 
 ### Parameters
 

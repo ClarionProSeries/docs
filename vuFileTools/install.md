@@ -4,10 +4,10 @@ summary: "When you run the installer for vuFileTools it locates valid Clarion in
 description: "When you run the installer for vuFileTools it locates valid Clarion installations on your computer and lets you choose which one to install the template for."
 keywords: ["Clarion", "install", "vuFileTools", "installation", "installer", "templates", "setup", "accessory"]
 page_type: "guide"
-last_updated: "2025-10-06"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # vuFileTools - Installation
 
@@ -67,4 +67,4 @@ Each demo folder contains the files relevant to that example application.
 
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

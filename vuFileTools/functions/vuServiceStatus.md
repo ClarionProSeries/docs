@@ -19,7 +19,7 @@ keywords: ["windows", "services", "vuFileTools", "client", "specified", "service
 function_name: "vuServiceStatus"
 category: "Services"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -38,7 +38,7 @@ Returns the status of a Windows service on a specified client or server. Can als
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| Server    | CSTRING(128) | The name of the server or client PC. Leave blank (`''`) to reference the local PC. Case sensitive. |
+| Server    | CSTRING(128) | The name of the server or client PC. Leave blank ('') to reference the local PC. Case sensitive. |
 | Service   | CSTRING(128) | The name of the service to check. Not case sensitive.                       |
 
 ### Returns

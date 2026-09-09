@@ -6,7 +6,7 @@ keywords: ["vurunexistsex", "exists", "poll", "wait", "run", "vuFileTools", "Cla
 function_name: "vuRunExistsEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -62,6 +62,6 @@ Ret = vuRunExistsEx(FilePath, 10, 200)
 
 ### Notes
 - Use this when another process is expected to create the file shortly.
-- `WaitSec = 0` means do not wait; the function will only check once.
+- WaitSec = 0 means do not wait; the function will only check once.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

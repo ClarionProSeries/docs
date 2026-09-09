@@ -9,18 +9,18 @@ vuRemoveChars(*CSTRING,*CSTRING,Long), CSTRING
 
 
 ## Description
-Returns a modified version of `Strg` with the characters specified in `Chars` removed. Behavior depends on the `AllChars` flag.
+Returns a modified version of Strg with the characters specified in Chars removed. Behavior depends on the AllChars flag.
 
 ### Parameters
 
 | Parameter | Data Type     | Description                                                                 |
 |-----------|---------------|-----------------------------------------------------------------------------|
 | Strg      | CSTRING(128)  | The input string to modify.                                                 |
-| Chars     | CSTRING(128)  | Characters or substring to remove from `Strg`.                             |
-| AllChars  | LONG          | If 1, remove all characters present in `Chars`. If 0, treat `Chars` as a literal substring to remove. |
+| Chars     | CSTRING(128)  | Characters or substring to remove from Strg.                             |
+| AllChars  | LONG          | If 1, remove all characters present in Chars. If 0, treat Chars as a literal substring to remove. |
 
 ### Returns
-A CSTRING containing the modified version of `Strg`.
+A CSTRING containing the modified version of Strg.
 
 ### Example
 
@@ -36,7 +36,7 @@ MESSAGE(Result)
 ```
 
 ### Notes
-- Use `AllChars = 1` when you want to remove every occurrence of any character in `Chars`.  
-- Use `AllChars = 0` when you want to remove only the exact substring provided in `Chars`.
+- Use AllChars = 1 when you want to remove every occurrence of any character in Chars.  
+- Use AllChars = 0 when you want to remove only the exact substring provided in Chars.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

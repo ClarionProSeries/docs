@@ -8,7 +8,7 @@ keywords: ["vuFileTools", "extracts", "path", "full", "just", "from", "general",
 function_name: "vuExtractFileNameEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -28,7 +28,7 @@ This is useful for removing directory components and isolating the file name.
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| FullPath  | CSTRING(260) | The full path to the file (for example, `C:\My Stuff\test(file,1).txt`).    |
+| FullPath  | CSTRING(260) | The full path to the file (for example, C:\My Stuff\test(file,1).txt).    |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

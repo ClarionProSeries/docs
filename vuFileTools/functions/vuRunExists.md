@@ -6,7 +6,7 @@ keywords: ["vurunexists", "exists", "launch", "run", "vuFileTools", "Clarion"]
 function_name: "vuRunExists"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -60,6 +60,6 @@ Ret = vuRunExists(FilePath)
 
 ### Notes
 - Use this when the existence check is part of the launch requirement.
-- If you need to wait for a file to appear before launching it, use `vuRunExistsEx`.
+- If you need to wait for a file to appear before launching it, use vuRunExistsEx.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

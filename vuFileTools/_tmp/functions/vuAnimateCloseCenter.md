@@ -9,7 +9,7 @@ vuAnimateCloseCenter(LONG,LONG), Signed
 
 
 ## Description
-Animates the closing of a window from the center outward. The animation duration is defined by `dwTime` in milliseconds.
+Animates the closing of a window from the center outward. The animation duration is defined by dwTime in milliseconds.
 
 ### Parameters
 

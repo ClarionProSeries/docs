@@ -8,7 +8,7 @@ vuStartEmail(*CSTRING,*CSTRING,*CSTRING), Signed
 ```
 
 ## Description
-Uses the `MailTo` protocol to start the default desktop email client with the specified recipient, subject, and body text. The user must manually send the email.
+Uses the MailTo protocol to start the default desktop email client with the specified recipient, subject, and body text. The user must manually send the email.
 
 ### Parameters
 
@@ -37,8 +37,8 @@ ELSE
 END
 ```
 
-**Note:** Opens the default desktop email client registered for the `MailTo` protocol.  
+**Note:** Opens the default desktop email client registered for the MailTo protocol.  
 - The email is pre-filled with the specified values, but the user must press **Send** manually.  
-- May not work if no desktop email client is installed or associated with `MailTo`.
+- May not work if no desktop email client is installed or associated with MailTo.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

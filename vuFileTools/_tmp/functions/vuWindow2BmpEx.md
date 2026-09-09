@@ -15,15 +15,15 @@ Saves any window as a bitmap file, given its window handle.
 
 | Parameter | Data Type    | Description                                                             |
 |-----------|--------------|-------------------------------------------------------------------------|
-| hWindow   | LONG         | Handle of the window to save (use functions like `vuWindowHandle`).     |
+| hWindow   | LONG         | Handle of the window to save (use functions like vuWindowHandle).     |
 | BMPFile   | CSTRING(128) | Fully qualified path and filename for the bitmap file to be created.    |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
 A BYTE value:  
-- `True` if the window was successfully saved.  
-- `False` if the operation failed.
+- True if the window was successfully saved.  
+- False if the operation failed.
 
 ### Example
 
@@ -42,6 +42,6 @@ END
 ### Notes
 - Works with any window handle, not just the active window.  
 - Ensure you provide a valid window handle before calling this function.  
-- Always specify a fully qualified filename including the `.bmp` extension.
+- Always specify a fully qualified filename including the .bmp extension.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

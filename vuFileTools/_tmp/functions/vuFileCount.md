@@ -9,13 +9,13 @@ vuFileCount(*CSTRING), Long
 
 
 ## Description
-Counts the number of files that match the specified mask. Wildcards are supported. Unlike Clarions built-in `EXISTS()` function, `vuFileCount` does not affect file creation, last written, or access dates.
+Counts the number of files that match the specified mask. Wildcards are supported. Unlike Clarions built-in EXISTS() function, vuFileCount does not affect file creation, last written, or access dates.
 
 ### Parameters
 
 | Parameter | Data Type    | Description                                                      |
 |-----------|--------------|------------------------------------------------------------------|
-| Mask      | CSTRING(256) | Fully qualified path and filename (wildcards allowed, e.g. `*.bak`) |
+| Mask      | CSTRING(256) | Fully qualified path and filename (wildcards allowed, e.g. *.bak) |
 
 ### Returns
 LONG containing the total number of files that match the mask.  

@@ -9,7 +9,7 @@ vuUncompress(*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Uncompresses a file created with `vuCompress()` using a fast Huffman-based algorithm (medium compression ratio). The source file remains unchanged.
+Uncompresses a file created with vuCompress() using a fast Huffman-based algorithm (medium compression ratio). The source file remains unchanged.
 
 ### Parameters
 
@@ -37,7 +37,7 @@ END
 ```
 
 ### Notes
-- Designed to work with archives created by `vuCompress()`.  
+- Designed to work with archives created by vuCompress().  
 - The source (compressed) file is not modified.  
 - Ensure the target path exists and that you have write permissions.
 

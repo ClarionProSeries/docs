@@ -9,7 +9,7 @@ vuFadeOutOthers(*CSTRING), Signed
 
 
 ## Description
-Fades out other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment.
+Fades out other windows whose title contains the specified name or phrase. If wName is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment.
 
 ### Parameters
 

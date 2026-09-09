@@ -38,7 +38,7 @@ END
 
 ### Notes
 - Tool windows use a smaller title bar and do not display on the Taskbar.  
-- Use `tFlag = 0` to revert the window back to normal style.  
+- Use tFlag = 0 to revert the window back to normal style.  
 - The Demo3 application shows an example under the Mailslots tab.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

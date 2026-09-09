@@ -1,22 +1,55 @@
 ---
 title: "What's New in vuFileTools"
-summary: "Version: 5."
+summary: "Version: 5.0"
 description: "Version: 5.0  
-Release date: 2026-03-20"
-keywords: ["documentation", "what", "vufiletools", "Clarion", "vuFileTools", "version"]
+Release date: 2026-09-08"
+keywords: ["documentation", "what", "vuFileTools", "Clarion", "vuFileTools", "version"]
 page_type: "release-notes"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # What's New in vuFileTools
 
-Version: 5.0  (Build 207)
+Version: 5.0  (Build 208)
 
-Release date: 2026-03-20
+Release date: 2026-09-08
 
 This page highlights new items in the Version 5 cycle and links to their reference topics.
+
+## What's New in Build 208
+
+Build 208 improves the reliability of the vuFileTools mailslot functions and adds better tools for receiving messages and diagnosing problems.
+
+A long-standing mailslot bug has been fixed that could cause messages between applications to be missed or processed incorrectly.
+
+### New Functions in Build 208
+
+| Function | Description |
+|----------|-------------|
+| [vuMailSlotCheckEx](functions/vuMailSlotCheckEx.md) | Preferred receive function for new applications. The caller supplies the destination buffer size so incoming messages can be handled more safely. |
+| [vuMailSlotLastError](functions/vuMailSlotLastError.md) | Returns the Windows error number from the most recent mailslot operation that failed. |
+| [vuMailSlotLastErrorText](functions/vuMailSlotLastErrorText.md) | Returns a readable description of the most recent Windows mailslot error. |
+
+### Mailslot Improvements
+
+- Improved reliability when sending and receiving messages between applications.
+- Corrected a problem that could cause a previously received message to be processed again.
+- Added safer buffer-aware message receiving with vuMailSlotCheckEx.
+- Added Windows error information to make mailslot problems easier to diagnose.
+- Existing applications can continue using the original mailslot functions without changing their calling conventions.
+- Updated the documentation with practical examples and guidance for using mailslots between applications.
+
+### Current Windows Guidance
+
+Local mailslots remain useful for simple communication between applications running on the same Windows computer.
+
+Microsoft has deprecated the older Remote Mailslot protocol, and current versions of Windows 11 disable remote mailslots by default. vuFileTools retains remote support for compatibility with older applications, but local mailslots are the recommended use for new vuFileTools development.
+
+See [Mailslots Overview](mailslots.md) for examples, usage guidance, and links to the related functions.
+
+---
 
 ## What's New in Build 207
 
@@ -86,7 +119,7 @@ Build 206 added the new password visibility helper feature for Clarion applicati
 | [vuIsNTFSCompressed](functions/vuIsNTFSCompressed.md) | Checks whether the specified file or folder is NTFS-compressed. Works with both individual files and directories. |
 | [vuSetNTFSCompression](functions/vuSetNTFSCompression.md) | Enables or disables NTFS compression on the specified file or folder. |
 | [vuPrimaryLinkSpeed](functions/vuPrimaryLinkSpeed.md) | Retrieves the speed of the primary network connection, in megabits per second (Mbps). |
-| [vuIsNetworkSlow](functions/vuIsNetworkSlow.md) | Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by `vuPrimaryLinkSpeed()`. |
+| [vuIsNetworkSlow](functions/vuIsNetworkSlow.md) | Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by vuPrimaryLinkSpeed(). |
 | [vuCreateHardLink](functions/vuCreateHardLink.md) | Creates a hard link to an existing file on NTFS volumes. |
 | [vuCreateSymbolicLink_File](functions/vuCreateSymbolicLink_File.md) | Creates a symbolic link (soft link) that points to a file. Requires elevated privileges. |
 | [vuCreateSymbolicLink_Dir](functions/vuCreateSymbolicLink_Dir.md) | Creates a symbolic link (soft link) that points to a directory. Requires elevated privileges. |
@@ -119,7 +152,7 @@ Build 206 added the new password visibility helper feature for Clarion applicati
 | [vuCreateCompressedFolder](functions/vuCreateCompressedFolder.md) | Creates a new NTFS-compressed folder. |
 | [vuSetFolderCompression](functions/vuSetFolderCompression.md) | Enables or disables NTFS compression on a folder. |
 | [vuFileExists](functions/vuFileExists.md) | Checks whether a specified file exists. |
-| [vuFileExistsEx](functions/vuFileExistsEx.md) | Extended version of `vuFileExists`, with support for more advanced checks. |
+| [vuFileExistsEx](functions/vuFileExistsEx.md) | Extended version of vuFileExists, with support for more advanced checks. |
 | [vuEnumerateFolderA](functions/vuEnumerateFolderA.md) | Begins enumeration of files and folders within a specified directory (ANSI version). |
 | [vuGetEnumeratedEntryA](functions/vuGetEnumeratedEntryA.md) | Retrieves information about the current entry during enumeration (ANSI version). |
 | [vuStartDriveEnum](functions/vuStartDriveEnum.md) | Begins enumeration of system drives. |
@@ -131,6 +164,6 @@ Build 206 added the new password visibility helper feature for Clarion applicati
 | [vuEndDriveEnumEx](functions/vuEndDriveEnumEx.md) | Ends extended drive enumeration. |
 | [vuGetNextDriveExAuto](functions/vuGetNextDriveExAuto.md) | Retrieves the next drive automatically from extended enumeration. |
 | [vuGetDriveList](functions/vuGetDriveList.md) | Returns a list of all system drives. |
-| [vuGetDriveListEx](functions/vuGetDriveListEx.md) | Extended version of `vuGetDriveList`, with more detailed drive information. |
+| [vuGetDriveListEx](functions/vuGetDriveListEx.md) | Extended version of vuGetDriveList, with more detailed drive information. |
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

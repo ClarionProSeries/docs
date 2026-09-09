@@ -9,8 +9,8 @@ vuEndDriveEnumEx(), LONG
 
 
 ## Description
-Finalizes the extended drive enumeration sequence and releases any resources allocated by `vuStartDriveEnumEx()`.  
-Call this after looping `vuGetNextDriveEx()` until it returns 0.
+Finalizes the extended drive enumeration sequence and releases any resources allocated by vuStartDriveEnumEx().  
+Call this after looping vuGetNextDriveEx() until it returns 0.
 
 ### Parameters
 
@@ -86,8 +86,8 @@ sReady       CSTRING(4)
 ```
 
 ### Notes
-- Always call `vuEndDriveEnumEx()` after finishing with `vuGetNextDriveEx()` to free internal resources.  
-- Use the extended sequence (`vuStartDriveEnumEx` / `vuGetNextDriveEx` / `vuEndDriveEnumEx`) when you need detailed drive info.  
-- For simpler iteration without explicit cleanup, use `vuGetNextDriveExAuto()`.
+- Always call vuEndDriveEnumEx() after finishing with vuGetNextDriveEx() to free internal resources.  
+- Use the extended sequence (vuStartDriveEnumEx / vuGetNextDriveEx / vuEndDriveEnumEx) when you need detailed drive info.  
+- For simpler iteration without explicit cleanup, use vuGetNextDriveExAuto().
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -6,13 +6,13 @@ A LONG value:
 - 1 (True) on success  
 - 0 (False) on failure   ### Example ### Notes
 - Supports moving files across different drives, including network locations.  
-- Wildcards (such as `*.*`) are supported.  
-- Internally calls `vuCopy()` followed by `vuDelete()`. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- Wildcards (such as *.*) are supported.  
+- Internally calls vuCopy() followed by vuDelete(). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["vuFileTools", "vumove", "location", "more", "moves", "from", "destination", "general", "source", "Clarion", "Windows", "files"]
 function_name: "vuMove"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -56,7 +56,7 @@ END
 
 ### Notes
 - Supports moving files across different drives, including network locations.  
-- Wildcards (such as `*.*`) are supported.  
-- Internally calls `vuCopy()` followed by `vuDelete()`.
+- Wildcards (such as *.*) are supported.  
+- Internally calls vuCopy() followed by vuDelete().
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

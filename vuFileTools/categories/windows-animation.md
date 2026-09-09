@@ -2,9 +2,9 @@
 title: "vuFileTools - Windows Animation Related Functions"
 summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
-keywords: ["vuFileTools", "functions", "categories", "Clarion", "home", "animation", "vufiletools", "related", "windows"]
+keywords: ["vuFileTools", "functions", "categories", "Clarion", "home", "animation", "vuFileTools", "related", "windows"]
 page_type: "category"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 # vuFileTools - Windows Animation Related Functions

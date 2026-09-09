@@ -17,7 +17,7 @@ This is useful for checking connectivity to a particular service endpoint, not j
 
 | Parameter | Data Type | Description |
 |----------|-----------|-------------|
-| Url      | *CSTRING  | Fully qualified URL to test, for example `https://www.example.com/`. |
+| Url      | *CSTRING  | Fully qualified URL to test, for example https://www.example.com/. |
 | TimeoutMs| LONG      | Timeout in milliseconds for both connect and receive operations. If less than or equal to 0, a default value of 5000 ms is used. |
 
 ### Returns

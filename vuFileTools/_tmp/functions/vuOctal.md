@@ -18,7 +18,7 @@ Converts a LONG value into its octal representation.
 | LongValue | LONG      | The number to convert to octal.    |
 
 ### Returns
-A CSTRING containing the octal representation of `LongValue`.
+A CSTRING containing the octal representation of LongValue.
 
 ### Example
 

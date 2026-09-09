@@ -25,7 +25,7 @@ Sends a file to the default printer and displays the print job window using the 
 | Parameter | Data Type | Description |
 |-----------|-----------|-------------|
 | pFile | CSTRING(260) | Path to the file to print. |
-| ShowCmd | LONG | Window show mode (see Windows `SW_*` constants). |
+| ShowCmd | LONG | Window show mode (see Windows SW_* constants). |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

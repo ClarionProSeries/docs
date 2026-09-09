@@ -9,7 +9,7 @@ vuIsRunningCheck(*CSTRING), Signed
 
 
 ## Description
-Determines if a program is already running by checking for a named mutex. Unlike `vuIsRunning`, this function only checks if the mutex exists and does not create one.
+Determines if a program is already running by checking for a named mutex. Unlike vuIsRunning, this function only checks if the mutex exists and does not create one.
 
 ### Parameters
 
@@ -33,6 +33,6 @@ END
 ```
 
 ### Notes
-- Use `vuIsRunning()` if you need to both check and create the mutex.
+- Use vuIsRunning() if you need to both check and create the mutex.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -15,7 +15,7 @@ Checks whether a specified file exists on disk.
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Full path of the file to check (for example, `C:\Windows\Notepad.exe`).     |
+| pFile     | CSTRING(260) | Full path of the file to check (for example, C:\Windows\Notepad.exe).     |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

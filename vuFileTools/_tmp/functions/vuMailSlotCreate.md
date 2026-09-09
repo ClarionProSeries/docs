@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotCreate(SlotName)
 
@@ -9,31 +9,33 @@ vuMailSlotCreate(*CSTRING), Signed
 
 
 ## Description
-Creates a mail slot in your application for receiving messages from other applications on the same PC or within the same domain.
+Creates a local mailslot in the current application so it can receive messages from another application.
 
 ### Parameters
 
-| Parameter | Data Type    | Description                          |
-|-----------|--------------|--------------------------------------|
-| SlotName  | CSTRING(256) | The name of the mail slot to create. |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| SlotName | CSTRING | The logical name of the mailslot to create. |
 
 ### Returns
-A LONG value representing the number of current mail slots active on the PC if successful.  
-Returns -1 on error.
+- Returns the number of registered mailslots when the slot is created successfully.  
+- Returns 0 if the slot cannot be created. Use vuMailSlotLastError and vuMailSlotLastErrorText for the Windows error when available.  
 
 ### Example
 
 ```Clarion
 SlotName = 'Transactions'
-IF vuMailSlotCreate(SlotName) > 0
-  MESSAGE('Mail slot created. There are now ' & vuMailSlotCreate(SlotName) & ' mail slots running on this PC.')
+Result = vuMailSlotCreate(SlotName)
+IF Result > 0
+  MESSAGE('Mail slot created successfully.')
+ELSE
+  MESSAGE('Failed to create mail slot.')
 END
 ```
 
 ### Notes
-- Mail slots provide a simple way to pass data between applications.  
-- Messages sent to a mail slot can be broadcast to multiple recipients simultaneously.  
-- You can send data as a group or queue, allowing any kind of structured data to be passed.  
-- Mail slots use datagrams and do not guarantee delivery.
+- Build 208 corrects the first-slot bookkeeping problem that could allow Windows to create the slot successfully while vuFileTools recorded it in the reserved base position.  
+- Create the receiving slot once and retain it until the application is finished with the channel.  
+- For same-PC communication, the sending application should call vuMailSlotSend with Local set to 1.  
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)

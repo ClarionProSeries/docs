@@ -31,6 +31,6 @@ MESSAGE(vuMapped2UNC(FilePath))
 
 ### Notes
 - Safe to use when it is unknown if the drive is mapped.  
-- If the drive is not a mapped network drive, the original `FilePath` is returned.
+- If the drive is not a mapped network drive, the original FilePath is returned.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

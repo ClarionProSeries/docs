@@ -9,7 +9,7 @@ vuAnimateOpenBlend(LONG,LONG), Signed
 
 
 ## Description
-Animates the opening of a window by blending it from the background. The animation duration is defined by `dwTime` in milliseconds.
+Animates the opening of a window by blending it from the background. The animation duration is defined by dwTime in milliseconds.
 
 ### Parameters
 

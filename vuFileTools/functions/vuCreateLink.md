@@ -1,7 +1,7 @@
 ---
 title: "vuCreateLink"
 summary: "Creates a Windows shortcut (link) file."
-description: "Creates a Windows shortcut (link) file. Shortcuts allow programs to be started from locations such as the desktop, start menu, or other system folders. `vuCreateLink` supports eight default locations. ### Parameters ### Returns
+description: "Creates a Windows shortcut (link) file. Shortcuts allow programs to be started from locations such as the desktop, start menu, or other system folders. vuCreateLink supports eight default locations. ### Parameters ### Returns
 1 (True) on success, 0 (False) on failure. ### Example ### Notes
 - The working directory is derived from the program file path.  
 - Once created, shortcuts can be copied anywhere.  
@@ -10,7 +10,7 @@ keywords: ["windows", "vuFileTools", "creates", "shortcut", "general", "link", "
 function_name: "vuCreateLink"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -23,7 +23,7 @@ vuCreateLink(LONG,*CSTRING,*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Creates a Windows shortcut (link) file. Shortcuts allow programs to be started from locations such as the desktop, start menu, or other system folders. `vuCreateLink` supports eight default locations.
+Creates a Windows shortcut (link) file. Shortcuts allow programs to be started from locations such as the desktop, start menu, or other system folders. vuCreateLink supports eight default locations.
 
 ### Parameters
 

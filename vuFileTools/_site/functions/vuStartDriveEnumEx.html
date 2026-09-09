@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -33,10 +33,10 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <pre class="Prototype"><code>vuStartDriveEnumEx(), LONG</code></pre>
 <h2 id="description">Description</h2>
 <p>Initializes extended drive enumeration.<br />
-This function must be called before using
-<code>vuGetNextDriveEx()</code> to retrieve drive details.<br />
-When enumeration is complete, call <code>vuEndDriveEnumEx()</code> to
-release resources.</p>
+This function must be called before using vuGetNextDriveEx() to retrieve
+drive details.<br />
+When enumeration is complete, call vuEndDriveEnumEx() to release
+resources.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -125,15 +125,15 @@ sReady       CSTRING(4)
   Result = vuEndDriveEnumEx()</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Always call <code>vuStartDriveEnumEx()</code> before calling
-<code>vuGetNextDriveEx()</code>.</li>
+<li>Always call vuStartDriveEnumEx() before calling
+vuGetNextDriveEx().</li>
 <li>Extended enumeration returns more details than the basic
-<code>vuGetNextDrive()</code> (including volume label, filesystem, and
+vuGetNextDrive() (including volume label, filesystem, and
 capacity).</li>
-<li>Call <code>vuEndDriveEnumEx()</code> after finishing enumeration to
-avoid resource leaks.</li>
+<li>Call vuEndDriveEnumEx() after finishing enumeration to avoid
+resource leaks.</li>
 <li>For a simplified one-call loop, consider
-<code>vuGetNextDriveExAuto()</code>.</li>
+vuGetNextDriveExAuto().</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

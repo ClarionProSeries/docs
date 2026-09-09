@@ -36,7 +36,7 @@ vuPrintTextFile(FileName, 0)
 ```
 
 ### Notes
-- When `Default` is set to 0, the user is prompted to select a printer.  
+- When Default is set to 0, the user is prompted to select a printer.  
 - Supports printing plain text files only.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

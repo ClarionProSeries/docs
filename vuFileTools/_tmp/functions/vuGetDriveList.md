@@ -17,7 +17,7 @@ Use this for a quick, human-readable list of drives suitable for display.
 | Parameter   | Data Type | Description                                                                 |
 |-------------|-----------|-----------------------------------------------------------------------------|
 | pOutBuffer  | *STRING   | Address of a STRING buffer that receives the drive list text.               |
-| cchBuffer   | LONG      | Size of the output buffer in characters (use `SIZE(BufferVar)`).            |
+| cchBuffer   | LONG      | Size of the output buffer in characters (use SIZE(BufferVar)).            |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
@@ -51,6 +51,6 @@ nCount         LONG
 
 ### Notes
 - Ensure the output buffer is large enough to hold the entire list; if the buffer is too small, a negative return may be used to signal an error.  
-- The text format is intended for display. If you need structured fields per drive, use `vuGetDriveListEx` instead.
+- The text format is intended for display. If you need structured fields per drive, use vuGetDriveListEx instead.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -35,9 +35,8 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <p>Returns the actual size of the specified disk in bytes. Unlike older
 APIs, this function is not limited to 2 GB.</p>
 <p>Since Clarion has difficulty with very large integers, the value is
-returned as a formatted string (e.g., <code>123,456,789</code>). Use the
-Clarion <code>DEFORMAT</code> command to extract numeric values if
-needed.</p>
+returned as a formatted string (e.g., 123,456,789). Use the Clarion
+DEFORMAT command to extract numeric values if needed.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -51,7 +50,7 @@ needed.</p>
 <tr>
 <td>Drive</td>
 <td>CSTRING(2)</td>
-<td>Drive letter (e.g., <code>'C'</code>)</td>
+<td>Drive letter (e.g., 'C')</td>
 </tr>
 </tbody>
 </table>
@@ -68,8 +67,8 @@ MESSAGE(&#39;C Drive is &#39; &amp; vuDiskSpace(LOC:Drive) &amp; &#39; bytes&#39
 <ul>
 <li>Works with any size disk (no 2 GB limit).</li>
 <li>Requires Windows 98 or higher.</li>
-<li>Use <code>DEFORMAT</code> to convert the returned string into a
-numeric value for calculations.</li>
+<li>Use DEFORMAT to convert the returned string into a numeric value for
+calculations.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

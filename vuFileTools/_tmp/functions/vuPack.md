@@ -15,7 +15,7 @@ Takes all files matching the specified file mask and combines them into a single
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| FileMask  | CSTRING(256) | File mask with optional wildcards to select which files to pack (e.g. `C:\test\*.tps`). |
+| FileMask  | CSTRING(256) | File mask with optional wildcards to select which files to pack (e.g. C:\test\*.tps). |
 | FileName  | CSTRING(256) | Name and path of the destination file to pack the selected files into.      |
 
 ### Returns
@@ -32,8 +32,8 @@ MESSAGE(CLIP(PACKEDCOUNT) & ' files packed into ' & FileName)
 ```
 
 ### Notes
-- Wildcards are supported in `FileMask` for selecting multiple files.  
+- Wildcards are supported in FileMask for selecting multiple files.  
 - Packed files are appended into the target file in sequence.  
-- Use `vuCompress()` after packing to compress or optionally encrypt the packed file.
+- Use vuCompress() after packing to compress or optionally encrypt the packed file.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

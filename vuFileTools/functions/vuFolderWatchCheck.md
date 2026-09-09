@@ -1,20 +1,20 @@
 ---
 title: "vuFolderWatchCheck"
-summary: "Checks the status of a folder monitoring thread started with `vuFolderWatchStart`."
-description: "Checks the status of a folder monitoring thread started with `vuFolderWatchStart`. Used to detect when changes occur in a watched folder. ### Parameters ### Returns
+summary: "Checks the status of a folder monitoring thread started with vuFolderWatchStart."
+description: "Checks the status of a folder monitoring thread started with vuFolderWatchStart. Used to detect when changes occur in a watched folder. ### Parameters ### Returns
 One of the following values:  
 - 0 = Error, or the monitoring thread has not been launched/re-launched  
 - -1 = Monitoring thread is running (no changes detected)  
 - 1 = Monitoring thread has terminated (a change occurred)   ### Example ### Notes
 - Changes include file modifications, additions, removals, or subfolder changes within the watched folder hierarchy.  
 - Once a change is detected, the monitoring thread terminates and the function will return 1 on the next check.  
-- After processing changes, re-arm the watch with `vuFolderWatchStart`.  
-- Lightweight enough to be placed in a `TIMER` embed without impacting performance. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- After processing changes, re-arm the watch with vuFolderWatchStart.  
+- Lightweight enough to be placed in a TIMER embed without impacting performance. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["started", "vuFileTools", "monitoring", "vufolderwatchcheck", "status", "general", "thread", "folder", "vufolderwatchstart", "Clarion", "with", "checks"]
 function_name: "vuFolderWatchCheck"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -27,7 +27,7 @@ vuFolderWatchCheck(*CSTRING), Signed
 
 
 ## Description
-Checks the status of a folder monitoring thread started with `vuFolderWatchStart`. Used to detect when changes occur in a watched folder.
+Checks the status of a folder monitoring thread started with vuFolderWatchStart. Used to detect when changes occur in a watched folder.
 
 ### Parameters
 
@@ -66,7 +66,7 @@ END
 ### Notes
 - Changes include file modifications, additions, removals, or subfolder changes within the watched folder hierarchy.  
 - Once a change is detected, the monitoring thread terminates and the function will return 1 on the next check.  
-- After processing changes, re-arm the watch with `vuFolderWatchStart`.  
-- Lightweight enough to be placed in a `TIMER` embed without impacting performance.
+- After processing changes, re-arm the watch with vuFolderWatchStart.  
+- Lightweight enough to be placed in a TIMER embed without impacting performance.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

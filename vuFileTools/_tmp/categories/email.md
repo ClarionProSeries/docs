@@ -1,5 +1,5 @@
 
-# vuFiletools - Email Related Functions
+# vuFileTools - Email Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 

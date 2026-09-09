@@ -1,5 +1,5 @@
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Support
@@ -28,6 +28,6 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://clarionproseries.github.io/docs/vuFileTools/
 ```
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 

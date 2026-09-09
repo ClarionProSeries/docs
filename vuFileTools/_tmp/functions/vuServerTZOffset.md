@@ -15,7 +15,7 @@ Returns the time zone bias, in minutes, of the specified server (or local PC) re
 
 | Parameter  | Data Type    | Description                                                                 |
 |------------|--------------|-----------------------------------------------------------------------------|
-| ServerName | CSTRING(256) | The name of the server (e.g., `\\MyServer`). Forward slashes are optional and will be added automatically. |
+| ServerName | CSTRING(256) | The name of the server (e.g., \\MyServer). Forward slashes are optional and will be added automatically. |
 
 ### Returns
 A CSTRING containing the bias, in minutes, of the PCs time zone offset from UTC.  

@@ -9,7 +9,7 @@ vuVirtualkeys(*CSTRING), Pascal
 
 
 ## Description
-Sends keystrokes contained in `CharString` to the window or control that currently has keyboard focus. Works like Clarion's `PRESS` function but allows sending multiple characters in sequence.
+Sends keystrokes contained in CharString to the window or control that currently has keyboard focus. Works like Clarion's PRESS function but allows sending multiple characters in sequence.
 
 ### Parameters
 
@@ -29,7 +29,7 @@ MyStrg = 'Now is the time'
 vuVirtualKeys(MyStrg)
 ```
 
-This will send the text `"Now is the time"` one character at a time, as if typed manually, to the control that currently has keyboard focus.
+This will send the text "Now is the time" one character at a time, as if typed manually, to the control that currently has keyboard focus.
 
 ### Notes
 - The target is always the active window or control with focus at the time the function is called.  

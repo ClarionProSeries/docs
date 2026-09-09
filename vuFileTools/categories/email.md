@@ -1,13 +1,13 @@
 ---
-title: "vuFiletools - Email Related Functions"
+title: "vuFileTools - Email Related Functions"
 summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
-keywords: ["vuFileTools", "email", "functions", "categories", "Clarion", "home", "vufiletools", "related"]
+keywords: ["vuFileTools", "email", "functions", "categories", "Clarion", "home", "vuFileTools", "related"]
 page_type: "category"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
-# vuFiletools - Email Related Functions
+# vuFileTools - Email Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 

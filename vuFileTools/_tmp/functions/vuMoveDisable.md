@@ -36,6 +36,6 @@ END
 ### Notes
 - Can be used on your own application window or any running window, given its handle.  
 - Once move is disabled, it cannot be re-enabled for that program instance.  
-- This function works by removing the `SC_MOVE` entry from the system menu. If the entry is missing (rare), the function will not work properly.
+- This function works by removing the SC_MOVE entry from the system menu. If the entry is missing (rare), the function will not work properly.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

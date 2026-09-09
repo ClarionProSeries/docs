@@ -3,13 +3,13 @@ title: "vuPrinterName"
 summary: "Returns the name of the printer defined by the specified index."
 description: "Returns the name of the printer defined by the specified index. ### Parameters ### Returns
 A CSTRING containing the name of the indexed printer. ### Example ### Notes
-- Use `vuPrinterCount()` to determine the number of installed printers and the valid index range.  
+- Use vuPrinterCount() to determine the number of installed printers and the valid index range.  
 - Useful for populating UI elements such as list boxes with installed printer names. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["index", "vuFileTools", "specified", "name", "general", "returns", "defined", "Clarion", "vuprintername", "Windows", "printer"]
 function_name: "vuPrinterName"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -28,7 +28,7 @@ Returns the name of the printer defined by the specified index.
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| Nmbr      | LONG      | The index of the printer to query (use `vuPrinterCount()` to determine the valid range). |
+| Nmbr      | LONG      | The index of the printer to query (use vuPrinterCount() to determine the valid range). |
 
 ### Returns
 A CSTRING containing the name of the indexed printer.
@@ -46,7 +46,7 @@ END
 ```
 
 ### Notes
-- Use `vuPrinterCount()` to determine the number of installed printers and the valid index range.  
+- Use vuPrinterCount() to determine the number of installed printers and the valid index range.  
 - Useful for populating UI elements such as list boxes with installed printer names.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

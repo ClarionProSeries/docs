@@ -11,13 +11,13 @@ vuFreeSpace(*CSTRING), CSTRING
 ## Description
 Returns the available free space on the specified drive without the 2 GB limit imposed by older APIs.  
 
-Since Clarion cannot natively handle large integers, the result is returned as a formatted string (e.g., `123,456,789`). Use the Clarion `DEFORMAT` command to convert the string to a numeric value if needed.
+Since Clarion cannot natively handle large integers, the result is returned as a formatted string (e.g., 123,456,789). Use the Clarion DEFORMAT command to convert the string to a numeric value if needed.
 
 ### Parameters
 
 | Parameter | Data Type   | Description                  |
 |-----------|-------------|------------------------------|
-| Drive     | CSTRING(2)  | Drive letter (e.g., `'C'`)   |
+| Drive     | CSTRING(2)  | Drive letter (e.g., 'C')   |
 
 ### Returns
 A null-terminated CSTRING containing the available bytes on the disk (formatted with commas).

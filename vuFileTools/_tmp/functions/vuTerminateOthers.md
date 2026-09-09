@@ -28,8 +28,8 @@ MESSAGE(vuTerminateOthers(NameContains) & ' Word documents were terminated')
 ```
 
 ### Notes
-- If `NameContains` is blank, all other running programs will be terminated.  
-- Match occurs if `NameContains` appears anywhere within the window title.  
+- If NameContains is blank, all other running programs will be terminated.  
+- Match occurs if NameContains appears anywhere within the window title.  
 - Use with caution, as this can forcibly terminate multiple applications at once.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

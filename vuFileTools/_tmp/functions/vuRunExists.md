@@ -50,6 +50,6 @@ Ret = vuRunExists(FilePath)
 
 ### Notes
 - Use this when the existence check is part of the launch requirement.
-- If you need to wait for a file to appear before launching it, use `vuRunExistsEx`.
+- If you need to wait for a file to appear before launching it, use vuRunExistsEx.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

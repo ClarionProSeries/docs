@@ -9,7 +9,7 @@ vuCreateDirectory(*CSTRING), Signed
 
 
 ## Description
-Creates an entire directory path in one command. Any number of subdirectories can be included in `FilePath`.
+Creates an entire directory path in one command. Any number of subdirectories can be included in FilePath.
 
 ### Parameters
 

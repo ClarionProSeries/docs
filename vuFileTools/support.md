@@ -2,12 +2,12 @@
 title: "vuFileTools - Support"
 summary: "If you need support with vuFileTools please contact us at:"
 description: "If you need support with vuFileTools please contact us at:"
-keywords: ["contact", "documentation", "support", "please", "need", "vufiletools", "Clarion", "vuFileTools", "with"]
+keywords: ["contact", "documentation", "support", "please", "need", "vuFileTools", "Clarion", "vuFileTools", "with"]
 page_type: "overview"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 # vuFileTools - Support
@@ -36,7 +36,7 @@ If the link above does not open in your help viewer, copy and paste this URL int
 https://clarionproseries.github.io/docs/vuFileTools/
 ```
 
-[Home](../index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 
 

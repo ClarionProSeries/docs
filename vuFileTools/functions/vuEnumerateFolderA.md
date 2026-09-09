@@ -1,7 +1,7 @@
 ---
 title: "vuEnumerateFolderA"
-summary: "Enumerates the contents of a specified folder and prepares entries for retrieval with `vuGetEnumeratedEntryA`."
-description: "Enumerates the contents of a specified folder and prepares entries for retrieval with `vuGetEnumeratedEntryA`.  
+summary: "Enumerates the contents of a specified folder and prepares entries for retrieval with vuGetEnumeratedEntryA."
+description: "Enumerates the contents of a specified folder and prepares entries for retrieval with vuGetEnumeratedEntryA.  
 This is the first step in a two-part process to list files and subfolders. ### Parameters _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._ ### Returns
 - Number of entries in the folder if successful.  
 - 0 if the folder is empty or not found.  
@@ -10,7 +10,7 @@ keywords: ["contents", "vuFileTools", "enumerates", "vugetenumeratedentrya", "sp
 function_name: "vuEnumerateFolderA"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -23,14 +23,14 @@ vuEnumerateFolderA(*CSTRING), LONG
 
 
 ## Description
-Enumerates the contents of a specified folder and prepares entries for retrieval with `vuGetEnumeratedEntryA`.  
+Enumerates the contents of a specified folder and prepares entries for retrieval with vuGetEnumeratedEntryA.  
 This is the first step in a two-part process to list files and subfolders.
 
 ### Parameters
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| sFolder   | CSTRING(260) | Full path of the folder to enumerate (for example, `C:\Windows`).           |
+| sFolder   | CSTRING(260) | Full path of the folder to enumerate (for example, C:\Windows).           |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

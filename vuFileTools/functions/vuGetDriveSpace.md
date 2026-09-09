@@ -8,7 +8,7 @@ keywords: ["string", "vuFileTools", "space", "Clarion", "drive", "specified", "f
 function_name: "vuGetDriveSpace"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -28,7 +28,7 @@ Supports multiple output formats including raw bytes, comma-separated, gigabytes
 
 | Parameter   | Data Type    | Description                                                                 |
 |-------------|--------------|-----------------------------------------------------------------------------|
-| tDir        | CSTRING(128) | Root path of the drive (for example, `C:\`).                                |
+| tDir        | CSTRING(128) | Root path of the drive (for example, C:\).                                |
 | FormatType  | LONG         | Format for returned string:<br>0 = Raw bytes<br>1 = Comma separated<br>2 = GB<br>3 = Hybrid |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._

@@ -32,6 +32,6 @@ vuCloseDisable(hWindow)
 ### Notes
 - Can be used with your own window or any running window (given its handle).  
 - Once disabled, Close cannot be re-enabled for that instance of the program.  
-- Works by removing the `SC_CLOSE` entry from the system menu. If this entry is missing (rare), the function will not work properly.
+- Works by removing the SC_CLOSE entry from the system menu. If this entry is missing (rare), the function will not work properly.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

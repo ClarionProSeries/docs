@@ -30,6 +30,6 @@ END
 ```
 
 ### Notes
-- Use `vuIsRunningCheck` if you want to check whether a program is running **without** creating the mutex.
+- Use vuIsRunningCheck if you want to check whether a program is running **without** creating the mutex.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

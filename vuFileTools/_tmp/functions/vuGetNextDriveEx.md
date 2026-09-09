@@ -12,22 +12,22 @@ vuGetNextDriveEx(LONG), LONG
 Retrieves extended information about the next available drive.  
 This function is part of the three-call extended enumeration sequence:
 
-1. Call `vuStartDriveEnumEx()` to initialize.  
-2. Call `vuGetNextDriveEx()` in a loop until it returns 0.  
-3. Call `vuEndDriveEnumEx()` to clean up.
+1. Call vuStartDriveEnumEx() to initialize.  
+2. Call vuGetNextDriveEx() in a loop until it returns 0.  
+3. Call vuEndDriveEnumEx() to clean up.
 
 ### Parameters
 
 | Parameter   | Data Type   | Description                                                                 |
 |-------------|-------------|-----------------------------------------------------------------------------|
 | pDriveInfo  | *GROUP      | Address of a GROUP structure that receives drive information, including:    |
-|             |             | - `RootPath` (CSTRING(4))  drive root (e.g., `C:\`)                        |
-|             |             | - `DriveType` (LONG)  type constant                                        |
-|             |             | - `IsReady` (LONG)  1 if ready, 0 if not                                   |
-|             |             | - `VolumeLabel` (CSTRING(64))  volume label                                |
-|             |             | - `FileSystem` (CSTRING(16))  filesystem type (e.g., NTFS, FAT32)          |
-|             |             | - `FreeBytes` (CSTRING(20))  free space, as a formatted string             |
-|             |             | - `TotalBytes` (CSTRING(20))  total size, as a formatted string            |
+|             |             | - RootPath (CSTRING(4))  drive root (e.g., C:\)                        |
+|             |             | - DriveType (LONG)  type constant                                        |
+|             |             | - IsReady (LONG)  1 if ready, 0 if not                                   |
+|             |             | - VolumeLabel (CSTRING(64))  volume label                                |
+|             |             | - FileSystem (CSTRING(16))  filesystem type (e.g., NTFS, FAT32)          |
+|             |             | - FreeBytes (CSTRING(20))  free space, as a formatted string             |
+|             |             | - TotalBytes (CSTRING(20))  total size, as a formatted string            |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The numbers are for example only._
 
@@ -97,9 +97,9 @@ sReady       CSTRING(4)
 ```
 
 ### Notes
-- `vuGetNextDriveEx()` provides more detail than `vuGetNextDrive()`, including labels, filesystem type, and space usage.  
+- vuGetNextDriveEx() provides more detail than vuGetNextDrive(), including labels, filesystem type, and space usage.  
 - The GROUP structure layout in the example matches what the DLL fills in.  
-- Always call `vuEndDriveEnumEx()` to release resources when finished.  
-- For a simpler approach without explicit start/end, use `vuGetNextDriveExAuto()`.
+- Always call vuEndDriveEnumEx() to release resources when finished.  
+- For a simpler approach without explicit start/end, use vuGetNextDriveExAuto().
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

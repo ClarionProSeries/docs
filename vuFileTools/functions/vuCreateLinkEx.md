@@ -1,15 +1,15 @@
 ---
 title: "vuCreateLinkEx"
 summary: "Creates a Windows shortcut (link) file with extended options."
-description: "Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by `vuCreateLink`. ### Parameters ### Returns
+description: "Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by vuCreateLink. ### Parameters ### Returns
 1 (True) on success, 0 (False) on failure. ### Example ### Notes
-- Extends `vuCreateLink()` by adding `WorkingDir` and `Comment` parameters.  
-- Otherwise functionally identical to `vuCreateLink`. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- Extends vuCreateLink() by adding WorkingDir and Comment parameters.  
+- Otherwise functionally identical to vuCreateLink. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["windows", "vuFileTools", "creates", "extended", "vucreatelinkex", "shortcut", "options", "general", "link", "Clarion", "with", "Windows"]
 function_name: "vuCreateLinkEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -22,7 +22,7 @@ vuCreateLinkEx(LONG,*CSTRING,*CSTRING,*CSTRING,*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by `vuCreateLink`.
+Creates a Windows shortcut (link) file with extended options. This version allows specifying a working directory and a comment in addition to the parameters supported by vuCreateLink.
 
 ### Parameters
 
@@ -47,7 +47,7 @@ END
 ```
 
 ### Notes
-- Extends `vuCreateLink()` by adding `WorkingDir` and `Comment` parameters.  
-- Otherwise functionally identical to `vuCreateLink`.
+- Extends vuCreateLink() by adding WorkingDir and Comment parameters.  
+- Otherwise functionally identical to vuCreateLink.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

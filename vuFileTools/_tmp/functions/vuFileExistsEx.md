@@ -16,7 +16,7 @@ This allows you to pause execution while waiting for a file to appear.
 
 | Parameter   | Data Type    | Description                                                                 |
 |-------------|--------------|-----------------------------------------------------------------------------|
-| pFile       | CSTRING(260) | Full path of the file to check (for example, `C:\Windows\Notepad.exe`).     |
+| pFile       | CSTRING(260) | Full path of the file to check (for example, C:\Windows\Notepad.exe).     |
 | WaitSeconds | LONG         | Maximum number of seconds to wait for the file to appear.                   |
 | PollMS      | LONG         | Polling interval in milliseconds while waiting.                            |
 

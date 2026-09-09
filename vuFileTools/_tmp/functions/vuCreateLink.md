@@ -9,7 +9,7 @@ vuCreateLink(LONG,*CSTRING,*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Creates a Windows shortcut (link) file. Shortcuts allow programs to be started from locations such as the desktop, start menu, or other system folders. `vuCreateLink` supports eight default locations.
+Creates a Windows shortcut (link) file. Shortcuts allow programs to be started from locations such as the desktop, start menu, or other system folders. vuCreateLink supports eight default locations.
 
 ### Parameters
 

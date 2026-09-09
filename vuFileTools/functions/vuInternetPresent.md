@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "networking", "internet", "connectivity", "vunetworkpr
 function_name: "vuInternetPresent"
 category: "Networking"
 version_added: "5.0"
-last_updated: "2025-12-03"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

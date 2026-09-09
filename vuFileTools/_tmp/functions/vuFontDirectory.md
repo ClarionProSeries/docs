@@ -27,6 +27,6 @@ MESSAGE('All fonts are stored in ' & vuFontDirectory())
 ```
 
 ### Notes
-Use this function in conjunction with `vuFontLoad()` to install and use customized fonts.
+Use this function in conjunction with vuFontLoad() to install and use customized fonts.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -17,12 +17,12 @@ The results are written into a caller-provided buffer as text, with fields separ
 | Parameter   | Data Type | Description                                                                 |
 |-------------|-----------|-----------------------------------------------------------------------------|
 | pOutBuffer  | *STRING   | Address of a STRING buffer that receives the drive list data.               |
-| cchBuffer   | LONG      | Size of the output buffer in characters (use `SIZE(BufferVar)`).            |
+| cchBuffer   | LONG      | Size of the output buffer in characters (use SIZE(BufferVar)).            |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
-- `-1` if the function succeeded and the buffer contains drive records.  
+- -1 if the function succeeded and the buffer contains drive records.  
 - 0 if no drives are available.  
 - Other negative values may indicate errors (such as insufficient buffer size).
 
@@ -145,8 +145,8 @@ sReady        STRING(4)
 
 ### Notes
 - The buffer contains comma-delimited fields per line; each line represents one drive.  
-- A typical record contains: `Drive,Label,Type,FileSystem,Free,Total,Ready`.  
+- A typical record contains: Drive,Label,Type,FileSystem,Free,Total,Ready.  
 - You must parse the buffer manually or load into a queue as shown above.  
-- If you only need a simple list of drives without detailed info, use `vuGetDriveList()` instead.
+- If you only need a simple list of drives without detailed info, use vuGetDriveList() instead.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

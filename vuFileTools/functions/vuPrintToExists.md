@@ -6,7 +6,7 @@ keywords: ["vuprinttoexists", "print", "named printer", "vuFileTools", "Clarion"
 function_name: "vuPrintToExists"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -58,6 +58,6 @@ Ret = vuPrintToExists(FilePath, PrinterName)
 
 ### Notes
 - Use this when you need to target a specific printer rather than the default printer.
-- If you need to wait for the file to appear first, use `vuPrintToExistsEx`.
+- If you need to wait for the file to appear first, use vuPrintToExistsEx.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

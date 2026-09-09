@@ -2,18 +2,18 @@
 title: "vuStartDriveEnum"
 summary: "Begins a drive enumeration session."
 description: "Begins a drive enumeration session.  
-Call this first, then loop with `vuGetNextDrive`, and finally call `vuEndDriveEnum` to clean up. ### Parameters ### Returns
+Call this first, then loop with vuGetNextDrive, and finally call vuEndDriveEnum to clean up. ### Parameters ### Returns
 - 1 on success.  
 - 0 on failure.  
 - Negative values may indicate errors. ### Example ### Notes
-- Must be paired with `vuEndDriveEnum()`; do not mix with the `Ex` or `Auto` variants.  
-- Use `ADDRESS()` to pass pointers for the root path buffer and the drive type LONG to `vuGetNextDrive`.  
+- Must be paired with vuEndDriveEnum(); do not mix with the Ex or Auto variants.  
+- Use ADDRESS() to pass pointers for the root path buffer and the drive type LONG to vuGetNextDrive.  
 - Drive type values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["begins", "vuFileTools", "drive", "session", "general", "Clarion", "enumeration", "Windows", "vustartdriveenum"]
 function_name: "vuStartDriveEnum"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -27,7 +27,7 @@ vuStartDriveEnum(), LONG
 
 ## Description
 Begins a drive enumeration session.  
-Call this first, then loop with `vuGetNextDrive`, and finally call `vuEndDriveEnum` to clean up.
+Call this first, then loop with vuGetNextDrive, and finally call vuEndDriveEnum to clean up.
 
 ### Parameters
 
@@ -87,8 +87,8 @@ Msg         CSTRING(100)
 ```
 
 ### Notes
-- Must be paired with `vuEndDriveEnum()`; do not mix with the `Ex` or `Auto` variants.  
-- Use `ADDRESS()` to pass pointers for the root path buffer and the drive type LONG to `vuGetNextDrive`.  
+- Must be paired with vuEndDriveEnum(); do not mix with the Ex or Auto variants.  
+- Use ADDRESS() to pass pointers for the root path buffer and the drive type LONG to vuGetNextDrive.  
 - Drive type values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

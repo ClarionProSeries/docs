@@ -10,7 +10,7 @@ keywords: ["vuFileTools", "creates", "path", "specified", "ntfs", "compression",
 function_name: "vuCreateCompressedFolder"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -30,7 +30,7 @@ This is a convenient way to both create and compress a folder in one operation.
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| zPath     | STRING    | Full path of the folder to create and compress (for example, `C:\Testing\NewCompressedFolder`). |
+| zPath     | STRING    | Full path of the folder to create and compress (for example, C:\Testing\NewCompressedFolder). |
 
 ### Returns
 - 1 if the folder was successfully created and compressed.  

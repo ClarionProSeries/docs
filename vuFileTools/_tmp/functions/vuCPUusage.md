@@ -29,7 +29,7 @@ MESSAGE('CPU usage = ' & xPct & '%')
 ```
 
 ### Notes
-- The function name in older documentation was incorrectly listed as `vuCPUSpeed`.  
-- The correct name is `vuCPUusage`.
+- The function name in older documentation was incorrectly listed as vuCPUSpeed.  
+- The correct name is vuCPUusage.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

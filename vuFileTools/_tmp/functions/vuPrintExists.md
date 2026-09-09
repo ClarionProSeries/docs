@@ -45,7 +45,7 @@ Ret = vuPrintExists(FilePath)
 
 ### Notes
 - Uses the default Windows printer.
-- If you need to print to a specific printer, use `vuPrintToExists`.
-- If you need to wait for the file to appear first, use `vuPrintExistsEx`.
+- If you need to print to a specific printer, use vuPrintToExists.
+- If you need to wait for the file to appear first, use vuPrintExistsEx.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

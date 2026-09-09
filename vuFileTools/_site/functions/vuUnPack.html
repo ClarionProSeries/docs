@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -32,9 +32,8 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vuunpackfilename-directory">vuUnpack(FileName, Directory)</h1>
 <pre class="Prototype"><code>vuUnPack(*CSTRING,*CSTRING), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Unpacks the contents of a packed file created with
-<code>vuPack()</code> and saves the individual files into the specified
-directory.</p>
+<p>Unpacks the contents of a packed file created with vuPack() and saves
+the individual files into the specified directory.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -68,8 +67,8 @@ Count = vuUnpack(FileName, Directory)
 MESSAGE(CLIP(Count) &amp; &#39; files were unpacked to &#39; &amp; Directory)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>If you used <code>vuCompress()</code> after packing, run
-<code>vuUncompress()</code> before calling <code>vuUnpack()</code>.</li>
+<li>If you used vuCompress() after packing, run vuUncompress() before
+calling vuUnpack().</li>
 <li>Destination directory must exist or the call may fail.</li>
 <li>The unpacked files retain their original names inside the specified
 directory.</li>

@@ -15,7 +15,7 @@ Returns the system date from the specified server in standard Clarion date forma
 
 | Parameter  | Data Type    | Description                                                                 |
 |------------|--------------|-----------------------------------------------------------------------------|
-| ServerName | CSTRING(128) | The name of the server (e.g., `\\MyServer`). Forward slashes are optional and will be added automatically. |
+| ServerName | CSTRING(128) | The name of the server (e.g., \\MyServer). Forward slashes are optional and will be added automatically. |
 
 ### Returns
 A LONG value containing the date in standard Clarion date format.  

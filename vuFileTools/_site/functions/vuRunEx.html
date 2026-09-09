@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -166,7 +166,8 @@ WorkFolder CSTRING(260)
 ShowCmd    LONG
 Ret        LONG
 
-FilePath   = &#39;C:\Windows\Notepad.exe&#39;
+FilePath   = &#39;C:\Windows
+otepad.exe&#39;
 Params     = &#39;MyDoc.txt&#39;
 WorkFolder = &#39;&#39;
 ShowCmd    = 1   ! SW_SHOWNORMAL
@@ -176,15 +177,13 @@ Ret = vuRunEx(FilePath, Params, WorkFolder, ShowCmd)
 MESSAGE(&#39;vuRunEx returned: &#39; &amp; FORMAT(Ret), &#39;vuRunEx Test&#39;)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li><code>vuRunEx</code> is generally the preferred choice when you need
-to launch an executable with parameters.</li>
-<li><code>pFile</code> and <code>pParams</code> are passed separately,
-which avoids command-line formatting mistakes common with single-string
-launch functions.</li>
-<li>If <code>pWork</code> is blank, the system default working folder is
-used.</li>
-<li>Use <code>vuRunExWait</code> when you need the same explicit
-parameter handling plus optional wait behavior.</li>
+<li>vuRunEx is generally the preferred choice when you need to launch an
+executable with parameters.</li>
+<li>pFile and pParams are passed separately, which avoids command-line
+formatting mistakes common with single-string launch functions.</li>
+<li>If pWork is blank, the system default working folder is used.</li>
+<li>Use vuRunExWait when you need the same explicit parameter handling
+plus optional wait behavior.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -36,10 +36,9 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 This function is part of the three-call extended enumeration
 sequence:</p>
 <ol type="1">
-<li>Call <code>vuStartDriveEnumEx()</code> to initialize.</li>
-<li>Call <code>vuGetNextDriveEx()</code> in a loop until it returns
-0.</li>
-<li>Call <code>vuEndDriveEnumEx()</code> to clean up.</li>
+<li>Call vuStartDriveEnumEx() to initialize.</li>
+<li>Call vuGetNextDriveEx() in a loop until it returns 0.</li>
+<li>Call vuEndDriveEnumEx() to clean up.</li>
 </ol>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -60,41 +59,37 @@ including:</td>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>RootPath</code> (CSTRING(4)) drive root (e.g.,
-<code>C:\</code>)</td>
+<td>- RootPath (CSTRING(4)) drive root (e.g., C:)</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>DriveType</code> (LONG) type constant</td>
+<td>- DriveType (LONG) type constant</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>IsReady</code> (LONG) 1 if ready, 0 if not</td>
+<td>- IsReady (LONG) 1 if ready, 0 if not</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>VolumeLabel</code> (CSTRING(64)) volume label</td>
+<td>- VolumeLabel (CSTRING(64)) volume label</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>FileSystem</code> (CSTRING(16)) filesystem type (e.g., NTFS,
-FAT32)</td>
+<td>- FileSystem (CSTRING(16)) filesystem type (e.g., NTFS, FAT32)</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>FreeBytes</code> (CSTRING(20)) free space, as a formatted
-string</td>
+<td>- FreeBytes (CSTRING(20)) free space, as a formatted string</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>TotalBytes</code> (CSTRING(20)) total size, as a formatted
-string</td>
+<td>- TotalBytes (CSTRING(20)) total size, as a formatted string</td>
 </tr>
 </tbody>
 </table>
@@ -164,15 +159,14 @@ sReady       CSTRING(4)
   Result = vuEndDriveEnumEx()</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li><code>vuGetNextDriveEx()</code> provides more detail than
-<code>vuGetNextDrive()</code>, including labels, filesystem type, and
-space usage.</li>
+<li>vuGetNextDriveEx() provides more detail than vuGetNextDrive(),
+including labels, filesystem type, and space usage.</li>
 <li>The GROUP structure layout in the example matches what the DLL fills
 in.</li>
-<li>Always call <code>vuEndDriveEnumEx()</code> to release resources
-when finished.</li>
+<li>Always call vuEndDriveEnumEx() to release resources when
+finished.</li>
 <li>For a simpler approach without explicit start/end, use
-<code>vuGetNextDriveExAuto()</code>.</li>
+vuGetNextDriveExAuto().</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

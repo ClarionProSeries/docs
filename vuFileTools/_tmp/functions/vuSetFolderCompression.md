@@ -16,7 +16,7 @@ This allows you to toggle compression without recreating the folder.
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| zPath     | CSTRING   | Full path of the folder to update (for example, `C:\Testing\ToggleCompression`). |
+| zPath     | CSTRING   | Full path of the folder to update (for example, C:\Testing\ToggleCompression). |
 | Enable    | LONG      | 1 to enable compression, 0 to disable compression.                          |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._

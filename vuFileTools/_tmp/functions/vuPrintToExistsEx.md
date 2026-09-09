@@ -54,6 +54,6 @@ Ret = vuPrintToExistsEx(FilePath, WaitSeconds, PollMS, PrinterName)
 
 ### Notes
 - Use this when another process is expected to create the file shortly and you need to print to a specific printer.
-- If the default printer is acceptable, `vuPrintExistsEx` is the simpler choice.
+- If the default printer is acceptable, vuPrintExistsEx is the simpler choice.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

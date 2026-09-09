@@ -28,6 +28,6 @@ MESSAGE('This PC has ' & vuMemoryTotal() & ' of memory installed')
 
 ### Notes
 - Value is returned in bytes.  
-- Use together with `vuMemoryFree()` and `vuMemoryPercentUsed()` for a complete picture of memory usage.
+- Use together with vuMemoryFree() and vuMemoryPercentUsed() for a complete picture of memory usage.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

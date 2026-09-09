@@ -14,7 +14,7 @@ keywords: ["vuFileTools", "drive", "vudrivetype", "given", "type", "letter", "ge
 function_name: "vuDriveType"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -33,7 +33,7 @@ Returns the type of disk drive for the given drive letter.
 
 | Parameter | Data Type   | Description                                  |
 |-----------|-------------|----------------------------------------------|
-| Drive     | CSTRING(1)  | Drive letter to test (e.g., `'A'`, `'C'`)    |
+| Drive     | CSTRING(1)  | Drive letter to test (e.g., 'A', 'C')    |
 
 ### Returns
 One of the following values:  

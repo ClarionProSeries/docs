@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "vurunexwait", "run", "wait", "parameters", "working d
 function_name: "vuRunExWait"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -62,7 +62,8 @@ ShowCmd    LONG
 WaitFlag   LONG
 Ret        LONG
 
-FilePath   = 'C:\Windows\Notepad.exe'
+FilePath   = 'C:\Windows
+otepad.exe'
 Params     = 'MyDoc.txt'
 WorkFolder = ''
 ShowCmd    = 1
@@ -74,8 +75,8 @@ MESSAGE('vuRunExWait returned: ' & FORMAT(Ret), 'vuRunExWait Test')
 ```
 
 ### Notes
-- `vuRunExWait` is the modern counterpart to `vuRun` when you want separate file and parameter values plus optional wait behavior.
-- Use `Wait = 1` when your program must not continue until the launched process finishes.
-- Use `vuRunExDelayWait` when you also need a startup delay before the launch begins.
+- vuRunExWait is the modern counterpart to vuRun when you want separate file and parameter values plus optional wait behavior.
+- Use Wait = 1 when your program must not continue until the launched process finishes.
+- Use vuRunExDelayWait when you also need a startup delay before the launch begins.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

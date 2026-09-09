@@ -1,7 +1,7 @@
 ---
 title: "vuFadeInOthers"
 summary: "Fades in other windows whose title contains the specified name or phrase."
-description: "Fades in other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for restoring windows after using `vuFadeOutOthers`. ### Parameters ### Returns
+description: "Fades in other windows whose title contains the specified name or phrase. If wName is left blank, all other running windows are affected. Useful for restoring windows after using vuFadeOutOthers. ### Parameters ### Returns
 The number of windows that were faded in. ### Example ### Notes
 - Requires Windows 2000 or higher.  
 - A window may flash the first time this function is called, but subsequent calls (or other transparency functions) will not.  
@@ -10,7 +10,7 @@ keywords: ["contains", "windows", "vuFileTools", "vufadeinothers", "whose", "phr
 function_name: "vuFadeInOthers"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -23,7 +23,7 @@ vuFadeInOthers(*CSTRING), Signed
 
 
 ## Description
-Fades in other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for restoring windows after using `vuFadeOutOthers`.
+Fades in other windows whose title contains the specified name or phrase. If wName is left blank, all other running windows are affected. Useful for restoring windows after using vuFadeOutOthers.
 
 ### Parameters
 

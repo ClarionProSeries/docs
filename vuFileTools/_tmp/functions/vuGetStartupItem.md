@@ -9,13 +9,13 @@ vuGetStartupItem(LONG,LONG,*CSTRING,LONG,*CSTRING,LONG), LONG
 
 
 ## Description
-Retrieves information about a specific startup item, including its name, path, and type. Use in combination with `vuEnumerateStartupItems` to list all startup entries.
+Retrieves information about a specific startup item, including its name, path, and type. Use in combination with vuEnumerateStartupItems to list all startup entries.
 
 ### Parameters
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| Scope     | LONG         | `0` = Current User Startup, `1` = Common (All Users) Startup.               |
+| Scope     | LONG         | 0 = Current User Startup, 1 = Common (All Users) Startup.               |
 | Index     | LONG         | 1-based index of the startup item to retrieve.                              |
 | NameBuf   | CSTRING(*)   | Buffer to receive the name of the startup item.                             |
 | cchName   | LONG         | Size of the NameBuf buffer in characters.                                   |

@@ -9,13 +9,13 @@ vuMACType(Long), CSTRING
 
 
 ## Description
-Returns the adapter type for the specified network adapter. Use `vuMACCount()` to determine how many adapters are available.
+Returns the adapter type for the specified network adapter. Use vuMACCount() to determine how many adapters are available.
 
 ### Parameters
 
 | Parameter | Data Type | Description                                                      |
 |-----------|-----------|------------------------------------------------------------------|
-| Nmbr      | LONG      | Index of the adapter (within the range returned by `vuMACCount()`) |
+| Nmbr      | LONG      | Index of the adapter (within the range returned by vuMACCount()) |
 
 ### Returns
 A CSTRING containing one of the following adapter types:  
@@ -38,6 +38,6 @@ END
 
 ### Notes
 - Adapter type is determined by the system for the specified index.  
-- Combine with `vuMACDesc()` and `vuMACAddress()` for detailed adapter information.
+- Combine with vuMACDesc() and vuMACAddress() for detailed adapter information.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

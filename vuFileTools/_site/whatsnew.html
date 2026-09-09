@@ -24,16 +24,78 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="functions/index.html">All
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 <h1 id="whats-new-in-vufiletools">What's New in vuFileTools</h1>
-<p>Version: 5.0 (Build 207)</p>
-<p>Release date: 2026-03-20</p>
+<p>Version: 5.0 (Build 208)</p>
+<p>Release date: 2026-09-08</p>
 <p>This page highlights new items in the Version 5 cycle and links to
 their reference topics.</p>
+<h2 id="whats-new-in-build-208">What's New in Build 208</h2>
+<p>Build 208 improves the reliability of the vuFileTools mailslot
+functions and adds better tools for receiving messages and diagnosing
+problems.</p>
+<p>A long-standing mailslot bug has been fixed that could cause messages
+between applications to be missed or processed incorrectly.</p>
+<h3 id="new-functions-in-build-208">New Functions in Build 208</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="functions/vuMailSlotCheckEx.html">vuMailSlotCheckEx</a></td>
+<td>Preferred receive function for new applications. The caller supplies
+the destination buffer size so incoming messages can be handled more
+safely.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotLastError.html">vuMailSlotLastError</a></td>
+<td>Returns the Windows error number from the most recent mailslot
+operation that failed.</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotLastErrorText.html">vuMailSlotLastErrorText</a></td>
+<td>Returns a readable description of the most recent Windows mailslot
+error.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mailslot-improvements">Mailslot Improvements</h3>
+<ul>
+<li>Improved reliability when sending and receiving messages between
+applications.</li>
+<li>Corrected a problem that could cause a previously received message
+to be processed again.</li>
+<li>Added safer buffer-aware message receiving with
+vuMailSlotCheckEx.</li>
+<li>Added Windows error information to make mailslot problems easier to
+diagnose.</li>
+<li>Existing applications can continue using the original mailslot
+functions without changing their calling conventions.</li>
+<li>Updated the documentation with practical examples and guidance for
+using mailslots between applications.</li>
+</ul>
+<h3 id="current-windows-guidance">Current Windows Guidance</h3>
+<p>Local mailslots remain useful for simple communication between
+applications running on the same Windows computer.</p>
+<p>Microsoft has deprecated the older Remote Mailslot protocol, and
+current versions of Windows 11 disable remote mailslots by default.
+vuFileTools retains remote support for compatibility with older
+applications, but local mailslots are the recommended use for new
+vuFileTools development.</p>
+<p>See <a href="mailslots.html">Mailslots Overview</a> for examples,
+usage guidance, and links to the related functions.</p>
+<hr />
 <h2 id="whats-new-in-build-207">What's New in Build 207</h2>
 <p>Build 207 adds two new run-related functions and improves the
 documentation for the run, shell, and print families with linked
@@ -324,7 +386,7 @@ per second (Mbps).</td>
 <td><a href="functions/vuIsNetworkSlow.html">vuIsNetworkSlow</a></td>
 <td>Determines whether the primary network connection is slower than a
 specified threshold. Uses the speed reported by
-<code>vuPrimaryLinkSpeed()</code>.</td>
+vuPrimaryLinkSpeed().</td>
 </tr>
 <tr>
 <td><a href="functions/vuCreateHardLink.html">vuCreateHardLink</a></td>
@@ -483,8 +545,8 @@ href="functions/vuSetFolderCompression.html">vuSetFolderCompression</a></td>
 </tr>
 <tr>
 <td><a href="functions/vuFileExistsEx.html">vuFileExistsEx</a></td>
-<td>Extended version of <code>vuFileExists</code>, with support for more
-advanced checks.</td>
+<td>Extended version of vuFileExists, with support for more advanced
+checks.</td>
 </tr>
 <tr>
 <td><a
@@ -540,12 +602,12 @@ enumeration.</td>
 </tr>
 <tr>
 <td><a href="functions/vuGetDriveListEx.html">vuGetDriveListEx</a></td>
-<td>Extended version of <code>vuGetDriveList</code>, with more detailed
-drive information.</td>
+<td>Extended version of vuGetDriveList, with more detailed drive
+information.</td>
 </tr>
 </tbody>
 </table>
-<p><a href="../index.html">Home</a> | <a href="functions/index.html">All
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 </body>
 </html>

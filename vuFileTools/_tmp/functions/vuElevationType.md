@@ -10,7 +10,7 @@ vuElevationType(), LONG
 
 ## Description
 Determines the type of user token for the current process.  
-This function is often used together with `vuIsElevated()` to better understand the privilege level of your application.
+This function is often used together with vuIsElevated() to better understand the privilege level of your application.
 
 ### Parameters
 

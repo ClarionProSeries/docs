@@ -9,7 +9,7 @@ vuAnimateOpenCenter(LONG,LONG), Signed
 
 
 ## Description
-Animates the opening of a window from the center outward. The animation duration is defined by `dwTime` in milliseconds.
+Animates the opening of a window from the center outward. The animation duration is defined by dwTime in milliseconds.
 
 ### Parameters
 

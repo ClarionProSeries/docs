@@ -9,7 +9,7 @@ vuAnimateOpenSlide(LONG,LONG,LONG,LONG,LONG,LONG), Signed
 
 
 ## Description
-Animates the opening of a window by sliding in the specified direction(s). The animation duration is defined by `dwTime` in milliseconds.
+Animates the opening of a window by sliding in the specified direction(s). The animation duration is defined by dwTime in milliseconds.
 
 ### Parameters
 
@@ -17,9 +17,9 @@ Animates the opening of a window by sliding in the specified direction(s). The a
 |-----------|-----------|-----------------------------------------------------------------------------|
 | hWindow   | LONG      | Handle of the window to animate                                             |
 | dwTime    | LONG      | Duration of the animation in milliseconds                                   |
-| L2R       | LONG      | 1 = Open window left to right. Do not set both `L2R` and `R2L`. If both are set, defaults to L2R. |
+| L2R       | LONG      | 1 = Open window left to right. Do not set both L2R and R2L. If both are set, defaults to L2R. |
 | R2L       | LONG      | 1 = Open window right to left                                               |
-| T2B       | LONG      | 1 = Open window top to bottom. Do not set both `T2B` and `B2T`. If both are set, defaults to T2B. |
+| T2B       | LONG      | 1 = Open window top to bottom. Do not set both T2B and B2T. If both are set, defaults to T2B. |
 | B2T       | LONG      | 1 = Open window bottom to top                                               |
 
 ### Returns

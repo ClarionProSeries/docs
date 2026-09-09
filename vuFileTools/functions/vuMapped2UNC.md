@@ -5,12 +5,12 @@ description: "Converts a fully qualified path and filename that uses a mapped dr
 A CSTRING containing the complete path and filename with the mapped drive replaced by its UNC equivalent.  
 If the drive is not mapped, the original path is returned unchanged. ### Example ### Notes
 - Safe to use when it is unknown if the drive is mapped.  
-- If the drive is not a mapped network drive, the original `FilePath` is returned. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- If the drive is not a mapped network drive, the original FilePath is returned. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["converts", "vuFileTools", "convention", "into", "drive", "qualified", "path", "letter", "vumapped", "Clarion", "equivalent", "universal"]
 function_name: "vuMapped2UNC"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -45,6 +45,6 @@ MESSAGE(vuMapped2UNC(FilePath))
 
 ### Notes
 - Safe to use when it is unknown if the drive is mapped.  
-- If the drive is not a mapped network drive, the original `FilePath` is returned.
+- If the drive is not a mapped network drive, the original FilePath is returned.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

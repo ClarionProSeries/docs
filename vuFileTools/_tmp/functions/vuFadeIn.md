@@ -9,7 +9,7 @@ vuFadeIn(Long), Signed
 
 
 ## Description
-Fades in a window over approximately one second when first opened. Typically used together with `vuTransparent` and `vuFadeOut` for full fade-in/fade-out effects.
+Fades in a window over approximately one second when first opened. Typically used together with vuTransparent and vuFadeOut for full fade-in/fade-out effects.
 
 ### Parameters
 
@@ -37,6 +37,6 @@ vuFadeOut(hWindow)
 ### Notes
 - Requires Windows 2000 or higher.  
 - The window may flash the first time this function is called, but subsequent calls (or other transparent functions) will not.  
-- The window handle is retrieved in Clarion using the `PROP:Handle` property of the windows label.
+- The window handle is retrieved in Clarion using the PROP:Handle property of the windows label.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -20,7 +20,7 @@ Parses a string based on the specified delimiter and returns the requested segme
 | Segment   | LONG         | The segment number to return (1-based index).                               |
 
 ### Returns
-A CSTRING containing the segment of `MainStrg` between the specified delimiters.
+A CSTRING containing the segment of MainStrg between the specified delimiters.
 
 ### Example
 

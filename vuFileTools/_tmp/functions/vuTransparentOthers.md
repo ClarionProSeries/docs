@@ -9,7 +9,7 @@ vuTransparentOthers(*CSTRING,LONG), Signed
 
 
 ## Description
-Sets the layered window attribute on all other running windows whose primary title contains `NameContains`, and applies the specified transparency level.
+Sets the layered window attribute on all other running windows whose primary title contains NameContains, and applies the specified transparency level.
 
 ### Parameters
 
@@ -35,6 +35,6 @@ MESSAGE('Made ' & Count & ' Notepad windows semi-transparent.')
 - Requires Windows 2000 or higher.
 - The first call on a visible window may cause a brief flash. Subsequent calls should not flash.
 - Uses Windows layered window attributes to apply per-window alpha.
-- If `NameContains` is blank, the function will target all other running windows. Use with caution.
+- If NameContains is blank, the function will target all other running windows. Use with caution.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

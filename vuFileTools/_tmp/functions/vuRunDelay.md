@@ -55,7 +55,7 @@ MESSAGE('vuRunDelay returned: ' & FORMAT(Ret), 'vuRunDelay Test')
 ```
 
 ### Notes
-- `vuRunDelay` is useful when you need a simple delayed launch and do not need separate parameters or a working folder.
-- Use `vuRunExDelay` or `vuRunExDelayWait` when you need the same behavior with explicit file and parameter handling.
+- vuRunDelay is useful when you need a simple delayed launch and do not need separate parameters or a working folder.
+- Use vuRunExDelay or vuRunExDelayWait when you need the same behavior with explicit file and parameter handling.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

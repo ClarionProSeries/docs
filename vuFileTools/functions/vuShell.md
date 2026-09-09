@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "Clarion", "shell", "associated", "executable", "with"
 function_name: "vuShell"
 category: "Shell Integration"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -52,7 +52,7 @@ END
 ```
 
 ### Notes
-- `vuShell` relies on the file association defined in Windows.
-- Use `vuShellEx` when you need separate parameters, a working folder, or control over window display.
+- vuShell relies on the file association defined in Windows.
+- Use vuShellEx when you need separate parameters, a working folder, or control over window display.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -30,7 +30,7 @@ Runs an external program with optional parameters and working directory after a 
 | pFile | CSTRING(260) | Path to the executable file to run. |
 | pParams | CSTRING(260) | Optional command-line parameters to pass to the executable. |
 | pWork | CSTRING(260) | Optional working directory for the process. |
-| ShowCmd | LONG | Window show mode (see Windows `SW_*` constants). |
+| ShowCmd | LONG | Window show mode (see Windows SW_* constants). |
 | DelayMS | LONG | Delay in milliseconds before the program is launched. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
@@ -66,6 +66,6 @@ MESSAGE('vuRunExDelay returned: ' & FORMAT(Ret), 'vuRunExDelay')
 ### Notes
 - Use this when you need to delay a launch but still want file, parameters, and working folder passed separately.
 - The delay is applied once before the launch begins.
-- Use `vuRunExDelayWait` when you also need to wait for the launched process to complete.
+- Use vuRunExDelayWait when you also need to wait for the launched process to complete.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

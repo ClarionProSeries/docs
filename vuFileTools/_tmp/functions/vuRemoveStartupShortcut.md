@@ -15,8 +15,8 @@ Removes a shortcut (.lnk file) from the Windows Startup folder so that the speci
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| LinkName  | CSTRING(260) | Name of the shortcut file to remove (e.g., `MyApp.lnk`).                     |
-| Scope     | LONG         | `0` = Current User Startup, `1` = Common (All Users) Startup.               |
+| LinkName  | CSTRING(260) | Name of the shortcut file to remove (e.g., MyApp.lnk).                     |
+| Scope     | LONG         | 0 = Current User Startup, 1 = Common (All Users) Startup.               |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -58,8 +58,7 @@ capacity.</p>
 <tr>
 <td>cchBuffer</td>
 <td>LONG</td>
-<td>Size of the output buffer in characters (use
-<code>SIZE(BufferVar)</code>).</td>
+<td>Size of the output buffer in characters (use SIZE(BufferVar)).</td>
 </tr>
 </tbody>
 </table>
@@ -67,8 +66,8 @@ capacity.</p>
 shown above. The number is for example only.</em></p>
 <h3 id="returns">Returns</h3>
 <ul>
-<li><code>-1</code> if the function succeeded and the buffer contains
-drive records.</li>
+<li>-1 if the function succeeded and the buffer contains drive
+records.</li>
 <li>0 if no drives are available.</li>
 <li>Other negative values may indicate errors (such as insufficient
 buffer size).</li>
@@ -191,11 +190,11 @@ sReady        STRING(4)
 <li>The buffer contains comma-delimited fields per line; each line
 represents one drive.</li>
 <li>A typical record contains:
-<code>Drive,Label,Type,FileSystem,Free,Total,Ready</code>.</li>
+Drive,Label,Type,FileSystem,Free,Total,Ready.</li>
 <li>You must parse the buffer manually or load into a queue as shown
 above.</li>
 <li>If you only need a simple list of drives without detailed info, use
-<code>vuGetDriveList()</code> instead.</li>
+vuGetDriveList() instead.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

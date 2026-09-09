@@ -1,14 +1,14 @@
 ---
 title: "vuIsRunningCheck"
 summary: "Determines if a program is already running by checking for a named mutex."
-description: "Determines if a program is already running by checking for a named mutex. Unlike `vuIsRunning`, this function only checks if the mutex exists and does not create one. ### Parameters ### Returns
+description: "Determines if a program is already running by checking for a named mutex. Unlike vuIsRunning, this function only checks if the mutex exists and does not create one. ### Parameters ### Returns
 1 (True) if the program is already running, 0 (False) otherwise. ### Example ### Notes
-- Use `vuIsRunning()` if you need to both check and create the mutex. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- Use vuIsRunning() if you need to both check and create the mutex. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["vuFileTools", "program", "vuisrunningcheck", "general", "checking", "Clarion", "determines", "already", "Windows", "running", "mutex", "named"]
 function_name: "vuIsRunningCheck"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -21,7 +21,7 @@ vuIsRunningCheck(*CSTRING), Signed
 
 
 ## Description
-Determines if a program is already running by checking for a named mutex. Unlike `vuIsRunning`, this function only checks if the mutex exists and does not create one.
+Determines if a program is already running by checking for a named mutex. Unlike vuIsRunning, this function only checks if the mutex exists and does not create one.
 
 ### Parameters
 
@@ -45,6 +45,6 @@ END
 ```
 
 ### Notes
-- Use `vuIsRunning()` if you need to both check and create the mutex.
+- Use vuIsRunning() if you need to both check and create the mutex.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -12,15 +12,15 @@ vuGetNextDrive(LONG,LONG), LONG
 Retrieves the next available drive from the internal enumeration list, along with its type.  
 This function is part of the three-call drive enumeration sequence:
 
-1. Call `vuStartDriveEnum()` to initialize drive enumeration.  
-2. Call `vuGetNextDrive()` repeatedly until it returns 0 (no more drives).  
-3. Call `vuEndDriveEnum()` to clean up internal resources.
+1. Call vuStartDriveEnum() to initialize drive enumeration.  
+2. Call vuGetNextDrive() repeatedly until it returns 0 (no more drives).  
+3. Call vuEndDriveEnum() to clean up internal resources.
 
 ### Parameters
 
 | Parameter   | Data Type    | Description                                                                 |
 |-------------|--------------|-----------------------------------------------------------------------------|
-| pRootPath   | *CSTRING(4)  | Buffer that receives the root path of the drive (for example, `C:\`).       |
+| pRootPath   | *CSTRING(4)  | Buffer that receives the root path of the drive (for example, C:\).       |
 | pDriveType  | *LONG        | Address of a LONG that receives the drive type constant.                    |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
@@ -76,8 +76,8 @@ Msg           CSTRING(100)
 
 ### Notes
 
-- `vuGetNextDrive()` should only be used between calls to `vuStartDriveEnum()` and `vuEndDriveEnum()`.  
+- vuGetNextDrive() should only be used between calls to vuStartDriveEnum() and vuEndDriveEnum().  
 - Drive type constants correspond to Windows API values (2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk).  
-- Use `vuGetNextDriveAuto()` if you prefer a simpler, single-call loop without explicit start and end calls.
+- Use vuGetNextDriveAuto() if you prefer a simpler, single-call loop without explicit start and end calls.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -16,7 +16,7 @@ This is a convenient way to both create and compress a folder in one operation.
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| zPath     | STRING    | Full path of the folder to create and compress (for example, `C:\Testing\NewCompressedFolder`). |
+| zPath     | STRING    | Full path of the folder to create and compress (for example, C:\Testing\NewCompressedFolder). |
 
 ### Returns
 - 1 if the folder was successfully created and compressed.  

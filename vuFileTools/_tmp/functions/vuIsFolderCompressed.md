@@ -16,7 +16,7 @@ This allows applications to detect whether compression is applied at the folder 
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| zPath     | STRING       | Full path to the folder to check (for example, `C:\Testing\MyFolder`).      |
+| zPath     | STRING       | Full path to the folder to check (for example, C:\Testing\MyFolder).      |
 
 ### Returns
 - 1 if the folder is NTFS compressed.  

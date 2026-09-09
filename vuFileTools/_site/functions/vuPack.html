@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -48,7 +48,7 @@ into a single file.</p>
 <td>FileMask</td>
 <td>CSTRING(256)</td>
 <td>File mask with optional wildcards to select which files to pack
-(e.g. <code>C:\test\*.tps</code>).</td>
+(e.g. C:\test*.tps).</td>
 </tr>
 <tr>
 <td>FileName</td>
@@ -68,11 +68,11 @@ PackedCount = vuPack(FileMask, FileName)
 MESSAGE(CLIP(PACKEDCOUNT) &amp; &#39; files packed into &#39; &amp; FileName)</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>Wildcards are supported in <code>FileMask</code> for selecting
-multiple files.</li>
+<li>Wildcards are supported in FileMask for selecting multiple
+files.</li>
 <li>Packed files are appended into the target file in sequence.</li>
-<li>Use <code>vuCompress()</code> after packing to compress or
-optionally encrypt the packed file.</li>
+<li>Use vuCompress() after packing to compress or optionally encrypt the
+packed file.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

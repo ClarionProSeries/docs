@@ -10,7 +10,7 @@ keywords: ["vuFileTools", "compressed", "specified", "ntfs", "whether", "general
 function_name: "vuIsFolderCompressed"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -30,7 +30,7 @@ This allows applications to detect whether compression is applied at the folder 
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| zPath     | STRING       | Full path to the folder to check (for example, `C:\Testing\MyFolder`).      |
+| zPath     | STRING       | Full path to the folder to check (for example, C:\Testing\MyFolder).      |
 
 ### Returns
 - 1 if the folder is NTFS compressed.  

@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "password", "toggle", "show password", "hide password"
 function_name: "vuPasswordToggle"
 category: "UI Helpers"
 version_added: "5.1"
-last_updated: "2026-03-17"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -27,13 +27,13 @@ While the DLL provides an automatic eye button for user interaction, this functi
 
 | Parameter | Data Type | Description |
 |---|---|---|
-| ControlHandle | LONG | Handle of the target control previously initialized with `vuPasswordInit()`. |
+| ControlHandle | LONG | Handle of the target control previously initialized with vuPasswordInit(). |
 
 ## Returns
 
-- `1` = Text is now visible
-- `0` = Mask mode is now active
-- `-5` = Control not initialized
+- 1 = Text is now visible
+- 0 = Mask mode is now active
+- -5 = Control not initialized
 
 ## Example
 
@@ -45,7 +45,7 @@ ShowState = vuPasswordToggle(?InPassword{PROP:Handle})
 
 ## Notes
 
-- `vuPasswordToggle()` only works on controls that have already been initialized with `vuPasswordInit()`.
+- vuPasswordToggle() only works on controls that have already been initialized with vuPasswordInit().
 - The return value tells you the new state after the toggle completes.
 - In normal UI use, most developers will let the generated eye button handle toggling automatically.
 

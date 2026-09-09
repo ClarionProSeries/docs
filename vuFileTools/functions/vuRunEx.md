@@ -6,7 +6,7 @@ keywords: ["command", "optional", "vuFileTools", "vurunex", "specified", "parame
 function_name: "vuRunEx"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -60,7 +60,8 @@ WorkFolder CSTRING(260)
 ShowCmd    LONG
 Ret        LONG
 
-FilePath   = 'C:\Windows\Notepad.exe'
+FilePath   = 'C:\Windows
+otepad.exe'
 Params     = 'MyDoc.txt'
 WorkFolder = ''
 ShowCmd    = 1   ! SW_SHOWNORMAL
@@ -71,9 +72,9 @@ MESSAGE('vuRunEx returned: ' & FORMAT(Ret), 'vuRunEx Test')
 ```
 
 ### Notes
-- `vuRunEx` is generally the preferred choice when you need to launch an executable with parameters.
-- `pFile` and `pParams` are passed separately, which avoids command-line formatting mistakes common with single-string launch functions.
-- If `pWork` is blank, the system default working folder is used.
-- Use `vuRunExWait` when you need the same explicit parameter handling plus optional wait behavior.
+- vuRunEx is generally the preferred choice when you need to launch an executable with parameters.
+- pFile and pParams are passed separately, which avoids command-line formatting mistakes common with single-string launch functions.
+- If pWork is blank, the system default working folder is used.
+- Use vuRunExWait when you need the same explicit parameter handling plus optional wait behavior.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

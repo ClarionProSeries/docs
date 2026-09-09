@@ -9,7 +9,7 @@ vuDisableOthers(*CSTRING,LONG), Signed
 
 
 ## Description
-Disables or enables all other windows that contain the specified text in their title, based on the value of `wDisable`.
+Disables or enables all other windows that contain the specified text in their title, based on the value of wDisable.
 
 ### Parameters
 
@@ -32,6 +32,6 @@ vuDisableOthers('Microsoft Word', wDisable)  ! Re-enables all running instances 
 ```
 
 ### Notes
-- If `NameContains` is left blank, the function will apply to all windows.
+- If NameContains is left blank, the function will apply to all windows.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

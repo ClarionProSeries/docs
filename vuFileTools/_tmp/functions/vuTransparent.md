@@ -40,6 +40,6 @@ END
 - Requires Windows 2000 or higher.  
 - The first call to make a window transparent may cause a brief flash, but subsequent calls will not.  
 - Transparency is set using Windows "Layered Window Attributes."  
-- To get the window handle in Clarion, use the `PROP:Handle` property of the windows label.
+- To get the window handle in Clarion, use the PROP:Handle property of the windows label.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

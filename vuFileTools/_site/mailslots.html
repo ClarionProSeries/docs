@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>mailslots</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="mailslots-in-vufiletools">Mailslots in vuFileTools</h1>
+<p>Mailslots provide a simple way for one Windows application to send
+messages or commands to another application running on the same
+computer.</p>
+<p>They are especially useful when one program launches or works with a
+separate helper program and needs an easy way to communicate with
+it.</p>
+<p>For example, one application could use mailslots to tell another
+application to:</p>
+<ul>
+<li>Add or update information</li>
+<li>Refresh its display</li>
+<li>Move or change a window</li>
+<li>Start an operation</li>
+<li>Clear existing information</li>
+<li>Shut down</li>
+<li>Perform any other command your applications agree upon</li>
+</ul>
+<p>The vuFileTools demo uses mailslots to communicate between the main
+demo and a separate auxiliary application.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p>Mailslot communication is simple.</p>
+<p>The receiving application creates a named mailslot:</p>
+<pre class="Clarion"><code>MailBox = &#39;MyApplication&#39;
+
+IF vuMailSlotCreate(MailBox) = 0
+  MESSAGE(&#39;Unable to create mailslot&#39;)
+END</code></pre>
+<p>Another application can then send information to that mailslot:</p>
+<pre class="Clarion"><code>MailBox = &#39;MyApplication&#39;
+MailBuffer = &#39;Refresh&#39;
+
+vuMailSlotSend(MailBox, MailBuffer, LEN(MailBuffer), 1)</code></pre>
+<p>The receiving application checks periodically for new messages:</p>
+<pre class="Clarion"><code>GotMail = vuMailSlotCheckEx(MailBox, MailBuffer, SIZE(MailBuffer))
+
+IF GotMail &gt; 0
+  ! Process the information in MailBuffer
+END</code></pre>
+<p>When the receiving application shuts down, it destroys the
+mailslot:</p>
+<pre class="Clarion"><code>vuMailSlotDestroy(MailBox)</code></pre>
+<p>That is all that is required for basic communication between two
+applications.</p>
+<h2 id="sending-more-than-simple-commands">Sending More Than Simple
+Commands</h2>
+<p>A mailslot message does not have to contain only a word such as
+Refresh or Close.</p>
+<p>You can send a block of information that both applications
+understand.</p>
+<p>For example, the vuFileTools demo sends information containing:</p>
+<ul>
+<li>A command</li>
+<li>Quantity</li>
+<li>Description</li>
+<li>Cost</li>
+<li>Additional string values</li>
+</ul>
+<p>The receiving application reads the message and decides what action
+to perform based on the command.</p>
+<p>This makes mailslots useful for lightweight communication between
+related programs without requiring temporary files, registry entries,
+sockets, or a database connection simply to pass a message.</p>
+<h2 id="mailslot-functions">Mailslot Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="functions/vuMailSlotCreate.html">vuMailSlotCreate</a></td>
+<td>Creates a mailslot that your application can receive messages
+through</td>
+</tr>
+<tr>
+<td><a href="functions/vuMailSlotSend.html">vuMailSlotSend</a></td>
+<td>Sends a message to another application's mailslot</td>
+</tr>
+<tr>
+<td><a href="functions/vuMailSlotCheck.html">vuMailSlotCheck</a></td>
+<td>Checks for and receives the next available message</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotCheckEx.html">vuMailSlotCheckEx</a></td>
+<td>Preferred receive function for new applications because the
+destination buffer size is supplied</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotDestroy.html">vuMailSlotDestroy</a></td>
+<td>Closes a specific mailslot</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotDestroyAll.html">vuMailSlotDestroyAll</a></td>
+<td>Closes all mailslots created by the application</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotLastError.html">vuMailSlotLastError</a></td>
+<td>Returns additional Windows error information when a mailslot
+operation fails</td>
+</tr>
+<tr>
+<td><a
+href="functions/vuMailSlotLastErrorText.html">vuMailSlotLastErrorText</a></td>
+<td>Returns a readable description of the last Windows mailslot
+error</td>
+</tr>
+</tbody>
+</table>
+<p>For new receiver code, vuMailSlotCheckEx is recommended because it
+allows vuFileTools to verify that the incoming message will fit in the
+supplied buffer.</p>
+<h2 id="checking-for-messages">Checking for Messages</h2>
+<p>A receiving application will normally check its mailslot
+periodically, such as from a Clarion TIMER event.</p>
+<pre class="Clarion"><code>GotMail = vuMailSlotCheckEx(MailBox, MailBuffer, SIZE(MailBuffer))
+
+IF GotMail &gt; 0
+  ! A message was received
+END</code></pre>
+<p>Test for GotMail &gt; 0 before processing the message. A negative
+return value indicates an error rather than a received message.</p>
+<p>If you need more information about an error, vuMailSlotLastError and
+vuMailSlotLastErrorText provide the Windows error number and a readable
+description.</p>
+<h2 id="local-and-remote-mailslots">Local and Remote Mailslots</h2>
+<p>vuFileTools mailslots are most useful for communication between
+applications running on the same Windows computer.</p>
+<p>The final parameter of vuMailSlotSend determines whether the message
+is sent locally or through the older Windows remote-mailslot
+mechanism.</p>
+<p>For normal same-computer communication, use:</p>
+<pre class="Clarion"><code>vuMailSlotSend(MailBox, MailBuffer, LEN(MailBuffer), 1)</code></pre>
+<p>Microsoft has deprecated the Windows Remote Mailslot protocol, and it
+is disabled by default on current versions of Windows 11.</p>
+<p>For that reason, remote mailslot support remains available in
+vuFileTools for compatibility with older applications, but it is not
+recommended when designing new communication between computers.</p>
+<p>For communication between applications on the same PC, local
+mailslots remain a simple and useful option.</p>
+<h2 id="build-208">Build 208</h2>
+<p>Build 208 fixes a long-standing mailslot bug that could cause
+messages between applications to be missed or processed incorrectly.</p>
+<p>The mailslot functions have also been updated with improved error
+reporting and the new buffer-aware vuMailSlotCheckEx function.</p>
+<p>Existing applications can continue using the original mailslot
+functions without changing their calling conventions.</p>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -6,7 +6,7 @@ keywords: ["windows", "vuFileTools", "shell", "using", "Windows", "Clarion", "in
 function_name: "vuShellEx"
 category: "Shell Integration"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -65,7 +65,7 @@ Ret = vuShellEx(FilePath, Params, WorkFolder, ShowCmd)
 ```
 
 ### Notes
-- `vuShellEx` honors file associations, so documents open in their registered Windows applications.
+- vuShellEx honors file associations, so documents open in their registered Windows applications.
 - Use this when you need shell behavior plus explicit parameters or a working folder.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

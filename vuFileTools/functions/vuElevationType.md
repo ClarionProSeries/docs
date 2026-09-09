@@ -2,7 +2,7 @@
 title: "vuElevationType"
 summary: "Determines the type of user token for the current process."
 description: "Determines the type of user token for the current process.  
-This function is often used together with `vuIsElevated()` to better understand the privilege level of your application. ### Parameters ### Returns
+This function is often used together with vuIsElevated() to better understand the privilege level of your application. ### Parameters ### Returns
 A LONG value indicating the elevation type:  
 - 1 = Limited (Standard User)  
 - 2 = Elevated (Admin Token)  
@@ -12,7 +12,7 @@ keywords: ["current", "vuFileTools", "vuelevationtype", "token", "user", "type",
 function_name: "vuElevationType"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -26,7 +26,7 @@ vuElevationType(), LONG
 
 ## Description
 Determines the type of user token for the current process.  
-This function is often used together with `vuIsElevated()` to better understand the privilege level of your application.
+This function is often used together with vuIsElevated() to better understand the privilege level of your application.
 
 ### Parameters
 

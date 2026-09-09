@@ -49,6 +49,6 @@ Ret = vuShellDelay(FilePath, DelayMS)
 
 ### Notes
 - Use this when you need shell association behavior but want to defer the launch briefly.
-- Use `vuShellExDelay` when you also need separate parameters or a working folder.
+- Use vuShellExDelay when you also need separate parameters or a working folder.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,22 +1,15 @@
 ---
 title: "vuMailSlotSend"
-summary: "Sends data to a mail slot in another application, either locally or across the domain."
-description: "Sends data to a mail slot in another application, either locally or across the domain. ### Parameters ### Returns
-A LONG value:  
-- 1 (True) if successful  
-- 0 (False) on failure   ### Example ### Notes
-- Mail slots allow sending messages between applications, locally or across a domain.  
-- Data can be structured as strings, groups, or queues.  
-- The demo application demonstrates sending data from one application to another.  
-- For more information, see the separate mail slots write-up included with the distribution package. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
-keywords: ["vuFileTools", "locally", "either", "data", "across", "another", "general", "mail", "domain", "vumailslotsend", "Clarion", "slot"]
+summary: "Sends data to a named mailslot in another application."
+description: "Sends data to a named mailslot in another application."
+keywords: ["vuFileTools", "mailslot", "IPC", "Clarion", "Windows"]
 function_name: "vuMailSlotSend"
-category: "General"
+category: "Interprocess Communication"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotSend(SlotName, Data, Length, Local)
 
@@ -26,28 +19,27 @@ vuMailSlotSend(*CSTRING,*CSTRING,LONG,LONG), Signed
 
 
 ## Description
-Sends data to a mail slot in another application, either locally or across the domain.
+Sends data to a named mailslot in another application.
 
 ### Parameters
 
-| Parameter | Data Type    | Description                                                                 |
-|-----------|--------------|-----------------------------------------------------------------------------|
-| SlotName  | CSTRING(256) | The name of the mail slot to send the data to. Can target multiple applications. |
-| Data      | CSTRING(512) | The data to send (may be a STRING, GROUP, or QUEUE).                        |
-| Length    | LONG         | The length of the data being sent.                                          |
-| Local     | LONG         | Flag indicating delivery scope: 1 = local machine only, 0 = domain-wide.    |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| SlotName | CSTRING | The logical name of the target mailslot. |
+| Data | CSTRING | The data to send. A Clarion group or queue can also be copied into a compatible buffer before sending. |
+| Length | LONG | The number of bytes to write. |
+| Local | LONG | 1 sends to a mailslot on the same PC. 0 uses the legacy remote/domain mailslot form. |
 
 ### Returns
-A LONG value:  
-- 1 (True) if successful  
-- 0 (False) on failure  
+- 1 (True) if the message was written successfully.  
+- 0 (False) if the target slot could not be opened or the write failed.  
 
 ### Example
 
 ```Clarion
 SlotName = 'Transactions'
 Data     = 'Any Data I Want'
-Length   = 15
+Length   = LEN(Data)
 Local    = 1
 
 IF vuMailSlotSend(SlotName, Data, Length, Local)
@@ -58,9 +50,8 @@ END
 ```
 
 ### Notes
-- Mail slots allow sending messages between applications, locally or across a domain.  
-- Data can be structured as strings, groups, or queues.  
-- The demo application demonstrates sending data from one application to another.  
-- For more information, see the separate mail slots write-up included with the distribution package.
+- Use Local = 1 for normal same-PC vuFileTools communication.  
+- Microsoft deprecated the Remote Mailslot protocol in November 2023, and Windows 11 version 24H2 disables remote mailslots by default. Local = 0 is retained for legacy compatibility and is not recommended for new cross-machine designs.  
+- If the send fails, vuMailSlotLastError contains the native Windows error.  
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)

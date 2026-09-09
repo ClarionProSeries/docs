@@ -15,7 +15,7 @@ Sets or resets file attributes for the specified file or group of files. Wildcar
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| FileMask  | CSTRING(256) | Fully qualified path and filename. Wildcards (`*.*`) are allowed.            |
+| FileMask  | CSTRING(256) | Fully qualified path and filename. Wildcards (*.*) are allowed.            |
 | ReadOnly  | LONG         | 0 = Reset, 1 = Set the ReadOnly attribute.                                   |
 | Hidden    | LONG         | 0 = Reset, 1 = Set the Hidden attribute.                                     |
 | System    | LONG         | 0 = Reset, 1 = Set the System attribute.                                     |

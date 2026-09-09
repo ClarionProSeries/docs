@@ -50,7 +50,7 @@ END
 ```
 
 ### Notes
-- Attributes are returned as a combined bitmask. Use `BAND()` to test individual attributes.  
+- Attributes are returned as a combined bitmask. Use BAND() to test individual attributes.  
 - Example: a return value of 7 indicates System (4) + Hidden (2) + Read Only (1).
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -27,7 +27,7 @@ MESSAGE('The system directory = ' & vuSystemDirectory())
 ```
 
 ### Notes
-- The path returned typically looks like `C:\Windows\System32`.  
+- The path returned typically looks like C:\Windows\System32.  
 - Useful for locating system files or ensuring compatibility with system-level operations.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

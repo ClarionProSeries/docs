@@ -16,8 +16,8 @@ This function takes no parameters.
 
 ### Returns
 A BYTE value:  
-- `True` if the active window was successfully copied to the clipboard.  
-- `False` if the operation failed.
+- True if the active window was successfully copied to the clipboard.  
+- False if the operation failed.
 
 ### Example
 

@@ -9,7 +9,7 @@ vuUnPack(*CSTRING,*CSTRING), Signed
 
 
 ## Description
-Unpacks the contents of a packed file created with `vuPack()` and saves the individual files into the specified directory.
+Unpacks the contents of a packed file created with vuPack() and saves the individual files into the specified directory.
 
 ### Parameters
 
@@ -32,7 +32,7 @@ MESSAGE(CLIP(Count) & ' files were unpacked to ' & Directory)
 ```
 
 ### Notes
-- If you used `vuCompress()` after packing, run `vuUncompress()` before calling `vuUnpack()`.  
+- If you used vuCompress() after packing, run vuUncompress() before calling vuUnpack().  
 - Destination directory must exist or the call may fail.  
 - The unpacked files retain their original names inside the specified directory.
 

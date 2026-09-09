@@ -3,14 +3,14 @@ title: "vuPack"
 summary: "Takes all files matching the specified file mask and combines them into a single file."
 description: "Takes all files matching the specified file mask and combines them into a single file. ### Parameters ### Returns
 A LONG value containing the number of files successfully packed. ### Example ### Notes
-- Wildcards are supported in `FileMask` for selecting multiple files.  
+- Wildcards are supported in FileMask for selecting multiple files.  
 - Packed files are appended into the target file in sequence.  
-- Use `vuCompress()` after packing to compress or optionally encrypt the packed file. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- Use vuCompress() after packing to compress or optionally encrypt the packed file. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["vuFileTools", "into", "matching", "specified", "mask", "single", "general", "vupack", "takes", "combines", "Clarion", "them"]
 function_name: "vuPack"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -29,7 +29,7 @@ Takes all files matching the specified file mask and combines them into a single
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| FileMask  | CSTRING(256) | File mask with optional wildcards to select which files to pack (e.g. `C:\test\*.tps`). |
+| FileMask  | CSTRING(256) | File mask with optional wildcards to select which files to pack (e.g. C:\test\*.tps). |
 | FileName  | CSTRING(256) | Name and path of the destination file to pack the selected files into.      |
 
 ### Returns
@@ -46,8 +46,8 @@ MESSAGE(CLIP(PACKEDCOUNT) & ' files packed into ' & FileName)
 ```
 
 ### Notes
-- Wildcards are supported in `FileMask` for selecting multiple files.  
+- Wildcards are supported in FileMask for selecting multiple files.  
 - Packed files are appended into the target file in sequence.  
-- Use `vuCompress()` after packing to compress or optionally encrypt the packed file.
+- Use vuCompress() after packing to compress or optionally encrypt the packed file.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

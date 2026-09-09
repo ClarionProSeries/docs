@@ -1,7 +1,7 @@
 ---
 title: "vuPlayWav"
-summary: "Plays a `."
-description: "Plays a `.wav` audio file and optionally waits for playback to complete before returning. ### Parameters ### Returns
+summary: "Plays a ."
+description: "Plays a .wav audio file and optionally waits for playback to complete before returning. ### Parameters ### Returns
 A LONG value:  
 - 1 (True) on success  
 - 0 (False) on failure   ### Example ### Notes
@@ -11,7 +11,7 @@ keywords: ["vuFileTools", "vuplaywav", "general", "Clarion", "plays", "Windows"]
 function_name: "vuPlayWav"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -24,7 +24,7 @@ vuPlayWav(*CSTRING,LONG), Signed
 
 
 ## Description
-Plays a `.wav` audio file and optionally waits for playback to complete before returning.
+Plays a .wav audio file and optionally waits for playback to complete before returning.
 
 ### Parameters
 

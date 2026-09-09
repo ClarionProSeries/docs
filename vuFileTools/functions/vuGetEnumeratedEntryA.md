@@ -1,19 +1,19 @@
 ---
 title: "vuGetEnumeratedEntryA"
-summary: "Retrieves information about a single entry from the results of a previous `vuEnumerateFolderA` call."
-description: "Retrieves information about a single entry from the results of a previous `vuEnumerateFolderA` call.  
-Entries can include files or subfolders, along with their attributes, size, and timestamps. ### Parameters The `feEntry` GROUP should contain fields for name, full path, attributes, size, date, and time. For example: ### Returns
+summary: "Retrieves information about a single entry from the results of a previous vuEnumerateFolderA call."
+description: "Retrieves information about a single entry from the results of a previous vuEnumerateFolderA call.  
+Entries can include files or subfolders, along with their attributes, size, and timestamps. ### Parameters The feEntry GROUP should contain fields for name, full path, attributes, size, date, and time. For example: ### Returns
 - 1 if the entry information was successfully retrieved.  
 - 0 if the entry could not be retrieved (invalid index or no data).   ### Example ### Notes
-- Always call `vuEnumerateFolderA` first to initialize the enumeration.  
-- `Index` must be within the valid range of entries.  
-- Folder entries are marked with `bIsFolder = 1`.  
-- File size values are split into low and high DWORD parts (`dwSizeLow` and `dwSizeHigh`). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- Always call vuEnumerateFolderA first to initialize the enumeration.  
+- Index must be within the valid range of entries.  
+- Folder entries are marked with bIsFolder = 1.  
+- File size values are split into low and high DWORD parts (dwSizeLow and dwSizeHigh). [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["vuFileTools", "about", "vugetenumeratedentrya", "retrieves", "from", "single", "information", "general", "vuenumeratefoldera", "previous", "call", "Clarion"]
 function_name: "vuGetEnumeratedEntryA"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -26,17 +26,17 @@ vuGetEnumeratedEntryA(LONG,*GROUP), LONG
 
 
 ## Description
-Retrieves information about a single entry from the results of a previous `vuEnumerateFolderA` call.  
+Retrieves information about a single entry from the results of a previous vuEnumerateFolderA call.  
 Entries can include files or subfolders, along with their attributes, size, and timestamps.
 
 ### Parameters
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| Index     | LONG      | Zero-based index of the entry to retrieve. Must be less than the count returned by `vuEnumerateFolderA`. |
+| Index     | LONG      | Zero-based index of the entry to retrieve. Must be less than the count returned by vuEnumerateFolderA. |
 | feEntry   | *GROUP    | Address of a GROUP structure that will be filled with the entry details.    |
 
-The `feEntry` GROUP should contain fields for name, full path, attributes, size, date, and time. For example:
+The feEntry GROUP should contain fields for name, full path, attributes, size, date, and time. For example:
 
 ```Clarion
 feEntry GROUP
@@ -100,9 +100,9 @@ sInfo       CSTRING(1024)
 ```
 
 ### Notes
-- Always call `vuEnumerateFolderA` first to initialize the enumeration.  
-- `Index` must be within the valid range of entries.  
-- Folder entries are marked with `bIsFolder = 1`.  
-- File size values are split into low and high DWORD parts (`dwSizeLow` and `dwSizeHigh`).
+- Always call vuEnumerateFolderA first to initialize the enumeration.  
+- Index must be within the valid range of entries.  
+- Folder entries are marked with bIsFolder = 1.  
+- File size values are split into low and high DWORD parts (dwSizeLow and dwSizeHigh).
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -9,7 +9,7 @@ vuIsNetworkSlow(LONG), LONG
 
 
 ## Description
-Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by `vuPrimaryLinkSpeed()`.
+Determines whether the primary network connection is slower than a specified threshold. Uses the speed reported by vuPrimaryLinkSpeed().
 
 ### Parameters
 

@@ -6,7 +6,7 @@ A LONG value:
 - 1 (True) on success  
 - 0 (False) on failure   ### Example ### Notes
 - Requires Windows 2000 or higher.  
-- Use `vuGetDefaultPrinter()` to save the current default before switching.  
+- Use vuGetDefaultPrinter() to save the current default before switching.  
 - Typical usage pattern:  
   1. Save the current default printer.  
   2. Set a new default printer (for example, a label printer).  
@@ -16,7 +16,7 @@ keywords: ["vuFileTools", "specified", "general", "vusetdefaultprinter", "defaul
 function_name: "vuSetDefaultPrinter"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -56,7 +56,7 @@ END
 
 ### Notes
 - Requires Windows 2000 or higher.  
-- Use `vuGetDefaultPrinter()` to save the current default before switching.  
+- Use vuGetDefaultPrinter() to save the current default before switching.  
 - Typical usage pattern:  
   1. Save the current default printer.  
   2. Set a new default printer (for example, a label printer).  

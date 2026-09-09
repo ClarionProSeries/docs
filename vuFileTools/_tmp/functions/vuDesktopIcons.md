@@ -9,7 +9,7 @@ vuDesktopIcons(LONG), Signed
 
 
 ## Description
-Hides or unhides the entire Windows desktop, including icons, taskbar, and system tray. Useful for POS and commercial applications that require exclusive access to the screen. Can be combined with `vuDisableWindowsKey` to fully lock down the environment.
+Hides or unhides the entire Windows desktop, including icons, taskbar, and system tray. Useful for POS and commercial applications that require exclusive access to the screen. Can be combined with vuDisableWindowsKey to fully lock down the environment.
 
 ### Parameters
 

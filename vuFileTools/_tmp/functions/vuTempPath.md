@@ -27,7 +27,7 @@ MESSAGE('The Windows temp directory is ' & vuTempPath())
 ```
 
 ### Notes
-- The returned path typically points to a location such as `C:\Users\<User>\AppData\Local\Temp`.  
+- The returned path typically points to a location such as C:\Users\<User>\AppData\Local\Temp.  
 - Useful for creating and storing temporary files.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

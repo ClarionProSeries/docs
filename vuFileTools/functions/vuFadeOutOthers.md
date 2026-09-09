@@ -1,7 +1,7 @@
 ---
 title: "vuFadeOutOthers"
 summary: "Fades out other windows whose title contains the specified name or phrase."
-description: "Fades out other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment. ### Parameters ### Returns
+description: "Fades out other windows whose title contains the specified name or phrase. If wName is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment. ### Parameters ### Returns
 The number of windows that were faded out. ### Example ### Notes
 - Requires Windows 2000 or higher.  
 - A window may flash the first time this function is called, but subsequent calls (or other transparency functions) will not.  
@@ -10,7 +10,7 @@ keywords: ["contains", "windows", "vuFileTools", "phrase", "whose", "vufadeoutot
 function_name: "vuFadeOutOthers"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -23,7 +23,7 @@ vuFadeOutOthers(*CSTRING), Signed
 
 
 ## Description
-Fades out other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment.
+Fades out other windows whose title contains the specified name or phrase. If wName is left blank, all other running windows are affected. Useful for highlighting your application by dimming the rest of the desktop environment.
 
 ### Parameters
 

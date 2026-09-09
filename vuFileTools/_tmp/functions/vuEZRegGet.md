@@ -9,7 +9,7 @@ vuEZRegGet(LONG,*CSTRING), CSTRING
 
 
 ## Description
-Retrieves data from the Windows registry that was stored using `vuEZRegPut`. Designed for simplicity, this function does not require knowledge of the registry structure.
+Retrieves data from the Windows registry that was stored using vuEZRegPut. Designed for simplicity, this function does not require knowledge of the registry structure.
 
 ### Parameters
 
@@ -29,7 +29,7 @@ KeyValue = vuEZRegGet(1, 'MyAppSetting')
 ```
 
 ### Notes
-- Data must have been stored previously using `vuEZRegPut`.  
+- Data must have been stored previously using vuEZRegPut.  
 - If the key does not exist, the return value may be blank.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

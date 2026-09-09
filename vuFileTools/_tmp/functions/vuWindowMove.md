@@ -20,10 +20,10 @@ Moves any window around the screen, given its handle. The move can be absolute (
 | yPos      | LONG      | Vertical position (pixels) to move the windows upper-left corner to.       |
 | Steps     | LONG      | Number of incremental steps to use (for animated movement).                 |
 | Pause     | LONG      | Number of milliseconds to pause between steps.                              |
-| Relative  | LONG      | Set to `True` to move relative to the current position, `False` for absolute.|
+| Relative  | LONG      | Set to True to move relative to the current position, False for absolute.|
 
 ### Returns
-Always returns `True` (1).
+Always returns True (1).
 
 ### Example
 
@@ -41,8 +41,8 @@ vuWindowMove(hWnd, 5, 5, 1, 0, 1)
 ```
 
 ### Notes
-- Use the window handle obtained with `vuWindowHandle` or `Window{PROP:Handle}`.  
-- When `Relative` is set to `True`, `xPos` and `yPos` represent the offset from the current position.  
+- Use the window handle obtained with vuWindowHandle or Window{PROP:Handle}.  
+- When Relative is set to True, xPos and yPos represent the offset from the current position.  
 - Adding steps and pauses provides a visible animation effect.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

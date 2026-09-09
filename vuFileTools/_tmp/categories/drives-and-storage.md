@@ -1,5 +1,5 @@
 
-# VUfILEtOOLS - Drives and Storage Related Functions
+# vuFileTools - Drives and Storage Related Functions
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 

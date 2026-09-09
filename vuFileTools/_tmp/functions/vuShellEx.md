@@ -55,7 +55,7 @@ Ret = vuShellEx(FilePath, Params, WorkFolder, ShowCmd)
 ```
 
 ### Notes
-- `vuShellEx` honors file associations, so documents open in their registered Windows applications.
+- vuShellEx honors file associations, so documents open in their registered Windows applications.
 - Use this when you need shell behavior plus explicit parameters or a working folder.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

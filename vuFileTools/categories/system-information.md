@@ -2,9 +2,9 @@
 title: "vuFileTools - System Information Related Functions"
 summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
-keywords: ["vuFileTools", "functions", "categories", "information", "Clarion", "system", "home", "vufiletools", "related"]
+keywords: ["vuFileTools", "functions", "categories", "information", "Clarion", "system", "home", "vuFileTools", "related"]
 page_type: "category"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 # vuFileTools - System Information Related Functions

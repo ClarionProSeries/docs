@@ -9,14 +9,14 @@ vuEnumerateFolderA(*CSTRING), LONG
 
 
 ## Description
-Enumerates the contents of a specified folder and prepares entries for retrieval with `vuGetEnumeratedEntryA`.  
+Enumerates the contents of a specified folder and prepares entries for retrieval with vuGetEnumeratedEntryA.  
 This is the first step in a two-part process to list files and subfolders.
 
 ### Parameters
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| sFolder   | CSTRING(260) | Full path of the folder to enumerate (for example, `C:\Windows`).           |
+| sFolder   | CSTRING(260) | Full path of the folder to enumerate (for example, C:\Windows).           |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 

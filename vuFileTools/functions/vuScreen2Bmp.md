@@ -9,7 +9,7 @@ keywords: ["current", "windows", "vuFileTools", "vuscreen", "bmp", "general", "c
 function_name: "vuScreen2Bmp"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -28,7 +28,7 @@ Captures the current Windows desktop and saves it as a bitmap file.
 
 | Parameter | Data Type    | Description                                                       |
 |-----------|--------------|-------------------------------------------------------------------|
-| FileName  | CSTRING(256) | Fully qualified filename for the bitmap file (must include `.bmp` extension). |
+| FileName  | CSTRING(256) | Fully qualified filename for the bitmap file (must include .bmp extension). |
 
 ### Returns
 A LONG value:  

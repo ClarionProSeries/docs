@@ -6,7 +6,7 @@ keywords: ["delay", "vuFileTools", "vurundelay", "specified", "after", "waiting"
 function_name: "vuRunDelay"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-03-20"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -65,7 +65,7 @@ MESSAGE('vuRunDelay returned: ' & FORMAT(Ret), 'vuRunDelay Test')
 ```
 
 ### Notes
-- `vuRunDelay` is useful when you need a simple delayed launch and do not need separate parameters or a working folder.
-- Use `vuRunExDelay` or `vuRunExDelayWait` when you need the same behavior with explicit file and parameter handling.
+- vuRunDelay is useful when you need a simple delayed launch and do not need separate parameters or a working folder.
+- Use vuRunExDelay or vuRunExDelayWait when you need the same behavior with explicit file and parameter handling.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

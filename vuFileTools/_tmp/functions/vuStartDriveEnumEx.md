@@ -10,8 +10,8 @@ vuStartDriveEnumEx(), LONG
 
 ## Description
 Initializes extended drive enumeration.  
-This function must be called before using `vuGetNextDriveEx()` to retrieve drive details.  
-When enumeration is complete, call `vuEndDriveEnumEx()` to release resources.
+This function must be called before using vuGetNextDriveEx() to retrieve drive details.  
+When enumeration is complete, call vuEndDriveEnumEx() to release resources.
 
 ### Parameters
 
@@ -92,9 +92,9 @@ sReady       CSTRING(4)
 ```
 
 ### Notes
-- Always call `vuStartDriveEnumEx()` before calling `vuGetNextDriveEx()`.  
-- Extended enumeration returns more details than the basic `vuGetNextDrive()` (including volume label, filesystem, and capacity).  
-- Call `vuEndDriveEnumEx()` after finishing enumeration to avoid resource leaks.  
-- For a simplified one-call loop, consider `vuGetNextDriveExAuto()`.
+- Always call vuStartDriveEnumEx() before calling vuGetNextDriveEx().  
+- Extended enumeration returns more details than the basic vuGetNextDrive() (including volume label, filesystem, and capacity).  
+- Call vuEndDriveEnumEx() after finishing enumeration to avoid resource leaks.  
+- For a simplified one-call loop, consider vuGetNextDriveExAuto().
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

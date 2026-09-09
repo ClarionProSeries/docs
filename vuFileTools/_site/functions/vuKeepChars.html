@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -32,9 +32,9 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="vukeepcharsstrg-chars">vuKeepChars(Strg, Chars)</h1>
 <pre class="Prototype"><code>vuKeepChars(*CSTRING,*CSTRING), CSTRING</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns a modified version of <code>Strg</code> containing only those
-characters found in <code>Chars</code>. Useful for extracting digits or
-identifiers from strings with mixed content.</p>
+<p>Returns a modified version of Strg containing only those characters
+found in Chars. Useful for extracting digits or identifiers from strings
+with mixed content.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -53,14 +53,13 @@ identifiers from strings with mixed content.</p>
 <tr>
 <td>Chars</td>
 <td>CSTRING</td>
-<td>Characters to keep (all others will be removed from
-<code>Strg</code>)</td>
+<td>Characters to keep (all others will be removed from Strg)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
-<p>A CSTRING containing only the characters from <code>Strg</code> that
-match those listed in <code>Chars</code>.</p>
+<p>A CSTRING containing only the characters from Strg that match those
+listed in Chars.</p>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>Strg  = &#39;Now is the 3time 2 for al8l good men4 to co5me to th76e aid of their country.&#39;
 Chars = &#39;0123456789&#39;

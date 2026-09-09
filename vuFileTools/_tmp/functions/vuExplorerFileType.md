@@ -16,12 +16,12 @@ This is the same description you see in the "Type" column of Explorer.
 
 | Parameter | Data Type    | Description                                                                 |
 |-----------|--------------|-----------------------------------------------------------------------------|
-| pFile     | CSTRING(260) | Full path to the file (for example, `C:\Windows\Notepad.exe`).              |
+| pFile     | CSTRING(260) | Full path to the file (for example, C:\Windows\Notepad.exe).              |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
 ### Returns
-A CSTRING containing the Explorer file type description (for example, "Application" for `.exe` files).
+A CSTRING containing the Explorer file type description (for example, "Application" for .exe files).
 
 ### Example
 

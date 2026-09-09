@@ -1,20 +1,15 @@
 ---
 title: "vuMailSlotDestroy"
-summary: "Destroys a previously created mail slot, releasing the associated system resources."
-description: "Destroys a previously created mail slot, releasing the associated system resources. ### Parameters ### Returns
-A LONG value:  
-- 1 (True) on success  
-- 0 (False) on failure   ### Example ### Notes
-- Always destroy mail slots before your application terminates.  
-- This prevents memory leaks and ensures system resources are released properly. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
-keywords: ["previously", "vuFileTools", "releasing", "resources", "destroys", "associated", "general", "mail", "slot", "Clarion", "system", "Windows"]
+summary: "Destroys a previously created mailslot and releases its Windows handle."
+description: "Destroys a previously created mailslot and releases its Windows handle."
+keywords: ["vuFileTools", "mailslot", "IPC", "Clarion", "Windows"]
 function_name: "vuMailSlotDestroy"
-category: "General"
+category: "Interprocess Communication"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotDestroy(SlotName)
 
@@ -24,18 +19,17 @@ vuMailSlotDestroy(*CSTRING), Signed
 
 
 ## Description
-Destroys a previously created mail slot, releasing the associated system resources.
+Destroys a previously created mailslot and releases its Windows handle.
 
 ### Parameters
 
-| Parameter | Data Type    | Description                           |
-|-----------|--------------|---------------------------------------|
-| SlotName  | CSTRING(256) | The name of the mail slot to destroy. |
+| Parameter | Data Type | Description |
+|-----------|-----------|-------------|
+| SlotName | CSTRING | The logical name of the mailslot to destroy. |
 
 ### Returns
-A LONG value:  
-- 1 (True) on success  
-- 0 (False) on failure  
+- 1 (True) if the slot was destroyed successfully.  
+- 0 (False) if the slot is not registered or Windows could not close the handle.  
 
 ### Example
 
@@ -49,7 +43,8 @@ END
 ```
 
 ### Notes
-- Always destroy mail slots before your application terminates.  
-- This prevents memory leaks and ensures system resources are released properly.
+- Build 208 corrects the internal array resizing performed after a slot is removed.  
+- If Windows cannot close the mailslot handle, vuMailSlotLastError contains the native Windows error.  
+- Destroy a mailslot when the receiving application no longer needs it.  
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)

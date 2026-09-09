@@ -1,15 +1,15 @@
 ---
 title: "vuReplaceChars"
-summary: "Returns a modified version of `MainStrg` with all occurrences of `OldStrg` replaced by `NewStrg`."
-description: "Returns a modified version of `MainStrg` with all occurrences of `OldStrg` replaced by `NewStrg`. The replacement substring does not need to be the same length as the original. ### Parameters ### Returns
-A CSTRING containing the modified version of `MainStrg`. ### Example ### Notes
-- All occurrences of `OldStrg` within `MainStrg` are replaced.  
-- `NewStrg` may be shorter or longer than `OldStrg`. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+summary: "Returns a modified version of MainStrg with all occurrences of OldStrg replaced by NewStrg."
+description: "Returns a modified version of MainStrg with all occurrences of OldStrg replaced by NewStrg. The replacement substring does not need to be the same length as the original. ### Parameters ### Returns
+A CSTRING containing the modified version of MainStrg. ### Example ### Notes
+- All occurrences of OldStrg within MainStrg are replaced.  
+- NewStrg may be shorter or longer than OldStrg. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["modified", "version", "vuFileTools", "oldstrg", "mainstrg", "replaced", "occurrences", "general", "returns", "newstrg", "vureplacechars", "Clarion"]
 function_name: "vuReplaceChars"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -22,7 +22,7 @@ vuReplaceChars(*CSTRING, *CSTRING, *CSTRING), Long
 
 
 ## Description
-Returns a modified version of `MainStrg` with all occurrences of `OldStrg` replaced by `NewStrg`. The replacement substring does not need to be the same length as the original.
+Returns a modified version of MainStrg with all occurrences of OldStrg replaced by NewStrg. The replacement substring does not need to be the same length as the original.
 
 ### Parameters
 
@@ -30,10 +30,10 @@ Returns a modified version of `MainStrg` with all occurrences of `OldStrg` repla
 |-----------|--------------|-----------------------------------------------------------------------------|
 | MainStrg  | CSTRING(256) | The input string to modify.                                                 |
 | OldStrg   | CSTRING(128) | The substring you wish to replace.                                          |
-| NewStrg   | CSTRING(128) | The substring to replace `OldStrg` with.                                    |
+| NewStrg   | CSTRING(128) | The substring to replace OldStrg with.                                    |
 
 ### Returns
-A CSTRING containing the modified version of `MainStrg`.
+A CSTRING containing the modified version of MainStrg.
 
 ### Example
 
@@ -49,7 +49,7 @@ MESSAGE(Result)
 ```
 
 ### Notes
-- All occurrences of `OldStrg` within `MainStrg` are replaced.  
-- `NewStrg` may be shorter or longer than `OldStrg`.
+- All occurrences of OldStrg within MainStrg are replaced.  
+- NewStrg may be shorter or longer than OldStrg.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

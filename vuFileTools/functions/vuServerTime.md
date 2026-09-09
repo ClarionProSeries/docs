@@ -12,7 +12,7 @@ keywords: ["vuFileTools", "specified", "from", "clarion", "vuservertime", "gener
 function_name: "vuServerTime"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -31,7 +31,7 @@ Returns the system time from the specified server in standard Clarion time forma
 
 | Parameter  | Data Type    | Description                                                                 |
 |------------|--------------|-----------------------------------------------------------------------------|
-| ServerName | CSTRING(128) | The name of the server (e.g., `\\MyServer`). Forward slashes are optional and will be added automatically. |
+| ServerName | CSTRING(128) | The name of the server (e.g., \\MyServer). Forward slashes are optional and will be added automatically. |
 
 ### Returns
 A LONG value containing the time in standard Clarion time format.  

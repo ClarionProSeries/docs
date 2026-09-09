@@ -15,12 +15,12 @@ Modifies the system registry to enable or disable the Windows key on the keyboar
 
 | Parameter | Data Type | Description                                        |
 |-----------|-----------|----------------------------------------------------|
-| Disable   | LONG      | Set to `1` to disable the Windows key, `0` to enable it. |
+| Disable   | LONG      | Set to 1 to disable the Windows key, 0 to enable it. |
 
 ### Returns
 A BYTE value:  
-- `True` if the registry was successfully modified.  
-- `False` if the operation failed.
+- True if the registry was successfully modified.  
+- False if the operation failed.
 
 ### Example
 

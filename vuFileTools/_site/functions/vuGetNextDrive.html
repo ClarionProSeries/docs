@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -37,12 +37,10 @@ pDriveType)</h1>
 list, along with its type.<br />
 This function is part of the three-call drive enumeration sequence:</p>
 <ol type="1">
-<li>Call <code>vuStartDriveEnum()</code> to initialize drive
-enumeration.</li>
-<li>Call <code>vuGetNextDrive()</code> repeatedly until it returns 0 (no
-more drives).</li>
-<li>Call <code>vuEndDriveEnum()</code> to clean up internal
-resources.</li>
+<li>Call vuStartDriveEnum() to initialize drive enumeration.</li>
+<li>Call vuGetNextDrive() repeatedly until it returns 0 (no more
+drives).</li>
+<li>Call vuEndDriveEnum() to clean up internal resources.</li>
 </ol>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -58,7 +56,7 @@ resources.</li>
 <td>pRootPath</td>
 <td>*CSTRING(4)</td>
 <td>Buffer that receives the root path of the drive (for example,
-<code>C:\</code>).</td>
+C:).</td>
 </tr>
 <tr>
 <td>pDriveType</td>
@@ -117,12 +115,12 @@ Msg           CSTRING(100)
   Result = vuEndDriveEnum()</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li><code>vuGetNextDrive()</code> should only be used between calls to
-<code>vuStartDriveEnum()</code> and <code>vuEndDriveEnum()</code>.</li>
+<li>vuGetNextDrive() should only be used between calls to
+vuStartDriveEnum() and vuEndDriveEnum().</li>
 <li>Drive type constants correspond to Windows API values (2=Removable,
 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk).</li>
-<li>Use <code>vuGetNextDriveAuto()</code> if you prefer a simpler,
-single-call loop without explicit start and end calls.</li>
+<li>Use vuGetNextDriveAuto() if you prefer a simpler, single-call loop
+without explicit start and end calls.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

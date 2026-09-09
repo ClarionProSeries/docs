@@ -33,8 +33,8 @@ vuMinimizePrograms(0)
 ```
 
 ### Notes
-- When called with `1`, all running programs (including Word, Excel, etc.) will be minimized.  
-- When called with `0`, programs minimized by the call will be restored.  
+- When called with 1, all running programs (including Word, Excel, etc.) will be minimized.  
+- When called with 0, programs minimized by the call will be restored.  
 - Programs already minimized before the call will remain minimized after restoration.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -34,7 +34,7 @@ END
 ### Notes
 - Each call launches a separate Windows thread for monitoring.  
 - The thread remains in a wait state until a change occurs in the folder or its contents.  
-- Use `vuFolderWatchCheck` to query whether a change has occurred.  
+- Use vuFolderWatchCheck to query whether a change has occurred.  
 - There is no limit to the number of folders that can be monitored simultaneously.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

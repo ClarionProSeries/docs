@@ -1,20 +1,15 @@
 ---
 title: "vuMailSlotDestroyAll"
-summary: "Destroys all mail slots on the local PC."
-description: "Destroys all mail slots on the local PC. ### Parameters ### Returns
-A LONG value:  
-- 1 (True) on success  
-- 0 (False) on failure   ### Example ### Notes
-- Call this function when closing an application that uses mail slots.  
-- Ensures all mail slots are destroyed and system resources are released. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
-keywords: ["vuFileTools", "slots", "destroys", "vumailslotdestroyall", "general", "mail", "local", "Clarion", "Windows"]
+summary: "Destroys all mailslots currently registered by vuFileTools in the calling process."
+description: "Destroys all mailslots currently registered by vuFileTools in the calling process."
+keywords: ["vuFileTools", "mailslot", "IPC", "Clarion", "Windows"]
 function_name: "vuMailSlotDestroyAll"
-category: "General"
+category: "Interprocess Communication"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
 # vuMailSlotDestroyAll()
 
@@ -24,18 +19,17 @@ vuMailSlotDestroyAll(), Signed
 
 
 ## Description
-Destroys all mail slots on the local PC.
+Destroys all mailslots currently registered by vuFileTools in the calling process.
 
 ### Parameters
 
 | Parameter | Data Type | Description |
 |-----------|-----------|-------------|
-| None      |          | This function takes no parameters. |
+| None |  | This function takes no parameters. |
 
 ### Returns
-A LONG value:  
-- 1 (True) on success  
-- 0 (False) on failure  
+- 1 (True) if there are no active slots or every active slot is destroyed successfully.  
+- 0 (False) if one or more handles could not be closed. Any failed slots remain tracked so they are not silently lost.  
 
 ### Example
 
@@ -43,12 +37,12 @@ A LONG value:
 IF vuMailSlotDestroyAll()
   MESSAGE('All mail slots destroyed successfully.')
 ELSE
-  MESSAGE('Failed to destroy all mail slots.')
+  MESSAGE('One or more mail slots could not be destroyed.')
 END
 ```
 
 ### Notes
-- Call this function when closing an application that uses mail slots.  
-- Ensures all mail slots are destroyed and system resources are released.
+- Build 208 strengthens cleanup bookkeeping when one or more CloseHandle operations fail.  
+- vuMailSlotLastError retains the first Windows close error encountered during the operation.  
 
-[Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
+[Home](../index.md) | [Mailslots Overview](../mailslots.md) | [All functions](index.md) | [Categories](../categories/index.md)

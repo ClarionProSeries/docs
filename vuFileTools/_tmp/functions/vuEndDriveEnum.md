@@ -9,8 +9,8 @@ vuEndDriveEnum(), LONG
 
 
 ## Description
-Finalizes the drive enumeration sequence and releases internal resources allocated by `vuStartDriveEnum()`.  
-Call this after looping `vuGetNextDrive()` until it returns 0.
+Finalizes the drive enumeration sequence and releases internal resources allocated by vuStartDriveEnum().  
+Call this after looping vuGetNextDrive() until it returns 0.
 
 ### Parameters
 
@@ -70,7 +70,7 @@ Msg           CSTRING(100)
 ```
 
 ### Notes
-- Use `vuEndDriveEnum()` only after a matching `vuStartDriveEnum()` call.  
-- If you prefer not to manage start and end explicitly, use `vuGetNextDriveAuto()`, which handles setup and cleanup internally.
+- Use vuEndDriveEnum() only after a matching vuStartDriveEnum() call.  
+- If you prefer not to manage start and end explicitly, use vuGetNextDriveAuto(), which handles setup and cleanup internally.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

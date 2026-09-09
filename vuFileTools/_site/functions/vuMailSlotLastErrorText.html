@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuMailSlotLastErrorText</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../mailslots.html">Mailslots Overview</a> | <a
+href="index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1
+id="vumailslotlasterrortextbuffer-buffersize">vuMailSlotLastErrorText(Buffer,
+BufferSize)</h1>
+<pre class="Prototype"><code>vuMailSlotLastErrorText(*CSTRING,LONG), Signed</code></pre>
+<h2 id="description">Description</h2>
+<p>Writes readable Windows text for the most recently stored mailslot
+error into a caller-provided CSTRING.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buffer</td>
+<td>CSTRING</td>
+<td>Destination CSTRING for the Windows error text.</td>
+</tr>
+<tr>
+<td>BufferSize</td>
+<td>LONG</td>
+<td>Total size of Buffer. In Clarion, normally pass SIZE(Buffer).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>1 (True) if Windows error text was written successfully.</li>
+<li>0 (False) if there is no stored error, BufferSize is invalid, or
+Windows could not format the error text.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>ErrNo = vuMailSlotLastError()
+IF ErrNo
+  IF vuMailSlotLastErrorText(ErrText, SIZE(ErrText))
+    MESSAGE(&#39;Windows error &#39; &amp; ErrNo &amp; &#39;: &#39; &amp; ErrText)
+  END
+END</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Added in Build 208.</li>
+<li>A CSTRING(512) is a practical size for normal diagnostic use.</li>
+<li>The stored error is maintained by the vuFileTools mailslot functions
+in the current process.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a
+href="../mailslots.html">Mailslots Overview</a> | <a
+href="index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

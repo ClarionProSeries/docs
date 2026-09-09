@@ -18,7 +18,7 @@ Converts a LONG value into its hexadecimal representation.
 | LongValue | LONG      | The value to convert to hexadecimal  |
 
 ### Returns
-A CSTRING containing the hexadecimal representation of `LongValue`.
+A CSTRING containing the hexadecimal representation of LongValue.
 
 ### Example
 

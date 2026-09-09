@@ -8,7 +8,7 @@ keywords: ["current", "vuFileTools", "networking", "network", "user", "vunetwork
 function_name: "vuNetworkUser"
 category: "Networking"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

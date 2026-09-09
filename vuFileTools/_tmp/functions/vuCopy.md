@@ -11,8 +11,8 @@ vuCopy(*CSTRING,*CSTRING,LONG), Signed
 ## Description
 Copies files from one location to another. Supports wildcards and optional subdirectory copying. Can copy across drives, including network drives.  
 
-- In version 3.5, the mask in `Source` applied to all subdirectories.  
-- In version 3.6, the original functionality was restored, with `Subdirs = 2` added to apply the mask to all subdirectories (UNCs not supported when using 2).  
+- In version 3.5, the mask in Source applied to all subdirectories.  
+- In version 3.6, the original functionality was restored, with Subdirs = 2 added to apply the mask to all subdirectories (UNCs not supported when using 2).  
 
 ### Parameters
 
@@ -45,7 +45,7 @@ vuCopy(Source, 'C:\Backup', 2)
 ```
 
 ### Notes
-- `Subdirs = 1` copies all files and subdirectories.  
-- `Subdirs = 2` applies the mask to all subdirectories but disallows UNCs.
+- Subdirs = 1 copies all files and subdirectories.  
+- Subdirs = 2 applies the mask to all subdirectories but disallows UNCs.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

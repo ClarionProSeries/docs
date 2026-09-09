@@ -8,7 +8,7 @@ keywords: ["vuenumeratestartupitems", "windows", "vuFileTools", "enumerates", "f
 function_name: "vuEnumerateStartupItems"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -27,7 +27,7 @@ Enumerates all items in the Windows Startup folders. Use this function to determ
 
 | Parameter | Data Type | Description                                                                 |
 |-----------|-----------|-----------------------------------------------------------------------------|
-| Scope     | LONG      | `0` = Current User Startup, `1` = Common (All Users) Startup.               |
+| Scope     | LONG      | 0 = Current User Startup, 1 = Common (All Users) Startup.               |
 
 ### Returns
 A LONG value indicating the number of startup items found.  

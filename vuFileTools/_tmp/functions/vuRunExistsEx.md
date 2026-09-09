@@ -52,6 +52,6 @@ Ret = vuRunExistsEx(FilePath, 10, 200)
 
 ### Notes
 - Use this when another process is expected to create the file shortly.
-- `WaitSec = 0` means do not wait; the function will only check once.
+- WaitSec = 0 means do not wait; the function will only check once.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

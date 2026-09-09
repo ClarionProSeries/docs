@@ -9,7 +9,7 @@ vuFadeInOthers(*CSTRING), Signed
 
 
 ## Description
-Fades in other windows whose title contains the specified name or phrase. If `wName` is left blank, all other running windows are affected. Useful for restoring windows after using `vuFadeOutOthers`.
+Fades in other windows whose title contains the specified name or phrase. If wName is left blank, all other running windows are affected. Useful for restoring windows after using vuFadeOutOthers.
 
 ### Parameters
 

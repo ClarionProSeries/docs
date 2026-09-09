@@ -15,7 +15,7 @@ Returns the type of disk drive for the given drive letter.
 
 | Parameter | Data Type   | Description                                  |
 |-----------|-------------|----------------------------------------------|
-| Drive     | CSTRING(1)  | Drive letter to test (e.g., `'A'`, `'C'`)    |
+| Drive     | CSTRING(1)  | Drive letter to test (e.g., 'A', 'C')    |
 
 ### Returns
 One of the following values:  

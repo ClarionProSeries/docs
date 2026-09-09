@@ -10,7 +10,7 @@ vuStartDriveEnum(), LONG
 
 ## Description
 Begins a drive enumeration session.  
-Call this first, then loop with `vuGetNextDrive`, and finally call `vuEndDriveEnum` to clean up.
+Call this first, then loop with vuGetNextDrive, and finally call vuEndDriveEnum to clean up.
 
 ### Parameters
 
@@ -70,8 +70,8 @@ Msg         CSTRING(100)
 ```
 
 ### Notes
-- Must be paired with `vuEndDriveEnum()`; do not mix with the `Ex` or `Auto` variants.  
-- Use `ADDRESS()` to pass pointers for the root path buffer and the drive type LONG to `vuGetNextDrive`.  
+- Must be paired with vuEndDriveEnum(); do not mix with the Ex or Auto variants.  
+- Use ADDRESS() to pass pointers for the root path buffer and the drive type LONG to vuGetNextDrive.  
 - Drive type values: 2=Removable, 3=Fixed, 4=Network, 5=CD/DVD, 6=RAM Disk.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

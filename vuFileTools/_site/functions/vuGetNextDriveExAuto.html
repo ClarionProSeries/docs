@@ -24,7 +24,7 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
@@ -35,11 +35,10 @@ id="vugetnextdriveexautopdriveinfo">vuGetNextDriveExAuto(pDriveInfo)</h1>
 <h2 id="description">Description</h2>
 <p>Retrieves extended information about the next available drive with
 automatic initialization and cleanup.<br />
-Unlike the three-call sequence (<code>vuStartDriveEnumEx</code>,
-<code>vuGetNextDriveEx</code>, <code>vuEndDriveEnumEx</code>), this
-function handles start and end internally. It begins enumeration on the
-first call and frees resources automatically when no more drives are
-available.</p>
+Unlike the three-call sequence (vuStartDriveEnumEx, vuGetNextDriveEx,
+vuEndDriveEnumEx), this function handles start and end internally. It
+begins enumeration on the first call and frees resources automatically
+when no more drives are available.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -59,40 +58,37 @@ including:</td>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>RootPath</code> (CSTRING(4)) drive root (e.g.,
-<code>C:\</code>)</td>
+<td>- RootPath (CSTRING(4)) drive root (e.g., C:)</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>DriveType</code> (LONG) type constant</td>
+<td>- DriveType (LONG) type constant</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>IsReady</code> (LONG) 1 if ready, 0 if not</td>
+<td>- IsReady (LONG) 1 if ready, 0 if not</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>VolumeLabel</code> (CSTRING(64)) volume label</td>
+<td>- VolumeLabel (CSTRING(64)) volume label</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>FileSystem</code> (CSTRING(16)) filesystem type</td>
+<td>- FileSystem (CSTRING(16)) filesystem type</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>FreeBytes</code> (CSTRING(20)) free space, as a formatted
-string</td>
+<td>- FreeBytes (CSTRING(20)) free space, as a formatted string</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>- <code>TotalBytes</code> (CSTRING(20)) total size, as a formatted
-string</td>
+<td>- TotalBytes (CSTRING(20)) total size, as a formatted string</td>
 </tr>
 </tbody>
 </table>
@@ -162,11 +158,10 @@ sReady       CSTRING(4)
   END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>No separate <code>vuStartDriveEnumEx()</code> or
-<code>vuEndDriveEnumEx()</code> calls are required when using
-<code>vuGetNextDriveExAuto()</code>.</li>
-<li>Provides the same extended drive details as
-<code>vuGetNextDriveEx()</code>, but with simplified usage.</li>
+<li>No separate vuStartDriveEnumEx() or vuEndDriveEnumEx() calls are
+required when using vuGetNextDriveExAuto().</li>
+<li>Provides the same extended drive details as vuGetNextDriveEx(), but
+with simplified usage.</li>
 <li>Use this function for most scenarios unless you need explicit
 control of the enumeration lifecycle.</li>
 </ul>

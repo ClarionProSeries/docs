@@ -24,17 +24,19 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="G:\GitHub-Repos\Public\ClarionProSeries\docs\vuFileTools\style.css" />
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
 </head>
 <body>
-<p><a href="../index.html">Home</a> | <a href="index.html">All
-functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a
+href="../mailslots.html">Mailslots Overview</a> | <a
+href="index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 <h1 id="vumailslotcheckslotname-dbuffer">vuMailSlotCheck(SlotName,
 dBuffer)</h1>
 <pre class="Prototype"><code>vuMailSlotCheck(*CSTRING,*CSTRING), Signed</code></pre>
 <h2 id="description">Description</h2>
-<p>Checks the specified mail slot for pending messages and places the
-next message (if any) into <code>dBuffer</code>.</p>
+<p>Checks a registered mailslot and reads the next pending message into
+the caller-provided buffer.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -47,39 +49,46 @@ next message (if any) into <code>dBuffer</code>.</p>
 <tbody>
 <tr>
 <td>SlotName</td>
-<td>CSTRING(256)</td>
-<td>The name of the mail slot to check.</td>
+<td>CSTRING</td>
+<td>The logical name of the local mailslot to check.</td>
 </tr>
 <tr>
 <td>dBuffer</td>
-<td>CSTRING(512)</td>
-<td>Buffer to receive the next message. Message size should not exceed
-16K locally or 400 bytes across a domain.</td>
+<td>CSTRING</td>
+<td>Destination buffer for the next message. This legacy function does
+not know the actual capacity of the caller buffer.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
 <ul>
-<li>-1 on error</li>
-<li>0 if no messages are pending</li>
-<li>Otherwise, the number of pending messages (including the one copied
-into <code>dBuffer</code>)</li>
+<li>-1 if GetMailslotInfo fails. Use vuMailSlotLastError for the Windows
+error.</li>
+<li>0 if no message is pending, the slot is not registered, or the
+legacy ReadFile operation fails. A ReadFile failure leaves the Windows
+error available through vuMailSlotLastError.</li>
+<li>A value greater than 0 is the number of messages that were pending
+before the current message was read.</li>
 </ul>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>SlotName = &#39;Transactions&#39;
-IF vuMailSlotCheck(SlotName, dBuffer) &gt; 0
-  MESSAGE(&#39;You have mail: &#39; &amp; dBuffer)
+<pre class="Clarion"><code>GotMail = vuMailSlotCheck(Mailbox, MailBuffer)
+IF GotMail &gt; 0
+  MESSAGE(&#39;You have mail: &#39; &amp; MailBuffer)
+ELSIF GotMail &lt; 0
+  MESSAGE(&#39;Unable to check the mail slot.&#39;)
 END</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>The demo application included with vuFileTools shows a practical
-example of using mail slots for inter-process communication.</li>
-<li>Mail slots can be used for one application to send data to and
-manipulate another application.</li>
-<li>For more details, refer to the separate mail slots write-up included
-with the distribution package.</li>
+<li>Build 208 corrects empty timer polling so an already-consumed
+message is not processed again on the next poll.</li>
+<li>Do not use only IF GotMail when receiving. Test GotMail &gt; 0
+before processing the buffer.</li>
+<li>For new code, use vuMailSlotCheckEx so vuFileTools can verify the
+destination buffer size before reading the message.</li>
 </ul>
-<p><a href="../index.html">Home</a> | <a href="index.html">All
-functions</a> | <a href="../categories/index.html">Categories</a></p>
+<p><a href="../index.html">Home</a> | <a
+href="../mailslots.html">Mailslots Overview</a> | <a
+href="index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
 </body>
 </html>

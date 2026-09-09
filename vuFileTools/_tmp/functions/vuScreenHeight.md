@@ -30,6 +30,6 @@ END
 
 ### Notes
 - Returns the vertical resolution of the primary display.  
-- Use together with `vuScreenWidth()` to determine full screen resolution.
+- Use together with vuScreenWidth() to determine full screen resolution.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

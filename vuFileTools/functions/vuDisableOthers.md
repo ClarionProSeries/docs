@@ -1,14 +1,14 @@
 ---
 title: "vuDisableOthers"
-summary: "Disables or enables all other windows that contain the specified text in their title, based on the value of `wDisable`."
-description: "Disables or enables all other windows that contain the specified text in their title, based on the value of `wDisable`. ### Parameters ### Returns
+summary: "Disables or enables all other windows that contain the specified text in their title, based on the value of wDisable."
+description: "Disables or enables all other windows that contain the specified text in their title, based on the value of wDisable. ### Parameters ### Returns
 The number of windows that were enabled or disabled. ### Example ### Notes
-- If `NameContains` is left blank, the function will apply to all windows. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
+- If NameContains is left blank, the function will apply to all windows. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
 keywords: ["windows", "vuFileTools", "value", "contain", "specified", "title", "that", "text", "general", "disables", "vudisableothers", "their"]
 function_name: "vuDisableOthers"
 category: "General"
 version_added: "5.0"
-last_updated: "2025-09-23"
+last_updated: "2026-09-08"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -21,7 +21,7 @@ vuDisableOthers(*CSTRING,LONG), Signed
 
 
 ## Description
-Disables or enables all other windows that contain the specified text in their title, based on the value of `wDisable`.
+Disables or enables all other windows that contain the specified text in their title, based on the value of wDisable.
 
 ### Parameters
 
@@ -44,6 +44,6 @@ vuDisableOthers('Microsoft Word', wDisable)  ! Re-enables all running instances 
 ```
 
 ### Notes
-- If `NameContains` is left blank, the function will apply to all windows.
+- If NameContains is left blank, the function will apply to all windows.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -16,7 +16,7 @@ Enables or disables NTFS compression on the specified file or folder.
 | Parameter | Data Type    | Description                                                     |
 |-----------|--------------|-----------------------------------------------------------------|
 | pPath     | CSTRING(260) | Full path to the file or folder to modify.                      |
-| bEnable   | LONG         | Compression flag: `1` to enable compression, `0` to disable it. |
+| bEnable   | LONG         | Compression flag: 1 to enable compression, 0 to disable it. |
 
 _Note: In vuFileTools V5, CSTRINGs are not limited to the size shown above. The number is for example only._
 
