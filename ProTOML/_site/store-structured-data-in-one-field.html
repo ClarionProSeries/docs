@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>store-structured-data-in-one-field</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+<h1 id="store-structured-clarion-data-in-one-field">Store Structured
+Clarion Data in One Field</h1>
+<p>A strong ProTOML use case is storing several related structures in
+one field that already belongs to a record.</p>
+<p>For example, one document can contain application settings, a current
+customer snapshot, and a variable-length contact QUEUE.</p>
+<h2 id="build-the-document">Build the document</h2>
+<pre class="clarion"><code>Toml.StartDocument()
+Toml.WriteGroup(&#39;settings&#39;,AppSettings)
+Toml.WriteRecord(&#39;customer&#39;,CustomerFile:Record)
+Toml.WriteQueue(&#39;contacts&#39;,ContactQueue)</code></pre>
+<h2 id="store-it-in-a-memo">Store it in a MEMO</h2>
+<pre class="clarion"><code>IF Toml.SaveMemo(SettingsFile,STO:TomlMemoIndex) = ProTOML:OK
+  PUT(SettingsFile)
+END</code></pre>
+<h2 id="or-store-it-in-a-blob">Or store it in a BLOB</h2>
+<pre class="clarion"><code>IF Toml.SaveBlob(SettingsFile,STO:TomlBlobIndex) = ProTOML:OK
+  PUT(SettingsFile)
+END</code></pre>
+<h2 id="restore-it-later">Restore it later</h2>
+<pre class="clarion"><code>STO:RecordId = 1
+GET(SettingsFile,STO:StorageKey)
+
+Toml.LoadMemo(SettingsFile,STO:TomlMemoIndex)
+Toml.ReadGroup(&#39;settings&#39;,AppSettings)
+Toml.ReadRecord(&#39;customer&#39;,CustomerFile:Record)
+Toml.ReadQueue(&#39;contacts&#39;,ContactQueue)</code></pre>
+<p>This gives you a simple way to keep related settings, record data,
+and repeating QUEUE data together in one field.</p>
+<p>The BLOB method stores the exact TOML document bytes. That storage
+encoding does not add application-wide Unicode support to ordinary
+Clarion controls, strings, or database drivers.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+</body>
+</html>

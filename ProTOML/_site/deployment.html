@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>deployment</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+<h1 id="protoml---deployment-and-usage">ProTOML - Deployment and
+Usage</h1>
+<p>ProTOML deploys as a single runtime DLL.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Deploy ProTOML.dll with your application.</p>
+<p>The DLL should reside in the same folder as your application EXE file
+or in the application’s normal DLL location.</p>
+<p>If your application was built with the Clarion template, the matching
+development files must also be installed on the development
+computer:</p>
+<ul>
+<li>ProTOML.lib for linking</li>
+<li>ProTOML.tpl for template integration</li>
+<li>ProTOML class support files in the Clarion libsrc folder</li>
+</ul>
+<h2 id="clarion-multi-dll-applications">Clarion multi-DLL
+applications</h2>
+<p>In a Clarion multi-DLL application, add the ProTOML global template
+to the EXE app.</p>
+<p>The supporting DLL apps do not need their own ProTOML global
+extension. The EXE startup code initializes ProTOML for the process.</p>
+<h2 id="typical-deployment-checklist">Typical deployment checklist</h2>
+<ul>
+<li>Install the ProTOML template into Clarion.</li>
+<li>Add the ProTOML global template to the EXE app.</li>
+<li>Enter the developer license in the global template.</li>
+<li>Build the application with ProTOML.lib.</li>
+<li>Deploy ProTOML.dll with the EXE.</li>
+</ul>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+</body>
+</html>

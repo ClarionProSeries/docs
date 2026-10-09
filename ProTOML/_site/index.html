@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+<h1 id="protoml">ProTOML</h1>
+<p><img src="assets/images/ProTOML270x90.png" alt="ProToml" /></p>
+<p>Current Version: ProTOML 1.1.0</p>
+<p>Release Date: 2026-10-07</p>
+<p>Last Updated: 2026-10-07</p>
+<p>Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights
+reserved.</p>
+<p>ProTOML gives Clarion developers an easy way to create, read, edit,
+store, and exchange TOML data.</p>
+<p>The ProTOML global template supplies a ready-to-use high-level
+object. Most developers use that object and never need to call the
+low-level DLL API functions directly. Ordinary GROUP, QUEUE, and FILE
+RECORD declarations work without BINDABLE.</p>
+<p>Use the links below to browse the documentation.</p>
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="requirements.html">Requirements</a></li>
+<li><a href="install.html">Installation Instructions</a></li>
+<li><a href="template-registration.html">Registering the
+Template</a></li>
+<li><a href="template-usage.html">Using the Template in Your
+Application</a></li>
+<li><a href="getting-started/index.html">Getting Started</a></li>
+<li><a href="categories/index.html">Browse Methods by Category</a></li>
+<li><a href="classes/index.html">View All High-Level Methods</a></li>
+<li><a href="functions/index.html">Low-Level API Reference</a></li>
+<li><a href="hand-coded-integration.html">Hand-Coded Integration Without
+the Template</a></li>
+<li><a href="demo-and-licensing.html">Demo and Licensing</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+<li><a href="whatsnew.html">What's New</a></li>
+<li><a href="version-history.html">Version History</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="prohelpstudio.html">About ProHelp Studio</a></li>
+</ul>
+<h2 id="how-to-get-started">How to get started</h2>
+<p>For a normal Clarion application:</p>
+<ol type="1">
+<li>Install ProTOML.</li>
+<li>Register the ProTOML template if the installer did not register it
+automatically.</li>
+<li>Add the ProTOML global template to the EXE application.</li>
+<li>Enter the developer license in the template.</li>
+<li>Write the high-level calls your application needs.</li>
+<li>Compile and run the application.</li>
+</ol>
+<pre class="clarion"><code>Toml.StartDocument()
+Toml.WriteGroup(&#39;settings&#39;,AppSettings)
+Toml.WriteQueue(&#39;contacts&#39;,ContactQueue)
+Toml.SaveMemo(SettingsFile,STO:TomlMemoIndex)</code></pre>
+<h2 id="start-here">Start here</h2>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="getting-started/index.html">Getting Started</a></td>
+<td>Task-based guides for the quickest path to useful results.</td>
+</tr>
+<tr>
+<td><a
+href="getting-started/what-most-developers-actually-use.html">What Most
+Developers Actually Use</a></td>
+<td>The small set of high-level methods most applications use
+first.</td>
+</tr>
+<tr>
+<td><a href="template-usage.html">Using the ProTOML Template</a></td>
+<td>Add the template, enter the developer license, and use the generated
+Toml object.</td>
+</tr>
+<tr>
+<td><a href="getting-started/your-first-document.html">Create Your First
+TOML Document</a></td>
+<td>See Clarion values, the calls that store them, and the resulting
+TOML document.</td>
+</tr>
+<tr>
+<td><a href="getting-started/store-and-restore-clarion-data.html">Store
+and Restore Clarion Data</a></td>
+<td>Map a GROUP, current FILE record buffer, and QUEUE without naming
+every field in code.</td>
+</tr>
+<tr>
+<td><a href="store-structured-data-in-one-field.html">Store Structured
+Data in One Field</a></td>
+<td>Put several kinds of Clarion data into one MEMO or BLOB field.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-protoml-can-do">What ProTOML can do</h2>
+<ul>
+<li>Store individual strings, numbers, Boolean values, dates, and
+times.</li>
+<li>Write and read a GROUP with one high-level call.</li>
+<li>Write and read the current FILE record buffer with one high-level
+call.</li>
+<li>Write and read a QUEUE as a TOML array of tables.</li>
+<li>Combine several kinds of data in one readable document.</li>
+<li>Store that document in text, a MEMO, a BLOB, or a normal .toml
+file.</li>
+<li>Exchange data with modern languages and tools that support
+TOML.</li>
+</ul>
+<p>See <a href="what-protoml-can-do.html">What ProTOML Can Do for Your
+Clarion Application</a> and <a
+href="why-protoml-instead-of-ini.html">Why Use ProTOML Instead of INI
+Files?</a>.</p>
+<h2 id="high-level-wrapper-and-low-level-api">High-level wrapper and
+low-level API</h2>
+<p>The high-level Clarion wrapper is the normal ProTOML interface and is
+the interface used by the supplied demo applications.</p>
+<p>The 40 low-level API functions remain available for developers who
+need direct access or a specialized integration. Most applications do
+not need them.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+</body>
+</html>

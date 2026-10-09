@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>what-protoml-can-do</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+<h1 id="what-protoml-can-do-for-your-clarion-application">What ProTOML
+Can Do for Your Clarion Application</h1>
+<p>ProTOML turns normal Clarion data into one readable, structured
+document. You can keep that document in memory, store it with an
+existing record, save it as a .toml file, or send it to another
+program.</p>
+<h2 id="practical-uses">Practical uses</h2>
+<ul>
+<li>Application, user, window, report, and print settings</li>
+<li>Per-customer or per-record configuration</li>
+<li>Variable-length option lists and other QUEUE data</li>
+<li>Plug-in and helper settings</li>
+<li>Diagnostic snapshots and support packages</li>
+<li>Import/export packages</li>
+<li>Data exchange with modern languages and tools that already support
+TOML</li>
+</ul>
+<h2 id="combine-different-clarion-data">Combine different Clarion
+data</h2>
+<pre class="clarion"><code>Toml.StartDocument()
+Toml.WriteGroup(&#39;settings&#39;,AppSettings)
+Toml.WriteRecord(&#39;customer&#39;,CustomerFile:Record)
+Toml.WriteQueue(&#39;contacts&#39;,ContactQueue)</code></pre>
+<p>The document can contain different types of related information
+without forcing the developer to invent numbered keys or write a custom
+parser.</p>
+<h2 id="store-it-wherever-it-is-useful">Store it wherever it is
+useful</h2>
+<pre class="clarion"><code>Toml.SaveMemo(SettingsFile,STO:TomlMemoIndex)</code></pre>
+<p>The same document can also be stored in a BLOB, saved to disk,
+displayed in a TEXT control, or transmitted to another system.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+</body>
+</html>

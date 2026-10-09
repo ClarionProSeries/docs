@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TOML_SaveToString</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+<h1 id="toml_savetostring">TOML_SaveToString</h1>
+<p>Serializes a loaded TOML document to a caller-supplied string
+buffer.</p>
+<h2 id="preferred-clarion-class-method">Preferred Clarion class
+method</h2>
+<p>Applications using the ProTOML template normally call <a
+href="../classes/SaveText.html">SaveText</a>.</p>
+<pre class="clarion"><code>SaveText PROCEDURE(*CSTRING pTomlText),LONG</code></pre>
+<h2 id="low-level-export-contract">Low-level export contract</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export</td>
+<td>TOML_SaveToString</td>
+</tr>
+<tr>
+<td>Return type</td>
+<td>LONG</td>
+</tr>
+<tr>
+<td>Calling convention</td>
+<td>PASCAL, RAW, DLL(1)</td>
+</tr>
+<tr>
+<td>Binary name</td>
+<td>NAME('TOML_SaveToString')</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>handle</td>
+<td>LONG</td>
+<td>Positive document handle returned by a document-creation or load
+export.</td>
+</tr>
+<tr>
+<td>pOutBuf</td>
+<td>*CSTRING</td>
+<td>Caller-provided output buffer, or zero for the first size-query
+call.</td>
+</tr>
+<tr>
+<td>outBufBytes</td>
+<td>LONG</td>
+<td>Size of the output buffer in bytes.</td>
+</tr>
+<tr>
+<td>enableDebug</td>
+<td>LONG</td>
+<td>Nonzero enables debug behavior for this call.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value--error-handling">Return value / error handling</h2>
+<p>On failure, read TOML_GetLastErrorCode and TOML_GetLastErrorText
+immediately. The preferred class method converts that pattern into a
+class result plus retained LastErrorCode and LastErrorText.</p>
+<h2 id="example-clarion">Example (Clarion)</h2>
+<pre class="clarion"><code>TomlText CSTRING(8192)
+RetCode  LONG
+
+CODE
+Toml.StartDocument()
+Toml.SetString(&#39;application.name&#39;,&#39;PageSnip&#39;)
+RetCode = Toml.SaveText(TomlText)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This function is available for advanced or specialized
+integrations.</li>
+<li>Applications using the global template should call SaveText.</li>
+<li>The complete low-level MAP is supplied in
+Clarion-Classes/ProTOMLRaw.clw.</li>
+</ul>
+<h2 id="related-class-method">Related class method</h2>
+<ul>
+<li><a href="../classes/SaveText.html">SaveText</a></li>
+</ul>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+</body>
+</html>

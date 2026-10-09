@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+<h1 id="protoml-high-level-methods">ProTOML High-Level Methods</h1>
+<p>The ProTOML global template supplies the Toml object used by these
+methods. These high-level methods are the normal interface for Clarion
+applications.</p>
+<h2 id="documents-and-storage">Documents and storage</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="StartDocument.html">StartDocument</a></td>
+<td>Start a new empty document.</td>
+</tr>
+<tr>
+<td><a href="LoadText.html">LoadText</a> / <a
+href="SaveText.html">SaveText</a></td>
+<td>Load or save the complete document as text.</td>
+</tr>
+<tr>
+<td><a href="LoadFile.html">LoadFile</a> / <a
+href="SaveFile.html">SaveFile</a></td>
+<td>Load or save a .toml file.</td>
+</tr>
+<tr>
+<td><a href="LoadMemo.html">LoadMemo</a> / <a
+href="SaveMemo.html">SaveMemo</a></td>
+<td>Load or save a complete document in a MEMO.</td>
+</tr>
+<tr>
+<td><a href="LoadBlob.html">LoadBlob</a> / <a
+href="SaveBlob.html">SaveBlob</a></td>
+<td>Load or save a complete document in a BLOB.</td>
+</tr>
+<tr>
+<td><a href="Close.html">Close</a></td>
+<td>Close the current document.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="individual-values">Individual values</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="SetString.html">SetString</a> / <a
+href="GetString.html">GetString</a></td>
+<td>String values.</td>
+</tr>
+<tr>
+<td><a href="SetLong.html">SetLong</a> / <a
+href="GetLong.html">GetLong</a></td>
+<td>LONG values.</td>
+</tr>
+<tr>
+<td><a href="SetBool.html">SetBool</a> / <a
+href="GetBool.html">GetBool</a></td>
+<td>Boolean values.</td>
+</tr>
+<tr>
+<td><a href="SetSReal.html">SetSReal</a> / <a
+href="GetSReal.html">GetSReal</a></td>
+<td>SREAL values.</td>
+</tr>
+<tr>
+<td><a href="SetReal.html">SetReal</a> / <a
+href="GetReal.html">GetReal</a></td>
+<td>REAL values.</td>
+</tr>
+<tr>
+<td><a href="SetDateTimeText.html">SetDateTimeText</a> / <a
+href="GetDateTimeText.html">GetDateTimeText</a></td>
+<td>TOML date/time text.</td>
+</tr>
+<tr>
+<td><a href="KeyExists.html">KeyExists</a></td>
+<td>Test whether a key exists.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clarion-structures">Clarion structures</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="WriteGroup.html">WriteGroup</a> / <a
+href="ReadGroup.html">ReadGroup</a></td>
+<td>Store and restore a GROUP.</td>
+</tr>
+<tr>
+<td><a href="WriteRecord.html">WriteRecord</a> / <a
+href="ReadRecord.html">ReadRecord</a></td>
+<td>Store and restore the current FILE record buffer.</td>
+</tr>
+<tr>
+<td><a href="WriteQueue.html">WriteQueue</a> / <a
+href="ReadQueue.html">ReadQueue</a></td>
+<td>Store and restore a QUEUE.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arrays-and-diagnostics">Arrays and diagnostics</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="AppendString.html">AppendString</a></td>
+<td>Append a string to an array.</td>
+</tr>
+<tr>
+<td><a href="AppendTable.html">AppendTable</a></td>
+<td>Append an array-of-tables row.</td>
+</tr>
+<tr>
+<td><a href="ClearArray.html">ClearArray</a></td>
+<td>Clear an array.</td>
+</tr>
+<tr>
+<td><a href="GetArrayCount.html">GetArrayCount</a></td>
+<td>Read an array count.</td>
+</tr>
+<tr>
+<td><a href="GetArrayString.html">GetArrayString</a> / <a
+href="GetArrayLong.html">GetArrayLong</a></td>
+<td>Read array values.</td>
+</tr>
+<tr>
+<td><a href="GetLastError.html">GetLastError</a></td>
+<td>Read a useful error message.</td>
+</tr>
+<tr>
+<td><a href="SetDebug.html">SetDebug</a></td>
+<td>Enable or disable debug output.</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="../functions/index.html">Low-Level API Reference</a> is
+available for specialized integrations, but most applications do not
+need it.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+</body>
+</html>

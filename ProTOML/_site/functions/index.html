@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+<h1 id="protoml-low-level-api">ProTOML Low-Level API</h1>
+<p>ProTOML includes 40 low-level DLL API functions for direct or
+specialized integrations.</p>
+<p>The global template and high-level Clarion wrapper are the normal
+interface. Most developers use <a
+href="../classes/index.html">High-Level Methods</a> and do not need this
+section.</p>
+<p>Each API page includes:</p>
+<ul>
+<li>the preferred high-level method, when one applies</li>
+<li>a readable function contract</li>
+<li>parameters and return information</li>
+<li>a Clarion example</li>
+</ul>
+<h2 id="api-functions">API functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>High-level method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="TOML_GetLicenseMode.html">TOML_GetLicenseMode</a></td>
+<td><a href="../classes/ReadLicenseMode.html">ReadLicenseMode</a></td>
+<td>Returns the current runtime mode: 0 blocked, 1 demo, or 2
+licensed.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_GetLicenseStatusCode.html">TOML_GetLicenseStatusCode</a></td>
+<td><a
+href="../classes/ReadLicenseStatusCode.html">ReadLicenseStatusCode</a></td>
+<td>Returns the current license status code from the license
+manager.</td>
+</tr>
+<tr>
+<td><a href="TOML_InitLicense.html">TOML_InitLicense</a></td>
+<td><a
+href="../classes/InitializeLicense.html">InitializeLicense</a></td>
+<td>Initializes the runtime license state. Returns 0 for demo mode, 1
+for licensed mode, or -1 if blocked.</td>
+</tr>
+<tr>
+<td><a href="TOML_Free.html">TOML_Free</a></td>
+<td><a href="../classes/Close.html">Close</a></td>
+<td>Releases a loaded TOML document and frees its associated
+memory.</td>
+</tr>
+<tr>
+<td><a href="TOML_Load.html">TOML_Load</a></td>
+<td><a href="../classes/LoadFile.html">LoadFile</a></td>
+<td>Loads a TOML file from disk and returns a handle for use in
+subsequent ProTOML calls.</td>
+</tr>
+<tr>
+<td><a href="TOML_LoadFromBuffer.html">TOML_LoadFromBuffer</a></td>
+<td><a href="../classes/LoadBuffer.html">LoadBuffer</a></td>
+<td>Loads TOML from exact-length ANSI or UTF-8 bytes.</td>
+</tr>
+<tr>
+<td><a href="TOML_LoadFromString.html">TOML_LoadFromString</a></td>
+<td><a href="../classes/LoadText.html">LoadText</a></td>
+<td>Parses a TOML document from an in-memory string buffer and returns a
+handle for subsequent ProTOML calls.</td>
+</tr>
+<tr>
+<td><a href="TOML_New.html">TOML_New</a></td>
+<td><a href="../classes/NewDocument.html">NewDocument</a></td>
+<td>Creates a new empty in-memory TOML document.</td>
+</tr>
+<tr>
+<td><a href="TOML_Save.html">TOML_Save</a></td>
+<td><a href="../classes/SaveFile.html">SaveFile</a></td>
+<td>Saves a loaded TOML document back to disk.</td>
+</tr>
+<tr>
+<td><a href="TOML_SaveToBuffer.html">TOML_SaveToBuffer</a></td>
+<td><a href="../classes/SaveBuffer.html">SaveBuffer</a></td>
+<td>Serializes a document as ANSI or UTF-8 bytes.</td>
+</tr>
+<tr>
+<td><a href="TOML_SaveToString.html">TOML_SaveToString</a></td>
+<td><a href="../classes/SaveText.html">SaveText</a></td>
+<td>Serializes a loaded TOML document to a caller-supplied string
+buffer.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetString.html">TOML_GetString</a></td>
+<td><a href="../classes/GetString.html">GetString</a></td>
+<td>Returns a string value from a loaded TOML document.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetStringBuffer.html">TOML_GetStringBuffer</a></td>
+<td><a href="../classes/GetString.html">GetString</a></td>
+<td>Gets a string using exact-length ANSI or UTF-8 buffers.</td>
+</tr>
+<tr>
+<td><a href="TOML_SetString.html">TOML_SetString</a></td>
+<td><a href="../classes/SetString.html">SetString</a></td>
+<td>Sets a string value at the specified key path in a loaded TOML
+document.</td>
+</tr>
+<tr>
+<td><a href="TOML_SetStringBuffer.html">TOML_SetStringBuffer</a></td>
+<td><a href="../classes/SetString.html">SetString</a></td>
+<td>Sets a string using exact-length ANSI or UTF-8 buffers.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetBool.html">TOML_GetBool</a></td>
+<td><a href="../classes/GetBool.html">GetBool</a></td>
+<td>Returns a boolean value from a loaded TOML document as a LONG (1 =
+true, 0 = false).</td>
+</tr>
+<tr>
+<td><a href="TOML_GetDouble.html">TOML_GetDouble</a></td>
+<td><a href="../classes/GetReal.html">GetReal</a></td>
+<td>Returns a double-precision floating-point value for the Clarion REAL
+boundary.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetFloat.html">TOML_GetFloat</a></td>
+<td><a href="../classes/GetSReal.html">GetSReal</a></td>
+<td>Returns a single-precision floating-point value for the Clarion
+SREAL boundary.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetInt.html">TOML_GetInt</a></td>
+<td><a href="../classes/GetLong.html">GetLong</a></td>
+<td>Returns an integer value (LONG) from a loaded TOML document.</td>
+</tr>
+<tr>
+<td><a href="TOML_SetBool.html">TOML_SetBool</a></td>
+<td><a href="../classes/SetBool.html">SetBool</a></td>
+<td>Sets a boolean value at the specified key path in a loaded TOML
+document.</td>
+</tr>
+<tr>
+<td><a href="TOML_SetDouble.html">TOML_SetDouble</a></td>
+<td><a href="../classes/SetReal.html">SetReal</a></td>
+<td>Sets a double-precision floating-point value from a Clarion
+REAL.</td>
+</tr>
+<tr>
+<td><a href="TOML_SetFloat.html">TOML_SetFloat</a></td>
+<td><a href="../classes/SetSReal.html">SetSReal</a></td>
+<td>Sets a single-precision floating-point value from a Clarion
+SREAL.</td>
+</tr>
+<tr>
+<td><a href="TOML_SetInt.html">TOML_SetInt</a></td>
+<td><a href="../classes/SetLong.html">SetLong</a></td>
+<td>Sets an integer value (LONG) at the specified key path in a loaded
+TOML document.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_GetDateTimeCombined.html">TOML_GetDateTimeCombined</a></td>
+<td><a href="../classes/GetDateTimeText.html">GetDateTimeText</a></td>
+<td>Returns a TOML datetime value into a Clarion SQL DateTime GROUP
+buffer (STRING(8) OVER structure).</td>
+</tr>
+<tr>
+<td><a
+href="TOML_GetDateTimeSeparate.html">TOML_GetDateTimeSeparate</a></td>
+<td><a href="../classes/GetDateTimeText.html">GetDateTimeText</a></td>
+<td>Returns a TOML datetime value as separate Clarion date (LONG) and
+time (LONG) values.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_GetDateTimeString.html">TOML_GetDateTimeString</a></td>
+<td><a href="../classes/GetDateTimeText.html">GetDateTimeText</a></td>
+<td>Returns TOML date or time text while preserving its TOML category
+and offset.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_SetDateTimeCombined.html">TOML_SetDateTimeCombined</a></td>
+<td><a href="../classes/SetDateTimeText.html">SetDateTimeText</a></td>
+<td>Sets a TOML datetime value from a Clarion SQL DateTime GROUP buffer
+(STRING(8) OVER structure).</td>
+</tr>
+<tr>
+<td><a
+href="TOML_SetDateTimeSeparate.html">TOML_SetDateTimeSeparate</a></td>
+<td><a href="../classes/SetDateTimeText.html">SetDateTimeText</a></td>
+<td>Sets a datetime value using separate Clarion date (LONG) and time
+(LONG) values.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_SetDateTimeString.html">TOML_SetDateTimeString</a></td>
+<td><a href="../classes/SetDateTimeText.html">SetDateTimeText</a></td>
+<td>Sets a TOML local or offset date/time value from TOML literal
+text.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_ArrayAppendString.html">TOML_ArrayAppendString</a></td>
+<td><a href="../classes/AppendString.html">AppendString</a></td>
+<td>Appends a string to a TOML array and returns the new zero-based
+index.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_ArrayAppendStringBuffer.html">TOML_ArrayAppendStringBuffer</a></td>
+<td><a href="../classes/AppendString.html">AppendString</a></td>
+<td>Appends an ANSI or UTF-8 string to a simple TOML array.</td>
+</tr>
+<tr>
+<td><a href="TOML_ArrayAppendTable.html">TOML_ArrayAppendTable</a></td>
+<td><a href="../classes/AppendTable.html">AppendTable</a></td>
+<td>Appends a table row to a TOML array of tables and returns the new
+zero-based index.</td>
+</tr>
+<tr>
+<td><a href="TOML_ArrayClear.html">TOML_ArrayClear</a></td>
+<td><a href="../classes/ClearArray.html">ClearArray</a></td>
+<td>Clears an existing array while preserving its kind. A missing key
+remains absent until the first append selects the array kind.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetArrayCount.html">TOML_GetArrayCount</a></td>
+<td><a href="../classes/GetArrayCount.html">GetArrayCount</a></td>
+<td>Returns the number of elements in a TOML array or array-of-tables at
+the specified key path.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetArrayInt.html">TOML_GetArrayInt</a></td>
+<td><a href="../classes/GetArrayLong.html">GetArrayLong</a></td>
+<td>Returns an integer value from a simple TOML array at the specified
+index.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetArrayString.html">TOML_GetArrayString</a></td>
+<td><a href="../classes/GetArrayString.html">GetArrayString</a></td>
+<td>Returns a string value from a simple TOML array at the specified
+index.</td>
+</tr>
+<tr>
+<td><a
+href="TOML_GetArrayStringBuffer.html">TOML_GetArrayStringBuffer</a></td>
+<td><a href="../classes/GetArrayString.html">GetArrayString</a></td>
+<td>Gets a string array element using exact-length ANSI or UTF-8
+buffers.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetLastErrorCode.html">TOML_GetLastErrorCode</a></td>
+<td><a href="../classes/GetLastError.html">GetLastError</a></td>
+<td>Returns -1 if the last ProTOML operation failed, or 0 if it
+succeeded.</td>
+</tr>
+<tr>
+<td><a href="TOML_GetLastErrorText.html">TOML_GetLastErrorText</a></td>
+<td><a href="../classes/GetLastError.html">GetLastError</a></td>
+<td>Returns the error message from the most recent failed ProTOML
+operation.</td>
+</tr>
+<tr>
+<td><a href="TOML_KeyExists.html">TOML_KeyExists</a></td>
+<td><a href="../classes/KeyExists.html">KeyExists</a></td>
+<td>Returns 1 if a key exists at the specified path in a loaded TOML
+document, 0 if not.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+</body>
+</html>

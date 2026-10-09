@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>what-most-developers-actually-use</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+<h1 id="what-most-developers-actually-use">What Most Developers Actually
+Use</h1>
+<p>ProTOML includes a high-level Clarion wrapper and 40 low-level API
+functions. Most developers use the wrapper supplied by the global
+template and never call the API functions directly.</p>
+<p>The API remains available when direct or specialized access is
+needed. Ordinary GROUP, QUEUE, and FILE RECORD declarations can be
+mapped directly; BINDABLE is not required.</p>
+<h2 id="the-common-workflow">The common workflow</h2>
+<p>In many cases, this is all you need:</p>
+<ol type="1">
+<li>Add the ProTOML global template to the EXE app.</li>
+<li>Enter the developer license in the template.</li>
+<li>Write the high-level calls needed by the application.</li>
+<li>Compile and run the application.</li>
+</ol>
+<h2 id="methods-most-developers-use-first">Methods most developers use
+first</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../classes/StartDocument.html">StartDocument</a></td>
+<td>Create a new empty document.</td>
+</tr>
+<tr>
+<td><a href="../classes/SetString.html">SetString</a>, <a
+href="../classes/SetLong.html">SetLong</a>, <a
+href="../classes/SetBool.html">SetBool</a></td>
+<td>Store individual settings.</td>
+</tr>
+<tr>
+<td><a href="../classes/WriteGroup.html">WriteGroup</a> / <a
+href="../classes/ReadGroup.html">ReadGroup</a></td>
+<td>Store and restore a GROUP.</td>
+</tr>
+<tr>
+<td><a href="../classes/WriteRecord.html">WriteRecord</a> / <a
+href="../classes/ReadRecord.html">ReadRecord</a></td>
+<td>Store and restore the current FILE record buffer.</td>
+</tr>
+<tr>
+<td><a href="../classes/WriteQueue.html">WriteQueue</a> / <a
+href="../classes/ReadQueue.html">ReadQueue</a></td>
+<td>Store and restore a QUEUE.</td>
+</tr>
+<tr>
+<td><a href="../classes/SaveMemo.html">SaveMemo</a> / <a
+href="../classes/LoadMemo.html">LoadMemo</a></td>
+<td>Store the complete document in a MEMO field.</td>
+</tr>
+<tr>
+<td><a href="../classes/SaveBlob.html">SaveBlob</a> / <a
+href="../classes/LoadBlob.html">LoadBlob</a></td>
+<td>Store the complete document in a BLOB field.</td>
+</tr>
+<tr>
+<td><a href="../classes/SaveFile.html">SaveFile</a> / <a
+href="../classes/LoadFile.html">LoadFile</a></td>
+<td>Save and load a .toml file.</td>
+</tr>
+<tr>
+<td><a href="../classes/GetLastError.html">GetLastError</a></td>
+<td>Read a useful error message.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-typical-document">A typical document</h2>
+<pre class="clarion"><code>Toml.StartDocument()
+Toml.WriteGroup(&#39;settings&#39;,AppSettings)
+Toml.WriteRecord(&#39;customer&#39;,CustomerFile:Record)
+Toml.WriteQueue(&#39;contacts&#39;,ContactQueue)
+Toml.SaveMemo(SettingsFile,STO:TomlMemoIndex)</code></pre>
+<p>Start with the simplest successful path first, then use the larger
+method and API references only when you need more.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../categories/index.html">Browse by Category</a> | <a
+href="../classes/index.html">Class Methods</a> | <a
+href="../functions/index.html">Low-Level API</a></p>
+</body>
+</html>

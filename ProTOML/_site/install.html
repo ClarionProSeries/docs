@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>install</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+<h1 id="protoml---installation">ProTOML - Installation</h1>
+<p>When you run the installer for ProTOML, it locates valid Clarion
+installations on your computer and lets you choose which one to install
+the template for.</p>
+<p>You can run the installer multiple times and install to multiple
+versions of Clarion. Each Clarion version receives its own complete
+ProTOML setup, allowing independent updates or removals without
+affecting other installed copies.</p>
+<p>The installer sets up the template, class support files, import
+library, runtime DLL deployment files, documentation, and examples.</p>
+<hr />
+<h2 id="installed-file-locations">Installed File Locations</h2>
+<p>By default, the installer follows the normal standards used by
+Clarion third-party developers.</p>
+<h3 id="working-files">Working Files</h3>
+<p>The working files are installed into the appropriate subfolders of
+the root accessory folder beneath your base Clarion installation
+folder.</p>
+<p>For example:</p>
+<pre class="text"><code>C:\Clarion12                           (base Clarion folder)
+C:\Clarion12\accessory                 (root accessory folder)
+C:\Clarion12\accessory\bin
+    ProTOML.dll
+C:\Clarion12\accessory\lib
+    ProTOML.lib
+C:\Clarion12\accessory\template\win
+    ProTOML.tpl
+C:\Clarion12\accessory\libsrc\win
+    ProTOML_MAP.clw
+    ProTOMLClass.equ
+    ProTOMLClass.inc
+    ProTOMLClass.clw
+    ProTOMLRaw.equ
+    ProTOMLRaw.inc
+    ProTOMLRaw.clw
+
+C:\Clarion12\accessory\Documents\LANSRAD\ProTOML
+    ProTOML.chm</code></pre>
+<h3 id="example-files">Example Files</h3>
+<p>The example applications are installed into the appropriate
+subfolders of the standard Clarion examples location.</p>
+<p>This location is in the Users\Public\Documents\SoftVelocity folder so
+that it is available to any user profile on the installation
+computer.</p>
+<p>For example:</p>
+<pre class="text"><code>C:\Users\Public\Documents\SoftVelocity\Clarion12
+C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory
+    ProTOML                    (a shortcut link to the product examples)
+
+C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory\LANSRAD
+C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory\LANSRAD\ProTOML
+    Demo applications and supporting files</code></pre>
+<p>Each demo folder contains the files relevant to that example
+application.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+</body>
+</html>

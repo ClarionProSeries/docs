@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>hand-coded-integration</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\ProTOML\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+<h1 id="hand-coded-integration-without-the-template">Hand-Coded
+Integration Without the Template</h1>
+<p>The global template is recommended for normal applications. Use this
+page only when you deliberately want to integrate ProTOML by hand.</p>
+<h2 id="include-and-declare-the-class">Include and declare the
+class</h2>
+<pre class="clarion"><code>INCLUDE(&#39;ProTOMLClass.inc&#39;),ONCE
+
+Toml        ProTOMLClass
+LicenseMode LONG
+ErrorText   CSTRING(2048)</code></pre>
+<h2 id="initialize-the-license-once">Initialize the license once</h2>
+<p>Call InitializeLicense once during EXE startup before using ProTOML.
+Use the developer license value supplied with your purchase, or
+<code>PTM-DEMO</code> for demo mode:</p>
+<pre class="clarion"><code>LicenseMode = Toml.InitializeLicense(&#39;PTM-DEMO&#39;)
+IF LicenseMode &lt; 0
+  Toml.GetLastError(ErrorText)
+  MESSAGE(ErrorText)
+END</code></pre>
+<h2 id="use-the-high-level-methods">Use the high-level methods</h2>
+<pre class="clarion"><code>Toml.StartDocument()
+Toml.SetString(&#39;application.name&#39;,&#39;My Application&#39;)
+Toml.WriteQueue(&#39;contacts&#39;,ContactQueue)</code></pre>
+<p>The hand-coded application must link the matching ProTOML.lib and
+deploy ProTOML.dll with the EXE.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="categories/index.html">Browse by Category</a> | <a
+href="classes/index.html">Class Methods</a> | <a
+href="functions/index.html">Low-Level API</a></p>
+</body>
+</html>
