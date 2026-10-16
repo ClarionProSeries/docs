@@ -59,6 +59,11 @@ RC  LONG
   RC = vuTestSetLastError(&#39;This is a forced test error string from Clarion&#39;)
   STOP(&#39;RC=&#39; &amp; RC &amp; &#39;  vuMailLastError()=&#39; &amp; vuMailLastError())</code></pre>
 <h2 id="licensing-failures">Licensing failures</h2>
+<p>In build 158, the shared licensing/error bridge was corrected so the
+human-readable text is stored whenever a gated operation returns -9001,
+-9002, or -9003. The return value from the original operation,
+vuMailLastReturnCode(), and vuMailLastError() should therefore describe
+the same licensing/setup condition.</p>
 <p>When a licensing gate fails, vuMailLastError() is populated even
 though no SMTP send was attempted. The message begins with vuMailKit
 licensing failure and explicitly states that the problem is not an SMTP,

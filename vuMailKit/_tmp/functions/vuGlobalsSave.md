@@ -14,6 +14,7 @@ Saves current vuMailKit runtime global values to HKCU\SOFTWARE\vuPrograms\vuMail
 - None.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

@@ -15,7 +15,7 @@ This function has no parameters.
 
 ## Return value / error codes
 - >= 0: Number of available messages.
-- < 0: POP3 state or command error.
+- &lt; 0: POP3 state or command error.
 
 ## Example (Clarion)
 ```clarion

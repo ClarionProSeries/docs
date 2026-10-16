@@ -21,6 +21,7 @@ last_updated: "2026-03-27"
 Attempts to launch a URL in the user’s default browser and writes diagnostic text to an output buffer.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Url | *CSTRING | URL to open. |
@@ -28,6 +29,7 @@ Attempts to launch a URL in the user’s default browser and writes diagnostic t
 | OutTextLen | LONG | Size of xOutText in bytes. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Launch request accepted. |

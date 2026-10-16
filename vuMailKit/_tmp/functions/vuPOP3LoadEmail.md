@@ -11,15 +11,17 @@
 Retrieves and parses one full POP3 message so body, attachment, and embedded-content APIs can be used.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InMessageNumber | LONG | 1-based POP3 message number to load. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Message loaded successfully. |
-- < 0: POP3 command, message index, or parse/state failure.
+- &lt; 0: POP3 command, message index, or parse/state failure.
 
 ## Example (Clarion)
 ```clarion

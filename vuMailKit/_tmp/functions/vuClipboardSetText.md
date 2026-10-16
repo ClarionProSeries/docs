@@ -11,6 +11,7 @@
 Copies provided text to the Windows clipboard and returns diagnostic text.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InText | *CSTRING | Text to copy to clipboard. |
@@ -18,6 +19,7 @@ Copies provided text to the Windows clipboard and returns diagnostic text.
 | InFlags | LONG | Size of OutText buffer in bytes. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

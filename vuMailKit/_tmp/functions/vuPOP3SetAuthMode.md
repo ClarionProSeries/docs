@@ -11,11 +11,13 @@
 Configures POP3 authentication mode used by subsequent POP3 connect operations.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InAuthMode | LONG | 0 = password authentication, non-zero = OAuth authentication. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Auth mode stored successfully. |

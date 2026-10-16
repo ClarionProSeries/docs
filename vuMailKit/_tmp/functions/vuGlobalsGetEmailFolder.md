@@ -11,11 +11,13 @@
 Copies the current runtime EmailFolder (save folder) path into a caller-provided buffer.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutFolder | *CSTRING | Caller-provided output buffer that receives the current folder path. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

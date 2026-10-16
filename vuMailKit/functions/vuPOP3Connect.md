@@ -33,7 +33,7 @@ Connects and authenticates to a POP3 server for subsequent POP3 receive operatio
 | Value | Meaning |
 |---|---|
 | 0 | Connected successfully. |
-- < 0: Connection or authentication failed.
+- &lt; 0: Connection or authentication failed.
 
 ## Example (Clarion)
 ```clarion

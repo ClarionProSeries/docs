@@ -14,6 +14,7 @@ Selects an existing CSV file so later vuMailAppendCSV() calls append rows to tha
 - xCsvFilePath (*CSTRING): Full path to an existing CSV file.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | CSV file exists and is now selected. |

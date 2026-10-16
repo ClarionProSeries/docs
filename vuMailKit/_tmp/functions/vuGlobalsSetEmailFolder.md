@@ -11,11 +11,13 @@
 Sets the in-memory EmailFolder path used by vuMailKit for outgoing .eml message copies.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InFolder | *CSTRING | Folder path for outgoing .eml message copies. Passing a blank value disables outgoing .eml copy saving. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

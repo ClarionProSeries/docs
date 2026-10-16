@@ -31,16 +31,25 @@
 href="categories/index.html">Browse by Category</a> | <a
 href="oauth/index.html">OAuth</a> | <a href="functions/index.html">All
 functions</a></p>
-<h1 id="whats-new-in-vumailkit-110-build-157">What's New in vuMailKit
-1.1.0 build 157</h1>
-<p>This page summarizes the current documentation and product highlights
-for <strong>vuMailKit 1.1.0 build 157 Basic edition</strong>.</p>
-<p>Release date: <strong>2026-07-01</strong>.</p>
-<h2 id="vumailkit-110-build-157-at-a-glance">vuMailKit 1.1.0 build 157
-at a glance</h2>
-<p>vuMailKit 1.1.0 build 157 is the current Basic edition release. It
-keeps the familiar vuMail-compatible send surface, but adds the
-practical pieces developers need for modern day-to-day use:</p>
+<h1 id="whats-new-in-vumailkit-110-build-160">What's New in vuMailKit
+1.1.0 build 160</h1>
+<p>This page highlights <strong>vuMailKit 1.1.0 build 160 Basic
+edition</strong>.</p>
+<p>Release date: <strong>2026-10-15</strong>.</p>
+<h2 id="build-160-at-a-glance">Build 160 at a glance</h2>
+<p>Build 160 is a maintenance and documentation update. It includes
+improvements to startup and error reporting, continued support for
+existing developer registrations, and formatting corrections that make
+the online help easier to read.</p>
+<p>Documentation improvements include:</p>
+<ul>
+<li>More consistent Markdown table formatting across the function
+reference.</li>
+<li>Better compatibility with GitHub, GitHub Pages, and Markdown
+editors.</li>
+<li>No changes to the public Clarion function names or prototypes.</li>
+</ul>
+<p>Features covered by the current documentation include:</p>
 <ul>
 <li>Simple HTML email helpers for good-looking messages without
 hand-building the outer HTML wrapper.</li>
@@ -50,8 +59,9 @@ Simple HTML with NormalizeBody on and the embed-attachments marker.</li>
 insertion.</li>
 <li>Save-folder and legacy sent-mail CSV logging compatibility for
 normal sends, CSV sends, and setup/test sends.</li>
-<li>Clearer licensing/setup diagnostics using the private -9001, -9002,
-and -9003 range.</li>
+<li>Reliable licensing/setup diagnostics using the private -9001, -9002,
+and -9003 range, with matching text from vuMailLastError() and the same
+numeric value from vuMailLastReturnCode().</li>
 <li>Expanded Email Setup Wizard documentation, including CTRL+U import,
 provider autodetect, OAuth authorization, test send, and profile
 save.</li>
@@ -62,6 +72,15 @@ useful diagnostics.</li>
 logging, saved .eml copies, and diagnostics logging separate.</li>
 </ul>
 <h2 id="recent-highlights">Recent highlights</h2>
+<h3 id="clearer-startup-and-error-information">Clearer startup and error
+information</h3>
+<p>Error reporting is more consistent across initialization, sending,
+and setup functions. <a
+href="functions/vuMailLastError.html">vuMailLastError</a> provides a
+useful explanation, while <a
+href="functions/vuMailLastReturnCode.html">vuMailLastReturnCode</a>
+provides the corresponding numeric status. Existing Clarion function
+names and calling conventions remain unchanged.</p>
 <h3 id="vumailkit-email-setup-wizard-visibility">vuMailKit Email Setup
 Wizard visibility</h3>
 <p>The <strong>vuMailKit Email Setup Wizard</strong> is now documented

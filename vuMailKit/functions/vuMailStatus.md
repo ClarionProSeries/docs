@@ -29,7 +29,7 @@ A LONG value indicating current send status.
 
 This function is used to poll status during asynchronous sending.
 
-NOTE: A good place to call this function is: Window Events, Close Window, Before <'Generated Code'>. 
+NOTE: A good place to call this function is: Window Events, Close Window, Before &lt;'Generated Code'>. 
 ## Example (Clarion)
 
 ````clarion

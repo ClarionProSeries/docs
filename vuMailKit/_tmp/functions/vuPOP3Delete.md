@@ -11,15 +11,17 @@
 Marks one POP3 message for deletion on the server.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InMessageNumber | LONG | 1-based POP3 message number to delete. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Message marked for deletion. |
-- < 0: Invalid message number or POP3 command/state error.
+- &lt; 0: Invalid message number or POP3 command/state error.
 
 ## Example (Clarion)
 ```clarion

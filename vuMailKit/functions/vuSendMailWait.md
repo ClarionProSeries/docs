@@ -6,7 +6,7 @@ keywords: ["vuMailKit", "vuMail", "vusendmailwait", "smtp"]
 function_name: "vuSendMailWait"
 category: "SMTP"
 version_added: "Legacy"
-last_updated: "2026-06-26"
+last_updated: "2026-07-14"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -68,6 +68,7 @@ MESSAGE('vuSendMailWait rc=' & rc)
 ```
 
 ## Notes
+- Build 158 keeps licensing failures synchronized: if this function returns -9001, -9002, or -9003, vuMailLastReturnCode() returns the same value and vuMailLastError() contains the matching vuMailKit licensing/setup explanation.
 - Register the vuMailKit template/global extension or call vuMailKitInitialize(LicenseString) at EXE startup before using this function. If this licensing startup step is missed, the function returns -9001 and vuMailLastError() explains that the problem is vuMailKit licensing/setup, not mail-server authentication.
 - If this function returns -451, clean up the application folder. That code means unrelated .NET mail/OAuth/runtime files may interfere with vuMailKit's embedded dependencies; it is not a mail-server authentication error.
 - This call waits until the SMTP worker is idle and queue depth is zero.
@@ -88,7 +89,7 @@ MESSAGE('vuSendMailWait rc=' & rc)
 - The legacy _embed attachments_ body tag is supported again for local image files and remote http/https image URLs listed in Attach, including optional height= and width= attributes. Image resources consumed by this marker do not also go out as normal attachments.
 - If InBody is an existing file path, vuMailKit loads the file contents before HTML detection.
 - External body files that contain accented or international characters should be saved as UTF-8. HTML files should also include a normal charset declaration such as &lt;meta charset="utf-8"&gt;.
-- When you hard-code HTML directly in a Clarion source string literal, write each literal < as <<. Runtime HTML loaded from a file, database, or entry control does not need that source-level escaping.
+- When you hard-code HTML directly in a Clarion source string literal, write each literal &lt; as &lt;&lt;. Runtime HTML loaded from a file, database, or entry control does not need that source-level escaping.
 
 ## HTML example (Clarion source literal)
 

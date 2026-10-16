@@ -11,12 +11,14 @@
 Reads a CSV file of messages, validates rows, and queues valid rows for SMTP delivery.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InCsvFileName | *CSTRING | CSV file path to read. |
 | InDefaultAttachment | *CSTRING | Default attachment path/list applied when a CSV row has an empty ATTACH field. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | At least one valid row was queued. |
@@ -40,6 +42,7 @@ MESSAGE('vuSendMailFromFile rc=' & rc)
 ```
 
 ## Notes
+- Build 158 keeps licensing failures synchronized: if this function returns -9001, -9002, or -9003, vuMailLastReturnCode() returns the same value and vuMailLastError() contains the matching vuMailKit licensing/setup explanation.
 - Register the vuMailKit template/global extension or call vuMailKitInitialize(LicenseString) at EXE startup before using this function. If this licensing startup step is missed, the function returns -9001 and vuMailLastError() explains that the problem is vuMailKit licensing/setup, not mail-server authentication.
 - If this function returns -451, clean up the application folder. That code means unrelated .NET mail/OAuth/runtime files may interfere with vuMailKit's embedded dependencies; it is not a mail-server authentication error.
 - CSV rows must contain these columns in this order: FROM, TO, CC, BCC, SUBJECT, BODY, ATTACH.

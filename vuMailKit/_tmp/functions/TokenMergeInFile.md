@@ -11,6 +11,7 @@
 Reads text from a source file, replaces token text, and writes the merged result to a target file.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InSourceFile | *CSTRING | Source text or HTML file to read. |

@@ -14,6 +14,7 @@ Saves all attachment parts from the currently loaded POP3 message.
 This function has no parameters.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | One or more attachments were saved. |

@@ -29,7 +29,7 @@ Returns the size (in bytes) of the specified message in the active POP3 session.
 ## Return value / error codes
 - > 0: Message size in bytes.
 - 0: No size available (for example, message not found or no active message list).
-- < 0: Error code from POP3 session operations.
+- &lt; 0: Error code from POP3 session operations.
 
 ## Example (Clarion)
 ```clarion

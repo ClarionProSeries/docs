@@ -14,6 +14,7 @@ Checks the currently loaded POP3 message and reports whether an HTML MIME body i
 This function has no parameters.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | HTML body content is present. |

@@ -11,15 +11,17 @@
 Retrieves and parses only message headers for one POP3 message.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InMessageNumber | LONG | 1-based POP3 message number to load. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Headers loaded successfully. |
-- < 0: POP3 command, message index, or parse/state failure.
+- &lt; 0: POP3 command, message index, or parse/state failure.
 
 ## Example (Clarion)
 ```clarion

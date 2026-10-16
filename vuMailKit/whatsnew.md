@@ -1,34 +1,46 @@
 ---
-title: "What's New in vuMailKit 1.1.0 build 157"
-summary: "Current vuMailKit 1.1.0 build 157 documentation and product highlights."
-description: "Current vuMailKit 1.1.0 build 157 documentation and product highlights for the Basic edition."
+title: "What's New in vuMailKit 1.1.0 build 160"
+summary: "Current vuMailKit 1.1.0 build 160 documentation and product highlights."
+description: "Current vuMailKit 1.1.0 build 160 documentation and product highlights for the Basic edition."
 keywords: ["documentation", "what", "new", "vuMailKit", "Clarion", "version", "release", "Simple HTML", "TokenMerge", "logging"]
 page_type: "release-notes"
-last_updated: "2026-07-01"
+last_updated: "2026-10-15"
 ---
 
 [Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
 
-# What's New in vuMailKit 1.1.0 build 157
+# What's New in vuMailKit 1.1.0 build 160
 
-This page summarizes the current documentation and product highlights for **vuMailKit 1.1.0 build 157 Basic edition**.
+This page highlights **vuMailKit 1.1.0 build 160 Basic edition**.
 
-Release date: **2026-07-01**.
+Release date: **2026-10-15**.
 
-## vuMailKit 1.1.0 build 157 at a glance
+## Build 160 at a glance
 
-vuMailKit 1.1.0 build 157 is the current Basic edition release. It keeps the familiar vuMail-compatible send surface, but adds the practical pieces developers need for modern day-to-day use:
+Build 160 is a maintenance and documentation update. It includes improvements to startup and error reporting, continued support for existing developer registrations, and formatting corrections that make the online help easier to read.
+
+Documentation improvements include:
+
+- More consistent Markdown table formatting across the function reference.
+- Better compatibility with GitHub, GitHub Pages, and Markdown editors.
+- No changes to the public Clarion function names or prototypes.
+
+Features covered by the current documentation include:
 
 - Simple HTML email helpers for good-looking messages without hand-building the outer HTML wrapper.
 - Easy body-positioned images for ordinary text messages by using Simple HTML with NormalizeBody on and the embed-attachments marker.
 - TokenMerge helpers for template-based email and report-to-text insertion.
 - Save-folder and legacy sent-mail CSV logging compatibility for normal sends, CSV sends, and setup/test sends.
-- Clearer licensing/setup diagnostics using the private -9001, -9002, and -9003 range.
+- Reliable licensing/setup diagnostics using the private -9001, -9002, and -9003 range, with matching text from vuMailLastError() and the same numeric value from vuMailLastReturnCode().
 - Expanded Email Setup Wizard documentation, including CTRL+U import, provider autodetect, OAuth authorization, test send, and profile save.
 - A copyable recommended send flow that checks for a stored profile, offers the wizard when needed, validates the recipient, sends, and shows useful diagnostics.
 - A cleaner build 157 logging model that keeps sent-mail CSV/activity logging, saved .eml copies, and diagnostics logging separate.
 
 ## Recent highlights
+
+### Clearer startup and error information
+
+Error reporting is more consistent across initialization, sending, and setup functions. [vuMailLastError](functions/vuMailLastError.md) provides a useful explanation, while [vuMailLastReturnCode](functions/vuMailLastReturnCode.md) provides the corresponding numeric status. Existing Clarion function names and calling conventions remain unchanged.
 
 ### vuMailKit Email Setup Wizard visibility
 

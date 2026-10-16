@@ -21,12 +21,14 @@ last_updated: "2026-03-27"
 Stores OAuth-specific SMTP host/port settings in the active runtime configuration.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InServer | *CSTRING | OAuth SMTP server host name. |
 | InPort | LONG | OAuth SMTP server port. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Settings saved in runtime state. |

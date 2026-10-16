@@ -11,11 +11,13 @@
 Saves one embedded (inline) content item from the currently loaded POP3 message by index.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | Index | LONG | 1-based embedded content index. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Embedded content item saved successfully. |

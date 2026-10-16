@@ -6,7 +6,7 @@ keywords: ["vuMailKit", "vuMail", "vumaillastreturncode", "oauth", "reauthorize"
 function_name: "vuMailLastReturnCode"
 category: "Debug and Diagnostics"
 version_added: "2026-03-04"
-last_updated: "2026-06-25"
+last_updated: "2026-07-14"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -16,6 +16,8 @@ last_updated: "2026-06-25"
 vuMailLastReturnCode() returns a numeric code that describes what happened in the most recent completed send or gated vuMailKit operation.
 
 This is intended to be machine-readable, so calling code can react without parsing vuMailLastError() text.
+
+Build 158 keeps licensing/setup results synchronized: when a gated operation returns -9001, -9002, or -9003, this function returns the same code and vuMailLastError() supplies the corresponding human-readable explanation.
 
 ## When to call it
 

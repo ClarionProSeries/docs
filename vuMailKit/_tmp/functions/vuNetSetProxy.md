@@ -11,12 +11,14 @@
 Sets the proxy host and proxy port used by vuMailKit network operations.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InProxyHost | *CSTRING | Proxy server host name or IP. |
 | InProxyPort | LONG | Proxy server port number. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

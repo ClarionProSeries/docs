@@ -14,6 +14,7 @@ Opens the specified mail file (for example .eml) using the default Windows shell
 - xFilePath (*CSTRING): Full path to an existing mail file.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | File open request started. |

@@ -11,11 +11,13 @@
 Sets the in-memory CodePage setting used by vuMailKit.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | xPage | *CSTRING | Code page string to store (for example UTF-8). |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

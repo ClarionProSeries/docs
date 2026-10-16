@@ -15,7 +15,7 @@ This function has no parameters.
 
 ## Return value / error codes
 - >= 0: Current POP3 auth mode numeric value.
-- < 0: Auth mode not available due to runtime error.
+- &lt; 0: Auth mode not available due to runtime error.
 
 ## Example (Clarion)
 ```clarion

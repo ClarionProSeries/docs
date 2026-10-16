@@ -6,7 +6,7 @@ keywords: ["vuMailKit", "vuMail", "vusendmailfromfile", "smtp", "csv"]
 function_name: "vuSendMailFromFile"
 category: "SMTP"
 version_added: "Legacy"
-last_updated: "2026-06-24"
+last_updated: "2026-07-14"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)
@@ -52,6 +52,7 @@ MESSAGE('vuSendMailFromFile rc=' & rc)
 ```
 
 ## Notes
+- Build 158 keeps licensing failures synchronized: if this function returns -9001, -9002, or -9003, vuMailLastReturnCode() returns the same value and vuMailLastError() contains the matching vuMailKit licensing/setup explanation.
 - Register the vuMailKit template/global extension or call vuMailKitInitialize(LicenseString) at EXE startup before using this function. If this licensing startup step is missed, the function returns -9001 and vuMailLastError() explains that the problem is vuMailKit licensing/setup, not mail-server authentication.
 - If this function returns -451, clean up the application folder. That code means unrelated .NET mail/OAuth/runtime files may interfere with vuMailKit's embedded dependencies; it is not a mail-server authentication error.
 - CSV rows must contain these columns in this order: FROM, TO, CC, BCC, SUBJECT, BODY, ATTACH.

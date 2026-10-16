@@ -150,6 +150,10 @@ rc = vuSendMailWait(cFrom, cTo, cCC, cBCC, cSubj, cBody, cAttach)
 MESSAGE(&#39;vuSendMailWait rc=&#39; &amp; rc)</code></pre>
 <h2 id="notes">Notes</h2>
 <ul>
+<li><p>Build 158 keeps licensing failures synchronized: if this function
+returns -9001, -9002, or -9003, vuMailLastReturnCode() returns the same
+value and vuMailLastError() contains the matching vuMailKit
+licensing/setup explanation.</p></li>
 <li><p>Register the vuMailKit template/global extension or call
 vuMailKitInitialize(LicenseString) at EXE startup before using this
 function. If this licensing startup step is missed, the function returns

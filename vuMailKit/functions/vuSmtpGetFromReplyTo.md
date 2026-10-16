@@ -21,12 +21,14 @@ last_updated: "2026-03-27"
 Reads default From and Reply-To values from vuMailKit runtime globals.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutFromEmail | *CSTRING | Output buffer receiving current sender address. |
 | OutReplyToEmail | *CSTRING | Output buffer receiving current reply-to address. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

@@ -11,11 +11,13 @@
 Saves one embedded (inline) content item from the currently loaded POP3 message by filename.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InFileName | *CSTRING | Embedded part filename/content-id-derived name to save. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Embedded content item saved successfully. |

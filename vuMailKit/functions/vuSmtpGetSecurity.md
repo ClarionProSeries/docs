@@ -21,6 +21,7 @@ last_updated: "2026-03-27"
 Reads SMTP credentials and security flags from vuMailKit runtime globals.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutUser | *CSTRING | Output buffer receiving SMTP login/user ID. |
@@ -29,6 +30,7 @@ Reads SMTP credentials and security flags from vuMailKit runtime globals.
 | OutUseSsl | *LONG | Receives SSL flag (0 off, non-zero on). |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

@@ -14,10 +14,11 @@ Disconnects the current POP3 session.
 This function has no parameters.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Disconnected successfully (or no active connection). |
-- < 0: Disconnect error.
+- &lt; 0: Disconnect error.
 
 ## Example (Clarion)
 ```clarion

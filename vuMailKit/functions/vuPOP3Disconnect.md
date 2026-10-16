@@ -28,7 +28,7 @@ This function has no parameters.
 | Value | Meaning |
 |---|---|
 | 0 | Disconnected successfully (or no active connection). |
-- < 0: Disconnect error.
+- &lt; 0: Disconnect error.
 
 ## Example (Clarion)
 ```clarion

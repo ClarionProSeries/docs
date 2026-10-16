@@ -7,6 +7,8 @@ vuMailLastReturnCode() returns a numeric code that describes what happened in th
 
 This is intended to be machine-readable, so calling code can react without parsing vuMailLastError() text.
 
+Build 158 keeps licensing/setup results synchronized: when a gated operation returns -9001, -9002, or -9003, this function returns the same code and vuMailLastError() supplies the corresponding human-readable explanation.
+
 ## When to call it
 
 Call this after a send has completed or after a gated vuMailKit function returns a negative licensing/setup code, for example:

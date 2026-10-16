@@ -14,6 +14,7 @@ Loads persisted vuMailKit global settings from registry storage into current run
 - None.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

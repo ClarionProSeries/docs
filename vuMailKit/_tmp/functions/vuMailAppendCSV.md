@@ -20,6 +20,7 @@ Appends one CSV row with message fields to the file previously selected by vuMai
 - xAttachment (*CSTRING): Attachment path/text.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Row appended. |

@@ -11,11 +11,13 @@
 Sets SMTP auth mode (0 for password auth, non-zero for OAuth auth).
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InAuthMode | LONG | 0 = password mode, non-zero = OAuth mode. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Mode updated. |

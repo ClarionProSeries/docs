@@ -21,12 +21,14 @@ last_updated: "2026-03-27"
 Sets default sender (From) and Reply-To values used for outgoing mail.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InFromEmail | *CSTRING | Sender address. Blank allowed; non-blank must be valid email format. |
 | InReplyToEmail | *CSTRING | Reply-To address. Blank allowed; non-blank must be valid email format. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

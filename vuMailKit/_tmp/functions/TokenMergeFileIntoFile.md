@@ -11,6 +11,7 @@
 Reads a source template file, replaces token text with the full contents of another file, and writes the merged result to a target file.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InSourceFile | *CSTRING | Source text or HTML template file to read. |
@@ -105,6 +106,6 @@ MESSAGE('TokenMergeFileIntoFile rc=' & rc)
 - Use InContentFlags = 0 when the replacement file already contains HTML markup such as &lt;p&gt;, &lt;br&gt;, tables, or other HTML fragments.
 - Use InContentFlags = 1 when the replacement file is plain text and you want normal text-file line endings to render as visible HTML line breaks.
 - This helper is useful for HTML email templates, invoices, statements, letterhead-style email, and generated Clarion report or body output.
-- External UTF-8 HTML templates are recommended because they avoid hard-coding long HTML strings in Clarion and avoid doubling every < character in Clarion source.
+- External UTF-8 HTML templates are recommended because they avoid hard-coding long HTML strings in Clarion and avoid doubling every &lt; character in Clarion source.
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

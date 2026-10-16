@@ -4,7 +4,7 @@ summary: "Developer documentation root for vuMailKit Basic edition."
 description: "Public developer documentation for vuMailKit Basic edition, including installation, OAuth setup, migration notes, categories, getting-started guides, and the Clarion function reference."
 keywords: ["documentation", "vuMailKit", "Clarion", "email", "SMTP", "POP3", "OAuth"]
 page_type: "overview"
-last_updated: "2026-07-01"
+last_updated: "2026-10-15"
 ---
 
 [Home](index.md) | [Browse by Category](categories/index.md) | [OAuth](oauth/index.md) | [All functions](functions/index.md)
@@ -15,15 +15,15 @@ last_updated: "2026-07-01"
 
 Basic edition documentation
 
-Current Version: **vuMailKit 1.1.0 build 157**
+Version: **vuMailKit 1.1.0 build 160**
 
-Release Date: 2026-07-01
+Release Date: 2026-10-15
 
-Last Updated: 2026-07-01
+Last Updated: 2026-10-15
 
 Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 
-This documentation covers the current vuMailKit 1.1.0 build 157 Basic edition function set and the supporting setup, deployment, and usage notes needed by Clarion developers.
+This documentation covers the vuMailKit 1.1.0 build 160 Basic edition function set and the supporting setup, deployment, and usage notes needed by Clarion developers.
 
 Use the links below to browse the documentation.
 

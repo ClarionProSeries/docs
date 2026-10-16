@@ -14,6 +14,7 @@ Checks the currently loaded POP3 message and reports whether embedded (inline) M
 This function has no parameters.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Embedded content is present. |

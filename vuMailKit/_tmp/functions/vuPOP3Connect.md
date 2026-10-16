@@ -11,6 +11,7 @@
 Connects and authenticates to a POP3 server for subsequent POP3 receive operations.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InServer | *CSTRING | POP3 server host name (or IP). |
@@ -18,10 +19,11 @@ Connects and authenticates to a POP3 server for subsequent POP3 receive operatio
 | InPassword | *CSTRING | POP3 password. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Connected successfully. |
-- < 0: Connection or authentication failed.
+- &lt; 0: Connection or authentication failed.
 
 ## Example (Clarion)
 ```clarion

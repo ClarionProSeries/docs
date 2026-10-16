@@ -143,7 +143,7 @@ You can build HTML directly inside Clarion if you want, but this external-templa
 
 - the template is easier to edit
 - the template can be created with an HTML editor or AI
-- you do not need doubled < signs in the template file itself
+- you do not need doubled &lt; signs in the template file itself
 - the brand frame is reusable
 - the changing content can stay simple
 

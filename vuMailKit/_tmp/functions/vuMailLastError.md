@@ -29,6 +29,8 @@ RC  LONG
 
 ## Licensing failures
 
+In build 158, the shared licensing/error bridge was corrected so the human-readable text is stored whenever a gated operation returns -9001, -9002, or -9003. The return value from the original operation, vuMailLastReturnCode(), and vuMailLastError() should therefore describe the same licensing/setup condition.
+
 When a licensing gate fails, vuMailLastError() is populated even though no SMTP send was attempted. The message begins with vuMailKit licensing failure and explicitly states that the problem is not an SMTP, OAuth, Gmail, password, or mail-server authentication failure.
 
 Current licensing return codes:

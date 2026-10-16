@@ -21,6 +21,7 @@ last_updated: "2026-03-27"
 Sets SMTP credentials and security flags used by vuMailKit send operations.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InUser | *CSTRING | SMTP login/user ID. |
@@ -29,6 +30,7 @@ Sets SMTP credentials and security flags used by vuMailKit send operations.
 | InUseSsl | LONG | SSL flag (0 off, non-zero on). |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

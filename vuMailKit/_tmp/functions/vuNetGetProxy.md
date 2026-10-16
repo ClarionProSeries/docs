@@ -11,12 +11,14 @@
 Reads current proxy host and proxy port from vuMailKit runtime globals.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | OutProxyHost | *CSTRING | Output buffer receiving proxy host name/IP. |
 | OutProxyPort | *LONG | Receives proxy port number. |
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 1 | Success. |

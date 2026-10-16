@@ -31,7 +31,7 @@ Marks one POP3 message for deletion on the server.
 | Value | Meaning |
 |---|---|
 | 0 | Message marked for deletion. |
-- < 0: Invalid message number or POP3 command/state error.
+- &lt; 0: Invalid message number or POP3 command/state error.
 
 ## Example (Clarion)
 ```clarion

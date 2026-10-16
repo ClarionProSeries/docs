@@ -14,6 +14,7 @@ Loads an RFC822 message file and stores it as the current legacy in-process mess
 - xFilePath (*CSTRING): Source message file path.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Success. |

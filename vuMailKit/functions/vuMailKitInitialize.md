@@ -3,7 +3,7 @@ title: "vuMailKitInitialize"
 summary: "Initialize vuMailKit licensing for the current process. Call this once at EXE startup before send, autodetect, or profile operations."
 function_name: "vuMailKitInitialize"
 category: "Core / Licensing"
-last_updated: "2026-06-24"
+last_updated: "2026-10-15"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Legacy functions](legacy-index.md) | [Categories](../categories/index.md)

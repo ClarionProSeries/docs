@@ -21,6 +21,7 @@ last_updated: "2026-03-27"
 Reads the current SMTP authentication mode from runtime globals.
 
 ## Return value / error codes
+
 | Value | Meaning |
 |---|---|
 | 0 | Password-based SMTP mode. |

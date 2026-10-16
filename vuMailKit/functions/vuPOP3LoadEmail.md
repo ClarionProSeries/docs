@@ -31,7 +31,7 @@ Retrieves and parses one full POP3 message so body, attachment, and embedded-con
 | Value | Meaning |
 |---|---|
 | 0 | Message loaded successfully. |
-- < 0: POP3 command, message index, or parse/state failure.
+- &lt; 0: POP3 command, message index, or parse/state failure.
 
 ## Example (Clarion)
 ```clarion

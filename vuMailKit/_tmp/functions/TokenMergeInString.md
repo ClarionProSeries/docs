@@ -11,6 +11,7 @@
 Replaces token text inside a source string and writes the merged result to a caller-owned output buffer.
 
 ## Parameters
+
 | Parameter | Type | Description |
 |---|---|---|
 | InSourceText | *CSTRING | Source text to inspect. |
