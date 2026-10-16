@@ -33,9 +33,14 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 OldStrg, NewStrg)</h1>
 <pre class="Prototype"><code>vuReplaceChars(*CSTRING, *CSTRING, *CSTRING), Long</code></pre>
 <h2 id="description">Description</h2>
-<p>Returns a modified version of MainStrg with all occurrences of
-OldStrg replaced by NewStrg. The replacement substring does not need to
-be the same length as the original.</p>
+<p>Replaces every occurrence of OldStrg with NewStrg directly in
+MainStrg. It does not return a modified string. NewStrg may be shorter
+or longer than OldStrg.</p>
+<p><strong>Build 209 guidance:</strong> This is the legacy
+three-parameter function. It has no destination size argument and
+performs no capacity validation. Prefer <a
+href="vuReplaceCharsEx.html">vuReplaceCharsEx</a> in new applications,
+particularly when replacement may make the text longer.</p>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -48,36 +53,58 @@ be the same length as the original.</p>
 <tbody>
 <tr>
 <td>MainStrg</td>
-<td>CSTRING(256)</td>
-<td>The input string to modify.</td>
+<td>CSTRING</td>
+<td>Input and output string, modified in place. The caller must allocate
+enough capacity, including its terminating null byte.</td>
 </tr>
 <tr>
 <td>OldStrg</td>
-<td>CSTRING(128)</td>
-<td>The substring you wish to replace.</td>
+<td>CSTRING</td>
+<td>Substring to find.</td>
 </tr>
 <tr>
 <td>NewStrg</td>
-<td>CSTRING(128)</td>
-<td>The substring to replace OldStrg with.</td>
+<td>CSTRING</td>
+<td>Replacement substring.</td>
 </tr>
 </tbody>
 </table>
+<p>The old 256/128/128 example sizes are not requirements. The actual
+parameters are CSTRING references; their capacities may differ.</p>
 <h3 id="returns">Returns</h3>
-<p>A CSTRING containing the modified version of MainStrg.</p>
+<p>A LONG with value 1 after the function executes its replacement
+statement. The function does not count matches or indicate whether a
+particular occurrence was found; it has no explicit buffer-failure test.
+The returned LONG is <strong>not</strong> a CSTRING.</p>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>MainStrg = &#39;Microsoft Windows XP is no longer supported.&#39;
+<pre class="Clarion"><code>MainStrg CSTRING(256)
+OldStrg  CSTRING(128)
+NewStrg  CSTRING(128)
+Result   LONG
+
+CODE
+MainStrg = &#39;Microsoft Windows XP is no longer supported.&#39;
 OldStrg  = &#39;Windows XP&#39;
 NewStrg  = &#39;Windows Vista&#39;
 
 Result = vuReplaceChars(MainStrg, OldStrg, NewStrg)
-
-MESSAGE(Result)
-! Result: &#39;Microsoft Windows Vista is no longer supported.&#39;</code></pre>
+MESSAGE(MainStrg)  ! Microsoft Windows Vista is no longer supported.
+! Result = 1</code></pre>
 <h3 id="notes">Notes</h3>
 <ul>
-<li>All occurrences of OldStrg within MainStrg are replaced.</li>
-<li>NewStrg may be shorter or longer than OldStrg.</li>
+<li>All occurrences of OldStrg are replaced; string matching follows the
+underlying PowerBASIC REPLACE statement's behavior.</li>
+<li>MainStrg must have space for the complete resulting text
+<strong>plus</strong> its null terminator. A Clarion CSTRING(256) has
+room for 255 text bytes plus one null byte.</li>
+<li>The original function cannot verify capacity and therefore can
+overrun an undersized destination, particularly with longer replacement
+text.</li>
+<li>The Build 209 release corrects this documentation but <strong>does
+not change the legacy function's signature or
+implementation</strong>.</li>
+<li>The new <a href="vuReplaceCharsEx.html">vuReplaceCharsEx</a> checks
+capacity before modifying MainStrg.</li>
 </ul>
 <p><a href="../index.html">Home</a> | <a href="index.html">All
 functions</a> | <a href="../categories/index.html">Categories</a></p>

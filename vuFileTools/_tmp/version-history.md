@@ -7,6 +7,7 @@
 
 | Release Date | Version | Release Notes |
 |:-------------|:--------|:--------------|
+| 2026-10-16 | Version 5.0 Build 209 | Added [vuReplaceCharsEx](functions/vuReplaceCharsEx.md) with explicit destination-buffer capacity and all-or-nothing replacement. Corrected [vuReplaceChars](functions/vuReplaceChars.md) documentation for its in-place result and numeric return; legacy calling convention is unchanged. |
 | 2026-09-08 | Version 5.0 Build 208 | Fixed a long-standing mailslot bug that could cause messages between applications to be missed or processed incorrectly, and improved mailslot reliability and error reporting. |
 | 2026-03-20 | Version 5.0 Build 207 | Added vuRunExWait and vuRunExDelayWait; expanded the run-function documentation with linked comparison tables on the related run, shell, and print pages; and improved the release documentation structure in [What's New](whatsnew.md). |
 | 2026-03-19 | Version 5.0 Build 206 | Added the new password visibility helper feature: vuPasswordInit and vuPasswordToggle. |

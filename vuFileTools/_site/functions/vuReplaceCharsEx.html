@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuReplaceCharsEx</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1
+id="vureplacecharsexmainstrg-mainsize-oldstrg-newstrg">vuReplaceCharsEx(MainStrg,
+MainSize, OldStrg, NewStrg)</h1>
+<pre class="Prototype"><code>vuReplaceCharsEx(*CSTRING,LONG,*CSTRING,*CSTRING), Long</code></pre>
+<h2 id="description">Description</h2>
+<p>Replaces all occurrences of OldStrg with NewStrg inside MainStrg. The
+caller supplies MainStrg's total allocated buffer capacity so the
+function can verify the <strong>entire result</strong> will fit,
+including the terminating null byte, before changing MainStrg.</p>
+<p>This is the recommended alternative to the legacy <a
+href="vuReplaceChars.html">vuReplaceChars</a> function for new
+applications.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MainStrg</td>
+<td>CSTRING</td>
+<td>Destination CSTRING, updated in place only after validation
+succeeds. Must be null-terminated within MainSize bytes.</td>
+</tr>
+<tr>
+<td>MainSize</td>
+<td>LONG</td>
+<td><strong>Total allocated bytes</strong> of MainStrg including the
+terminating null. For a Clarion CSTRING, normally pass SIZE(MainStrg).
+This value must reflect the actual buffer capacity.</td>
+</tr>
+<tr>
+<td>OldStrg</td>
+<td>CSTRING</td>
+<td>Substring to find. Must not be empty.</td>
+</tr>
+<tr>
+<td>NewStrg</td>
+<td>CSTRING</td>
+<td>Replacement substring. May be empty, shorter, or longer than
+OldStrg.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="returns">Returns</h3>
+<table>
+<thead>
+<tr>
+<th>LONG return</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The operation completed. If no occurrences of OldStrg were present,
+MainStrg stays unchanged and the function still returns 1.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Validation failed: invalid MainSize, empty OldStrg, missing null
+terminator within the supplied buffer, or a replacement result too large
+to fit. MainStrg is left unchanged.</td>
+</tr>
+</tbody>
+</table>
+<p>The returned LONG is not the resulting string and does not count
+replacements.</p>
+<h3 id="example">Example</h3>
+<pre class="Clarion"><code>MainStrg CSTRING(256)
+OldStrg  CSTRING(128)
+NewStrg  CSTRING(128)
+Result   LONG
+
+CODE
+MainStrg = &#39;Microsoft Windows XP is no longer supported.&#39;
+OldStrg  = &#39;Windows XP&#39;
+NewStrg  = &#39;Windows Vista&#39;
+
+Result = vuReplaceCharsEx(MainStrg, SIZE(MainStrg), OldStrg, NewStrg)
+IF Result = 1
+  MESSAGE(MainStrg)  ! Microsoft Windows Vista is no longer supported.
+ELSE
+  MESSAGE(&#39;Replacement failed or destination too small.&#39;)
+END</code></pre>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>All replacements are calculated in temporary storage; MainStrg is
+written only when the result is known to fit.</li>
+<li><code>CSTRING(256)</code> has capacity for 255 text bytes plus one
+null terminator. Passing <code>SIZE(MainStrg)</code> supplies the full
+256-byte capacity.</li>
+<li>A result with exactly MainSize minus one text bytes fits. A result
+requiring MainSize or more text bytes is rejected.</li>
+<li>The source must contain a null terminator within the supplied
+MainSize. MainSize must not exceed the real buffer allocation.</li>
+<li>OldStrg and NewStrg must be valid null-terminated CSTRINGs. The
+function cannot independently determine their allocated lengths.</li>
+<li>A return of 1 does not prove that a match occurred.</li>
+<li>The old three-parameter <a
+href="vuReplaceChars.html">vuReplaceChars</a> remains available without
+a calling-convention change, but cannot make capacity guarantees.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

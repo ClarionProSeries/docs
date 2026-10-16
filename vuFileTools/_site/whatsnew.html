@@ -30,10 +30,44 @@
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 <h1 id="whats-new-in-vufiletools">What's New in vuFileTools</h1>
-<p>Version: 5.0 (Build 208)</p>
-<p>Release date: 2026-09-08</p>
+<p>Version: 5.0 (Build 209)</p>
+<p>Release date: 2026-10-16</p>
 <p>This page highlights new items in the Version 5 cycle and links to
 their reference topics.</p>
+<h2 id="whats-new-in-build-209">What's New in Build 209</h2>
+<p>Build 209 introduces a safer, buffer-aware alternative to
+vuReplaceChars for replacing text in Clarion CSTRINGs. It also corrects
+the original function's reference documentation, including its in-place
+operation and LONG return type.</p>
+<h3 id="new-function-in-build-209">New Function in Build 209</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="functions/vuReplaceCharsEx.html">vuReplaceCharsEx</a></td>
+<td>Replaces all occurrences of a substring in MainStrg, but first
+checks whether the entire result fits within the CSTRING capacity
+supplied by the caller. If not, MainStrg is unchanged.</td>
+</tr>
+</tbody>
+</table>
+<p>For a destination declared as a Clarion CSTRING, pass SIZE(MainStrg)
+as the second parameter. vuReplaceCharsEx returns 1 for a completed
+call, including when no match was found, and 0 if its parameter or
+buffer validation fails.</p>
+<p>The three-parameter vuReplaceChars remains available for older
+applications without any calling-convention change. It <strong>does
+not</strong> check destination capacity; use vuReplaceCharsEx for new
+code, especially when replacements may expand the string.</p>
+<p>See <a href="functions/vuReplaceChars.html">vuReplaceChars</a> and <a
+href="functions/vuReplaceCharsEx.html">vuReplaceCharsEx</a> for usage,
+return values, and capacity examples.</p>
+<hr />
 <h2 id="whats-new-in-build-208">What's New in Build 208</h2>
 <p>Build 208 improves the reliability of the vuFileTools mailslot
 functions and adds better tools for receiving messages and diagnosing

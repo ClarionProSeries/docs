@@ -11,6 +11,7 @@
 - [vuQuotes](../functions/vuQuotes.md)
 - [vuRemoveChars](../functions/vuRemoveChars.md)
 - [vuReplaceChars](../functions/vuReplaceChars.md)
+- [vuReplaceCharsEx](../functions/vuReplaceCharsEx.md)
 - [vuStringParse](../functions/vuStringParse.md)
 - [vuUncompress](../functions/vuUncompress.md)
 - [vuUnPack](../functions/vuUnPack.md)

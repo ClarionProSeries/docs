@@ -163,7 +163,8 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuRecordWav](vuRecordWav.md) | Records audio from the microphone input and saves it as a WAV file. |
 | [vuRemoveChars](vuRemoveChars.md) | Returns a modified version of Strg with the characters specified in Chars removed. Behavior depends on the AllChars flag. |
 | [vuRemoveStartupShortcut](vuRemoveStartupShortcut.md) | Removes a shortcut (.lnk file) from the Windows Startup folder so that the specified program no longer runs automatically at startup. |
-| [vuReplaceChars](vuReplaceChars.md) | Returns a modified version of MainStrg with all occurrences of OldStrg replaced by NewStrg. The replacement substring does not need to be the same length as the original. |
+| [vuReplaceChars](vuReplaceChars.md) | Legacy in-place substring replacement. Returns LONG 1, not a CSTRING; does not check destination capacity. |
+| [vuReplaceCharsEx](vuReplaceCharsEx.md) | Buffer-aware in-place substring replacement; preserves MainStrg if the result will not fit in the supplied capacity. |
 | [vuReplaceCharsInFile](vuReplaceCharsInFile.md) | Searches through a text file and replaces all occurrences of OldStrg with NewStrg. The replacement substring does not need to be the same length as the original. |
 | [vuRun](vuRun.md) | Runs a program using the Windows Shell with the specified window style and wait behavior. This function is useful for launching support programs (for example, utilities or file conversions) in a controlled manner, including hidden execution. |
 | [vuRunDelay](vuRunDelay.md) | Runs the specified file after waiting for a specified delay. |

@@ -4,7 +4,7 @@ summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
 keywords: ["manipulation", "vuFileTools", "data", "functions", "categories", "Clarion", "conversion", "string", "home", "vuFileTools", "related"]
 page_type: "category"
-last_updated: "2026-09-08"
+last_updated: "2026-10-16"
 ---
 
 # vuFileTools - String Manipulation and Data Conversion Related Functions
@@ -19,6 +19,7 @@ last_updated: "2026-09-08"
 - [vuQuotes](../functions/vuQuotes.md)
 - [vuRemoveChars](../functions/vuRemoveChars.md)
 - [vuReplaceChars](../functions/vuReplaceChars.md)
+- [vuReplaceCharsEx](../functions/vuReplaceCharsEx.md)
 - [vuStringParse](../functions/vuStringParse.md)
 - [vuUncompress](../functions/vuUncompress.md)
 - [vuUnPack](../functions/vuUnPack.md)

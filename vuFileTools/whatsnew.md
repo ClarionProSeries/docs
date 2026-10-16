@@ -2,21 +2,39 @@
 title: "What's New in vuFileTools"
 summary: "Version: 5.0"
 description: "Version: 5.0  
-Release date: 2026-09-08"
+Release date: 2026-10-16"
 keywords: ["documentation", "what", "vuFileTools", "Clarion", "vuFileTools", "version"]
 page_type: "release-notes"
-last_updated: "2026-09-08"
+last_updated: "2026-10-16"
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # What's New in vuFileTools
 
-Version: 5.0  (Build 208)
+Version: 5.0  (Build 209)
 
-Release date: 2026-09-08
+Release date: 2026-10-16
 
 This page highlights new items in the Version 5 cycle and links to their reference topics.
+
+## What's New in Build 209
+
+Build 209 introduces a safer, buffer-aware alternative to vuReplaceChars for replacing text in Clarion CSTRINGs. It also corrects the original function's reference documentation, including its in-place operation and LONG return type.
+
+### New Function in Build 209
+
+| Function | Description |
+|----------|-------------|
+| [vuReplaceCharsEx](functions/vuReplaceCharsEx.md) | Replaces all occurrences of a substring in MainStrg, but first checks whether the entire result fits within the CSTRING capacity supplied by the caller. If not, MainStrg is unchanged. |
+
+For a destination declared as a Clarion CSTRING, pass SIZE(MainStrg) as the second parameter. vuReplaceCharsEx returns 1 for a completed call, including when no match was found, and 0 if its parameter or buffer validation fails.
+
+The three-parameter vuReplaceChars remains available for older applications without any calling-convention change. It **does not** check destination capacity; use vuReplaceCharsEx for new code, especially when replacements may expand the string.
+
+See [vuReplaceChars](functions/vuReplaceChars.md) and [vuReplaceCharsEx](functions/vuReplaceCharsEx.md) for usage, return values, and capacity examples.
+
+---
 
 ## What's New in Build 208
 

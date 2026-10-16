@@ -6,9 +6,9 @@
 Version: 5.0
 
 
-Release date: 2026-09-08
+Release date: 2026-10-16
 
-Last Updated: 2026-09-08  (Build: 208)
+Last Updated: 2026-10-16  (Build: 209)
 
 Copyright (c) 2026 Clarion ProSeries by LANSRAD. All rights reserved.
 

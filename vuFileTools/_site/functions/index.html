@@ -855,9 +855,13 @@ that the specified program no longer runs automatically at startup.</td>
 </tr>
 <tr>
 <td><a href="vuReplaceChars.html">vuReplaceChars</a></td>
-<td>Returns a modified version of MainStrg with all occurrences of
-OldStrg replaced by NewStrg. The replacement substring does not need to
-be the same length as the original.</td>
+<td>Legacy in-place substring replacement. Returns LONG 1, not a
+CSTRING; does not check destination capacity.</td>
+</tr>
+<tr>
+<td><a href="vuReplaceCharsEx.html">vuReplaceCharsEx</a></td>
+<td>Buffer-aware in-place substring replacement; preserves MainStrg if
+the result will not fit in the supplied capacity.</td>
 </tr>
 <tr>
 <td><a href="vuReplaceCharsInFile.html">vuReplaceCharsInFile</a></td>
