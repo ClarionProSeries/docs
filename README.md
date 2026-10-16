@@ -11,6 +11,7 @@ Here you will find guides, references, and examples for each product in the ProS
 |---|---|
 | [Clarion QuickBooks Wrapper](./ClarionQBWrapper) | Templates and classes that integrate Clarion apps with QuickBooks Desktop via the QBXML SDK. |
 | [ProPath](./ProPath) | Advanced path and dataset management for Clarion applications with built-in support for SQLite, Firebird, and more. |
+| [ProTOML](./ProTOML/) | Read, write, store, and exchange TOML data in Clarion applications. |
 | [vuFileTools](./vuFileTools) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
 | [vuMailKit](./vuMailKit) | Modern email support for Clarion applications, including SMTP, POP3, IMAP, OAuth, profile management, and legacy vuMail compatibility. |
 
@@ -22,20 +23,20 @@ More products coming soon...
 
 Each ProSeries product has its own folder. Inside you will find a consistent set of pages such as:
 
-- **Introduction** - What the product does and how it helps.  
-- **Requirements** - Supported Clarion versions and template chains.  
-- **Installation Instructions** - How to install and set up the product.  
-- **Registering the Template** - Adding the template to Clarion.  
-- **Using in Your Application** - Guidance and examples.  
+- **Introduction** - What the product does and how it helps.
+- **Requirements** - Supported Clarion versions and template chains.
+- **Installation Instructions** - How to install and set up the product.
+- **Registering the Template** - Adding the template to Clarion.
+- **Using in Your Application** - Guidance and examples.
 
 Some products may also include:
 
-- **Deployment** details  
-- **Function Reference** - All functions or by category  
+- **Deployment** details
+- **Function Reference** - All functions or by category
 
 ---
 
 ## Related Links
 
-- [Website](https://clarionproseries.com)  
+- [Website](https://clarionproseries.com)
 - [Contact Form](https://www.clarionproseries.com/html/contact.php)
