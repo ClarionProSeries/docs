@@ -25,6 +25,8 @@ The three-parameter vuReplaceChars remains available for older applications with
 
 See [vuReplaceChars](functions/vuReplaceChars.md) and [vuReplaceCharsEx](functions/vuReplaceCharsEx.md) for usage, return values, and capacity examples.
 
+**Documentation clarification:** Function examples now distinguish caller-side CSTRING declaration lengths from actual buffer and Windows API limitations. See [CSTRING Sizes and Buffer Capacity](cstring-sizes.md), including a 1,024-byte declaration example for `vuRun()`.
+
 ---
 
 ## What's New in Build 208

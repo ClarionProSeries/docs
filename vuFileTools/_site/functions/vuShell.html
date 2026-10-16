@@ -94,16 +94,25 @@ separately.</td>
 <tbody>
 <tr>
 <td>FileName</td>
-<td>CSTRING(256)</td>
+<td><code>*CSTRING</code></td>
 <td>Fully qualified path and name of the file to run.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>CSTRING size note:</strong> The <code>CSTRING(260)</code>
+declaration in the example is illustrative, but <code>vuShell()</code>
+copies the filename into an internal <code>%MAX_PATH</code> buffer.
+Declaring a larger caller-side CSTRING will not increase that internal
+capacity. See <a href="../cstring-sizes.html">CSTRING Sizes and Buffer
+Capacity</a>.</p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value containing the instance handle of the application that
 was run.</p>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>FileName = &#39;MyDocument.doc&#39;
+<pre class="Clarion"><code>FileName  CSTRING(260)
+AppHandle LONG
+
+FileName = &#39;MyDocument.doc&#39;
 AppHandle = vuShell(FileName)
 
 IF AppHandle

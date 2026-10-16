@@ -13,6 +13,8 @@ last_updated: "2026-10-16"
 
 This page lists all vuFileTools functions with a short description and links to their reference topics.
 
+**CSTRING sizes:** Lengths such as `CSTRING(256)` or `CSTRING(260)` shown on function pages are often example declarations, not fixed parameter limits. Individual functions may have internal buffer restrictions. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
+
 | Function | Description |
 |----------|-------------|
 | [vuAddStartupShortcut](vuAddStartupShortcut.md) | Creates a shortcut (.lnk file) in the Windows Startup folder so that the specified program runs automatically when Windows starts. |

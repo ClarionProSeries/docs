@@ -1,8 +1,8 @@
-[Home](help:vufiletools) | [All functions](help:vufiletools.functions) | [Categories](help:vufiletools.categories)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
 # About ProHelp Studio
 
-![Pasted image](assets/images/pagesnip-md-asset-image-4a25208f30.png)
+![ProHelp Studio logo](assets/images/prohelp-studio-logo-light.png)
 
 ProHelp Studio is our next-generation help authoring and publishing system.
 It is built around Markdown, designed for developers who want simple, portable documentation without the complexity of legacy CHM workflows.
@@ -19,4 +19,4 @@ ProHelp Studio is currently in development and will be available soon.
 
 For more information, visit the [ProHelp Studio website](https://prohelpstudio.com/).
 
-[Home](help:vufiletools) | [All functions](help:vufiletools.functions) | [Categories](help:vufiletools.categories)
+[Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

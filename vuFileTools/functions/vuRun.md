@@ -6,7 +6,7 @@ keywords: ["windows", "vuFileTools", "program", "style", "shell", "general", "vu
 function_name: "vuRun"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-09-08"
+last_updated: "2026-10-16"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -27,9 +27,11 @@ The Filename parameter is passed as a single command line string. This means it 
 
 | Parameter | Data Type    | Description |
 |-----------|--------------|-------------|
-| Filename  | CSTRING(256) | Fully qualified path and filename of the program to run. May also include runtime parameters in the same string. |
+| Filename  | `*CSTRING` | Fully qualified path and filename of the program to run. May also include runtime parameters in the same string. |
 | WStyle    | LONG         | Window style for execution:<br>0 = Hidden<br>1 = Normal with focus<br>2 = Minimized with focus<br>3 = Maximized with focus<br>4 = Normal without focus<br>6 = Minimized without focus |
 | Wait      | LONG         | Execution wait flag:<br>0 = Return immediately and do not wait for completion<br>1 = Wait until the program completes |
+
+**CSTRING size note:** `CSTRING(1024)` in the example is an application-side choice, not a fixed `vuRun()` limit. `vuRun()` does not have a 256-character local string buffer; Windows and PowerBASIC shell rules still apply. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
 
 ## Returns
 
@@ -41,6 +43,10 @@ A LONG value:
 ## Example
 
 ```Clarion
+Filename CSTRING(1024)
+WStyle   LONG
+Wait     LONG
+
 Filename = 'C:\Windows\Notepad.exe mydoc.txt'
 WStyle   = 1   ! Normal with focus
 Wait     = 1   ! Wait for program to complete

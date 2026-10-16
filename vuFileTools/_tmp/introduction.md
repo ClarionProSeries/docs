@@ -10,10 +10,14 @@ Instead of writing complex Windows API calls yourself, you can rely on vuFileToo
 
 ## Version 5 Highlights
 
-- No limitations on the size of C-strings that can be used with functions.  
+- Flexible caller-side CSTRING sizes, with function-specific buffer and Windows API limits explained in the documentation.  
 - All-new documentation that is easy to read and navigate.  
 - Every function fully documented with code examples ready to copy and use.  
 - Expanded set of over 200 functions covering file, folder, network, and system operations.
+
+## Understanding CSTRING Sizes
+
+The CSTRING lengths shown in examples are generally choices for the caller, not fixed interface requirements. Some functions have their own internal buffer or Windows API limits. See [CSTRING Sizes and Buffer Capacity](cstring-sizes.md) for practical examples and important exceptions.
 
 ## Getting Started
 

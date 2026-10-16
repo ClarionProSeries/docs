@@ -130,17 +130,17 @@ wait.</td>
 <tbody>
 <tr>
 <td>pFile</td>
-<td>CSTRING(260)</td>
+<td><code>*CSTRING</code></td>
 <td>Full path to the executable file to run.</td>
 </tr>
 <tr>
 <td>pParams</td>
-<td>CSTRING(260)</td>
+<td><code>*CSTRING</code></td>
 <td>Optional command-line parameters to pass to the executable.</td>
 </tr>
 <tr>
 <td>pWork</td>
-<td>CSTRING(260)</td>
+<td><code>*CSTRING</code></td>
 <td>Optional working directory for the executable.</td>
 </tr>
 <tr>
@@ -156,8 +156,14 @@ completes.</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: In vuFileTools V5, CSTRINGs are not limited to the size
-shown above. The number is for example only.</em></p>
+<p><strong>CSTRING size note:</strong> <code>CSTRING(1024)</code> in
+this example is a caller-side declaration, not an unlimited-length
+guarantee. This function copies the relevant path, parameter, or
+working-folder text into internal 1,024-byte null-terminated buffer(s),
+so each copied value must fit (up to 1,023 characters plus its null
+byte). Longer input may be truncated; Windows can impose additional
+restrictions. See <a href="../cstring-sizes.html">CSTRING Sizes and
+Buffer Capacity</a>.</p>
 <h3 id="returns">Returns</h3>
 <p>A LONG value indicating the result:</p>
 <ul>
@@ -166,15 +172,14 @@ shown above. The number is for example only.</em></p>
 <li>Negative values may indicate a Windows launch error</li>
 </ul>
 <h3 id="example">Example</h3>
-<pre class="Clarion"><code>FilePath   CSTRING(260)
-Params     CSTRING(260)
-WorkFolder CSTRING(260)
+<pre class="Clarion"><code>FilePath   CSTRING(1024)
+Params     CSTRING(1024)
+WorkFolder CSTRING(1024)
 ShowCmd    LONG
 WaitFlag   LONG
 Ret        LONG
 
-FilePath   = &#39;C:\Windows
-otepad.exe&#39;
+FilePath   = &#39;C:\Windows\notepad.exe&#39;
 Params     = &#39;MyDoc.txt&#39;
 WorkFolder = &#39;&#39;
 ShowCmd    = 1

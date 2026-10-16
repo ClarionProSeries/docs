@@ -21,6 +21,7 @@ This documentation covers the functions currently available in vuFileTools.
 Use the links below to browse the documentation.
 
 - [Introduction](introduction.md)
+- [CSTRING Sizes and Buffer Capacity](cstring-sizes.md)
 - [Requirements](requirements.md)
 - [Installation Instructions](install.md)
 - [Registering the Template](template-registration.md)

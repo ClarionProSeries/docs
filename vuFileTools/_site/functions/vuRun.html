@@ -49,7 +49,7 @@ followed by any runtime parameters.</p>
 <tbody>
 <tr>
 <td>Filename</td>
-<td>CSTRING(256)</td>
+<td><code>*CSTRING</code></td>
 <td>Fully qualified path and filename of the program to run. May also
 include runtime parameters in the same string.</td>
 </tr>
@@ -68,6 +68,11 @@ completion<br>1 = Wait until the program completes</td>
 </tr>
 </tbody>
 </table>
+<p><strong>CSTRING size note:</strong> <code>CSTRING(1024)</code> in the
+example is an application-side choice, not a fixed <code>vuRun()</code>
+limit. <code>vuRun()</code> does not have a 256-character local string
+buffer; Windows and PowerBASIC shell rules still apply. See <a
+href="../cstring-sizes.html">CSTRING Sizes and Buffer Capacity</a>.</p>
 <h2 id="returns">Returns</h2>
 <p>A LONG value:</p>
 <ul>
@@ -75,7 +80,11 @@ completion<br>1 = Wait until the program completes</td>
 <li>0 (False) on failure</li>
 </ul>
 <h2 id="example">Example</h2>
-<pre class="Clarion"><code>Filename = &#39;C:\Windows\Notepad.exe mydoc.txt&#39;
+<pre class="Clarion"><code>Filename CSTRING(1024)
+WStyle   LONG
+Wait     LONG
+
+Filename = &#39;C:\Windows\Notepad.exe mydoc.txt&#39;
 WStyle   = 1   ! Normal with focus
 Wait     = 1   ! Wait for program to complete
 

@@ -6,7 +6,7 @@ keywords: ["windows", "vuFileTools", "shell", "using", "Windows", "Clarion", "in
 function_name: "vuShellEx"
 category: "Shell Integration"
 version_added: "5.0"
-last_updated: "2026-09-08"
+last_updated: "2026-10-16"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -33,12 +33,13 @@ Launches a file using the Windows shell with optional parameters, working direct
 
 | Parameter | Data Type | Description |
 |-----------|-----------|-------------|
-| pFile | CSTRING(260) | Full path to the file or executable to launch. |
-| pParams | CSTRING(260) | Optional command-line parameters. |
-| pWork | CSTRING(260) | Optional working directory. |
+| pFile | `*CSTRING` | Full path to the file or executable to launch. |
+| pParams | `*CSTRING` | Optional command-line parameters. |
+| pWork | `*CSTRING` | Optional working directory. |
 | ShowCmd | LONG | Window display option (see ShowWindow constants, for example 1 = normal window). |
 
-_Note: In vuFileTools V5, CSTRINGs are not limited to the sizes shown above. The numbers are for example only._
+
+**CSTRING size note:** `CSTRING(1024)` in this example is a caller-side declaration, not an unlimited-length guarantee. This function copies the relevant path, parameter, or working-folder text into internal 1,024-byte null-terminated buffer(s), so each copied value must fit (up to 1,023 characters plus its null byte). Longer input may be truncated; Windows can impose additional restrictions. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
 
 ### Returns
 A LONG value indicating the result:
@@ -50,9 +51,9 @@ A LONG value indicating the result:
 ### Example
 
 ```Clarion
-FilePath   CSTRING(260)
-Params     CSTRING(260)
-WorkFolder CSTRING(260)
+FilePath   CSTRING(1024)
+Params     CSTRING(1024)
+WorkFolder CSTRING(1024)
 ShowCmd    LONG
 Ret        LONG
 

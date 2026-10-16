@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "Clarion", "shell", "associated", "executable", "with"
 function_name: "vuShell"
 category: "Shell Integration"
 version_added: "5.0"
-last_updated: "2026-09-08"
+last_updated: "2026-10-16"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -33,7 +33,9 @@ Runs a file with its associated executable. For example, opening a Word document
 
 | Parameter | Data Type | Description |
 |-----------|-----------|-------------|
-| FileName | CSTRING(256) | Fully qualified path and name of the file to run. |
+| FileName | `*CSTRING` | Fully qualified path and name of the file to run. |
+
+**CSTRING size note:** The `CSTRING(260)` declaration in the example is illustrative, but `vuShell()` copies the filename into an internal `%MAX_PATH` buffer. Declaring a larger caller-side CSTRING will not increase that internal capacity. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
 
 ### Returns
 A LONG value containing the instance handle of the application that was run.
@@ -41,6 +43,9 @@ A LONG value containing the instance handle of the application that was run.
 ### Example
 
 ```Clarion
+FileName  CSTRING(260)
+AppHandle LONG
+
 FileName = 'MyDocument.doc'
 AppHandle = vuShell(FileName)
 

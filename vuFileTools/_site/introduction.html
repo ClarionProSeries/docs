@@ -41,14 +41,20 @@ function has been tested, documented, and comes with working Clarion
 code examples.</p>
 <h2 id="version-5-highlights">Version 5 Highlights</h2>
 <ul>
-<li>No limitations on the size of C-strings that can be used with
-functions.</li>
+<li>Flexible caller-side CSTRING sizes, with function-specific buffer
+and Windows API limits explained in the documentation.</li>
 <li>All-new documentation that is easy to read and navigate.</li>
 <li>Every function fully documented with code examples ready to copy and
 use.</li>
 <li>Expanded set of over 200 functions covering file, folder, network,
 and system operations.</li>
 </ul>
+<h2 id="understanding-cstring-sizes">Understanding CSTRING Sizes</h2>
+<p>The CSTRING lengths shown in examples are generally choices for the
+caller, not fixed interface requirements. Some functions have their own
+internal buffer or Windows API limits. See <a
+href="cstring-sizes.html">CSTRING Sizes and Buffer Capacity</a> for
+practical examples and important exceptions.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>If you are new to vuFileTools, begin with the <a
 href="install.html">Installation</a> page.<br />

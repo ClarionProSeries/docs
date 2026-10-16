@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>cstring-sizes</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="cstring-sizes-and-buffer-capacity">CSTRING Sizes and Buffer
+Capacity</h1>
+<h2 id="sizes-in-examples-are-not-fixed-requirements">Sizes in examples
+are not fixed requirements</h2>
+<p>Many vuFileTools function pages show declarations such as
+<code>CSTRING(256)</code> or <code>CSTRING(260)</code>. These are
+<strong>example buffer sizes</strong>, not universal limits on the
+CSTRING variables you may declare in Clarion. For input parameters shown
+as <code>*CSTRING</code>, choose a declaration large enough for the text
+your application needs to supply.</p>
+<p>For example, <code>vuRun()</code> accepts a command-line string and
+does <strong>not</strong> have an internal 256-character string
+buffer:</p>
+<pre class="Clarion"><code>Filename CSTRING(1024)
+WStyle   LONG
+Wait     LONG
+Ret      LONG
+
+Filename = &#39;&quot;C:\Program Files\MyApp\MyTool.exe&quot; /x /y&#39;
+WStyle   = 1
+Wait     = 0
+Ret = vuRun(Filename, WStyle, Wait)</code></pre>
+<p><code>CSTRING(1024)</code> has space for <strong>up to 1,023
+characters of text plus the terminating null byte</strong>. The example
+does not guarantee that Windows can run every path or command line of
+that length.</p>
+<h2 id="the-called-function-can-have-its-own-limits">The called function
+can have its own limits</h2>
+<p>A larger caller-side CSTRING does not increase the size of a buffer
+inside a function or remove limits in Windows APIs:</p>
+<ul>
+<li><strong><code>vuRun()</code></strong> passes the command-line string
+to PowerBASIC's <code>SHELL</code> operation without a fixed
+256-character local buffer. Normal Windows and shell command-line
+limitations still apply.</li>
+<li><strong><code>vuRunDelay()</code>, the RunEx family,
+<code>vuRunExists()</code> and <code>vuRunExistsEx()</code></strong> use
+one or more internal 1,024-byte null-terminated buffers for paths,
+parameters, or working folders. The text copied into one of these
+buffers must fit (at most 1,023 characters plus the null byte).
+Supplying a larger CSTRING does not avoid that internal restriction; an
+oversized value may be truncated.</li>
+<li><strong><code>vuShell()</code></strong> copies the filename into a
+<code>%MAX_PATH</code> buffer. Do not assume it accepts a longer path
+merely because the caller uses <code>CSTRING(1024)</code>. Other ShellEx
+variants use internal 1,024-byte buffers.</li>
+</ul>
+<p>These are implementation facts, not a promise that Windows accepts
+all values within those sizes. Always consult the individual function's
+notes for other restrictions.</p>
+<h2 id="input-strings-versus-output-and-in-place-strings">Input strings
+versus output and in-place strings</h2>
+<p>For an input-only CSTRING, provide sufficient space for the input
+text and the trailing null. For output and in-place parameters, provide
+sufficient <strong>destination capacity</strong>, including the
+terminating null byte.</p>
+<p><code>vuReplaceCharsEx()</code> is an example of a safer in-place
+operation because it receives the destination capacity explicitly:</p>
+<pre class="Clarion"><code>MainStrg CSTRING(1024)
+OldStrg  CSTRING(20)
+NewStrg  CSTRING(40)
+Ret      LONG
+
+Ret = vuReplaceCharsEx(MainStrg, SIZE(MainStrg), OldStrg, NewStrg)</code></pre>
+<p>It validates that the <em>entire result</em> fits before modifying
+<code>MainStrg</code>. The legacy <code>vuReplaceChars()</code> function
+does not check destination capacity. See <a
+href="functions/vuReplaceCharsEx.html">vuReplaceCharsEx</a> for behavior
+and return values.</p>
+<p><strong>Rule of thumb:</strong> Choose caller-side CSTRING sizes for
+the data you expect, but do not interpret sample sizes as function
+limits or assume a bigger variable overrides a function's internal
+buffers.</p>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>
