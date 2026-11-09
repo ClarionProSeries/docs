@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>single-exe</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a
+href="multi-dll.html">Multi-DLL</a></p>
+<h1 id="single-exe-installation">Single-EXE Installation</h1>
+<ol type="1">
+<li>Open the EXE APP. Add <strong>xSearch 5.0 - Application
+Setup</strong> under <strong>Global Extensions</strong>.</li>
+<li>Open an ABC Browse's Window Designer.</li>
+<li>From <strong>Control Templates &gt; xSearch</strong>, select the
+entry for the specific browse (such as <em>Browse on Customer</em>) and
+place the Search button.</li>
+<li>Right-click the placed Search button and choose
+<strong>Actions</strong>. Double-clicking a button opens embeds instead;
+it does not open the template prompts.</li>
+<li>On <strong>Browse</strong>, choose the primary file belonging to
+that browse and its LIST control.</li>
+<li>On <strong>Tag storage</strong>, choose <strong>Local Queue</strong>
+for browse-local tags. Open <strong>Tag store settings...</strong> and
+select a unique record field, such as CUS:CustNumber for the example
+Customer file.</li>
+<li>In the LIST Formatter, enable <strong>Transparent</strong> icon
+display in a column already in the LIST (for example Company),
+<strong>not Normal</strong>; this prevents the visible icon bounding
+rectangle on adjacent rows. On <strong>Tag icons</strong>, choose that
+same field (CUS:Company). No new dictionary field or icon-only column is
+necessary.</li>
+<li>Compile and run. Search for a known name and confirm that the result
+is tagged and the browse shows its icon.</li>
+</ol>
+<p>For optional tagging buttons, see <a
+href="control-templates.html">Control Templates</a>.</p>
+<p><strong>Shortcut after installation:</strong> Right-click the browse
+procedure in the application tree, choose <strong>Extensions</strong>,
+and double-click the xSearch entry. You can edit its prompts without
+reentering Window Designer.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a
+href="multi-dll.html">Multi-DLL</a></p>
+</body>
+</html>

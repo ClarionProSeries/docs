@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tagged-reports-processes</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="print-reports-and-run-processes-using-tagged-records">Print
+Reports and Run Processes Using Tagged Records</h1>
+<p><strong>Searching and tagging are only the beginning.</strong>
+xSearch lets a user select records in an ABC Browse and then use that
+selection when printing a report or running a process. You do not have
+to recreate the same selection in a second window.</p>
+<h2 id="example-print-only-the-selected-customers">Example: print only
+the selected customers</h2>
+<ol type="1">
+<li>In the Customer browse, search for the customers you want and tag
+them. You can also use <strong>Tag</strong>, <strong>Tag All</strong>,
+and <strong>Untag</strong> to adjust the selection.</li>
+<li>In the <strong>Clarion report procedure</strong> that prints
+Customer records, add the <strong>xSearch 5.0 for Report</strong>
+procedure extension. Configure the tag storage and unique field to match
+the browse. The same primary file must be accessible to the report.</li>
+<li>In the extension's <strong>Question</strong> tab, choose whether to
+ask the user to restrict the report to tagged records. You can include
+the count, producing a question such as <strong>"Print only tagged
+records? (2 tagged)"</strong>. Configure what to do when no records are
+tagged.</li>
+<li>Run the report as usual. For example, a <strong>Print</strong>
+button or menu item can call the report procedure with <strong>Call a
+Procedure</strong>. There is no special xSearch code required on the
+button. The <strong>report procedure extension</strong> performs the
+tag-based restriction.</li>
+<li>If the user chooses the tagged subset, the report prints qualifying
+tagged records rather than all records. Its existing range, filter, and
+sort settings still apply.</li>
+</ol>
+<p><strong>Important:</strong> A report is <strong>not automatically
+filtered just because its key or file matches the browse</strong>. It
+needs the xSearch report extension and compatible tag storage
+configured. The calling button merely starts the report; it need not be
+located on the tagging browse.</p>
+<h2 id="process-the-same-selection">Process the same selection</h2>
+<p>Use <strong>xSearch 5.0 for Process</strong> on a Clarion process
+procedure. Configure the same tag storage and unique field, then choose
+the prompt and no-tags behavior on its <strong>Question</strong> tab.
+When the process is run, xSearch can skip records that are not tagged
+while retaining the process's existing selection and sorting rules. Its
+progress indicator counts records read, not just the tagged records
+processed.</p>
+<h2 id="fomin-report-builder-print-the-tagged-subset">Fomin Report
+Builder: print the tagged subset</h2>
+<p>xSearch 5.0 also includes a dedicated <strong>xSearch 5.0 for Fomin
+Report Builder</strong> procedure extension. Add it to a Fomin
+<strong><code>RunTimeReport</code></strong> procedure, match the tagged
+browse's <strong>External File</strong>, <strong>This File</strong>, or
+<strong>Global Queue</strong> storage settings and unique field, and
+configure the same <strong>Question</strong> choices used by the
+standard report extension. When tagged-only printing is selected, it
+skips untagged records during the Fomin runtime report's normal record
+traversal.</p>
+<p>This extension is intended specifically for Fomin Report Builder
+<code>RunTimeReport</code> procedures. <strong>It does not make every
+Fomin report tagged-only automatically</strong>, and the separate Fomin
+product must be installed to create those procedures. The calling button
+can remain an ordinary <strong>Call a Procedure</strong> button.</p>
+<p>See <a href="procedure-extensions.html">Procedure Extensions</a> for
+all five xSearch procedure extensions and the difference between
+developer-added report/process extensions and imported-window support
+extensions.</p>
+<h2 id="choosing-storage-that-the-report-or-process-can-access">Choosing
+storage that the report or process can access</h2>
+<p>The Browse <strong>Local Queue</strong> exists only inside that
+browse procedure and cannot serve as a shared selection for an
+independent report or process. To reuse tags between procedures, select
+an appropriate shared method such as <strong>Global Queue</strong>
+(until the application exits), <strong>External File</strong> (across
+sessions), or <strong>This File</strong> (tag field in the actual
+record), and configure matching definitions. The report/process
+extension supports the applicable <strong>External File</strong>,
+<strong>This File</strong>, and <strong>Global Queue</strong>
+options.</p>
+<p>For multi-DLL applications, put shared declarations and matching
+settings in the participating APPs. A report may live in a separate
+Reports DLL and be called from the main EXE; avoid introducing circular
+DLL dependencies. See <a href="multi-dll.html">Multi-DLL Setup</a> and
+<a href="tag-storage.html">Choose Where Tags Are Stored</a>.</p>
+<h2 id="when-no-records-are-tagged">When no records are tagged</h2>
+<p>The <strong>Question</strong> tab controls whether to ask about
+tagged records, whether to show the count, and whether a no-tags run
+should process everything, nothing, or ask anyway. These are
+configurable choices, <strong>not an unconditional promise that every
+report is tagged-only</strong>.</p>
+<p>See <a href="control-templates.html">Search and Tag Controls</a> for
+the browse buttons, and <a href="export.html">Export Records</a> to
+create data files from tagged records.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>custom-windows</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Task
+Guides</a> | <a href="export.html">Export Records</a></p>
+<h1 id="customize-xsearch-windows">Customize xSearch Windows</h1>
+<p>xSearch works with its original <strong>built-in class
+windows</strong> without requiring any imported procedures. If you want
+to customize the interface in Clarion Window Designer, choose between
+two complete sets of importable dialogs: <strong>Classic</strong> and
+<strong>Modern</strong>.</p>
+<h2 id="which-style-should-i-import">Which style should I import?</h2>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>What you get</th>
+<th>Best starting point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Built-in (no TXA imports)</td>
+<td>Original dialogs embedded in the xSearch classes</td>
+<td>Leave existing applications as they are</td>
+</tr>
+<tr>
+<td><strong>Classic importable</strong></td>
+<td>Familiar original window layouts, editable in Window Designer</td>
+<td>Adapt the familiar layout to your application's fonts and
+colors</td>
+</tr>
+<tr>
+<td><strong>Modern importable</strong></td>
+<td>Coordinated flat dialogs with navy headers and Segoe UI</td>
+<td>Start with a modern appearance and customize from there</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>five redesigned Modern dialogs</strong> are Search
+Options, Fields to Search, Saved Tag Sets, Search Results and Found
+Record. The <strong>Export Data</strong> and <strong>Export Column
+Settings</strong> dialogs already use the modern appearance and keep
+their existing layouts in both sets. Importing either set <strong>does
+not modify the class-embedded windows</strong>.</p>
+<h2 id="import-all-seven-at-once">Import all seven at once</h2>
+<ol type="1">
+<li>Open the application in Clarion and choose <strong>Application &gt;
+Template Utility</strong>.</li>
+<li>Select <strong>Classic - all seven xSearch windows</strong> or
+<strong>Modern - all seven xSearch windows</strong>.</li>
+<li>Clarion imports the seven procedures <strong>from one combined
+TXA</strong>, using one import operation for the entire set. If a
+procedure already exists, choose the appropriate Replace/Rename action
+intentionally.</li>
+<li>Verify the imported procedures in the application tree, then
+configure the global xSearch <strong>Windows</strong> tab as described
+below.</li>
+</ol>
+<p>The combined Classic file is
+<code>xSearchClassicAllWindows.txa</code>; the combined Modern file is
+<code>xSearchModernAllWindows.txa</code>. Each set contains exactly
+seven xSearch procedures. The demo-only <code>xSearchInstruction</code>
+procedure is not part of either import set.</p>
+<h2 id="import-individual-windows">Import individual windows</h2>
+<p>You can also select <strong>Classic</strong> or
+<strong>Modern</strong> for an individual dialog in the same Template
+Utility menu. There are <strong>16 utility choices in all</strong>: two
+complete-set imports and seven individual imports for each style.</p>
+<table>
+<thead>
+<tr>
+<th>Procedure imported into the APP</th>
+<th>Dialog</th>
+<th>Classic individual TXA</th>
+<th>Modern individual TXA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xsAskSearch</code></td>
+<td>Search Options</td>
+<td><code>xSearchAskSearch.txa</code></td>
+<td><code>xSearchModernAskSearch.txa</code></td>
+</tr>
+<tr>
+<td><code>xsAskFields</code></td>
+<td>Fields to Search</td>
+<td><code>xSearchAskFields.txa</code></td>
+<td><code>xSearchModernAskFields.txa</code></td>
+</tr>
+<tr>
+<td><code>xsAskTagSets</code></td>
+<td>Saved Tag Sets</td>
+<td><code>xSearchAskTagSets.txa</code></td>
+<td><code>xSearchModernAskTagSets.txa</code></td>
+</tr>
+<tr>
+<td><code>xsShowResults</code></td>
+<td>Search Results</td>
+<td><code>xSearchShowResults.txa</code></td>
+<td><code>xSearchModernShowResults.txa</code></td>
+</tr>
+<tr>
+<td><code>xsShowMatched</code></td>
+<td>Found Record</td>
+<td><code>xSearchShowMatched.txa</code></td>
+<td><code>xSearchModernShowMatched.txa</code></td>
+</tr>
+<tr>
+<td><code>xsAskExportData</code></td>
+<td>Export Data</td>
+<td><code>xSearchExportData.txa</code></td>
+<td><code>xSearchModernExportData.txa</code></td>
+</tr>
+<tr>
+<td><code>xsAskExportColumn</code></td>
+<td>Export Column Settings</td>
+<td><code>xSearchExportColumn.txa</code></td>
+<td><code>xSearchModernExportColumn.txa</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>procedure names and required interfaces are
+identical</strong> in Classic and Modern. Choose one style per
+procedure; mixing individual Classic and Modern windows is supported.
+You cannot keep two procedures with the same name in one APP without
+renaming one and explicitly configuring the corresponding selector. When
+importing over existing procedures, Clarion may offer <strong>Auto
+Rename</strong>, <strong>Replace All</strong>, or
+<strong>Prompt</strong>; make the choice deliberately.</p>
+<p>All 16 TXA files install directly in
+<code>accessory\libsrc\win</code>, beside the xSearch class source
+files. The Modern files have <strong>distinct filenames</strong>, not a
+Modern subdirectory.</p>
+<h2 id="enable-the-imported-procedures">Enable the imported
+procedures</h2>
+<ol type="1">
+<li>Open <strong>Global Extensions &gt; xSearch 5.0 - Application Setup
+&gt; Windows</strong>.</li>
+<li>Check <strong>Use customized window procedures</strong>.</li>
+<li>Select the imported procedure for each dialog you want to override
+(Search, Fields, Tags, Results, Found Record, Export Data, or Export
+Column).</li>
+<li>A <strong>blank procedure selector uses the corresponding built-in
+class window</strong>.</li>
+</ol>
+<p>You do not need to change the xSearch template or add a
+Classic/Modern switch. The imported procedure selected by name
+determines the appearance. The same names and parameters mean an
+existing application can switch styles without rewriting search and
+tagging logic.</p>
+<h2 id="edit-safely-in-window-designer">Edit safely in Window
+Designer</h2>
+<p>Open the imported procedure in Window Designer to change fonts,
+controls, colors, and layout. <strong>Preserve the original procedure
+prototype and the control <code>USE</code> identifiers</strong> expected
+by xSearch. Removing certain optional controls is supported by the
+alternate-window template, but renaming required controls breaks the
+generated bindings.</p>
+<p>The Modern export dialogs use opaque navy header text backgrounds so
+white lettering remains readable in Window Designer. The export layouts
+themselves remain unchanged. Search and Results follow the same header
+design.</p>
+<p>The code that drives the imported windows stays in the xSearch
+template and classes; editing a window does not require you to duplicate
+its behavior in procedure embeds. The five Search/Fields/Tag
+Sets/Results/Found Record TXAs already include the <strong>xSearch 5.0
+alternate window</strong> procedure extension; the two export TXAs
+include <strong>xSearch 5.0 alternate export window</strong>. These
+extensions are <strong>not additional imports or separate setup
+steps</strong>. See <a href="procedure-extensions.html">Procedure
+Extensions</a>.</p>
+<h2 id="modern-window-size-and-ini-settings">Modern window size and INI
+settings</h2>
+<p>Modern Search, Fields, Tag Sets, Results, and Found Record are larger
+than their Classic counterparts. They save window geometry under
+<strong>Modern-specific keys</strong>, instead of inheriting a Classic
+window's older size. Other search, history, field and export preferences
+remain shared. <strong>Modern Search Results can be resized</strong> and
+enforces a minimum size to keep its controls visible.</p>
+<p>If a procedure is still showing an old layout after an import,
+confirm you replaced the existing procedure rather than auto-renaming
+the new one, then check the selected procedure name in the global
+Windows tab. You do <strong>not</strong> normally need to delete the INI
+to switch styles.</p>
+<p>See <a href="ini-settings.html">INI Files and Remembered Settings</a>
+and <a href="troubleshooting.html">Troubleshooting</a>.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Task
+Guides</a> | <a href="export.html">Export Records</a></p>
+</body>
+</html>

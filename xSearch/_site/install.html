@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>install</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="xsearch---installation">xSearch - Installation</h1>
+<p>When you run the installer for xSearch, it locates valid Clarion
+installations on your computer and lets you choose which one to install
+the template for.</p>
+<p>You can run the installer multiple times to install xSearch into more
+than one version of Clarion. Each Clarion installation receives its own
+copy of the xSearch files.</p>
+<p>The installer sets up the template, class support files,
+window-import files, translations, icons, documentation, and any
+included examples.</p>
+<hr />
+<h2 id="installed-file-locations">Installed File Locations</h2>
+<p>By default, xSearch follows the normal folder conventions used by
+Clarion third-party developers.</p>
+<h3 id="working-files">Working Files</h3>
+<p>The working files are installed into the appropriate subfolders of
+the root accessory folder beneath your base Clarion installation
+folder.</p>
+<p>For example:</p>
+<pre class="text"><code>C:\Clarion12                                  (base Clarion folder)
+C:\Clarion12\accessory                        (root accessory folder)
+C:\Clarion12\accessory\template\win
+    xsearch.tpl
+C:\Clarion12\accessory\libsrc\win
+    xsearch.inc
+    xsearch.clw
+    xsExport.inc
+    xsExport.clw
+    xSearch_EN.trn
+    xSearch_ES.trn
+    xSearch_XX.trn
+    xSearchClassicAllWindows.txa
+    xSearchAskSearch.txa
+    xSearchAskFields.txa
+    xSearchAskTagSets.txa
+    xSearchShowResults.txa
+    xSearchShowMatched.txa
+    xSearchExportData.txa
+    xSearchExportColumn.txa
+    xSearchModernAllWindows.txa
+    xSearchModernAskSearch.txa
+    xSearchModernAskFields.txa
+    xSearchModernAskTagSets.txa
+    xSearchModernShowResults.txa
+    xSearchModernShowMatched.txa
+    xSearchModernExportData.txa
+    xSearchModernExportColumn.txa
+
+C:\Clarion12\accessory\lib\win
+    winxpmnf.res
+
+C:\Clarion12\accessory\images
+    Info.ico
+    Search2.ico
+    X1.ICO
+    xSearch270x90.gif
+    xSrchAnd.ico
+    xSrchExi.ico
+    xSrchNul.ico
+    xSrchOr.ico
+    xSrchQBE.ico
+    xSrchRun.ico
+    xSrchSrc.ico
+    xSrchTag.ico
+
+C:\Clarion12\accessory\Documents\LANSRAD\xSearch
+    xSearch.chm</code></pre>
+<p>The resource destinations are important:</p>
+<ul>
+<li><strong>Template:</strong> <code>Source/Template/xsearch.tpl</code>
+installs to <code>accessory\template\win</code>.</li>
+<li><strong>Classes, translations, and all 16 Classic/Modern import
+TXAs:</strong> <code>Source/Libsrc/*</code> install directly to
+<code>accessory\libsrc\win</code>. There are no separate style
+subfolders in Clarion.</li>
+<li><strong>Icons and banner:</strong> all 12 files in
+<code>Source/Images/*</code> install to
+<code>accessory\images</code>.</li>
+<li><strong>Legacy manifest resource:</strong>
+<code>Source/Lib/winxpmnf.res</code> installs to
+<strong><code>accessory\lib\win</code></strong>, <em>not</em>
+<code>libsrc\win</code>.</li>
+<li><strong>Compiled help:</strong> <code>xSearch.chm</code> installs
+under <code>accessory\Documents\LANSRAD\xSearch</code> once the CHM has
+been built.</li>
+</ul>
+<p><code>winxpmnf.res</code> is needed only if the optional legacy
+Windows XP manifest setting is used. The template links that resource by
+name; its installed location is <code>lib\win</code>.</p>
+<p>The source distribution includes the Markdown manual and CHM build
+inputs; an installer should only promise the CHM if it has actually been
+compiled and packaged. No separate xSearch runtime DLL is required.</p>
+<h3 id="example-files">Example Files</h3>
+<p>When example applications are included, the installer places them in
+the standard Clarion examples location under
+<strong>Users\Public\Documents\SoftVelocity</strong>, where they are
+available to all users of the computer.</p>
+<p>For example:</p>
+<pre class="text"><code>C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory
+    xSearch                         (shortcut to the product examples)
+C:\Users\Public\Documents\SoftVelocity\Clarion12\accessory\LANSRAD\xSearch
+    Demo applications and supporting files</code></pre>
+<p>Each demonstration folder contains the files relevant to that
+application.</p>
+<p>For the next steps, see <a
+href="template-registration.html">Registering the Template</a> and <a
+href="getting-started/index.html">Getting Started</a>.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>

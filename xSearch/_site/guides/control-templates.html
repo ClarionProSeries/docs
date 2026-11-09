@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>control-templates</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a
+href="multi-dll.html">Multi-DLL</a></p>
+<h1 id="search-and-tag-control-templates">Search and Tag Control
+Templates</h1>
+<p>The toolbox first offers a browse-specific <strong>xSearch</strong>
+entry. Place that Search control on the window before looking for
+companion controls. The labels below explain what each button does; the
+template names are included for reference.</p>
+<table>
+<thead>
+<tr>
+<th>Internal template</th>
+<th>Button/function</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>xSearch</strong></td>
+<td>Search</td>
+<td>Searches the chosen ABC browse and tags matching records</td>
+</tr>
+<tr>
+<td><strong>xTagged</strong></td>
+<td>Tag / Untag</td>
+<td>Tags or untags the selected record; the button switches between Tag
+and Untag</td>
+</tr>
+<tr>
+<td><strong>xTagAll</strong></td>
+<td>Tag All</td>
+<td>Tags records in the configured browse selection</td>
+</tr>
+<tr>
+<td><strong>xUnTagAll</strong></td>
+<td>Untag All</td>
+<td>Clears tags from the configured tag store, including any shared
+selection</td>
+</tr>
+<tr>
+<td><strong>xShowTagged</strong></td>
+<td>Show Tagged</td>
+<td>Switches the browse between all records, tagged records, and
+untagged records</td>
+</tr>
+<tr>
+<td><strong>xExport</strong></td>
+<td>Export</td>
+<td>Creates output files when export support is enabled in the global
+extension</td>
+</tr>
+</tbody>
+</table>
+<p>The individual control templates appear after
+<strong>xSearch</strong> is placed because they depend on the Search
+control template. Their existence is not controlled by the primary
+Search button's Actions prompts.</p>
+<p>The xSearch extension can add matching popup menu commands for
+companion controls actually present on that browse. Merely placing
+Search does not automatically produce every companion button or menu
+command.</p>
+<p>The names <strong>xTagged</strong>, <strong>xTagAll</strong>, etc.
+are stable internal symbols. The toolbox display descriptions may differ
+from the button captions; the internal symbols remain unchanged.</p>
+<p><strong>Tip:</strong> After placing controls, edit the xSearch
+extension through the procedure's <strong>Extensions</strong> list.
+Double-clicking a Window Designer button opens embeds, whereas
+right-clicking it and choosing <strong>Actions</strong> opens template
+control settings.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a
+href="multi-dll.html">Multi-DLL</a></p>
+</body>
+</html>

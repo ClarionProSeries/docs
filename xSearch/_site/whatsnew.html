@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>whatsnew</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="whats-new-in-xsearch-50">What's New in xSearch 5.0</h1>
+<p><strong>Find the records you need. See what you've tagged. Use the
+selection anywhere it matters.</strong></p>
+<p>Version 5 expands xSearch's familiar Search-and-Tag workflow with
+better visual feedback, editable dialogs, reusable selections and a
+built-in export engine. Existing built-in class windows remain
+available, so developers can adopt the new features without replacing
+their working browse interfaces.</p>
+<h2 id="see-tagged-records-at-a-glance">See tagged records at a
+glance</h2>
+<p><strong>Optional tagged-row highlighting</strong> adds a
+developer-selected background color across the entire tagged record in
+an ABC Browse LIST, rather than relying on the tag icon alone. It is
+particularly useful in browses with many columns. The original tag icons
+continue to work, and the LIST's normal selected-row highlighting is
+preserved.</p>
+<p>To enable it, open the <strong>Search this browse and tag what it
+finds</strong> control template, select <strong>Appearance</strong>,
+check <strong>Highlight tagged rows</strong>, and choose the
+<strong>Background colour</strong>. The option is <strong>off by
+default</strong> and configured independently for each browse. No color
+customization is required to keep the familiar xSearch behavior. See <a
+href="guides/browse-setup.html">Browse Setup and LIST Icons</a>.</p>
+<h2 id="two-complete-sets-of-editable-dialogs">Two complete sets of
+editable dialogs</h2>
+<p>Developers now have three presentation choices: keep the original
+class-embedded windows, import the familiar <strong>Classic</strong>
+set, or import the coordinated <strong>Modern</strong> set. Both
+importable sets contain the same seven procedure names, and each window
+can also be imported individually.</p>
+<p>The Modern set restyles Search Options, Fields to Search, Saved Tag
+Sets, Search Results and Found Record with a consistent flat interface,
+Segoe UI and navy headers. <strong>Export Data and Export Column
+Settings already use the modern appearance</strong>, so their layouts
+are retained in both sets.</p>
+<p>Import a complete style with <strong>Application &gt; Template
+Utility</strong> (one TXA containing all seven procedures), or import
+individual windows and mix styles. Then enable <strong>Use customized
+window procedures</strong> on the global extension's
+<strong>Windows</strong> tab. The class-embedded windows are unchanged.
+See <a href="guides/custom-windows.html">Customize xSearch
+Windows</a>.</p>
+<p>Modern imported windows also use separate saved geometry from Classic
+windows. This prevents an older small Classic window size in the shared
+xSearch INI from clipping a larger Modern layout. Modern Search Results
+supports resizing with a minimum usable size.</p>
+<h2 id="more-ways-to-find-keep-and-use-records">More ways to find, keep
+and use records</h2>
+<ul>
+<li><strong>Better search control:</strong> lookup-text matching,
+selectable search/field options, search history, saved named tag sets
+and optional SQL server pre-filtering.</li>
+<li><strong>Built-in export:</strong> export tagged or browsed records
+to CSV, UTF-8 CSV, TSV, XML, JSON, HTML and Excel XLSX. Users can choose
+columns and rename headings when enabled.</li>
+<li><strong>Tag counts:</strong> optionally display how many records are
+currently tagged in a control on the browse.</li>
+<li><strong>Print only the records you selected:</strong> add
+<strong>xSearch 5.0 for Report</strong> to a report procedure, then use
+its normal Print button or menu. It can offer <strong>"Print only tagged
+records? (2 tagged)"</strong> and print the matching tagged subset,
+without repeating the search. The report's original range and sort still
+apply.</li>
+<li><strong>Run processes on tagged records:</strong> the
+<strong>xSearch 5.0 for Process</strong> extension can restrict a
+process to the tagged selection, with configurable questions, counts and
+no-tags behavior.</li>
+<li><strong>Fomin Report Builder support:</strong> the dedicated
+<strong>xSearch 5.0 for Fomin Report Builder</strong> procedure
+extension can print the tagged subset in supported Fomin
+<strong><code>RunTimeReport</code></strong> procedures. See <a
+href="guides/tagged-reports-processes.html">Tagged Reports and
+Processes</a> and <a href="guides/procedure-extensions.html">Procedure
+Extensions</a>.</li>
+<li><strong>Language configuration:</strong> choose English or Spanish
+or supply another language's Clarion translation source.</li>
+<li><strong>Predictable INI preferences:</strong> store search settings,
+history, window geometry and export choices using a configured INI
+filename or a runtime global STRING variable.</li>
+<li><strong>Clearer setup and documentation:</strong> descriptive
+application setup prompts, installation guidance and dedicated
+single-EXE and multi-DLL instructions.</li>
+</ul>
+<h2 id="make-tagged-records-useful-beyond-the-browse">Make tagged
+records useful beyond the browse</h2>
+<p>The real value of tagging is <strong>what users can do
+afterward</strong>. Tag customers today, print a selected-customer
+report, perform a batch operation on just those customers, or export the
+selection. The report and process procedure extensions reuse the
+matching shared tag store. Their ordinary caller buttons do not require
+special xSearch logic. <a
+href="guides/tagged-reports-processes.html">See how to print or process
+tagged records</a>.</p>
+<h2 id="familiar-behavior-is-preserved">Familiar behavior is
+preserved</h2>
+<p>Searching, icon-based tagging, Tag/Untag, Tag All, Untag All, Show
+Tagged, existing tag-storage choices and original class-embedded windows
+remain available. The new row highlighting and imported window
+procedures are optional.</p>
+<p>See <a href="what-xsearch-can-do.html">What xSearch Can Do</a>, <a
+href="template-usage.html">Using the Template</a>, and <a
+href="version-history.html">Version History</a>.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+xSearch 5.0 Build 247 - CHM build log
+Builder location: G:\Docs-Staging\xSearch\
+Checking required files and tools...
+Cleaning generated _site and _tmp folders...
+Copying documentation assets...
+G:\Docs-Staging\xSearch\assets\images\prohelp-studio-logo-light.png
+G:\Docs-Staging\xSearch\assets\images\xSearch270x90.gif
+2 File(s) copied
+Converting Markdown to HTML...
+Converting deployment.md
+Converting index.md
+Converting install.md
+Converting introduction.md
+Converting prohelpstudio.md
+Converting requirements.md
+Converting support.md
+Converting template-registration.md
+Converting template-usage.md
+Converting version-history.md
+Converting what-xsearch-can-do.md
+Converting whatsnew.md
+Converting getting-started\index.md
+Converting guides\browse-setup.md
+Converting guides\control-templates.md
+Converting guides\custom-windows.md
+Converting guides\export.md
+Converting guides\index.md
+Converting guides\ini-settings.md
+Converting guides\languages.md
+Converting guides\multi-dll.md
+Converting guides\procedure-extensions.md
+Converting guides\single-exe.md
+Converting guides\tag-storage.md
+Converting guides\tagged-reports-processes.md
+Converting guides\troubleshooting.md
+Converted 26 Markdown pages.
+Copying stylesheet next to generated HTML...
+Copying the CHM project and contents files...
+Compiling xSearch.chm with HTML Help Workshop...
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling g:\Docs-Staging\xSearch\_site\xSearch.chm
+
+deployment.html
+index.html
+install.html
+introduction.html
+prohelpstudio.html
+requirements.html
+support.html
+template-registration.html
+template-usage.html
+version-history.html
+what-xsearch-can-do.html
+whatsnew.html
+getting-started\index.html
+guides\browse-setup.html
+guides\control-templates.html
+guides\custom-windows.html
+guides\export.html
+guides\index.html
+guides\ini-settings.html
+guides\languages.html
+guides\multi-dll.html
+guides\procedure-extensions.html
+guides\single-exe.html
+guides\tag-storage.html
+guides\tagged-reports-processes.html
+guides\troubleshooting.html
+assets\images\xSearch270x90.gif
+assets\images\prohelp-studio-logo-light.png
+style.css
+getting-started\style.css
+guides\style.css
+
+Compile time: 0 minutes, 0 seconds
+26	Topics
+386	Local links
+0	Internet links
+0	Graphics
+
+
+Created g:\Docs-Staging\xSearch\_site\xSearch.chm, 100,396 bytes
+Compression decreased file by 72,586 bytes.
+SUCCESS: G:\Docs-Staging\xSearch\_site\xSearch.chm

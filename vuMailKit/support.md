@@ -13,8 +13,8 @@ last_updated: "2026-03-26"
 
 If you need support with vuMailKit, please contact us using the Clarion ProSeries contact form:
 
-<a href="http://clarionproseries.com/html/contact.php" target="_blank" rel="noopener">
-http://clarionproseries.com/html/contact.php
+<a href="http://clarionproseries.com/contact" target="_blank" rel="noopener">
+http://clarionproseries.com/contact
 </a>
 
 Include the product name, product version, your version of Clarion, your Windows version, and a clear description of the problem.

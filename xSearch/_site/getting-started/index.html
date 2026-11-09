@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../template-usage.html">Using the Template</a> |
+<a href="../guides/index.html">Task Guides</a> | <a
+href="../whatsnew.html">What's New</a></p>
+<h1 id="getting-started">Getting Started</h1>
+<p>For a straightforward first test, choose a single-EXE ABC application
+and one browse. You can add xSearch without modifying the data
+dictionary just to hold tags.</p>
+<h2 id="first-search">First search</h2>
+<ol type="1">
+<li><a href="../install.html">Install</a> and <a
+href="../template-registration.html">register</a> xSearch if
+needed.</li>
+<li>Add the xSearch global extension to the APP, then follow its
+<strong>Start Here</strong> tab for the setup sequence.</li>
+<li>Open an ABC Browse's Window Designer and place the browse-specific
+Search control.</li>
+<li>Configure the primary file, LIST, Local Queue unique field, and icon
+field.</li>
+<li><strong>Before compiling, open the LIST Formatter for that field and
+set its icon display to Transparent, not Normal.</strong> Normal leaves
+a visible icon bounding rectangle on nearby rows; Transparent lets the
+checkmark sit cleanly alongside the column text. See <a
+href="../guides/browse-setup.html">Browse Setup and LIST Icons</a>.</li>
+<li>Compile and search for a known value. The matching record should
+receive a tag icon.</li>
+<li>Optionally open the Search control's <strong>Appearance</strong> tab
+and enable <strong>Highlight tagged rows</strong> to color the entire
+tagged LIST row.</li>
+</ol>
+<p><strong>Next step: print or process the selection.</strong> Add the
+relevant <strong>xSearch for Report</strong> or <strong>xSearch for
+Process</strong> extension to an appropriate procedure, configure
+matching tag storage, and run the procedure normally. A tagged-record
+prompt can offer to run it on just the selected records. See <a
+href="../guides/tagged-reports-processes.html">Reports and Processes
+Using Tags</a>.</p>
+<p>If you want editable dialogs with a coordinated modern appearance,
+import the <strong>Modern</strong> window set in <strong>Application
+&gt; Template Utility</strong>, or import the familiar
+<strong>Classic</strong> set. Both are optional; see <a
+href="../guides/custom-windows.html">Customize xSearch Windows</a>.</p>
+<h2 id="follow-the-guide-for-your-goal">Follow the guide for your
+goal</h2>
+<table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../guides/browse-setup.html">Add xSearch to a
+Browse</a></td>
+<td>Configure required fields, icon area, and the Search button</td>
+</tr>
+<tr>
+<td><a href="../guides/single-exe.html">Single-EXE Application</a></td>
+<td>Start with the simplest supported application layout</td>
+</tr>
+<tr>
+<td><a href="../guides/multi-dll.html">Multi-DLL Application</a></td>
+<td>Use a multi-DLL setup example with explicit shared declarations</td>
+</tr>
+<tr>
+<td><a href="../guides/index.html">Task Guides</a></td>
+<td>Add controls, choose storage, translate or export</td>
+</tr>
+</tbody>
+</table>
+<p>Installation and template registration are <strong>separate top-level
+manual pages</strong>. Getting Started only provides a quick path into
+them, rather than housing every setup topic.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../template-usage.html">Using the Template</a> |
+<a href="../guides/index.html">Task Guides</a> | <a
+href="../whatsnew.html">What's New</a></p>
+</body>
+</html>

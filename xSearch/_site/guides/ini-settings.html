@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ini-settings</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="ini-files-and-remembered-settings">INI Files and Remembered
+Settings</h1>
+<p>On <strong>xSearch 5.0 - Application Setup &gt; Tag Storage</strong>,
+the <strong>Global INI file</strong> setting names the INI file used for
+xSearch preferences. The default filename is xQSearch.ini. xSearch and
+xExport share this file, with separate sections for each browse and type
+of setting. The application's own Clarion INI manager is not
+changed.</p>
+<h2 id="what-is-remembered">What is remembered</h2>
+<table>
+<thead>
+<tr>
+<th>Settings</th>
+<th>Where they are stored</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search options and matching choices</td>
+<td>Configured xSearch INI, by browse procedure</td>
+</tr>
+<tr>
+<td>Field selections and search history</td>
+<td>Same INI, in browse-specific sections</td>
+</tr>
+<tr>
+<td>xSearch dialog positions</td>
+<td>Same INI, in window-specific sections</td>
+</tr>
+<tr>
+<td>Export format, folder, options, chosen columns, renamed headings and
+picture choices</td>
+<td>Same INI, in a separate xsExport_&lt;procedure&gt; section, when
+<strong>Remember the choices between runs</strong> is enabled</td>
+</tr>
+<tr>
+<td>Actual record tags</td>
+<td>In the chosen tag store, <strong>not</strong> in the INI</td>
+</tr>
+<tr>
+<td>Saved named tag sets</td>
+<td>In their separate tag-set files, <strong>not</strong> in the
+INI</td>
+</tr>
+</tbody>
+</table>
+<p>The INI is normally created or changed when a setting is written, not
+simply because you open the global template extension. Export
+preferences are written after a successful export, when remembering
+choices is enabled.</p>
+<h2
+id="choose-the-filename-and-location-classic-and-modern-window-sizes">Choose
+the filename and location### Classic and Modern window sizes</h2>
+<p>The five redesigned <strong>Modern</strong> imported windows have
+their own xSearch saved window-geometry entries. This allows the larger
+Modern dialogs to open at suitable sizes even when the INI already
+contains the positions and smaller sizes of the <strong>Classic</strong>
+or built-in windows. The search and export settings themselves remain
+shared; switching layouts does <strong>not</strong> require clearing
+your search history, field choices or export preferences.</p>
+<table>
+<thead>
+<tr>
+<th>Dialog</th>
+<th>Original / Classic geometry key</th>
+<th>Modern geometry key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search Options</td>
+<td><code>InStrWindow</code></td>
+<td><code>InStrWindowModern</code></td>
+</tr>
+<tr>
+<td>Fields to Search</td>
+<td><code>FieldsWindow</code></td>
+<td><code>FieldsWindowModern</code></td>
+</tr>
+<tr>
+<td>Saved Tag Sets</td>
+<td><code>TagSetsWindow</code></td>
+<td><code>TagSetsWindowModern</code></td>
+</tr>
+<tr>
+<td>Search Results</td>
+<td><code>ResultsWindow</code></td>
+<td><code>ResultsWindowModern</code></td>
+</tr>
+<tr>
+<td>Found Record</td>
+<td><code>ResWindow</code></td>
+<td><code>ResWindowModern</code></td>
+</tr>
+</tbody>
+</table>
+<p>Modern Search Results has a minimum usable window size and resizes
+its list and footer controls as the window changes. The two export
+windows have unchanged layouts and use their existing geometry behavior.
+See <a href="custom-windows.html">Customize xSearch Windows</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Global INI file entry</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xQSearch.ini</td>
+<td>A simple filename, stored beside the running EXE</td>
+</tr>
+<tr>
+<td>Settings\xQSearch.ini</td>
+<td>A relative subfolder under the EXE directory; the folder must exist
+and be writable</td>
+</tr>
+<tr>
+<td>C:\MyAppData\xQSearch.ini</td>
+<td>Use that explicit absolute path</td>
+</tr>
+<tr>
+<td>\\Server\Share\xQSearch.ini</td>
+<td>Use that explicit UNC network path, subject to permissions</td>
+</tr>
+<tr>
+<td>!MyIniPath</td>
+<td>Read the current filename from the global STRING variable MyIniPath
+when a browse initializes</td>
+</tr>
+</tbody>
+</table>
+<p>For xSearch's <strong>Global INI file</strong> prompt, a leading !
+names a <em>global STRING variable</em> containing the filename. For
+example, !GLO:MyINI expects a global variable named GLO:MyINI. xSearch
+keeps a reference to the variable and <strong>reads its value when a
+browse initializes</strong>. Thus the application can assign the path
+after global startup, provided it does so before the first xSearch
+browse opens. xSearch resolves the current value without changing the
+variable or creating missing directories.</p>
+<p>This deferred-reference form expects an addressable global STRING
+variable, not a function call or temporary string expression. To compute
+the path, assign the result to a global STRING variable and use !
+followed by its name. The variable must remain valid for the lifetime of
+the owning application or DLL.</p>
+<p>A bare filename or EXE-relative path is convenient for development.
+For an installed application whose EXE folder is protected, supply a
+writable full pathname, for example a location chosen by your
+application under the current user's application-data directory. xSearch
+does not require any additional path-management component.</p>
+<p>Windows also recognizes drive-relative paths such as C:settings.ini
+and root-relative paths such as \settings.ini. xSearch passes those
+explicit forms through to Windows. Because their interpretation depends
+on the process environment, a full absolute path is preferable when the
+location must be unambiguous.</p>
+<h2 id="multi-dll-applications">Multi-DLL applications</h2>
+<p>The <strong>owning APP</strong> (normally the Data DLL for shared
+xSearch globals) configures the filename. The xSearch class and any
+xExport control obtain the resolved name from that same global object. A
+runtime variable should be global and accessible in the owning APP,
+initialized before the first xSearch browse is opened. It does
+<strong>not</strong> need to have its final value when the owning DLL
+first initializes xSearch. The path is resolved against the <strong>main
+running EXE</strong>, not against an individual DLL's directory.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>No INI appeared:</strong> Complete an operation that writes
+preferences, and verify that remembering choices is enabled where
+applicable. Check the actual configured pathname and folder
+permissions.</li>
+<li><strong>The INI appeared somewhere unexpected:</strong> Check the
+configured full filename, including any runtime variable. A bare
+filename is resolved beside the EXE; a full pathname is used as
+supplied.</li>
+<li><strong>A column selection keeps returning:</strong> Export choices
+are remembered by browse procedure. Restore the desired column checkbox
+and complete an export to save the selection.</li>
+<li><strong>The INI filename did not change export choices:</strong>
+Make sure the variable has been initialized before opening the browse
+and that the chosen folder is writable. For advanced diagnosis,
+xGSearch.GetIniName() returns the filename in use after browse
+initialization.</li>
+<li><strong>The path points to a folder but no INI appears:</strong>
+Verify that the complete filename, not just a folder, is supplied, and
+that the folder already exists and is writable.</li>
+</ul>
+<p>For data-tag persistence, see <a href="tag-storage.html">Tag Storage
+Choices</a>. For export behavior, see <a href="export.html">Export
+Records</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+</body>
+</html>

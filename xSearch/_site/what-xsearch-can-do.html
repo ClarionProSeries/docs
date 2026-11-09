@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>what-xsearch-can-do</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="what-xsearch-can-do-for-your-clarion-application">What xSearch
+Can Do for Your Clarion Application</h1>
+<h2 id="find-records-without-knowing-the-key">Find records without
+knowing the key</h2>
+<p>Users often remember a name, company, address, or description instead
+of the exact key value. xSearch examines the chosen fields in the
+primary file and can include related-file fields when those
+relationships matter to a search.</p>
+<h2 id="build-a-working-selection">Build a working selection</h2>
+<p>Search matches are tagged. Users can adjust that selection using
+Tag/Untag, Tag All, or Untag All and switch the browse among All,
+Tagged, and Untagged views. A tag icon can appear beside an existing
+LIST column without adding a separate column or dictionary field for
+queue-based tags. <strong>Optional tagged-row highlighting</strong>
+colors the background across the tagged row, making selected records
+easier to see even in a wide browse. The normal selected-row highlight
+remains available. Configure this on the browse Search control's
+<strong>Appearance</strong> tab.</p>
+<h2 id="keep-tags-as-long-as-the-task-requires">Keep tags as long as the
+task requires</h2>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Storage choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tags for one browse window</td>
+<td>Local Queue</td>
+</tr>
+<tr>
+<td>Tags for the current application session</td>
+<td>Global Queue</td>
+</tr>
+<tr>
+<td>Tags available after the program restarts</td>
+<td>External File</td>
+</tr>
+<tr>
+<td>Tags stored directly in each data record</td>
+<td>This File</td>
+</tr>
+</tbody>
+</table>
+<p>Different files can use different shared-storage methods in the same
+application. See <a href="guides/tag-storage.html">Choosing Tag
+Storage</a>.</p>
+<h2 id="make-searches-more-useful">Make searches more useful</h2>
+<p>Lookup matching can make a numeric or abbreviated code searchable by
+the meaningful text users see. Related-file searches can find a primary
+record because of information in its associated records. Named tag sets
+and search history help with repeated jobs.</p>
+<h2 id="integrate-with-the-rest-of-your-application">Integrate with the
+rest of your application</h2>
+<p><strong>Print a report for just the selected records.</strong> After
+searching and tagging customers, add <strong>xSearch 5.0 for
+Report</strong> to the Customer report procedure. The report can prompt
+<strong>"Print only tagged records? (2 tagged)"</strong> and, when
+selected, print the tagged subset without recreating the browse search.
+The normal Print button or menu can call the report; the filtering comes
+from the configured report extension, not the button. The report's own
+range and sort still apply.</p>
+<p><strong>Run a process on the same subset.</strong> Add
+<strong>xSearch 5.0 for Process</strong> to a process procedure and
+match its tag storage to the browse. The process can similarly ask
+whether to operate on tagged records only. For Fomin Report Builder, a
+separate <strong>xSearch 5.0 for Fomin Report Builder</strong> extension
+supports tagged-only output in Fomin
+<strong><code>RunTimeReport</code></strong> procedures; it must be
+configured with matching shared tag storage.</p>
+<p><strong>Export the selection.</strong> Version 5 supports CSV, UTF-8
+CSV, TSV, XML, JSON, HTML, and Excel XLSX. Optional SQL pre-filtering
+can reduce server data transfer where supported.</p>
+<p>Shared tag storage must be configured correctly: tags do
+<strong>not</strong> filter unrelated reports automatically merely
+because the file or key is similar. See <a
+href="guides/tagged-reports-processes.html">Reports and Processes Using
+Tags</a>.</p>
+<h2 id="match-your-applications-language-and-design">Match your
+application's language and design</h2>
+<p>Choose English or Spanish dialogs and add other languages using a
+Clarion translation source. For the interface, keep the built-in windows
+or import <strong>Classic</strong> or <strong>Modern</strong> editable
+windows. Both import sets offer the same seven procedures; the Modern
+set provides a coordinated navy-header design for the five older
+dialogs, while Export Data and Export Column already use that design.
+Select the procedures you want in the global extension's
+<strong>Windows</strong> tab. See <a
+href="guides/custom-windows.html">Customize xSearch Windows</a>.</p>
+<p>Start with <a href="template-usage.html">Using the Template</a> or
+visit the <a href="guides/index.html">Task Guides</a> to configure a
+specific feature.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>

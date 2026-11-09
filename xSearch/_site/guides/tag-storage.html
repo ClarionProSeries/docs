@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tag-storage</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="choose-where-tags-are-stored">Choose Where Tags Are Stored</h1>
+<p>Each xSearch browse chooses where its tags are kept. The storage
+method controls how long a tagged selection remains available and
+whether it can be shared with other procedures or sessions.
+<strong>Local Queue lasts only while the browse remains open; Global
+Queue lasts for the application session.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Stored in</th>
+<th>After closing browse</th>
+<th>After restarting application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local Queue</td>
+<td>Browse-local QUEUE</td>
+<td>Cleared</td>
+<td>Cleared</td>
+</tr>
+<tr>
+<td>Global Queue</td>
+<td>Application-wide QUEUE</td>
+<td>Retained</td>
+<td>Cleared</td>
+</tr>
+<tr>
+<td>External File</td>
+<td>Persistent tag files</td>
+<td>Retained</td>
+<td>Retained</td>
+</tr>
+<tr>
+<td>This File</td>
+<td>Field in the primary record</td>
+<td>Retained</td>
+<td>Retained</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-queue">Local Queue</h2>
+<p>A Local Queue is the simplest choice when tags are only useful while
+one browse is open. Closing that browse clears its tags, even if the
+application is still running. On the Search control's <strong>Tag
+storage</strong> tab, select <strong>Local Queue</strong>. Then open
+<strong>Tag store settings...</strong> and choose a field that uniquely
+identifies a record, such as CUS:CustNumber in a Customer browse. Choose
+the data FIELD, not a KEY name. See <a href="browse-setup.html">Browse
+Setup</a> for an illustrated setup context.</p>
+<h2 id="global-queue">Global Queue</h2>
+<p>Global Queue keeps tagged records in memory across browse windows
+during the application's session. Closing and reopening a browse does
+not clear those shared tags, but exiting the application does. Configure
+the file under <strong>Files with shared tag storage</strong> in the
+application global extension, select <strong>Keep the tags in a
+queue</strong>, and use <strong>Global Queue</strong> in the browse
+control. Multi-DLL applications require matching entries in the relevant
+APPs.</p>
+<h2 id="external-file">External File</h2>
+<p>External File keeps the selection across application restarts. Choose
+<strong>Keep the tags in a file</strong> under <strong>Files with shared
+tag storage</strong>, and select <strong>External File</strong> on the
+browse control. In a multi-DLL application, make the global entries
+agree across the Data DLL and Browse DLL.</p>
+<p><strong>External File location:</strong> The global <strong>Global
+tag file</strong> setting currently specifies a <strong>folder</strong>
+for persistent tag files, not an individual TPS data file. The default
+value Tags.tps is treated as a folder name despite its extension. You
+may specify a more descriptive folder name for a new application. This
+setting is not used for Global Queue. The separate <strong>Global INI
+file</strong> setting stores search, window, and export preferences,
+never record tags. See <a href="ini-settings.html">INI Files and
+Remembered Settings</a>.</p>
+<h2 id="this-file-store-tags-in-the-data-record">This File: Store Tags
+in the Data Record</h2>
+<p><strong>This File</strong> means that xSearch keeps each record's
+tagged/untagged status <strong>inside the primary data file being
+browsed</strong>, rather than in a separate tag queue or external tag
+file. The tag becomes part of the actual customer, order, or other
+record. It remains stored when the browse closes or the application
+exits.</p>
+<p>Use this choice only when you intend tagged status to be stored with
+the application's data and shared like that data. In the Clarion
+dictionary, provide a field for the tag value (typically a BYTE flag)
+and a key over that tag field. Then choose <strong>This File</strong> in
+the Search control's <strong>Tag storage</strong> tab and select the
+<strong>Tag field</strong> and <strong>Tag field key</strong> under
+<strong>Tag store settings...</strong>. These are required dictionary
+changes, unlike the queue methods.</p>
+<p>For a temporary, browse-only working selection, use <strong>Local
+Queue</strong> instead. For selections that persist without modifying
+your business records, consider <strong>External File</strong>.</p>
+<h2 id="mixing-methods">Mixing methods</h2>
+<p>One application may use Local Queue for a temporary browse, Global
+Queue for an application-wide work list, and External File for
+selections that must be available tomorrow. The method is chosen for
+each browse, and shared definitions are configured for each data
+file.</p>
+<p>See <a href="multi-dll.html">Multi-DLL Setup</a> when the definitions
+cross APP boundaries.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+</body>
+</html>

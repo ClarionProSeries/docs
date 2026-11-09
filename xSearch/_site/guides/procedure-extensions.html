@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>procedure-extensions</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../template-usage.html">Template Usage</a> | <a
+href="index.html">Task Guides</a> | <a
+href="tagged-reports-processes.html">Tagged Reports</a> | <a
+href="custom-windows.html">Custom Windows</a></p>
+<h1 id="xsearch-procedure-extensions">xSearch Procedure Extensions</h1>
+<p>xSearch 5.0 provides <strong>five procedure-level extension
+templates</strong>. Three are added by a developer to a report or
+process procedure. The other two belong to xSearch's <strong>importable
+window procedures</strong> and normally arrive with the Classic or
+Modern TXAs. They do <strong>not</strong> replace the application-level
+<strong>xSearch 5.0 - Application Setup</strong> extension or the Search
+and companion control templates placed on ABC Browse windows.</p>
+<table>
+<thead>
+<tr>
+<th>Procedure extension (template identifier)</th>
+<th>Where it belongs</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>xSearch 5.0 for Report</strong>
+(<code>xSearchForReport</code>)</td>
+<td>Standard Clarion report procedure</td>
+<td>Ask whether to print only tagged records; skip untagged records when
+enabled.</td>
+</tr>
+<tr>
+<td><strong>xSearch 5.0 for Process</strong>
+(<code>xSearchForProcess</code>)</td>
+<td>Clarion process procedure</td>
+<td>Restrict processing to the tagged subset with configurable question
+and no-tags behavior.</td>
+</tr>
+<tr>
+<td><strong>xSearch 5.0 for Fomin Report Builder</strong>
+(<code>xSearchForFRB</code>)</td>
+<td>Fomin Report Builder <code>RunTimeReport</code> procedure</td>
+<td>Apply the tag selection to a Fomin runtime report.</td>
+</tr>
+<tr>
+<td><strong>xSearch 5.0 alternate window</strong>
+(<code>xSearchAltWindow</code>)</td>
+<td>Imported Search, Fields, Tag Sets, Results or Found Record
+procedure</td>
+<td>Generate the dialog behavior while the developer owns and edits the
+window in Window Designer.</td>
+</tr>
+<tr>
+<td><strong>xSearch 5.0 alternate export window</strong>
+(<code>xExportAltWindow</code>)</td>
+<td>Imported Export Data or Export Column procedure</td>
+<td>Generate the export dialog's behavior while retaining a
+designer-editable window.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-tags-in-a-normal-clarion-report">Use tags in a normal
+Clarion report</h2>
+<ol type="1">
+<li>Search for records and tag them in an ABC Browse.</li>
+<li>Open the <strong>report procedure</strong>, add <strong>xSearch 5.0
+for Report</strong> as its procedure extension, and match its
+<strong>Tagged records</strong> storage and unique-field settings to the
+browse.</li>
+<li>In the <strong>Question</strong> tab, decide whether to ask
+<strong>Print only tagged records?</strong>, display the tag count, and
+specify behavior when nothing is tagged.</li>
+<li>Run the report from its normal button or menu. The report extension,
+<strong>not the calling button or a matching browse key</strong>,
+performs the tag filtering. The report's existing range, filter and sort
+still apply.</li>
+</ol>
+<p>The report and the browse must have access to compatible tags.
+<strong>Local Queue</strong> tags cannot be shared outside the browse.
+See <a href="tagged-reports-processes.html">Print Reports and Run
+Processes Using Tagged Records</a> for storage and multi-DLL
+details.</p>
+<h2 id="use-tags-in-a-process-procedure">Use tags in a process
+procedure</h2>
+<p>Add <strong>xSearch 5.0 for Process</strong> to the process
+procedure, use the same tag-storage definition, and configure its
+<strong>Question</strong> tab. Once the tagged-only option is active,
+the extension skips untagged records. Its progress display still
+reflects records read, which may exceed the number actually processed.
+See <a href="tagged-reports-processes.html">Tagged Reports and
+Processes</a>.</p>
+<h2 id="fomin-report-builder-integration">Fomin Report Builder
+integration</h2>
+<p>xSearch includes a dedicated <strong>xSearch 5.0 for Fomin Report
+Builder</strong> procedure extension. It is restricted to Fomin Report
+Builder procedures whose template is
+<strong><code>RunTimeReport</code></strong>; it is not a general-purpose
+replacement for the standard Clarion report extension.</p>
+<p>Add it to the applicable Fomin runtime report, then set
+<strong>Tagged records</strong> and <strong>Question</strong> as you
+would for a standard report. The integration checks the shared tag store
+and skips untagged records while the Fomin report reads its normal data
+selection. Existing report selection is retained.</p>
+<p>This support is included in xSearch; Fomin Report Builder itself is a
+separate product and must be present for its report procedure to exist.
+See <a href="tagged-reports-processes.html">Tagged Reports and
+Processes</a> for detailed usage and shared-storage requirements.</p>
+<h2 id="the-two-alternate-window-extensions">The two alternate-window
+extensions</h2>
+<p>The <strong>five</strong> search-related importable procedures
+(<code>xsAskSearch</code>, <code>xsAskFields</code>,
+<code>xsAskTagSets</code>, <code>xsShowResults</code>,
+<code>xsShowMatched</code>) carry
+<strong><code>xSearchAltWindow</code></strong>. This extension provides
+their event handling and connects window controls to the xSearch class.
+The window's chosen role, class parameter and return variable are
+configured on its <strong>General</strong> tab; its
+<strong>Controls</strong> tab identifies expected <code>USE</code>
+names.</p>
+<p>The <strong>two</strong> importable export procedures
+(<code>xsAskExportData</code>, <code>xsAskExportColumn</code>) carry
+<strong><code>xExportAltWindow</code></strong>, which supplies the
+export dialog's generated behavior. Its <strong>General</strong> tab
+identifies whether the window is Export Data or Column Settings and
+names its class parameter and return variable.</p>
+<p><strong>You ordinarily do not add either extension by hand.</strong>
+Import the corresponding Classic or Modern TXA through
+<strong>Application &gt; Template Utility</strong>; each procedure
+already contains its extension and the appropriate role settings. Edit
+the WINDOW in Clarion Window Designer, keeping its procedure prototype
+and required control <code>USE</code> names. Set <strong>Use customized
+window procedures</strong> and select your procedures on the global
+<strong>Windows</strong> tab. See <a
+href="custom-windows.html">Customize xSearch Windows</a>.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Task
+Guides</a> | <a href="tagged-reports-processes.html">Tagged Reports</a>
+| <a href="custom-windows.html">Custom Windows</a></p>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>export</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="export-records">Export Records</h1>
+<p>xSearch 5 provides an optional export engine for creating files from
+your application's data. Available formats include CSV, UTF-8 CSV,
+tab-separated text, XML, JSON, HTML, and Excel XLSX. The XLSX writer
+does not require Microsoft Excel to be installed.</p>
+<p>To add export functionality, open <strong>Global Extensions &gt;
+xSearch &gt; Export</strong> and select <strong>Include the export
+engine</strong> in the application where the xExport control will be
+used. In Window Designer, place the main xSearch Search control on the
+desired browse, then add the <strong>xExport</strong> control template
+where appropriate.</p>
+<p>The xExport control template has separate <strong>Export</strong> and
+<strong>Formats</strong> tabs. Choose <strong>Only the tagged
+records</strong>, <strong>Everything the browse would show</strong>, or
+<strong>Just the page on screen</strong>. The export dialog also allows
+column selection and renaming when enabled. The exported headings begin
+with the LIST column headings supplied by your application. Selecting
+Spanish translates the xExport dialog text but does not automatically
+translate your own browse's column headings. A visible text column that
+also contains a tag icon, such as Company, is included by default.
+Hidden columns remain unselected by default.</p>
+<p><strong>Tagged-row highlighting and export:</strong> Export must read
+the LIST data fields, not its extra color LONGs. The xSearch 5.0
+exporter preserves the configured export columns and refreshes their
+field indices without erasing the column list. The mapping is shared
+across output formats. Because every format uses the shared column
+mapping, verify other enabled formats with your application data as part
+of release testing.</p>
+<p><strong>Text output:</strong> Tab-separated values (TSV) produces a
+plain-text file with tab delimiters, useful for importing into another
+application. xSearch does not currently offer a separate human-formatted
+TXT export for pasting into an email body.</p>
+<h2 id="remembered-settings-and-ini-location">Remembered settings and
+INI location</h2>
+<p>When <strong>Remember the choices between runs</strong> is enabled on
+the xExport control template, export settings are saved per browse in
+the <strong>Global INI file</strong> configured on xSearch's Tag Storage
+tab, under a separate xsExport_&lt;procedure&gt; section. These settings
+include chosen columns, renamed headings, output format and destination
+folder. They do not come from the tag file. The file is written when an
+export completes successfully.</p>
+<p>A simple filename such as xQSearch.ini is resolved against the
+directory containing the running EXE. A developer may also provide an
+absolute path or use a Clarion runtime variable (for example,
+!MyIniPath) to supply the complete filename. Choose a writable location
+for installed applications. See <a href="ini-settings.html">INI Files
+and Remembered Settings</a> for all saved settings, pathname rules and
+multi-DLL initialization.</p>
+<h2 id="when-no-records-qualify">When no records qualify</h2>
+<p>Before opening the Export Data dialog, xSearch checks whether at
+least one record is available for the selected scope. If not, it
+displays <strong>Nothing to Export</strong> (or <strong>Nada para
+exportar</strong> in Spanish) and does not create a file. The message
+distinguishes an empty tagged set, a filtered browse with no qualifying
+records, and an empty current LIST page. The check uses the browse's
+selection rules, not just the number of tags in the tag store.</p>
+<p>An empty selection does not change the browse's previous Show Tagged
+mode; xSearch restores that mode after the check. Only one record is
+probed for the full-browse modes, so it does not count the entire file.
+Files are still generated normally whenever records qualify.</p>
+<p>You can customize both export dialogs using Clarion Window Designer.
+Choose <strong>Application &gt; Template Utility &gt; Classic</strong>
+or <strong>Modern</strong> for either individual export window, or
+choose <strong>Classic - all seven xSearch windows</strong> or
+<strong>Modern - all seven xSearch windows</strong> to import a complete
+set. <strong>Export Data and Export Column Settings have the same
+existing modern layouts in both sets.</strong> On <strong>xSearch 5.0 -
+Application Setup &gt; Windows</strong>, select the imported procedures.
+Unselected dialogs continue to use the built-in versions. Preserve the
+original control <code>USE</code> names and procedure prototypes. See <a
+href="custom-windows.html">Customize xSearch Windows</a>.</p>
+<p>If export is used in a multi-DLL application, coordinate the required
+global export declarations across the APPs involved, just as for other
+shared xSearch resources.</p>
+<p>See <a href="multi-dll.html">Using xSearch in Multi-DLL
+Applications</a> for the normal APP setup and <a
+href="control-templates.html">Control Templates</a> for adding browse
+controls.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+</body>
+</html>

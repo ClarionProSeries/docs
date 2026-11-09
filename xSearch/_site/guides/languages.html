@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>languages</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="languages-and-translation-files">Languages and Translation
+Files</h1>
+<p>xSearch supports English and Spanish dialog text and allows another
+language through a separate Clarion translation-source file. The
+translation source is compiled into the application; it is <strong>not a
+file loaded at runtime</strong>.</p>
+<h2 id="choose-english-or-spanish">Choose English or Spanish</h2>
+<p>In <strong>Global Extensions &gt; xSearch &gt; Language</strong>,
+select <strong>English</strong> or <strong>Spanish</strong>. The
+supplied source files are xSearch_EN.trn (English reference phrases) and
+xSearch_ES.trn (Spanish translations).</p>
+<h2 id="add-another-language">Add another language</h2>
+<p>To prepare a French translation, for example:</p>
+<ol type="1">
+<li>Copy xSearch_EN.trn to xSearch_FR.trn and place it on Clarion's
+source include path.</li>
+<li>Rename the search translation group from XSRCHTRN to XSRCHTRNFR and
+the export group from XSEXPORTTRNEN to XSEXPORTTRNFR.</li>
+<li>Keep the English source phrase in each first PSTRING; enter the
+translated phrase in its corresponding replacement PSTRING.</li>
+<li>On the global xSearch <strong>Language</strong> tab, choose
+<strong>Another language</strong> and enter FR.</li>
+<li>Compile the APP that uses those dialogs. Include the same language
+source in each APP that requires it.</li>
+</ol>
+<p>Each language has its own .trn source file, keeping translations
+separate and easier to maintain. Clarion's translation class performs
+the phrase replacements using the compiled source data.</p>
+<p>The original xSearch already used Clarion's translation
+infrastructure; version 5 adds a more convenient selection and
+per-language source organization.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+</body>
+</html>

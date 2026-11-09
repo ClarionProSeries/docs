@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>browse-setup</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a
+href="multi-dll.html">Multi-DLL</a></p>
+<h1 id="browse-setup-and-list-icons">Browse Setup and LIST Icons</h1>
+<h2 id="main-search-control">Main Search control</h2>
+<p>The first xSearch control template is browse-specific. On a window
+containing multiple ABC browse templates, verify that you choose the
+entry for the intended browse. Place it in the Window Designer.</p>
+<ul>
+<li><strong>Primary file:</strong> the browse's primary file, not an
+unrelated file in the procedure schema.</li>
+<li><strong>LIST:</strong> the browse LIST that will display the
+icon.</li>
+<li><strong>Unique field:</strong> a field that identifies one record
+(Customer example: CUS:CustNumber). This is a FIELD, not a KEY label
+like CUS:KeyCustNumber.</li>
+</ul>
+<h2 id="tag-icons">Tag icons</h2>
+<p>In the <strong>LIST Formatter</strong>, select a column that already
+displays a field (for example Company), enable its icon area, and set
+the icon style to <strong>Transparent</strong>, <strong>not
+Normal</strong>. Then, on xSearch's <strong>Tag icons</strong> tab,
+choose that same field (for example <code>CUS:Company</code>). A
+dedicated icon-only column is optional; the icon can appear beside the
+existing text.</p>
+<p>With <strong>Normal</strong> icon formatting, tagged icons can leave
+a visible bounding rectangle in nearby untagged rows.
+<strong>Transparent</strong> formatting produces the cleaner checkmark
+appearance shown in the updated demo. The choice is made in Clarion's
+LIST Formatter; setting xSearch's Icon field alone does not change the
+LIST format. The template provides tagged and untagged <code>.ICO</code>
+defaults.</p>
+<p>If a generated source file reports CUS:COMPANY_ICON not found, verify
+the LIST Formatter icon area first. Merely setting xSearch's Icon Field
+does not create the associated icon-number field.</p>
+<h2 id="optional-tagged-row-highlighting">Optional tagged-row
+highlighting</h2>
+<p>The tag icon identifies a tagged record in a single LIST column.
+Version 5 also lets you <strong>highlight the full tagged row</strong>,
+so marked records stand out across all displayed columns while the
+normal selected-row highlight remains intact.</p>
+<ol type="1">
+<li>Open the ABC Browse procedure's <strong>Search this browse and tag
+what it finds</strong> extension.</li>
+<li>Select the <strong>Appearance</strong> tab.</li>
+<li>Under <strong>Optional: Tagged Row Highlighting</strong>, check
+<strong>Highlight tagged rows</strong>.</li>
+<li>Choose the <strong>Background colour</strong> (shown only after
+enabling highlighting).</li>
+<li>Generate and compile the application.</li>
+</ol>
+<p>The setting is <strong>per browse</strong> and <strong>off by
+default</strong>. It applies to tagged rows; untagged rows retain their
+normal appearance. The tag/untag icon behavior is not replaced. The
+option uses the ABC LIST queue's color fields and does not require a new
+data-dictionary field. Developers who do not want colored rows simply
+leave the checkbox off.</p>
+<p>This is independent of the two <strong>Search window colors</strong>
+prompts above it, which control the backgrounds of the original built-in
+Search dialog. The tagged-row option colors the <em>browse rows</em>,
+not the search dialog.</p>
+<h2 id="choosing-the-unique-record-field">Choosing the unique record
+field</h2>
+<p>When using <strong>Local Queue</strong>, you must tell xSearch how to
+distinguish one record from another. Open the Search control's
+<strong>Tag storage</strong> tab, choose <strong>Tag store
+settings...</strong>, and select the field that uniquely identifies each
+record. For the Customer browse, that might be
+<strong>CUS:CustNumber</strong>.</p>
+<p>Choose the <strong>FIELD itself</strong>, not a KEY such as
+CUS:KeyCustNumber. xSearch uses the selected field to remember which
+records you tagged. If you use <strong>Global Queue</strong> or
+<strong>External File</strong>, configure the same unique field in the
+global shared-storage entry as well as the browse.</p>
+<p>For the full setup and tag lifetimes, see <a
+href="tag-storage.html">Choose Where Tags Are Stored</a>.</p>
+<h2 id="editing-an-installed-control">Editing an installed control</h2>
+<p>Right-click the browse procedure in the APP tree &gt;
+<strong>Extensions</strong> &gt; double-click <strong>Search this browse
+and tag what it finds</strong>. In Window Designer, right-click the
+Search button and choose <strong>Actions</strong>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a
+href="multi-dll.html">Multi-DLL</a></p>
+</body>
+</html>

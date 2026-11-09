@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>multi-dll</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="using-xsearch-in-multi-dll-applications">Using xSearch in
+Multi-DLL Applications</h1>
+<p>A multi-DLL Clarion application can use xSearch in the DLL that
+contains a browse, with shared tag definitions generated in the Data
+DLL. xSearch's flexibility lets different files use Global Queue or
+External File storage while other browses use Local Queue. That
+flexibility means the shared settings must be configured explicitly in
+each relevant APP. Local Queue exists only for the life of its browse;
+Global Queue remains available across browse windows until the
+application exits.</p>
+<h2 id="where-to-add-the-extension">Where to add the extension</h2>
+<p>Here is the layout used by Clarion's DLL Tutor example:</p>
+<table>
+<thead>
+<tr>
+<th>APP</th>
+<th>Role</th>
+<th>xSearch setup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allfiles.app</td>
+<td>Data DLL</td>
+<td>Add xSearch global extension; define shared tag stores</td>
+</tr>
+<tr>
+<td>updates.app</td>
+<td>DLL containing the Customer browse</td>
+<td>Add xSearch global extension and xSearch controls on
+ViewCustomers</td>
+</tr>
+<tr>
+<td>DLLTutor.app</td>
+<td>Main EXE / frame</td>
+<td>No xSearch global extension needed just to call ViewCustomers</td>
+</tr>
+<tr>
+<td>reports.app</td>
+<td>Report DLL</td>
+<td>Add the relevant xSearch support only if a report in this APP uses
+it</td>
+</tr>
+</tbody>
+</table>
+<p>The global extension belongs in the <strong>APP</strong>, not the
+data dictionary. You do not need to add it to every APP in the solution,
+only the ones participating in xSearch. The shared xSearch object in the
+owning APP supplies the configured INI path to browse and export
+controls; if that path comes from a runtime variable, initialize it
+before the first xSearch browse opens. See <a
+href="ini-settings.html">INI Files and Remembered Settings</a>.</p>
+<h2 id="step-1-configure-the-data-dll">Step 1: Configure the Data
+DLL</h2>
+<p>In allfiles.app, open <strong>Global Extensions</strong> and add
+<strong>xSearch 5.0 - Application Setup</strong>.</p>
+<p>On <strong>Tag Storage</strong>, insert the Customer file under
+<strong>Files with shared tag storage</strong> when you want Global
+Queue or External File storage. Set the unique field to CUS:CustNumber
+and choose <strong>Keep the tags in a queue</strong> or <strong>Keep the
+tags in a file</strong>. A Local Queue does not need a shared Customer
+entry.</p>
+<h2 id="step-2-configure-the-browse-dll">Step 2: Configure the Browse
+DLL</h2>
+<p>In updates.app, add the same global xSearch extension. For a shared
+Customer tag store, insert a matching Customer entry with the
+<strong>same storage choice</strong> and <strong>same unique
+field</strong> used by allfiles.app.</p>
+<p>Clarion does not automatically copy one APP's xSearch global settings
+into another. The two sets of generated declarations must agree.</p>
+<h2 id="step-3-configure-the-customer-browse">Step 3: Configure the
+Customer browse</h2>
+<p>In ViewCustomers, open <strong>Window Designer</strong>. In
+<strong>Control Templates &gt; xSearch</strong>, place the Search button
+associated with <strong>Browse on Customer</strong>. On the Search
+control's <strong>Actions</strong> prompts, set:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Customer example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary file</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td>List control</td>
+<td>The Customers browse LIST</td>
+</tr>
+<tr>
+<td>Icon field</td>
+<td>CUS:Company</td>
+</tr>
+<tr>
+<td>Tag storage</td>
+<td>Local Queue, Global Queue, or External File, as required</td>
+</tr>
+<tr>
+<td>Unique field under Tag store settings</td>
+<td>CUS:CustNumber</td>
+</tr>
+</tbody>
+</table>
+<p>Enable <strong>Transparent</strong> icon formatting (not Normal) on
+the Company column in the LIST Formatter. This allows the tag icon to
+appear beside Company without adding another field to the
+dictionary.</p>
+<p>To reopen the xSearch settings later, right-click the ViewCustomers
+procedure in the application tree, choose <strong>Extensions</strong>,
+and double-click <strong>Search this browse and tag what it
+finds</strong>.</p>
+<h2 id="step-4-match-the-storage-choices">Step 4: Match the storage
+choices</h2>
+<table>
+<thead>
+<tr>
+<th>Browse choice</th>
+<th>Data DLL global entry</th>
+<th>Browse DLL global entry</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local Queue</td>
+<td>No shared file entry required</td>
+<td>No shared file entry required</td>
+<td>Until browse closes</td>
+</tr>
+<tr>
+<td>Global Queue</td>
+<td>Customer: Keep tags in a queue</td>
+<td>Customer: Keep tags in a queue</td>
+<td>Until the application exits</td>
+</tr>
+<tr>
+<td>External File</td>
+<td>Customer: Keep tags in a file</td>
+<td>Customer: Keep tags in a file</td>
+<td>Across application restarts</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>browse control must also select the same storage
+method</strong>, and all locations must use CUS:CustNumber as the unique
+identifier.</p>
+<p>Different data files may use different shared storage choices within
+one application. The <strong>Global tag file</strong> field in the
+global extension is used only for External File storage: the value names
+the folder containing persistent tag files. It is not used for Global
+Queue.</p>
+<h2 id="step-5-build-the-application">Step 5: Build the application</h2>
+<p>Compile the Data DLL, then the DLL containing the browse, and then
+the calling application as needed. After changing shared definitions
+across DLLs, use <strong>Clean Solution</strong> followed by
+<strong>Rebuild Solution</strong> if the build continues to use outdated
+declarations or code.</p>
+<p><strong>Calling a report in another DLL.</strong> In DLL Tutor,
+reports.app already imports updates.lib to use ViewCustomers. Adding
+reports.lib to updates.app would introduce the reverse dependency and
+can trigger a dependency-cycle build error. The qualified demonstration
+keeps the customer report in Reports DLL and invokes its exported
+procedure from a Print menu item on the <strong>main EXE frame</strong>.
+With the report configured to use xSearch tags, the report successfully
+prints only tagged customers. This arrangement demonstrates cross-DLL
+tagged reporting without changing the tutorial's DLL dependency
+structure. The general cross-DLL procedure setup remains the
+responsibility of the application designer. The report procedure must
+have <strong>xSearch 5.0 for Report</strong> configured with matching
+shared tag storage; the main EXE button or menu that calls it needs no
+special xSearch code. See <a
+href="tagged-reports-processes.html">Reports and Processes Using
+Tags</a>.</p>
+<p>To add Tag/Untag, Tag All, Untag All, or Show Tagged buttons, return
+to Window Designer. Those companion controls appear after the main
+Search control is placed. See <a href="control-templates.html">Control
+Templates</a>.</p>
+<p>For details on the different tag lifetimes, see <a
+href="tag-storage.html">Tag Storage</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+</body>
+</html>

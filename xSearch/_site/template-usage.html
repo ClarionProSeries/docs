@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>template-usage</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="xsearch---template-usage">xSearch - Template Usage</h1>
+<p>xSearch uses <strong>one application-level global extension and one
+or more browse-specific control templates</strong>. The Search control
+provides searching and tagging for an ABC Browse. Optional companion
+controls provide Tag/Untag, Tag All, Untag All, Show Tagged, and Export
+functionality. Add only the controls your browse needs.</p>
+<h2 id="add-the-global-extension">Add the global extension</h2>
+<ol type="1">
+<li>Open the APP containing the browse.</li>
+<li>Go to <strong>Global Extensions &gt; Insert</strong>.</li>
+<li>Select <strong>xSearch 5.0 - Application Setup</strong>.</li>
+<li>Use <strong>Start Here</strong> for the initial steps, then review
+<strong>Tag Storage</strong>, <strong>Tag File</strong>,
+<strong>SQL</strong>, <strong>Export</strong>, <strong>Windows</strong>,
+and <strong>Language</strong> as needed.</li>
+<li>For a simple single-EXE browse using Local Queue, no shared tag-file
+entry is needed. Local Queue tags last only until that browse closes;
+Global Queue tags survive browse closure but not application exit.</li>
+</ol>
+<p>On <strong>Tag Storage</strong>, the <strong>Global INI file</strong>
+setting stores search, window and export preferences. A bare filename
+resolves beside the EXE, or the developer can specify a writable full
+pathname or a variable prefixed by !. See <a
+href="guides/ini-settings.html">INI Files and Remembered
+Settings</a>.</p>
+<p>For multi-DLL applications, configure shared definitions in the Data
+DLL and in the APP containing the browse. See <a
+href="guides/multi-dll.html">Multi-DLL Setup</a>.</p>
+<h2 id="place-the-search-control">Place the Search control</h2>
+<ol type="1">
+<li>Open an ABC Browse procedure in <strong>Window
+Designer</strong>.</li>
+<li>In <strong>Control Templates &gt; xSearch</strong>, choose the
+Search control associated with that browse.</li>
+<li>Place the Search button on the window.</li>
+<li>Right-click the button and select <strong>Actions</strong> to open
+its template prompts.</li>
+<li>Select the primary file and LIST control, choose the tag-icon field,
+and configure tag storage.</li>
+<li>On <strong>Tag storage</strong>, choose where tags will be kept. For
+Local Queue, Global Queue, or External File, select the unique record
+<strong>field</strong> in <strong>Tag store settings...</strong> (for
+example, CUS:CustNumber); do not select a KEY name. <strong>This
+File</strong> instead requires a tag field and corresponding key in the
+data dictionary. See <a href="guides/tag-storage.html">Choosing Tag
+Storage</a> for the differences.</li>
+</ol>
+<p>For a tag icon beside an existing column, select that column's field
+and enable <strong>Transparent</strong> icon display in the LIST
+Formatter, <strong>not Normal</strong>. Transparent avoids the visible
+icon bounding box on otherwise untagged rows. The field must already be
+part of the LIST; see <a href="guides/browse-setup.html">Browse Setup
+and LIST Icons</a>.</p>
+<p>To make tagged records stand out across the whole LIST, open the
+Search control's <strong>Appearance</strong> tab, check
+<strong>Highlight tagged rows</strong>, and choose the
+<strong>Background colour</strong>. This per-browse option defaults to
+off and preserves the normal selected-row highlight. See <a
+href="guides/browse-setup.html">Browse Setup and LIST Icons</a>.</p>
+<p>For editable dialog windows, import a complete
+<strong>Classic</strong> or <strong>Modern</strong> set using
+<strong>Application &gt; Template Utility</strong> (or import individual
+windows), then select procedures on the global <strong>Windows</strong>
+tab. The original class windows remain the default. See <a
+href="guides/custom-windows.html">Customize xSearch Windows</a>.</p>
+<h2 id="add-optional-controls">Add optional controls</h2>
+<p>Once Search has been placed, companion xSearch control templates
+become available. Add the buttons needed by the browse. See <a
+href="guides/control-templates.html">Search and Tag Controls</a>.</p>
+<h2 id="print-reports-or-run-processes-using-tagged-records">Print
+reports or run processes using tagged records</h2>
+<p>After searching and tagging, add <strong>xSearch 5.0 for
+Report</strong> to an appropriate Clarion report procedure, or
+<strong>xSearch 5.0 for Process</strong> to a process procedure. Match
+the tag-store method and unique record field to the tagging browse. You
+can then call the report or process through its usual menu or button;
+the xSearch procedure extension can ask whether to work with the tagged
+subset. The call button itself does not require special xSearch code.
+See <a href="guides/tagged-reports-processes.html">Reports and Processes
+Using Tags</a>.</p>
+<p><strong>Fomin Report Builder:</strong> On a supported Fomin
+<code>RunTimeReport</code> procedure, use <strong>xSearch 5.0 for Fomin
+Report Builder</strong> to make its report operate on tagged records.
+The ordinary report and process extensions are for their respective
+Clarion procedure types. The two other procedure extensions,
+<strong>alternate window</strong> and <strong>alternate export
+window</strong>, are already included when you import xSearch's editable
+Classic or Modern windows. See <a
+href="guides/procedure-extensions.html">All Five Procedure
+Extensions</a>.</p>
+<h2 id="changing-the-settings-later">Changing the settings later</h2>
+<p>In the application tree, right-click the browse procedure and choose
+<strong>Extensions</strong>. Double-click <strong>Search this browse and
+tag what it finds</strong> to reopen its template settings without
+returning to Window Designer.</p>
+<p>For step-by-step examples, see <a
+href="guides/single-exe.html">Single-EXE Setup</a> or <a
+href="guides/multi-dll.html">Multi-DLL Setup</a>.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>

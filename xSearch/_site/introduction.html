@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>introduction</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="introduction-to-xsearch">Introduction to xSearch</h1>
+<p>Finding one record is easy when you know the exact customer number or
+sort key. Finding <strong>all the records that meet a useful
+description</strong> is a different job. xSearch is designed for that
+job.</p>
+<p>Add xSearch to an existing Clarion ABC Browse and let users search
+record content, including fields they cannot conveniently locate through
+the browse's current sort or locator. Matches become tagged records,
+with a visible indicator in the browse. The user can then decide what to
+do with that selection.</p>
+<h2 id="search-and-tag-instead-of-just-filter">Search and tag instead of
+just filter</h2>
+<p>A normal browse filter controls <strong>which records are
+displayed</strong>. When the filter changes, that view changes with
+it.</p>
+<p>xSearch can search across multiple fields and <strong>remember which
+records matched or were selected</strong>. The tag is independent of the
+current browse display. A user can find records, review the selection,
+add or remove tags manually, and then use the tagged set for another
+operation. The developer chooses how long tags remain available.</p>
+<p>For example, someone might search for a customer by a person's name,
+tag several records that need follow-up, switch to a different browse
+order, and then view only the tagged customers. They don't have to
+reconstruct their selection simply because the browse display
+changes.</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li><strong>Search by content:</strong> search the primary file, with
+optional related-file searching.</li>
+<li><strong>Reusable selections:</strong> tag search matches, tag
+individual records, tag all, untag all, or cycle between all, tagged,
+and untagged views.</li>
+<li><strong>Clear tagged-record indicators:</strong> show a checkmark
+beside text in an existing LIST column and optionally color the full
+tagged row. The row-color option is controlled per browse and does not
+replace the normal selected-row highlight. No extra dictionary field is
+needed for queue-backed tags.</li>
+<li><strong>Flexible storage:</strong> use a Local Queue, Global Queue,
+External File, or a field in the record, depending on the job.</li>
+<li><strong>Lookup searching:</strong> match meaningful displayed text
+as well as stored field codes.</li>
+<li><strong>Saved selections and history:</strong> keep named tag sets
+and recall recent searches.</li>
+<li><strong>SQL support:</strong> optional pre-filtering can reduce rows
+transferred from an SQL server.</li>
+<li><strong>Reports and processes:</strong> let a configured Clarion
+report, process, or supported Fomin Report Builder
+<code>RunTimeReport</code> use the selected tagged records without
+rebuilding the selection. The usual Print button or menu can call the
+report.</li>
+<li><strong>Export:</strong> create CSV, UTF-8 CSV, TSV, XML, JSON,
+HTML, and Excel XLSX output.</li>
+<li><strong>Language support:</strong> choose English or Spanish and add
+other languages using separate Clarion translation-source files.</li>
+<li><strong>Your choice of interface:</strong> use the built-in dialogs,
+import seven familiar Classic windows, or import a coordinated Modern
+set with navy headers and flat layouts. You can edit either style in
+Window Designer or mix individual windows.</li>
+</ul>
+<h2 id="put-tagged-records-to-work">Put tagged records to work</h2>
+<p>A user can tag a set of customers and then <strong>print a report
+containing only those customers</strong>, or <strong>run a process on
+the same subset</strong>, when the receiving report or process has its
+xSearch extension configured for matching tag storage. The user can be
+asked whether to restrict the operation to tags, with the number tagged
+shown in the prompt. The report's existing selection and sort remain in
+effect; the report can be invoked through its ordinary button or menu.
+See <a href="guides/tagged-reports-processes.html">Print Reports and Run
+Processes Using Tags</a>.</p>
+<h2 id="flexible-enough-for-different-applications">Flexible enough for
+different applications</h2>
+<p>A small single-EXE program may use a Local Queue and require little
+shared configuration. A multi-DLL program can define shared queues or
+persistent tag files for selected data files, while keeping other
+browses local. This is intentional flexibility: storage is chosen per
+use, rather than forcing every browse to behave alike.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Begin with <a href="install.html">Installation</a>, <a
+href="template-registration.html">Registering the Template</a>, and <a
+href="template-usage.html">Using the Template</a>. If your application
+uses several APPs and DLLs, follow the dedicated <a
+href="guides/multi-dll.html">Multi-DLL Guide</a>.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>
