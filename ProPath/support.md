@@ -14,7 +14,7 @@ last_updated: "2025-10-05"
 If you need support with **Clarion ProPath**, please contact us at:  
 
 <a href="https://clarionproseries.com/contact" target="_blank" rel="noopener">
-http://clarionproseries.com/contact
+https://clarionproseries.com/contact
 </a>
 
 Include the template name (**ProPath**), version number, and your purchase or contact information, along with your operating system version and the version of Clarion that you are using.

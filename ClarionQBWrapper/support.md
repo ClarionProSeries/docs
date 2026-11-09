@@ -14,7 +14,7 @@ last_updated: "2025-10-31"
 If you need support with the Clarion QuickBooks Wrapper please contact us at:   
 
 <a href="https://clarionproseries.com/contact" target="_blank" rel="noopener">
-http://clarionproseries.com/contact
+https://clarionproseries.com/contact
 </a>
 
 Include the product name, version, and your purchase or contact information, as well as:

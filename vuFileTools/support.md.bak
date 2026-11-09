@@ -14,7 +14,7 @@ last_updated: "2026-09-08"
 
 If you need support with vuFileTools please contact us at:   
 
-<a href="http://clarionproseries.com/contact" target="_blank" rel="noopener">
+<a href="https://clarionproseries.com/contact" target="_blank" rel="noopener">
 http://clarionproseries.com/contact
 </a>
 

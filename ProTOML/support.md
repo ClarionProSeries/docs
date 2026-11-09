@@ -14,7 +14,7 @@ last_updated: "2026-10-07"
 If you need support with ProTOML, please contact us using the Clarion ProSeries contact form:
 
 <a href="https://clarionproseries.com/contact" target="_blank" rel="noopener">
-http://clarionproseries.com/contact
+https://clarionproseries.com/contact
 </a>
 
 Include the product name, product version, your version of Clarion, your Windows version, and a clear description of the problem.

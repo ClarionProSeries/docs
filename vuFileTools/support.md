@@ -15,7 +15,7 @@ last_updated: "2026-09-08"
 If you need support with vuFileTools please contact us at:   
 
 <a href="https://clarionproseries.com/contact" target="_blank" rel="noopener">
-http://clarionproseries.com/contact
+https://clarionproseries.com/contact
 </a>
 
 Include the template name, template version, and your purchase/contact information as well as the OS version and version of Clarion that you are using.
