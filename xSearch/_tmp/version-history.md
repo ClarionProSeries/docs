@@ -6,13 +6,15 @@ This is the first public Version 5 build. Internal development builds are not se
 
 | Version | Build | Release date | Highlights |
 |:---|:---|:---|:---|
-| **5.0** | **247** | **11-7-2026** | See the Version 5.0 details below. |
+| **5.0** | **248** | **11-10-2026** | Refined Classic export dialogs and normalized template typography. See details below. |
 
 ### Version 5.0 details
 
+**Build 248:** Refined Classic export screens, including default and customizable dialogs, and normalized template typography across Clarion versions. The About tab displays centrally defined version, build, release date and copyright values. No export logic or public class APIs changed.
+
 **Appearance:** On the browse's **Search this browse and tag what it finds > Appearance** tab, enable **Highlight tagged rows** and choose the background color. Existing tag icons still work, and normal selection highlighting remains. The option defaults to off.
 
-**Editable windows:** Use **Application > Template Utility** to import **Classic** or **Modern**, all seven windows from one TXA or individually. The two sets retain the same procedure names; the original class-embedded windows are unchanged. Modern Search, Fields, Tag Sets, Results and Found Record have new layouts; Export Data and Export Column Settings retain their existing modern layouts.
+**Editable windows:** Importing windows is optional. The built-in Export Data and Export Column Settings dialogs use the Classic Clarion appearance beginning with Build 248. Use **Application > Template Utility** to import **Classic** or **Modern**, all seven windows from one TXA or individually. The five other built-in class windows are unchanged. The Modern imported Search, Fields, Tag Sets, Results and Found Record dialogs have newer layouts, and the Modern export TXAs retain their existing flat styling. Both imported sets keep the same procedure names. See [Export Dialogs and Custom Windows](guides/export-dialogs.md).
 
 **Window state:** The five redesigned Modern dialogs use separate geometry keys from the original Classic windows, avoiding inherited window-size conflicts. Search Results supports resizing.
 

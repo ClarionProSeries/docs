@@ -4,7 +4,7 @@ summary: "Record tagging with optional row highlighting, two editable window sty
 description: "The major capabilities added in xSearch 5.0 for Clarion ABC developers."
 keywords: ["xSearch", "Clarion", "Clarion ProSeries", "ABC Browse", "search", "tagging", "row highlighting"]
 page_type: "overview"
-last_updated: "2026-11-07"
+last_updated: "2026-11-10"
 ---
 
 [Home](index.md) | [Getting Started](getting-started/index.md) | [Using the Template](template-usage.md) | [Task Guides](guides/index.md) | [What's New](whatsnew.md)
@@ -23,11 +23,11 @@ To enable it, open the **Search this browse and tag what it finds** control temp
 
 ## Two complete sets of editable dialogs
 
-Developers now have three presentation choices: keep the original class-embedded windows, import the familiar **Classic** set, or import the coordinated **Modern** set. Both importable sets contain the same seven procedure names, and each window can also be imported individually.
+Developers have three presentation choices: use the built-in windows without any TXA imports, import the **Classic** set, or import the **Modern** set. Both optional sets contain the same seven procedure names, and each window can also be imported individually. In Build 248, the two built-in export dialogs use traditional Classic styling.
 
-The Modern set restyles Search Options, Fields to Search, Saved Tag Sets, Search Results and Found Record with a consistent flat interface, Segoe UI and navy headers. **Export Data and Export Column Settings already use the modern appearance**, so their layouts are retained in both sets.
+The Modern set restyles Search Options, Fields to Search, Saved Tag Sets, Search Results and Found Record with a consistent flat interface, Segoe UI and navy headers. The **Modern Export Data and Export Column Settings** TXAs retain their existing flat appearance. The **Classic** export TXAs and the built-in export dialogs use traditional Clarion styling.
 
-Import a complete style with **Application > Template Utility** (one TXA containing all seven procedures), or import individual windows and mix styles. Then enable **Use customized window procedures** on the global extension's **Windows** tab. The class-embedded windows are unchanged. See [Customize xSearch Windows](guides/custom-windows.md).
+To override a built-in dialog, import a complete style with **Application > Template Utility** (one TXA containing all seven procedures), or import individual windows and mix styles. Enable **Use customized window procedures** on the global extension's **Windows** tab and select each replacement procedure. Blank selectors continue using the corresponding built-in window. The export class APIs and engine are unchanged. See [Customize xSearch Windows](guides/custom-windows.md) and [Export Dialogs](guides/export-dialogs.md).
 
 Modern imported windows also use separate saved geometry from Classic windows. This prevents an older small Classic window size in the shared xSearch INI from clipping a larger Modern layout. Modern Search Results supports resizing with a minimum usable size.
 
@@ -49,7 +49,7 @@ The real value of tagging is **what users can do afterward**. Tag customers toda
 
 ## Familiar behavior is preserved
 
-Searching, icon-based tagging, Tag/Untag, Tag All, Untag All, Show Tagged, existing tag-storage choices and original class-embedded windows remain available. The new row highlighting and imported window procedures are optional.
+Searching, icon-based tagging, Tag/Untag, Tag All, Untag All, Show Tagged and existing tag-storage choices remain available. All built-in class windows remain available, with the two export dialogs restyled to Classic in Build 248. Row highlighting and imported window procedures remain optional.
 
 See [What xSearch Can Do](what-xsearch-can-do.md), [Using the Template](template-usage.md), and [Version History](version-history.md).
 

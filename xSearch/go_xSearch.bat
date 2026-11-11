@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-title xSearch 5.0 CHM Build - Build 247
+title xSearch 5.0 CHM Build - Build 248
 
 rem xSearch CHM builder follows the ProSeries ProTOML build layout.
 rem Launch this BAT from any working directory. All paths are relative to this BAT.
@@ -17,7 +17,7 @@ set "HHCFILE=%SRC%toc.hhc"
 set "PS1=%SRC%strip_yaml.ps1"
 set "LOG=%SRC%chm_build.log"
 
->"%LOG%" echo xSearch 5.0 Build 247 - CHM build log
+>"%LOG%" echo xSearch 5.0 Build 248 - CHM build log
 >>"%LOG%" echo Builder location: %SRC%
 
 call :build

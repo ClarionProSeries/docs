@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>export-dialogs</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1 id="export-dialogs-and-importable-windows">Export dialogs and
+importable windows</h1>
+<p>The xSearch 5.0 export engine provides its own dialogs.
+<strong>Importing a TXA is not required to enable export.</strong> In
+Build 248, the built-in Export Data and Column Settings dialogs use the
+traditional Classic Clarion appearance by default.</p>
+<h2 id="default-behavior">Default behavior</h2>
+<p>Enable exporting with the xSearch application extension and configure
+the xExport control template. The export class supplies both built-in
+dialogs. It does not require separate application procedures to be
+imported.</p>
+<p>The default dialogs use MS Sans Serif, neutral gray backgrounds and
+beveled sections. These are presentation changes only. The export
+formats, record selection, file writing and class interfaces are
+unchanged.</p>
+<h2 id="optional-customizable-dialogs">Optional customizable
+dialogs</h2>
+<p>To modify the layout in the Clarion Window Designer, import one or
+both procedures:</p>
+<table>
+<thead>
+<tr>
+<th>Procedure</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xsAskExportData</code></td>
+<td>Format, destination, column choices and export options</td>
+</tr>
+<tr>
+<td><code>xsAskExportColumn</code></td>
+<td>Column heading and picture customization</td>
+</tr>
+</tbody>
+</table>
+<p>The imported procedures use the <code>xSearch xExportAltWindow</code>
+procedure extension to connect to the class. Preserve the procedure
+prototype, extension role configuration, and control <code>USE</code>
+names.</p>
+<p>Classic imports: <code>xSearchClassicAllWindows.txa</code> for all
+seven dialogs, or <code>xSearchExportData.txa</code> and
+<code>xSearchExportColumn.txa</code> individually. The Modern set
+remains available separately as an <strong>optional</strong> imported
+alternative. Do not import both the Classic and Modern version of the
+same procedure name into one application.</p>
+<p>The imported window substitutes for the corresponding class-supplied
+window only when the developer enables and selects the alternate
+procedure on the xSearch application extension's Windows tab.</p>
+<h2 id="anyscreen-html5-note">AnyScreen HTML5 note</h2>
+<p>Owner testing confirmed that xSearch functions in an AnyScreen HTML5
+session and can generate exported files. The output file is created on
+the application server, not automatically delivered to the remote user's
+browser. Developers who need a browser download must use an appropriate
+AnyScreen file-delivery integration in their application. Build 248 does
+not include or promise automatic AnyScreen browser downloads.</p>
+<h2 id="build-248">Build 248</h2>
+<p>Refined Classic export screens, including the default dialogs and the
+optional importable Classic versions, to match traditional Clarion
+styling. The Modern importable dialogs remain unchanged.</p>
+</body>
+</html>

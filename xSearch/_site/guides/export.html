@@ -91,17 +91,21 @@ selection rules, not just the number of tags in the tag store.</p>
 mode; xSearch restores that mode after the check. Only one record is
 probed for the full-browse modes, so it does not count the entire file.
 Files are still generated normally whenever records qualify.</p>
-<p>You can customize both export dialogs using Clarion Window Designer.
-Choose <strong>Application &gt; Template Utility &gt; Classic</strong>
-or <strong>Modern</strong> for either individual export window, or
-choose <strong>Classic - all seven xSearch windows</strong> or
-<strong>Modern - all seven xSearch windows</strong> to import a complete
-set. <strong>Export Data and Export Column Settings have the same
-existing modern layouts in both sets.</strong> On <strong>xSearch 5.0 -
-Application Setup &gt; Windows</strong>, select the imported procedures.
-Unselected dialogs continue to use the built-in versions. Preserve the
-original control <code>USE</code> names and procedure prototypes. See <a
-href="custom-windows.html">Customize xSearch Windows</a>.</p>
+<p>Export works without importing either dialog. The built-in
+<code>xsExportClass</code> Export Data and Column Settings windows use
+Classic styling by default in Build 248. To customize them in Clarion
+Window Designer, choose <strong>Application &gt; Template
+Utility</strong> and import the individual Classic or Modern
+<code>xsAskExportData</code> and <code>xsAskExportColumn</code>
+procedures, or import one of the complete seven-window sets. The
+imported export procedures include the <code>xExportAltWindow</code>
+extension. On <strong>xSearch 5.0 - Application Setup &gt;
+Windows</strong>, enable the alternate-window option and select each
+replacement procedure. An unselected dialog continues using the built-in
+Classic window. Preserve control <code>USE</code> names and procedure
+prototypes. See <a href="export-dialogs.html">Export Dialogs and Custom
+Windows</a> and <a href="custom-windows.html">Customize xSearch
+Windows</a>.</p>
 <p>If export is used in a multi-DLL application, coordinate the required
 global export declarations across the APPs involved, just as for other
 shared xSearch resources.</p>

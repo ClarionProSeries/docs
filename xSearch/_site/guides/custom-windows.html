@@ -47,8 +47,9 @@ two complete sets of importable dialogs: <strong>Classic</strong> and
 <tbody>
 <tr>
 <td>Built-in (no TXA imports)</td>
-<td>Original dialogs embedded in the xSearch classes</td>
-<td>Leave existing applications as they are</td>
+<td>Standard class dialogs, including Classic Export Data and Column
+Settings in Build 248</td>
+<td>Use export and search without importing any window procedures</td>
 </tr>
 <tr>
 <td><strong>Classic importable</strong></td>
@@ -65,10 +66,11 @@ colors</td>
 </table>
 <p>The <strong>five redesigned Modern dialogs</strong> are Search
 Options, Fields to Search, Saved Tag Sets, Search Results and Found
-Record. The <strong>Export Data</strong> and <strong>Export Column
-Settings</strong> dialogs already use the modern appearance and keep
-their existing layouts in both sets. Importing either set <strong>does
-not modify the class-embedded windows</strong>.</p>
+Record. The Modern export TXAs retain their existing appearance. In
+Build 248, both Classic export imports and the class-supplied Export
+Data and Export Column Settings windows have traditional Clarion
+styling. Importing a TXA does not modify the class itself; selecting an
+imported procedure overrides the corresponding built-in dialog.</p>
 <h2 id="import-all-seven-at-once">Import all seven at once</h2>
 <ol type="1">
 <li>Open the application in Clarion and choose <strong>Application &gt;
@@ -184,19 +186,20 @@ prototype and the control <code>USE</code> identifiers</strong> expected
 by xSearch. Removing certain optional controls is supported by the
 alternate-window template, but renaming required controls breaks the
 generated bindings.</p>
-<p>The Modern export dialogs use opaque navy header text backgrounds so
-white lettering remains readable in Window Designer. The export layouts
-themselves remain unchanged. Search and Results follow the same header
-design.</p>
+<p>The Modern importable export dialogs retain opaque navy header
+backgrounds and white text. Their window definitions are unchanged in
+Build 248. The Classic export import definitions now match the
+traditional Clarion styling of the built-in export dialogs. Search and
+Results retain their respective style-specific designs.</p>
 <p>The code that drives the imported windows stays in the xSearch
 template and classes; editing a window does not require you to duplicate
 its behavior in procedure embeds. The five Search/Fields/Tag
 Sets/Results/Found Record TXAs already include the <strong>xSearch 5.0
 alternate window</strong> procedure extension; the two export TXAs
-include <strong>xSearch 5.0 alternate export window</strong>. These
-extensions are <strong>not additional imports or separate setup
-steps</strong>. See <a href="procedure-extensions.html">Procedure
-Extensions</a>.</p>
+include <strong>xSearch 5.0 alternate export window</strong>
+(<code>xExportAltWindow</code>). These extensions are <strong>not
+additional imports or separate setup steps</strong>. See <a
+href="procedure-extensions.html">Procedure Extensions</a>.</p>
 <h2 id="modern-window-size-and-ini-settings">Modern window size and INI
 settings</h2>
 <p>Modern Search, Fields, Tag Sets, Results, and Found Record are larger

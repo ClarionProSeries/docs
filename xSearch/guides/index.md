@@ -4,7 +4,7 @@ summary: "Find practical, task-oriented xSearch instructions by what you want to
 description: "Find practical, task-oriented xSearch instructions by what you want to accomplish."
 keywords: ["xSearch", "Clarion", "Clarion ProSeries", "ABC Browse", "search", "tagging"]
 page_type: "overview"
-last_updated: "2026-11-07"
+last_updated: "2026-11-10"
 ---
 
 [Home](../index.md) | [Getting Started](../getting-started/index.md) | [Using the Template](../template-usage.md) | [Task Guides](index.md) | [Multi-DLL](multi-dll.md)
@@ -27,6 +27,7 @@ These pages answer **How do I...?** questions once xSearch is installed. Start w
 | Find all five procedure extension templates, including Fomin support | [Procedure Extensions](procedure-extensions.md) |
 | Select Spanish or prepare another language | [Languages and Translation Files](languages.md) |
 | Enable file exports and understand empty-result notices | [Export](export.md) |
+| Use built-in export dialogs or customize optional Classic/Modern imports | [Export Dialogs and Custom Windows](export-dialogs.md) |
 | Choose between Classic and Modern editable dialog sets | [Custom Windows](custom-windows.md) |
 | Highlight tagged records across the entire browse row | [Browse Setup and LIST Icons](browse-setup.md) |
 | Diagnose compilation or stale output | [Troubleshooting](troubleshooting.md) |

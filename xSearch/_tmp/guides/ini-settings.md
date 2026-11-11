@@ -17,7 +17,7 @@ On **xSearch 5.0 - Application Setup > Tag Storage**, the **Global INI file** se
 
 The INI is normally created or changed when a setting is written, not simply because you open the global template extension. Export preferences are written after a successful export, when remembering choices is enabled.
 
-## Choose the filename and location### Classic and Modern window sizes
+## Classic and Modern window sizes
 
 The five redesigned **Modern** imported windows have their own xSearch saved window-geometry entries. This allows the larger Modern dialogs to open at suitable sizes even when the INI already contains the positions and smaller sizes of the **Classic** or built-in windows. The search and export settings themselves remain shared; switching layouts does **not** require clearing your search history, field choices or export preferences.
 
@@ -29,9 +29,10 @@ The five redesigned **Modern** imported windows have their own xSearch saved win
 | Search Results | `ResultsWindow` | `ResultsWindowModern` |
 | Found Record | `ResWindow` | `ResWindowModern` |
 
-Modern Search Results has a minimum usable window size and resizes its list and footer controls as the window changes. The two export windows have unchanged layouts and use their existing geometry behavior. See [Customize xSearch Windows](custom-windows.md).
+Modern Search Results has a minimum usable window size and resizes its list and footer controls as the window changes. The export dialogs retain fixed geometry behavior; Build 248 changes their Classic presentation without adding Modern-specific export geometry keys. See [Customize xSearch Windows](custom-windows.md).
 
 
+## Choose the filename and location
 
 | Global INI file entry | Meaning |
 |---|---|

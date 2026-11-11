@@ -4,7 +4,7 @@ summary: "Search and tag records in Clarion ABC browse applications."
 description: "xSearch adds multi-field searching, reusable record tagging, related-file searching, export and language support to Clarion ABC browses."
 keywords: ["xSearch", "Clarion", "Clarion ProSeries", "ABC Browse", "search", "tagging"]
 page_type: "overview"
-last_updated: "2026-11-07"
+last_updated: "2026-11-10"
 ---
 
 [Home](index.md) | [Getting Started](getting-started/index.md) | [Using the Template](template-usage.md) | [Task Guides](guides/index.md) | [What's New](whatsnew.md)
@@ -15,11 +15,11 @@ last_updated: "2026-11-07"
 
 Current Version: xSearch 5.0
 
-Build: 247
+Build: 248
 
-Release Date: 11-7-2026
+Release Date: 11-10-2026
 
-Last Updated: 11-7-2026
+Last Updated: 11-10-2026
 
 Copyright (c) Clarion ProSeries by LANSRAD. All rights reserved.
 
@@ -42,7 +42,7 @@ Unlike an ordinary browse filter, xSearch creates a **tagged selection** that ca
 - Print standard Clarion or supported Fomin Report Builder reports, or run processes, using the tagged selection, with an optional tagged-record question and count.
 - Export records to CSV, UTF-8 CSV, TSV, XML, JSON, HTML, or Excel XLSX.
 - Choose English, Spanish, or add your own translation source.
-- Choose between Classic and Modern importable window sets, or mix individual editable dialogs to match your application. Both contain seven procedures, including the export windows.
+- Use the built-in Classic export dialogs without importing any procedures, or optionally import Classic or Modern editable windows. Each complete TXA set contains seven procedures.
 
 Read [Introduction](introduction.md) for examples, or see [What xSearch Can Do](what-xsearch-can-do.md) for a closer look.
 
@@ -77,5 +77,6 @@ Read [Introduction](introduction.md) for examples, or see [What xSearch Can Do](
 | Add Tag All, Untag All, or Show Tagged | [Control Templates](guides/control-templates.md) |
 | Print reports or process only the tagged records | [Tagged Reports and Processes](guides/tagged-reports-processes.md) |
 | Choose a language or add a translation | [Languages](guides/languages.md) |
+| Use built-in Classic export dialogs or optional imported alternatives | [Export Dialogs and Custom Windows](guides/export-dialogs.md) |
 
 [Home](index.md) | [Getting Started](getting-started/index.md) | [Using the Template](template-usage.md) | [Task Guides](guides/index.md) | [What's New](whatsnew.md)

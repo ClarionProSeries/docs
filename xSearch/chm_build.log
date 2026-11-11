@@ -1,4 +1,4 @@
-xSearch 5.0 Build 247 - CHM build log
+xSearch 5.0 Build 248 - CHM build log
 Builder location: G:\Docs-Staging\xSearch\
 Checking required files and tools...
 Cleaning generated _site and _tmp folders...
@@ -23,6 +23,7 @@ Converting getting-started\index.md
 Converting guides\browse-setup.md
 Converting guides\control-templates.md
 Converting guides\custom-windows.md
+Converting guides\export-dialogs.md
 Converting guides\export.md
 Converting guides\index.md
 Converting guides\ini-settings.md
@@ -33,7 +34,7 @@ Converting guides\single-exe.md
 Converting guides\tag-storage.md
 Converting guides\tagged-reports-processes.md
 Converting guides\troubleshooting.md
-Converted 26 Markdown pages.
+Converted 27 Markdown pages.
 Copying stylesheet next to generated HTML...
 Copying the CHM project and contents files...
 Compiling xSearch.chm with HTML Help Workshop...
@@ -57,6 +58,7 @@ getting-started\index.html
 guides\browse-setup.html
 guides\control-templates.html
 guides\custom-windows.html
+guides\export-dialogs.html
 guides\export.html
 guides\index.html
 guides\ini-settings.html
@@ -74,12 +76,12 @@ getting-started\style.css
 guides\style.css
 
 Compile time: 0 minutes, 0 seconds
-26	Topics
-386	Local links
+27	Topics
+392	Local links
 0	Internet links
 0	Graphics
 
 
-Created g:\Docs-Staging\xSearch\_site\xSearch.chm, 100,396 bytes
-Compression decreased file by 72,586 bytes.
+Created g:\Docs-Staging\xSearch\_site\xSearch.chm, 103,226 bytes
+Compression decreased file by 75,904 bytes.
 SUCCESS: G:\Docs-Staging\xSearch\_site\xSearch.chm

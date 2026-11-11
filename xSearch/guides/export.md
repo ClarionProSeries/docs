@@ -4,7 +4,7 @@ summary: "Enable xSearch export to CSV, XML, JSON, HTML and XLSX."
 description: "Current xSearch export functions and qualification limits."
 keywords: ["xSearch", "Clarion", "Clarion ProSeries", "tagging"]
 page_type: "guide"
-last_updated: "2026-11-07"
+last_updated: "2026-11-10"
 ---
 
 [Home](../index.md) | [Getting Started](../getting-started/index.md) | [Using the Template](../template-usage.md) | [Task Guides](index.md)
@@ -33,7 +33,7 @@ Before opening the Export Data dialog, xSearch checks whether at least one recor
 
 An empty selection does not change the browse's previous Show Tagged mode; xSearch restores that mode after the check. Only one record is probed for the full-browse modes, so it does not count the entire file. Files are still generated normally whenever records qualify.
 
-You can customize both export dialogs using Clarion Window Designer. Choose **Application > Template Utility > Classic** or **Modern** for either individual export window, or choose **Classic - all seven xSearch windows** or **Modern - all seven xSearch windows** to import a complete set. **Export Data and Export Column Settings have the same existing modern layouts in both sets.** On **xSearch 5.0 - Application Setup > Windows**, select the imported procedures. Unselected dialogs continue to use the built-in versions. Preserve the original control `USE` names and procedure prototypes. See [Customize xSearch Windows](custom-windows.md).
+Export works without importing either dialog. The built-in `xsExportClass` Export Data and Column Settings windows use Classic styling by default in Build 248. To customize them in Clarion Window Designer, choose **Application > Template Utility** and import the individual Classic or Modern `xsAskExportData` and `xsAskExportColumn` procedures, or import one of the complete seven-window sets. The imported export procedures include the `xExportAltWindow` extension. On **xSearch 5.0 - Application Setup > Windows**, enable the alternate-window option and select each replacement procedure. An unselected dialog continues using the built-in Classic window. Preserve control `USE` names and procedure prototypes. See [Export Dialogs and Custom Windows](export-dialogs.md) and [Customize xSearch Windows](custom-windows.md).
 
 If export is used in a multi-DLL application, coordinate the required global export declarations across the APPs involved, just as for other shared xSearch resources.
 
