@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>template-usage</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="guides/index.html">Task Guides</a></p>
+<h1 id="using-the-cdwindowdim-template">Using the cdWindowDim
+Template</h1>
+<h2 id="1-add-the-global-extension-and-compile">1. Add the global
+extension and compile</h2>
+<ol type="1">
+<li>In Clarion, open <strong>Global Extensions</strong> for the APP and
+add <strong>cdWindowDim - Global Settings</strong>.</li>
+<li><strong>Generate and compile your application.</strong></li>
+</ol>
+<p><strong>That's all you need for automatic dimming.</strong> By
+default, supported browse/update windows and standard
+<code>MESSAGE()</code>, <code>STOP()</code> and <code>HALT()</code>
+dialogs dim their parent while another window needs attention. The
+default appearance is black at strength 90. Supported CapeSoft
+MessageBox windows work automatically too.</p>
+<p>The global extension supplies the normal window procedure support.
+<strong>You do not need to add extensions to each browse or change any
+MESSAGE calls.</strong></p>
+<p>Use the global extension's <strong>Window Dimming</strong> tab only
+if you want to change the appearance, turn off an automatic feature, or
+disable the template.</p>
+<h2 id="2-optional-procedure-extensions">2. Optional procedure
+extensions</h2>
+<p>The global extension automatically applies <strong>cdWindowDim -
+Window and Message Dimming</strong> to eligible window procedures. Open
+that procedure's Extensions list only to customize an individual window
+or disable its dimming.</p>
+<p>The separate <strong>cdWindowDim - Custom Message Window</strong>
+extension is for a message WINDOW that you wrote, or an otherwise
+unrecognized third-party message window. Add it to the procedure that
+<strong>displays the message window</strong>, not the browse or form
+that opens it. See <a href="guides/custom-message-windows.html">Custom
+Message Windows</a>.</p>
+<p>Normal <code>MESSAGE()</code>, <code>STOP()</code> and
+<code>HALT()</code> calls and supported CapeSoft MessageBox windows do
+not need this custom extension.</p>
+<h2 id="3-code-templates">3. Code templates</h2>
+<p>Insert these code templates at the appropriate <strong>executable
+embed</strong> in your procedure:</p>
+<table>
+<thead>
+<tr>
+<th>Code template</th>
+<th>What it does</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dim Parent Window</strong></td>
+<td>Dims a parent before a synchronous procedure or report preview</td>
+<td><a href="guides/manual-dimming.html">Manual Dim and Restore</a></td>
+</tr>
+<tr>
+<td><strong>Restore Parent Window</strong></td>
+<td>Restores the parent after that call finishes</td>
+<td><a href="guides/manual-dimming.html">Manual Dim and Restore</a></td>
+</tr>
+<tr>
+<td><strong>Register Started Procedure</strong></td>
+<td>Connects a child launched with <code>START</code> to its dimmed
+parent</td>
+<td><a href="guides/started-children.html">START Procedures</a></td>
+</tr>
+<tr>
+<td><strong>Started Child Closing</strong></td>
+<td>Restores the parent when the started child closes</td>
+<td><a href="guides/started-children.html">START Procedures</a></td>
+</tr>
+<tr>
+<td><strong>Enable Dimming</strong></td>
+<td>Turns the visual effect on while running</td>
+<td><a href="guides/runtime-controls.html">Runtime Controls</a></td>
+</tr>
+<tr>
+<td><strong>Disable Dimming</strong></td>
+<td>Turns the visual effect off while running</td>
+<td><a href="guides/runtime-controls.html">Runtime Controls</a></td>
+</tr>
+<tr>
+<td><strong>Toggle Dimming</strong></td>
+<td>Switches the current on/off state</td>
+<td><a href="guides/runtime-controls.html">Runtime Controls</a></td>
+</tr>
+<tr>
+<td><strong>Get Dimming Status</strong></td>
+<td>Places the current state into a LONG variable</td>
+<td><a href="guides/runtime-controls.html">Runtime Controls</a></td>
+</tr>
+</tbody>
+</table>
+<p>Each code template offers <strong>Disable this code template</strong>
+so you can suspend it without deleting its settings. Match each Dim with
+its appropriate Restore, or use the two START code templates
+together.</p>
+<h2 id="4-optional-black-blue-and-red-message-procedures">4. Optional
+black, blue, and red message procedures</h2>
+<p>If you want to choose a particular message color, use
+<strong>Application &gt; Utilities</strong> (Ctrl+U) and the entries
+provided by cdWindowDim:</p>
+<table>
+<thead>
+<tr>
+<th>Where you want the procedures</th>
+<th>Select this utility in Clarion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single EXE or one owning Data DLL APP</td>
+<td><strong>ImportcdDimMessage</strong> — Customizable procedures
+(Single EXE or Data DLL)</td>
+</tr>
+<tr>
+<td>Other APPs using the procedures from the Data DLL</td>
+<td><strong>ImportcdDimMessageDec</strong> — Customizable procedure
+declarations (other APPs in multi-DLL solution)</td>
+</tr>
+</tbody>
+</table>
+<p>The first imports the actual black, blue and red procedures; the
+second lets other APPs call them. Do not import both into the same APP.
+See <a href="guides/custom-messages.html">Custom Colored Message
+Procedures</a> or <a href="guides/multi-dll.html">Multi-DLL
+Applications</a>.</p>
+<h2 id="5-multi-dll-and-hand-coded-applications">5. Multi-DLL and
+hand-coded applications</h2>
+<p>Use <a href="guides/multi-dll.html">Multi-DLL Applications</a> when
+your windows or colored-message procedures are spread across APPs. If
+you deliberately want to call the DLL directly, see <a
+href="hand-coded-integration.html">Hand-Coded Integration</a>. For
+practical generated code, <strong>open the supplied demo APP in Clarion
+and select Source</strong> to see the calls in context.</p>
+<p><strong>Required:</strong> The application EXE needs a compatible
+Windows manifest; see <a href="requirements.html">Requirements</a>.</p>
+<p><a href="index.html">Home</a> | <a href="guides/index.html">Task
+Guides</a></p>
+</body>
+</html>

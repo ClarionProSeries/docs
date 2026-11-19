@@ -4,7 +4,7 @@ summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
 keywords: ["vuFileTools", "functions", "categories", "Clarion", "home", "vuFileTools"]
 page_type: "category"
-last_updated: "2026-09-08"
+last_updated: "2026-11-19"
 ---
 
 [Home](../index.md) | [All functions](../functions/index.md) | [Categories](index.md)
@@ -31,3 +31,5 @@ last_updated: "2026-09-08"
 - [Windows Manipulation, Saving, and Printing](./windows-manipulation-saving-and-printing.md)
 
 [Home](../index.md) | [All functions](../functions/index.md) | [Categories](index.md)
+
+Window Dimming is a separate optional feature. See the [Window Dimming guides and function reference](../window-dimming/index.md), rather than the ordinary utility categories.

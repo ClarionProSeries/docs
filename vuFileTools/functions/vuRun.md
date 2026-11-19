@@ -1,12 +1,12 @@
 ---
 title: "vuRun"
-summary: "Runs a program using the Windows Shell with the specified window style and wait behavior."
-description: "Runs a program using the Windows Shell with the specified window style and wait behavior. This function is useful for launching support programs, utilities, or batch processes from your Clarion application."
+summary: "Runs a program or command with a single command line, optional hidden display, and wait support."
+description: "Launches a program or command, including .bat/.cmd scripts, with optional window style and wait controls."
 keywords: ["windows", "vuFileTools", "program", "style", "shell", "general", "vurun", "wait", "Clarion"]
 function_name: "vuRun"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-10-16"
+last_updated: "2026-11-16"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -19,9 +19,9 @@ vuRun(*CSTRING,LONG,LONG), Signed
 
 ## Description
 
-Runs a program using the Windows Shell with the specified window style and wait behavior.
+Build 210 improves reliability with longer command lines and supports launching executable programs and `.bat` or `.cmd` scripts.
 
-The Filename parameter is passed as a single command line string. This means it can contain the fully qualified path to the program followed by any runtime parameters.
+The Filename parameter is one command line string containing the executable (or script) and optional arguments. Quote an executable or script path containing spaces. Use the `vuShell` family for opening documents or URLs via Windows file associations.
 
 ## Parameters
 
@@ -31,14 +31,16 @@ The Filename parameter is passed as a single command line string. This means it 
 | WStyle    | LONG         | Window style for execution:<br>0 = Hidden<br>1 = Normal with focus<br>2 = Minimized with focus<br>3 = Maximized with focus<br>4 = Normal without focus<br>6 = Minimized without focus |
 | Wait      | LONG         | Execution wait flag:<br>0 = Return immediately and do not wait for completion<br>1 = Wait until the program completes |
 
-**CSTRING size note:** `CSTRING(1024)` in the example is an application-side choice, not a fixed `vuRun()` limit. `vuRun()` does not have a 256-character local string buffer; Windows and PowerBASIC shell rules still apply. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
+**CSTRING size note:** `CSTRING(1024)` is an example caller declaration, not a 256-character limit. The Build 210 implementation has a 32,768-byte local command buffer including the null terminator and rejects oversized input rather than truncating it. Windows command-line, executable-path, ANSI/codepage and `cmd.exe` (batch script) limits still apply. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
 
 ## Returns
 
-A LONG value:
+A `SIGNED` value:
 
-- 1 (True) on success
-- 0 (False) on failure
+- 1 (True) if Windows successfully launched the process (and, when requested, the wait operation succeeded)
+- 0 (False) for invalid input, an oversized command, or a process-launch/wait error
+
+**Important:** A return of 1 does **not** indicate that the launched program completed successfully. It does not report that program's exit code.
 
 ## Example
 
@@ -67,7 +69,10 @@ END
 Filename = '"C:\Program Files\MyApp\MyTool.exe" /x /y'
 ```
 
-- WStyle = 0 requests hidden execution.
+- WStyle = 0 requests hidden execution, including avoiding temporary console windows. Graphical applications can still create their own windows.
 - Wait = 1 tells vuRun to wait for the launched program to finish before returning.
+- If an explicit executable path omits `.exe`, Build 210 retries with the `.exe` suffix if the original launch fails.
+- Use `cmd.exe /C` explicitly if you need shell redirection (`>`) or built-in commands such as `echo`.
+- Build 210 supports longer command lines. Provide a CSTRING large enough for the complete command and observe the documented command-length and Windows limits.
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

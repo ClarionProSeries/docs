@@ -28,6 +28,7 @@
 - [vuMove](../functions/vuMove.md)
 - [vuPack](../functions/vuPack.md)
 - [vuPrintTextFile](../functions/vuPrintTextFile.md)
+- [vuRenameDirectory](../functions/vuRenameDirectory.md)
 - [vuReplaceCharsInFile](../functions/vuReplaceCharsInFile.md)
 - [vuSetAttributes](../functions/vuSetAttributes.md)
 - [vuSetFileDate](../functions/vuSetFileDate.md)

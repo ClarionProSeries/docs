@@ -28,26 +28,94 @@
 </head>
 <body>
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
-<h1 id="vufiletools---template-usage">vuFileTools - Template Usage</h1>
-<p>To use <strong>vuFileTools</strong>, add the global extension
-template to your application.</p>
-<h2 id="add-the-template">Add the template</h2>
+Functions</a> | <a href="window-dimming/index.html">Window
+Dimming</a></p>
+<h1 id="using-the-vufiletools-template">Using the vuFileTools
+Template</h1>
+<p>Add <strong>vuFileTools Initialization</strong> under <strong>Global
+Extensions</strong> in your Clarion APP. This provides the library's
+standard declarations and linkage. Generate and compile as usual to use
+vuFileTools utility functions.</p>
+<h2 id="optional-window-dimming">Optional Window Dimming</h2>
+<p><strong>Window Dimming is disabled by default.</strong> To turn it
+on:</p>
 <ol type="1">
-<li>Open your application in the Clarion IDE.</li>
-<li>Go to <strong>Global Extensions</strong> and click
-<strong>Insert</strong>.</li>
-<li>Type <strong>vuFileTools</strong> in the search box.</li>
-<li>Select <strong>vuFileTools_Global</strong> and click
-<strong>Select</strong>.</li>
-<li>Click <strong>OK</strong> to close the Global Extensions
-window.</li>
+<li>Open <strong>vuFileTools Initialization</strong> under Global
+Extensions.</li>
+<li>Select the <strong>Window Dimming</strong> tab.</li>
+<li>Uncheck <strong>Disable window dimming templates</strong>.</li>
+<li>Generate and compile.</li>
 </ol>
-<h2 id="deployment">Deployment</h2>
-<p>Include <strong>vuFT5.dll</strong> with your application at
-runtime.<br />
-The <strong>.lib</strong> is used only at compile time.</p>
+<p><strong>Enable automatic browse dimming</strong>, <strong>Auto-dim
+MESSAGE / STOP / HALT</strong>, and <strong>Use default window
+appearance</strong> are already checked. The default effect is black at
+strength 90. You can adjust the appearance or disable either automatic
+option as needed.</p>
+<p>The running application EXE requires a <strong>Windows 8-or-later
+compatibility manifest</strong> for Window Dimming. The rest of
+vuFileTools does not have this special requirement. See the <a
+href="window-dimming/index.html">Window Dimming guide</a>.</p>
+<h2 id="optional-procedure-extensions">Optional procedure
+extensions</h2>
+<p>The global extension automatically adds <strong>vuFileTools - Window
+and Message Dimming</strong> support to eligible procedures. Open that
+procedure extension when you want to exclude an individual browse,
+disable its messages, or change its appearance.</p>
+<p>For a custom message replacement window, add <strong>vuFileTools -
+Custom Message Window</strong> to the message WINDOW procedure itself.
+See <a href="window-dimming/custom-message-windows.html">Custom Message
+Windows</a>.</p>
+<h2 id="window-dimming-code-templates">Window Dimming code
+templates</h2>
+<p>The optional code templates are <strong>Dim Parent Window</strong>,
+<strong>Restore Parent Window</strong>, <strong>Register Started
+Procedure</strong>, <strong>Started Child Closing</strong>,
+<strong>Enable Dimming</strong>, <strong>Disable Dimming</strong>,
+<strong>Toggle Dimming</strong>, and <strong>Get Dimming
+Status</strong>. They generate Window Dimming code only when the global
+master disable option is unchecked. See <a
+href="window-dimming/manual.html">Manual Dimming</a>, <a
+href="window-dimming/started-children.html">START Procedures</a> and <a
+href="window-dimming/runtime-controls.html">Runtime Controls</a>.</p>
+<p>For hand-written calls, see <a
+href="window-dimming/hand-coded.html">Hand-Coded Integration</a>, or
+open the included demonstration APP in Clarion's <strong>Source</strong>
+view.</p>
+<h2 id="optional-colored-message-procedures">Optional colored-message
+procedures</h2>
+<p>Use <strong>Application &gt; Utilities</strong> (Ctrl+U) to
+import:</p>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th>Utility template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single EXE or the owning Data DLL</td>
+<td><strong>ImportvuFTDimMessage — Customizable procedures (Single EXE
+or Data DLL)</strong></td>
+</tr>
+<tr>
+<td>Other APPs in a multi-DLL solution</td>
+<td><strong>ImportvuFTDimMessageDec — Customizable procedure
+declarations (other APPs in multi-DLL solution)</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Enable Window Dimming first, then import these procedures. The first
+utility provides black, blue, and red message procedures; the second
+provides calling declarations. See <a
+href="window-dimming/custom-messages.html">Custom Colored Message
+Procedures</a>.</p>
+<h2 id="secure-login">Secure Login</h2>
+<p>Use the existing <strong>ImportSecureLogin — Import vuFileTools
+Secure Login</strong> utility. The <a href="secure-login.html">Secure
+Login guide</a> covers its requirements and earlier build changes.</p>
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
-functions</a> | <a href="categories/index.html">Categories</a></p>
+Functions</a> | <a href="window-dimming/index.html">Window
+Dimming</a></p>
 </body>
 </html>

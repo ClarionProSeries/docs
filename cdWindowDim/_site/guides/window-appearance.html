@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>window-appearance</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+<h1 id="window-appearance">Window Appearance</h1>
+<p>The standard effect is a <strong>black overlay at strength
+90</strong>. You can use it without changing anything. To select another
+appearance, clear <strong>Use default window appearance</strong> and
+choose a custom color and strength.</p>
+<h2 id="choose-a-global-appearance">Choose a global appearance</h2>
+<ol type="1">
+<li>Open <strong>cdWindowDim - Global Settings</strong> and select
+<strong>Window Dimming</strong>.</li>
+<li>Clear <strong>Use default window appearance</strong>.</li>
+<li>Choose a value for <strong>Dimming strength (0-255)</strong>. Zero
+is transparent. A value of 255 is fully opaque in the selected
+color.</li>
+<li>Click the <strong>Custom overlay color</strong> button and select a
+fixed RGB color in Clarion's normal color picker.</li>
+<li>Compile and run the application to see the result.</li>
+</ol>
+<p>You can switch between the standard black appearance and the custom
+color you choose.</p>
+<h2 id="choosing-custom-overlay-colors">Choosing custom overlay
+colors</h2>
+<p>The selected overlay color is <strong>blended with the underlying
+window</strong>. The result depends on both the selected color and the
+dimming strength, as well as the original window colors. At strength 90,
+for example, <code>COLOR:Blue</code> over a light browse can look
+lavender rather than pure blue. A bright red may look pink, and a green
+overlay can appear pale green.</p>
+<p>For a different effect, adjust the custom RGB shade and dimming
+strength together, then test them on your application's actual windows.
+Adding some green to a blue overlay can give a more natural sky-blue
+tint. A higher strength makes the tint more prominent but can make the
+dimmed window harder to read. The standard <strong>black overlay at
+strength 90</strong> remains a useful choice.</p>
+<p>If the Clarion Custom color picker starts with a black preview, check
+its <strong>HSL Lightness (L)</strong> setting. See <a
+href="../troubleshooting.html">Troubleshooting</a> for the simple
+workaround.</p>
+<h2 id="customize-one-browse">Customize one browse</h2>
+<p>In the browse's <strong>cdWindowDim - Window and Message
+Dimming</strong> extension, clear <strong>Use global window appearance
+settings</strong>. Choose the color and strength for that browse
+only.</p>
+<h2 id="customize-a-manual-dimming-operation">Customize a manual dimming
+operation</h2>
+<p>The <strong>cdWindowDim - Dim Parent Window</strong> code template
+has the same global/local appearance choice. Select the color and
+strength when you insert that operation.</p>
+<p>The first active dimming request establishes the parent's current
+appearance. If several started or synchronous child operations are open
+on the same parent, it retains that appearance until the last request
+closes.</p>
+<p>For a custom appearance from Clarion code, see <a
+href="../functions/index.html">CDDimWindowEx</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+</body>
+</html>

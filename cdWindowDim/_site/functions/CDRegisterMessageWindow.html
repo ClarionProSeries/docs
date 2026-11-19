@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CDRegisterMessageWindow</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1 id="cdregistermessagewindow">CDRegisterMessageWindow</h1>
+<p>Explicitly register the current custom message HWND so its owner
+dims.</p>
+<pre class="clarion"><code>CDRegisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDRegisterMessageWindow&#39;)</code></pre>
+<p>The LONG argument is the <strong>message window's own HWND</strong>,
+obtained inside its window procedure after <code>OPEN</code>. This is
+not the parent's HWND. The call must occur on the message's owning UI
+thread, and the message must have a valid top-level owner window in the
+current process. The matched register/unregister pair stays in the
+<strong>message window procedure</strong>.</p>
+<pre class="clarion"><code>CDRegisterMessageWindow(0{PROP:Handle})</code></pre>
+<p>Return values: <strong>1</strong> newly dimmed, <strong>2</strong>
+already tracked without duplicate dim, <strong>4</strong> suppressed
+without dim, <strong>0</strong> failure.</p>
+<p>The product global extension supplies the MAP entry. Alternatively
+use the manual MAP in <a
+href="../guides/custom-message-windows.html">Custom Message Windows</a>.
+Automatic classification is optional; all tracking remains inside
+CDWindowDim.dll. The accepted experimental probe is not a shipping
+DLL.</p>
+</body>
+</html>

@@ -32,6 +32,15 @@ functions</a> | <a href="../categories/index.html">Categories</a></p>
 <h1 id="all-functions">All Functions</h1>
 <p>This page lists all vuFileTools functions with a short description
 and links to their reference topics.</p>
+<p><strong>Build 210 password API rename:</strong> The former
+vuFileTools names <code>vuPasswordInit</code>,
+<code>vuPasswordToggle</code> and <code>vuPasswordCleanup</code> have
+been retired. Use <a href="vuFTPasswordInit.html">vuFTPasswordInit</a>,
+<a href="vuFTPasswordToggle.html">vuFTPasswordToggle</a> and <a
+href="vuFTPasswordCleanup.html">vuFTPasswordCleanup</a> instead.
+Previous function URLs remain available as migration notices, not
+callable APIs. See <a href="../secure-login.html">Secure Login migration
+instructions</a>.</p>
 <p><strong>CSTRING sizes:</strong> Lengths such as
 <code>CSTRING(256)</code> or <code>CSTRING(260)</code> shown on function
 pages are often example declarations, not fixed parameter limits.
@@ -471,6 +480,23 @@ unavailable for use until reboot or reinstallation.</td>
 2 GB limit imposed by older APIs.</td>
 </tr>
 <tr>
+<td><a href="vuFTPasswordCleanup.html">vuFTPasswordCleanup</a></td>
+<td>Removes managed password-control behavior and destroys the generated
+eye button.</td>
+</tr>
+<tr>
+<td><a href="vuFTPasswordInit.html">vuFTPasswordInit</a></td>
+<td>Retrofits a standard Clarion password entry control with managed cue
+text, automatic eye-button creation, show/hide behavior, and normal
+paste support while preserving the native Clarion control
+underneath.</td>
+</tr>
+<tr>
+<td><a href="vuFTPasswordToggle.html">vuFTPasswordToggle</a></td>
+<td>Toggles a managed password control between masked and visible
+mode.</td>
+</tr>
+<tr>
 <td><a href="vuGetAttributes.html">vuGetAttributes</a></td>
 <td>Returns a bitmask representing the attributes of the specified file.
 Multiple attributes can be combined.</td>
@@ -758,23 +784,6 @@ Windows 10 and Windows 11, regardless of application manifests.</td>
 into a single file.</td>
 </tr>
 <tr>
-<td><a href="vuPasswordCleanup.html">vuPasswordCleanup</a></td>
-<td>Removes managed password-control behavior and destroys the generated
-eye button.</td>
-</tr>
-<tr>
-<td><a href="vuPasswordInit.html">vuPasswordInit</a></td>
-<td>Retrofits a standard Clarion password entry control with managed cue
-text, automatic eye-button creation, show/hide behavior, and normal
-paste support while preserving the native Clarion control
-underneath.</td>
-</tr>
-<tr>
-<td><a href="vuPasswordToggle.html">vuPasswordToggle</a></td>
-<td>Toggles a managed password control between masked and visible
-mode.</td>
-</tr>
-<tr>
 <td><a href="vuPlayWav.html">vuPlayWav</a></td>
 <td>Plays a .wav audio file and optionally waits for playback to
 complete before returning.</td>
@@ -846,6 +855,11 @@ marks added.</td>
 <td><a href="vuRecordWav.html">vuRecordWav</a></td>
 <td>Records audio from the microphone input and saves it as a WAV
 file.</td>
+</tr>
+<tr>
+<td><a href="vuRenameDirectory.html">vuRenameDirectory</a></td>
+<td>Renames an existing directory on the same volume without copying its
+contents; returns detailed Windows errors on failure.</td>
 </tr>
 <tr>
 <td><a href="vuRemoveChars.html">vuRemoveChars</a></td>

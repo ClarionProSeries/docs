@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="../guides/index.html">Task Guides</a> | <a
+href="../whatsnew.html">What's New</a></p>
+<h1 id="cdwindowdim---dll-function-reference">cdWindowDim - DLL Function
+Reference</h1>
+<p>These functions are available for developers who prefer direct calls.
+In a normal Clarion APP, the code templates supply the same behavior
+without requiring hand-coded declarations. For a hand-coded project,
+first see <a href="../hand-coded-integration.html">Hand-Coded
+Integration</a>.</p>
+<p>The functions below return SIGNED LONG values. Check each function
+reference for its return values.</p>
+<p>The seven general dimming controls and two functions for hand-coded
+custom message windows are listed below. Automatic dimming of normal
+MESSAGE dialogs is handled by the template. See the <a
+href="../guides/automatic-messages.html">Automatic Message Dimming
+guide</a>.</p>
+<h2 id="cddimwindow"><a href="CDDimWindow.html">CDDimWindow</a></h2>
+<p>Dim the client area of a parent window with the standard black
+overlay.</p>
+<pre class="clarion"><code>CDDimWindow(LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDDimWindow&#39;)</code></pre>
+<p>Parameters: parent window handle, strength (0–255).</p>
+<pre class="clarion"><code>DimResult = CDDimWindow(0{PROP:Handle},90)</code></pre>
+<h2 id="cddimwindowex"><a
+href="CDDimWindowEx.html">CDDimWindowEx</a></h2>
+<p>Dim with a chosen red, green, and blue appearance. Each color
+component ranges from 0 through 255.</p>
+<pre class="clarion"><code>CDDimWindowEx(LONG,LONG,LONG,LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDDimWindowEx&#39;)</code></pre>
+<p>Parameters: parent window handle, strength, red, green, blue.</p>
+<pre class="clarion"><code>DimResult = CDDimWindowEx(0{PROP:Handle},90,0,180,0)</code></pre>
+<h2 id="cdrestorewindow"><a
+href="CDRestoreWindow.html">CDRestoreWindow</a></h2>
+<p>Restore one active dimming request after a synchronous call
+finishes.</p>
+<pre class="clarion"><code>CDRestoreWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDRestoreWindow&#39;)</code></pre>
+<pre class="clarion"><code>RestoreResult = CDRestoreWindow(0{PROP:Handle})</code></pre>
+<p>Do not use this directly after a START call that has been registered.
+That child completes its matching dimming operation when its Close
+Window code runs.</p>
+<h2 id="cdwindowregisterchild"><a
+href="CDWindowRegisterChild.html">CDWindowRegisterChild</a></h2>
+<p>Associate the parent's dimming request with a thread returned by
+START.</p>
+<pre class="clarion"><code>CDWindowRegisterChild(LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDWindowRegisterChild&#39;)</code></pre>
+<pre class="clarion"><code>StartedThread = START(MyChildWindow,25000)
+RegisterResult = CDWindowRegisterChild(0{PROP:Handle},StartedThread)</code></pre>
+<p>First dim the parent. The second argument is the <strong>START thread
+number</strong>, not the child HWND. See <a
+href="../guides/started-children.html">Dimming a Window Started with
+START</a>.</p>
+<h2 id="cdwindowclosing"><a
+href="CDWindowClosing.html">CDWindowClosing</a></h2>
+<p>Tell cdWindowDim that the started child is closing. Place this call
+in the child's <strong>Close Window</strong> embed.</p>
+<pre class="clarion"><code>CDWindowClosing(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDWindowClosing&#39;)</code></pre>
+<pre class="clarion"><code>CloseResult = CDWindowClosing(THREAD())</code></pre>
+<p>This call belongs in the child procedure and should execute exactly
+once as the child shuts down.</p>
+<h2 id="cdsetdimmingenabled"><a
+href="CDSetDimmingEnabled.html">CDSetDimmingEnabled</a></h2>
+<p>Show or hide the process-wide dimming effect without discarding
+active parent/child relationships.</p>
+<pre class="clarion"><code>CDSetDimmingEnabled(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDSetDimmingEnabled&#39;)</code></pre>
+<pre class="clarion"><code>CDSetDimmingEnabled(0)  ! Disable
+CDSetDimmingEnabled(1)  ! Enable</code></pre>
+<h2 id="cdgetdimmingenabled"><a
+href="CDGetDimmingEnabled.html">CDGetDimmingEnabled</a></h2>
+<p>Read the current process-wide status. Returns 1 when enabled and 0
+when disabled on a successful query.</p>
+<pre class="clarion"><code>CDGetDimmingEnabled(),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDGetDimmingEnabled&#39;)</code></pre>
+<pre class="clarion"><code>ToggleStatus = CDGetDimmingEnabled()</code></pre>
+<h2 id="explicit-custom-message-window-exports">Explicit custom message
+window exports</h2>
+<ul>
+<li><a href="CDRegisterMessageWindow.html">CDRegisterMessageWindow</a>:
+register a message window on its own UI thread; works with automatic
+detection off.</li>
+<li><a
+href="CDUnregisterMessageWindow.html">CDUnregisterMessageWindow</a>:
+restore the tracked parent and release the registration's observer
+lease.</li>
+</ul>
+<p>See <a href="../guides/custom-message-windows.html">Custom Message
+Windows</a> for ABC, Legacy and multi-DLL examples.</p>
+<p>Declare <strong>DimResult</strong>, <strong>RestoreResult</strong>,
+<strong>RegisterResult</strong>, <strong>CloseResult</strong>,
+<strong>StartedThread</strong>, and <strong>ToggleStatus</strong> as
+local LONG variables when using these examples. Use a current window
+handle only in code that actually runs inside a window procedure.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="../guides/index.html">Task Guides</a> | <a
+href="../whatsnew.html">What's New</a></p>
+</body>
+</html>

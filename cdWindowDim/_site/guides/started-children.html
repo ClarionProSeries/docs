@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>started-children</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+<h1 id="dimming-a-window-started-with-start">Dimming a Window Started
+with START</h1>
+<p>A window opened with Clarion's START function runs on a separate
+thread. The calling procedure continues immediately, even while the new
+window stays open. To keep the original window dimmed until the started
+window closes, use the sequence below.</p>
+<p>The sequence is straightforward:</p>
+<p><strong>Dim the parent, START the child, register the started window,
+and run the closing code when the child closes.</strong></p>
+<p>Do not restore the parent immediately after START. The started window
+is still open.</p>
+<h2 id="using-code-templates">Using code templates</h2>
+<h3 id="step-1-set-up-the-parent-window">Step 1. Set up the parent
+window</h3>
+<p>In the parent procedure, create a local LONG variable named
+<strong>StartedThread</strong> (or another name of your choice).</p>
+<p>If you use a button to launch the child, you can configure its normal
+Clarion action to <strong>Call a Procedure</strong> with
+<strong>Initiate Thread</strong> selected. Choose the child procedure
+and set the <strong>Return Thread Variable</strong> to
+<strong>StartedThread</strong>.</p>
+<p>In that button's <strong>Accepted</strong> embeds, arrange the
+operations in this order:</p>
+<ol type="1">
+<li><strong>cdWindowDim - Dim Parent Window</strong>, before Clarion's
+START operation.</li>
+<li>The normal Clarion code that launches the child using START and puts
+the returned thread number in <strong>StartedThread</strong>.</li>
+<li><strong>cdWindowDim - Register Started Procedure</strong>,
+immediately after START, using <strong>StartedThread</strong> as the
+return-thread variable.</li>
+</ol>
+<p>Verify the order in generated source. It should resemble:</p>
+<pre class="clarion"><code>CDDimWindowEx(0{PROP:Handle},90,0,0,0)
+StartedThread = START(MyChildWindow,25000)
+CDWindowRegisterChild(0{PROP:Handle},StartedThread)</code></pre>
+<p>Use your real child procedure name. The code templates generate the
+two cdWindowDim calls; the START statement comes from Clarion. The
+default appearance is black with strength 90, but the Dim Parent Window
+template also allows a local color and strength override.</p>
+<h3 id="step-2-handle-the-started-window-closing">Step 2. Handle the
+started window closing</h3>
+<p>Open the <strong>started child procedure</strong>. Insert
+<strong>cdWindowDim - Started Child Closing</strong> in its
+<strong>Close Window</strong> embed. Use this location for both ABC and
+Legacy windows.</p>
+<p>The generated call is:</p>
+<pre class="clarion"><code>CDWindowClosing(THREAD())</code></pre>
+<p>The <strong>Close Window</strong> embed handles window closure
+whether the user exits through a button or the title-bar X. Do not place
+this only in a button's Accepted embed.</p>
+<p>When the child closes, cdWindowDim releases that child's dimming
+request. If other children are still open on the same parent, it remains
+dimmed until the last one closes.</p>
+<h3 id="step-3-try-the-sequence">Step 3. Try the sequence</h3>
+<p>Open the parent, START the child, and close the child using its
+title-bar X. The parent should return to its usual appearance. Repeat
+using the child's normal Close button. Then try opening more than one
+started child from the same parent and closing them in a different
+order.</p>
+<p><strong>Do not insert Restore Parent Window immediately after
+START.</strong> That is the recipe for a synchronous procedure call, not
+a START-launched child. For this sequence, <strong>Started Child
+Closing</strong> performs the matching release.</p>
+<h2 id="writing-the-same-calls-by-hand">Writing the same calls by
+hand</h2>
+<p>In a hand-coded application, declare the corresponding DLL functions
+in the MAP and link CDWindowDim.lib as shown in <a
+href="../hand-coded-integration.html">Hand-Coded Integration</a>. With
+the declarations in place, the parent's procedure can perform the same
+sequence:</p>
+<pre class="clarion"><code>! Parent procedure local DATA
+StartedThread LONG
+DimResult     LONG
+RegisterResult LONG
+
+! Parent button&#39;s Accepted code
+DimResult = CDDimWindow(0{PROP:Handle},90)
+StartedThread = START(MyChildWindow,25000)
+RegisterResult = CDWindowRegisterChild(0{PROP:Handle},StartedThread)</code></pre>
+<p>Use the same <strong>StartedThread</strong> variable for the START
+result and the registration call. Place the registration call
+immediately after START.</p>
+<p>In the started child's <strong>Close Window</strong> embed, call:</p>
+<pre class="clarion"><code>CloseResult = CDWindowClosing(THREAD())</code></pre>
+<p>For this example, <strong>CloseResult</strong> is another local LONG
+variable if you want to inspect the result. You may also call the
+function without capturing its return value.</p>
+<p>For custom color, use CDDimWindowEx instead of CDDimWindow. See <a
+href="../functions/index.html">DLL Function Reference</a>.</p>
+<h2 id="important-rules">Important rules</h2>
+<ul>
+<li>Insert <strong>Register Started Procedure</strong> in the parent and
+<strong>Started Child Closing</strong> in the child.</li>
+<li>Run <strong>Started Child Closing</strong> once for each child
+closure.</li>
+<li>Do not add a separate Restore for a registered started child.</li>
+<li>A START-launched procedure is <strong>not automatically
+tracked</strong> merely because the global template is installed.</li>
+<li>If you disable a START sequence for testing, disable the matching
+Dim and Register inserts together. Keep the child's closing template
+enabled if the child participates in any other active sequence.</li>
+</ul>
+<p>This workflow has been tested with multiple started windows,
+including a parent that also has a synchronous child open. For a
+different application arrangement, especially a child that closes
+immediately or is owned by another APP, confirm that the closing call is
+actually generated and executed.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+</body>
+</html>

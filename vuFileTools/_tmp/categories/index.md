@@ -23,3 +23,5 @@
 - [Windows Manipulation, Saving, and Printing](./windows-manipulation-saving-and-printing.md)
 
 [Home](../index.md) | [All functions](../functions/index.md) | [Categories](index.md)
+
+Window Dimming is a separate optional feature. See the [Window Dimming guides and function reference](../window-dimming/index.md), rather than the ordinary utility categories.

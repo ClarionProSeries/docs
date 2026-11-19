@@ -4,7 +4,7 @@ summary: "*Newest versions and release dates are listed first*"
 description: "*Newest versions and release dates are listed first*"
 keywords: ["listed", "documentation", "versions", "history", "dates", "first", "vuFileTools", "Clarion", "newest", "vuFileTools", "version", "release"]
 page_type: "changelog"
-last_updated: "2026-10-16"
+last_updated: "2026-11-18"
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
@@ -15,10 +15,13 @@ last_updated: "2026-10-16"
 
 | Release Date | Version | Release Notes |
 |:-------------|:--------|:--------------|
+| 2026-11-18 | Version 5.0 Build 212 | Adds automatic dimming behind supported MESSAGE, STOP and HALT dialogs (preselected when Window Dimming is enabled) (including CapeSoft MessageBox), three importable black/blue/red Clarion message procedures, the Custom Message Window extension, and hand-coded custom-message registration functions. See [Automatic Message Dimming](window-dimming/automatic-messages.md) and [Custom Colored Message Procedures](window-dimming/custom-messages.md). |
+| 2026-11-16 | Version 5.0 Build 211 | Adds [Window Dimming](window-dimming/index.md) with seven `vuFT` functions, opt-in automatic browse dimming, per-window appearance, manual and START code templates, and runtime controls. The feature is also available separately as [cdWindowDim](https://clarionproseries.com/products/cdwindowdim). A compatible EXE manifest is required. |
+| 2026-10-27 | Version 5.0 Build 210 | Added [vuRenameDirectory](functions/vuRenameDirectory.md) to rename directories on the same volume. Improved [vuRun](functions/vuRun.md) to support longer command lines and avoid unwanted console windows during hidden launches. Corrected hidden-window handling in the RunEx functions. Renamed the three Secure Login password functions to `vuFTPasswordInit`, `vuFTPasswordToggle` and `vuFTPasswordCleanup` to avoid naming conflicts with vuMailKit. Existing Secure Login applications should follow the [Build 210 migration instructions](secure-login.md). |
 | 2026-10-16 | Version 5.0 Build 209 | Added [vuReplaceCharsEx](functions/vuReplaceCharsEx.md) with explicit destination-buffer capacity and all-or-nothing replacement. Corrected [vuReplaceChars](functions/vuReplaceChars.md) documentation for its in-place result and numeric return; legacy calling convention is unchanged. Clarified CSTRING example sizes versus actual function buffer limits, including [vuRun](functions/vuRun.md), and added [CSTRING Sizes and Buffer Capacity](cstring-sizes.md) guidance. |
 | 2026-09-08 | Version 5.0 Build 208 | Fixed a long-standing mailslot bug that could cause messages between applications to be missed or processed incorrectly, and improved mailslot reliability and error reporting. |
 | 2026-03-20 | Version 5.0 Build 207 | Added vuRunExWait and vuRunExDelayWait; expanded the run-function documentation with linked comparison tables on the related run, shell, and print pages; and improved the release documentation structure in [What's New](whatsnew.md). |
-| 2026-03-19 | Version 5.0 Build 206 | Added the new password visibility helper feature: vuPasswordInit and vuPasswordToggle. |
+| 2026-03-19 | Version 5.0 Build 206 | Originally added the password visibility helper feature under vuPasswordInit and vuPasswordToggle (names retired from vuFileTools in Build 210). |
 | 2026-03-11 | Version 5.0 Build 205 | Improved vuFileDate and vuFileTime handling and fixed reported issues with certain file path and filename scenarios. |
 | 2026-01-03 | Version 5.0 | Added vuCloseApp and vuCloseAppEx for reliable in-app shutdown control (cooperative close, safety-net forced terminate, optional warning countdown). |
 | 2025-12-03 | Version 5.0 | Added vuInternetPresent and vuInternetCanReachUrl for Internet detection and URL reachability checks. |
@@ -29,3 +32,4 @@ last_updated: "2026-10-16"
 | 2018-01-24 | Version 4.0 | First LANSRAD release. |
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+

@@ -1,47 +1,18 @@
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
-# vuPasswordToggle(ControlHandle)
+# vuPasswordToggle - Renamed in Build 210
 
-```Prototype
-vuPasswordToggle(LONG), SIGNED, PASCAL, RAW, NAME('vuPasswordToggle')
-```
+**This is an older vuFileTools function name and is no longer available in Build 210 or later.**
 
-## Description
+The replacement is **[vuFTPasswordToggle](vuFTPasswordToggle.md)**, which toggles password visibility.
 
-Toggles a managed control between visible-text mode and normal masked mode.
+The functionality is retained; only the vuFileTools public function name and DLL export name changed. The change prevents conflicts when vuFileTools and vuMailKit are used in the same Clarion application. **vuMailKit's function names are unchanged.**
 
-While the DLL provides an automatic eye button for user interaction, this function remains available for developer-driven events, such as a "Reveal All" button on a form or forcing a mask on a specific event.
+If your application calls `vuPasswordToggle`, replace that call with `vuFTPasswordToggle` and use the updated Build 210 vuFileTools global extension or manual MAP declarations. If you previously imported the Secure Login TXA, update its embeds or carefully reimport the Build 210 version. **Rebuild the application against the new DLL and matching LIB before deployment.** Replacing the DLL alone is not sufficient for an application already compiled against the old export.
 
-## Parameters
+See [Secure Login Window and Build 210 Migration](../secure-login.md) for steps that preserve customized windows.
 
-| Parameter | Data Type | Description |
-|---|---|---|
-| ControlHandle | LONG | Handle of the target control previously initialized with vuPasswordInit(). |
-
-## Returns
-
-- 1 = Text is now visible
-- 0 = Mask mode is now active
-- -5 = Control not initialized
-
-## Example
-
-```Clarion
-ShowState LONG
-
-ShowState = vuPasswordToggle(?InPassword{PROP:Handle})
-```
-
-## Notes
-
-- vuPasswordToggle() only works on controls that have already been initialized with vuPasswordInit().
-- The return value tells you the new state after the toggle completes.
-- In normal UI use, most developers will let the generated eye button handle toggling automatically.
-
-## Related functions
-
-- [vuPasswordInit](vuPasswordInit.md)
-- [vuPasswordCleanup](vuPasswordCleanup.md)
+**Current reference:** [vuFTPasswordToggle](vuFTPasswordToggle.md).
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

@@ -1,62 +1,26 @@
 ---
-title: "vuPasswordCleanup"
-summary: "Manually detaches the password management logic and removes the toggle button from an entry control."
-description: "Releases internal resources, removes the eye button, and restores the original window procedure for a managed control. [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)"
-keywords: ["vuFileTools", "password", "cleanup", "unsubclass", "Clarion", "vuPasswordCleanup"]
-function_name: "vuPasswordCleanup"
-category: "UI Helpers"
-version_added: "5.1"
-last_updated: "2026-09-08"
+title: "vuPasswordCleanup - Renamed in Build 210"
+summary: "Retired vuFileTools function name. Use vuFTPasswordCleanup beginning with Build 210."
+description: "Migration notice for the renamed password-control function; the old name is not exported by vuFileTools Build 210."
+keywords: ["vuFileTools", "vuPasswordCleanup", "vuFTPasswordCleanup", "renamed", "Secure Login", "migration", "Build 210"]
+page_type: "migration-notice"
+last_updated: "2026-10-26"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
 
-# vuPasswordCleanup(ControlHandle)
+# vuPasswordCleanup - Renamed in Build 210
 
-```Prototype
-vuPasswordCleanup(LONG), SIGNED, PASCAL, RAW, NAME('vuPasswordCleanup')
-```
+**This is an older vuFileTools function name and is no longer available in Build 210 or later.**
 
-## Description
+The replacement is **[vuFTPasswordCleanup](vuFTPasswordCleanup.md)**, which removes managed password-control behavior.
 
-Manually detaches the password management logic from a Clarion entry control.
+The functionality is retained; only the vuFileTools public function name and DLL export name changed. The change prevents conflicts when vuFileTools and vuMailKit are used in the same Clarion application. **vuMailKit's function names are unchanged.**
 
-This function performs the following actions:
+If your application calls `vuPasswordCleanup`, replace that call with `vuFTPasswordCleanup` and use the updated Build 210 vuFileTools global extension or manual MAP declarations. If you previously imported the Secure Login TXA, update its embeds or carefully reimport the Build 210 version. **Rebuild the application against the new DLL and matching LIB before deployment.** Replacing the DLL alone is not sufficient for an application already compiled against the old export.
 
-- Destroys the automatic eye button for the managed control.
-- Restores the control's original Windows procedure.
-- Frees the internal memory allocated for that control's state.
+See [Secure Login Window and Build 210 Migration](../secure-login.md) for steps that preserve customized windows.
 
-While the DLL also attempts to clean up when the control is destroyed, calling this function during normal window teardown is recommended when you want deterministic cleanup.
-
-## Parameters
-
-| Parameter | Data Type | Description |
-|---|---|---|
-| ControlHandle | LONG | Handle of the target control previously initialized with vuPasswordInit(). |
-
-## Returns
-
-- 1 = Cleanup successful
-- 0 = Control was not initialized or cleanup was not needed
-
-## Example
-
-```Clarion
-RC LONG
-
-RC = vuPasswordCleanup(?MyPassword{PROP:Handle})
-```
-
-## Notes
-
-- This function is optional, but recommended when you want explicit cleanup during window shutdown.
-- A good place to call it is during your window teardown logic, such as Window.Kill.
-- After cleanup, the control is no longer managed by the password helper until vuPasswordInit() is called again.
-
-## Related functions
-
-- [vuPasswordInit](vuPasswordInit.md)
-- [vuPasswordToggle](vuPasswordToggle.md)
+**Current reference:** [vuFTPasswordCleanup](vuFTPasswordCleanup.md).
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)

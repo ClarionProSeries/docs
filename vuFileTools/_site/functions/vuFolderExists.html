@@ -46,17 +46,19 @@ and UNC paths.</p>
 <tbody>
 <tr>
 <td>PathName</td>
-<td>CSTRING(256)</td>
+<td>CSTRING(1024)</td>
 <td>Fully qualified name of the folder to test</td>
 </tr>
 </tbody>
 </table>
 <h3 id="returns">Returns</h3>
-<p>1 (True) if the folder exists, 0 (False) if it does not.</p>
+<p>Nonzero (True) if the folder exists, 0 (False) if it does not. Test
+for nonzero rather than comparing with the literal value
+<code>1</code>.</p>
 <h3 id="example">Example</h3>
 <pre class="Clarion"><code>PathName = &#39;C:\Valutilities\Temp&#39;
 
-IF vuFolderExists(PathName) = 1
+IF vuFolderExists(PathName) &lt;&gt; 0
   MESSAGE(&#39;Folder exists!&#39;)
 ELSE
   MESSAGE(&#39;Folder not found.&#39;)

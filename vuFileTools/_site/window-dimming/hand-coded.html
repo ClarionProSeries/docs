@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>hand-coded</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Window
+Dimming</a> | <a href="functions/index.html">Function Reference</a></p>
+<h1 id="hand-coded-window-dimming-integration">Hand-Coded Window Dimming
+Integration</h1>
+<p>For most applications, enable Window Dimming in <strong>vuFileTools
+Initialization</strong> and use its procedure and code templates. If you
+prefer direct Clarion calls, use the examples below.</p>
+<h2 id="declare-the-functions">Declare the functions</h2>
+<p>The global template supplies these MAP declarations when Window
+Dimming is enabled. A completely hand-coded application can supply them
+directly:</p>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;vuFT5.dll&#39;)
+    vuFTDimWindow(LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTDimWindow&#39;)
+    vuFTDimWindowEx(LONG,LONG,LONG,LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTDimWindowEx&#39;)
+    vuFTRestoreWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTRestoreWindow&#39;)
+    vuFTWindowRegisterChild(LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTWindowRegisterChild&#39;)
+    vuFTWindowClosing(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTWindowClosing&#39;)
+    vuFTSetDimmingEnabled(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTSetDimmingEnabled&#39;)
+    vuFTGetDimmingEnabled(),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTGetDimmingEnabled&#39;)
+    vuFTRegisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTRegisterMessageWindow&#39;)
+    vuFTUnregisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTUnregisterMessageWindow&#39;)
+  END
+END</code></pre>
+<p>Link with <strong>vuFT5.lib</strong> and deploy the matching
+<strong>vuFT5.dll</strong>. The running EXE must include a Windows
+8-or-later compatibility manifest for Window Dimming.</p>
+<h2 id="dim-and-restore-around-a-synchronous-procedure">Dim and restore
+around a synchronous procedure</h2>
+<p>Call Dim before the synchronous procedure and Restore after it
+returns. Use the same parent handle in both calls:</p>
+<pre class="clarion"><code>DimResult = vuFTDimWindow(0{PROP:Handle},90)
+MyUpdateWindow()
+RestoreResult = vuFTRestoreWindow(0{PROP:Handle})</code></pre>
+<p>If you need the return values, declare <code>DimResult</code> and
+<code>RestoreResult</code> as local LONG variables. For a custom color,
+use <code>vuFTDimWindowEx(0{PROP:Handle},90,0,180,0)</code> for green,
+then Restore after the called procedure returns.</p>
+<h2 id="start-children">START children</h2>
+<p>A START child continues running after the START statement, so Restore
+must not follow START immediately. For example:</p>
+<pre class="clarion"><code>vuFTDimWindowEx(0{PROP:Handle},90,0,0,0)
+StartedThread = START(MyStartedProcedure,25000)
+vuFTWindowRegisterChild(0{PROP:Handle},StartedThread)</code></pre>
+<p>Declare <code>StartedThread</code> as LONG. In the started child
+procedure's Close Window embed:</p>
+<pre class="clarion"><code>vuFTWindowClosing(THREAD())</code></pre>
+<p>See <a href="started-children.html">START Procedures</a> for template
+placement and usage.</p>
+<h2 id="runtime-controls">Runtime controls</h2>
+<pre class="clarion"><code>vuFTSetDimmingEnabled(1)                         ! Enable
+vuFTSetDimmingEnabled(0)                         ! Disable
+vuFTSetDimmingEnabled(1 - vuFTGetDimmingEnabled()) ! Toggle
+DimmingEnabled = vuFTGetDimmingEnabled()         ! Read status</code></pre>
+<p>Declare <code>DimmingEnabled</code> as LONG if using the last
+assignment.</p>
+<h2 id="custom-message-windows">Custom message windows</h2>
+<p>In the actual custom message WINDOW procedure, register after the
+window opens and unregister before it closes:</p>
+<pre class="clarion"><code>IF 0{PROP:Handle} &lt;&gt; 0
+  vuFTRegisterMessageWindow(0{PROP:Handle})
+END</code></pre>
+<pre class="clarion"><code>vuFTUnregisterMessageWindow(0{PROP:Handle})</code></pre>
+<p>The optional <strong>vuFileTools - Custom Message Window</strong>
+extension generates these calls for ABC and Legacy procedures. Ordinary
+Clarion MESSAGE calls do not require them once automatic MESSAGE dimming
+is enabled.</p>
+<p><strong>Tip:</strong> Open the included demonstration APP in Clarion
+and choose <strong>Source</strong> to see where the template inserts
+each call in working code.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Window
+Dimming</a> | <a href="functions/index.html">Function Reference</a></p>
+</body>
+</html>

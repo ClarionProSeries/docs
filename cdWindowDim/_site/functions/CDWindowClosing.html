@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CDWindowClosing</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All DLL
+Functions</a> | <a href="../template-usage.html">Using the
+Template</a></p>
+<h1 id="cdwindowclosing">CDWindowClosing</h1>
+<p>Restore the parent when a registered START child closes.</p>
+<h2 id="clarion-declaration">Clarion declaration</h2>
+<pre class="clarion"><code>CDWindowClosing(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDWindowClosing&#39;)</code></pre>
+<p><strong>Parameters:</strong> The thread number of the closing child
+(normally <code>THREAD()</code>).</p>
+<h2 id="example">Example</h2>
+<pre class="clarion"><code>CloseResult = CDWindowClosing(THREAD())</code></pre>
+<p>Call in the child procedure as it closes; do not call from the parent
+immediately after START.</p>
+<p>For manual dim and restore calls, a positive result normally
+indicates an accepted state; 0 or a negative status should be checked
+before relying on the effect. The global template supplies the MAP and
+LIB linkage automatically.</p>
+<p>See <a href="../guides/manual-dimming.html">Manual Dimming</a>, <a
+href="../guides/started-children.html">START Procedures</a>, and <a
+href="../troubleshooting.html">Troubleshooting</a>.</p>
+<p><a href="index.html">All DLL Functions</a> | <a
+href="../index.html">Home</a></p>
+</body>
+</html>

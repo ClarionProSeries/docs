@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>automatic-messages</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Task
+Guides</a></p>
+<h1 id="automatic-message-dimming">Automatic Message Dimming</h1>
+<p><strong>Automatic message dimming is on by default.</strong> Add
+<strong>cdWindowDim - Global Settings</strong> to your Clarion APP and
+compile. Supported <code>MESSAGE()</code>, <code>STOP()</code> and
+<code>HALT()</code> dialogs—including standard Clarion-generated
+confirmations—dim their parent automatically and restore it when the
+dialog closes. Supported CapeSoft MessageBox windows work too.</p>
+<p><strong>No changes to your existing MESSAGE calls and no individual
+window extensions are required for the standard effect.</strong></p>
+<h2 id="change-the-behavior-if-you-want-to">Change the behavior if you
+want to</h2>
+<ul>
+<li><strong>Turn it off for an APP:</strong> In Global Extensions, open
+<strong>cdWindowDim - Global Settings</strong> &gt; <strong>Window
+Dimming</strong> and clear <strong>Auto-dim MESSAGE / STOP /
+HALT</strong>.</li>
+<li><strong>Turn it off for one window:</strong> Open that window's
+<strong>cdWindowDim - Window and Message Dimming</strong> procedure
+extension and select <strong>Disable message dimming here</strong>.</li>
+<li><strong>Choose a particular message color:</strong> Use the optional
+<a href="custom-messages.html">Black, Blue and Red Message
+Procedures</a>.</li>
+<li><strong>Use your own replacement message window:</strong> Add the
+optional <a href="custom-message-windows.html">Custom Message Window</a>
+extension to the procedure that displays it.</li>
+</ul>
+<h2 id="multi-dll-applications">Multi-DLL applications</h2>
+<p>Add <strong>cdWindowDim - Global Settings</strong> to each APP that
+contains windows where you want automatic message dimming. You do not
+need to rewrite <code>MESSAGE()</code> calls. See <a
+href="multi-dll.html">Multi-DLL Applications</a>.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Task
+Guides</a></p>
+</body>
+</html>

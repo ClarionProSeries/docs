@@ -5,6 +5,8 @@
 
 This page lists all vuFileTools functions with a short description and links to their reference topics.
 
+**Build 210 password API rename:** The former vuFileTools names `vuPasswordInit`, `vuPasswordToggle` and `vuPasswordCleanup` have been retired. Use [vuFTPasswordInit](vuFTPasswordInit.md), [vuFTPasswordToggle](vuFTPasswordToggle.md) and [vuFTPasswordCleanup](vuFTPasswordCleanup.md) instead. Previous function URLs remain available as migration notices, not callable APIs. See [Secure Login migration instructions](../secure-login.md).
+
 **CSTRING sizes:** Lengths such as `CSTRING(256)` or `CSTRING(260)` shown on function pages are often example declarations, not fixed parameter limits. Individual functions may have internal buffer restrictions. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
 
 | Function | Description |
@@ -88,6 +90,9 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuFontLoad](vuFontLoad.md) | Loads the specified font into the Windows font table, making it available for immediate use without requiring a reboot. |
 | [vuFontUnload](vuFontUnload.md) | Unloads the specified font from the Windows font table, making it unavailable for use until reboot or reinstallation. |
 | [vuFreeSpace](vuFreeSpace.md) | Returns the available free space on the specified drive without the 2 GB limit imposed by older APIs. |
+| [vuFTPasswordCleanup](vuFTPasswordCleanup.md) | Removes managed password-control behavior and destroys the generated eye button. |
+| [vuFTPasswordInit](vuFTPasswordInit.md) | Retrofits a standard Clarion password entry control with managed cue text, automatic eye-button creation, show/hide behavior, and normal paste support while preserving the native Clarion control underneath. |
+| [vuFTPasswordToggle](vuFTPasswordToggle.md) | Toggles a managed password control between masked and visible mode. |
 | [vuGetAttributes](vuGetAttributes.md) | Returns a bitmask representing the attributes of the specified file. Multiple attributes can be combined. |
 | [vuGetDefaultPrinter](vuGetDefaultPrinter.md) | Returns the name of the PCs default printer. Note that this may not match the printer currently selected by Clarion or the Report Writer. |
 | [vuGetDriveList](vuGetDriveList.md) | Retrieves a list of available drive roots and writes the result into the caller-provided buffer. |
@@ -145,9 +150,6 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuOSVersion](vuOSVersion.md) | Returns the Windows Operating System version as a sequential number for easy comparison in code. The current implementation uses RtlGetVersion from ntdll to obtain accurate version info, including Windows 10 and Windows 11, regardless of application manifests. |
 | [vuOctal](vuOctal.md) | Converts a LONG value into its octal representation. |
 | [vuPack](vuPack.md) | Takes all files matching the specified file mask and combines them into a single file. |
-| [vuPasswordCleanup](vuPasswordCleanup.md) | Removes managed password-control behavior and destroys the generated eye button. |
-| [vuPasswordInit](vuPasswordInit.md) | Retrofits a standard Clarion password entry control with managed cue text, automatic eye-button creation, show/hide behavior, and normal paste support while preserving the native Clarion control underneath. |
-| [vuPasswordToggle](vuPasswordToggle.md) | Toggles a managed password control between masked and visible mode. |
 | [vuPlayWav](vuPlayWav.md) | Plays a .wav audio file and optionally waits for playback to complete before returning. |
 | [vuPrimaryLinkSpeed](vuPrimaryLinkSpeed.md) | Retrieves the speed of the primary network connection, in megabits per second (Mbps). |
 | [vuPrintExists](vuPrintExists.md) | Sends the specified file to the default printer if the file exists. |
@@ -163,6 +165,7 @@ This page lists all vuFileTools functions with a short description and links to 
 | [vuProcessorCount](vuProcessorCount.md) | Returns the number of logical processors available on the system. |
 | [vuQuotes](vuQuotes.md) | Returns the specified string with leading and trailing quotation marks added. |
 | [vuRecordWav](vuRecordWav.md) | Records audio from the microphone input and saves it as a WAV file. |
+| [vuRenameDirectory](vuRenameDirectory.md) | Renames an existing directory on the same volume without copying its contents; returns detailed Windows errors on failure. |
 | [vuRemoveChars](vuRemoveChars.md) | Returns a modified version of Strg with the characters specified in Chars removed. Behavior depends on the AllChars flag. |
 | [vuRemoveStartupShortcut](vuRemoveStartupShortcut.md) | Removes a shortcut (.lnk file) from the Windows Startup folder so that the specified program no longer runs automatically at startup. |
 | [vuReplaceChars](vuReplaceChars.md) | Legacy in-place substring replacement. Returns LONG 1, not a CSTRING; does not check destination capacity. |

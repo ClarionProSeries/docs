@@ -50,5 +50,26 @@ functions. Reviewing these examples often provides better context for
 understanding how the functions are used in real programs.</p>
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
+<h2 id="window-dimming-deployment">Window Dimming deployment</h2>
+<p>The new Window Dimming functions are part of
+<strong>vuFT5.dll</strong>, not the standalone cdWindowDim DLL. Use the
+matching <code>vuFT5.lib</code> when linking and deploy the
+corresponding <code>vuFT5.dll</code> alongside your application.
+<strong>A Windows 8-or-later compatibility manifest in the EXE is
+required to display the overlay.</strong> See <a
+href="window-dimming/troubleshooting.html">Window Dimming
+Troubleshooting</a>.</p>
+<p>Optional <a
+href="window-dimming/custom-messages.html">colored-message helpers</a>
+are compiled as Clarion procedures in one APP. A consuming EXE or DLL
+imports External declarations and links to the owner Data DLL. Deploy
+that Data DLL when used; it does not replace <code>vuFT5.dll</code>.</p>
+<p>The optional <a
+href="window-dimming/custom-message-windows.html">Custom Message Window
+extension</a> belongs on the actual message-window APP, including a Data
+DLL that implements that window. The separately imported Message
+Source/External TXAs and (for vuFileTools) Secure Login TXA install
+under <code>accessory\libsrc\win</code>, not
+<code>accessory\template\win</code>.</p>
 </body>
 </html>

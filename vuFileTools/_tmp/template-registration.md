@@ -19,3 +19,5 @@ If you decide not to allow that, or if you need to re-register the template at a
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+
+For Window Dimming, use the existing global extension and its **Auto-dim MESSAGE / STOP / HALT** option. The optional colored-message Source and External TXAs are imported separately as Clarion procedures. See [Custom Colored Message Procedures](window-dimming/custom-messages.md).

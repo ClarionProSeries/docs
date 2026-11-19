@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>appearance</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="window-dimming-appearance">Window Dimming Appearance</h1>
+<p>The default appearance is a <strong>black overlay with strength
+90</strong>. Strength is a value from 0 (transparent) to 255 (solid
+color). The global template supports a COLOR picker and a strength
+control. A browse extension or the <strong>Dim Parent Window</strong>
+code template can use global settings or a local override.</p>
+<p>When choosing a custom appearance, use <strong>Custom overlay
+color</strong>. The picker starts at <code>COLOR:Gray</code> for easier
+color selection. The normal <strong>Use default window
+appearance</strong> checkbox still generates black at strength 90. You
+can switch between the standard appearance and a custom color. Procedure
+and manual operations that follow the global appearance use the global
+values regardless of the disabled local custom fields.</p>
+<h2 id="choosing-custom-overlay-colors">Choosing custom overlay
+colors</h2>
+<p>The overlay is <strong>blended with the existing window</strong>, so
+its visible tint depends on the selected color, the strength, and the
+window underneath. At strength 90, <code>COLOR:Blue</code> may appear
+lavender over a light browse instead of pure blue. Red can look pink,
+and green can look pale green.</p>
+<p>For the best result, try a custom RGB shade and adjust the strength
+while viewing your actual application. Adding green to a blue overlay,
+for example, can produce a softer sky-blue tint. Increasing strength
+makes the tint more noticeable but reduces the readability of the dimmed
+window. The standard <strong>black overlay at strength 90</strong>
+remains available through <strong>Use default window
+appearance</strong>.</p>
+<p>If the Custom color picker preview appears black, check <strong>HSL
+Lightness (L)</strong> and see <a href="troubleshooting.html">Window
+Dimming Troubleshooting</a>. The custom color picker starts at
+<code>COLOR:Gray</code> for easy selection.</p>
+<p>These RGB values are shown as an illustrative direct call:</p>
+<pre class="clarion"><code>DimResult = vuFTDimWindowEx(0{PROP:Handle},90,0,180,0)</code></pre>
+<p>This chooses a green overlay. For a synchronous call, follow it with
+<code>vuFTRestoreWindow(0{PROP:Handle})</code> after the called
+procedure returns. The template uses Clarion <code>BAND</code> and
+<code>BSHIFT</code> when converting the COLOR picker value to RGB
+components.</p>
+<p>For meanings of arguments and return values, see <a
+href="functions/vuFTDimWindowEx.html">vuFTDimWindowEx</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

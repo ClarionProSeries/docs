@@ -11,150 +11,444 @@
   <!-- vuFileTools root pages -->
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/introduction.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/requirements.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/install.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/template-registration.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/template-usage.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/deployment.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/functions/</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/whatsnew.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/version-history.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/support.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/prohelpstudio.html</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <priority>0.4</priority>
   </url>
 
   <!-- vuFileTools categories -->
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/desktop-and-other-functions.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/drives-and-storage.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/email.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/files-and-folders.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/fonts.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/interprocess-communications.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/network-information.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/printer-info.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/programs-and-applications.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/registry.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/string-manipulation-and-data-conversion.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/system-information.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/wav-files.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/windows-animation.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/windows-information.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clarionproseries.github.io/docs/vuFileTools/categories/windows-manipulation-saving-and-printing.html</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.7</priority>
+  </url>
+
+  <!-- vuFileTools Build 212: Window Dimming guides and reference -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/appearance.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/automatic-browse.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/automatic-messages.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/custom-message-windows.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/custom-messages.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTDimWindow.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTDimWindowEx.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTGetDimmingEnabled.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTRegisterMessageWindow.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTRestoreWindow.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTSetDimmingEnabled.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTUnregisterMessageWindow.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTWindowClosing.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/functions/vuFTWindowRegisterChild.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/hand-coded.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/manual.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/multi-dll.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/runtime-controls.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/started-children.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/vuFileTools/window-dimming/troubleshooting.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- cdWindowDim 1.0 Build 034 documentation -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/getting-started/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/codedrops.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/deployment.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDDimWindow.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDDimWindowEx.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDGetDimmingEnabled.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDRegisterMessageWindow.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDRestoreWindow.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDSetDimmingEnabled.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDUnregisterMessageWindow.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDWindowClosing.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/functions/CDWindowRegisterChild.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/automatic-browse.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/automatic-messages.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/custom-message-windows.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/custom-messages.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/manual-dimming.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/multi-dll.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/runtime-controls.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/started-children.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/temporarily-disable.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/guides/window-appearance.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/hand-coded-integration.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/install.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/introduction.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/prohelpstudio.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/requirements.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/support.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/template-registration.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/template-usage.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/troubleshooting.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/version-history.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/cdWindowDim/whatsnew.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.6</priority>
   </url>
 
   <!-- ProPath root and main sections -->

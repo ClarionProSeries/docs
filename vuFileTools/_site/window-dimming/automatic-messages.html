@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>automatic-messages</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Window
+Dimming</a></p>
+<h1 id="automatic-message-dimming">Automatic Message Dimming</h1>
+<p>When Window Dimming is enabled, supported <code>MESSAGE()</code>,
+<code>STOP()</code> and <code>HALT()</code> dialogs automatically dim
+the window behind them, including ordinary Clarion-generated
+confirmation messages. Supported CapeSoft MessageBox windows also work
+automatically.</p>
+<p>In <strong>vuFileTools Initialization</strong> &gt; <strong>Window
+Dimming</strong>, uncheck <strong>Disable window dimming
+templates</strong>, then generate and compile. <strong>Auto-dim MESSAGE
+/ STOP / HALT</strong> is already checked. No changes to your existing
+MESSAGE calls are necessary.</p>
+<h2 id="optional-settings">Optional settings</h2>
+<ul>
+<li>To turn off automatic MESSAGE dimming for an APP, clear
+<strong>Auto-dim MESSAGE / STOP / HALT</strong> in the global
+extension.</li>
+<li>To turn it off for a particular window, use <strong>Disable message
+dimming here</strong> in that window's <strong>vuFileTools - Window and
+Message Dimming</strong> procedure extension.</li>
+<li>For a black, blue or red overlay on a particular call, see <a
+href="custom-messages.html">Custom Colored Message Procedures</a>.</li>
+<li>For your own message replacement window, see <a
+href="custom-message-windows.html">Custom Message Windows</a>.</li>
+</ul>
+<p>The running EXE must include a Windows 8-or-later compatibility
+manifest. See <a href="troubleshooting.html">Troubleshooting</a>.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Window
+Dimming</a></p>
+</body>
+</html>

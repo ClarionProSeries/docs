@@ -30,10 +30,143 @@
 <p><a href="index.html">Home</a> | <a href="functions/index.html">All
 functions</a> | <a href="categories/index.html">Categories</a></p>
 <h1 id="whats-new-in-vufiletools">What's New in vuFileTools</h1>
-<p>Version: 5.0 (Build 209)</p>
-<p>Release date: 2026-10-16</p>
+<p>Version: 5.0 (Build 212)</p>
 <p>This page highlights new items in the Version 5 cycle and links to
 their reference topics.</p>
+<h2 id="whats-new-in-build-212">What's New in Build 212</h2>
+<p><strong>Release date: November 18, 2026.</strong> vuFileTools now
+offers optional automatic dimming behind existing supported
+<code>MESSAGE()</code>, <code>STOP()</code> and <code>HALT()</code>
+calls. It works with ordinary Clarion dialogs and supported CapeSoft
+MessageBox windows without changing existing message calls. The
+automatic MESSAGE option is preselected when Window Dimming is enabled.
+Uncheck <strong>Disable window dimming templates</strong> in the global
+extension and compile; individual MESSAGE calls and normal window
+procedures need no changes. You can disable the effect for individual
+windows.</p>
+<ul>
+<li><strong>Custom Message Window</strong> procedure extension for
+developer-written or other supported message windows. Add it to the
+actual message window procedure; it works whether automatic message
+dimming is on or off. See <a
+href="window-dimming/custom-message-windows.html">Custom Message
+Windows</a>.</li>
+<li>Three optional Clarion Source/External message procedures provide
+black, blue and red parent overlays while preserving normal
+<code>MESSAGE()</code> arguments and return values.</li>
+<li>Add the global extension and compile to automatically dim behind
+supported messages; optional procedure settings and direct calls give
+developers more control.</li>
+<li><a href="window-dimming/custom-messages.html">Single-EXE and Data
+DLL instructions</a> describe how to import the helper procedures into
+applications with shared code.</li>
+</ul>
+<p>See the <a href="window-dimming/automatic-messages.html">Automatic
+Message Dimming guide</a> and <a
+href="window-dimming/functions/index.html">Window Dimming function
+reference</a>. Existing vuFileTools customers receive this update
+without an additional purchase.</p>
+<hr />
+<h2 id="whats-new-in-build-211">What's New in Build 211</h2>
+<p><strong>Released: November 16, 2026.</strong> Build 211 adds <a
+href="window-dimming/index.html">Window Dimming</a> to vuFileTools. The
+implementation has seven <code>vuFT</code> DLL functions, automatic
+ABC/Legacy browse dimming (opt-in), per-browse appearance overrides,
+manual Dim/Restore, registered START child handling, and runtime
+enable/disable/status controls.</p>
+<p>See the <a href="window-dimming/index.html">Window Dimming
+guides</a>, <a href="window-dimming/functions/index.html">Window Dimming
+function reference</a>, and <a
+href="window-dimming/troubleshooting.html">manifest troubleshooting</a>.
+The feature is also offered independently as the <a
+href="https://clarionproseries.com/products/cdwindowdim">cdWindowDim
+Code Drop</a> in the <a
+href="https://clarionproseries.com/code-drops">Code Drops
+family</a>.</p>
+<p><strong>Existing vuFileTools 5 customers receive the Window Dimming
+update at no additional charge.</strong></p>
+<hr />
+<h2 id="whats-new-in-build-210">What's New in Build 210</h2>
+<p><strong>Released: October 27, 2026.</strong> Build 210 adds <a
+href="functions/vuRenameDirectory.html">vuRenameDirectory</a>, improves
+long-command execution in <a href="functions/vuRun.html">vuRun</a>,
+corrects hidden-window handling in the RunEx family, and resolves the
+vuFileTools/vuMailKit Secure Login prototype conflict.</p>
+<h3 id="new-function-in-build-210">New Function in Build 210</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="functions/vuRenameDirectory.html">vuRenameDirectory</a></td>
+<td>Renames a Windows directory, including its existing files and
+subdirectories, on the same volume without copying or deleting the
+contents. Reports success, invalid input, or a negative Windows error
+number.</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <strong>full old path and full new path</strong>. The
+destination must not already exist, and the rename must stay on the same
+volume. For example, rename <code>C:\Data\Current</code> to
+<code>C:\Data\Archive</code> without having to move individual files.
+The new function uses normal, caller-sized CSTRING path parameters and
+does not impose a <code>CSTRING(256)</code> declaration limit; Windows
+path limits still apply.</p>
+<p>The existing <a href="functions/vuMove.html">vuMove</a> and <a
+href="functions/vuCreateDirectory.html">vuCreateDirectory</a> functions
+are unchanged. The full declaration, usage example, and Windows error
+behavior are documented on the <a
+href="functions/vuRenameDirectory.html">vuRenameDirectory reference
+page</a>.</p>
+<h3 id="run-function-corrections">Run function corrections</h3>
+<ul>
+<li><strong><a href="functions/vuRun.html">vuRun</a>:</strong> Supports
+longer command lines, corrects launch failures encountered with longer
+commands, and improves hidden execution to avoid flashing console
+windows. The existing calling convention and 1/0 launch result are
+unchanged. Explicit <code>.bat</code> and <code>.cmd</code> scripts
+remain supported.</li>
+<li><strong><a href="functions/vuRunEx.html">vuRunEx</a>, <a
+href="functions/vuRunExDelay.html">vuRunExDelay</a>, <a
+href="functions/vuRunExWait.html">vuRunExWait</a>, <a
+href="functions/vuRunExDelayWait.html">vuRunExDelayWait</a>:</strong>
+Respect <code>ShowCmd = 0</code> as hidden execution
+(<code>SW_HIDE</code>) rather than forcibly showing a normal window.
+Applications that previously used <code>ShowCmd = 0</code> as an
+undocumented way of requesting normal display should pass <code>1</code>
+instead.</li>
+<li>A return of <code>1</code> reports that a process was successfully
+launched, <strong>not</strong> that the external program finished
+successfully. Windows and <code>cmd.exe</code> limits still apply. See
+<a href="cstring-sizes.html">CSTRING sizes</a> and the function
+reference pages.</li>
+</ul>
+<h3 id="secure-login-compatibility-correction">Secure Login
+compatibility correction</h3>
+<p>Build 210 permanently renames the three vuFileTools password-control
+functions to <code>vuFTPasswordInit</code>,
+<code>vuFTPasswordToggle</code> and <code>vuFTPasswordCleanup</code>.
+This eliminates indistinguishable prototype errors when vuFileTools and
+vuMailKit are installed in the same Clarion application. vuMailKit is
+unchanged.</p>
+<p>Older reference URLs for <code>vuPasswordInit</code>,
+<code>vuPasswordToggle</code> and <code>vuPasswordCleanup</code> now
+show migration notices linking directly to the new function pages; those
+older names are <strong>not</strong> available for calling.</p>
+<p><strong>Existing Secure Login users must update their previously
+imported window or direct calls and rebuild before deploying the new
+DLL.</strong> The updated template and TXA use the new names. A
+customized Secure Login window should have its embeds updated rather
+than being overwritten without review. See <a
+href="secure-login.html">Secure Login Window and Build 210
+Migration</a>.</p>
+<hr />
 <h2 id="whats-new-in-build-209">What's New in Build 209</h2>
 <p>Build 209 introduces a safer, buffer-aware alternative to
 vuReplaceChars for replacing text in Clarion CSTRINGs. It also corrects
@@ -337,8 +470,9 @@ see the same comparison table there so it is easier to find related
 functions and choose the one that best matches your scenario.</p>
 <hr />
 <h2 id="whats-new-in-build-206">What's New in Build 206</h2>
-<p>Build 206 added the new password visibility helper feature for
-Clarion applications.</p>
+<p>Build 206 originally added the password visibility helper feature for
+Clarion applications. The three vuFileTools exported functions were
+renamed in Build 210 for compatibility with vuMailKit.</p>
 <table>
 <thead>
 <tr>
@@ -348,7 +482,7 @@ Clarion applications.</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="functions/vuPasswordInit.html">vuPasswordInit</a></td>
+<td><a href="functions/vuFTPasswordInit.html">vuFTPasswordInit</a></td>
 <td>Retrofits a standard Clarion password entry control with a more
 modern UI using a single function call. Automatically creates the
 show/hide eye button, uses icons compiled into the DLL, supports cue
@@ -357,7 +491,8 @@ behavior so the field works more like modern password entry controls
 users expect.</td>
 </tr>
 <tr>
-<td><a href="functions/vuPasswordToggle.html">vuPasswordToggle</a></td>
+<td><a
+href="functions/vuFTPasswordToggle.html">vuFTPasswordToggle</a></td>
 <td>Toggles a managed password control between visible-text mode and
 normal masked mode. Ideal for wiring a Show Password button or eye
 icon.</td>

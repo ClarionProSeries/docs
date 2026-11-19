@@ -13,6 +13,10 @@ You can update or remove one version of vuFileTools without affecting any other 
 
 ---
 
+## Secure Login window
+
+The vuFileTools template includes an **Import vuFileTools Secure Login** utility. If you are upgrading from a release earlier than Build 210, see the [Secure Login import and migration instructions](secure-login.md) before rebuilding or replacing the DLL.
+
 ## Installed File Locations
 
 By default, the installers follow the standards and guidelines for Clarion third-party developers.
@@ -31,6 +35,10 @@ C:\Clarion12\accessory\lib
     vuFT5.lib
 C:\Clarion12\accessory\template\win
     vuFileTools.tpl
+C:\Clarion12\accessory\libsrc\win
+    vuFTMsg_Source.txa
+    vuFTMsg_External.txa
+    vuFileToolsSecureLogin.txa
 
 C:\Clarion12\accessory\Documents\LANSRAD\vuFileTools
     vuFileTools.chm
@@ -60,3 +68,5 @@ Each demo folder contains the files relevant to that example application.
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+
+**Message helper utilities:** Install `vuFTMsg_Source.txa`, `vuFTMsg_External.txa`, and `vuFileToolsSecureLogin.txa` in `accessory\libsrc\win`, not the template directory. The `vuFileTools.tpl` utility entries import the optional colored MESSAGE helpers, their external declarations, and the Secure Login window using Clarion's normal source-file search path.

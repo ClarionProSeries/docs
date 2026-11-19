@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>started-children</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="dimming-a-window-started-with-start">Dimming a Window Started
+with START</h1>
+<p>A START-launched procedure runs on a separate Clarion thread.
+<strong>Dim the parent, START the child, register its thread, and tell
+vuFileTools when the child closes.</strong> Do not Restore immediately
+after START.</p>
+<h2 id="parent-accepted-button-embed">Parent: accepted button embed</h2>
+<p>Create a local LONG variable named <code>StartedThread</code>. If
+using a Clarion <strong>Call a Procedure</strong> action with
+<strong>Initiate Thread</strong> selected, set <strong>Return Thread
+Variable</strong> to that variable. Insert the code templates on either
+side of Clarion's START operation in this exact order:</p>
+<ol type="1">
+<li><strong>vuFileTools - Dim Parent Window</strong> before START</li>
+<li>The normal Clarion START call, assigning its returned thread to
+<code>StartedThread</code></li>
+<li><strong>vuFileTools - Register Started Procedure</strong>
+immediately after START</li>
+</ol>
+<p>Equivalent hand code:</p>
+<pre class="clarion"><code>vuFTDimWindowEx(0{PROP:Handle},90,0,0,0)
+StartedThread = START(MyStartedProcedure,25000)
+vuFTWindowRegisterChild(0{PROP:Handle},StartedThread)</code></pre>
+<h2 id="child-close-window-embed">Child: Close Window embed</h2>
+<p>In the started child procedure, insert <strong>vuFileTools - Started
+Child Closing</strong> in its <strong>Close Window</strong> embed. Use
+that embed in ABC or Legacy, not only the Close button's Accepted
+embed.</p>
+<pre class="clarion"><code>vuFTWindowClosing(THREAD())</code></pre>
+<p>The parent stays dimmed while other registered START child claims
+remain. Multiple children may close in a different order. A START
+procedure without a registration call is not tracked automatically.</p>
+<p>Test title-bar X, normal close button, multiple children and the
+absence of premature Restore. See <a
+href="functions/vuFTWindowRegisterChild.html">vuFTWindowRegisterChild</a>
+and <a
+href="functions/vuFTWindowClosing.html">vuFTWindowClosing</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

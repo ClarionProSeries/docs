@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>hand-coded-integration</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="hand-coded-integration-without-the-template">Hand-Coded
+Integration Without the Template</h1>
+<p>The global template is recommended for normal Clarion applications.
+Use this page only when you deliberately want to call cdWindowDim from
+your own Clarion code.</p>
+<h2 id="declare-the-dll-functions">Declare the DLL functions</h2>
+<p>Add the following MAP declarations to the APP or hand-coded program
+that calls the functions:</p>
+<pre class="clarion"><code>MAP
+  MODULE(&#39;CDWindowDim.dll&#39;)
+    CDDimWindow(LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDDimWindow&#39;)
+    CDDimWindowEx(LONG,LONG,LONG,LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDDimWindowEx&#39;)
+    CDRestoreWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDRestoreWindow&#39;)
+    CDWindowRegisterChild(LONG,LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDWindowRegisterChild&#39;)
+    CDWindowClosing(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDWindowClosing&#39;)
+    CDSetDimmingEnabled(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDSetDimmingEnabled&#39;)
+    CDGetDimmingEnabled(),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDGetDimmingEnabled&#39;)
+    CDRegisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDRegisterMessageWindow&#39;)
+    CDUnregisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;CDUnregisterMessageWindow&#39;)
+  END
+END</code></pre>
+<p>Use the matching <strong>CDWindowDim.lib</strong> when linking your
+program, and deploy <strong>CDWindowDim.dll</strong> with your EXE. Your
+application must include the <a href="requirements.html">required
+Windows compatibility manifest</a>.</p>
+<h2 id="dim-a-parent-during-a-synchronous-procedure-call">Dim a parent
+during a synchronous procedure call</h2>
+<p>In the parent window's code, use the current window handle. For
+example:</p>
+<pre class="clarion"><code>DimResult = CDDimWindow(0{PROP:Handle},90)
+MyUpdateWindow()
+RestoreResult = CDRestoreWindow(0{PROP:Handle})</code></pre>
+<p>Declare <strong>DimResult</strong> and <strong>RestoreResult</strong>
+as local LONG variables if you want to examine the function results.</p>
+<h2 id="choose-a-different-overlay-color">Choose a different overlay
+color</h2>
+<p>CDDimWindowEx accepts strength followed by red, green, and blue
+values between 0 and 255:</p>
+<pre class="clarion"><code>DimResult = CDDimWindowEx(0{PROP:Handle},90,0,180,0)</code></pre>
+<p>This example chooses green. Follow the call with a matching Restore
+for a synchronous operation.</p>
+<h2 id="dim-a-window-launched-with-start">Dim a window launched with
+START</h2>
+<p>A START-launched child window needs a different sequence. The parent
+dims itself and starts the child, then associates the returned
+<strong>thread number</strong> with the parent. The child notifies
+cdWindowDim when it closes. See <a
+href="guides/started-children.html">Dimming a Window Started with
+START</a> for the complete parent and child examples.</p>
+<h2 id="enable-disable-toggle-or-read-dimming-status">Enable, disable,
+toggle, or read dimming status</h2>
+<pre class="clarion"><code>CDSetDimmingEnabled(1)                         ! Enable
+CDSetDimmingEnabled(0)                         ! Disable
+CDSetDimmingEnabled(1 - CDGetDimmingEnabled()) ! Toggle
+ToggleStatus = CDGetDimmingEnabled()           ! 1 on, 0 off</code></pre>
+<p>A hand-coded APP needs its own declarations and library dependency.
+The <strong>Disable this template</strong> option does not remove
+programmer-written calls.</p>
+<h2 id="register-your-own-message-window">Register your own message
+window</h2>
+<p>If you prefer direct calls rather than the <strong>Custom Message
+Window</strong> extension, call these functions <strong>inside the
+message WINDOW procedure</strong>:</p>
+<pre class="clarion"><code>! After the message window has opened:
+CDRegisterMessageWindow(0{PROP:Handle})
+
+! As the message window closes:
+CDUnregisterMessageWindow(0{PROP:Handle})</code></pre>
+<p>These two functions are included in the MAP above. Place the
+registration after the message WINDOW opens and the unregistration
+before it closes. They are not needed for standard
+<code>MESSAGE()</code> calls when automatic message dimming is
+enabled.</p>
+<p><strong>Tip:</strong> Open the included demo APP in Clarion and
+select <strong>Source</strong>. You can see exactly where the template
+places its calls in working generated code.</p>
+<p>See the <a href="guides/custom-message-windows.html">Custom Message
+Windows guide</a> for the template alternative.</p>
+<p>See the <a href="functions/index.html">DLL Function Reference</a> for
+every public function.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h2 id="message-observer-and-colored-helpers">Message observer and
+colored helpers</h2>
+<p>Normal <code>MESSAGE()</code>, <code>STOP()</code> and
+<code>HALT()</code> dimming is managed by the global and procedure
+extensions. Optional <a href="guides/custom-messages.html">Custom
+Colored Message Procedures</a> can be imported through Clarion
+Utilities. You do not need to set up automatic message observation with
+hand-written code.</p>
+</body>
+</html>

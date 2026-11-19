@@ -6,7 +6,7 @@ keywords: ["vuFileTools", "string", "Clarion", "replace", "substring", "legacy",
 function_name: "vuReplaceChars"
 category: "General"
 version_added: "5.0"
-last_updated: "2026-10-16"
+last_updated: "2026-11-16"
 ---
 
 [Home](../index.md) | [All functions](index.md) | [Categories](../categories/index.md)
@@ -55,7 +55,7 @@ MESSAGE(MainStrg)  ! Microsoft Windows Vista is no longer supported.
 
 ### Notes
 
-- All occurrences of OldStrg are replaced; string matching follows the underlying PowerBASIC REPLACE statement's behavior.
+- All occurrences of OldStrg are replaced, using the function's existing matching behavior.
 - MainStrg must have space for the complete resulting text **plus** its null terminator. A Clarion CSTRING(256) has room for 255 text bytes plus one null byte.
 - The original function cannot verify capacity and therefore can overrun an undersized destination, particularly with longer replacement text.
 - The Build 209 release corrects this documentation but **does not change the legacy function's signature or implementation**.

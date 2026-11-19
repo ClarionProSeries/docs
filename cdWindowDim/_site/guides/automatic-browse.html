@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>automatic-browse</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+<h1 id="automatic-window-dimming-for-browses">Automatic Window Dimming
+for Browses</h1>
+<p><strong>Add cdWindowDim - Global Settings and compile.</strong>
+Supported ABC and Legacy browse procedures automatically dim the browse
+when an update form opens and restore it when the form closes.</p>
+<ol type="1">
+<li>Add <strong>cdWindowDim - Global Settings</strong> to the APP
+containing your browse.</li>
+<li>Leave <strong>Enable automatic browse dimming</strong>
+selected.</li>
+<li>Compile and open a browse's update form to see the standard
+effect.</li>
+</ol>
+<p>For a browse that should not dim, open its <strong>cdWindowDim -
+Window and Message Dimming</strong> extension and select <strong>Disable
+auto dimming for this procedure</strong>.</p>
+<p>To give one browse a different appearance, clear <strong>Use global
+window appearance settings</strong> on the procedure and choose the new
+strength and overlay color. The other browse procedures keep the global
+settings.</p>
+<p>The browse dims; its update form remains clear. The automatic feature
+applies to supported browse/update calls. For another kind of window,
+use <a href="manual-dimming.html">Manual Dim and Restore</a> or <a
+href="started-children.html">Dimming a Window Started with
+START</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+</body>
+</html>

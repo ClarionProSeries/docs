@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>custom-messages</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="automatic-messages.html">Automatic Message Dimming</a></p>
+<h1 id="custom-colored-message-procedures">Custom Colored Message
+Procedures</h1>
+<p>Before importing or using these optional procedures, uncheck
+<strong>Disable window dimming templates</strong> in the
+<strong>vuFileTools Initialization</strong> global extension. The
+procedures use the Window Dimming functions supplied by vuFT5.dll.</p>
+<p>vuFileTools includes three optional Clarion procedures for choosing a
+specific dimming color behind one message. They accept ordinary
+<code>MESSAGE()</code> arguments and return the selected button
+result:</p>
+<table>
+<thead>
+<tr>
+<th>Procedure</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vuFTDimMessage</code></td>
+<td>Black overlay</td>
+</tr>
+<tr>
+<td><code>vuFTDimMessageInfo</code></td>
+<td>Blue overlay</td>
+</tr>
+<tr>
+<td><code>vuFTDimMessageError</code></td>
+<td>Red overlay</td>
+</tr>
+</tbody>
+</table>
+<p>You do not need these procedures for normal <code>MESSAGE()</code>,
+<code>STOP()</code> or <code>HALT()</code> calls: those can already dim
+automatically when the global automatic-message setting is enabled
+(preselected when Window Dimming is enabled).</p>
+<h2 id="import-into-a-single-exe-application">Import into a single-EXE
+application</h2>
+<ol type="1">
+<li>Add the product's <strong>global extension</strong> to your
+APP.</li>
+<li>Open <strong>Application &gt; Utilities</strong> (Ctrl+U).</li>
+<li>Select <strong><code>ImportvuFTDimMessage</code> — Customizable
+procedures (Single EXE or Data DLL)</strong>.</li>
+<li>Generate and compile the APP. The three message procedures are ready
+to call.</li>
+</ol>
+<h2 id="use-them-in-your-code">Use them in your code</h2>
+<pre class="clarion"><code>vuFTDimMessage(&#39;Hello World&#39;,&#39;Information&#39;)
+Result = vuFTDimMessageInfo(&#39;The operation completed&#39;,&#39;Information&#39;)
+CASE vuFTDimMessageError(&#39;Try again?&#39;,&#39;Error&#39;)
+OF 1
+  ! Respond to the selected button.
+END</code></pre>
+<p>The functions support the normal optional <code>MESSAGE()</code>
+arguments. If you save a button response, declare the receiving variable
+as <code>UNSIGNED</code>.</p>
+<p>The <code>vuFTMessageAutoDimPushSuppression</code> and
+<code>vuFTMessageAutoDimPopSuppression</code> DLL declarations in the
+global template are used by these <strong>three imported colored-message
+procedures</strong>. You do not call either function yourself; the
+imported procedures use them automatically.</p>
+<h2 id="multi-dll-applications">Multi-DLL applications</h2>
+<p>The two import utilities have different jobs:</p>
+<table>
+<thead>
+<tr>
+<th>APP</th>
+<th>Select this utility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data DLL</strong> (or one APP owning the procedures)</td>
+<td><strong><code>ImportvuFTDimMessage</code> — Customizable procedures
+(Single EXE or Data DLL)</strong></td>
+</tr>
+<tr>
+<td><strong>Every other APP that calls them</strong></td>
+<td><strong><code>ImportvuFTDimMessageDec</code> — Customizable
+procedure declarations (other APPs in multi-DLL solution)</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Import the first utility <strong>once</strong>, into the owning APP.
+Use the second in each other DLL or EXE APP that needs to call the
+procedures. <strong>Never import both into the same APP.</strong>
+Compile the Data DLL before building its callers.</p>
+<p>These utility entries automatically import the installed procedure
+files from Clarion's <code>accessory\libsrc\win</code> location. You do
+not need to manually locate them.</p>
+<p>For complete multi-DLL setup, see <a href="multi-dll.html">Multi-DLL
+Applications</a>.</p>
+<p><a href="../index.html">Home</a> | <a
+href="automatic-messages.html">Automatic Message Dimming</a></p>
+</body>
+</html>

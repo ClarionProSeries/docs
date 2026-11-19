@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>troubleshooting</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="window-dimming-troubleshooting">Window Dimming
+Troubleshooting</h1>
+<h2 id="no-overlay-appears">No overlay appears</h2>
+<p><strong>First check the Windows compatibility manifest on the
+application EXE.</strong> A Windows 8-or-later compatibility manifest is
+required for the visual effect. The Clarion templates may generate code
+and the DLL may load correctly without the effect becoming visible.</p>
+<p>Then confirm the following:</p>
+<ul>
+<li>The <strong>vuFileTools global extension</strong> is installed in
+the APP containing the calling procedures.</li>
+<li><strong>Enable automatic browse dimming</strong> is checked if
+relying on automatic behavior. It is selected automatically when you
+enable the master Window Dimming switch.</li>
+<li>The affected browse has not selected <strong>Disable auto dimming
+for this procedure</strong> in its <strong>vuFileTools - Window and
+Message Dimming</strong> extension.</li>
+<li>The <strong>vuFT5.lib</strong> import library was regenerated from
+the compiled <strong>vuFT5.dll</strong>, and the same DLL is copied next
+to the customer EXE or available on its normal DLL search path.</li>
+<li>Confirm the APP uses the current vuFileTools DLL and matching import
+LIB.</li>
+<li>For START children, use Register after START and Window Closing in
+the child's Close Window embed.</li>
+</ul>
+<h2 id="custom-overlay-shade-differs-from-the-color-picker">Custom
+overlay shade differs from the color picker</h2>
+<p>The overlay is translucent and blends with the original window. A
+blue preset may look lavender on a light browse, and red may look pink.
+Try adjusting the custom RGB shade and dimming strength, then test the
+actual effect. See <a href="appearance.html">Choosing Custom Overlay
+Colors</a>.</p>
+<h2 id="custom-color-preview-is-black">Custom color preview is
+black</h2>
+<p>Clarion's <strong>Custom</strong> color picker uses Hue, Saturation,
+and Lightness (HSL). When it starts from black, <strong>Lightness (L)
+can be 0</strong>. Clicking around the hue/saturation field without
+increasing Lightness can leave the preview black. A visible custom color
+can be selected once Lightness is increased.</p>
+<p>The <strong>Custom overlay color</strong> field starts at
+<code>COLOR:Gray</code>. <strong>Use default window appearance</strong>
+generates the standard black overlay at strength 90.</p>
+<p>If the preview is black:</p>
+<ol type="1">
+<li>Increase <strong>HSL Lightness (L)</strong> from <strong>0</strong>
+to about <strong>50%</strong>, using its numeric field or vertical
+lightness slider.</li>
+<li>Choose the desired hue and shade, verifying the colored preview.
+Double-click the chosen color or its colored selection square to commit
+it when necessary.</li>
+<li>Check that the <strong>Custom overlay color</strong> template field
+has the expected value before generating and compiling.</li>
+<li>Alternatively, accept a visible preset from <strong>Basic</strong>
+first, then return to <strong>Custom</strong>.</li>
+</ol>
+<p>Window Dimming is a client-area visual effect, not a lockout or focus
+command. With both cdWindowDim and vuFileTools in one application, use
+the correct <code>CD...</code> or <code>vuFT...</code> exports and test
+the combined layout explicitly.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>runtime-controls</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="window-dimming-runtime-controls">Window Dimming Runtime
+Controls</h1>
+<p>First uncheck <strong>Disable window dimming templates</strong> in
+the vuFileTools global extension. The four runtime code templates are
+<strong>Enable Dimming</strong>, <strong>Disable Dimming</strong>,
+<strong>Toggle Dimming</strong>, and <strong>Get Dimming
+Status</strong>. These affect the running process after the template has
+been configured and linked.</p>
+<p>Equivalent calls:</p>
+<pre class="clarion"><code>vuFTSetDimmingEnabled(1)                           ! Enable
+vuFTSetDimmingEnabled(0)                           ! Disable
+vuFTSetDimmingEnabled(1 - vuFTGetDimmingEnabled()) ! Toggle
+DimmingEnabled = vuFTGetDimmingEnabled()           ! 1=on, 0=off</code></pre>
+<p>Declare <code>DimmingEnabled</code> as LONG. The Get Dimming Status
+code template uses Clarion's <code>FIELD</code> picker for an existing
+or new LONG variable.</p>
+<p>To remember a customer's preference, save it using <strong>your
+application's own INI/settings</strong> mechanism and apply it at
+startup. vuFileTools does not persist the setting for you. Use the code
+templates or functions to control the visible effect while the
+application runs.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

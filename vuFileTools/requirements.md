@@ -4,7 +4,7 @@ summary: "vuFileTools works with all versions of Clarion:"
 description: "vuFileTools works with all versions of Clarion:"
 keywords: ["documentation", "versions", "vuFileTools", "Clarion", "requirements", "clarion", "vuFileTools", "with", "works"]
 page_type: "overview"
-last_updated: "2026-09-08"
+last_updated: "2026-11-19"
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
@@ -31,4 +31,10 @@ Both AppGen and hand-coded applications are supported.
 
 vuFileTools works with both single EXE and multi-DLL applications.
 
+## Window Dimming manifest requirement
+
+Applications using Window Dimming must include a **Windows 8-or-later compatibility manifest** in the EXE, or the visual overlay may not appear. See [Window Dimming Troubleshooting](window-dimming/troubleshooting.md).
+
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+
+**Window Dimming only:** A Windows 8-or-later compatibility manifest in the running EXE is required for the overlay effect. This is not a general requirement for the other vuFileTools functions. See [Window Dimming](window-dimming/index.md).

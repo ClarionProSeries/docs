@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>manual-dimming</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+<h1 id="manual-dim-and-restore">Manual Dim and Restore</h1>
+<p>Use the manual code templates when you want to dim a parent window
+while another <strong>synchronous</strong> window or report preview is
+open. A synchronous call returns after the called procedure finishes, so
+the Restore operation belongs immediately after that call.</p>
+<p>For a window launched with <strong>START</strong>, follow <a
+href="started-children.html">Dimming a Window Started with START</a>
+instead.</p>
+<h2 id="using-the-code-templates">Using the code templates</h2>
+<ol type="1">
+<li>In the calling window, open the button's <strong>Accepted</strong>
+embeds. Set the button action to <strong>No Special Action</strong> if
+you are inserting the procedure call yourself.</li>
+<li>Insert <strong>cdWindowDim - Dim Parent Window</strong>.</li>
+<li>Insert Clarion's <strong>Call a Procedure</strong> code template,
+choosing the window or report you want to open.</li>
+<li>Insert <strong>cdWindowDim - Restore Parent Window</strong>.</li>
+<li>Check the generated source to confirm that the call sits between Dim
+and Restore.</li>
+</ol>
+<p>The source should resemble:</p>
+<pre class="clarion"><code>CDDimWindowEx(0{PROP:Handle},90,0,0,0)
+MyUpdateWindow()
+CDRestoreWindow(0{PROP:Handle})</code></pre>
+<p>Use your actual procedure name and the appropriate accepted-call
+context. The Dim template lets you use the global appearance or choose a
+different color and strength.</p>
+<h2 id="writing-the-calls-by-hand">Writing the calls by hand</h2>
+<p>After setting up the DLL declarations described in <a
+href="../hand-coded-integration.html">Hand-Coded Integration</a>, the
+equivalent parent Accepted code is:</p>
+<pre class="clarion"><code>DimResult = CDDimWindow(0{PROP:Handle},90)
+MyUpdateWindow()
+RestoreResult = CDRestoreWindow(0{PROP:Handle})</code></pre>
+<p><strong>DimResult</strong> and <strong>RestoreResult</strong> are
+LONG variables if you choose to inspect the results.</p>
+<p>Use this same balanced approach around a normal Clarion report
+preview. <strong>Do not use this recipe for a START-launched
+window.</strong> START returns before the new child window closes, so it
+needs the distinct <a href="started-children.html">START window
+workflow</a>.</p>
+<p>When temporarily disabling the code templates, disable the
+corresponding Dim and Restore inserts together. Otherwise one operation
+can remain without its matching partner.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+</body>
+</html>

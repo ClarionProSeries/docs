@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>introduction</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="cdwindowdim---introduction">cdWindowDim - Introduction</h1>
+<p>In a busy Clarion application, several windows may be open at once.
+When a user opens an edit form from a browse, the background can compete
+for attention. cdWindowDim gently changes the parent window's appearance
+while the active form stays clear.</p>
+<p><strong>To get started, add cdWindowDim - Global Settings to your APP
+and compile.</strong> That enables automatic browse/update and message
+dimming without editing individual procedures.</p>
+<p>Most developers can use the default black dimming effect. The
+built-in Clarion color picker makes it easy to use blue, green, or
+another color for particular windows. The strength setting controls how
+much of the selected color covers the parent.</p>
+<h2 id="messages-can-stand-out-too">Messages can stand out, too</h2>
+<p><strong>Automatic message dimming is enabled by default.</strong>
+Standard <code>MESSAGE()</code>, <code>STOP()</code> and
+<code>HALT()</code> calls—including Clarion-generated prompts such as
+<em>Are you sure you want to delete?</em>—dim the window behind the
+message without changing your calling code. Supported CapeSoft
+MessageBox windows work too. You can turn this off globally or disable
+message dimming for a particular procedure.</p>
+<p>For a different effect on an individual message, import the optional
+<a href="guides/custom-messages.html">black, blue, and red message
+procedures</a>. They follow normal <code>MESSAGE()</code> arguments and
+return values. You can use them in a single EXE or share them through a
+Data DLL.</p>
+<h2 id="more-than-browse-windows">More than browse windows</h2>
+<p>Supported ABC and Legacy browse/update operations can use automatic
+dimming. For other windows, you can place <strong>Dim Parent
+Window</strong> and <strong>Restore Parent Window</strong> around a
+normal procedure call or a report preview.</p>
+<p>When a window is launched with START, the calling procedure continues
+while the child stays open. cdWindowDim provides a way to keep the
+parent dimmed until that started child actually closes. See <a
+href="guides/started-children.html">Dimming a Window Started with
+START</a>.</p>
+<p>The product also supports multiple outstanding child operations and
+lets an application offer its users a runtime Enable/Disable
+control.</p>
+<h2 id="where-to-begin">Where to begin</h2>
+<p>Start with <a href="getting-started/index.html">Getting Started</a>
+for the simplest browse example. Use the <a
+href="guides/index.html">Task Guides</a> for manual windows, START,
+runtime controls, appearance choices, and multi-DLL applications.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<p>For an unrecognized custom message window, the optional <a
+href="guides/custom-message-windows.html">Custom Message Window
+extension</a> dims its owner without changing your message procedure or
+enabling global automatic detection.</p>
+</body>
+</html>

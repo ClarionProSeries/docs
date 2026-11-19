@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>runtime-controls</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+<h1 id="runtime-dimming-controls">Runtime Dimming Controls</h1>
+<p>Your application can let users turn the visible dimming effect on and
+off without changing the application's configuration or losing track of
+open child windows.</p>
+<h2 id="using-code-templates">Using code templates</h2>
+<p>Insert the appropriate code template into a button's
+<strong>Accepted</strong> embed, a menu command, or another executable
+location:</p>
+<table>
+<thead>
+<tr>
+<th>Code template</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cdWindowDim - Enable Dimming</strong></td>
+<td>Show current dimming effects and enable new ones.</td>
+</tr>
+<tr>
+<td><strong>cdWindowDim - Disable Dimming</strong></td>
+<td>Hide active effects and prevent new ones from being shown.</td>
+</tr>
+<tr>
+<td><strong>cdWindowDim - Toggle Dimming</strong></td>
+<td>Switch between enabled and disabled.</td>
+</tr>
+<tr>
+<td><strong>cdWindowDim - Get Dimming Status</strong></td>
+<td>Assign 1 or 0 to a LONG variable selected by the developer.</td>
+</tr>
+</tbody>
+</table>
+<p>The status template generates an assignment like this:</p>
+<pre class="clarion"><code>ToggleStatus = CDGetDimmingEnabled()</code></pre>
+<p>In <strong>Result LONG variable</strong>, type the name of an
+existing LONG, or click the selection button to choose or create one in
+the Clarion data dialog. The selected variable receives the status
+value. A result of 1 means enabled; 0 means disabled. You can read it
+when a window opens and again from a timer event if you want the status
+displayed live.</p>
+<h2 id="writing-the-calls-by-hand">Writing the calls by hand</h2>
+<p>Use the declarations explained in <a
+href="../hand-coded-integration.html">Hand-Coded Integration</a>. For
+example, these statements can be placed in a button or menu embed:</p>
+<pre class="clarion"><code>CDSetDimmingEnabled(0)                   ! Disable
+CDSetDimmingEnabled(1)                   ! Enable
+CDSetDimmingEnabled(1 - CDGetDimmingEnabled())  ! Toggle
+ToggleStatus = CDGetDimmingEnabled()     ! Read status</code></pre>
+<p>The on/off setting applies to the running process. Disabling it hides
+the effect but does not discard the relationships for already-open
+windows. Enabling again can restore the visible effect for those
+still-active relationships.</p>
+<h2 id="let-users-keep-their-preferred-setting">Let users keep their
+preferred setting</h2>
+<p>You can offer your customers an <strong>Enable window
+dimming</strong> option in a menu or preferences window. Save their
+choice using the INI file, configuration database, or other preferences
+system your application already uses. When the application starts, read
+that saved setting and enable or disable dimming accordingly.</p>
+<p>The code templates work in the same way: after reading the preference
+at startup, run either <strong>cdWindowDim - Enable Dimming</strong> or
+<strong>cdWindowDim - Disable Dimming</strong>. When saving a
+preference, use <strong>cdWindowDim - Get Dimming Status</strong> to
+read the current choice into a LONG variable.</p>
+<p>If you prefer direct function calls, the equivalent is:</p>
+<pre class="clarion"><code>! SavedDimming is a LONG loaded from your own preferences.
+IF SavedDimming
+  CDSetDimmingEnabled(1)
+ELSE
+  CDSetDimmingEnabled(0)
+END
+
+! When saving your preferences:
+SavedDimming = CDGetDimmingEnabled()</code></pre>
+<p><strong>SavedDimming</strong> is an example variable, not something
+created by cdWindowDim. Your application is responsible for reading it
+from and writing it to the preference store. cdWindowDim does not create
+or manage an INI file for this setting.</p>
+<p>When <strong>Disable this template</strong> is selected in global
+settings and the APP is rebuilt, the code-template inserts stop
+generating their calls. Handwritten calls are not automatically
+removed.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+</body>
+</html>

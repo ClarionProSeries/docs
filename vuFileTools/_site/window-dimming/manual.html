@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>manual</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+<h1 id="manual-dim-and-restore">Manual Dim and Restore</h1>
+<p>Use the <strong>vuFileTools - Dim Parent Window</strong> code
+template immediately before the procedure call and <strong>vuFileTools -
+Restore Parent Window</strong> immediately afterward. The equivalent
+Clarion code is:</p>
+<pre class="clarion"><code>DimResult = vuFTDimWindow(0{PROP:Handle},90)
+MyUpdateProcedure()
+RestoreResult = vuFTRestoreWindow(0{PROP:Handle})</code></pre>
+<p>Declare <code>DimResult</code> and <code>RestoreResult</code> as LONG
+variables if you want to capture results. The parent handle must be the
+same for Dim and Restore.</p>
+<p>For report-preview or custom-window calls, use the same sequence.
+<strong>Do not restore immediately after START.</strong> The launched
+child continues running. Use <a href="started-children.html">Dimming a
+Window Started with START</a> instead.</p>
+<p>When Window Dimming is enabled, the global template supplies its MAP
+declarations. For a fully hand-coded application, see <a
+href="hand-coded.html">Hand-Coded Integration</a> for the nine
+developer-facing function declarations, examples, and linking
+instructions.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../functions/index.html">All functions</a> | <a
+href="../categories/index.html">Categories</a></p>
+</body>
+</html>

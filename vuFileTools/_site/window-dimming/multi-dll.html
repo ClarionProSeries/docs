@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>multi-dll</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Window
+Dimming</a> | <a href="../template-usage.html">Using the
+Template</a></p>
+<h1 id="window-dimming-in-multi-dll-applications">Window Dimming in
+Multi-DLL Applications</h1>
+<h2 id="automatic-window-and-message-dimming">Automatic window and
+message dimming</h2>
+<p>Window Dimming is initially disabled in vuFileTools. In each APP
+where you want it, open <strong>vuFileTools Initialization</strong> &gt;
+<strong>Window Dimming</strong> and uncheck <strong>Disable window
+dimming templates</strong>. The normal browse and message options are
+already selected. Compile the APPs that use the feature.</p>
+<p>The global extension automatically supplies normal procedure support
+in the APPs where the feature is enabled. <strong>Enable automatic
+browse dimming</strong> and <strong>Auto-dim MESSAGE / STOP /
+HALT</strong> are both preselected beneath the master switch.</p>
+<p>You do not need the global extension in every APP. For example, an
+Updates DLL can provide dimming for its own browse and message windows
+without adding the extension to an unrelated Reports DLL.</p>
+<h2 id="your-own-message-window">Your own message window</h2>
+<p>Add <strong>vuFileTools - Custom Message Window</strong> to the
+actual message WINDOW procedure in the APP that contains it. You do not
+need to add this extension to APPs that only call the message procedure.
+See <a href="custom-message-windows.html">Custom Message
+Windows</a>.</p>
+<h2 id="share-optional-black-blue-and-red-message-procedures">Share
+optional black, blue and red MESSAGE procedures</h2>
+<p>Open <strong>Application &gt; Utilities</strong> (Ctrl+U) in Clarion
+and use the utility entries shown below:</p>
+<table>
+<thead>
+<tr>
+<th>APP</th>
+<th>Select in Clarion</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data DLL</strong> (or your chosen procedure-owning APP)</td>
+<td><strong>ImportvuFTDimMessage — Customizable procedures (Single EXE
+or Data DLL)</strong></td>
+<td>Imports the real <code>vuFTDimMessage</code>,
+<code>vuFTDimMessageInfo</code> and <code>vuFTDimMessageError</code>
+procedures.</td>
+</tr>
+<tr>
+<td><strong>Each other DLL or EXE APP that calls them</strong></td>
+<td><strong>ImportvuFTDimMessageDec — Customizable procedure
+declarations (other APPs in multi-DLL solution)</strong></td>
+<td>Lets the APP call the three procedures from the Data DLL.</td>
+</tr>
+</tbody>
+</table>
+<p>Import the first utility into <strong>one</strong> owning APP. Import
+the second utility into every other APP that needs the procedures.
+<strong>Do not import both utilities into the same APP.</strong> Build
+the Data DLL first, then its callers.</p>
+<p>For a single EXE, import <strong>ImportvuFTDimMessage</strong> into
+the EXE APP only. The second utility is not needed.</p>
+<p>Clarion installs these imports from
+<code>accessory\libsrc\win</code>. Normally you only need the utility
+entries—not the TXA filenames. See <a href="custom-messages.html">Custom
+Colored Message Procedures</a> for calling examples.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Window
+Dimming</a></p>
+</body>
+</html>

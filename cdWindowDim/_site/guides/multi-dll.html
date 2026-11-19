@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>multi-dll</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a></p>
+<h1 id="multi-dll-applications">Multi-DLL Applications</h1>
+<h2 id="automatic-window-and-message-dimming">Automatic window and
+message dimming</h2>
+<p>Add <strong>cdWindowDim - Global Settings</strong> to each APP that
+contains windows where you want automatic dimming, then compile. Normal
+window procedures are covered automatically by that global
+extension.</p>
+<p>You do not need to put the global extension in every APP. For
+example, if your browse/update windows are all in an Updates DLL, you
+can configure it there without adding the extension to the unrelated
+Data DLL or Reports DLL.</p>
+<p>Automatic MESSAGE dimming is <strong>on by default</strong>. Standard
+<code>MESSAGE()</code>, <code>STOP()</code> and <code>HALT()</code>
+calls—including generated confirmation windows—work without changing
+their call sites.</p>
+<h2 id="your-own-message-window">Your own message window</h2>
+<p>In the APP that contains your custom message WINDOW procedure, add
+<strong>cdWindowDim - Custom Message Window</strong> to that procedure.
+Calling APPs do not need that extension merely to open the custom
+message. See <a href="custom-message-windows.html">Custom Message
+Windows</a>.</p>
+<h2 id="share-optional-black-blue-and-red-message-procedures">Share
+optional black, blue and red MESSAGE procedures</h2>
+<p>The template provides two utilities under <strong>Application &gt;
+Utilities</strong> (Ctrl+U). Import these into the indicated APPs:</p>
+<table>
+<thead>
+<tr>
+<th>APP</th>
+<th>Select in Clarion</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data DLL</strong> (or your chosen procedure-owning APP)</td>
+<td><strong>ImportcdDimMessage — Customizable procedures (Single EXE or
+Data DLL)</strong></td>
+<td>Adds the real <code>cdDimMessage</code>,
+<code>cdDimMessageInfo</code> and <code>cdDimMessageError</code>
+procedures.</td>
+</tr>
+<tr>
+<td><strong>Each other DLL or EXE APP that calls them</strong></td>
+<td><strong>ImportcdDimMessageDec — Customizable procedure declarations
+(other APPs in multi-DLL solution)</strong></td>
+<td>Lets that APP call those three procedures from the Data DLL.</td>
+</tr>
+</tbody>
+</table>
+<p>Import the first utility <strong>once</strong>, into the
+procedure-owning APP. Import the second utility into each APP that needs
+to call those procedures. <strong>Never import both into one
+APP.</strong> Build the Data DLL first, then its callers. Link the
+appropriate APPs as you normally do in a Clarion multi-DLL solution.</p>
+<p>For a single-EXE project, import <strong>ImportcdDimMessage</strong>
+into the EXE APP only; the declaration import is unnecessary.</p>
+<p>The TXA files are installed with the product in Clarion's
+<code>accessory\libsrc\win</code> folder; developers use the utility
+entries above rather than manually locating them. See <a
+href="custom-messages.html">Custom Colored Message Procedures</a> for
+examples.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../template-usage.html">Using the Template</a></p>
+</body>
+</html>

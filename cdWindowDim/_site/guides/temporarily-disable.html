@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>temporarily-disable</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+<h1 id="temporarily-disable-dimming">Temporarily Disable Dimming</h1>
+<p>There are three different controls, depending on how much you want to
+turn off.</p>
+<h2 id="disable-the-code-drop-in-an-app">Disable the Code Drop in an
+APP</h2>
+<ol type="1">
+<li>Open <strong>cdWindowDim - Global Settings</strong> and select
+<strong>Window Dimming</strong>.</li>
+<li>Check <strong>Disable this template</strong>.</li>
+<li>Regenerate and rebuild the application.</li>
+</ol>
+<p>All automatic and code-template dimming is disabled in that APP. To
+turn it back on, clear <strong>Disable this template</strong> and
+compile.</p>
+<p>If the solution contains several APPs, each APP controls its own
+global extension.</p>
+<h2 id="disable-one-browse">Disable one browse</h2>
+<p>Select <strong>Disable auto dimming for this procedure</strong> in
+that browse's extension. Other browse procedures remain unchanged.</p>
+<h2 id="disable-one-inserted-code-template">Disable one inserted code
+template</h2>
+<p>Open the code-template insert and select <strong>Disable this code
+template</strong>. For a manual synchronous sequence, disable the Dim
+and Restore inserts together. For START, disable the Dim and Register
+inserts together while leaving the START procedure call intact. Retain a
+child's closing notification if any other active sequence still needs
+it.</p>
+<h2 id="disable-dimming-while-the-program-runs">Disable dimming while
+the program runs</h2>
+<p>Use <strong>cdWindowDim - Disable Dimming</strong> or <strong>Enable
+Dimming</strong>. These runtime code templates hide or show active
+effects without requiring the APP to be rebuilt. See <a
+href="runtime-controls.html">Runtime Dimming Controls</a>.</p>
+<p><strong>Important:</strong> The global disable switch affects
+template-generated code. It cannot remove handwritten function calls
+from programmer embeds.</p>
+<p><a href="../index.html">Home</a> | <a
+href="../getting-started/index.html">Getting Started</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="index.html">Task Guides</a> | <a href="../whatsnew.html">What's
+New</a></p>
+</body>
+</html>

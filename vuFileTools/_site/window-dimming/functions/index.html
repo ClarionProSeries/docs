@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../../index.html">Home</a> | <a href="../index.html">Window
+Dimming</a> | <a href="../hand-coded.html">Hand-Coded
+Integration</a></p>
+<h1 id="window-dimming-function-reference">Window Dimming Function
+Reference</h1>
+<p>For most applications, use the Window Dimming extension and its code
+templates. These functions are documented for developers who prefer
+hand-coded calls.</p>
+<ul>
+<li><a href="vuFTDimWindow.html">vuFTDimWindow</a> — Dim a parent window
+with the standard black appearance.</li>
+<li><a href="vuFTDimWindowEx.html">vuFTDimWindowEx</a> — Choose RGB
+color and dimming strength.</li>
+<li><a href="vuFTRestoreWindow.html">vuFTRestoreWindow</a> — Restore a
+manually dimmed parent.</li>
+<li><a href="vuFTWindowRegisterChild.html">vuFTWindowRegisterChild</a> —
+Associate a START child with its parent.</li>
+<li><a href="vuFTWindowClosing.html">vuFTWindowClosing</a> — Release a
+START child when it closes.</li>
+<li><a href="vuFTSetDimmingEnabled.html">vuFTSetDimmingEnabled</a> —
+Enable or disable dimming while the application runs.</li>
+<li><a href="vuFTGetDimmingEnabled.html">vuFTGetDimmingEnabled</a> —
+Read the runtime dimming state.</li>
+<li><a
+href="vuFTRegisterMessageWindow.html">vuFTRegisterMessageWindow</a> —
+Register a custom message window.</li>
+<li><a
+href="vuFTUnregisterMessageWindow.html">vuFTUnregisterMessageWindow</a>
+— Restore the parent when that message window closes.</li>
+</ul>
+<p>The automatic MESSAGE and browse helpers are supplied by the template
+and optional imported message procedures. They do not need separate
+calls from ordinary application code.</p>
+<p><a href="../../index.html">Home</a> | <a href="../index.html">Window
+Dimming</a></p>
+</body>
+</html>

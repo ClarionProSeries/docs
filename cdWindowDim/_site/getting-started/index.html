@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../template-usage.html">Using the Template</a> |
+<a href="../guides/index.html">Task Guides</a> | <a
+href="../whatsnew.html">What's New</a></p>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="add-the-global-extension-compile-done">Add the global extension.
+Compile. Done.</h2>
+<ol type="1">
+<li><a href="../install.html">Install</a> and <a
+href="../template-registration.html">register</a> the cdWindowDim
+template.</li>
+<li>Open your Clarion APP's <strong>Global Extensions</strong> and add
+<strong>cdWindowDim - Global Settings</strong>.</li>
+<li><strong>Generate and compile the application.</strong></li>
+</ol>
+<p>That's it. With the default settings, cdWindowDim automatically dims
+supported <strong>browse windows while their update forms are
+open</strong> and dims the parent behind standard
+<strong><code>MESSAGE()</code>, <code>STOP()</code> and
+<code>HALT()</code> dialogs</strong>, including Clarion-generated
+confirmations. The parent returns to normal when the form or message
+closes. Supported CapeSoft MessageBox windows are also handled
+automatically.</p>
+<p>You don't have to add an extension to every browse, change your
+<code>MESSAGE()</code> calls, or insert any code templates to get the
+standard effect. The global extension applies the normal procedure
+support for you.</p>
+<p><strong>Important:</strong> The application EXE needs a Windows
+8-or-later compatibility manifest for the visual effect to appear. See
+<a href="../troubleshooting.html">Troubleshooting</a> if a window does
+not dim.</p>
+<h2 id="want-to-customize-it">Want to customize it?</h2>
+<ul>
+<li><a href="../guides/window-appearance.html">Window Appearance</a>:
+choose a different color or strength, globally or for one browse.</li>
+<li><a href="../guides/automatic-messages.html">Automatic Message
+Dimming</a>: change the message behavior for an APP or individual
+window.</li>
+<li><a href="../guides/custom-message-windows.html">Custom Message
+Windows</a>: add the optional local extension to a message WINDOW that
+you wrote yourself.</li>
+<li><a href="../guides/manual-dimming.html">Manual Dim and Restore</a>:
+dim other windows or report previews.</li>
+<li><a href="../guides/started-children.html">Dimming a Window Started
+with START</a>: keep a parent dimmed until a separately threaded child
+closes.</li>
+<li><a href="../guides/runtime-controls.html">Runtime Dimming
+Controls</a>: add a runtime enable/disable option.</li>
+<li><a href="../guides/multi-dll.html">Multi-DLL Applications</a>: apply
+the global extension in the APPs that contain windows you want
+covered.</li>
+</ul>
+<p>For additional options, see <a href="../template-usage.html">Using
+the Template</a>.</p>
+<p><a href="../index.html">Home</a> | <a href="index.html">Getting
+Started</a> | <a href="../template-usage.html">Using the Template</a> |
+<a href="../guides/index.html">Task Guides</a> | <a
+href="../whatsnew.html">What's New</a></p>
+</body>
+</html>

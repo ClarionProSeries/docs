@@ -1,0 +1,108 @@
+cdWindowDim 1.0 Build 034 - CHM build log
+Builder location: G:\Docs-Staging\cdWindowDim\
+Checking required files and tools...
+Cleaning generated _site and _tmp folders...
+Copying documentation assets...
+G:\Docs-Staging\cdWindowDim\assets\images\cdWindowDim270x90.png
+G:\Docs-Staging\cdWindowDim\assets\images\code-drops-logo.png
+G:\Docs-Staging\cdWindowDim\assets\images\prohelp-studio-logo-light.png
+3 File(s) copied
+Converting Markdown to HTML...
+Converting codedrops.md
+Converting deployment.md
+Converting hand-coded-integration.md
+Converting index.md
+Converting install.md
+Converting introduction.md
+Converting prohelpstudio.md
+Converting requirements.md
+Converting support.md
+Converting template-registration.md
+Converting template-usage.md
+Converting troubleshooting.md
+Converting version-history.md
+Converting whatsnew.md
+Converting functions\CDDimWindow.md
+Converting functions\CDDimWindowEx.md
+Converting functions\CDGetDimmingEnabled.md
+Converting functions\CDRegisterMessageWindow.md
+Converting functions\CDRestoreWindow.md
+Converting functions\CDSetDimmingEnabled.md
+Converting functions\CDUnregisterMessageWindow.md
+Converting functions\CDWindowClosing.md
+Converting functions\CDWindowRegisterChild.md
+Converting functions\index.md
+Converting getting-started\index.md
+Converting guides\automatic-browse.md
+Converting guides\automatic-messages.md
+Converting guides\custom-message-windows.md
+Converting guides\custom-messages.md
+Converting guides\index.md
+Converting guides\manual-dimming.md
+Converting guides\multi-dll.md
+Converting guides\runtime-controls.md
+Converting guides\started-children.md
+Converting guides\temporarily-disable.md
+Converting guides\window-appearance.md
+Converted 36 Markdown pages; verified Home index.html.
+Copying stylesheet next to generated HTML...
+Copying the CHM project and contents files...
+Compiling CDWindowDim.chm with HTML Help Workshop...
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling g:\Docs-Staging\cdWindowDim\_site\CDWindowDim.chm
+
+index.html
+codedrops.html
+deployment.html
+functions\CDDimWindow.html
+functions\CDDimWindowEx.html
+functions\CDGetDimmingEnabled.html
+functions\CDRegisterMessageWindow.html
+functions\CDRestoreWindow.html
+functions\CDSetDimmingEnabled.html
+functions\CDUnregisterMessageWindow.html
+functions\CDWindowClosing.html
+functions\CDWindowRegisterChild.html
+functions\index.html
+getting-started\index.html
+guides\automatic-browse.html
+guides\automatic-messages.html
+guides\custom-message-windows.html
+guides\custom-messages.html
+guides\index.html
+guides\manual-dimming.html
+guides\multi-dll.html
+guides\runtime-controls.html
+guides\started-children.html
+guides\temporarily-disable.html
+guides\window-appearance.html
+hand-coded-integration.html
+install.html
+introduction.html
+prohelpstudio.html
+requirements.html
+support.html
+template-registration.html
+template-usage.html
+troubleshooting.html
+version-history.html
+whatsnew.html
+style.css
+functions\style.css
+guides\style.css
+getting-started\style.css
+assets\images\cdWindowDim270x90.png
+assets\images\code-drops-logo.png
+assets\images\prohelp-studio-logo-light.png
+
+Compile time: 0 minutes, 0 seconds
+36	Topics
+460	Local links
+0	Internet links
+0	Graphics
+
+
+Created g:\Docs-Staging\cdWindowDim\_site\CDWindowDim.chm, 153,212 bytes
+Compression decreased file by 88,654 bytes.
+SUCCESS: G:\Docs-Staging\cdWindowDim\_site\CDWindowDim.chm

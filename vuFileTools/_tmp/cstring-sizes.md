@@ -21,13 +21,13 @@ Wait     = 0
 Ret = vuRun(Filename, WStyle, Wait)
 ```
 
-`CSTRING(1024)` has space for **up to 1,023 characters of text plus the terminating null byte**. The example does not guarantee that Windows can run every path or command line of that length.
+`CSTRING(1024)` has space for **up to 1,023 characters of text plus the terminating null byte**. Starting with Build 210, `vuRun()` supports longer command lines. Windows and the command interpreter may still impose their own limits.
 
 ## The called function can have its own limits
 
 A larger caller-side CSTRING does not increase the size of a buffer inside a function or remove limits in Windows APIs:
 
-- **`vuRun()`** passes the command-line string to PowerBASIC's `SHELL` operation without a fixed 256-character local buffer. Normal Windows and shell command-line limitations still apply.
+- **`vuRun()` (Build 210)** accepts longer command lines than earlier builds. The maximum supported command is **32,767 bytes of text plus its terminating null**, and oversized input is rejected rather than truncated. Windows and the command interpreter (`cmd.exe` for `.bat`/`.cmd` scripts) may impose smaller limits.
 - **`vuRunDelay()`, the RunEx family, `vuRunExists()` and `vuRunExistsEx()`** use one or more internal 1,024-byte null-terminated buffers for paths, parameters, or working folders. The text copied into one of these buffers must fit (at most 1,023 characters plus the null byte). Supplying a larger CSTRING does not avoid that internal restriction; an oversized value may be truncated.
 - **`vuShell()`** copies the filename into a `%MAX_PATH` buffer. Do not assume it accepts a longer path merely because the caller uses `CSTRING(1024)`. Other ShellEx variants use internal 1,024-byte buffers.
 

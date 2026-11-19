@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>custom-message-windows</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<h1 id="custom-message-windows">Custom Message Windows</h1>
+<p>If your application uses <strong>its own message WINDOW</strong> or a
+third-party message procedure that is not dimmed automatically,
+vuFileTools can dim the parent behind it.</p>
+<p><strong>When Window Dimming is enabled, normal Clarion
+<code>MESSAGE()</code>, <code>STOP()</code> and <code>HALT()</code>
+calls work automatically.</strong> Supported CapeSoft MessageBox windows
+work automatically too; they do not require this extension.</p>
+<h2 id="add-the-custom-message-window-extension">Add the Custom Message
+Window extension</h2>
+<ol type="1">
+<li>In the APP containing the message window procedure, open
+<strong>vuFileTools Initialization</strong> under Global Extensions. On
+its <strong>Window Dimming</strong> tab, uncheck <strong>Disable window
+dimming templates</strong>.</li>
+<li>Open the <strong>actual message window procedure</strong> in
+Clarion. Under its procedure extensions, add <strong>vuFileTools -
+Custom Message Window</strong>.</li>
+<li>Generate and compile the APP. The extension does the necessary
+registration and restoration automatically for ABC and Legacy
+procedures.</li>
+<li>Open the message from another window to check that the parent dims
+while the message is displayed and restores when you close it.</li>
+</ol>
+<p>Add the extension to each different custom message window procedure
+you want covered. <strong>Do not add it to every calling browse or
+form.</strong> You can leave the global automatic-message setting on
+(recommended) or turn it off; the custom extension works either way. If
+you use CapeSoft MessageBox, try the normal automatic setting first. The
+extension can also be used with a CapeSoft message window when you have
+access to that procedure.</p>
+<h2 id="single-exe-and-multi-dll-applications">Single EXE and multi-DLL
+applications</h2>
+<ul>
+<li><strong>Single EXE:</strong> Add the global extension and the Custom
+Message Window procedure extension in the same APP.</li>
+<li><strong>Multi-DLL:</strong> Add the global extension and the Custom
+Message Window procedure extension to the APP that <strong>contains the
+actual message WINDOW procedure</strong>. APPs that merely call that
+procedure do not need the custom extension for that call.</li>
+<li><strong>Optional black/blue/red message procedures:</strong> These
+are a different option. Import
+<strong><code>ImportvuFTDimMessage</code></strong> into a single EXE or
+the Data DLL that owns them. Import
+<strong><code>ImportvuFTDimMessageDec</code></strong> into each other
+APP that calls them. The first utility supplies procedures; the second
+supplies calling declarations. Do not import both into the same APP. See
+<a href="custom-messages.html">Custom Colored Messages</a> for
+details.</li>
+</ul>
+<h2 id="hand-coded-registration-optional">Hand-coded registration
+(optional)</h2>
+<p>Use the extension above whenever possible. If you need to insert the
+calls yourself, add these declarations to the Clarion MAP and link the
+matching product DLL/LIB:</p>
+<pre class="clarion"><code>MODULE(&#39;vuFT5.dll&#39;)
+  vuFTRegisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTRegisterMessageWindow&#39;)
+  vuFTUnregisterMessageWindow(LONG),SIGNED,PROC,PASCAL,RAW,NAME(&#39;vuFTUnregisterMessageWindow&#39;)
+END</code></pre>
+<p>In the message <strong>WINDOW</strong> procedure, after the window
+opens:</p>
+<pre class="clarion"><code>IF 0{PROP:Handle} &lt;&gt; 0
+  vuFTRegisterMessageWindow(0{PROP:Handle})
+END</code></pre>
+<p>When that message window closes, before the window is destroyed:</p>
+<pre class="clarion"><code>vuFTUnregisterMessageWindow(0{PROP:Handle})</code></pre>
+<p><strong>Tip:</strong> Open the supplied demo application in Clarion
+and select <strong>Source</strong> to see the generated registration and
+unregistration calls in their proper locations.</p>
+<h2 id="if-the-parent-does-not-dim">If the parent does not dim</h2>
+<ul>
+<li>Confirm the extension is on the <strong>message window
+procedure</strong> itself, and that you regenerated and rebuilt the
+APP.</li>
+<li>Confirm the message opens from an owning application window; an
+unowned message may not have a parent to dim.</li>
+<li>Confirm <strong>Disable window dimming templates</strong> is
+unchecked, runtime dimming is on, and the running EXE has a Windows
+8-or-later compatibility manifest.</li>
+<li>If the third-party window cannot be edited, rely on automatic
+detection when supported or use a message procedure you control.</li>
+</ul>
+<p>For ordinary <code>MESSAGE()</code> calls use <a
+href="automatic-messages.html">Automatic Message Dimming</a>. See the <a
+href="functions/index.html">Window Dimming Function Reference</a> if you
+need direct calls.</p>
+</body>
+</html>

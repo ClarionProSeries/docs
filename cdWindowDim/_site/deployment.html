@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>deployment</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="cdwindowdim---deployment-and-usage">cdWindowDim - Deployment and
+Usage</h1>
+<p>cdWindowDim includes a small DLL that supplies the window-dimming
+effect for your Clarion application.</p>
+<h2 id="deployment">Deployment</h2>
+<p>You must deploy <strong>CDWindowDim.dll</strong> with your
+application.</p>
+<p>The DLL should reside in the same folder as your application EXE file
+or in the application's normal DLL location.</p>
+<h2 id="windows-compatibility-manifest">Windows Compatibility
+Manifest</h2>
+<p>Your EXE must include a Windows compatibility manifest declaring
+support for <strong>Windows 8 or later</strong>. This is required for
+the child-window dimming effect to display correctly. A generic
+application manifest without the appropriate compatibility entry is not
+sufficient.</p>
+<p>If the program runs but the window does not dim, check the manifest
+first. See <a href="troubleshooting.html">Troubleshooting</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>For normal Clarion applications, add <strong>cdWindowDim - Global
+Settings</strong> to the APP containing the procedures where you want
+dimming. The default appearance can be used without further
+customization.</p>
+<p>You may also use the supplied code templates when you want to dim
+another window, including a window launched with START. Each task guide
+provides the necessary sequence and Clarion code examples.</p>
+<p>For multi-DLL applications, see <a
+href="guides/multi-dll.html">Multi-DLL Applications</a>. For direct
+function calls, see <a href="hand-coded-integration.html">Hand-Coded
+Integration</a>.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h2 id="imported-colored-message-procedures">Imported colored-message
+procedures</h2>
+<p>If you use the optional <a
+href="guides/custom-messages.html">colored-message Source TXA</a>,
+compile those Clarion procedures in exactly one APP and use External
+declarations in other APPs. Deploy the compiled Clarion Data DLL when
+applicable as well as <code>CDWindowDim.dll</code>. The product
+<code>.LIB</code> is needed for linking, not as a runtime DLL.</p>
+<p>The optional <a href="guides/custom-message-windows.html">Custom
+Message Window extension</a> belongs on the actual message-window APP,
+including a Data DLL that implements that window. The separately
+imported Message Source/External TXAs and (for vuFileTools) Secure Login
+TXA install under <code>accessory\libsrc\win</code>, not
+<code>accessory\template\win</code>.</p>
+</body>
+</html>

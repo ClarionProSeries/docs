@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="cdwindowdim">cdWindowDim</h1>
+<p><img src="assets/images/cdWindowDim270x90.png"
+alt="Clarion ProSeries cdWindowDim Code Drop" /></p>
+<p>Current Version: 1.0</p>
+<p>Build: 034</p>
+<p>Release Date: 11-18-26</p>
+<p>Last Updated: 11-18-2026</p>
+<p>Copyright (c) Clarion ProSeries by LANSRAD. All rights reserved.</p>
+<p><strong>Add the global extension. Compile. You’re done.</strong></p>
+<p>Open <strong>Global Extensions</strong> in your Clarion APP, add
+<strong>cdWindowDim - Global Settings</strong>, and compile. The
+standard black dimming effect works automatically for supported
+browse/update windows and <code>MESSAGE()</code>, <code>STOP()</code>
+and <code>HALT()</code> dialogs. No edits to individual browse
+procedures or existing message calls are needed. <a
+href="getting-started/index.html">Get started</a>.</p>
+<p><strong>Draw attention to the active window.</strong></p>
+<p>When a user opens an update form, cdWindowDim can automatically dim
+the browse behind it and restore the browse when the form closes. The
+active form stays clear and easy to read.</p>
+<p>The default effect needs no additional configuration. Developers who
+want more control can choose an overlay color and strength, customize
+individual browses, or use code templates for other windows and report
+previews.</p>
+<h2 id="what-cdwindowdim-can-do">What cdWindowDim can do</h2>
+<ul>
+<li>Dim supported ABC and Legacy browse windows automatically while an
+update form is open.</li>
+<li>Automatically dim the parent behind standard Clarion MESSAGE, STOP,
+and HALT dialogs, including common Clarion-generated confirmation
+prompts and supported CapeSoft MessageBox windows. The option is enabled
+by default.</li>
+<li>Restore the parent as soon as the associated operation
+finishes.</li>
+<li>Choose a global window appearance or give each browse a different
+color and strength.</li>
+<li>Dim other windows manually with simple code templates.</li>
+<li>Support windows launched with START, using a matching open-and-close
+sequence.</li>
+<li>Keep a parent dimmed while several child windows remain open,
+restoring it after the last one closes.</li>
+<li>Add runtime commands so an application user can enable or disable
+the effect.</li>
+<li>Work in single-EXE or multi-DLL Clarion applications.</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="introduction.html">Introduction</a></li>
+<li><a href="requirements.html">Requirements</a></li>
+<li><a href="install.html">Installation Instructions</a></li>
+<li><a href="template-registration.html">Registering the
+Template</a></li>
+<li><a href="template-usage.html">Using the Template in Your
+Application</a></li>
+<li><a href="getting-started/index.html">Getting Started</a></li>
+<li><a href="guides/index.html">Task Guides: How Do I...?</a></li>
+<li><a href="guides/custom-message-windows.html">Custom Message
+Windows</a></li>
+<li><a href="guides/automatic-messages.html">Automatic Message
+Dimming</a></li>
+<li><a href="guides/custom-messages.html">Custom Colored Message
+Procedures</a></li>
+<li><a href="guides/started-children.html">Dimming a Window Started with
+START</a></li>
+<li><a href="hand-coded-integration.html">Hand-Coded
+Integration</a></li>
+<li><a href="functions/index.html">DLL Function Reference</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="whatsnew.html">What's New</a></li>
+<li><a href="version-history.html">Version History</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="codedrops.html">About Code Drops</a></li>
+<li><a href="prohelpstudio.html">About ProHelp Studio</a></li>
+</ul>
+<h2 id="start-here">Start here</h2>
+<table>
+<thead>
+<tr>
+<th>I want to...</th>
+<th>See...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dim my normal browse/update windows</td>
+<td><a href="getting-started/index.html">Getting Started</a></td>
+</tr>
+<tr>
+<td>Customize dimming colors</td>
+<td><a href="guides/window-appearance.html">Window Appearance</a></td>
+</tr>
+<tr>
+<td>Dim a window opened by a normal procedure call</td>
+<td><a href="guides/manual-dimming.html">Manual Dim and Restore</a></td>
+</tr>
+<tr>
+<td>Dim a window launched with START</td>
+<td><a href="guides/started-children.html">Dimming a Window Started with
+START</a></td>
+</tr>
+<tr>
+<td>Give a message a black, blue, or red background</td>
+<td><a href="guides/custom-messages.html">Custom Colored
+Messages</a></td>
+</tr>
+<tr>
+<td>Add an enable/disable button</td>
+<td><a href="guides/runtime-controls.html">Runtime Dimming
+Controls</a></td>
+</tr>
+<tr>
+<td>Write the function calls myself</td>
+<td><a href="hand-coded-integration.html">Hand-Coded
+Integration</a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>

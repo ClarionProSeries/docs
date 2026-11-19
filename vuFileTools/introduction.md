@@ -1,35 +1,30 @@
 ---
 title: "vuFileTools - Introduction"
-summary: "**vuFileTools** is a developer library containing over 200 ready-to-use Windows API functions, designed to simplify programming in Clarion and other environments."
-description: "**vuFileTools** is a developer library containing over 200 ready-to-use Windows API functions, designed to simplify programming in Clarion and other environments. The functions cover a wide range of tasks such as working with files and folders, compression, version information, network status, shortcuts, and more."
-keywords: ["introduction", "documentation", "ready", "containing", "environments", "vuFileTools", "Clarion", "functions", "clarion", "vuFileTools", "windows", "designed"]
+summary: "More than 200 Windows utility functions for Clarion developers."
+description: "vuFileTools simplifies file and folder operations, system and network information, process control, registry access, shortcuts, strings, and other Windows tasks."
+keywords: ["vuFileTools", "Clarion", "Windows utilities", "functions"]
 page_type: "overview"
-last_updated: "2026-10-16"
+last_updated: "2026-11-19"
 ---
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
 
-
 # vuFileTools - Introduction
 
-**vuFileTools** is a developer library containing over 200 ready-to-use Windows API functions, designed to simplify programming in Clarion and other environments. The functions cover a wide range of tasks such as working with files and folders, compression, version information, network status, shortcuts, and more.
+**vuFileTools** is a developer library containing more than 200 ready-to-use Windows utility functions. It gives Clarion developers a practical way to handle common Windows tasks without writing and maintaining their own Windows API wrappers.
 
-Instead of writing complex Windows API calls yourself, you can rely on vuFileTools to provide consistent, Clarion-friendly wrappers. Each function has been tested, documented, and comes with working Clarion code examples.
+The library covers **files and directories**, disk information and compression, **Windows and system information**, **program and process launching**, **network information**, registry access, shortcuts, **string manipulation and data conversion**, interprocess communication, and more. Functions have their own reference pages with calling information and Clarion examples.
 
-## Version 5 Highlights
+You can explore the entire [A–Z function reference](functions/index.md) or find the capability you need in [Functions by Category](categories/index.md).
 
-- Flexible caller-side CSTRING sizes, with function-specific buffer and Windows API limits explained in the documentation.  
-- All-new documentation that is easy to read and navigate.  
-- Every function fully documented with code examples ready to copy and use.  
-- Expanded set of over 200 functions covering file, folder, network, and system operations.
+## Version 5 capabilities
 
-## Understanding CSTRING Sizes
+vuFileTools includes enhancements to program-launching functions, file and directory operations, and buffer-aware string replacement. The [CSTRING Sizes and Buffer Capacity](cstring-sizes.md) guide explains how to choose caller-side buffers and understand function-specific limits.
 
-The CSTRING lengths shown in examples are generally choices for the caller, not fixed interface requirements. Some functions have their own internal buffer or Windows API limits. See [CSTRING Sizes and Buffer Capacity](cstring-sizes.md) for practical examples and important exceptions.
+**Window Dimming** is an additional feature in Build 212. When enabled, it can automatically dim a browse behind its update form or a parent behind a standard Clarion message. It also offers configurable appearance, manual controls, START support and customizable message procedures. Window Dimming is **off by default** so existing vuFileTools applications retain their familiar behavior. See the [Window Dimming guide](window-dimming/index.md) for the one-checkbox setup and the required Windows manifest.
 
-## Getting Started
+## Getting started
 
-If you are new to vuFileTools, begin with the [Installation](install.md) page.  
-After installation, explore the full list of [All functions](functions/index.md) or browse by [Categories](categories/index.md).
+Begin with [Installation](install.md) and [Template Registration](template-registration.md). Then consult [Using the Template](template-usage.md), the [function reference](functions/index.md), or the [category directory](categories/index.md).
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)

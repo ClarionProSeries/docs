@@ -162,6 +162,15 @@ completes.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Build 210 window-style correction:</strong>
+<code>ShowCmd = 0</code> now means <code>SW_HIDE</code> (hidden), as
+documented by Windows. Previous builds incorrectly converted zero to a
+normal visible window. Use <code>ShowCmd = 1</code> for normal display.
+This changes the previous behavior for callers that passed zero
+expecting a visible window. For console tests, pass
+<code>ShowCmd = 0</code> explicitly; <code>1</code> requests a visible
+window. Windows treats <code>ShellExecuteEx</code> display styles as
+requests, so an application may still control its own display.</p>
 <p><strong>CSTRING size note:</strong> <code>CSTRING(1024)</code> in
 this example is a caller-side declaration, not an unlimited-length
 guarantee. This function copies the relevant path, parameter, or

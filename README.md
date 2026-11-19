@@ -9,10 +9,11 @@ Here you will find guides, references, and examples for each product in the ProS
 
 | Product | Description |
 |---|---|
+| [cdWindowDim](./cdWindowDim/) | Automatically dim parent windows behind Clarion browses, forms, and messages, with customizable appearance and manual controls. |
 | [Clarion QuickBooks Wrapper](./ClarionQBWrapper) | Templates and classes that integrate Clarion apps with QuickBooks Desktop via the QBXML SDK. |
 | [ProPath](./ProPath) | Advanced path and dataset management for Clarion applications with built-in support for SQLite, Firebird, and more. |
 | [ProTOML](./ProTOML/) | Read, write, store, and exchange TOML data in Clarion applications. |
-| [vuFileTools](./vuFileTools) | Over 200 file, directory, OS, and utility functions ready to use in Clarion applications. |
+| [vuFileTools](./vuFileTools/) | Over 200 file, directory, OS, and utility functions for Clarion applications, plus optional automatic Window Dimming. |
 | [vuMailKit](./vuMailKit) | Modern email support for Clarion applications, including SMTP, POP3, IMAP, OAuth, profile management, and legacy vuMail compatibility. |
 | [xSearch](./xSearch/) | Search, filter, tag, and export records in Clarion applications using Classic or Modern interfaces. |
 
@@ -40,4 +41,4 @@ Some products may also include:
 ## Related Links
 
 - [Website](https://clarionproseries.com)
-- [Contact Form](https://www.clarionproseries.com/contact)
+- [Contact Form](https://clarionproseries.com/contact)

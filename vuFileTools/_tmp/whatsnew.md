@@ -3,11 +3,64 @@
 
 # What's New in vuFileTools
 
-Version: 5.0  (Build 209)
+Version: 5.0  (Build 212)
 
-Release date: 2026-10-16
 
 This page highlights new items in the Version 5 cycle and links to their reference topics.
+
+## What's New in Build 212
+
+**Release date: November 18, 2026.** vuFileTools now offers optional automatic dimming behind existing supported `MESSAGE()`, `STOP()` and `HALT()` calls. It works with ordinary Clarion dialogs and supported CapeSoft MessageBox windows without changing existing message calls. The automatic MESSAGE option is preselected when Window Dimming is enabled. Uncheck **Disable window dimming templates** in the global extension and compile; individual MESSAGE calls and normal window procedures need no changes. You can disable the effect for individual windows.
+
+
+- **Custom Message Window** procedure extension for developer-written or other supported message windows. Add it to the actual message window procedure; it works whether automatic message dimming is on or off. See [Custom Message Windows](window-dimming/custom-message-windows.md).
+- Three optional Clarion Source/External message procedures provide black, blue and red parent overlays while preserving normal `MESSAGE()` arguments and return values.
+- Add the global extension and compile to automatically dim behind supported messages; optional procedure settings and direct calls give developers more control.
+- [Single-EXE and Data DLL instructions](window-dimming/custom-messages.md) describe how to import the helper procedures into applications with shared code.
+
+See the [Automatic Message Dimming guide](window-dimming/automatic-messages.md) and [Window Dimming function reference](window-dimming/functions/index.md). Existing vuFileTools customers receive this update without an additional purchase.
+
+---
+
+## What's New in Build 211
+
+**Released: November 16, 2026.** Build 211 adds [Window Dimming](window-dimming/index.md) to vuFileTools. The implementation has seven `vuFT` DLL functions, automatic ABC/Legacy browse dimming (opt-in), per-browse appearance overrides, manual Dim/Restore, registered START child handling, and runtime enable/disable/status controls.
+
+See the [Window Dimming guides](window-dimming/index.md), [Window Dimming function reference](window-dimming/functions/index.md), and [manifest troubleshooting](window-dimming/troubleshooting.md). The feature is also offered independently as the [cdWindowDim Code Drop](https://clarionproseries.com/products/cdwindowdim) in the [Code Drops family](https://clarionproseries.com/code-drops).
+
+**Existing vuFileTools 5 customers receive the Window Dimming update at no additional charge.**
+
+---
+
+## What's New in Build 210
+
+**Released: October 27, 2026.** Build 210 adds [vuRenameDirectory](functions/vuRenameDirectory.md), improves long-command execution in [vuRun](functions/vuRun.md), corrects hidden-window handling in the RunEx family, and resolves the vuFileTools/vuMailKit Secure Login prototype conflict.
+
+### New Function in Build 210
+
+| Function | Description |
+|----------|-------------|
+| [vuRenameDirectory](functions/vuRenameDirectory.md) | Renames a Windows directory, including its existing files and subdirectories, on the same volume without copying or deleting the contents. Reports success, invalid input, or a negative Windows error number. |
+
+Use the **full old path and full new path**. The destination must not already exist, and the rename must stay on the same volume. For example, rename `C:\Data\Current` to `C:\Data\Archive` without having to move individual files. The new function uses normal, caller-sized CSTRING path parameters and does not impose a `CSTRING(256)` declaration limit; Windows path limits still apply.
+
+The existing [vuMove](functions/vuMove.md) and [vuCreateDirectory](functions/vuCreateDirectory.md) functions are unchanged. The full declaration, usage example, and Windows error behavior are documented on the [vuRenameDirectory reference page](functions/vuRenameDirectory.md).
+
+### Run function corrections
+
+- **[vuRun](functions/vuRun.md):** Supports longer command lines, corrects launch failures encountered with longer commands, and improves hidden execution to avoid flashing console windows. The existing calling convention and 1/0 launch result are unchanged. Explicit `.bat` and `.cmd` scripts remain supported.
+- **[vuRunEx](functions/vuRunEx.md), [vuRunExDelay](functions/vuRunExDelay.md), [vuRunExWait](functions/vuRunExWait.md), [vuRunExDelayWait](functions/vuRunExDelayWait.md):** Respect `ShowCmd = 0` as hidden execution (`SW_HIDE`) rather than forcibly showing a normal window. Applications that previously used `ShowCmd = 0` as an undocumented way of requesting normal display should pass `1` instead.
+- A return of `1` reports that a process was successfully launched, **not** that the external program finished successfully. Windows and `cmd.exe` limits still apply. See [CSTRING sizes](cstring-sizes.md) and the function reference pages.
+
+### Secure Login compatibility correction
+
+Build 210 permanently renames the three vuFileTools password-control functions to `vuFTPasswordInit`, `vuFTPasswordToggle` and `vuFTPasswordCleanup`. This eliminates indistinguishable prototype errors when vuFileTools and vuMailKit are installed in the same Clarion application. vuMailKit is unchanged.
+
+Older reference URLs for `vuPasswordInit`, `vuPasswordToggle` and `vuPasswordCleanup` now show migration notices linking directly to the new function pages; those older names are **not** available for calling.
+
+**Existing Secure Login users must update their previously imported window or direct calls and rebuild before deploying the new DLL.** The updated template and TXA use the new names. A customized Secure Login window should have its embeds updated rather than being overwritten without review. See [Secure Login Window and Build 210 Migration](secure-login.md).
+
+---
 
 ## What's New in Build 209
 
@@ -110,12 +163,12 @@ When you open any of the related function pages above, you will also see the sam
 
 ## What's New in Build 206
 
-Build 206 added the new password visibility helper feature for Clarion applications.
+Build 206 originally added the password visibility helper feature for Clarion applications. The three vuFileTools exported functions were renamed in Build 210 for compatibility with vuMailKit.
 
 | Function | Description |
 |----------|-------------|
-| [vuPasswordInit](functions/vuPasswordInit.md) | Retrofits a standard Clarion password entry control with a more modern UI using a single function call. Automatically creates the show/hide eye button, uses icons compiled into the DLL, supports cue text, preserves the native Clarion control, and allows normal paste behavior so the field works more like modern password entry controls users expect. |
-| [vuPasswordToggle](functions/vuPasswordToggle.md) | Toggles a managed password control between visible-text mode and normal masked mode. Ideal for wiring a Show Password button or eye icon. |
+| [vuFTPasswordInit](functions/vuFTPasswordInit.md) | Retrofits a standard Clarion password entry control with a more modern UI using a single function call. Automatically creates the show/hide eye button, uses icons compiled into the DLL, supports cue text, preserves the native Clarion control, and allows normal paste behavior so the field works more like modern password entry controls users expect. |
+| [vuFTPasswordToggle](functions/vuFTPasswordToggle.md) | Toggles a managed password control between visible-text mode and normal masked mode. Ideal for wiring a Show Password button or eye icon. |
 
 ---
 

@@ -4,7 +4,7 @@
   <!-- Docs root -->
   <url>
     <loc>https://clarionproseries.github.io/docs/index.html</loc>
-    <lastmod>2026-03-29</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <priority>0.8</priority>
   </url>
 
@@ -418,6 +418,138 @@
   <url>
     <loc>https://clarionproseries.github.io/docs/vuMailKit/prohelpstudio.html</loc>
     <lastmod>2026-03-26</lastmod>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- xSearch 5.0 documentation -->
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/introduction.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/what-xsearch-can-do.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/requirements.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/install.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/template-registration.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/template-usage.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/getting-started/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/browse-setup.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/single-exe.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/multi-dll.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/tag-storage.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/ini-settings.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/control-templates.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/tagged-reports-processes.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/procedure-extensions.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/languages.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/export.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/custom-windows.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/guides/troubleshooting.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/deployment.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/whatsnew.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/version-history.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/support.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarionproseries.github.io/docs/xSearch/prohelpstudio.html</loc>
+    <lastmod>2026-11-07</lastmod>
     <priority>0.4</priority>
   </url>
 

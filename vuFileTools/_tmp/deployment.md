@@ -21,3 +21,12 @@ Sample usage from Clarion is also provided.
 The example applications included demonstrate practical use of the functions. Reviewing these examples often provides better context for understanding how the functions are used in real programs.
 
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+
+
+## Window Dimming deployment
+
+The new Window Dimming functions are part of **vuFT5.dll**, not the standalone cdWindowDim DLL. Use the matching `vuFT5.lib` when linking and deploy the corresponding `vuFT5.dll` alongside your application. **A Windows 8-or-later compatibility manifest in the EXE is required to display the overlay.** See [Window Dimming Troubleshooting](window-dimming/troubleshooting.md).
+
+Optional [colored-message helpers](window-dimming/custom-messages.md) are compiled as Clarion procedures in one APP. A consuming EXE or DLL imports External declarations and links to the owner Data DLL. Deploy that Data DLL when used; it does not replace `vuFT5.dll`.
+
+The optional [Custom Message Window extension](window-dimming/custom-message-windows.md) belongs on the actual message-window APP, including a Data DLL that implements that window. The separately imported Message Source/External TXAs and (for vuFileTools) Secure Login TXA install under `accessory\libsrc\win`, not `accessory\template\win`.

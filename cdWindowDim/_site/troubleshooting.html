@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>troubleshooting</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="cdwindowdim---troubleshooting">cdWindowDim -
+Troubleshooting</h1>
+<h2 id="a-window-does-not-dim-check-the-manifest-first">A window does
+not dim: check the manifest first</h2>
+<p><strong>The most important first check is the EXE's Windows
+compatibility manifest.</strong> It must declare support for Windows 8
+or later. An application can compile and run normally yet show no
+dimming effect when the manifest does not provide this compatibility
+information.</p>
+<p>See <a href="requirements.html">Requirements</a> and <a
+href="deployment.html">Deployment</a>.</p>
+<h2 id="the-application-builds-but-no-browse-dims">The application
+builds but no browse dims</h2>
+<p>Open <strong>cdWindowDim - Global Settings</strong>. Make sure
+<strong>Disable this template</strong> is unchecked and <strong>Enable
+automatic browse dimming</strong> is checked. Confirm that the affected
+browse procedure has not selected <strong>Disable auto dimming for this
+procedure</strong>. Verify that the installed runtime DLL matches the
+product version.</p>
+<h2 id="a-custom-appearance-is-not-visible">A custom appearance is not
+visible</h2>
+<p>Make sure the strength is greater than zero and a visible color is
+selected. A nearly black custom color can look similar to the default
+black overlay.</p>
+<p>A custom tint may also look lighter or different from the picker
+swatch because the overlay blends with the underlying window. For
+example, a blue overlay can look lavender over a light browse. Adjust
+the color and strength together; see <a
+href="guides/window-appearance.html">Choosing Custom Overlay
+Colors</a>.</p>
+<h2 id="custom-color-preview-is-black">Custom color preview is
+black</h2>
+<p>Clarion's <strong>Custom</strong> color picker uses Hue, Saturation,
+and Lightness (HSL). When the selected color is black, <strong>Lightness
+(L) can start at 0</strong>. Clicking a hue in the large color area may
+leave the preview black because lightness remains zero.</p>
+<p>The <strong>Custom overlay color</strong> starts at
+<code>COLOR:Gray</code>. The normal <strong>Use default window
+appearance</strong> setting produces a black overlay at strength 90.</p>
+<p>If the Custom preview is black:</p>
+<ol type="1">
+<li>Change <strong>HSL Lightness (L)</strong> from <strong>0</strong> to
+about <strong>50%</strong>, using the numeric field or the vertical
+lightness slider.</li>
+<li>Choose the desired hue and shade, and verify the colored preview.
+Double-click the intended color or colored selection square if the
+picker requires it to accept the color.</li>
+<li>Confirm the <strong>Custom overlay color</strong> field shows the
+intended value, then regenerate and compile.</li>
+<li>Alternatively, select and accept a visible <strong>Basic</strong>
+preset first, reopen <strong>Custom</strong>, and choose your
+shade.</li>
+</ol>
+<h2 id="compiler-cannot-find-a-cd-function">Compiler cannot find a CD
+function</h2>
+<p>Confirm the APP containing the procedure has its cdWindowDim global
+extension enabled. For hand-coded calls, make sure the required DLL
+declarations and matching CDWindowDim.lib are available. If you globally
+disabled cdWindowDim, handwritten function calls will not be removed for
+you.</p>
+<h2 id="the-parent-restores-too-soon">The parent restores too soon</h2>
+<p>Check the operation sequence. For synchronous calls, Restore belongs
+after the called procedure returns. For a window launched with START,
+<strong>do not restore immediately after START</strong>. Instead,
+associate the returned thread with the parent and run the
+<strong>Started Child Closing</strong> code template in the child's
+<strong>Close Window</strong> embed. See <a
+href="guides/started-children.html">Dimming a Window Started with
+START</a>.</p>
+<h2 id="the-parent-stays-dimmed">The parent stays dimmed</h2>
+<p>Make sure every successful manual Dim has exactly one matching
+Restore or started-child closing notification. For START, the child's
+closing code should run regardless of whether the user closes the window
+with a button or the title-bar X.</p>
+<h2 id="need-to-turn-off-the-effect-temporarily">Need to turn off the
+effect temporarily?</h2>
+<p>Use the individual and global disable options described in <a
+href="guides/temporarily-disable.html">Temporarily Disable
+Dimming</a>.</p>
+<p>If the issue persists, contact <a href="support.html">Clarion
+ProSeries Support</a> with the Clarion version, ABC/Legacy chain, and
+steps to reproduce it.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>

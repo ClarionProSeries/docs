@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>secure-login</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+<h1 id="secure-login-window">Secure Login Window</h1>
+<p>vuFileTools includes an importable Clarion <strong>Secure
+Login</strong> window with managed login-name and password controls and
+automatic show/hide eye buttons. The template's <strong>Import
+vuFileTools Secure Login</strong> utility imports
+<code>vuFileToolsSecureLogin.txa</code> from
+<code>accessory\libsrc\win</code> (repository <code>libsrc</code>
+folder).</p>
+<h2
+id="important-change-for-existing-secure-login-users-build-210">Important
+change for existing Secure Login users (Build 210)</h2>
+<p>In Build 210, the three <strong>vuFileTools</strong> password-control
+functions were permanently renamed to prevent conflicting declarations
+when vuFileTools and vuMailKit are installed in the same Clarion
+application:</p>
+<table>
+<thead>
+<tr>
+<th>Previous vuFileTools name</th>
+<th>Build 210 name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vuPasswordInit</code></td>
+<td><code>vuFTPasswordInit</code></td>
+</tr>
+<tr>
+<td><code>vuPasswordToggle</code></td>
+<td><code>vuFTPasswordToggle</code></td>
+</tr>
+<tr>
+<td><code>vuPasswordCleanup</code></td>
+<td><code>vuFTPasswordCleanup</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The old three names are no longer exported by the Build 210
+vuFT5.dll.</strong> The Clarion global extension and the supplied TXA
+use the new names. vuMailKit and its Setup Wizard are unchanged.</p>
+<h3 id="new-secure-login-window">New Secure Login window</h3>
+<ol type="1">
+<li>Install the Build 210 <strong>DLL, matching LIB, template and
+TXA</strong> for the Clarion version you use.</li>
+<li>Ensure your application has the updated <strong>vuFileTools global
+extension</strong>.</li>
+<li>Use the template utility to import the updated
+<code>vuFileToolsSecureLogin.txa</code> as a new window.</li>
+<li>Generate and build the application, then test masked entry, the eye
+buttons, pasting and cleanup.</li>
+</ol>
+<h3 id="previously-imported-secure-login-window">Previously imported
+Secure Login window</h3>
+<p>An already imported procedure is a copy of the TXA. Installing a new
+TXA does <strong>not</strong> automatically update the existing
+procedure's embeds or preserve its customizations.</p>
+<ul>
+<li><strong>If your procedure is unmodified:</strong> back up your APP
+and its TXA export, then import a fresh copy of the Build 210 window.
+Review the procedure names and any callers before replacing or removing
+the old procedure. Test after rebuilding.</li>
+<li><strong>If your procedure is customized:</strong> keep your existing
+procedure and change any calls to <code>vuPasswordInit</code>,
+<code>vuPasswordToggle</code> and <code>vuPasswordCleanup</code> in its
+embeds to <code>vuFTPasswordInit</code>, <code>vuFTPasswordToggle</code>
+and <code>vuFTPasswordCleanup</code>. Do not overwrite the window
+blindly; review generated MAP and embedded/manual declarations for stale
+names.</li>
+<li><strong>If you call these functions elsewhere:</strong> update those
+calls and any hand-written MAP declarations to the new names. Regenerate
+and rebuild using the matching Build 210 LIB and DLL.</li>
+</ul>
+<p><strong>Deployment warning:</strong> Already-compiled applications
+that import the old vuFileTools password entry points will not be
+compatible with the new DLL until the application is rebuilt. Do not
+swap in the new DLL under an old executable using these functions.</p>
+<p>Applications that do not call the password-control functions
+generally do not need application source changes. vuMailKit requires no
+changes.</p>
+<h2 id="relevant-functions">Relevant functions</h2>
+<ul>
+<li><a href="functions/vuFTPasswordInit.html">vuFTPasswordInit</a>:
+attach managed behavior to an ENTRY control</li>
+<li><a href="functions/vuFTPasswordToggle.html">vuFTPasswordToggle</a>:
+programmatically show or hide a managed field</li>
+<li><a
+href="functions/vuFTPasswordCleanup.html">vuFTPasswordCleanup</a>:
+detach and release resources</li>
+</ul>
+<p><a href="index.html">Home</a> | <a href="functions/index.html">All
+functions</a> | <a href="categories/index.html">Categories</a></p>
+</body>
+</html>

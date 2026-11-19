@@ -45,7 +45,7 @@ MESSAGE(MainStrg)  ! Microsoft Windows Vista is no longer supported.
 
 ### Notes
 
-- All occurrences of OldStrg are replaced; string matching follows the underlying PowerBASIC REPLACE statement's behavior.
+- All occurrences of OldStrg are replaced, using the function's existing matching behavior.
 - MainStrg must have space for the complete resulting text **plus** its null terminator. A Clarion CSTRING(256) has room for 255 text bytes plus one null byte.
 - The original function cannot verify capacity and therefore can overrun an undersized destination, particularly with longer replacement text.
 - The Build 209 release corrects this documentation but **does not change the legacy function's signature or implementation**.

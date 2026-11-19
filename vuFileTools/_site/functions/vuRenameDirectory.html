@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vuRenameDirectory</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+<h1
+id="vurenamedirectoryolddirectory-newdirectory">vuRenameDirectory(OldDirectory,
+NewDirectory)</h1>
+<pre class="Prototype"><code>vuRenameDirectory(*CSTRING,*CSTRING), LONG</code></pre>
+<h2 id="description">Description</h2>
+<p>Renames an <strong>existing Windows directory</strong> to a new full
+path on the <strong>same volume</strong>. A directory may contain files
+and subdirectories; its contents remain in the renamed directory. The
+function calls the Windows <code>MoveFileExA</code> API directly, not
+<code>vuMove()</code>, and does <strong>not</strong> copy files and
+delete the source.</p>
+<p>The function does not create the destination's parent folders,
+overwrite an existing destination, or schedule a rename at reboot. For
+an ordinary folder-name change, use paths with the same parent folder
+but different final directory names.</p>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OldDirectory</td>
+<td>CSTRING</td>
+<td>Full path of the existing directory to rename. Must refer to a
+directory rather than a file.</td>
+</tr>
+<tr>
+<td>NewDirectory</td>
+<td>CSTRING</td>
+<td>Full path of the new directory name. The destination must not
+already exist and must be on the same volume. Its parent folder must
+exist.</td>
+</tr>
+</tbody>
+</table>
+<p>The CSTRING declaration sizes below are examples,
+<strong>not</strong> fixed 256-character limits. Choose capacities
+suitable for your application. Actual path support also depends on
+Windows API and filesystem path rules; declaring
+<code>CSTRING(1024)</code> does not, by itself, enable Windows long-path
+support. See <a href="../cstring-sizes.html">CSTRING Sizes and Buffer
+Capacity</a>.</p>
+<h2 id="returns">Returns</h2>
+<table>
+<thead>
+<tr>
+<th>LONG return</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Directory renamed successfully.</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>Empty source or destination path, or the existing source is a file
+rather than a directory. No rename was attempted.</td>
+</tr>
+<tr>
+<td>Negative value</td>
+<td>Windows failure. The absolute value is the Win32 error number
+returned by <code>GetLastError()</code> from the source-attributes check
+or rename operation.</td>
+</tr>
+</tbody>
+</table>
+<p>Common Windows errors include <code>-2</code> (source not found),
+<code>-3</code> (path not found), <code>-5</code> (access denied), and
+<code>-183</code> (destination already exists). The exact negative value
+depends on Windows; do not assume these are the only possible
+errors.</p>
+<h2 id="clarion-example">Clarion Example</h2>
+<pre class="Clarion"><code>OldDirectory CSTRING(1024)
+NewDirectory CSTRING(1024)
+Result       LONG
+
+CODE
+OldDirectory = &#39;C:\Data\CustomerFiles&#39;
+NewDirectory = &#39;C:\Data\ArchivedFiles&#39;
+
+Result = vuRenameDirectory(OldDirectory, NewDirectory)
+IF Result = 1
+  MESSAGE(&#39;Directory renamed successfully.&#39;)
+ELSIF Result = 0
+  MESSAGE(&#39;Invalid directory name or source is not a directory.&#39;)
+ELSE
+  MESSAGE(&#39;Windows error: &#39; &amp; FORMAT(ABS(Result)))
+END</code></pre>
+<p>The Clarion DLL prototype is:</p>
+<pre class="Clarion"><code>vuRenameDirectory(*CSTRING,*CSTRING),LONG,PROC,PASCAL,RAW,NAME(&#39;vuRenameDirectory&#39;)</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Windows performs a direct rename. It does not walk the directory to
+individually copy or rewrite its files.</li>
+<li>Renaming or moving a directory across volumes is not supported. No
+copy/delete fallback is attempted.</li>
+<li>Windows can reject the rename if files or the directory are open
+without compatible sharing, or if security permissions prevent the
+operation.</li>
+<li>Avoid trailing path separators on the directory names. Use the full
+original and destination paths, not just the old/new folder labels.</li>
+<li>This initial ANSI Windows API implementation uses
+<code>MoveFileExA</code>. It follows the machine's Windows ANSI code
+page for non-ASCII path characters; it is not a Unicode long-path API
+wrapper.</li>
+<li>Do not attempt to rename a drive root. The destination parent
+directory must already exist.</li>
+<li><code>vuMove()</code> is a separate, copy-and-delete-oriented
+function and should not be used in place of
+<code>vuRenameDirectory()</code> for simple folder renames.</li>
+</ul>
+<p><a href="../index.html">Home</a> | <a href="index.html">All
+functions</a> | <a href="../categories/index.html">Categories</a></p>
+</body>
+</html>

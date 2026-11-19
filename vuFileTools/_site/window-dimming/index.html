@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="G:\Docs-Staging\vuFileTools\style.css" />
+</head>
+<body>
+<p><a href="../index.html">Home</a> | <a
+href="../template-usage.html">Using the Template</a> | <a
+href="functions/index.html">Window Dimming Functions</a></p>
+<h1 id="window-dimming">Window Dimming</h1>
+<p>Window Dimming makes the parent window less prominent while an update
+form or message window is displayed. It is included in vuFileTools 5 and
+supports ABC and Legacy applications.</p>
+<p><strong>Window Dimming is disabled by default.</strong> The rest of
+vuFileTools works normally without it.</p>
+<h2 id="enable-window-dimming">Enable Window Dimming</h2>
+<ol type="1">
+<li>Open your Clarion APP and select <strong>Global
+Extensions</strong>.</li>
+<li>Open <strong>vuFileTools Initialization</strong>, then the
+<strong>Window Dimming</strong> tab.</li>
+<li><strong>Uncheck Disable window dimming templates.</strong></li>
+<li>Generate and compile the application.</li>
+</ol>
+<p>The three normal options are already selected: <strong>Enable
+automatic browse dimming</strong>, <strong>Auto-dim MESSAGE / STOP /
+HALT</strong>, and <strong>Use default window appearance</strong>. The
+standard appearance is black at strength 90. You can change these
+settings whenever you want.</p>
+<p><strong>Required for Window Dimming:</strong> The running application
+EXE needs a Windows 8-or-later compatibility manifest. This requirement
+applies to Window Dimming, not to the other vuFileTools functions. See
+<a href="troubleshooting.html">Troubleshooting</a>.</p>
+<p>Automatic browse/update dimming and standard Clarion message dimming
+need no changes to your existing browse or MESSAGE code. Optional
+extensions and code templates offer individual-window appearance
+changes, manual Dim/Restore, START children, and custom message
+windows.</p>
+<h2 id="guides-and-examples">Guides and examples</h2>
+<ul>
+<li><a href="automatic-browse.html">Automatic Browse Dimming</a></li>
+<li><a href="automatic-messages.html">Automatic MESSAGE / STOP / HALT
+Dimming</a></li>
+<li><a href="appearance.html">Window Appearance</a></li>
+<li><a href="manual.html">Manual Dim and Restore</a></li>
+<li><a href="started-children.html">START Procedures</a></li>
+<li><a href="runtime-controls.html">Runtime Controls</a></li>
+<li><a href="custom-messages.html">Custom Colored Message
+Procedures</a></li>
+<li><a href="custom-message-windows.html">Custom Message
+Windows</a></li>
+<li><a href="multi-dll.html">Multi-DLL Applications</a></li>
+<li><a href="hand-coded.html">Hand-Coded Integration</a></li>
+<li><a href="functions/index.html">Window Dimming Function
+Reference</a></li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h2 id="using-vufiletools-with-cdwindowdim">Using vuFileTools with
+cdWindowDim</h2>
+<p>vuFileTools 5 and the standalone cdWindowDim Code Drop can both be
+installed in the same Clarion application. Both provide automatic Window
+Dimming. <strong>Normally, enable automatic dimming in only one
+product.</strong></p>
+<p>If you enable both, each product applies its own overlay. The
+combined effect can make the parent much darker or more intensely
+colored than you intended. To avoid this, leave <strong>Disable window
+dimming templates</strong> checked in vuFileTools, or turn off the
+corresponding automatic dimming in the cdWindowDim global extension.
+Both products may remain installed.</p>
+<p><a href="../index.html">Home</a> | <a
+href="functions/index.html">Window Dimming Functions</a></p>
+</body>
+</html>

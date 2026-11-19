@@ -4,7 +4,7 @@ summary: "Home | All functions | Categories"
 description: "Home | All functions | Categories"
 keywords: ["files", "vuFileTools", "functions", "categories", "Clarion", "home", "folder", "vuFileTools", "related"]
 page_type: "category"
-last_updated: "2026-09-08"
+last_updated: "2026-10-26"
 ---
 
 # vuFileTools - Files and Folder Related Functions
@@ -36,6 +36,7 @@ last_updated: "2026-09-08"
 - [vuMove](../functions/vuMove.md)
 - [vuPack](../functions/vuPack.md)
 - [vuPrintTextFile](../functions/vuPrintTextFile.md)
+- [vuRenameDirectory](../functions/vuRenameDirectory.md)
 - [vuReplaceCharsInFile](../functions/vuReplaceCharsInFile.md)
 - [vuSetAttributes](../functions/vuSetAttributes.md)
 - [vuSetFileDate](../functions/vuSetFileDate.md)

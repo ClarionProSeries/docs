@@ -23,4 +23,10 @@ Both AppGen and hand-coded applications are supported.
 
 vuFileTools works with both single EXE and multi-DLL applications.
 
+## Window Dimming manifest requirement
+
+Applications using Window Dimming must include a **Windows 8-or-later compatibility manifest** in the EXE, or the visual overlay may not appear. See [Window Dimming Troubleshooting](window-dimming/troubleshooting.md).
+
 [Home](index.md) | [All functions](functions/index.md) | [Categories](categories/index.md)
+
+**Window Dimming only:** A Windows 8-or-later compatibility manifest in the running EXE is required for the overlay effect. This is not a general requirement for the other vuFileTools functions. See [Window Dimming](window-dimming/index.md).

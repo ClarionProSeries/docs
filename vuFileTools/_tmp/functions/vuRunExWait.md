@@ -33,6 +33,8 @@ Runs the specified file with optional command-line parameters and working direct
 | ShowCmd | LONG | Window display option (see ShowWindow constants). |
 | Wait | LONG | 0 = return immediately, 1 = wait until the launched process completes. |
 
+**Build 210 window-style correction:** `ShowCmd = 0` now means `SW_HIDE` (hidden), as documented by Windows. Previous builds incorrectly converted zero to a normal visible window. Use `ShowCmd = 1` for normal display. This changes the previous behavior for callers that passed zero expecting a visible window. For console tests, pass `ShowCmd = 0` explicitly; `1` requests a visible window. Windows treats `ShellExecuteEx` display styles as requests, so an application may still control its own display.
+
 **CSTRING size note:** `CSTRING(1024)` in this example is a caller-side declaration, not an unlimited-length guarantee. This function copies the relevant path, parameter, or working-folder text into internal 1,024-byte null-terminated buffer(s), so each copied value must fit (up to 1,023 characters plus its null byte). Longer input may be truncated; Windows can impose additional restrictions. See [CSTRING Sizes and Buffer Capacity](../cstring-sizes.md).
 
 ### Returns

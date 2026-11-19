@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>whatsnew</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+<h1 id="whats-new-in-cdwindowdim">What's New in cdWindowDim</h1>
+<p>The first release of cdWindowDim makes it easier to draw attention to
+the active window. It can automatically dim a browse while an update
+form is open, then restore the browse when the form closes. Manual
+controls provide the same effect for other window workflows.</p>
+<ul>
+<li>Automatic dimming for supported ABC and Legacy browse/update
+windows.</li>
+<li><strong>Custom Message Window</strong> procedure extension for
+developer-written or other supported message windows. Add the extension
+to the message window procedure; it works with the automatic-message
+option on or off. See <a
+href="guides/custom-message-windows.html">Custom Message
+Windows</a>.</li>
+<li><strong>Add the global extension and compile.</strong> Automatic
+browse and MESSAGE / STOP / HALT dimming works with the standard
+settings, including Clarion confirmations and supported CapeSoft
+MessageBox windows. No per-window setup or rewritten MESSAGE calls are
+needed.</li>
+<li>Importable Clarion message procedures with black, blue and red
+parent overlays, usable in single-EXE and multi-DLL applications.</li>
+<li>Simple black default appearance, or custom colors and strength at
+the global or procedure level.</li>
+<li>Manual Dim and Restore code templates for synchronous windows and
+report previews.</li>
+<li>START window support with an explicit parent registration and child
+closing notification.</li>
+<li>Runtime Enable, Disable, Toggle, and Get Dimming Status
+commands.</li>
+<li>Global and individual options to turn dimming off when you want
+to.</li>
+<li>Support for single-EXE and multi-DLL Clarion applications.</li>
+</ul>
+<p>Release date: 11-18-26.</p>
+<p>See <a href="guides/automatic-messages.html">Automatic Message
+Dimming</a> and <a href="guides/custom-messages.html">Custom Colored
+Message Procedures</a>.</p>
+<p><a href="index.html">Home</a> | <a
+href="getting-started/index.html">Getting Started</a> | <a
+href="template-usage.html">Using the Template</a> | <a
+href="guides/index.html">Task Guides</a> | <a
+href="whatsnew.html">What's New</a></p>
+</body>
+</html>
